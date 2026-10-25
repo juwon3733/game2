@@ -1,7 +1,5 @@
 // 심문: 증언을 하나씩 듣고 [파고들기] 또는 [반박!]으로 컷을 들이민다.
 
-let trialTutorialDone = false;
-
 function showLine(who, text, face) {
   $('#textbox').classList.remove('hidden', 'narr');
   if (face && onStage[who]) show(who, face, onStage[who].dataset.pos);
@@ -34,10 +32,11 @@ async function runTrial(id) {
   $('#trial').classList.remove('hidden');
   goal(W.goal);
   renderTrial(W, st);
+  bgm('trial');
   await banner('— 증언 —', `${CHARACTERS[W.char].name}의 기억이 컷으로 펼쳐진다`, 1500);
 
-  if (!trialTutorialDone) {
-    trialTutorialDone = true;
+  if (!G.flags.trialTut) {
+    G.flags.trialTut = true;
     await sayAll([
       ['towa', '심문 설명할게. 오른쪽 위가 증인의 기억 컷이야. 감정 때문에 그림이 비틀려 있어(빨간 딱지).'],
       ['towa', '증언을 하나씩 넘겨 보면서, 의심 가는 건 [파고들기]로 캐물어. 공짜야. 새 단서나 대사 조각이 나와.'],
@@ -90,11 +89,14 @@ async function runTrial(id) {
     const lineOk = !ans.line || G.fills[cutId] === ans.line;
 
     if (cutOk && stOk && lineOk) {
+      sfx('objection'); quake(); flash();
       await banner(W.gentle ? '이걸 봐 줘.' : '순서가 틀렸어!', W.gentle ? '' : `「${s.text}」`, 1400, 'objection');
       show('rei', 'serious', 'right');
       await say('rei', W.rebut, 'serious');
       hide('rei');
       st.peeled = true;
+      bgm('truth');
+      sfx('page');
       renderTrial(W, st);
       await sayAll(W.success);
       for (const c of W.rewards) await gainCut(c);
@@ -106,6 +108,7 @@ async function runTrial(id) {
     }
 
     st.ink--;
+    sfx('wrong'); quake();
     renderTrial(W, st);
     const img = onStage[W.char];
     if (img) { img.classList.remove('shake'); void img.offsetWidth; img.classList.add('shake'); }
@@ -122,6 +125,7 @@ async function runTrial(id) {
       await sayAll(W.close);
       st.ink = 3; st.idx = 0; st.hint = -1;
       await banner('— 증언 다시 —', '처음부터 다시 듣자', 1200);
+      bgm('trial');
     }
   }
 }

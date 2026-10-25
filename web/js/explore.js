@@ -233,6 +233,7 @@ function explore(mapId, opts) {
       resolve,
     };
     cv.classList.remove('hidden');
+    setMode(null);
     $('#pad').classList.toggle('hidden', !matchMedia('(pointer: coarse)').matches);
     hideText();
     clearChars();
@@ -291,6 +292,7 @@ function startMove(ent, dir) {
   }
   ent.move = { fx: ent.x, fy: ent.y, t: 0 };
   ent.x = nx; ent.y = ny;
+  if (ent === EX.player) sfx('step', { vol: 0.35, rate: 0.9 + Math.random() * 0.2 });
   return true;
 }
 
@@ -346,6 +348,7 @@ function facingObj() {
 async function interact(o) {
   if (!o || EX.paused) return;
   const h = EX.opts.on[o.id];
+  sfx('select');
   EX.paused = true;
   EX.keys = {};
   if (h) await h(o);

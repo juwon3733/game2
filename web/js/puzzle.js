@@ -1,7 +1,5 @@
 // 컷 배열 퍼즐: 묶음의 컷을 누르면 빈 칸에 차례로 들어가고, 칸의 컷을 누르면 묶음으로 돌아간다.
 
-let puzzleTutorialDone = false;
-
 function tagRank(tag, v) { return TAG_ORDER[tag].indexOf(v); }
 
 // a 다음에 b가 오면 거꾸로 되는 태그
@@ -79,6 +77,7 @@ function runPuzzle(id) {
         if (i < 0) { msg ='토와: 칸이 꽉 찼어. 칸에 있는 컷을 눌러서 빼.'; return render(); }
         st.slots[i] = t.dataset.tray;
         st.tray.splice(st.tray.indexOf(t.dataset.tray), 1);
+        sfx('place');
         st.bad = null;
         return render();
       }
@@ -89,6 +88,7 @@ function runPuzzle(id) {
         st.tray.push(st.slots[i]);
         st.slots[i] = null;
         st.bad = null;
+        sfx('cancel');
         return render();
       }
     };
@@ -146,6 +146,7 @@ function runPuzzle(id) {
           msgs.push(`${d + 1}번 칸 근처가 이상해. 앞뒤 컷을 비교해 봐.`);
         }
         st.bad = { pairs, decoys };
+        sfx('wrong'); quake();
         msg ='토와: 에러. ' + msgs[0] + (msgs.length > 1 ? ` (그 밖에 ${msgs.length - 1}곳 더)` : '');
         return render();
       }
@@ -157,15 +158,23 @@ function runPuzzle(id) {
       const paper = root.querySelector('.pz-paper');
       paper.classList.add('reading');
       const slots = paper.querySelectorAll('.pz-slot');
-      for (const s of slots) { s.classList.add('lit'); await sleep(700); }
+      // 칸이 하나씩 밝아지며, 의성어가 있는 컷은 그 소리가 난다
+      for (const s of slots) {
+        s.classList.add('lit');
+        const cid = st.slots[Number(s.dataset.slot)];
+        sfx(PAGE_SFX[cid] || 'page', { vol: PAGE_SFX[cid] ? 1 : 0.5 });
+        if (cid === 'D') quake();
+        await sleep(900);
+      }
+      sfx('correct');
       paper.classList.remove('reading');
       msg ='레이: ' + P.rei;
       render();
     };
 
     render();
-    if (!puzzleTutorialDone) {
-      puzzleTutorialDone = true;
+    if (!G.flags.puzzleTut) {
+      G.flags.puzzleTut = true;
       await sayAll([
         ['towa', '컷 정리 시간. 잔상에는 시간이 안 적혀 있어. 그림 속 단서로 순서를 맞춰야 해.'],
         ['towa', '오른쪽 묶음의 컷을 누르면 왼쪽 원고지 빈 칸에 1번부터 차례로 들어가. 읽는 순서는 왼쪽 위 → 오른쪽 아래.'],
@@ -175,6 +184,9 @@ function runPuzzle(id) {
     }
   });
 }
+
+// 페이지 재생 때 컷마다 나는 소리
+const PAGE_SFX = { A: 'chime', D: 'thud', F: 'phone' };
 
 function shuffle(ids, solution) {
   const a = ids.slice();

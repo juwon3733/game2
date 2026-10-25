@@ -181,6 +181,7 @@ async function sceneExplore2() {
       partition: async () => {
         if (shiori) {
           show('shiori', 'normal', 'center');
+          sfx('ghost');
           await say('', '칸막이 앞에 교복 차림의 여자아이가 서 있다. 옆집 쪽을 가리키더니——');
           hide('shiori');
           EX.extras = [];
@@ -210,6 +211,7 @@ async function sceneExplore2() {
 
 async function sceneHimari() {
   bg('himari_door');
+  sfx('door');
   await say('', '옆집 문이 조금 열리고, 양갈래 머리의 아이가 얼굴만 내민다.');
   show('himari', 'normal', 'left');
   await say('himari', '…아무것도 몰라요.');
@@ -246,7 +248,8 @@ async function sceneConclusion() {
     for (;;) {
       hideText();
       const c = await pickCut(`질문 ${i + 1}. ${q.q}`, '대답이 되는 컷을 고르자.', { cancel: false });
-      if (q.answer.includes(c)) break;
+      if (q.answer.includes(c)) { sfx('correct'); break; }
+      sfx('wrong'); quake();
       await say('kurogane', '…그 컷으론 설명이 안 되지. 다시.');
     }
     show('rei', 'serious', 'left');
@@ -255,6 +258,7 @@ async function sceneConclusion() {
   }
   await say('kurogane', '…됐다. 강력계엔 내가 말하지.');
   clearChars();
+  bgm('truth');
   show('himari', 'crying', 'left');
   await say('', '복도 끝 의자에, 엄마 손을 잡은 히마리가 앉아 있다.');
   hideText();
@@ -281,6 +285,7 @@ async function sceneEpilogue() {
   await say('asagiri', '그래. …괜찮아. 힘든 건 잊어도 돼.');
   clearChars();
   show('shiori', 'normal', 'center');
+  sfx('ghost');
   await say('', '창밖, 길 건너에 교복 차림의 여자아이가 서 있다가——');
   hide('shiori');
   await say('', '——사라졌다.');
@@ -293,15 +298,42 @@ const SCENE_FN = {
   explore2: sceneExplore2, himari: sceneHimari, puzzle2: scenePuzzle2, conclusion: sceneConclusion, epilogue: sceneEpilogue,
 };
 
-async function playFrom(scene) {
-  const s = STATE_AT[scene];
+// 장면마다 흐르는 곡
+const SCENE_BGM = {
+  office: 'office', explore1: 'explore', puzzle1: 'tension', ookubo: 'trial', taiga: 'trial',
+  explore2: 'explore', himari: 'tension', puzzle2: 'tension', conclusion: 'trial', epilogue: 'epilogue',
+};
+
+// ---------- 저장 ----------
+// 장면이 시작될 때마다 자동 저장. 타이틀의 [이어하기]가 그 장면부터 다시 시작한다.
+const SAVE_KEY = 'gaha-ch1-save';
+function saveProgress(scene) {
+  saveJSON(SAVE_KEY, { scene, cuts: G.cuts, lines: G.lines, fills: G.fills, koharuLeft: G.koharuLeft, flags: G.flags, at: Date.now() });
+}
+
+async function playFrom(scene, saved) {
+  const s = saved || STATE_AT[scene];
   G.cuts = s.cuts.slice();
   G.lines = s.lines.slice();
   G.fills = Object.assign({}, s.fills || {});
-  G.koharuLeft = 2;
+  G.koharuLeft = saved ? saved.koharuLeft : 2;
+  G.flags = Object.assign({}, saved ? saved.flags : {});
+  LOG.length = 0;
   const start = SCENES.findIndex(([id]) => id === scene);
-  for (let i = start; i < SCENES.length; i++) await SCENE_FN[SCENES[i][0]]();
+  for (let i = start; i < SCENES.length; i++) {
+    const id = SCENES[i][0];
+    saveProgress(id);
+    await fade(true, 400);
+    clearChars(); hideText(); goal('');
+    bgm(SCENE_BGM[id]);
+    const run = SCENE_FN[id]();
+    setTimeout(() => fade(false, 600), 60);
+    await run;
+  }
+  try { localStorage.removeItem(SAVE_KEY); localStorage.setItem('gaha-ch1-clear', '1'); } catch { /* 저장 불가 */ }
+  await fade(true, 800);
   titleScreen();
+  fade(false, 600);
 }
 
 // ---------- 타이틀 ----------
@@ -311,6 +343,8 @@ function titleScreen() {
   hideText();
   goal('');
   hud(false);
+  bgm('title');
+  const save = loadJSON(SAVE_KEY);
   const t = document.createElement('div');
   t.className = 'title-screen';
   t.innerHTML = `
@@ -324,7 +358,8 @@ function titleScreen() {
       <div class="ts-tag">같은 밤, 서로 다르게 기억된 네 장면</div>
     </div>
     <nav class="ts-menu">
-      <button id="t-start" class="ts-btn primary">처음부터</button>
+      ${save ? `<button id="t-cont" class="ts-btn primary">이어하기<small>${(SCENES.find(([id]) => id === save.scene) || [, ''])[1]}</small></button>` : ''}
+      <button id="t-start" class="ts-btn${save ? '' : ' primary'}">처음부터</button>
       <button id="t-select" class="ts-btn">장면 선택</button>
       <a class="ts-btn small" href="assets.html">에셋 현황</a>
     </nav>
@@ -338,12 +373,14 @@ function titleScreen() {
   const key = new Image();
   key.onload = () => { t.classList.add('has-key'); t.querySelector('.ts-bg').style.backgroundImage = `url(${key.src})`; };
   key.src = ASSET.title();
-  const go = (scene) => {
+  const go = (scene, saved) => {
+    sfx('select');
     t.classList.add('leaving');
-    setTimeout(() => { t.remove(); hud(true); playFrom(scene); }, 450);
+    setTimeout(() => { t.remove(); hud(true); playFrom(scene, saved); }, 450);
   };
   const list = t.querySelector('.ts-scenes');
   t.querySelector('#t-start').onclick = () => go('office');
+  if (save) t.querySelector('#t-cont').onclick = () => go(save.scene, save);
   t.querySelector('#t-select').onclick = () => list.classList.remove('hidden');
   t.querySelector('.ts-close').onclick = () => list.classList.add('hidden');
   list.querySelectorAll('[data-scene]').forEach((b) => (b.onclick = () => go(b.dataset.scene)));

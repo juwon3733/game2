@@ -9,6 +9,9 @@ const G = {
   fills: {},       // 컷 id -> 말풍선에 붙인 대사 조각
   koharuLeft: 2,
   busyModal: false,
+  flags: {},       // 튜토리얼 본 것 등 (저장됨)
+  auto: false,     // 자동 진행
+  skip: false,     // 빨리 넘기기
 };
 
 // ---------- 화면 크기 맞추기 ----------
@@ -22,10 +25,43 @@ function fitStage() {
 addEventListener('resize', fitStage);
 fitStage();
 
+// ---------- 화면 전환 / 효과 ----------
+
+// 검은 화면으로 덮기(true) / 걷기(false)
+function fade(on, ms = 450) {
+  const f = $('#fade');
+  f.style.transitionDuration = ms + 'ms';
+  f.classList.toggle('on', on);
+  return sleep(ms);
+}
+
+function quake() {
+  const s = $('#stage');
+  s.classList.remove('quake'); void s.offsetWidth; s.classList.add('quake');
+}
+
+function flash(color = '#fff') {
+  const f = $('#flash');
+  f.style.background = color;
+  f.classList.remove('go'); void f.offsetWidth; f.classList.add('go');
+}
+
 // ---------- 배경 / 캐릭터 ----------
 
+let curBg = null;
 function bg(id) {
-  loadImg($('#bg'), ASSET.bg(id), () => bgPlaceholder(id));
+  if (curBg === id) return;
+  const img = $('#bg');
+  // 이전 배경을 위에 겹쳐 두고 서서히 지운다
+  if (curBg) {
+    const old = img.cloneNode();
+    old.removeAttribute('id');
+    old.className = 'bg-old';
+    img.after(old);
+    setTimeout(() => old.remove(), 800);
+  }
+  curBg = id;
+  loadImg(img, ASSET.bg(id), () => bgPlaceholder(id));
 }
 
 const onStage = {}; // char -> img
@@ -50,14 +86,22 @@ function show(char, face = CHARACTERS[char].faces[0], pos = 'center') {
 function hide(char) {
   const img = onStage[char];
   if (!img) return;
-  img.remove();
   delete onStage[char];
+  img.classList.add('leave');
+  setTimeout(() => img.remove(), 260);
 }
 
 function clearChars() { Object.keys(onStage).forEach(hide); }
 
+let lastSpeaker = null;
 function focusChar(char) {
   Object.entries(onStage).forEach(([k, img]) => img.classList.toggle('dim', !!char && k !== char));
+  // 말하는 사람이 바뀌면 살짝 들썩
+  if (char && char !== lastSpeaker && onStage[char]) {
+    const img = onStage[char];
+    img.classList.remove('hop'); void img.offsetWidth; img.classList.add('hop');
+  }
+  lastSpeaker = char;
 }
 
 // ---------- 대사 ----------
@@ -65,8 +109,17 @@ function focusChar(char) {
 let advanceFn = null;
 let typing = null;
 
-function waitAdvance() {
-  return new Promise((r) => { advanceFn = r; });
+// 자동 진행 / 빨리 넘기기면 알아서 넘어간다
+function waitAdvance(len = 0) {
+  return new Promise((r) => {
+    advanceFn = r;
+    scheduleAuto(r, len);
+  });
+}
+
+function scheduleAuto(r, len) {
+  if (G.skip) setTimeout(() => { if (advanceFn === r) tryAdvance(); }, 60);
+  else if (G.auto) setTimeout(() => { if (advanceFn === r) tryAdvance(); }, (1000 + len * 55) * SETTINGS.autoWait);
 }
 
 function tryAdvance() {
@@ -74,17 +127,38 @@ function tryAdvance() {
   if (advanceFn) { const a = advanceFn; advanceFn = null; a(); }
 }
 
-async function typeInto(el, text) {
+const TEXT_MS = [42, 26, 12, 0];
+// 말하는 사람마다 다른 높이의 타자음
+const VOICE = { rei: 0.82, koharu: 1.22, kurogane: 0.68, towa: 1.4, asagiri: 0.95, ookubo: 0.72, taiga: 0.9, himari: 1.5, shiori: 1.08 };
+
+async function typeInto(el, text, voice) {
   el.textContent = '';
   let done = false;
   typing = () => { done = true; };
-  for (const ch of text) {
-    if (done) break;
-    el.textContent += ch;
-    await sleep(22);
+  const ms = G.skip ? 0 : TEXT_MS[SETTINGS.textSpeed];
+  if (ms) {
+    let i = 0;
+    for (const ch of text) {
+      if (done) break;
+      el.textContent += ch;
+      if (voice && ch.trim() && i++ % 3 === 0) sfx('blip', { rate: voice, vol: 0.3 });
+      await sleep(ms);
+    }
   }
   el.textContent = text;
   typing = null;
+}
+
+// ---------- 대사 기록 ----------
+
+const LOG = [];
+function openLog() {
+  if (G.busyModal) return;
+  const m = openModal(`<div class="md-title">대사 기록</div><div class="log-list"></div><button class="md-cancel">닫기</button>`, 'log');
+  const list = m.querySelector('.log-list');
+  list.innerHTML = LOG.slice(-120).map((l) => `<div class="log-row${l.name ? '' : ' narr'}">${l.name ? `<b style="color:${l.color}">${l.name}</b>` : ''}<span>${l.text}</span></div>`).join('') || '<div class="md-empty">아직 대사가 없다.</div>';
+  list.scrollTop = list.scrollHeight;
+  m.querySelector('.md-cancel').onclick = closeModal;
 }
 
 // who: 캐릭터 키 또는 '' (나레이션). face가 있으면 표정을 바꾼다.
@@ -101,9 +175,11 @@ async function say(who, text, face) {
     $('#tb-name').textContent = '';
     focusChar(null);
   }
-  await typeInto($('#tb-text'), text);
+  const ch = who && CHARACTERS[who];
+  LOG.push({ name: ch ? ch.name : '', color: ch ? ch.accent : '', text });
+  await typeInto($('#tb-text'), text, VOICE[who]);
   $('#tb-next').classList.remove('hidden');
-  await waitAdvance();
+  await waitAdvance(text.length);
   $('#tb-next').classList.add('hidden');
 }
 
@@ -115,13 +191,28 @@ function hideText() { $('#textbox').classList.add('hidden'); focusChar(null); }
 
 // 클릭/키로 대사 넘기기
 $('#stage').addEventListener('click', (e) => {
-  if (e.target.closest('button, #modal, #choices, #puzzle, #actions, .tr-panel, #pad')) return;
+  if (e.target.closest('button, #modal, #choices, #puzzle, #actions, .tr-panel, #pad, .title-screen')) return;
   if (e.target.closest('#explore') && exploreActive()) return;
+  if (G.auto || G.skip) return setMode(null);
   tryAdvance();
 });
 addEventListener('keydown', (e) => {
   if ((e.key === ' ' || e.key === 'Enter') && !G.busyModal && !exploreActive()) { e.preventDefault(); tryAdvance(); }
+  if (e.key === 'Control' && !G.busyModal && !e.repeat && !G.skip) { G.ctrlSkip = true; setMode('skip'); }
 });
+addEventListener('keyup', (e) => { if (e.key === 'Control' && G.ctrlSkip) { G.ctrlSkip = false; setMode(null); } });
+// 휠을 위로 굴리면 대사 기록
+$('#stage').addEventListener('wheel', (e) => { if (e.deltaY < 0 && !G.busyModal && !$('#textbox').classList.contains('hidden')) openLog(); }, { passive: true });
+
+// 자동 / 빨리 넘기기 켜고 끄기. 선택지·모달·탐색에서는 꺼진다.
+function setMode(mode) {
+  G.auto = mode === 'auto';
+  G.skip = mode === 'skip';
+  $('#btn-auto').classList.toggle('on', G.auto);
+  $('#btn-skip').classList.toggle('on', G.skip);
+  if (advanceFn && (G.auto || G.skip)) scheduleAuto(advanceFn, 0);
+  if (G.skip && typing) typing();
+}
 
 // ---------- 선택지 ----------
 
@@ -129,12 +220,13 @@ function choice(options, prompt) {
   const box = $('#choices');
   box.innerHTML = prompt ? `<div class="ch-prompt">${prompt}</div>` : '';
   box.classList.remove('hidden');
+  setMode(null);
   return new Promise((resolve) => {
     options.forEach((text, i) => {
       const b = document.createElement('button');
       b.className = 'ch-btn';
       b.textContent = text;
-      b.onclick = () => { box.classList.add('hidden'); box.innerHTML = ''; resolve(i); };
+      b.onclick = () => { sfx('select'); box.classList.add('hidden'); box.innerHTML = ''; resolve(i); };
       box.appendChild(b);
     });
   });
@@ -145,13 +237,14 @@ function actions(list) {
   const box = $('#actions');
   box.innerHTML = '';
   box.classList.remove('hidden');
+  setMode(null);
   return new Promise((resolve) => {
     list.forEach(({ id, label, cls = '', disabled }) => {
       const b = document.createElement('button');
       b.className = 'act-btn ' + cls;
       b.textContent = label;
       b.disabled = !!disabled;
-      b.onclick = (e) => { e.stopPropagation(); box.classList.add('hidden'); resolve(id); };
+      b.onclick = (e) => { e.stopPropagation(); if (id !== 'obj') sfx(id === 'press' ? 'press' : 'select'); box.classList.add('hidden'); resolve(id); };
       box.appendChild(b);
     });
   });
@@ -166,6 +259,8 @@ function goal(text) {
 }
 
 async function banner(text, sub = '', ms = 1800, cls = '') {
+  if (cls !== 'objection') sfx('banner', { vol: 0.7 });
+  if (G.skip) ms = Math.min(ms, 500);
   const b = $('#banner');
   b.className = cls;
   b.innerHTML = `<div class="bn-main">${text}</div>${sub ? `<div class="bn-sub">${sub}</div>` : ''}`;
@@ -189,6 +284,7 @@ function openModal(html, cls = '') {
   m.className = cls;
   m.innerHTML = `<div class="md-box">${html}</div>`;
   G.busyModal = true;
+  setMode(null);
   return m;
 }
 function closeModal() { $('#modal').className = 'hidden'; $('#modal').innerHTML = ''; G.busyModal = false; }
@@ -201,11 +297,11 @@ function pickCut(title, sub, { cancel = true } = {}) {
     G.cuts.forEach((id) => {
       const v = cutView(id, { fills: G.fills });
       v.classList.add('pickable');
-      v.onclick = () => { closeModal(); resolve(id); };
+      v.onclick = () => { sfx('select'); closeModal(); resolve(id); };
       grid.appendChild(v);
     });
     const c = m.querySelector('.md-cancel');
-    if (c) c.onclick = () => { closeModal(); resolve(null); };
+    if (c) c.onclick = () => { sfx('cancel'); closeModal(); resolve(null); };
   });
 }
 
@@ -245,14 +341,33 @@ function setFill(cutId, lineId) {
 function gainCut(id) {
   if (G.cuts.includes(id)) return Promise.resolve();
   G.cuts.push(id);
+  sfx('cut');
+  flash('rgba(255,255,255,.7)');
   const m = openModal('<div class="md-title gain">잔상을 읽었다</div><div class="md-one"></div><div class="md-sub">수첩에 컷이 추가되었다.</div><button class="md-ok">확인</button>', 'gain');
-  m.querySelector('.md-one').appendChild(cutView(id));
-  return new Promise((r) => { m.querySelector('.md-ok').onclick = () => { closeModal(); r(); }; });
+  const card = cutView(id);
+  m.querySelector('.md-one').appendChild(card);
+  return new Promise((r) => {
+    m.querySelector('.md-ok').onclick = () => {
+      // 카드가 수첩 버튼으로 날아가 들어간다
+      const from = card.getBoundingClientRect(), to = $('#btn-note').getBoundingClientRect();
+      const fly = card.cloneNode(true);
+      const k = parseFloat(getComputedStyle($('#stage')).transform.split(',')[0].replace('matrix(', '')) || 1;
+      const st = $('#stage').getBoundingClientRect();
+      Object.assign(fly.style, { position: 'absolute', zIndex: 99, left: (from.left - st.left) / k + 'px', top: (from.top - st.top) / k + 'px', width: from.width / k + 'px', margin: 0, transition: 'all .5s cubic-bezier(.5,0,.8,.4)', pointerEvents: 'none' });
+      fly.classList.add('flying');
+      $('#stage').appendChild(fly);
+      closeModal();
+      requestAnimationFrame(() => Object.assign(fly.style, { left: (to.left - st.left) / k + 'px', top: (to.top - st.top) / k + 'px', width: '60px', opacity: 0.2, transform: 'rotate(-12deg)' }));
+      setTimeout(() => { fly.remove(); const b = $('#btn-note'); b.classList.remove('pulse'); void b.offsetWidth; b.classList.add('pulse'); sfx('place'); }, 520);
+      r();
+    };
+  });
 }
 
 function gainLine(id) {
   if (G.lines.includes(id) || Object.values(G.fills).includes(id)) return;
   G.lines.push(id);
+  sfx('correct', { vol: 0.6 });
   toast(`대사 조각 「${LINES[id].text}」을(를) 얻었다.`);
 }
 
@@ -272,3 +387,34 @@ $('#btn-note').onclick = (e) => {
 };
 
 function hud(on) { $('#hud').classList.toggle('hidden', !on); }
+
+$('#btn-log').onclick = (e) => { e.stopPropagation(); openLog(); };
+$('#btn-auto').onclick = (e) => { e.stopPropagation(); setMode(G.auto ? null : 'auto'); };
+$('#btn-skip').onclick = (e) => { e.stopPropagation(); setMode(G.skip ? null : 'skip'); };
+$('#btn-set').onclick = (e) => { e.stopPropagation(); openSettings(); };
+
+// ---------- 설정 ----------
+
+function openSettings() {
+  if (G.busyModal) return;
+  const seg = (key, labels) => `<div class="set-seg" data-key="${key}">${labels.map((l, i) => `<button data-v="${i}" class="${SETTINGS[key] === i ? 'on' : ''}">${l}</button>`).join('')}</div>`;
+  const range = (key) => `<input type="range" min="0" max="1" step="0.05" data-key="${key}" value="${SETTINGS[key]}">`;
+  const m = openModal(`<div class="md-title">설정</div>
+    <div class="set-grid">
+      <label>글자 속도</label>${seg('textSpeed', ['느리게', '보통', '빠르게', '즉시'])}
+      <label>자동 진행 간격</label><input type="range" min="0.5" max="2" step="0.1" data-key="autoWait" value="${SETTINGS.autoWait}">
+      <label>배경음악</label>${range('bgm')}
+      <label>효과음</label>${range('sfx')}
+    </div>
+    <div class="set-help">대사 넘기기: 클릭 · Space · Enter　|　Ctrl 누르고 있기: 빨리 넘기기　|　휠 위로: 대사 기록</div>
+    <button class="md-cancel">닫기</button>`, 'settings');
+  m.querySelectorAll('.set-seg button').forEach((b) => (b.onclick = () => {
+    const seg = b.parentElement;
+    SETTINGS[seg.dataset.key] = Number(b.dataset.v);
+    seg.querySelectorAll('button').forEach((x) => x.classList.toggle('on', x === b));
+    saveSettings(); sfx('select');
+  }));
+  m.querySelectorAll('input[type=range]').forEach((r) => (r.oninput = () => { SETTINGS[r.dataset.key] = Number(r.value); saveSettings(); }));
+  m.querySelectorAll('input[data-key=sfx]').forEach((r) => (r.onchange = () => sfx('select')));
+  m.querySelector('.md-cancel').onclick = closeModal;
+}

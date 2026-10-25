@@ -29,6 +29,10 @@
 
     <div id="goal" class="hidden"></div>
     <div id="hud">
+      <button id="btn-log" class="hud-btn small" title="대사 기록">로그</button>
+      <button id="btn-auto" class="hud-btn small" title="자동 진행">자동</button>
+      <button id="btn-skip" class="hud-btn small" title="빨리 넘기기 (Ctrl)">빨리</button>
+      <button id="btn-set" class="hud-btn small" title="설정">설정</button>
       <button id="btn-note" class="hud-btn">수첩</button>
     </div>
 
@@ -43,9 +47,12 @@
     <div id="modal" class="hidden"></div>
     <div id="banner" class="hidden"></div>
     <div id="toast" class="hidden"></div>
+    <div id="flash"></div>
+    <div id="fade"></div>
   </div>
 </div>
 
+<script src="js/audio.js"></script>
 <script src="js/data_ch1.js"></script>
 <script src="js/assets.js"></script>
 <script src="js/engine.js"></script>
