@@ -5,6 +5,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
+import zlib from 'node:zlib';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -34,6 +35,55 @@ function imageInfo(file) {
   return { type: 'unknown', bytes: b.length };
 }
 
+// PNG를 풀어서 쓰인 색 수를 센다(limit+1에서 멈춤). 도트는 색이 적고, 고해상도 일러스트는 수만 색이 나온다.
+function countColors(file, limit) {
+  const b = fs.readFileSync(file);
+  let p = 8, w, h, depth, type, plte, trns;
+  const idat = [];
+  while (p < b.length) {
+    const len = b.readUInt32BE(p), t = b.toString('ascii', p + 4, p + 8), d = b.subarray(p + 8, p + 8 + len);
+    if (t === 'IHDR') { w = d.readUInt32BE(0); h = d.readUInt32BE(4); depth = d[8]; type = d[9]; if (d[12]) return null; }
+    else if (t === 'PLTE') plte = d;
+    else if (t === 'tRNS') trns = d;
+    else if (t === 'IDAT') idat.push(d);
+    else if (t === 'IEND') break;
+    p += 12 + len;
+  }
+  if (depth !== 8 && type !== 3) return null;
+  const ch = { 0: 1, 2: 3, 3: 1, 4: 2, 6: 4 }[type];
+  const bpp = Math.max(1, (ch * depth) >> 3), stride = (w * ch * depth + 7) >> 3;
+  const raw = zlib.inflateSync(Buffer.concat(idat));
+  let prev = Buffer.alloc(stride), cur = Buffer.alloc(stride);
+  const seen = new Set();
+  for (let y = 0; y < h; y++) {
+    const f = raw[y * (stride + 1)], line = raw.subarray(y * (stride + 1) + 1, (y + 1) * (stride + 1));
+    for (let i = 0; i < stride; i++) {
+      const a = i >= bpp ? cur[i - bpp] : 0, up = prev[i], c = i >= bpp ? prev[i - bpp] : 0;
+      let v = line[i];
+      if (f === 1) v += a;
+      else if (f === 2) v += up;
+      else if (f === 3) v += (a + up) >> 1;
+      else if (f === 4) { const pa = Math.abs(up - c), pb = Math.abs(a - c), pc = Math.abs(a + up - 2 * c); v += pa <= pb && pa <= pc ? a : pb <= pc ? up : c; }
+      cur[i] = v;
+    }
+    if (type === 3) {
+      for (let x = 0; x < w; x++) seen.add(depth === 8 ? cur[x] : (cur[(x * depth) >> 3] >> (8 - depth - ((x * depth) & 7))) & ((1 << depth) - 1));
+    } else {
+      for (let x = 0; x < w; x++) {
+        const o = x * ch;
+        // 완전히 투명한 픽셀은 한 색으로 친다
+        seen.add(ch === 4 && cur[o + 3] === 0 ? -1 : cur.readUIntBE(o, ch));
+      }
+    }
+    if (seen.size > limit) return seen.size;
+    [prev, cur] = [cur, prev];
+  }
+  return seen.size;
+}
+
+// 종류별 최대 색 수. 지금 들어간 이미지: 상반신 22~24, 배경 32, 컷 5, 크레용 컷 32.
+const colorLimit = (a) => (a.kind === 'cut' ? (/crayon/i.test(a.prompt) ? 64 : 8) : a.kind === 'portrait' ? 48 : 64);
+
 const norm = (s) => s.toLowerCase().replace(/\s*\(\d+\)/g, '').replace(/[\s-]+/g, '_').replace(/\.(png|jpe?g|webp)$/, '');
 
 for (const folder of ['portraits', 'bg', 'cuts']) {
@@ -58,6 +108,12 @@ for (const folder of ['portraits', 'bg', 'cuts']) {
     const ratio = info.w / info.h;
     if (Math.abs(ratio - want) / want > 0.08) {
       warnings.push({ file: rel, msg: `크기 ${info.w}×${info.h} — 권장 비율은 ${a.spec.w}×${a.spec.h}이에요. 화면에서 잘릴 수 있어요.` });
+    }
+    const limit = colorLimit(a);
+    const colors = countColors(file, limit);
+    if (colors > limit) {
+      errors.push({ file: rel, msg: `색이 ${limit}개보다 많아요. 저해상도 도트가 아니라 일반 일러스트로 나온 것 같아요.${a.kind === 'cut' ? ' 컷은 검정·흰색·회색 2단·포인트 색 1개만 써요.' : ''}` });
+      continue;
     }
     if (info.bytes > MAX_BYTES) {
       warnings.push({ file: rel, msg: `용량 ${(info.bytes / 1048576).toFixed(1)}MB — 3MB 이하로 줄이면 로딩이 빨라져요.` });
