@@ -22,7 +22,7 @@
 | `AGENTS.md` | 이미지 생성 에이전트(GPT/Codex)용 작업 지시서 |
 | `tools/check-assets.mjs` | 이미지 파일명·형식·크기 검사 |
 | `tools/export-prompts.mjs` | 프롬프트 파일 재생성 (`--check`로 동기화 검사) |
-| `docs/` | 기획 문서 (01~10), `WORKFLOW.md` |
+| `docs/` | 기획 문서 (01~10), `WORKFLOW.md`, **`11_quality_plan.md` (지금 따르는 품질 올리기 계획)** |
 | `prototype/` | 초기 프로토타입 (참고용, 손대지 않음) |
 
 ## 작업 방식
