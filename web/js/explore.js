@@ -174,35 +174,38 @@ const MAPS = {
     img: optionalImg(ASSET.map('mansion5f')),
     label: '하나미즈키 맨션 5층',
     hallWallRow: 1,
+    // 칸 배치는 maps/mansion5f.png 그림에 맞춘 것 (16px 칸 26×13, 화면에선 3배)
     rows: [
       '##########################',
-      '#WWWWWWWWWWWWWWWWWWWWWWWW#',
-      '#E.......................#',
+      '#EWWWWWWWWWWWWWWWWWWWWWWW#',
       '#........................#',
-      '#########D########N#######',
-      '#WWWWWWWW,WWWWWWWW#XXXXXXX',
+      '#WWWWWWWWWDWWWWWWW#XXXXXXX',
       '#,,,,,,,,,,,,,,,,,#XXXXXXX',
       '#,,,,,,,,,,,,,,,,,#XXXXXXX',
       '#,,,,,,,,,,,,,,,,,#XXXXXXX',
-      '#,,,,,,,,,,,,,,,,,#XXXXXXX',
-      '#WWWWWWgggWWWWWWWW#XXXXXXX',
-      '#________________P______#X',
+      '#WWWWWWWgggWWWWWWW#XXXXXXX',
+      '#WWWWWWW___WWWWWW#XXXXXXX#',
+      '#________________P_______#',
       '#RRRRRRRRRRRRRRRRRRRRRRRR#',
+      'XXXXXXXXXXXXXXXXXXXXXXXXXX',
+      'XXXXXXXXXXXXXXXXXXXXXXXXXX',
     ],
+    // 그림 속 가구라서 지나갈 수 없는 칸 (조사 대상 아님)
+    blocks: [[1, 4], [1, 5], [1, 6], [7, 4], [8, 4], [15, 4], [16, 4], [15, 6], [16, 6], [16, 5]],
     objects: [
-      { id: 'parcel', x: 8, y: 3, solid: true, draw: 'parcel', label: '택배 상자' },
-      { id: 'door', x: 9, y: 4, label: '사에키 씨 집 현관 문고리' },
-      { id: 'shoes', x: 10, y: 6, draw: 'shoes', label: '신발', walkable: true },
-      { id: 'calendar', x: 5, y: 5, draw: 'calendar', label: '달력' },
-      { id: 'piano', x: 2, y: 7, w: 2, solid: true, draw: 'piano', label: '피아노' },
-      { id: 'sofa', x: 12, y: 6, w: 2, solid: true, draw: 'sofa', label: '소파' },
-      { id: 'table', x: 8, y: 8, w: 2, solid: true, draw: 'table', label: '테이블' },
-      { id: 'pot', x: 16, y: 11, solid: true, draw: 'pot', label: '베란다 화분' },
-      { id: 'partition', x: 17, y: 11, label: '비상 칸막이' },
-      { id: 'potPink', x: 18, y: 11, solid: true, draw: 'potPink', label: '옆집 화분' },
-      { id: 'railing', x: 10, y: 12, label: '난간' },
-      { id: 'nbdoor', x: 18, y: 4, label: '옆집 현관' },
-      { id: 'stairs', x: 1, y: 2, label: '계단' },
+      { id: 'parcel', x: 11, y: 2, draw: 'parcel', overlay: true, label: '택배 상자', walkable: true },
+      { id: 'door', x: 10, y: 3, label: '사에키 씨 집 현관 문고리' },
+      { id: 'shoes', x: 10, y: 4, draw: 'shoes', label: '신발', walkable: true },
+      { id: 'calendar', x: 6, y: 3, draw: 'calendar', label: '달력' },
+      { id: 'piano', x: 2, y: 4, w: 3, h: 2, solid: true, draw: 'piano', label: '피아노' },
+      { id: 'sofa', x: 12, y: 4, w: 3, solid: true, draw: 'sofa', label: '소파' },
+      { id: 'table', x: 9, y: 6, w: 3, solid: true, draw: 'table', label: '테이블' },
+      { id: 'pot', x: 15, y: 8, solid: true, draw: 'pot', label: '베란다 화분' },
+      { id: 'partition', x: 17, y: 8, h: 2, label: '비상 칸막이' },
+      { id: 'potPink', x: 18, y: 8, solid: true, draw: 'potPink', label: '옆집 화분' },
+      { id: 'railing', x: 10, y: 10, label: '난간' },
+      { id: 'nbdoor', x: 19, y: 1, label: '옆집 현관' },
+      { id: 'stairs', x: 1, y: 1, label: '계단' },
     ],
   },
 };
@@ -269,6 +272,7 @@ function solidAt(x, y) {
   if (x < 0 || y < 0 || x >= EX.W || y >= EX.H) return true;
   const t = TERRAIN[EX.map.rows[y][x]];
   if (!t || t.solid) return true;
+  if ((EX.map.blocks || []).some(([bx, by]) => bx === x && by === y)) return true;
   const o = objAt(x, y);
   return !!(o && o.solid);
 }
@@ -438,7 +442,8 @@ function draw(now) {
   }
   // 오브젝트 + 캐릭터를 y순으로
   const drawables = [];
-  if (!art) map.objects.forEach((o) => { if (o.draw && visibleObj(o)) drawables.push({ y: o.y, fn: () => OBJ_DRAW[o.draw](ctx, o.x * TILE, o.y * TILE) }); });
+  // 맵 그림에 없는 물건(overlay)만 그림 위에 덧그린다
+  map.objects.forEach((o) => { if (o.draw && visibleObj(o) && (!art || o.overlay)) drawables.push({ y: o.y, fn: () => OBJ_DRAW[o.draw](ctx, o.x * TILE, o.y * TILE) }); });
   const entPos = (e) => {
     if (!e.move) return [e.x, e.y];
     const t = Math.min(1, e.move.t);

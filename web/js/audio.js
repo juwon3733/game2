@@ -4,19 +4,15 @@
 function loadJSON(k) { try { return JSON.parse(localStorage.getItem(k)) || null; } catch { return null; } }
 function saveJSON(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* 저장 불가(사생활 모드 등) */ } }
 
-// textSpeed: 0 느림 ~ 3 즉시, autoWait: 자동 진행 대기 배율, difficulty: 추리 난이도 0 쉬움 / 1 보통 / 2 어려움
-const SETTINGS = Object.assign({ textSpeed: 1, autoWait: 1, bgm: 0.55, sfx: 0.8, difficulty: 1 }, loadJSON('gaha-settings') || {});
+// textSpeed: 0 느림 ~ 3 즉시, autoWait: 자동 진행 대기 배율
+const SETTINGS = Object.assign({ textSpeed: 1, autoWait: 1, bgm: 0.55, sfx: 0.8 }, loadJSON('gaha-settings') || {});
 
-// 난이도별 규칙
-//  쉬움:  컷 아래 설명, 퍼즐 오답 때 무엇이 거꾸로인지까지, 힌트 무제한, 코하루 도움 2번, 증인 마음 3
-//  보통:  설명은 크게 보기에서만, 오답 때 어느 칸 사이인지만, 힌트 2번, 코하루 1번, 마음 3, 결론 정답 범위 좁음
-//  어려움: 설명 없음(그림만), 오답 때 틀린 칸 수만, 힌트 1번(고정 없음), 코하루 없음, 마음 2
-const DIFF = [
-  { name: '쉬움', caption: true, zoomDesc: true, feedback: 'tag', hints: 99, koharu: 2, ink: 3, strict: false },
-  { name: '보통', caption: false, zoomDesc: true, feedback: 'pair', hints: 2, koharu: 1, ink: 3, strict: true },
-  { name: '어려움', caption: false, zoomDesc: false, feedback: 'count', hints: 1, koharu: 0, ink: 2, strict: true },
-];
-const diff = () => DIFF[SETTINGS.difficulty] || DIFF[1];
+// 추리 규칙 (난이도 선택 없음. 이 게임의 기본 난이도)
+//  - 컷 아래 설명 없음: 그림 속 단서를 직접 읽는다 (크게 보기에서만 설명)
+//  - 퍼즐 오답: 어느 칸 사이가 이상한지만 알려 주고, 무엇이 거꾸로인지는 말하지 않는다
+//  - 토와 힌트 2번, 코하루 도움 1번, 증인의 마음 3칸, 결론은 가장 정확한 컷만 정답
+const RULES = { caption: false, zoomDesc: true, feedback: 'pair', hints: 2, koharu: 1, ink: 3, strict: true };
+const diff = () => RULES;
 function saveSettings() { saveJSON('gaha-settings', SETTINGS); applyVolumes(); }
 
 // 곡 파일은 tools/compose/build.py가 반복 길이에 딱 맞게 렌더링한다(끝이 처음으로 자연스럽게 이어짐).

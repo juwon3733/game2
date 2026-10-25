@@ -75,7 +75,7 @@ async function sceneExplore1() {
     }
   };
   await explore('mansion5f', {
-    start: [3, 3], required: req,
+    start: [3, 2], required: req,
     on: {
       parcel: async () => {
         await say('', '현관 앞에 놓인 택배 상자. 증거품 태그가 붙어 있다.');
@@ -178,9 +178,9 @@ async function sceneExplore2() {
   goal('다시 5층. 아직 읽지 못한 잔상이 있다. 베란다를 살펴보자.');
   let shiori = true;
   await explore('mansion5f', {
-    start: [9, 6], required: ['partition'],
+    start: [8, 5], required: ['partition'],
     examined: ['parcel', 'door', 'piano', 'pot'],
-    extras: [{ who: 'shiori', x: 15, y: 11, dir: 'right' }],
+    extras: [{ who: 'shiori', x: 16, y: 9, dir: 'right' }],
     on: {
       partition: async () => {
         if (shiori) {
@@ -247,6 +247,7 @@ async function sceneConclusion() {
     '난간에 올라간 히마리를 칸막이 너머로 끌어당기려고. …그러다 반동으로 떨어졌어요.',
     '5층 문 앞. 쿵 소리가 났을 때 문 밖에 서 있었어요.',
     '휴대폰이 꺼져서. 신고하려고 길 건너 편의점까지 뛰었어요.',
+    '난간 안쪽, 베란다 바닥. 사에키 씨가 끌어당긴 덕분에.',
   ];
   for (let i = 0; i < CONCLUSION.length; i++) {
     const q = CONCLUSION[i];
@@ -418,18 +419,7 @@ function titleScreen() {
     setTimeout(() => { t.remove(); hud(true); playFrom(scene, saved); }, 450);
   };
   const list = t.querySelector('.ts-scenes');
-  // 처음부터: 추리 난이도를 고르고 시작
-  t.querySelector('#t-start').onclick = () => {
-    const m = document.createElement('div');
-    m.className = 'ts-diff';
-    m.innerHTML = `<div class="ts-diff-box"><div class="ts-scenes-head">추리 난이도 <button class="ts-close">✕</button></div>
-      ${[['쉬움', '컷 아래에 설명이 붙고, 틀리면 무엇이 어긋났는지 알려 준다.'], ['보통', '설명 없이 그림을 읽는다. 틀리면 어느 칸 사이가 이상한지만. (추천)'], ['어려움', '설명도 힌트도 거의 없다. 틀리면 몇 군데 틀렸는지만. 증인의 마음은 2칸.']]
-        .map(([n, d], i) => `<button class="ts-diff-opt${i === SETTINGS.difficulty ? ' on' : ''}" data-d="${i}"><b>${n}</b><span>${d}</span></button>`).join('')}
-      <div class="ts-diff-note">설정에서 언제든 바꿀 수 있다.</div></div>`;
-    t.appendChild(m);
-    m.querySelector('.ts-close').onclick = () => m.remove();
-    m.querySelectorAll('[data-d]').forEach((b) => (b.onclick = () => { SETTINGS.difficulty = Number(b.dataset.d); saveSettings(); go('office'); }));
-  };
+  t.querySelector('#t-start').onclick = () => go('office');
   if (save) t.querySelector('#t-cont').onclick = () => go(save.scene, save);
   t.querySelector('#t-select').onclick = () => list.classList.remove('hidden');
   t.querySelector('.ts-close').onclick = () => list.classList.add('hidden');

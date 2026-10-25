@@ -21,6 +21,9 @@ function fitStage() {
   $('#stage').style.transform = `scale(${s})`;
   $('#stage').style.left = (innerWidth - 1280 * s) / 2 + 'px';
   $('#stage').style.top = (innerHeight - 720 * s) / 2 + 'px';
+  // 탐색 캔버스(1280×720, 맵은 1:1)는 실제 화면 배율이 정수일 때만 또렷하게, 아니면 부드럽게
+  const k = s * (devicePixelRatio || 1);
+  $('#stage').style.setProperty('--pix-canvas', Math.abs(k - Math.round(k)) < 0.01 ? 'pixelated' : 'auto');
 }
 addEventListener('resize', fitStage);
 fitStage();
@@ -435,7 +438,6 @@ function openSettings() {
   const range = (key) => `<input type="range" min="0" max="1" step="0.05" data-key="${key}" value="${SETTINGS[key]}">`;
   const m = openModal(`<div class="md-title">설정</div>
     <div class="set-grid">
-      <label>추리 난이도</label>${seg('difficulty', DIFF.map((d) => d.name))}
       <label>글자 속도</label>${seg('textSpeed', ['느리게', '보통', '빠르게', '즉시'])}
       <label>자동 진행 간격</label><input type="range" min="0.5" max="2" step="0.1" data-key="autoWait" value="${SETTINGS.autoWait}">
       <label>배경음악</label>${range('bgm')}
