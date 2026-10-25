@@ -310,20 +310,41 @@ function titleScreen() {
   clearChars();
   hideText();
   goal('');
+  hud(false);
   const t = document.createElement('div');
   t.className = 'title-screen';
   t.innerHTML = `
-    <h1>같은 하루, 다른 칸</h1>
-    <p>1장 「낙하」 · 웹 프로토타입</p>
-    <button id="t-start">처음부터</button>
-    <select id="t-scene" style="font-size:20px;padding:8px;font-family:inherit">
-      ${SCENES.map(([id, label]) => `<option value="${id}">${label}</option>`).join('')}
-    </select>
-    <button id="t-jump" style="margin-top:6px;padding:10px 30px;font-size:20px">이 장면부터</button>
-    <div class="note"><a href="assets.html" style="color:#9fc3ff">에셋 현황 보기 →</a><br>대사 넘기기: 클릭 / Space · 탐색: 방향키·WASD 또는 클릭</div>`;
+    <div class="ts-bg" style="background-image:url(${ASSET.bg('night')})"></div>
+    <div class="ts-shade"></div>
+    <div class="ts-strip">${['A', 'G', 't_taiga_3'].map((c) => `<div class="ts-panel"><img src="${ASSET.cut(c)}" alt=""></div>`).join('')}</div>
+    <img class="ts-char ts-koharu" src="${ASSET.portrait('koharu', 'happy')}" alt="">
+    <img class="ts-char ts-rei" src="${ASSET.portrait('rei', 'normal')}" alt="">
+    <div class="ts-motes">${Array.from({ length: 18 }, (_, i) => `<i style="left:${(i * 53) % 100}%;animation-delay:${-(i * 1.7) % 12}s;animation-duration:${9 + (i % 5) * 2}s"></i>`).join('')}</div>
+    <div class="ts-logo">
+      <div class="ts-chapter">CHAPTER 1 · 낙하</div>
+      <h1><span>같은 하루,</span><span class="ts-l2">다른 칸</span></h1>
+      <div class="ts-tag">같은 밤, 서로 다르게 기억된 네 장면</div>
+    </div>
+    <nav class="ts-menu">
+      <button id="t-start" class="ts-btn primary">처음부터</button>
+      <button id="t-select" class="ts-btn">장면 선택</button>
+      <a class="ts-btn small" href="assets.html">에셋 현황</a>
+    </nav>
+    <div class="ts-scenes hidden">
+      <div class="ts-scenes-head">장면 선택 <button class="ts-close" aria-label="닫기">✕</button></div>
+      <ol>${SCENES.map(([id, label], i) => `<li><button data-scene="${id}"><b>${String(i + 1).padStart(2, '0')}</b>${label}</button></li>`).join('')}</ol>
+    </div>
+    <div class="ts-hint">대사 넘기기 클릭 · Space　　탐색 방향키 · WASD · 클릭</div>`;
   $('#stage').appendChild(t);
-  t.querySelector('#t-start').onclick = () => { t.remove(); playFrom('office'); };
-  t.querySelector('#t-jump').onclick = () => { const v = t.querySelector('#t-scene').value; t.remove(); playFrom(v); };
+  const go = (scene) => {
+    t.classList.add('leaving');
+    setTimeout(() => { t.remove(); hud(true); playFrom(scene); }, 450);
+  };
+  const list = t.querySelector('.ts-scenes');
+  t.querySelector('#t-start').onclick = () => go('office');
+  t.querySelector('#t-select').onclick = () => list.classList.remove('hidden');
+  t.querySelector('.ts-close').onclick = () => list.classList.add('hidden');
+  list.querySelectorAll('[data-scene]').forEach((b) => (b.onclick = () => go(b.dataset.scene)));
 }
 
 hud(true);
