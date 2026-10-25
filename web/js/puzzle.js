@@ -167,6 +167,7 @@ function runPuzzle(id) {
         return render();
       }
       if (a === 'hint') {
+        if (st.hints >= diff().hints) { msg = '토와: 힌트는 여기까지. 나머지는 직접 읽어.'; return render(); }
         st.hints++;
         if (st.hints === 1) msg ='토와: ' + P.hint;
         else {
@@ -210,9 +211,19 @@ function runPuzzle(id) {
           pairs.push(Math.max(0, d - 1));
           msgs.push(`${d + 1}번 칸 근처가 이상해. 앞뒤 컷을 비교해 봐.`);
         }
-        st.bad = { pairs, decoys };
         sfx('wrong'); quake();
-        msg ='토와: 에러. ' + msgs[0] + (msgs.length > 1 ? ` (그 밖에 ${msgs.length - 1}곳 더)` : '');
+        const fb = diff().feedback;
+        if (fb === 'count') {
+          // 어려움: 몇 칸이 틀렸는지만
+          const wrong = P.solution.filter((c, i) => st.slots[i] !== c).length + (badBubble ? 1 : 0);
+          st.bad = null;
+          msg = `토와: 에러. 맞지 않는 곳이 ${wrong}군데.`;
+          return render();
+        }
+        st.bad = { pairs, decoys };
+        // 보통: 어느 칸 사이인지만, 무엇이 거꾸로인지는 말하지 않는다
+        const shown = fb === 'tag' ? msgs : msgs.map((m) => m.replace(/은 「.*?」이\(가\) 거꾸로야\./, ' 사이가 이상해.').replace(/ 말풍선 대사가 이상해\./, ' 말풍선이 이상해.'));
+        msg ='토와: 에러. ' + shown[0] + (shown.length > 1 ? ` (그 밖에 ${shown.length - 1}곳 더)` : '');
         return render();
       }
     };

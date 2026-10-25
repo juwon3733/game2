@@ -253,7 +253,7 @@ async function sceneConclusion() {
     for (;;) {
       hideText();
       const c = await pickCut(`질문 ${i + 1}. ${q.q}`, '대답이 되는 컷을 고르자.', { cancel: false, only: q.choices });
-      if (q.answer.includes(c)) { sfx('correct'); break; }
+      if ((diff().strict && q.strict ? q.strict : q.answer).includes(c)) { sfx('correct'); break; }
       sfx('wrong'); quake();
       await say('kurogane', '…그 컷으론 설명이 안 되지. 다시.');
     }
@@ -270,6 +270,9 @@ async function sceneConclusion() {
   }
   show('himari', 'crying', 'left');
   await say('', '복도 끝 의자에, 엄마 손을 잡은 히마리가 앉아 있다.');
+  show('komatsu', 'normal', 'right');
+  await say('komatsu', '…형사님들이시죠. 히마리가 아무 말도 안 해서, 저는 아무것도 몰랐어요.');
+  await say('komatsu', '그날 제가 조금만 일찍 왔으면….');
   hideText();
   const c = await choice(['"네 잘못 아니야."', '"선생님은 너를 지키고 싶었던 거야."', '(말없이 「끌어당김」 컷을 보여준다)'], '히마리에게 뭐라고 할까?');
   if (c === 0) await say('', '히마리가 엄마 품에 얼굴을 묻고 소리 내어 운다. 엄마가 등을 토닥인다.');
@@ -279,6 +282,7 @@ async function sceneConclusion() {
     await say('', '히마리가 쥐고 있던 음표 머리핀을 천천히 다시 꽂는다.');
   }
   if (c === 2) await say('', '히마리가 컷 속, 자신을 끌어당기며 웃고 있는 선생님을 오래 바라본다.');
+  await say('komatsu', '…고맙습니다. 선생님 깨어나시면, 이 아이랑 같이 인사하러 갈게요.');
   clearChars();
 }
 
@@ -335,7 +339,7 @@ const SCENE_BGM = {
   explore2: 'explore', himari: 'tension', puzzle2: 'tension', conclusion: 'trial', epilogue: 'epilogue',
 };
 
-const SCENE_CAST = { office: ['rei', 'koharu', 'kurogane', 'towa'], ookubo: ['ookubo'], taiga: ['taiga'], explore2: ['shiori'], himari: ['himari'] };
+const SCENE_CAST = { office: ['rei', 'koharu', 'kurogane', 'towa'], ookubo: ['ookubo'], taiga: ['taiga', 'akari'], explore2: ['shiori'], himari: ['himari'], conclusion: ['komatsu'] };
 
 // ---------- 저장 ----------
 // 장면이 시작될 때마다 자동 저장. 타이틀의 [이어하기]가 그 장면부터 다시 시작한다.
@@ -349,7 +353,7 @@ async function playFrom(scene, saved) {
   G.cuts = s.cuts.slice();
   G.lines = s.lines.slice();
   G.fills = Object.assign({}, s.fills || {});
-  G.koharuLeft = saved ? saved.koharuLeft : 2;
+  G.koharuLeft = saved ? saved.koharuLeft : diff().koharu;
   G.flags = Object.assign({}, saved ? saved.flags : {});
   LOG.length = 0;
   const start = SCENES.findIndex(([id]) => id === scene);
@@ -414,7 +418,18 @@ function titleScreen() {
     setTimeout(() => { t.remove(); hud(true); playFrom(scene, saved); }, 450);
   };
   const list = t.querySelector('.ts-scenes');
-  t.querySelector('#t-start').onclick = () => go('office');
+  // 처음부터: 추리 난이도를 고르고 시작
+  t.querySelector('#t-start').onclick = () => {
+    const m = document.createElement('div');
+    m.className = 'ts-diff';
+    m.innerHTML = `<div class="ts-diff-box"><div class="ts-scenes-head">추리 난이도 <button class="ts-close">✕</button></div>
+      ${[['쉬움', '컷 아래에 설명이 붙고, 틀리면 무엇이 어긋났는지 알려 준다.'], ['보통', '설명 없이 그림을 읽는다. 틀리면 어느 칸 사이가 이상한지만. (추천)'], ['어려움', '설명도 힌트도 거의 없다. 틀리면 몇 군데 틀렸는지만. 증인의 마음은 2칸.']]
+        .map(([n, d], i) => `<button class="ts-diff-opt${i === SETTINGS.difficulty ? ' on' : ''}" data-d="${i}"><b>${n}</b><span>${d}</span></button>`).join('')}
+      <div class="ts-diff-note">설정에서 언제든 바꿀 수 있다.</div></div>`;
+    t.appendChild(m);
+    m.querySelector('.ts-close').onclick = () => m.remove();
+    m.querySelectorAll('[data-d]').forEach((b) => (b.onclick = () => { SETTINGS.difficulty = Number(b.dataset.d); saveSettings(); go('office'); }));
+  };
   if (save) t.querySelector('#t-cont').onclick = () => go(save.scene, save);
   t.querySelector('#t-select').onclick = () => list.classList.remove('hidden');
   t.querySelector('.ts-close').onclick = () => list.classList.add('hidden');

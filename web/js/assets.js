@@ -110,7 +110,7 @@ function cutInfo(id) {
 function zoomCut(src, info) {
   const z = document.createElement('div');
   z.className = 'zoom';
-  z.innerHTML = `<div class="zoom-box"><div class="zoom-head">${info.owner} 시점 「${info.title}」</div><img src="${src}"><div class="zoom-cap">${info.desc}</div><button>닫기</button></div>`;
+  z.innerHTML = `<div class="zoom-box"><div class="zoom-head">${info.owner} 시점 「${info.title}」</div><img src="${src}">${diff().zoomDesc ? `<div class="zoom-cap">${info.desc}</div>` : ''}<button>닫기</button></div>`;
   z.onclick = (e) => { e.stopPropagation(); z.remove(); };
   (document.getElementById('stage') || document.body).appendChild(z);
 }
@@ -134,8 +134,8 @@ function cutView(id, opts = {}) {
   img.draggable = false;
   img.onload = () => {
     body.classList.add('has-img');
-    // AI 그림이 단서를 빠뜨려도 퍼즐이 풀리도록 설명을 짧게 붙인다
-    body.insertAdjacentHTML('afterend', `<div class="cutv-cap">${info.desc}</div>`);
+    // 쉬움에서만 그림 아래 설명을 붙인다. 보통·어려움은 그림 속 단서를 직접 읽는다.
+    if (diff().caption) body.insertAdjacentHTML('afterend', `<div class="cutv-cap">${info.desc}</div>`);
     const z = document.createElement('button');
     z.className = 'cutv-zoom';
     z.textContent = '🔍';

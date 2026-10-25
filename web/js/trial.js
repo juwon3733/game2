@@ -12,7 +12,7 @@ function showLine(who, text, face) {
 }
 
 function renderTrial(W, st) {
-  $('#tr-ink').innerHTML = [0, 1, 2].map((k) => `<span class="ink-b${k < st.ink ? '' : ' empty'}"></span>`).join('');
+  $('#tr-ink').innerHTML = Array.from({ length: diff().ink }, (_, k) => k).map((k) => `<span class="ink-b${k < st.ink ? '' : ' empty'}"></span>`).join('');
   const s = W.statements[st.idx];
   const peeled = st.peeled && W.peel.includes(st.idx);
   const panel = $('#tr-panel');
@@ -30,7 +30,7 @@ async function runTrial(id) {
   show(W.char, CHARACTERS[W.char].faces[0], 'left');
   $('#trial').classList.remove('hidden');
   goal(W.goal);
-  renderTrial(W, { ink: 3, idx: 0, peeled: false, hint: -1 });
+  renderTrial(W, { ink: diff().ink, idx: 0, peeled: false, hint: -1 });
   bgm('trial');
   await banner('— 증언 —', `${CHARACTERS[W.char].name}의 기억이 컷으로 펼쳐진다`, 1500);
 
@@ -63,7 +63,7 @@ async function runTrial(id) {
 
 // 증언 한 바퀴. 맞는 컷을 들이밀 때까지 반복한다.
 async function trialRound(W) {
-  const st = { ink: 3, idx: 0, peeled: false, hint: -1 };
+  const st = { ink: diff().ink, idx: 0, peeled: false, hint: -1 };
   const ans = W.answer;
   for (;;) {
     renderTrial(W, st);
@@ -141,7 +141,7 @@ async function trialRound(W) {
     await sayAll([...W.wrong, ...extra]);
     if (st.ink === 0) {
       await sayAll(W.close);
-      st.ink = 3; st.idx = 0; st.hint = -1;
+      st.ink = diff().ink; st.idx = 0; st.hint = -1;
       await banner('— 증언 다시 —', '처음부터 다시 듣자', 1200);
       bgm('trial');
     }

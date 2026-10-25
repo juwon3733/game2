@@ -46,6 +46,8 @@
 - 탐색 맵(`maps/`), 걷는 캐릭터 시트(`sprites/`), 타이틀 키아트(`title/key.png`)도 GPT 이미지. 맵 그림이 들어오면 Claude가 그림을 보고 `explore.js`의 충돌 칸(`rows`)과 물건 위치를 맞춘다.
 - 상반신은 `style_version` 3: 원본 256×384 도트 4배, 배경 없이 양옆·위 여백. 지금 있는 16장(128×192)은 교체 대상.
 - 소리는 Claude가 직접 작곡한다(PC-98식 FM 음원). 곡 7개(title office explore trial tension truth epilogue), 효과음 19개. 장면별 곡은 `script_ch1.js`의 `SCENE_BGM`.
+- 추리 난이도 설정(쉬움/보통/어려움, 기본 보통, `audio.js`의 `DIFF`). 보통부터 컷 설명 없이 그림으로 푼다 → 컷 단서는 그림에 크게.
+- 여성 캐릭터 비중을 높인다(사용자 요청). 장별 여성 인물은 `docs/12_story_plan.md` §0-1.
 - 미정: 레이 성별(현재 중성적), 배경 국가(현재 일본풍). `docs/09_open_questions.md`.
 
 ## 로컬 실행

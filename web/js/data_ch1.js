@@ -11,6 +11,8 @@ const CHARACTERS = {
   taiga:    { name: '타이가',   hair: '#e8c450', outfit: '#3d3d3d', accent: '#c9961a', faces: ['angry', 'sad'] },
   himari:   { name: '히마리',   hair: '#5a3a2a', outfit: '#f3b6c9', accent: '#e0679a', faces: ['normal', 'crying'] },
   shiori:   { name: '???',      hair: '#121212', outfit: '#2b3550', accent: '#e9e3d3', faces: ['normal'] },
+  komatsu:  { name: '코마츠',   hair: '#6a4a3a', outfit: '#d9c7a8', accent: '#d98aa0', faces: ['normal'] },
+  akari:    { name: '아카리',   hair: '#2a3a3a', outfit: '#3f8f6a', accent: '#4fae96', faces: ['normal'] },
 };
 
 const BACKGROUNDS = {
@@ -178,7 +180,9 @@ const WITNESSES = {
       ['taiga', '…!', 'sad'],
       ['taiga', '…폰이 꺼져서. 아무것도 못 해서.', 'sad'],
       ['taiga', '그게 쪽팔려서… 길 건너 편의점까지 뛰어가서 신고해 달라고 했어요.', 'sad'],
-      ['kurogane', '(전화) 편의점 신고 기록 확인했다. 21시 26분, 신고자는 점원. 옆에 금발 청년.'],
+      ['akari', '(전화) 네, 21시 26분이요. 금발 남자분이 뛰어 들어와서 "구급차! 5층!" 하고… 폰이 꺼졌다고 해서 제 폰으로 걸었어요.'],
+      ['akari', '(전화) 그분 계속 "빨리, 빨리" 했어요. 도망치는 사람 얼굴 아니었어요.'],
+      ['kurogane', '(전화) 신고 기록과도 맞다.'],
       ['koharu', '타이가 씨는 도망친 게 아니라 도우려고 뛴 거예요.', 'happy'],
     ],
     peel: [2],
@@ -225,9 +229,10 @@ const WITNESSES = {
 
 // choices: 그 질문에서 보여 줄 후보 컷 (정답 + 헷갈릴 만한 것)
 const CONCLUSION = [
-  { q: '사에키 씨는 왜 베란다 난간에 몸을 내밀었나?', answer: ['C', 'H', 'I'], choices: ['B', 'G', 'I', 'D', 'C'] },
+// strict: 보통·어려움에서 받는 정답 (더 정확한 컷만)
+  { q: '사에키 씨는 왜 베란다 난간에 몸을 내밀었나?', answer: ['C', 'H', 'I'], strict: ['I'], choices: ['B', 'G', 'H', 'I', 'C'] },
   { q: '반도 타이가는 사건 순간 어디에 있었나?', answer: ['D'], choices: ['A', 'E', 'D', 'F'] },
-  { q: '반도 타이가는 왜 건물을 뛰쳐나갔나?', answer: ['F', 'E'], choices: ['D', 'A', 'F', 'B'] },
+  { q: '반도 타이가는 왜 건물을 뛰쳐나갔나?', answer: ['F', 'E'], strict: ['F'], choices: ['D', 'A', 'F', 'E'] },
 ];
 
 // 수첩의 인물 탭
@@ -241,4 +246,6 @@ const PROFILES = {
   himari: '옆집 코마츠 씨네 9살 딸. 사에키 씨에게 피아노를 배운다.',
   asagiri: '구시가 언덕의 카페 「여백」 주인.',
   shiori: '교복 차림의 여자아이. 레이에게만 보이는 것 같다.',
+  komatsu: '히마리의 엄마 코마츠 사키. 혼자 일하며 히마리를 키운다. 그날 밤은 야근이었다.',
+  akari: '길 건너 편의점 점원 미나세 아카리. 그날 밤 타이가 대신 119에 전화했다.',
 };

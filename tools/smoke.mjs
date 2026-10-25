@@ -12,8 +12,8 @@ const { chromium } = createRequire(import.meta.url)('playwright');
 const web = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'web');
 const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.png': 'image/png', '.svg': 'image/svg+xml', '.mp3': 'audio/mpeg', '.wav': 'audio/wav', '.woff2': 'font/woff2', '.json': 'application/json' };
 
-// 아직 없어도 되는 이미지(게임이 임시 그림을 쓴다)
-const OPTIONAL = /\/assets\/(maps|sprites|title|ui|cg)\//;
+// 이미지는 없어도 된다(게임이 임시 그림을 쓰거나 숨긴다. 있는지는 check-assets가 본다). 소리·글꼴·코드는 꼭 있어야 한다.
+const OPTIONAL = /\/assets\/(?!audio\/)/;
 
 const server = http.createServer((req, res) => {
   const p = path.join(web, decodeURIComponent(req.url.split('?')[0]).replace(/\/$/, '/index.html'));

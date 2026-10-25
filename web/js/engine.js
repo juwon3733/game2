@@ -81,7 +81,10 @@ function show(char, face = CHARACTERS[char].faces[0], pos = 'center') {
   img.dataset.pos = pos;
   if (img.dataset.face !== face) {
     img.dataset.face = face;
-    loadImg(img, ASSET.portrait(char, face), () => portraitPlaceholder(char, face));
+    // 상반신 그림이 없으면 임시 그림 대신 아예 안 보인다(이름은 대사창에 나옴)
+    img.onerror = () => { img.style.visibility = 'hidden'; };
+    img.onload = () => { img.style.visibility = ''; };
+    img.src = ASSET.portrait(char, face);
   }
 }
 
@@ -131,7 +134,7 @@ function tryAdvance() {
 
 const TEXT_MS = [42, 26, 12, 0];
 // 말하는 사람마다 다른 높이의 타자음
-const VOICE = { rei: 0.82, koharu: 1.22, kurogane: 0.68, towa: 1.4, asagiri: 0.95, ookubo: 0.72, taiga: 0.9, himari: 1.5, shiori: 1.08 };
+const VOICE = { rei: 0.82, koharu: 1.22, kurogane: 0.68, towa: 1.4, asagiri: 0.95, ookubo: 0.72, taiga: 0.9, himari: 1.5, shiori: 1.08, komatsu: 1.05, akari: 1.3 };
 
 async function typeInto(el, text, voice) {
   el.textContent = '';
@@ -432,6 +435,7 @@ function openSettings() {
   const range = (key) => `<input type="range" min="0" max="1" step="0.05" data-key="${key}" value="${SETTINGS[key]}">`;
   const m = openModal(`<div class="md-title">설정</div>
     <div class="set-grid">
+      <label>추리 난이도</label>${seg('difficulty', DIFF.map((d) => d.name))}
       <label>글자 속도</label>${seg('textSpeed', ['느리게', '보통', '빠르게', '즉시'])}
       <label>자동 진행 간격</label><input type="range" min="0.5" max="2" step="0.1" data-key="autoWait" value="${SETTINGS.autoWait}">
       <label>배경음악</label>${range('bgm')}

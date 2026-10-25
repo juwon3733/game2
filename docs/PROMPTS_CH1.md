@@ -289,7 +289,59 @@ Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1
 Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: calm, faint smile, pointing at something.
 ```
 
-## 대화 10 — 배경 (7장)
+## 대화 10 — 코마츠 상반신 (1장)
+
+먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
+
+**`설정화 (저장 안 해도 됨)`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
+
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+
+Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
+
+Character reference sheet of a gentle, tired 36-year-old single mother who works late shifts. Soft brown bob hair, kind worried eyes like her daughter's, beige cardigan over a simple white blouse, an office lanyard, a small music-note keychain on her bag. Warm rose and beige accents.
+```
+
+**`komatsu_normal.png`
+```
+방금 설정화 캐릭터 그대로, 같은 도트 스타일과 같은 팔레트로 그려줘. 모바일 가챠게임 캐릭터처럼 예쁘고 매력적으로.
+
+Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
+
+Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: tired but relieved, a gentle sad smile.
+```
+
+## 대화 11 — 아카리 상반신 (1장)
+
+먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
+
+**`설정화 (저장 안 해도 됨)`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
+
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+
+Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
+
+Character reference sheet of a lively 20-year-old convenience store clerk girl. Short black hair with mint-green tips and a star hairpin, bright honest eyes, green-and-white store uniform vest over a T-shirt, name tag, wired earbuds around her neck. Mint and white accents.
+```
+
+**`akari_normal.png`
+```
+방금 설정화 캐릭터 그대로, 같은 도트 스타일과 같은 팔레트로 그려줘. 모바일 가챠게임 캐릭터처럼 예쁘고 매력적으로.
+
+Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
+
+Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: earnest, slightly flustered, holding a smartphone.
+```
+
+## 대화 12 — 배경 (7장)
 
 배경끼리 그림체를 맞추려고 한 대화에서 이어 만든다.
 
@@ -346,7 +398,7 @@ Small cozy retro cafe on a hillside street, wooden counter, siphon coffee makers
 Exterior of an old 6-story apartment building on a hill at night, balconies, a flowerbed below, city lights in the distance. Keep the lower third simple because characters will stand in front.
 ```
 
-## 대화 11 — 컷 · 타이가 시점 + 증언 (금색) (7장)
+## 대화 13 — 컷 · 타이가 시점 + 증언 (금색) (7장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -419,7 +471,7 @@ Scene: a young delivery worker with spiky bleached blond hair (accent color) und
 
 > 꼭 보여야 할 것: (진실) 꺼진 휴대폰
 
-## 대화 12 — 컷 · 미츠루 시점 (파랑) (2장)
+## 대화 14 — 컷 · 미츠루 시점 (파랑) (2장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -447,7 +499,7 @@ Scene: a gentle man in his early 30s with glasses and a light shirt leaning thro
 
 > 꼭 보여야 할 것: 칸막이, 뻗은 팔, 난간 위 작은 발, 바깥 턱의 반짝임, 위쪽 가운데 빈 공간
 
-## 대화 13 — 컷 · 히마리 시점 (분홍) (6장)
+## 대화 15 — 컷 · 히마리 시점 (분홍) (6장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -511,7 +563,7 @@ Scene: a 9-year-old girl with brown twin tails tied with ribbons, a small music-
 
 > 꼭 보여야 할 것: (진실) 머리핀을 쥔 손
 
-## 대화 14 — 컷 · 히마리 크레용 기억 (예외: 크레용 색) (3장)
+## 대화 16 — 컷 · 히마리 크레용 기억 (예외: 크레용 색) (3장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -548,7 +600,7 @@ Scene: Child's crayon drawing of a blanket colored completely black, a tiny fist
 
 > 꼭 보여야 할 것: 크레용, 새까만 이불
 
-## 대화 15 — 컷 · 오오쿠보 증언 (올리브) (5장)
+## 대화 17 — 컷 · 오오쿠보 증언 (올리브) (5장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -603,7 +655,7 @@ Scene: A dull impact on a flowerbed in front of an apartment building at night, 
 
 > 꼭 보여야 할 것: 화단의 충격
 
-## 대화 16 — 탐색 맵 (1장)
+## 대화 18 — 탐색 맵 (1장)
 
 칸 배치를 최대한 지킨다. 조금 어긋나도 Claude가 충돌 칸을 그림에 맞춘다.
 
@@ -626,7 +678,7 @@ Layout by tile rows, top to bottom:
 Full color, limited palette of about 48 colors, clean dark outlines, soft dithered shadows, no anti-aliasing.
 ```
 
-## 대화 17 — 걷는 캐릭터 (탐색용) (3장)
+## 대화 19 — 걷는 캐릭터 (탐색용) (3장)
 
 한 대화에서 레이 → 코하루 → 시오리 순서로 만든다. 칸 크기와 발 높이를 셋이 똑같이 맞춘다. 상반신 이미지를 기준으로 첨부하면 좋다.
 
@@ -657,7 +709,7 @@ Character: a cheerful 20-year-old rookie detective girl, orange-brown side ponyt
 Character: a pale 16-year-old girl ghost, long straight black hair with blunt bangs, old navy sailor school uniform with a white ribbon, barefoot, slightly translucent.
 ```
 
-## 대화 18 — UI 스킨 (9장)
+## 대화 20 — UI 스킨 (9장)
 
 한 대화에서 차례로 만들어 스타일을 맞춘다. 크기는 정확히 지키고, 9-slice 틀은 모서리 밖 가장자리가 똑같이 반복되게.
 
@@ -728,7 +780,7 @@ A horizontal strip of 8 icons, each exactly 96x96 (32x32 native), evenly spaced 
 A wide cut-in banner background, 1536x512, for the moment the hero rebuts a witness: explosive black and red manga speed lines radiating from the left, white screentone burst, torn paper edges at top and bottom. Leave the middle empty and calm for text that will be overlaid by the game. No characters, no text.
 ```
 
-## 대화 19 — 이벤트 CG (5장)
+## 대화 21 — 이벤트 CG (5장)
 
 상반신 이미지를 기준으로 첨부해 같은 얼굴로 그린다. 배경 7장과 같은 도트 스타일.
 
@@ -797,7 +849,7 @@ Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1
 Event illustration (CG) for a key story moment, horizontal 1536x1024, full color, same faces as the character portraits. Inside a small cozy cafe on a hill at sunset, called Yohaku: an elegant 61-year-old cafe owner with silver hair in a bun and round gold glasses, cream blouse and linen apron behind the counter places a cup of sweet coffee in front of an androgynous young investigator with messy short black hair and a lavender hair clip, oversized grey hoodie under a long beige trench coat, and a cheerful young detective girl with an orange-brown side ponytail and sky-blue scrunchie, navy suit jacket and sky-blue ribbon tie beside them smiles brightly. Warm orange light, harbor and sea through the window.
 ```
 
-## 대화 20 — 타이틀 키아트 (1장)
+## 대화 22 — 타이틀 키아트 (1장)
 
 상반신 이미지를 기준으로 첨부해 같은 얼굴로 그린다.
 
