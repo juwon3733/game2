@@ -1,7 +1,11 @@
 // ChatGPT 이미지 프롬프트. 에셋 현황 페이지(assets.html)와 CI 검사(tools/check-assets.mjs)가 같이 쓴다.
 
 const PROMPT_STYLE = {
-  common: 'Anime-style pixel art in the style of a modern visual novel, crisp visible pixels, limited 32-color palette, clean dark outlines, soft cel shading, late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.',
+  // 캐릭터와 배경도 컷과 같은 저해상도 도트. 해상도만 종류별로 다르다.
+  pixel: '이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.',
+  sheetRes: 'Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.',
+  portraitRes: 'Native resolution about 128x192 pixels, upscaled with nearest-neighbor to 1024x1536 so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.',
+  bgRes: 'Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. Full color, limited palette of about 32 colors.',
   // 컷은 PC-98 어드벤처 게임식 저해상도 도트. 그냥 "pixel art"라고 하면 고해상도 일러스트가 나온다.
   cut: '이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.\n\n{palette}',
   cutPalette: 'Palette: black, white, two greys, and one accent color {color}. Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.',

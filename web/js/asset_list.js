@@ -5,7 +5,7 @@ const COLOR_NAME = { '#c9961a': 'gold', '#3b8fd0': 'blue', '#e0679a': 'pink', '#
 
 function requiredAssets() {
   const list = [];
-  const common = PROMPT_STYLE.common;
+  const px = PROMPT_STYLE.pixel;
 
   for (const [char, c] of Object.entries(CHARACTERS)) {
     for (const face of c.faces) {
@@ -13,8 +13,8 @@ function requiredAssets() {
       list.push({
         kind: 'portrait', group: c.name === '???' ? '시오리' : c.name, id,
         path: `portraits/${id}.png`, spec: SPEC.portrait,
-        sheet: `${common}\n\n${CHARACTER_SHEETS[char]}`,
-        prompt: `${common}\n\n${PROMPT_STYLE.portrait} ${FACE_PROMPTS[id] || 'expression: ' + face}`,
+        sheet: `${px}\n\n${PROMPT_STYLE.sheetRes}\n\n${CHARACTER_SHEETS[char]}`,
+        prompt: `${px}\n\n${PROMPT_STYLE.portraitRes}\n\n${PROMPT_STYLE.portrait} ${FACE_PROMPTS[id] || 'expression: ' + face}`,
       });
     }
   }
@@ -23,7 +23,7 @@ function requiredAssets() {
     list.push({
       kind: 'bg', group: '배경', id, label: b.label,
       path: `bg/${id}.png`, spec: SPEC.bg,
-      prompt: `${common}\n\n${BG_PROMPTS[id]} Horizontal 1536x1024.`,
+      prompt: `${px}\n\n${PROMPT_STYLE.bgRes}\n\n${BG_PROMPTS[id]} No people. Horizontal 1536x1024 PNG.`,
     });
   }
 
