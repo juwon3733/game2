@@ -27,7 +27,7 @@ Character reference sheet of an androgynous 22-year-old investigator with a cool
 ```
 방금 설정화 캐릭터 그대로, 같은 도트 스타일과 같은 팔레트로 그려줘. 모바일 가챠게임 캐릭터처럼 예쁘고 매력적으로.
 
-Native resolution about 128x192 pixels, upscaled with nearest-neighbor to 1024x1536 so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors. No anti-aliasing.
+Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
 
 Waist-up portrait facing slightly to the side, plain transparent background, vertical 1024x1536. Expression: sleepy, indifferent, half-closed eyes.
 ```
@@ -67,7 +67,7 @@ Character reference sheet of a cheerful 20-year-old rookie detective girl. Big s
 ```
 방금 설정화 캐릭터 그대로, 같은 도트 스타일과 같은 팔레트로 그려줘. 모바일 가챠게임 캐릭터처럼 예쁘고 매력적으로.
 
-Native resolution about 128x192 pixels, upscaled with nearest-neighbor to 1024x1536 so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors. No anti-aliasing.
+Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
 
 Waist-up portrait facing slightly to the side, plain transparent background, vertical 1024x1536. Expression: friendly smile.
 ```
@@ -107,7 +107,7 @@ Character reference sheet of a tired but handsome 47-year-old police chief with 
 ```
 방금 설정화 캐릭터 그대로, 같은 도트 스타일과 같은 팔레트로 그려줘. 모바일 가챠게임 캐릭터처럼 예쁘고 매력적으로.
 
-Native resolution about 128x192 pixels, upscaled with nearest-neighbor to 1024x1536 so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors. No anti-aliasing.
+Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
 
 Waist-up portrait facing slightly to the side, plain transparent background, vertical 1024x1536. Expression: tired, lollipop in mouth.
 ```
@@ -133,7 +133,7 @@ Chibi avatar of a hacker shown only on a monitor screen: small 2-head-tall chara
 ```
 방금 설정화 캐릭터 그대로, 같은 도트 스타일과 같은 팔레트로 그려줘. 모바일 가챠게임 캐릭터처럼 예쁘고 매력적으로.
 
-Native resolution about 128x192 pixels, upscaled with nearest-neighbor to 1024x1536 so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors. No anti-aliasing.
+Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
 
 Waist-up portrait facing slightly to the side, plain transparent background, vertical 1024x1536. Expression: smug chibi inside a monitor frame.
 ```
@@ -159,7 +159,7 @@ Character reference sheet of an elegant, gentle 61-year-old cafe owner woman. Be
 ```
 방금 설정화 캐릭터 그대로, 같은 도트 스타일과 같은 팔레트로 그려줘. 모바일 가챠게임 캐릭터처럼 예쁘고 매력적으로.
 
-Native resolution about 128x192 pixels, upscaled with nearest-neighbor to 1024x1536 so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors. No anti-aliasing.
+Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
 
 Waist-up portrait facing slightly to the side, plain transparent background, vertical 1024x1536. Expression: warm gentle smile, holding a coffee cup.
 ```
@@ -185,7 +185,7 @@ Character reference sheet of a friendly, chubby 63-year-old apartment security g
 ```
 방금 설정화 캐릭터 그대로, 같은 도트 스타일과 같은 팔레트로 그려줘. 모바일 가챠게임 캐릭터처럼 예쁘고 매력적으로.
 
-Native resolution about 128x192 pixels, upscaled with nearest-neighbor to 1024x1536 so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors. No anti-aliasing.
+Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
 
 Waist-up portrait facing slightly to the side, plain transparent background, vertical 1024x1536. Expression: proud and confident, arms crossed.
 ```
@@ -218,7 +218,7 @@ Character reference sheet of a 21-year-old delivery worker with a "scary-looking
 ```
 방금 설정화 캐릭터 그대로, 같은 도트 스타일과 같은 팔레트로 그려줘. 모바일 가챠게임 캐릭터처럼 예쁘고 매력적으로.
 
-Native resolution about 128x192 pixels, upscaled with nearest-neighbor to 1024x1536 so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors. No anti-aliasing.
+Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
 
 Waist-up portrait facing slightly to the side, plain transparent background, vertical 1024x1536. Expression: defensive glare, arms crossed.
 ```
@@ -251,7 +251,7 @@ Character reference sheet of an adorable 9-year-old girl. Big round brown eyes, 
 ```
 방금 설정화 캐릭터 그대로, 같은 도트 스타일과 같은 팔레트로 그려줘. 모바일 가챠게임 캐릭터처럼 예쁘고 매력적으로.
 
-Native resolution about 128x192 pixels, upscaled with nearest-neighbor to 1024x1536 so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors. No anti-aliasing.
+Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
 
 Waist-up portrait facing slightly to the side, plain transparent background, vertical 1024x1536. Expression: shy, half hidden behind a door.
 ```
@@ -284,7 +284,7 @@ Character reference sheet of an ethereal, beautiful 16-year-old girl. Large calm
 ```
 방금 설정화 캐릭터 그대로, 같은 도트 스타일과 같은 팔레트로 그려줘. 모바일 가챠게임 캐릭터처럼 예쁘고 매력적으로.
 
-Native resolution about 128x192 pixels, upscaled with nearest-neighbor to 1024x1536 so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors. No anti-aliasing.
+Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
 
 Waist-up portrait facing slightly to the side, plain transparent background, vertical 1024x1536. Expression: calm, faint smile, pointing at something.
 ```

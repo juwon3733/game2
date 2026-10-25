@@ -81,8 +81,8 @@ function countColors(file, limit) {
   return seen.size;
 }
 
-// 종류별 최대 색 수. 지금 들어간 이미지: 상반신 22~24, 배경 32, 컷 5~9(회색 8단계 + 포인트 1), 크레용 컷 32.
-const colorLimit = (a) => (a.kind === 'cut' ? (/crayon/i.test(a.prompt) ? 64 : 12) : a.kind === 'portrait' ? 48 : 64);
+// 종류별 최대 색 수. 지금 들어간 이미지: 상반신 22~24(256×384 버전은 약 40), 배경 32, 컷 5~9(회색 8단계 + 포인트 1), 크레용 컷 32.
+const colorLimit = (a) => (a.kind === 'cut' && !/crayon/i.test(a.prompt) ? 12 : 64);
 
 const norm = (s) => s.toLowerCase().replace(/\s*\(\d+\)/g, '').replace(/[\s-]+/g, '_').replace(/\.(png|jpe?g|webp)$/, '');
 

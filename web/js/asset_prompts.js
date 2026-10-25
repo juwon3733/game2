@@ -4,14 +4,14 @@ const PROMPT_STYLE = {
   // 캐릭터와 배경도 컷과 같은 저해상도 도트. 해상도만 종류별로 다르다.
   pixel: '이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.',
   sheetRes: 'Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.',
-  portraitRes: 'Native resolution about 128x192 pixels, upscaled with nearest-neighbor to 1024x1536 so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.',
+  portraitRes: 'Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors.',
   bgRes: 'Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. Full color, limited palette of about 32 colors.',
   // 컷은 PC-98 어드벤처 게임식 저해상도 도트. 그냥 "pixel art"라고 하면 고해상도 일러스트가 나온다.
   cut: '이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.\n\n{palette}',
   cutPalette: 'Palette: 8 grey levels from black to white, and one accent color {color}. Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.',
   // 크레용 왜곡 컷은 아이의 기억이라 색을 허용한다
   cutPaletteCrayon: 'Palette: exception for this panel — it is a child\'s crayon memory, so use a few bright crayon colors (yellow, pink, sky blue) with wobbly hand-drawn shapes, still made of chunky pixels. No text, no speech bubbles.',
-  portrait: 'Same character as the reference sheet above, waist-up portrait facing slightly to the side, plain transparent background, vertical 1024x1536.',
+  portrait: 'Same character as the reference sheet above, waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character: no door, wall, frame, furniture, panel or shape. The head, hair and both arms stay inside the image with clear empty margin on the left, right and top; only the waist touches the bottom edge.',
   // 캐릭터(설정화·상반신)만 모바일 가챠게임풍 서브컬처 디자인. 배경과 컷 분위기는 그대로 둔다.
   character: 'Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.',
   // 컷 속 인물도 상반신과 같은 얼굴로 보이게
@@ -19,7 +19,7 @@ const PROMPT_STYLE = {
 };
 
 const SPEC = {
-  portrait: { w: 1024, h: 1536, note: '세로 1024×1536 · 투명 배경 PNG' },
+  portrait: { w: 1024, h: 1536, note: '세로 1024×1536 · 원본 256×384 도트 4배 · 투명 배경 · 양옆·위 여백' },
   bg: { w: 1536, h: 1024, note: '가로 1536×1024' },
   cut: { w: 1536, h: 1024, note: '가로 1536×1024 · 저해상도 도트 · 회색 8단계 + 포인트 색 1개' },
 };
