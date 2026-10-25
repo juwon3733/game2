@@ -81,8 +81,8 @@ function countColors(file, limit) {
   return seen.size;
 }
 
-// 종류별 최대 색 수. 지금 들어간 이미지: 상반신 22~24, 배경 32, 컷 5, 크레용 컷 32.
-const colorLimit = (a) => (a.kind === 'cut' ? (/crayon/i.test(a.prompt) ? 64 : 8) : a.kind === 'portrait' ? 48 : 64);
+// 종류별 최대 색 수. 지금 들어간 이미지: 상반신 22~24, 배경 32, 컷 5~9(회색 8단계 + 포인트 1), 크레용 컷 32.
+const colorLimit = (a) => (a.kind === 'cut' ? (/crayon/i.test(a.prompt) ? 64 : 12) : a.kind === 'portrait' ? 48 : 64);
 
 const norm = (s) => s.toLowerCase().replace(/\s*\(\d+\)/g, '').replace(/[\s-]+/g, '_').replace(/\.(png|jpe?g|webp)$/, '');
 
@@ -112,7 +112,7 @@ for (const folder of ['portraits', 'bg', 'cuts']) {
     const limit = colorLimit(a);
     const colors = countColors(file, limit);
     if (colors > limit) {
-      errors.push({ file: rel, msg: `색이 ${limit}개보다 많아요. 저해상도 도트가 아니라 일반 일러스트로 나온 것 같아요.${a.kind === 'cut' ? ' 컷은 검정·흰색·회색 2단·포인트 색 1개만 써요.' : ''}` });
+      errors.push({ file: rel, msg: `색이 ${limit}개보다 많아요. 저해상도 도트가 아니라 일반 일러스트로 나온 것 같아요.${a.kind === 'cut' ? ' 컷은 회색 8단계와 포인트 색 1개만 써요.' : ''}` });
       continue;
     }
     if (info.bytes > MAX_BYTES) {

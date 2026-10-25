@@ -100,7 +100,7 @@ const json = {
   generated_by: 'node tools/export-prompts.mjs (직접 고치지 말 것. web/js/asset_prompts.js를 고친 뒤 다시 생성)',
   style_version: 2,
   rules: {
-    style: 'PC-98식 저해상도 도트. 캐릭터는 모바일 가챠게임풍 서브컬처 디자인(큰 눈, 매력적인 얼굴, 소품). 컷은 흑백 + 회색 2단 + 포인트 색 1개, 캐릭터/배경은 풀컬러.',
+    style: 'PC-98식 저해상도 도트. 캐릭터는 모바일 가챠게임풍 서브컬처 디자인(큰 눈, 매력적인 얼굴, 소품). 컷은 회색 8단계 + 포인트 색 1개, 캐릭터/배경은 풀컬러.',
     style_v2_redo: 'style_version 2부터 캐릭터 디자인이 바뀌었다. 이전에 만든 상반신(portraits)은 요청받으면 새 프롬프트로 교체한다.',
     format: 'PNG만. 파일명과 대소문자는 file 그대로. 크기는 width x height.',
     skip_existing: '이미 저장소에 있는 file은 다시 만들지 않는다 (교체 요청이 있을 때만).',

@@ -356,7 +356,7 @@ Exterior of an old 6-story apartment building on a hill at night, balconies, a f
 
 Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.
 
-Palette: black, white, two greys, and one accent color gold (#c9961a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
+Palette: 8 grey levels from black to white, and one accent color gold (#c9961a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
 Scene: a young delivery worker with spiky bleached blond hair (accent color) under a backwards black cap, a small earring and a black uniform with reflective stripes holding a cardboard box under his arm, pressing the doorbell of an apartment front door at night. Big music notes drifting out through the door gap.
 
@@ -429,7 +429,7 @@ Scene: a young delivery worker with spiky bleached blond hair (accent color) und
 
 Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.
 
-Palette: black, white, two greys, and one accent color blue (#3b8fd0). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
+Palette: 8 grey levels from black to white, and one accent color blue (#3b8fd0). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
 Scene: a gentle man in his early 30s with glasses and a light shirt with both hands lifted clearly above the piano keys, not touching them, turning toward a curtained balcony door, a small child-sized shadow behind the curtain.
 
@@ -457,7 +457,7 @@ Scene: a gentle man in his early 30s with glasses and a light shirt leaning thro
 
 Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.
 
-Palette: black, white, two greys, and one accent color pink (#e0679a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
+Palette: 8 grey levels from black to white, and one accent color pink (#e0679a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
 Scene: On a balcony at night, a music-note hairpin flying away in the wind from the hair of a 9-year-old girl with brown twin tails tied with ribbons, a small music-note hairpin, a t-shirt with a piano-key pattern and a denim overall skirt. She stands on the balcony floor reaching for it.
 
@@ -558,7 +558,7 @@ Scene: Child's crayon drawing of a blanket colored completely black, a tiny fist
 
 Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.
 
-Palette: black, white, two greys, and one accent color olive green (#6b8a5a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
+Palette: 8 grey levels from black to white, and one accent color olive green (#6b8a5a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
 Scene: a young delivery worker with spiky bleached blond hair (light grey) under a backwards black cap, a small earring and a black uniform with reflective stripes bursting out of a stairwell into the entrance hall, shouting with a terrified face, both hands empty. Leave empty space at the top center for a speech bubble.
 

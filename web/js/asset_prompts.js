@@ -8,7 +8,7 @@ const PROMPT_STYLE = {
   bgRes: 'Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. Full color, limited palette of about 32 colors.',
   // 컷은 PC-98 어드벤처 게임식 저해상도 도트. 그냥 "pixel art"라고 하면 고해상도 일러스트가 나온다.
   cut: '이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.\n\n{palette}',
-  cutPalette: 'Palette: black, white, two greys, and one accent color {color}. Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.',
+  cutPalette: 'Palette: 8 grey levels from black to white, and one accent color {color}. Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.',
   // 크레용 왜곡 컷은 아이의 기억이라 색을 허용한다
   cutPaletteCrayon: 'Palette: exception for this panel — it is a child\'s crayon memory, so use a few bright crayon colors (yellow, pink, sky blue) with wobbly hand-drawn shapes, still made of chunky pixels. No text, no speech bubbles.',
   portrait: 'Same character as the reference sheet above, waist-up portrait facing slightly to the side, plain transparent background, vertical 1024x1536.',
@@ -21,7 +21,7 @@ const PROMPT_STYLE = {
 const SPEC = {
   portrait: { w: 1024, h: 1536, note: '세로 1024×1536 · 투명 배경 PNG' },
   bg: { w: 1536, h: 1024, note: '가로 1536×1024' },
-  cut: { w: 1536, h: 1024, note: '가로 1536×1024 · 저해상도 도트 · 흑백 + 포인트 색 1개' },
+  cut: { w: 1536, h: 1024, note: '가로 1536×1024 · 저해상도 도트 · 회색 8단계 + 포인트 색 1개' },
 };
 
 // 캐릭터 설정화: 표정 상반신을 뽑기 전에 같은 대화창에서 먼저 뽑는다.
