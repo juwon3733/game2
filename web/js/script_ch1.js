@@ -248,7 +248,7 @@ async function sceneConclusion() {
     const q = CONCLUSION[i];
     for (;;) {
       hideText();
-      const c = await pickCut(`질문 ${i + 1}. ${q.q}`, '대답이 되는 컷을 고르자.', { cancel: false });
+      const c = await pickCut(`질문 ${i + 1}. ${q.q}`, '대답이 되는 컷을 고르자.', { cancel: false, only: q.choices });
       if (q.answer.includes(c)) { sfx('correct'); break; }
       sfx('wrong'); quake();
       await say('kurogane', '…그 컷으론 설명이 안 되지. 다시.');
@@ -311,6 +311,8 @@ const SCENE_BGM = {
   explore2: 'explore', himari: 'tension', puzzle2: 'tension', conclusion: 'trial', epilogue: 'epilogue',
 };
 
+const SCENE_CAST = { office: ['rei', 'koharu', 'kurogane', 'towa'], ookubo: ['ookubo'], taiga: ['taiga'], explore2: ['shiori'], himari: ['himari'] };
+
 // ---------- 저장 ----------
 // 장면이 시작될 때마다 자동 저장. 타이틀의 [이어하기]가 그 장면부터 다시 시작한다.
 const SAVE_KEY = 'gaha-ch1-save';
@@ -327,6 +329,8 @@ async function playFrom(scene, saved) {
   G.flags = Object.assign({}, saved ? saved.flags : {});
   LOG.length = 0;
   const start = SCENES.findIndex(([id]) => id === scene);
+  // 장면 선택으로 중간부터 시작하면 앞 장면에서 만난 인물을 수첩에 미리 넣는다
+  if (!saved) G.flags.met = SCENES.slice(0, start).flatMap(([id]) => SCENE_CAST[id] || []);
   for (let i = start; i < SCENES.length; i++) {
     const id = SCENES[i][0];
     saveProgress(id);

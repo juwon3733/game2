@@ -67,6 +67,8 @@ function bg(id) {
 const onStage = {}; // char -> img
 
 function show(char, face = CHARACTERS[char].faces[0], pos = 'center') {
+  G.flags.met = G.flags.met || [];
+  if (!G.flags.met.includes(char)) G.flags.met.push(char);
   let img = onStage[char];
   if (!img) {
     img = new Image();
@@ -291,11 +293,12 @@ function openModal(html, cls = '') {
 function closeModal() { $('#modal').className = 'hidden'; $('#modal').innerHTML = ''; G.busyModal = false; }
 
 // 컷을 골라야 하는 모달. filter로 고를 수 있는 컷 제한. 취소하면 null.
-function pickCut(title, sub, { cancel = true } = {}) {
-  const m = openModal(`<div class="md-title">${title}</div><div class="md-sub">${sub || ''}</div><div class="md-grid"></div>${cancel ? '<button class="md-cancel">취소</button>' : ''}`, 'pick');
+function pickCut(title, sub, { cancel = true, only = null } = {}) {
+  const ids = only ? only.filter((id) => G.cuts.includes(id)) : G.cuts;
+  const m = openModal(`<div class="md-title">${title}</div><div class="md-sub">${sub || ''}</div><div class="md-grid${ids.length <= 5 ? ' few' : ''}"></div>${cancel ? '<button class="md-cancel">취소</button>' : ''}`, 'pick');
   const grid = m.querySelector('.md-grid');
   return new Promise((resolve) => {
-    G.cuts.forEach((id) => {
+    ids.forEach((id) => {
       const v = cutView(id, { fills: G.fills });
       v.classList.add('pickable');
       v.onclick = () => { sfx('select'); closeModal(); resolve(id); };
@@ -374,16 +377,31 @@ function gainLine(id) {
 
 // ---------- 수첩 ----------
 
+// 수첩: 컷 / 대사 조각 / 인물 탭
 $('#btn-note').onclick = (e) => {
   e.stopPropagation();
   if (G.busyModal) return;
-  const m = openModal(`<div class="md-title">사건 수첩</div><div class="md-sub">모은 컷 ${G.cuts.length}장 · 대사 조각 ${G.lines.length}개</div>
-    <div class="md-grid"></div><div class="md-lines"></div><button class="md-cancel">닫기</button>`, 'note');
+  sfx('page', { vol: 0.6 });
+  const met = Object.keys(PROFILES).filter((k) => (G.flags.met || []).includes(k));
+  const m = openModal(`<div class="md-title">사건 수첩</div>
+    <div class="nb-tabs"><button data-tab="cuts" class="on">컷 ${G.cuts.length}</button><button data-tab="lines">대사 조각 ${G.lines.length}</button><button data-tab="people">인물 ${met.length}</button></div>
+    <div class="nb-page" data-page="cuts"><div class="md-grid"></div></div>
+    <div class="nb-page hidden" data-page="lines"><div class="md-lines"></div></div>
+    <div class="nb-page hidden" data-page="people"><div class="nb-people"></div></div>
+    <button class="md-cancel">닫기</button>`, 'note');
   const grid = m.querySelector('.md-grid');
   G.cuts.forEach((id) => grid.appendChild(cutView(id, { fills: G.fills })));
   if (!G.cuts.length) grid.innerHTML = '<div class="md-empty">아직 모은 컷이 없다.</div>';
   const lines = m.querySelector('.md-lines');
   G.lines.forEach((id) => lines.insertAdjacentHTML('beforeend', `<div class="line-btn static"><b>"${LINES[id].text}"</b><small>${LINES[id].from}</small></div>`));
+  Object.entries(G.fills).forEach(([cut, id]) => lines.insertAdjacentHTML('beforeend', `<div class="line-btn static used"><b>"${LINES[id].text}"</b><small>「${CUTS[cut].title}」 말풍선에 넣음</small></div>`));
+  if (!lines.children.length) lines.innerHTML = '<div class="md-empty">아직 대사 조각이 없다. 증언을 [파고들어] 모아 보자.</div>';
+  m.querySelector('.nb-people').innerHTML = met.map((k) => `<div class="nb-person"><img src="${ASSET.portrait(k, CHARACTERS[k].faces[0])}" alt=""><div><b style="color:${CHARACTERS[k].accent}">${CHARACTERS[k].name}</b><p>${PROFILES[k]}</p></div></div>`).join('') || '<div class="md-empty">아직 만난 사람이 없다.</div>';
+  m.querySelectorAll('.nb-tabs button').forEach((b) => (b.onclick = () => {
+    m.querySelectorAll('.nb-tabs button').forEach((x) => x.classList.toggle('on', x === b));
+    m.querySelectorAll('.nb-page').forEach((p) => p.classList.toggle('hidden', p.dataset.page !== b.dataset.tab));
+    sfx('select');
+  }));
   m.querySelector('.md-cancel').onclick = closeModal;
 };
 

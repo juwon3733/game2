@@ -126,6 +126,7 @@ function cutView(id, opts = {}) {
   const body = el.querySelector('.cutv-body');
   const img = new Image();
   img.className = 'cutv-img';
+  img.draggable = false;
   img.onload = () => {
     body.classList.add('has-img');
     // AI 그림이 단서를 빠뜨려도 퍼즐이 풀리도록 설명을 짧게 붙인다

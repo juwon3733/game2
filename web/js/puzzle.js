@@ -20,7 +20,7 @@ function runPuzzle(id) {
   clearChars();
 
   return new Promise(async (resolve) => {
-    let msg ='토와: 묶음의 컷을 누르면 빈 칸에 차례로 들어가. 칸에 있는 컷을 누르면 빠져.';
+    let msg ='토와: 컷을 칸으로 끌어다 놓거나 눌러서 넣어. 칸끼리 끌면 자리가 바뀌고, 칸의 컷을 누르면 빠져.';
     let done = false;
 
     const render = () => {
@@ -58,8 +58,69 @@ function runPuzzle(id) {
       if (!st.tray.length) tray.insertAdjacentHTML('beforeend', '<p style="font-size:18px;color:#999">모든 컷을 놓았다.</p>');
     };
 
+    // 끌어 놓기: 묶음 → 칸, 칸 ↔ 칸(맞바꿈), 칸 → 바깥(묶음으로). 그냥 누르면 예전처럼 차례로 들어간다.
+    let drag = null, dragged = false;
+    const stagePt = (e) => {
+      const r = $('#stage').getBoundingClientRect(), k = r.width / 1280;
+      return [(e.clientX - r.left) / k, (e.clientY - r.top) / k];
+    };
+    const slotAt = (e) => { const el = document.elementFromPoint(e.clientX, e.clientY); return el && el.closest('.pz-slot'); };
+    root.onpointerdown = (e) => {
+      if (done || G.busyModal || e.button > 0 || e.target.closest('.bubble, .cutv-zoom, [data-a]')) return;
+      const card = e.target.closest('[data-tray], .pz-slot.filled');
+      if (!card) return;
+      const slot = card.classList.contains('pz-slot') ? Number(card.dataset.slot) : null;
+      if (slot !== null && st.locked.has(slot)) return;
+      e.preventDefault();
+      drag = { tray: card.dataset.tray, slot, src: slot !== null ? card.querySelector('.cutv') : card, x: e.clientX, y: e.clientY, ghost: null };
+    };
+    const onMove = (e) => {
+      if (!drag) return;
+      if (!drag.ghost) {
+        if (Math.hypot(e.clientX - drag.x, e.clientY - drag.y) < 8) return;
+        drag.ghost = drag.src.cloneNode(true);
+        drag.ghost.className += ' pz-ghost';
+        $('#stage').appendChild(drag.ghost);
+        drag.src.classList.add('pz-dragging');
+      }
+      const [x, y] = stagePt(e);
+      Object.assign(drag.ghost.style, { left: x - 115 + 'px', top: y - 60 + 'px' });
+      root.querySelectorAll('.pz-slot.drop').forEach((s) => s.classList.remove('drop'));
+      const t = slotAt(e);
+      if (t && !st.locked.has(Number(t.dataset.slot))) t.classList.add('drop');
+    };
+    const onUp = (e) => {
+      if (!drag) return;
+      const d = drag;
+      drag = null;
+      if (!d.ghost) return;
+      d.ghost.remove();
+      dragged = true;
+      setTimeout(() => { dragged = false; }, 0);
+      const t = slotAt(e);
+      const to = t ? Number(t.dataset.slot) : null;
+      const cid = d.tray || st.slots[d.slot];
+      if (to !== null && !st.locked.has(to)) {
+        if (d.slot !== null) { st.slots[d.slot] = st.slots[to]; st.slots[to] = cid; }
+        else {
+          if (st.slots[to]) st.tray.push(st.slots[to]);
+          st.slots[to] = cid;
+          st.tray.splice(st.tray.indexOf(cid), 1);
+        }
+        sfx('place');
+      } else if (d.slot !== null && !t) {
+        st.slots[d.slot] = null;
+        st.tray.push(cid);
+        sfx('cancel');
+      }
+      st.bad = null;
+      render();
+    };
+    addEventListener('pointermove', onMove);
+    addEventListener('pointerup', onUp);
+
     root.onclick = async (e) => {
-      if (G.busyModal) return;
+      if (G.busyModal || dragged) return;
       const btn = e.target.closest('[data-a]');
       if (btn) return onAction(btn.dataset.a);
       if (done) return;
@@ -94,7 +155,11 @@ function runPuzzle(id) {
     };
 
     const onAction = async (a) => {
-      if (a === 'check' && done) { root.classList.add('hidden'); root.onclick = null; goal(''); return resolve({ tries: st.tries, hints: st.hints }); }
+      if (a === 'check' && done) {
+        root.classList.add('hidden'); root.onclick = null; root.onpointerdown = null; goal('');
+        removeEventListener('pointermove', onMove); removeEventListener('pointerup', onUp);
+        return resolve({ tries: st.tries, hints: st.hints });
+      }
       if (done) return;
       if (a === 'reset') {
         st.slots.forEach((c, i) => { if (c && !st.locked.has(i)) { st.tray.push(c); st.slots[i] = null; } });
@@ -177,7 +242,7 @@ function runPuzzle(id) {
       G.flags.puzzleTut = true;
       await sayAll([
         ['towa', '컷 정리 시간. 잔상에는 시간이 안 적혀 있어. 그림 속 단서로 순서를 맞춰야 해.'],
-        ['towa', '오른쪽 묶음의 컷을 누르면 왼쪽 원고지 빈 칸에 1번부터 차례로 들어가. 읽는 순서는 왼쪽 위 → 오른쪽 아래.'],
+        ['towa', '오른쪽 묶음의 컷을 원고지 칸으로 끌어다 놔. 그냥 누르면 1번부터 차례로 들어가. 읽는 순서는 왼쪽 위 → 오른쪽 아래.'],
         ['towa', '다 놓았으면 [이 순서로 확정]. 틀리면 어디가 왜 이상한지 알려줄게.'],
       ]);
       hideText();

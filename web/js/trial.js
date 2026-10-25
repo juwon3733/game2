@@ -50,6 +50,7 @@ async function runTrial(id) {
     renderTrial(W, st);
     const s = W.statements[st.idx];
     showLine(W.char, s.text);
+    $('#actions').classList.add('trial');
     const act = await actions([
       { id: 'prev', label: '◀ 이전', cls: 'small', disabled: st.idx === 0 },
       { id: 'press', label: '파고들기', cls: 'press' },
@@ -104,6 +105,7 @@ async function runTrial(id) {
       if (shown) cgEnd();
       for (const c of W.rewards) await gainCut(c);
       $('#trial').classList.add('hidden');
+      $('#actions').classList.remove('trial');
       goal('');
       clearChars();
       hideText();
