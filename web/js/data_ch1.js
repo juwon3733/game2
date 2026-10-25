@@ -260,3 +260,10 @@ const PROFILES = {
 // 물증과 단어 조각 (장마다 data_chN.js가 Object.assign으로 더한다)
 const ITEMS = {};
 const WORDS = {};
+
+// 증인의 모든 증언 (2라운드, 반박 뒤 바뀐 증언 포함). 컷 id가 같으면 처음 것만.
+function allStatements(w) {
+  const out = [...w.statements, ...((w.round2 || {}).statements || [])];
+  (w.answers || []).forEach((a) => Object.values(a.changes || {}).forEach((s) => out.push(s)));
+  return out.filter((s, i) => out.findIndex((t) => t.cut === s.cut) === i);
+}

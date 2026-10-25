@@ -15,7 +15,7 @@
 
 | 경로 | 내용 |
 |---|---|
-| `web/` | 게임 본체 (빌드 없음, 순수 JS). `js/script_ch1.js` 진행, `js/data_ch1.js` 데이터, `js/explore.js` 탑뷰 탐색, `js/trial.js` 심문, `js/puzzle.js` 컷 배열 |
+| `web/` | 게임 본체 (빌드 없음, 순수 JS). 장마다 `js/script_chN.js` 진행(+탐색 맵) · `js/data_chN.js` 데이터(1장 표에 Object.assign) · `js/asset_prompts_chN.js` 그림 프롬프트. `js/main.js` 장 이어가기·저장·원고 평가, `js/explore.js` 탑뷰 탐색, `js/trial.js` 심문(여러 번 반박·짚기·보류), `js/puzzle.js` 컷 배열(동시 칸), `js/name.js` 네임(가설 문장) |
 | `web/assets/` | 이미지 (`portraits/`, `bg/`, `cuts/`, `maps/`, `sprites/`, `title/`, `ui/`, `cg/`), 소리(`audio/`). 이미지가 없으면 게임이 임시 그림/기본 CSS를 쓴다 |
 | `web/fonts/` | Galmuri 글꼴 (OFL, CDN 없이) |
 | `web/js/asset_prompts.js` | **이미지 프롬프트 원본** (유일한 원본) |
@@ -42,6 +42,7 @@
 - 컷 검수 기준: 5층 베란다 컷은 아래로 항구 야경이 보여 높이가 느껴질 것, 단서(머리핀·배터리 등)는 크게 포인트 색으로, 사건 컷은 전부 밤.
 - 컷: 회색 8단계 + 시점 주인의 포인트 색 1개 (포인트 색은 시점 구분 장치라 1개만. 초기 컷 13장은 회색 4단계) (타이가 금 `#c9961a`, 미츠루 파랑 `#3b8fd0`, 히마리 분홍 `#e0679a`, 오오쿠보 올리브 `#6b8a5a`). 크레용 기억 컷만 크레용 색.
 - 배경: 풀컬러 도트, 늦여름 항구도시 밤 분위기 (7장 완료, 그대로 유지).
+- **2장 「앙코르 없음」 구현됨** (장면 13개, 중간 지목: 쿠라모치를 지목하면 연행됨). 그림은 전부 임시. GPT에 맡길 묶음: `portrait-ruru pin aoi kuramochi tendo kirishima`, `bg`(새 6장), `cut-pin cut-ruru cut-aoi cut-kuramochi cut-kirishima cut-tendo`, `map`(crescent backstage tendooffice). 맵 그림이 오면 `script_ch2.js`의 rows·물건 위치를 맞추고, 컷이 오면 `data_ch2.js`의 spots 좌표를 그림에 맞춘다.
 - 1장 이미지 들어감. **다시 받을 컷**: `H I B t_himari_2_truth t_ookubo_2 t_taiga_3_truth` (높이·머리핀·밤·단서 크기, 프롬프트 고침). 남은 것: `ui cg`, 타이틀 원본 화질. GPT가 풀컬러로 주면 Claude가 384×256 → 회색 8 + 포인트 1 디더링 → 1536×1024로 변환해 넣는다.
 - 그림은 GPT 이미지를 적극적으로 쓴다. 코드로 직접 그린 그림·CSS 장식은 "AI 슬롭" 티가 나서 사용자가 싫어한다. 코드 그림은 이미지가 없을 때의 임시용.
 - 탐색 맵(`maps/`), 걷는 캐릭터 시트(`sprites/`), 타이틀 키아트(`title/key.png`)도 GPT 이미지. 맵 그림이 들어오면 Claude가 그림을 보고 `explore.js`의 충돌 칸(`rows`)과 물건 위치를 맞춘다.
@@ -57,4 +58,4 @@
 npx serve web          # 또는 python3 -m http.server -d web 8124
 ```
 
-주소 뒤에 `#ookubo`처럼 장면 id를 붙이면 그 장면부터 시작한다 (`office explore1 puzzle1 ookubo taiga explore2 himari puzzle2 conclusion epilogue`). 타이틀 화면의 장면 선택도 같다.
+주소 뒤에 `#ookubo`처럼 장면 id를 붙이면 그 장면부터 시작한다 (1장 `office explore1 puzzle1 ookubo taiga explore2 himari puzzle2 conclusion epilogue`, 2장 `office2 explore2a puzzle2a kuramochi explore2b pin ruru accuse2 explore2c tendo puzzle2b conclusion2 epilogue2`). 타이틀 화면의 장면 선택도 같다.

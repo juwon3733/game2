@@ -341,7 +341,247 @@ Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1
 Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: earnest, slightly flustered, holding a smartphone.
 ```
 
-## 대화 12 — 배경 (7장)
+## 대화 12 — 루루 상반신 (4장)
+
+먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
+
+**`설정화 (저장 안 해도 됨)`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
+
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+
+Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
+
+Character reference sheet of a stunning 19-year-old indie rock vocalist and guitarist girl with a sharp tongue. Large vivid vermilion-orange eyes with sharp highlights, long platinum-white hair with a straight fringe and one thin braid, a small black ribbon choker, an oversized white stage jacket with silver buttons over a black tank top, black shorts and torn tights, a guitar pick necklace. On stage a perfect idol smile, off stage a cool glare. Vermilion and white accents.
+```
+
+**`ruru_normal.png`
+```
+방금 설정화 캐릭터 그대로, 같은 도트 스타일과 같은 팔레트로 그려줘. 모바일 가챠게임 캐릭터처럼 예쁘고 매력적으로.
+
+Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
+
+Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: cool, bored glare, arms crossed.
+```
+
+**`ruru_angry.png`
+```
+같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
+
+Expression: sharp angry glare, teeth showing, defensive.
+```
+
+**`ruru_crying.png`
+```
+같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
+
+Expression: crying with clenched teeth, tears streaming, trying not to break.
+```
+
+**`ruru_smile.png`
+```
+같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
+
+Expression: perfect stage idol smile, one hand waving.
+```
+
+## 대화 13 — 핀 상반신 (3장)
+
+먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
+
+**`설정화 (저장 안 해도 됨)`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
+
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+
+Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
+
+Character reference sheet of a sweet, fluffy 18-year-old bassist girl. Big round lavender eyes, pastel pink wavy hair in two buns with star clips, lots of glitter makeup and a heart sticker under one eye, oversized lilac hoodie with a cartoon bunny, pleated skirt, platform sneakers, a bass case covered in stickers. Lavender and pink accents.
+```
+
+**`pin_normal.png`
+```
+방금 설정화 캐릭터 그대로, 같은 도트 스타일과 같은 팔레트로 그려줘. 모바일 가챠게임 캐릭터처럼 예쁘고 매력적으로.
+
+Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
+
+Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: nervous, hugging her sleeves.
+```
+
+**`pin_happy.png`
+```
+같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
+
+Expression: bright fluffy smile, peace sign.
+```
+
+**`pin_crying.png`
+```
+같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
+
+Expression: sobbing, glitter makeup running.
+```
+
+## 대화 14 — 아오이 상반신 (2장)
+
+먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
+
+**`설정화 (저장 안 해도 됨)`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
+
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+
+Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
+
+Character reference sheet of a cool 21-year-old drummer girl and band leader. Short navy-black hair with an undercut, calm sharp cobalt-blue eyes, silver ear cuffs, black tank top under an open cobalt work shirt, cargo pants, drumsticks in her back pocket, taped fingers. Cobalt blue and black accents.
+```
+
+**`aoi_normal.png`
+```
+방금 설정화 캐릭터 그대로, 같은 도트 스타일과 같은 팔레트로 그려줘. 모바일 가챠게임 캐릭터처럼 예쁘고 매력적으로.
+
+Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
+
+Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: calm and cool, spinning a drumstick.
+```
+
+**`aoi_serious.png`
+```
+같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
+
+Expression: serious, frowning, holding a folded document.
+```
+
+## 대화 15 — 쿠라모치 상반신 (3장)
+
+먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
+
+**`설정화 (저장 안 해도 됨)`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
+
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+
+Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
+
+Character reference sheet of a quiet 28-year-old live-house lighting technician woman. Short brown bob with a neat side part, tired honest amber eyes, a headset with microphone around her neck, black crew T-shirt with a small crescent moon logo, a tool belt, thick black work gloves always on her hands. Amber and black accents.
+```
+
+**`kuramochi_normal.png`
+```
+방금 설정화 캐릭터 그대로, 같은 도트 스타일과 같은 팔레트로 그려줘. 모바일 가챠게임 캐릭터처럼 예쁘고 매력적으로.
+
+Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
+
+Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: guarded, looking away, gloved hand on her headset.
+```
+
+**`kuramochi_scared.png`
+```
+같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
+
+Expression: scared and guilty, biting her lip, eyes down.
+```
+
+**`kuramochi_resolute.png`
+```
+같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
+
+Expression: resolute, looking straight ahead, gloves taken off.
+```
+
+## 대화 16 — 텐도 상반신 (4장)
+
+먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
+
+**`설정화 (저장 안 해도 됨)`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
+
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+
+Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
+
+Character reference sheet of an elegant, intimidating 52-year-old talent agency president woman. Dark hair in a tight elegant updo, sharp smiling eyes with long lashes, deep wine-magenta tailored suit with a brooch, pearl earrings, and a very large square gold wristwatch on her left wrist that is always visible. Smiles politely but the eyes do not smile. Magenta and gold accents.
+```
+
+**`tendo_smile.png`
+```
+방금 설정화 캐릭터 그대로, 같은 도트 스타일과 같은 팔레트로 그려줘. 모바일 가챠게임 캐릭터처럼 예쁘고 매력적으로.
+
+Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
+
+Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: polished polite smile, hand near her chin showing the big square gold watch.
+```
+
+**`tendo_normal.png`
+```
+같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
+
+Expression: cold, businesslike, checking her square gold watch.
+```
+
+**`tendo_angry.png`
+```
+같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
+
+Expression: icy anger, eyes narrowed, pointing.
+```
+
+**`tendo_cornered.png`
+```
+같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
+
+Expression: cornered, forced smile cracking, sweat on her temple.
+```
+
+## 대화 17 — 키리시마 상반신 (2장)
+
+먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
+
+**`설정화 (저장 안 해도 됨)`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
+
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+
+Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
+
+Character reference sheet of a stern, handsome 34-year-old band manager man. Neat short black hair, narrow tired teal eyes, always in a plain black suit and dark tie, a radio transceiver clipped to the belt, a small worn notebook in the breast pocket. Teal green accents.
+```
+
+**`kirishima_normal.png`
+```
+방금 설정화 캐릭터 그대로, 같은 도트 스타일과 같은 팔레트로 그려줘. 모바일 가챠게임 캐릭터처럼 예쁘고 매력적으로.
+
+Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
+
+Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: stern and blunt, holding a clipboard.
+```
+
+**`kirishima_soft.png`
+```
+같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
+
+Expression: a rare small gentle smile, slightly sad.
+```
+
+## 대화 18 — 배경 (13장)
 
 배경끼리 그림체를 맞추려고 한 대화에서 이어 만든다.
 
@@ -398,7 +638,49 @@ Small cozy retro cafe on a hillside street, wooden counter, siphon coffee makers
 Exterior of an old 6-story apartment building on a hill at night, balconies, a flowerbed below, city lights in the distance. Keep the lower third simple because characters will stand in front.
 ```
 
-## 대화 13 — 컷 · 타이가 시점 + 증언 (금색) (7장)
+**`crescent_out.png`
+```
+같은 도트 스타일, 같은 픽셀 크기와 팔레트로 다음 배경을 그려줘. 사람 없이, 가로 1536x1024.
+
+Entrance of a small basement live house in front of a train station at night, neon crescent moon sign, posters on the wall, stairs going down, police tape across the door. Keep the lower third simple because characters will stand in front.
+```
+
+**`crescent_stage.png`
+```
+같은 도트 스타일, 같은 픽셀 크기와 팔레트로 다음 배경을 그려줘. 사람 없이, 가로 1536x1024.
+
+Inside a small live house seen from the audience floor: a low stage with drums and amps, a lighting truss above, a metal catwalk along the ceiling, a lighting booth window at the back, empty floor with tape marks. Dim blue house lights. Keep the lower third simple because characters will stand in front.
+```
+
+**`booth.png`
+```
+같은 도트 스타일, 같은 픽셀 크기와 팔레트로 다음 배경을 그려줘. 사람 없이, 가로 1536x1024.
+
+Small lighting booth at the back of a live house, a lighting console with many faders and buttons, a large glass window looking down on the stage and the catwalk, a clipboard, a headset hanging. Keep the lower third simple because characters will stand in front.
+```
+
+**`greenroom.png`
+```
+같은 도트 스타일, 같은 픽셀 크기와 팔레트로 다음 배경을 그려줘. 사람 없이, 가로 1536x1024.
+
+Cramped live-house dressing room, a long mirror with bulbs, a bench, guitar and bass cases covered in stickers, a small CRT monitor on the wall showing the stage, a black suit jacket on a chair. Keep the lower third simple because characters will stand in front.
+```
+
+**`backstage.png`
+```
+같은 도트 스타일, 같은 픽셀 크기와 팔레트로 다음 배경을 그려줘. 사람 없이, 가로 1536x1024.
+
+Narrow backstage corridor of a live house, black walls, cables, road cases, a steep steel staircase going up to the catwalk, a dented spot on the wall. Keep the lower third simple because characters will stand in front.
+```
+
+**`tendo_office.png`
+```
+같은 도트 스타일, 같은 픽셀 크기와 팔레트로 다음 배경을 그려줘. 사람 없이, 가로 1536x1024.
+
+Luxurious talent agency president office in the afternoon, a big wooden desk, a leather chair, framed band posters, a safe, a waste basket beside the desk, blinds with warm sunlight. Keep the lower third simple because characters will stand in front.
+```
+
+## 대화 19 — 컷 · 타이가 시점 + 증언 (금색) (7장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -471,7 +753,7 @@ Scene: At night on a dim stairwell: a young delivery worker with spiky bleached 
 
 > 꼭 보여야 할 것: (진실) 꺼진 휴대폰의 큰 빈 배터리 아이콘
 
-## 대화 14 — 컷 · 미츠루 시점 (파랑) (2장)
+## 대화 20 — 컷 · 미츠루 시점 (파랑) (2장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -499,7 +781,7 @@ Scene: a gentle man in his early 30s with glasses and a light shirt leaning thro
 
 > 꼭 보여야 할 것: 칸막이, 뻗은 팔, 난간 위 작은 발, 바깥 턱의 반짝임, 위쪽 가운데 빈 공간
 
-## 대화 15 — 컷 · 히마리 시점 (분홍) (6장)
+## 대화 21 — 컷 · 히마리 시점 (분홍) (6장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -563,7 +845,7 @@ Scene: a 9-year-old girl with brown twin tails tied with ribbons, a small music-
 
 > 꼭 보여야 할 것: (진실) 머리핀을 쥔 손
 
-## 대화 16 — 컷 · 히마리 크레용 기억 (예외: 크레용 색) (3장)
+## 대화 22 — 컷 · 히마리 크레용 기억 (예외: 크레용 색) (3장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -600,7 +882,7 @@ Scene: Child's crayon drawing of a blanket colored completely black, a tiny fist
 
 > 꼭 보여야 할 것: 크레용, 새까만 이불
 
-## 대화 17 — 컷 · 오오쿠보 증언 (올리브) (5장)
+## 대화 23 — 컷 · 오오쿠보 증언 (올리브) (5장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -655,7 +937,7 @@ Scene: A dull impact on a flowerbed in front of an apartment building at night, 
 
 > 꼭 보여야 할 것: 화단의 충격
 
-## 대화 18 — 탐색 맵 (1장)
+## 대화 24 — 탐색 맵 (4장)
 
 칸 배치를 최대한 지킨다. 조금 어긋나도 Claude가 충돌 칸을 그림에 맞춘다.
 
@@ -678,7 +960,59 @@ Layout by tile rows, top to bottom:
 Full color, limited palette of about 48 colors, clean dark outlines, soft dithered shadows, no anti-aliasing.
 ```
 
-## 대화 19 — 걷는 캐릭터 (탐색용) (3장)
+**`crescent.png`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
+
+Top-down 3/4 view pixel art game map, like a high-quality modern Japanese RPG made in RPG Maker but with richer detail. Native resolution exactly 416x208 pixels on a 16-pixel tile grid (26 tiles wide, 13 tiles tall), upscaled exactly 3x with nearest-neighbor to 1248x624. A small basement live house, dim blue house lights, police tape. No characters, no text.
+
+Layout by tile rows, top to bottom:
+- Row 1: the black back wall of the stage with amps and a cue sheet taped at column 21.
+- Rows 2-4: a low wooden stage. A drum kit on a riser at columns 11-13 of row 2. A fallen microphone stand on an "X" of tape at column 12, row 4. A broken drumstick at column 8, row 4. A rectangle of tape outline on the floor at columns 15-16, row 3. A setlist taped to the floor at column 4, row 3.
+- Row 5: the front edge of the stage, with short steps down in the middle (columns 11-14).
+- Rows 6-9: the standing audience floor (dark concrete). A short row of folding chairs ("first row") at columns 4-9 of row 6. A white jacket lying on the floor at column 18, row 8.
+- Row 10: a back wall with an opening at columns 18-20.
+- Row 11: left part (columns 1-17) is the entrance lobby with a reception desk at columns 3-4; right part (columns 18-24) is a small raised lighting booth with a console at columns 22-23.
+Full color, limited palette of about 48 colors, clean dark outlines, soft dithered shadows, no anti-aliasing.
+```
+
+**`backstage.png`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
+
+Top-down 3/4 view pixel art game map, like a high-quality modern Japanese RPG made in RPG Maker but with richer detail. Native resolution exactly 416x208 pixels on a 16-pixel tile grid (26 tiles wide, 13 tiles tall), upscaled exactly 3x with nearest-neighbor to 1248x624. Backstage of a small live house, black walls, cables, road cases. No characters, no text.
+
+Layout by tile rows, top to bottom:
+- Columns 1-10, rows 2-6: the stage wing. Row 2 is a narrow metal catwalk; row 3 is its railing (with a scraped strap mark at columns 5-6 and a half clamp at column 9, row 2); column 1, row 3 is a steep steel staircase connecting the catwalk and the wing floor. Rows 4-6 are the wing floor with black curtains; a radio transceiver on the floor at column 6, row 5.
+- Column 11, rows 1-6: a solid wall.
+- Columns 12-24, rows 2-6: a dressing room with a long mirror on the top wall, a CRT monitor on the wall at columns 20-21, a chair with a black suit jacket at columns 15-16, row 4.
+- Row 7: a wall with doors at column 5 and column 18; a dented fist mark on the wall at column 8.
+- Rows 8-9: a narrow corridor across the whole width.
+- Row 10: a wall with a door at column 17.
+- Row 11: columns 15-24 is an evidence storage area with a bent lighting truss covered in plastic at columns 18-20; columns 1-13 are dark and inaccessible.
+Full color, limited palette of about 48 colors, clean dark outlines, soft dithered shadows, no anti-aliasing.
+```
+
+**`tendooffice.png`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
+
+Top-down 3/4 view pixel art game map, like a high-quality modern Japanese RPG made in RPG Maker but with richer detail. Native resolution exactly 416x208 pixels on a 16-pixel tile grid (26 tiles wide, 13 tiles tall), upscaled exactly 3x with nearest-neighbor to 1248x624. A luxurious talent agency president office in the afternoon, warm sunlight through blinds. No characters, no text.
+
+Layout by tile rows, top to bottom:
+- Row 1: the top wall with framed band posters at columns 5-6 and windows with blinds.
+- Rows 2-10: carpeted office floor. A big wooden desk at columns 10-13, row 3, with a drawer side facing down (column 11, row 4). A waste basket at column 15, row 3. A safe with document folders on top at columns 21-22, row 2. A leather sofa set at columns 3-5, row 5, with a low table.
+- Row 11: the bottom wall with the door at column 12.
+Full color, limited palette of about 48 colors, clean dark outlines, soft dithered shadows, no anti-aliasing.
+```
+
+## 대화 25 — 걷는 캐릭터 (탐색용) (3장)
 
 한 대화에서 레이 → 코하루 → 시오리 순서로 만든다. 칸 크기와 발 높이를 셋이 똑같이 맞춘다. 상반신 이미지를 기준으로 첨부하면 좋다.
 
@@ -709,7 +1043,7 @@ Character: a cheerful 20-year-old rookie detective girl, orange-brown side ponyt
 Character: a pale 16-year-old girl ghost, long straight black hair with blunt bangs, old navy sailor school uniform with a white ribbon, barefoot, slightly translucent.
 ```
 
-## 대화 20 — UI 스킨 (9장)
+## 대화 26 — UI 스킨 (9장)
 
 한 대화에서 차례로 만들어 스타일을 맞춘다. 크기는 정확히 지키고, 9-slice 틀은 모서리 밖 가장자리가 똑같이 반복되게.
 
@@ -780,7 +1114,7 @@ A horizontal strip of 8 icons, each exactly 96x96 (32x32 native), evenly spaced 
 A wide cut-in banner background, 1536x512, for the moment the hero rebuts a witness: explosive black and red manga speed lines radiating from the left, white screentone burst, torn paper edges at top and bottom. Leave the middle empty and calm for text that will be overlaid by the game. No characters, no text.
 ```
 
-## 대화 21 — 이벤트 CG (5장)
+## 대화 27 — 이벤트 CG (5장)
 
 상반신 이미지를 기준으로 첨부해 같은 얼굴로 그린다. 배경 7장과 같은 도트 스타일.
 
@@ -839,7 +1173,7 @@ Character design in the style of modern Japanese anime mobile gacha games (subcu
 Event illustration (CG) for a key story moment, horizontal 1536x1024, full color, same faces as the character portraits. Inside a small cozy cafe on a hill at sunset, called Yohaku: an elegant 61-year-old cafe owner with silver hair in a bun and round gold glasses, cream blouse and linen apron behind the counter places a cup of sweet coffee in front of an androgynous young investigator with messy short black hair and a lavender hair clip, oversized grey hoodie under a long beige trench coat, and a cheerful young detective girl with an orange-brown side ponytail and sky-blue scrunchie, navy suit jacket and sky-blue ribbon tie beside them smiles brightly. Warm orange light, harbor and sea through the window.
 ```
 
-## 대화 22 — 타이틀 키아트 (1장)
+## 대화 28 — 타이틀 키아트 (1장)
 
 상반신 이미지를 기준으로 첨부해 같은 얼굴로 그린다.
 
@@ -853,3 +1187,342 @@ Character design in the style of modern Japanese anime mobile gacha games (subcu
 
 Key visual illustration for the title screen of a mystery visual novel. Late-summer harbor town at night, seen from a sloped street with old apartment buildings, warm window lights and the sea with harbor lights in the distance. On the right half: an androgynous 22-year-old investigator, messy short black hair with one ahoge and a small lavender hair clip, sleepy violet-grey eyes, oversized grey hoodie under a long beige trench coat. standing in front, looking back over the shoulder at the viewer with a calm sleepy expression, and a cheerful 20-year-old rookie detective girl, orange-brown side ponytail with a sky-blue scrunchie, navy suit jacket over a white shirt with a sky-blue ribbon tie, navy pants, white sneakers. slightly behind, smiling. Several translucent black-and-white manga panels float in the air around them like scattered memories, each showing a faint scene from the same night. The left 40% of the image is calm, darker night sky and street with no important details, reserved for the title text. No text, no letters, no logo.
 ```
+
+## 대화 29 — 컷 · 핀 시점 (5장)
+
+같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
+
+**`2A.png`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.
+
+Palette: 8 grey levels from black to white, and one accent color lavender purple (#a07ad8). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
+
+Scene: First song of a live show, seen from the bassist's position at stage left: the back of a 19-year-old girl vocalist with long platinum-white hair, a thin braid and a black ribbon choker wearing a white oversized stage jacket (accent color) at the center microphone, a packed audience of silhouetted heads beyond her. Star shapes projected on the stage floor. Above: a lighting rig (a metal truss with four stage lights and one pattern projector) hanging above the center of the stage, next to a metal catwalk railing about one meter away; the gap between the rig and the catwalk railing is clearly empty, nothing tied there.
+
+Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+```
+
+> 꼭 보여야 할 것: 흰 재킷(포인트 색), 바닥의 별 무늬, 리그와 난간 사이가 비어 있음
+
+**`2K.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + lavender purple (#a07ad8) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: A cramped dressing room: an 18-year-old girl bassist with pastel hair in two buns and an oversized bunny hoodie hugging a 19-year-old girl vocalist with long platinum-white hair, a thin braid and a black ribbon choker, who is crying. On the wall, a small monitor shows the stage covered in haze with blue standby light, and on the catwalk in the monitor a tiny dark human silhouette; at the silhouette's wrist one small bright glint (accent color).
+```
+
+> 꼭 보여야 할 것: 벽 모니터 속 헤이즈와 캣워크 위 작은 그림자, 손목의 작은 반짝임(포인트 색)
+
+**`t_pin_1.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + lavender purple (#a07ad8) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: A sparkling, flattering memory: a 19-year-old girl vocalist with long platinum-white hair, a thin braid and a black ribbon choker shining with glitter and flowers, looking cool and noble; the man she argues with is only a blurry grey silhouette.
+```
+
+> 꼭 보여야 할 것: 미화: 반짝이, 흐린 상대
+
+**`t_pin_2.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + lavender purple (#a07ad8) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: A sparkling memory: an 18-year-old girl bassist with pastel hair in two buns and an oversized bunny hoodie and a 19-year-old girl vocalist with long platinum-white hair, a thin braid and a black ribbon choker sitting side by side in front of a dressing room mirror, smiling, everything covered in glitter and hearts.
+```
+
+> 꼭 보여야 할 것: 미화: 거울 앞 두 사람
+
+**`t_pin_3.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + lavender purple (#a07ad8) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: A sparkling memory: a 19-year-old girl vocalist with long platinum-white hair, a thin braid and a black ribbon choker doing an 18-year-old girl bassist with pastel hair in two buns and an oversized bunny hoodie's makeup, laughing; flowers and glitter cover the whole panel, including the wall behind them.
+```
+
+> 꼭 보여야 할 것: 미화: 벽까지 덮은 반짝이
+
+## 대화 30 — 컷 · 루루 시점 (8장)
+
+같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
+
+**`2B.png`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.
+
+Palette: 8 grey levels from black to white, and one accent color vermilion orange (#e4572e). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
+
+Scene: During the MC between songs, plain bright white light floods the whole stage with no pattern: a white oversized stage jacket (accent color) flying through the air toward the audience. At the right edge, between the dark wing curtains, a black suit sleeve and hand waving "back, step back".
+
+Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+```
+
+> 꼭 보여야 할 것: 공중의 재킷(포인트 색), 무늬 없는 흰빛, 윙 커튼 틈의 검은 소매 손짓
+
+**`2H.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + vermilion orange (#e4572e) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: Under fluorescent work lights on the catwalk: a 19-year-old girl vocalist with long platinum-white hair, a thin braid and a black ribbon choker grabs a clamp of the lighting rig with both hands, her side face gritting her teeth, angry and tearful. Right next to the clamp, a big tight knot of strap tying the rig to the railing, clearly visible. Leave empty space at the top right for a speech bubble.
+```
+
+> 꼭 보여야 할 것: 클램프를 붙잡은 손, 클램프 옆 큰 매듭, 작업등, 오른쪽 위 빈 공간
+
+**`2P.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + vermilion orange (#e4572e) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: At night in front of a rehearsal studio on a city street: a man in a plain black suit with neat short black hair holds out a sheet of paper to a 19-year-old girl vocalist with long platinum-white hair, a thin braid and a black ribbon choker in casual clothes. The paper shows a record label logo (accent color). Ruru looks hurt.
+```
+
+> 꼭 보여야 할 것: 밤거리, 사복 루루, 종이의 레코드사 로고(포인트 색)
+
+**`t_ruru_1.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + vermilion orange (#e4572e) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: Back view of a man in a plain black suit with neat short black hair turning away on a dark street. In front of him, a 19-year-old girl vocalist with long platinum-white hair, a thin braid and a black ribbon choker, but her face is scribbled over completely black with crude pen scribbles (self-hatred).
+```
+
+> 꼭 보여야 할 것: 낙서: 루루 자신의 얼굴이 새까만 낙서
+
+**`t_ruru_2.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + vermilion orange (#e4572e) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: An exaggerated memory: a gigantic hand violently shaking the lighting rig, the truss bending like rubber, dramatic shake lines everywhere.
+```
+
+> 꼭 보여야 할 것: 과장: 거대한 손, 휘는 리그
+
+**`t_ruru_3.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + vermilion orange (#e4572e) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: Looking down from the catwalk: the lighting rig falling toward the stage below, the same composition as the fall but seen from above.
+```
+
+> 꼭 보여야 할 것: 위에서 내려다본 낙하
+
+**`t_ruru_4.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + vermilion orange (#e4572e) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: A blurry memory: the back of a man in a black suit standing on the stage; where his face should be, a blank white hole.
+```
+
+> 꼭 보여야 할 것: 생략: 얼굴 자리 하얀 여백
+
+**`t_ruru_4_truth.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + vermilion orange (#e4572e) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: a man in a plain black suit with neat short black hair bursting out of the dark wing, reaching his hand toward the viewer with a desperate face never seen before, grid light patterns behind him.
+```
+
+> 꼭 보여야 할 것: (진실) 손을 뻗는 키리시마의 다급한 얼굴
+
+## 대화 31 — 컷 · 아오이 시점 (2장)
+
+같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
+
+**`2C.png`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.
+
+Palette: 8 grey levels from black to white, and one accent color cobalt blue (#3a78c9). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
+
+Scene: Seen from behind the drum kit (cymbals in the foreground with the drummer's hands, accent color on the drumsticks): the stage floor is covered with wavy stripe patterns of light. a 19-year-old girl vocalist with long platinum-white hair, a thin braid and a black ribbon choker without her jacket, in a black tank top, sings. Above her, a lighting rig (a metal truss with four stage lights and one pattern projector) hanging above the center of the stage, next to a metal catwalk railing about one meter away, perfectly still.
+
+Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+```
+
+> 꼭 보여야 할 것: 물결 줄무늬, 재킷 없는 루루, 정지한 리그
+
+**`2E.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + cobalt blue (#3a78c9) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: The moment of the fall, seen from the drum riser: no light pattern anymore, the stage suddenly dark. a 19-year-old girl vocalist with long platinum-white hair, a thin braid and a black ribbon choker pushed sideways and falling down, and in her place the back of a man in a black suit, with the lighting rig crashing down onto him. Dust and broken light.
+```
+
+> 꼭 보여야 할 것: 무늬 없음, 밀려 넘어지는 루루, 정장의 등, 떨어지는 리그
+
+## 대화 32 — 컷 · 쿠라모치 시점 (6장)
+
+같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
+
+**`2D.png`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.
+
+Palette: 8 grey levels from black to white, and one accent color amber (#d9a21b). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
+
+Scene: From inside the lighting booth through its glass window: the stage below covered in a grid pattern of light; above it a lighting rig (a metal truss with four stage lights and one pattern projector) hanging above the center of the stage, next to a metal catwalk railing about one meter away, its beams crooked and trembling with shake lines. In the foreground a gloved hand tightly gripping a radio transceiver (accent color).
+
+Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+```
+
+> 꼭 보여야 할 것: 격자 무늬, 비뚤어진 빔과 떨림 선, 무전기를 쥔 장갑 손(포인트 색)
+
+**`2M.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + amber (#d9a21b) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: From inside the lighting booth through the glass: on the hazy catwalk across the room, a woman in her fifties with a tight updo and a tailored suit stuffs a strap into her jacket pocket and looks straight at the viewer, putting a finger to her lips. Her a very large square wristwatch glints (accent color).
+```
+
+> 꼭 보여야 할 것: 부스 유리 너머 캣워크, 끈을 주머니에 넣으며 손가락을 입에 대는 텐도, 시계(포인트 색)
+
+**`t_kuramochi_1.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + amber (#d9a21b) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: Close-up of a gloved hand signing a checklist on a clipboard. The row for the lighting rig is left completely blank white, as if erased; the other rows are normal.
+```
+
+> 꼭 보여야 할 것: 생략: 리그 칸이 하얀 여백
+
+**`t_kuramochi_1_truth.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + amber (#d9a21b) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: Close-up of a checklist on a clipboard: the lighting rig row has a big circle mark (accent color), and over it someone has written "OK" in a different pen.
+```
+
+> 꼭 보여야 할 것: (진실) 리그 칸의 큰 동그라미(포인트 색)
+
+**`t_kuramochi_2.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + amber (#d9a21b) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: Extreme close-up of a lighting console: only faders and buttons, gloved fingers on them (accent color on one button).
+```
+
+> 꼭 보여야 할 것: 콘솔 클로즈업
+
+**`t_kuramochi_3.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + amber (#d9a21b) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: From the lighting booth through the glass: the stage below is visible, but where the catwalk should be, the whole upper part of the panel is blank white as if erased.
+```
+
+> 꼭 보여야 할 것: 생략: 캣워크 자리가 통째로 하얀 여백
+
+## 대화 33 — 컷 · 키리시마 시점 (5장)
+
+같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
+
+**`2F.png`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.
+
+Palette: 8 grey levels from black to white, and one accent color teal green (#3aa58a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
+
+Scene: Afternoon rehearsal, seen from the first row of an empty audience floor looking up at the stage: a 19-year-old girl vocalist with long platinum-white hair, a thin braid and a black ribbon choker in a grey hoodie doing a mic check. Above, on the metal catwalk, a woman lighting technician with a short bob, a headset and thick black work gloves points at a clamp of the lighting rig. In the foreground, on the viewer's knee, a clipboard checklist (accent color). Empty seats beside.
+
+Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+```
+
+> 꼭 보여야 할 것: 텅 빈 객석, 후드 차림 루루, 캣워크 위에서 클램프를 가리키는 장갑 손, 무릎 위 점검표(포인트 색)
+
+**`2G.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + teal green (#3aa58a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: Under harsh white fluorescent work lights with every seat of the audience floor clearly visible below: first-person view of two hands in black suit sleeves tying the lighting rig to the catwalk railing with a ratchet strap (accent color). The loose end of the strap still hangs down.
+```
+
+> 꼭 보여야 할 것: 형광 작업등, 다 보이는 객석, 래칫 끈(포인트 색), 늘어진 끈 끝
+
+**`2I.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + teal green (#3aa58a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: Peeking from the wing between dark curtains at the stage: wavy stripe light patterns on the floor, a 19-year-old girl vocalist with long platinum-white hair, a thin braid and a black ribbon choker without her jacket singing. Above, the lighting rig and the catwalk railing next to it: the railing is bare, no strap, no knot. In the foreground, a hand in a black suit sleeve holding a radio transceiver (accent color).
+```
+
+> 꼭 보여야 할 것: 물결 무늬, 재킷 없는 루루, 매듭 없는 난간, 손의 무전기(포인트 색)
+
+**`2L.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + teal green (#3aa58a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: A backstage corridor during rehearsal (music notes coming from the stage side): a woman in her fifties with a tight updo and a tailored suit waving her hand dismissively, wearing a very large square wristwatch (big and clearly visible). In the foreground, a man's hand holds out a checklist with a big circle marked on it (accent color). Leave empty space at the top center for a speech bubble.
+```
+
+> 꼭 보여야 할 것: 손을 내젓는 텐도, 큰 사각 손목시계, 동그라미 친 점검표(포인트 색), 무대 쪽 음표, 위쪽 빈 공간
+
+**`2N.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + teal green (#3aa58a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: First-person view bursting out of the stage wing onto the stage: grid patterns of light on the floor, a 19-year-old girl vocalist with long platinum-white hair, a thin braid and a black ribbon choker mid-jump at the center, and above her the lighting rig tilting and about to fall. The viewer's own hand in a black suit sleeve reaches out toward her (accent color on the radio in the other hand). Leave empty space at the top center for a speech bubble.
+```
+
+> 꼭 보여야 할 것: 격자 무늬, 점프하는 루루, 기우는 리그, 뻗은 손, 위쪽 빈 공간
+
+## 대화 34 — 컷 · 텐도 시점 (5장)
+
+같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
+
+**`2T.png`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.
+
+Palette: 8 grey levels from black to white, and one accent color magenta (#b0306a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
+
+Scene: Close-up on the catwalk: two hands untying the ratchet strap from the lighting rig, a very large square wristwatch (accent color) on the left wrist. Far below, the stage is covered in thick haze lit by blue standby lights.
+
+Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+```
+
+> 꼭 보여야 할 것: 끈을 푸는 두 손, 큰 사각 손목시계(포인트 색), 아래 무대의 헤이즈와 대기 조명
+
+**`t_tendo_1.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + magenta (#b0306a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: A backstage corridor: a woman in her fifties with a tight updo and a tailored suit smiling pleasantly. The speech bubble area of the person talking to her is a blank white hole, as if erased.
+```
+
+> 꼭 보여야 할 것: 생략: 상대 말풍선 자리 하얀 여백
+
+**`t_tendo_2.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + magenta (#b0306a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: An exaggerated memory: a gigantic a 19-year-old girl vocalist with long platinum-white hair, a thin braid and a black ribbon choker shaking the lighting rig on the catwalk. The rig is at eye level, and in the lower left foreground the diagonal steel handrail of a staircase cuts across the panel, clearly visible.
+```
+
+> 꼭 보여야 할 것: 과장: 거대한 루루, 앞쪽의 비스듬한 계단 난간, 눈높이의 리그
+
+**`t_tendo_3.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + magenta (#b0306a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: a woman in her fifties with a tight updo and a tailored suit sitting calmly in an office chair at a live house office, reading documents, a very large square wristwatch on her wrist.
+```
+
+> 꼭 보여야 할 것: 사무실 의자의 텐도
+
+**`t_tendo_3b.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + magenta (#b0306a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: Seen from the top of a steel staircase: the lighting rig in front; the railing right beside the rig is blank white, as if erased.
+```
+
+> 꼭 보여야 할 것: 생략: 리그 옆 난간 자리 하얀 여백

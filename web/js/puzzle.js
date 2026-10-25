@@ -14,7 +14,7 @@ function runPuzzle(id) {
   const n = P.solution.length;
   const group = (i) => [].concat(P.solution[i]);
   const cap = (i) => group(i).length;
-  const cols = n === 4 ? 2 : 3;
+  const cols = n === 4 ? 2 : n >= 8 ? 4 : 3;
   const st = { slots: Array.from({ length: n }, () => []), tray: shuffle(P.cuts, P.solution.flat()), locked: new Set(), tries: 0, hints: 0, bad: null };
   const placed = () => st.slots.flat();
   const sameSet = (a, b) => a.length === b.length && a.every((c) => b.includes(c));
@@ -59,7 +59,7 @@ function runPuzzle(id) {
           half.className = 'pz-half' + (cid ? ' filled' : '');
           half.dataset.slot = i;
           half.dataset.half = h;
-          if (cid) half.appendChild(cutView(cid, { fills: P.bubbles[cid] ? G.fills : null }));
+          if (cid) half.appendChild(cutView(cid, { fills: P.bubbles[cid] ? G.fills : null, noSpots: true }));
           else half.textContent = '빈 칸';
           s.appendChild(half);
         }
@@ -67,7 +67,7 @@ function runPuzzle(id) {
       });
       const tray = root.querySelector('.pz-tray');
       st.tray.forEach((cid) => {
-        const v = cutView(cid, { fills: P.bubbles[cid] ? G.fills : null });
+        const v = cutView(cid, { fills: P.bubbles[cid] ? G.fills : null, noSpots: true });
         v.dataset.tray = cid;
         tray.appendChild(v);
       });
@@ -310,9 +310,9 @@ function runPuzzle(id) {
 }
 
 // 페이지 재생 때 컷마다 나는 소리
-const PAGE_SFX = { A: 'chime', D: 'thud', F: 'phone' };
+const PAGE_SFX = { A: 'chime', D: 'thud', F: 'phone', '2A': 'chime', '2N': 'objection', '2E': 'thud', '2P': 'page' };
 // 페이지 재생 때 화면이 흔들리는 컷
-const PAGE_QUAKE = ['D'];
+const PAGE_QUAKE = ['D', '2E'];
 
 function shuffle(ids, solution) {
   const a = ids.slice();

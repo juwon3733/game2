@@ -95,7 +95,7 @@ function cutInfo(id) {
     return { title: c.title, owner: OWNERS[c.owner].name, color: OWNERS[c.owner].color, desc: c.desc, sfx: c.sfx, bubble: c.bubble };
   }
   for (const w of Object.values(WITNESSES)) {
-    const s = w.statements.find((st) => id.startsWith(st.cut));
+    const s = allStatements(w).find((st) => id === st.cut || id === st.cut + '_truth');
     if (s) {
       const truth = id.endsWith('_truth');
       return {

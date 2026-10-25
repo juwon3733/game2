@@ -1,7 +1,8 @@
 // 게임에 필요한 이미지 전체 목록. data_ch1.js와 asset_prompts.js를 바탕으로 만든다.
 // 브라우저(assets.html)와 Node(tools/check-assets.mjs) 양쪽에서 쓴다.
 
-const COLOR_NAME = { '#c9961a': 'gold', '#3b8fd0': 'blue', '#e0679a': 'pink', '#6b8a5a': 'olive green' };
+const COLOR_NAME = { '#c9961a': 'gold', '#3b8fd0': 'blue', '#e0679a': 'pink', '#6b8a5a': 'olive green',
+  '#e4572e': 'vermilion orange', '#3aa58a': 'teal green', '#a07ad8': 'lavender purple', '#3a78c9': 'cobalt blue', '#d9a21b': 'amber', '#b0306a': 'magenta' };
 
 function requiredAssets() {
   const list = [];
@@ -31,7 +32,7 @@ function requiredAssets() {
     const [raw, must] = CUT_PROMPTS[id] || [id, ''];
     // 타이가 금발은 타이가 시점(금색) 컷에서만 포인트 색. 다른 시점에선 밝은 회색으로 그린다.
     const scene = raw.replace(/\{(\w+)\}/g, (m, k) => CUT_CHARS[k] || m)
-      .replace(/\(accent color\)/g, color === '#c9961a' ? '(accent color)' : '(light grey)');
+      .replace(/\(taiga-accent\)/g, color === '#c9961a' ? '(accent color)' : '(light grey)');
     const crayon = /crayon/i.test(scene);
     const palette = (crayon ? PROMPT_STYLE.cutPaletteCrayon : PROMPT_STYLE.cutPalette)
       .replace('{color}', `${COLOR_NAME[color] || ''} (${color})`);
@@ -47,20 +48,28 @@ function requiredAssets() {
     list.push({ kind: 'cut', group: '내 컷', id, label: c.title, path: `cuts/${id}.png`, spec: SPEC.cut, ...cutPrompt(id, color) });
   }
 
+  // 증언 컷과 진실판. 진실판이 수집 컷을 재사용하면(truthCut) 새로 그리지 않는다
+  const seen = new Set();
   for (const w of Object.values(WITNESSES)) {
     const color = OWNERS[w.char].color;
-    w.statements.forEach((s, i) => {
+    allStatements(w).forEach((s) => {
       const ids = [s.cut];
-      if (w.peel.includes(i) && s.truthDesc) ids.push(s.cut + '_truth');
-      ids.forEach((id) => list.push({
-        kind: 'cut', group: `증언 컷 · ${CHARACTERS[w.char].name}`, id,
-        label: id.endsWith('_truth') ? '진실 버전' : (s.dist ? `왜곡: ${s.dist}` : '증언'),
-        path: `cuts/${id}.png`, spec: SPEC.cut, ...cutPrompt(id, color),
-      }));
+      if (s.truthDesc && !s.truthCut) ids.push(s.cut + '_truth');
+      ids.filter((id) => !seen.has(id)).forEach((id) => {
+        seen.add(id);
+        list.push({
+          kind: 'cut', group: `증언 컷 · ${CHARACTERS[w.char].name}`, id,
+          label: id.endsWith('_truth') ? '진실 버전' : (s.dist ? `왜곡: ${s.dist}` : '증언'),
+          path: `cuts/${id}.png`, spec: SPEC.cut, ...cutPrompt(id, color),
+        });
+      });
     });
   }
   const W = WORLD_PROMPTS, px2 = PROMPT_STYLE.pixel;
-  list.push({ kind: 'map', group: '탐색 맵', id: 'mansion5f', label: '하나미즈키 맨션 5층', path: 'maps/mansion5f.png', spec: SPEC.map, prompt: `${px2}\n\n${W.map_mansion5f}` });
+  for (const [k, p] of Object.entries(W).filter(([k]) => k.startsWith('map_'))) {
+    const id = k.slice(4);
+    list.push({ kind: 'map', group: '탐색 맵', id, label: (W.mapLabels || {})[id] || id, path: `maps/${id}.png`, spec: SPEC.map, prompt: `${px2}\n\n${p}` });
+  }
   for (const [who, desc] of Object.entries(W.sprites)) {
     list.push({ kind: 'sprite', group: '걷는 캐릭터', id: `walk_${who}`, label: CHARACTERS[who].name === '???' ? '시오리' : CHARACTERS[who].name, path: `sprites/${who}.png`, spec: SPEC.sprite, prompt: `${px2}\n\n${PROMPT_STYLE.character}\n\n${W.sprite.replace('{char}', desc)}` });
   }

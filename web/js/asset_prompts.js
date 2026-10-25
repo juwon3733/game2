@@ -79,7 +79,7 @@ const BG_PROMPTS = {
 
 // 여러 컷에 나오는 인물은 같은 외형 문장으로 그려야 컷끼리 같은 사람으로 보인다.
 const CUT_CHARS = {
-  taiga: 'a young delivery worker with spiky bleached blond hair (accent color) under a backwards black cap, a small earring and a black uniform with reflective stripes',
+  taiga: 'a young delivery worker with spiky bleached blond hair (taiga-accent) under a backwards black cap, a small earring and a black uniform with reflective stripes',
   mitsuru: 'a gentle man in his early 30s with glasses and a light shirt',
   himari: 'a 9-year-old girl with brown twin tails tied with ribbons, a small music-note hairpin, a t-shirt with a piano-key pattern and a denim overall skirt',
   ookubo: 'a chubby old security guard with a grey mustache in an olive uniform and cap',
@@ -116,6 +116,7 @@ const CUT_PROMPTS = {
 // 탐색 맵·걷는 캐릭터·타이틀 키아트. 게임은 이미지가 있으면 쓰고, 없으면 코드로 그린 임시 그림을 쓴다.
 // 맵 그림이 들어오면 Claude가 그림을 보고 explore.js의 충돌 칸(rows)과 물건 위치를 그림에 맞춘다.
 const WORLD_PROMPTS = {
+  mapLabels: { mansion5f: '하나미즈키 맨션 5층' },
   map_mansion5f: `Top-down 3/4 view pixel art game map, like a high-quality modern Japanese RPG made in RPG Maker but with richer detail. Native resolution exactly 416x208 pixels on a 16-pixel tile grid (26 tiles wide, 13 tiles tall), upscaled exactly 3x with nearest-neighbor to 1248x624. Night, warm indoor lamp light and cool moonlight. No characters, no text.
 
 Layout by tile rows, top to bottom:

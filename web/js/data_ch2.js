@@ -1,0 +1,391 @@
+// 2장 「앙코르 없음」 데이터. 1장 데이터(data_ch1.js)의 표에 Object.assign으로 더한다.
+// 기획: docs/12_story_plan.md §4, docs/13_deduction_upgrade.md §3-3
+
+Object.assign(CHARACTERS, {
+  ruru:      { name: '루루',     hair: '#f2efe6', outfit: '#f7f7f2', accent: '#e4572e', faces: ['normal', 'angry', 'crying', 'smile'] },
+  pin:       { name: '핀',       hair: '#e8b4d8', outfit: '#c9b6ea', accent: '#a07ad8', faces: ['normal', 'happy', 'crying'] },
+  aoi:       { name: '아오이',   hair: '#1f2a44', outfit: '#2c3442', accent: '#3a78c9', faces: ['normal', 'serious'] },
+  kuramochi: { name: '쿠라모치', hair: '#3a2e26', outfit: '#3d3d3a', accent: '#d9a21b', faces: ['normal', 'scared', 'resolute'] },
+  tendo:     { name: '텐도',     hair: '#2a1a22', outfit: '#5a1f3a', accent: '#b0306a', faces: ['smile', 'normal', 'angry', 'cornered'] },
+  kirishima: { name: '키리시마', hair: '#1a1a1a', outfit: '#22252a', accent: '#3aa58a', faces: ['normal', 'soft'] },
+});
+
+Object.assign(BACKGROUNDS, {
+  crescent_out:   { label: '역 앞 라이브하우스 「크레센트」', sky: ['#141a2e', '#5a3a5a'] },
+  crescent_stage: { label: '크레센트 무대와 객석', sky: ['#0e0e16', '#3a2a4a'] },
+  booth:          { label: '크레센트 조명 부스', sky: ['#16161e', '#3a3a2a'] },
+  greenroom:      { label: '크레센트 대기실', sky: ['#2a2a30', '#6a5a5a'] },
+  backstage:      { label: '크레센트 무대 뒤 복도', sky: ['#1e1e24', '#4a4a50'] },
+  tendo_office:   { label: '텐도 프로모션 사장실', sky: ['#2a1a22', '#7a5a4a'] },
+});
+
+Object.assign(TAG_ORDER, {
+  time:      ['yesterday', 'rehearsal', 'work', 'haze', 'show', 'after'],
+  pattern:   ['star', 'white', 'wave', 'grid', 'gone'],
+  jacket:    ['on', 'thrown', 'off'],
+  strap:     ['none', 'tying', 'tied', 'untying', 'gone'],
+  rig:       ['still', 'swaying', 'fallen'],
+  checklist: ['checking', 'marked'],
+});
+Object.assign(TAG_NAME, {
+  time: '시간대(조명·객석)', pattern: '조명 무늬', jacket: '루루의 재킷', strap: '리그의 끈', rig: '리그', checklist: '점검표',
+});
+
+Object.assign(OWNERS, {
+  ruru:      { name: '루루',     color: '#e4572e' },
+  kirishima: { name: '키리시마', color: '#3aa58a' },
+  pin:       { name: '핀',       color: '#a07ad8' },
+  aoi:       { name: '아오이',   color: '#3a78c9' },
+  kuramochi: { name: '쿠라모치', color: '#d9a21b' },
+  tendo:     { name: '텐도',     color: '#b0306a' },
+});
+
+// spots: 컷을 크게 볼 때 짚을 수 있는 곳 (그림 기준 0~1 비율). word가 없는 곳은 헛짚기.
+// 그림이 들어오면 Claude가 좌표를 그림에 맞춘다.
+Object.assign(CUTS, {
+  '2A': { owner: 'pin', title: '별빛 첫 곡', sfx: '♪',
+          desc: '핀 자리에서 본 루루의 등과 꽉 찬 객석. 흰 재킷. 바닥에 별 무늬. 머리 위 리그와 캣워크 난간 사이엔 아무것도 없다.',
+          tags: { time: 'show', pattern: 'star', jacket: 'on', rig: 'still', strap: 'gone' },
+          spots: [{ id: 'rail', label: '리그와 난간 사이', x: 0.55, y: 0.05, w: 0.3, h: 0.2, word: 'th_strap' }, { id: 'floor', label: '바닥의 별 무늬', x: 0.2, y: 0.7, w: 0.6, h: 0.25 }] },
+  '2B': { owner: 'ruru', title: '재킷을 던짐',
+          desc: '객석으로 날아가는 흰 재킷. 무대 전체가 하얀 빛. 윙 커튼 틈에서 검은 소매가 "뒤로" 손짓한다.',
+          tags: { time: 'show', pattern: 'white', jacket: 'thrown' },
+          spots: [{ id: 'sleeve', label: '윙 커튼 틈의 소매', x: 0.82, y: 0.3, w: 0.16, h: 0.4, word: 'pl_wing' }] },
+  '2C': { owner: 'aoi', title: '물결',
+          desc: '드럼 뒤에서 본 무대. 바닥에 물결 줄무늬. 재킷 없는 루루. 머리 위 리그는 가만히 있다.',
+          tags: { time: 'show', pattern: 'wave', jacket: 'off', rig: 'still' } },
+  '2D': { owner: 'kuramochi', title: '흔들림',
+          desc: '부스 유리 너머 무대. 격자 무늬. 리그의 빔이 비뚤어져 떨린다. 유리 앞에 무전기를 꽉 쥔 손.',
+          tags: { time: 'show', pattern: 'grid', rig: 'swaying' } },
+  '2E': { owner: 'aoi', title: '낙하', sfx: '쾅!!',
+          desc: '무늬가 사라진 무대. 옆으로 밀려 넘어지는 루루. 그 자리에 검은 정장의 등, 그 위로 떨어지는 리그.',
+          tags: { time: 'after', pattern: 'gone', rig: 'fallen' } },
+  '2F': { owner: 'kirishima', title: '리허설',
+          desc: '객석 첫 줄에서 올려다본 무대. 후드 차림의 루루가 마이크 테스트. 캣워크 위 작업 장갑 낀 사람이 리그의 클램프를 가리킨다. 무릎 위에 점검표.',
+          tags: { time: 'rehearsal', checklist: 'checking', strap: 'none' },
+          spots: [{ id: 'clamp', label: '캣워크에서 가리키는 손', x: 0.55, y: 0.05, w: 0.3, h: 0.25, word: 'th_clamp' }, { id: 'sheet', label: '무릎 위 점검표', x: 0.05, y: 0.7, w: 0.35, h: 0.28, word: 'th_checklist' }] },
+  '2G': { owner: 'kirishima', title: '끈을 묶음',
+          desc: '형광 작업등 아래, 객석 의자가 끝까지 다 보인다. 리그를 캣워크 난간에 띠로 묶는 손. 띠 끝이 아직 늘어져 있다.',
+          tags: { time: 'work', strap: 'tying' },
+          spots: [{ id: 'strap', label: '래칫 버클 달린 띠', x: 0.35, y: 0.3, w: 0.35, h: 0.35, word: 'a_tie' }, { id: 'seats', label: '훤히 보이는 객석', x: 0, y: 0.7, w: 1, h: 0.3, word: 't_work' }] },
+  '2H': { owner: 'ruru', title: '클램프', bubble: 'round',
+          desc: '클램프를 붙잡은 루루의 손, 이를 악문 옆얼굴. 클램프 바로 옆에 단단한 매듭. 작업등. 말풍선 꼬리는 컷 밖을 향한다.',
+          tags: { time: 'work', strap: 'tied' },
+          spots: [{ id: 'knot', label: '클램프 옆 매듭', x: 0.55, y: 0.35, w: 0.2, h: 0.25, word: 'th_strap' }, { id: 'tail', label: '말풍선 꼬리', x: 0.8, y: 0, w: 0.2, h: 0.2 }] },
+  '2I': { owner: 'kirishima', title: '윙에서',
+          desc: '윙 커튼 틈으로 본 무대. 물결 무늬. 재킷 없는 루루. 리그 옆 난간엔 매듭이 없다. 손에 무전기.',
+          tags: { time: 'show', pattern: 'wave', jacket: 'off', strap: 'gone' },
+          spots: [{ id: 'rail', label: '매듭이 없는 난간', x: 0.5, y: 0.05, w: 0.35, h: 0.2, word: 'a_untie' }, { id: 'radio', label: '손의 무전기', x: 0, y: 0.6, w: 0.25, h: 0.4, word: 'th_radio' }] },
+  '2L': { owner: 'kirishima', title: '복도의 말다툼', bubble: 'round',
+          desc: '무대 뒤 복도. 손을 내젓는 정장 차림의 여자. 키리시마 손에 큰 동그라미가 그려진 점검표. 무대 쪽에서 ♪(리허설 중).',
+          tags: { time: 'rehearsal', checklist: 'marked' },
+          spots: [{ id: 'watch', label: '내젓는 손의 손목', x: 0.35, y: 0.35, w: 0.18, h: 0.2, word: 'th_watch' }, { id: 'sheet', label: '동그라미 친 점검표', x: 0.05, y: 0.55, w: 0.3, h: 0.4, word: 'th_checklist' }, { id: 'note', label: '무대 쪽 ♪', x: 0.8, y: 0.05, w: 0.2, h: 0.25, word: 't_rehearsal' }] },
+  '2N': { owner: 'kirishima', title: '지금', bubble: 'burst',
+          desc: '윙에서 무대로 뛰어나가는 시점. 격자 무늬. 점프하는 루루, 그 위에서 기우는 리그. 뻗은 손.',
+          tags: { time: 'show', pattern: 'grid', rig: 'swaying' } },
+  '2K': { owner: 'pin', title: '대기실',
+          desc: '대기실. 우는 루루를 안은 핀. 벽 모니터 속 헤이즈 낀 무대와 캣워크, 그 위의 작은 사람 그림자. 그림자 손목에서 무언가 반짝.',
+          tags: { time: 'haze' },
+          spots: [{ id: 'monitor', label: '벽 모니터 속 캣워크', x: 0.6, y: 0.05, w: 0.35, h: 0.35, word: 't_haze' }, { id: 'glint', label: '그림자의 손목', x: 0.74, y: 0.18, w: 0.08, h: 0.1, word: 'th_watch' }, { id: 'mirror', label: '거울', x: 0.05, y: 0.1, w: 0.3, h: 0.4 }] },
+  '2P': { owner: 'ruru', title: '오디션 안내지',
+          desc: '밤, 연습 스튜디오 앞. 사복 차림의 루루에게 종이를 내미는 키리시마. 종이에 다른 레코드사 로고.',
+          tags: { time: 'yesterday' } },
+  '2T': { owner: 'tendo', title: '끈을 푸는 손',
+          desc: '리그의 띠를 푸는 두 손. 손목에 큰 사각 금시계. 아래 무대엔 헤이즈와 파란 대기 조명.',
+          tags: { time: 'haze', strap: 'untying' },
+          spots: [{ id: 'watch', label: '사각 금시계', x: 0.25, y: 0.4, w: 0.2, h: 0.2, word: 'th_watch' }, { id: 'haze', label: '아래 무대의 연기', x: 0, y: 0.75, w: 1, h: 0.25, word: 't_haze' }] },
+  '2M': { owner: 'kuramochi', title: '부스에서 본 것',
+          desc: '부스 유리 너머 캣워크. 띠를 재킷 주머니에 넣으며 이쪽을 향해 손가락을 입에 대는 텐도.',
+          tags: { time: 'haze', strap: 'gone' } },
+  Y2: { owner: 'blank', title: '여백 (앙코르)', blank: true,
+        desc: '「앙코르」 다음 줄이 하얗게 비어 있다. 가만히 보고 있으면, 박수 소리가 들린다.', tags: {} },
+});
+
+Object.assign(LINES, {
+  L4: { text: '한 번만 버텨.', shape: 'round', from: '쿠라모치가 들은 사장의 말' },
+  L5: { text: '반 걸음 뒤에 서.', shape: 'round', from: '키리시마의 수첩' },
+  L6: { text: '지금!', shape: 'burst', from: '쿠라모치가 받은 무전' },
+  L7: { text: '없어져 버려.', shape: 'round', from: '핀이 들은 루루의 말' },
+});
+
+// 물증: 잔상은 법정 증거가 아니다. 결론에는 물증이 따라와야 한다.
+Object.assign(ITEMS, {
+  cuesheet:  { title: '조명 큐 시트', desc: '벽에 붙은 셋리스트 겸 큐 시트. 「1 크럼 ★ / MC 흰빛 / 2 파도의 말 물결 / 3 앙코르 없음 격자 / 앙코르 (미정)」' },
+  scouts:    { title: '스카우트 명함 2장', desc: '접수대의 초대 명단에 끼워진 다른 레코드사 명함 2장. 초대한 사람: 키리시마.' },
+  checklist: { title: '점검표 원본', desc: '리그 칸에 큰 동그라미. 「클램프 헐거움 · 안전 와이어 없음」. 쿠라모치가 콘솔 서랍에 숨겨 둔 원본.' },
+  notebook:  { title: '키리시마의 수첩', desc: '셋리스트 끝에 「앙코르 — 루루 솔로 (스카우트 2명 초대함)」. 다른 쪽에 「할 말: 반 걸음 뒤에 서.」' },
+  strap:     { title: '휴지통의 래칫 끈', desc: '텐도 사장실 휴지통에서 나온 주황색 래칫 끈. 버클에 페인트 가루.' },
+  estimate:  { title: '렌탈 견적서', desc: '추가 조명 리그 렌탈. 「안전 와이어 옵션 삭제 −18만 엔」. 승인 서명: 텐도.' },
+  insurance: { title: '공연 사고 보험', desc: '「출연자의 고의로 인한 사고는 회사의 배상 책임을 면제한다.」' },
+  whitecard: { title: '글자 없는 흰 명함', desc: '텐도 서랍 속 흰 명함. 글자 없이 빈 말풍선 모양 로고만. 뒷면에 「8/27 22:00 크레센트 — 상담」.' },
+});
+
+// 단어 조각: 네임(가설 문장) 빈칸에 넣는 말
+Object.assign(WORDS, {
+  p_ruru: { text: '루루', cat: 'person' }, p_pin: { text: '핀', cat: 'person' }, p_aoi: { text: '아오이', cat: 'person' },
+  p_kuramochi: { text: '쿠라모치', cat: 'person' }, p_tendo: { text: '텐도', cat: 'person' }, p_kirishima: { text: '키리시마', cat: 'person' },
+  t_rehearsal: { text: '리허설 중', cat: 'time' }, t_work: { text: '작업등 아래', cat: 'time' },
+  t_haze: { text: '헤이즈가 깔린 개장 직전', cat: 'time' }, t_show: { text: '공연 중', cat: 'time' },
+  pl_catwalk: { text: '캣워크', cat: 'place' }, pl_booth: { text: '조명 부스', cat: 'place' }, pl_wing: { text: '윙', cat: 'place' },
+  pl_greenroom: { text: '대기실', cat: 'place' }, pl_seats: { text: '객석', cat: 'place' },
+  th_strap: { text: '끈', cat: 'thing' }, th_clamp: { text: '클램프', cat: 'thing' }, th_radio: { text: '무전기', cat: 'thing' },
+  th_checklist: { text: '점검표', cat: 'thing' }, th_watch: { text: '사각 금시계', cat: 'thing' },
+  a_untie: { text: '풀었다', cat: 'act' }, a_shake: { text: '흔들었다', cat: 'act' }, a_tie: { text: '묶었다', cat: 'act' },
+  a_push: { text: '밀어냈다', cat: 'act' }, a_hide: { text: '숨겼다', cat: 'act' },
+});
+
+Object.assign(PUZZLES, {
+  page2a: {
+    title: '페이지 1 — 공연',
+    goal: '공연이 시작되고 리그가 떨어질 때까지. 5장만 쓴다.',
+    cuts: ['2A', '2B', '2C', '2D', '2E', '2F'],
+    solution: ['2A', '2B', '2C', '2D', '2E'],
+    decoys: ['2F'],
+    bubbles: {},
+    hint: '무대 바닥에 비친 무늬가 곡마다 바뀌어. 루루가 입은 것도 봐.',
+    rei: '…3곡째에 흔들렸어. 그리고 떨어지기 직전, 누군가 무대 옆에서 뛰어나왔어.',
+  },
+  page2b: {
+    title: '최종 재구성 — 8월 25일, 리허설부터 리그가 떨어질 때까지',
+    goal: '리허설부터 리그가 떨어질 때까지. 넓은 칸은 같은 순간을 다른 자리에서 본 두 장. 11장을 쓴다.',
+    cuts: ['2F', '2L', '2G', '2H', '2T', '2K', '2B', '2I', '2D', '2N', '2E', '2P'],
+    solution: ['2F', '2L', '2G', '2H', ['2T', '2K'], '2B', '2I', ['2D', '2N'], '2E'],
+    decoys: ['2P'],
+    bubbles: { '2L': 'L4', '2H': 'L5', '2N': 'L6' },
+    hint: '조명이 시계야. 리허설의 무대등, 형광 작업등, 연기, 공연 무늬. 그리고 끈이 어떤 모양인지.',
+    rei: '…앙코르는 없었어. 그래도 그 사람은 끝까지 무대를 보고 있었어.',
+  },
+});
+
+Object.assign(WITNESSES, {
+  kuramochi: {
+    char: 'kuramochi', bg: 'booth', face: 'normal',
+    goal: '쿠라모치의 증언에서 그림과 맞지 않는 곳을 찾아라.',
+    intro: [['towa', '이번 증인은 반박이 한 번으로 안 끝나. 깨면 말을 바꿔. 바뀐 말을 다시 들어.']],
+    statements: [
+      { text: '리허설 점검 때 리그는 이상 없었어요. 점검표에도 그렇게 썼고요.', cut: 't_kuramochi_1', dist: '생략',
+        cutDesc: '점검표에 「이상 없음」이라고 서명하는 손. 리그 칸만 하얀 여백으로 비어 있다.',
+        truthDesc: '점검표 리그 칸의 큰 동그라미. 그 위에 덧쓴 「이상 없음」.',
+        press: [['kuramochi', '…서명은 제가 했어요. 제 이름이니까요.', 'normal'], ['koharu', '(이상 없음이라고 쓴 칸만 하얗네요.)', 'worried']] },
+      { text: '공연 중엔 콘솔만 봤어요. 리그가 흔들리는 건 못 봤어요.', cut: 't_kuramochi_2',
+        cutDesc: '버튼과 페이더만 보이는 조명 콘솔 클로즈업.',
+        press: [['kuramochi', '3곡째는 스트로브가 많아서 바빴어요.', 'normal']] },
+      { text: '개장 전엔 부스에서 조명만 확인했어요. 캣워크엔 아무도 없었어요.', cut: 't_kuramochi_3', dist: '생략',
+        cutDesc: '부스 유리 너머 무대. 캣워크가 있어야 할 자리가 통째로 하얀 여백.', truthCut: '2M',
+        press: [['kuramochi', '…없었어요.', 'scared'], ['', '쿠라모치가 눈을 피한다. 장갑 낀 손가락이 콘솔 모서리를 문지른다.']] },
+    ],
+    answers: [
+      { statement: 0, cut: '2F', shout: '그 점검표, 고쳐 쓴 거지!',
+        rebut: '리허설 때 캣워크에서 리그를 가리킨 사람이 있어. 장갑 낀 손. 점검하던 당신이야. 매니저는 그걸 올려다보고 있었고.',
+        success: [
+          ['kuramochi', '…….', 'scared'],
+          ['kuramochi', '…헐거웠어요. 클램프 하나가. 안전 와이어도 없었고.', 'scared'],
+          ['kuramochi', '키리시마 씨가 점검표를 들고 사장님한테 갔어요. 돌아와서는… 사장님이 「한 번만 버텨」라고 했대요.', 'scared'],
+          ['kuramochi', '그리고 사장님이 저한테 점검표를 다시 쓰라고 했어요. 원본은… 콘솔 서랍에 있어요. 버리지 못했어요.', 'scared'],
+        ],
+        peel: [0], gives: 'L4', items: ['checklist'], words: ['th_checklist', 't_rehearsal', 'p_kuramochi'],
+        changes: { 1: { text: '알고는 있었어요. 그래도 공연 중엔 정말 갑자기였어요.', cut: 't_kuramochi_2',
+          cutDesc: '버튼과 페이더만 보이는 조명 콘솔 클로즈업.',
+          press: [['kuramochi', '정말이에요. 아무 신호도 없이.', 'scared'], ['koharu', '(…신호? 무슨 신호를 기다렸던 것 같은 말투예요.)', 'worried']] } } },
+      { statement: 1, cut: '2D', requires: [0], shout: '갑자기가 아니야!',
+        rebut: '이건 당신 자리에서 본 잔상이야. 당신은 무전기를 쥐고 리그를 보고 있었어. 기다리고 있었던 거야.',
+        success: [
+          ['kuramochi', '…….', 'scared'],
+          ['kuramochi', '개장 직전에 키리시마 씨가 왔어요. 리그에 묶어 둔 끈이 없어졌다고.', 'scared'],
+          ['kuramochi', '공연은 못 멈춘대요. 그러니까 흔들리면 자기가 무전으로 「지금」이라고 하겠다고. 그럼 무대등을 끄라고.', 'scared'],
+          ['kuramochi', '근데… 무전이 오자마자 떨어졌어요. 불을 끌 틈도 없이.', 'scared'],
+          ['koharu', '끈… 매니저님이 리그를 묶어 뒀었다는 거예요?', 'worried'],
+        ],
+        gives: 'L6', words: ['th_strap', 'th_radio', 'a_untie'] },
+    ],
+    hold: { statement: 2, lines: [
+      ['', '레이가 세 번째 증언 앞에서 멈춘다.'],
+      ['rei', '(…여기, 캣워크 자리가 통째로 하얘. 뭘 봤어. 근데 지금 가진 컷으로는 못 벗겨.)', 'serious'],
+      ['towa', '보류. 증언에 클립 꽂아 둘게. 나중에 맞는 컷을 찾으면 다시 열어.'],
+      ['kuramochi', '…저는, 할 말 없어요.', 'scared'],
+    ] },
+    koharu: [['koharu', '(선배, 첫 페이지에서 뺐던 리허설 컷… 거기 누가 있었죠?)', 'worried']],
+    wrong: [['kuramochi', '…그게 무슨 상관이에요.', 'normal']],
+    close: [['kuramochi', '…일해야 해요. 나가 주세요.', 'scared'], ['koharu', '(…처음부터 다시 들어 봐요, 선배.)', 'worried']],
+  },
+  pin: {
+    char: 'pin', bg: 'greenroom', face: 'normal',
+    goal: '핀의 반짝이는 기억 속에서 빠진 장면을 찾아라.',
+    statements: [
+      { text: '어제 싸움이요? 루루는 끝까지 멋있었어요.', cut: 't_pin_1', dist: '미화',
+        cutDesc: '반짝이로 빛나는 루루. 상대(키리시마)는 흐린 실루엣.',
+        press: [['pin', '…루루가 「없어져 버려」라고 했어요.', 'crying'], ['pin', '그래도 그건 상처받아서 그런 거예요! 루루 나쁜 애 아니에요!', 'crying']],
+        gives: 'L7' },
+      { text: '루루는 개장 전에 캣워크 같은 데 안 올라갔어요! 쭉 저랑 대기실에 있었어요.', cut: 't_pin_2', dist: '미화',
+        cutDesc: '거울 앞에 나란히 앉은 반짝이는 두 사람.', truthCut: '2H',
+        press: [['pin', '진짜예요. 루루는 높은 데 싫어해요.', 'normal']] },
+      { text: '개장 준비 땐 루루가 웃으면서 제 화장을 해 줬어요.', cut: 't_pin_3', dist: '미화',
+        cutDesc: '꽃과 반짝이가 화면을 덮는다. 벽 쪽도 반짝이에 가려졌다.', truthCut: '2K',
+        press: [['pin', '루루 손이 엄청 차가웠어요. 긴장해서 그런 거예요.', 'normal'], ['koharu', '(벽에 뭐가 있는데 반짝이에 가려졌어요.)', 'worried']] },
+    ],
+    answers: [
+      { statement: 1, cut: '2H', shout: '루루는 올라갔어!',
+        rebut: '이건 루루 자신의 잔상이야. 작업등 아래, 캣워크에서 클램프를 붙잡고 있어.',
+        success: [
+          ['pin', '…….', 'crying'],
+          ['pin', '…올라갔어요. 근데 금방 울면서 내려왔어요.', 'crying'],
+          ['pin', '그다음부턴 진짜 저랑 있었어요. 개장 때까지 계속. 제가 계속 안고 있었어요.', 'crying'],
+          ['', '증언 컷의 반짝이가 두 장 한꺼번에 벗겨진다.'],
+        ],
+        peel: [1, 2], rewards: ['2K'], words: ['pl_greenroom', 'a_shake'] },
+    ],
+    koharu: [['koharu', '(선배, 루루 씨가 높은 데 있는 컷… 무대 뒤에서 읽은 거 있잖아요.)', 'worried']],
+    wrong: [['pin', '모, 몰라요… 루루 괴롭히지 마세요…', 'crying']],
+    close: [['pin', '흐아앙… 나가 주세요…', 'crying'], ['koharu', '(…잠깐 쉬었다 다시 해요.)', 'worried']],
+  },
+  ruru: {
+    char: 'ruru', bg: 'interrogate', face: 'angry',
+    goal: '루루의 자백을 깨뜨려라. 반박은 세 번.',
+    intro: [['towa', '거짓 자백이야. 자기가 했다고 믿는 사람 기억은 자기를 나쁘게 그려. 한 번에 안 깨져.']],
+    statements: [
+      { text: '어제 그 사람이 그랬어. 넌 여기 있으면 안 된다고. 나 같은 건 필요 없다는 거지.', cut: 't_ruru_1', dist: '낙서',
+        cutDesc: '등 돌린 정장 차림의 남자. 루루 자신의 얼굴이 새까만 낙서로 지워져 있다.', truthCut: '2P',
+        press: [['ruru', '…마지막으로 한 말이 「없어져 버려」였어. 내가.', 'angry']] },
+      { text: '개장 전에 캣워크 올라가서 리그를 세게 흔들었어.', cut: 't_ruru_2', dist: '과장',
+        cutDesc: '거대한 손이 리그를 마구 흔든다. 리그가 엿가락처럼 휘었다.', truthCut: '2H',
+        press: [['ruru', '그 사람이 거기 있었어. 뭘 묶고 있었는데, 무대 망치는 줄 알고.', 'angry'], ['ruru', '「반 걸음 뒤에 서」래. 명령하지 말라고 했어.', 'angry']] },
+      { text: '그래서 헐거워진 거야. 내가 떨어뜨린 거야.', cut: 't_ruru_3',
+        cutDesc: '떨어지는 리그. 위에서 내려다보는 루루의 시점.',
+        press: [['ruru', '다들 그렇게 말하잖아. 사장님도 봤대.', 'normal']] },
+      { text: '그 사람이 날 구하러 올 이유가 없잖아. 우연히 거기 있었던 거야.', cut: 't_ruru_4', dist: '생략',
+        cutDesc: '정장 등만 보이는 흐린 컷. 얼굴 자리가 하얀 여백.',
+        truthDesc: '윙에서 뛰어나오며 루루를 향해 손을 뻗는 키리시마. 처음 보는 다급한 얼굴.',
+        press: [['ruru', '윙에 왜 있었는지 몰라. 원래 객석 뒤에서 보는 사람인데.', 'normal']] },
+    ],
+    answers: [
+      { statement: 2, cut: '2G', shout: '네 손으로는 못 떨어뜨려!',
+        rebut: '네가 올라가기 전에 그 사람이 리그를 난간에 묶어 뒀어. 리그는 리허설 때부터 헐거웠고, 끈이 그걸 붙잡고 있었어.',
+        success: [
+          ['ruru', '…묶어… 뒀다고?', 'normal'],
+          ['', '증언 컷의 과장이 쪼그라들며 벗겨진다. 클램프 바로 옆, 단단한 매듭.'],
+          ['ruru', '…그럼 그 사람, 거기서 그걸 묶고 있었던 거야? 내가 흔든 건…', 'crying'],
+        ],
+        peel: [1], words: ['a_tie', 'pl_catwalk'] },
+      { statement: 3, cut: '2N', line: 'L6', shout: '우연이 아니야!',
+        rebut: '그 사람은 공연 내내 윙에서 리그를 보고 있었어. 흔들리자마자 「지금」이라고 하고 뛰어나왔어.',
+        success: [
+          ['ruru', '…….', 'crying'],
+          ['', '여백이 채워진다. 손을 뻗는 키리시마의 얼굴.'],
+          ['ruru', '…이런 얼굴, 한 번도 안 보여 줬잖아.', 'crying'],
+        ],
+        peel: [3], words: ['pl_wing', 'a_push', 'p_kirishima'] },
+      { statement: 0, cut: 'notebook', shout: '그 사람은 너를 버린 게 아니야!',
+        rebut: '오늘 객석에 다른 레코드사 사람을 불러 놨어. 수첩에 적혀 있어. 앙코르는 네 솔로였어.',
+        success: [
+          ['', '낙서가 눈물처럼 번지며 벗겨진다. 스튜디오 앞, 종이를 내미는 키리시마.'],
+          ['ruru', '…오디션 안내지. 다른 회사.', 'crying'],
+          ['ruru', '「넌 이 소속사에 있으면 안 돼.」…그게 그 뜻이었어?', 'crying'],
+          ['ruru', '…그럼 왜 그렇게 말했어. 바보 같이.', 'crying'],
+        ],
+        peel: [0], rewards: ['2P'] },
+    ],
+    koharu: [['koharu', '(선배, 루루 씨가 올라가기 전 캣워크… 형광등 아래 컷이 있었죠.)', 'worried']],
+    wrong: [['ruru', '그래서 뭐. 내가 했다니까.', 'angry']],
+    close: [['ruru', '…나가. 다 내 탓이야. 그걸로 됐잖아.', 'angry'], ['koharu', '(…처음부터 다시요, 선배.)', 'worried']],
+  },
+  tendo: {
+    char: 'tendo', bg: 'tendo_office', face: 'smile',
+    goal: '텐도의 증언에서 말과 그림이 어긋나는 곳을 찾아라.',
+    intro: [['towa', '이 사람 컷은 왜곡이 적어. 착각이 아니라 알고 하는 거짓말이야. 말이랑 그림이 어긋나는 데를 찾아. 그림 속을 직접 짚어야 할 수도 있어.']],
+    statements: [
+      { text: '리허설 때 리그 문제? 아무도 나한테 말 안 했어.', cut: 't_tendo_1', dist: '생략',
+        cutDesc: '크레센트 복도에서 웃는 텐도. 상대의 말풍선 자리가 하얀 여백.', truthCut: '2L',
+        press: [['tendo', '매니저는 늘 그 얼굴이었어. 무슨 말을 했는지 기억도 안 나.', 'smile']] },
+      { text: '개장 전에 객석에서 똑똑히 봤어. 루루가 캣워크에서 리그를 흔드는 걸.', cut: 't_tendo_2', dist: '과장',
+        cutDesc: '거대하게 그려진 루루가 리그를 흔든다. 화면 앞쪽에 비스듬한 철제 계단 난간이 걸쳐 있다.',
+        spots: [{ id: 'rail', label: '앞쪽에 걸친 철제 난간', x: 0, y: 0.55, w: 0.45, h: 0.45 },
+          { id: 'ruru', label: '거대한 루루', x: 0.4, y: 0.1, w: 0.4, h: 0.6 }, { id: 'rig', label: '리그', x: 0.3, y: 0, w: 0.6, h: 0.18 }],
+        press: [['tendo', '객석 한가운데서. 경찰한테도 그대로 말했어.', 'smile'], ['koharu', '(…객석에서 올려다본 것치곤 리그가 눈높이에 있네요.)', 'worried']] },
+      { text: '난 그 뒤로 사무실에 있었어. 캣워크는 올라간 적도 없어.', cut: 't_tendo_3',
+        cutDesc: '크레센트 사무실 의자에 앉아 서류를 보는 텐도.',
+        press: [['tendo', '개장 전엔 할 일이 산더미야. 스카우트도 온다는데.', 'normal']] },
+    ],
+    answers: [
+      { statement: 0, cut: '2L', line: 'L4', shout: '말했어. 당신한테!',
+        rebut: '리허설 중 복도. 매니저가 점검표를 들고 따졌고, 당신은 이렇게 답했어. 「한 번만 버텨.」',
+        success: [['tendo', '…아아, 그거.', 'normal']],
+        choice: {
+          prompt: '텐도: 「그건 루루한테 한 말이야. 공연 한 번만 버티라고!」 — 어떻게 받아칠까?',
+          options: ['"루루 씨도 그 자리에 있었잖아요."', '"매니저 손에 동그라미 친 점검표가 있어요. 무대에선 리허설 소리가 나고. 루루는 거기 없었어요."', '"그 말, 녹음돼 있어요."'],
+          answer: 1,
+          success: [['tendo', '…….', 'angry'], ['rei', '같은 말이라도 어느 칸에 붙느냐에 따라 뜻이 바뀌어요. 이 말은 리그 얘기 칸에 붙어 있어요.', 'serious']],
+          wrong: [['tendo', '증거 있어? 없잖아.', 'smile']],
+        },
+        peel: [0], words: ['p_tendo'] },
+      { statement: 1, spot: 'rail', shout: '객석에선 이 그림이 안 나와!',
+        rebut: '앞쪽에 계단 난간이 걸쳐 있어요. 리그가 눈높이고. 이건 객석이 아니라 캣워크 계단 중간에서 본 그림이에요.',
+        success: [
+          ['tendo', '…….', 'angry'],
+          ['tendo', '…걱정돼서 올라가 본 거다! 사장이 자기 무대 걱정하는 게 죄야?', 'angry'],
+        ],
+        words: ['pl_catwalk'],
+        changes: { 2: { text: '올라가 보니 루루가 리그를 만지고 있었어. 난 바로 내려왔어. 끈 같은 건 본 적도 없어.', cut: 't_tendo_3b', dist: '생략',
+          cutDesc: '캣워크 계단 위에서 본 리그. 리그 옆 난간 자리가 하얀 여백.', truthCut: '2T',
+          press: [['tendo', '끈? 처음 듣는 얘기야.', 'normal'], ['koharu', '(사장님 시계, 엄청 크네요….)', 'worried']] } } },
+      { statement: 2, cut: '2T', requires: [1], shout: '끈을 푼 건 당신이야!',
+        rebut: '헤이즈가 깔린 뒤예요. 루루는 그때 대기실에서 울고 있었고. 끈을 푼 손엔 이 시계가 있어요.',
+        success: [
+          ['tendo', '…이런 시계는 흔해!', 'cornered'],
+          ['tendo', '그리고 잔상? 그런 건 증거가 안 돼. 내 변호사가 웃겠네.', 'cornered'],
+        ],
+        peel: [2], words: ['a_untie', 'th_watch', 't_haze'] },
+    ],
+    koharu: [['koharu', '(선배, 저 사람 손목… 다른 컷에서도 본 것 같아요.)', 'worried']],
+    wrong: [['tendo', '그래서? 그게 우리 회사랑 무슨 상관이지?', 'smile']],
+    close: [['tendo', '변호사 불러. 오늘은 여기까지.', 'angry'], ['koharu', '(…처음부터 다시 들어요, 선배.)', 'worried']],
+  },
+  // 보류 해제: 쿠라모치 증언 3을 다시 연다
+  kuramochi2: {
+    char: 'kuramochi', bg: 'tendo_office', face: 'scared',
+    goal: '클립을 꽂아 둔 증언. 하얀 여백 속을 벗겨라.',
+    statements: [
+      { text: '개장 전엔 부스에서 조명만 확인했어요. 캣워크엔 아무도 없었어요.', cut: 't_kuramochi_3', dist: '생략',
+        cutDesc: '부스 유리 너머 무대. 캣워크가 있어야 할 자리가 통째로 하얀 여백.', truthCut: '2M',
+        press: [['kuramochi', '…말하면, 저도 공범이라고 했어요.', 'scared']] },
+    ],
+    answers: [
+      { statement: 0, cut: '2T', shout: '당신은 봤어!',
+        rebut: '헤이즈가 깔린 캣워크. 부스 유리 정면이에요. 끈을 풀던 손, 당신 자리에선 다 보였어요.',
+        success: [
+          ['', '하얀 여백이 벗겨진다. 띠를 재킷 주머니에 넣으며, 부스를 향해 손가락을 입에 대는 텐도.'],
+          ['kuramochi', '…제가 봤어요.', 'resolute'],
+          ['kuramochi', '법정에서도 말할게요.', 'resolute'],
+        ],
+        peel: [0], rewards: ['2M'], words: ['a_hide'] },
+    ],
+    koharu: [['koharu', '(선배, 오늘 사장실 휴지통에서 찾은 거… 그 순간의 컷이잖아요.)', 'worried']],
+    wrong: [['kuramochi', '…….', 'scared']],
+    close: [['kuramochi', '…죄송해요. 조금만….', 'scared']],
+  },
+});
+
+// 결론에서 물증으로 받치는 질문
+const CONCLUSION2 = [
+  { q: '리그는 왜 떨어질 수 있었나? (물증으로)', answer: ['estimate', 'checklist'], choices: ['checklist', 'estimate', 'cuesheet', 'scouts', 'insurance'] },
+  { q: '공연 직전, 리그를 붙잡던 끈을 푼 사람은? (물증으로)', answer: ['strap', '2M'], choices: ['strap', '2M', '2H', '2K', 'whitecard'] },
+];
+
+// 중간 보고와 결론의 네임
+const NAME2_MID = [
+  '개장 전, 리그를 붙잡던 ', { cat: 'thing', a: 'th_strap' }, '을(를) ', { cat: 'act', a: 'a_untie' }, ' 사람은 ', { cat: 'person', a: 'p_tendo' }, '.\n',
+  '그건 ', { cat: 'time', a: 't_haze' }, '의 일이고, 그때 루루는 ', { cat: 'place', a: 'pl_greenroom' }, '에 있었다.',
+];
+const NAME2_FINAL = [
+  '리그는 ', { cat: 'time', a: 't_rehearsal' }, ' 때부터 헐거웠다. ', { cat: 'person', a: 'p_kirishima' }, '은(는) ', { cat: 'thing', a: 'th_strap' }, '으로 리그를 난간에 ', { cat: 'act', a: 'a_tie' }, '.\n',
+  { cat: 'time', a: 't_haze' }, ', ', { cat: 'person', a: 'p_tendo' }, '이(가) 그것을 ', { cat: 'act', a: 'a_untie' }, '.\n',
+  '공연 중, 키리시마는 ', { cat: 'place', a: 'pl_wing' }, '에서 뛰어나와 ', { cat: 'person', a: 'p_ruru' }, '를 ', { cat: 'act', a: 'a_push' }, '.',
+];
+
+Object.assign(PROFILES, {
+  ruru: '밴드 「크럼블」의 보컬·기타 아마네 루루(19). 무대에선 완벽한 미소, 무대 밖에선 독설. 스스로 "내 탓"이라고 한다.',
+  pin: '「크럼블」의 베이스 모모세 핀(18). 솜사탕 말투. 루루를 동경한다.',
+  aoi: '「크럼블」의 드럼이자 리더 사카키 아오이(21). 짧은 머리, 쿨함.',
+  kuramochi: '라이브하우스 「크레센트」의 조명 기사 쿠라모치 시노(28). 점검표에 「이상 없음」이라고 서명했다.',
+  tendo: '소속사 「텐도 프로모션」 사장 텐도 마키(52). 사건 뒤 "루루가 리그를 만지는 걸 봤다"고 진술했다.',
+  kirishima: '「크럼블」의 매니저 키리시마 토루(34). 공연 중 떨어진 조명 리그에 깔려 숨졌다.',
+});

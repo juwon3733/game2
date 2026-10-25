@@ -153,6 +153,11 @@ async function trialRound(wid, R) {
       continue;
     }
 
+    // 보류할 증언: 지금 가진 것으로는 못 깬다. 벌점 없이 다른 증언으로 돌린다
+    if (R.hold && st.idx === R.hold.statement && st.done.size < R.answers.length) {
+      await say('rei', '(…여기도 뭔가 비어 있어. 근데 지금은 다른 데부터 깨야 해.)', 'serious');
+      continue;
+    }
     // 반박: 이 증언에 걸린 답이 무엇으로 깨지는지 모르므로, 짚을 곳이 있는 증언이면 방법부터 고른다
     hideText();
     let how = 'cut';

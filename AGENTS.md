@@ -51,7 +51,7 @@
 
 ## 4. 올리기
 
-1. 새 브랜치: `assets/ch1-<묶음 id>` (예: `assets/ch1-cut-gold`). 여러 묶음이면 `assets/ch1-<짧은 설명>`.
+1. 새 브랜치: `assets/ch<장>-<묶음 id>` (예: `assets/ch1-cut-gold`, `assets/ch2-portrait-ruru`). 여러 묶음이면 `assets/ch<장>-<짧은 설명>`.
 2. 이미지 파일만 커밋한다. 커밋 메시지: `assets: <묶음 id> — <파일 id 목록>`
 3. 검사를 돌린다. **통과해야 한다.**
    ```
