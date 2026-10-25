@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>같은 하루, 다른 칸 — 컷 배열 프로토타입</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/galmuri@2.39.3/dist/galmuri.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section id="intro" class="screen">
+  <div class="intro-box">
+    <h1>같은 하루, 다른 칸</h1>
+    <p class="sub">1장 「낙하」 · 컷 배열 퍼즐 프로토타입</p>
+    <p>잔상은 만화 컷으로 남는다. 컷에는 시간이 적혀 있지 않다.</p>
+    <p>컷 안의 단서(소리, 소품, 위치)를 읽고 일어난 순서대로 원고지에 놓아라.</p>
+    <ul>
+      <li>컷을 <b>끌어서</b> 칸에 놓는다. 칸끼리 바꾸기, 묶음으로 되돌리기 가능. (클릭으로 집고 클릭으로 놓아도 됨)</li>
+      <li>대사 조각은 컷의 <b>빈 말풍선</b>에 끌어다 붙인다. 말풍선 모양이 맞아야 붙는다.</li>
+      <li>다 채우면 <b>페이지 넘기기</b>. 틀리면 모순이 있는 경계가 빨갛게 떨린다.</li>
+    </ul>
+    <p class="note">회색 박스 프로토타입이라 그림 대신 글로 컷 내용을 적었다.</p>
+    <button id="start" class="btn primary">시작</button>
+  </div>
+</section>
+
+<section id="game" class="screen hidden">
+  <header class="top">
+    <div>
+      <h2 id="page-title"></h2>
+      <p id="page-sub"></p>
+    </div>
+    <label class="opt"><input type="checkbox" id="opt-clip" checked> 맞은 칸 클립 고정</label>
+  </header>
+
+  <main class="desk">
+    <div class="paper-wrap">
+      <div id="paper" class="paper"></div>
+    </div>
+    <aside class="tray-wrap">
+      <h3>컷 묶음</h3>
+      <div id="tray" class="tray"></div>
+      <div id="lines-box" class="lines-box">
+        <h3>대사 조각</h3>
+        <div id="lines" class="lines"></div>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="bottom">
+    <div class="towa">
+      <div class="avatar" aria-hidden="true">=^.^=</div>
+      <div id="towa-say" class="say">토와: 힌트 필요하면 불러. …딱히 기다리는 건 아니야.</div>
+    </div>
+    <div class="actions">
+      <button id="btn-hint" class="btn">토와 힌트 <span id="hint-count"></span></button>
+      <button id="btn-shiori" class="btn ghost">…?</button>
+      <button id="btn-check" class="btn primary">페이지 넘기기</button>
+    </div>
+  </footer>
+</section>
+
+<section id="result" class="screen hidden">
+  <div class="intro-box">
+    <h1>1장 원고 평가</h1>
+    <table id="result-table"></table>
+    <p id="result-say" class="say"></p>
+    <button id="restart" class="btn primary">처음부터</button>
+  </div>
+</section>
+
+<div id="reading" class="reading hidden">
+  <div id="rei-line" class="rei-line"></div>
+  <button id="btn-next" class="btn primary hidden">다음</button>
+</div>
+
+<div id="toast" class="toast hidden"></div>
+
+<script src="data.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
