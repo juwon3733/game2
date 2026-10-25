@@ -12,6 +12,10 @@ const PROMPT_STYLE = {
   // 크레용 왜곡 컷은 아이의 기억이라 색을 허용한다
   cutPaletteCrayon: 'Palette: exception for this panel — it is a child\'s crayon memory, so use a few bright crayon colors (yellow, pink, sky blue) with wobbly hand-drawn shapes, still made of chunky pixels. No text, no speech bubbles.',
   portrait: 'Same character as the reference sheet above, waist-up portrait facing slightly to the side, plain transparent background, vertical 1024x1536.',
+  // 캐릭터(설정화·상반신)만 모바일 가챠게임풍 서브컬처 디자인. 배경과 컷 분위기는 그대로 둔다.
+  character: 'Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.',
+  // 컷 속 인물도 상반신과 같은 얼굴로 보이게
+  cutFaces: 'Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits.',
 };
 
 const SPEC = {
@@ -22,15 +26,15 @@ const SPEC = {
 
 // 캐릭터 설정화: 표정 상반신을 뽑기 전에 같은 대화창에서 먼저 뽑는다.
 const CHARACTER_SHEETS = {
-  rei: 'Character reference sheet of an androgynous 22-year-old investigator, sleepy half-closed eyes with dark circles, messy short black hair, oversized grey hoodie under a worn beige trench coat, holding a canned coffee, pen callus on right index finger. Navy and lavender accent colors. Full body front view plus face close-up.',
-  koharu: 'Character reference sheet of a cheerful 20-year-old rookie detective girl, orange-brown side ponytail tied with a sky-blue hair tie, big bright eyes, navy suit jacket with white shirt and white sneakers, a notebook covered in stickers. Sunny orange and sky-blue accent colors. Full body front view plus face close-up.',
-  kurogane: 'Character reference sheet of a tired 47-year-old police chief, rumpled white shirt, loose tie, grey stubble, a strawberry lollipop stick in his mouth, old wristwatch. Iron grey and strawberry pink accents.',
-  towa: 'Chibi avatar of a hacker shown only on a monitor screen: small 2-head-tall character with cat-ear headphones, wrapped in a cream blanket like a cape, green monitor glow. Reference sheet with several expressions.',
-  asagiri: 'Character reference sheet of a gentle 61-year-old cafe owner woman, silver-grey hair in a bun, round glasses, linen apron, warm smile. Cream and coffee brown palette.',
-  ookubo: 'Character reference sheet of a talkative 63-year-old apartment security guard, grey hair, olive green guard uniform and cap, chubby friendly face.',
-  taiga: 'Character reference sheet of a 21-year-old delivery worker who looks like a delinquent, bleached blond hair, sharp narrow eyes, black delivery uniform with a cap, intimidating face but kind eyes.',
-  himari: 'Character reference sheet of a 9-year-old girl, brown twin tails, a small music-note hairpin, pink t-shirt, shy expression.',
-  shiori: 'Character reference sheet of a 16-year-old girl in an old navy sailor school uniform, long straight black hair, a bookmark-shaped hairpin on her bangs, barefoot, faintly translucent like a screentone ghost.',
+  rei: 'Character reference sheet of an androgynous 22-year-old investigator with a cool, sleepy charm. Large half-closed violet-grey eyes with soft highlights and faint dark circles, messy short black hair with one stray ahoge and a small lavender hair clip, oversized grey hoodie under a long beige trench coat with rolled sleeves, a pin badge shaped like a manga panel on the coat, a canned coffee in hand, pen callus on right index finger. Navy and lavender accent colors. Full body front view plus face close-up.',
+  koharu: 'Character reference sheet of a cheerful 20-year-old rookie detective girl. Big sparkling amber eyes, orange-brown side ponytail tied with a sky-blue scrunchie with a small star charm, navy suit jacket with rolled sleeves over a white shirt with a loose sky-blue ribbon tie, navy pants, white sneakers, a police badge clipped to her belt, a notebook covered in cute stickers. Sunny orange and sky-blue accent colors. Full body front view plus face close-up.',
+  kurogane: 'Character reference sheet of a tired but handsome 47-year-old police chief with a "cool uncle" design. Slicked-back black hair streaked with grey, light stubble, sharp tired eyes, rumpled white shirt with rolled sleeves, loose dark tie, shoulder holster strap, a strawberry lollipop stick in his mouth, old wristwatch. Iron grey and strawberry pink accents.',
+  towa: 'Chibi avatar of a hacker shown only on a monitor screen: small 2-head-tall character with big sparkling green eyes, oversized cat-ear headphones with glowing LEDs, wrapped in a cream blanket like a cape, green monitor glow. Reference sheet with several expressions.',
+  asagiri: 'Character reference sheet of an elegant, gentle 61-year-old cafe owner woman. Beautiful silver hair in a neat bun with a wooden hairpin, round gold glasses, soft kind eyes, cream blouse with a linen apron, a coffee-bean brooch. Cream and coffee brown palette.',
+  ookubo: 'Character reference sheet of a friendly, chubby 63-year-old apartment security guard with a comical and lovable design. Round face, bushy grey eyebrows and mustache, olive green guard uniform and cap with a shiny badge, a whistle on a cord. Olive and brass accents.',
+  taiga: 'Character reference sheet of a 21-year-old delivery worker with a "scary-looking but soft-hearted delinquent" design. Spiky bleached blond hair under a black cap worn backwards, sharp golden eyes, a small silver earring, black delivery uniform jacket with reflective stripes and rolled sleeves, fingerless gloves. Black and gold accents.',
+  himari: 'Character reference sheet of an adorable 9-year-old girl. Big round brown eyes, brown twin tails tied with pink ribbons, a small gold music-note hairpin, pink t-shirt with a piano-key pattern, denim overall skirt, shy expression.',
+  shiori: 'Character reference sheet of an ethereal, beautiful 16-year-old girl. Large calm dark eyes, long straight black hair with blunt bangs and a bookmark-shaped hairpin, old navy sailor school uniform with a white ribbon, barefoot, faintly translucent edges like a screentone ghost.',
 };
 
 // 표정 상반신: 캐릭터_표정
@@ -65,10 +69,10 @@ const BG_PROMPTS = {
 
 // 여러 컷에 나오는 인물은 같은 외형 문장으로 그려야 컷끼리 같은 사람으로 보인다.
 const CUT_CHARS = {
-  taiga: 'a young delivery worker with bleached blond hair (accent color) and a black uniform and cap',
+  taiga: 'a young delivery worker with spiky bleached blond hair (accent color) under a backwards black cap, a small earring and a black uniform with reflective stripes',
   mitsuru: 'a gentle man in his early 30s with glasses and a light shirt',
-  himari: 'a 9-year-old girl with brown twin tails and a small music-note hairpin',
-  ookubo: 'an old chubby security guard in an olive uniform and cap',
+  himari: 'a 9-year-old girl with brown twin tails tied with ribbons and a small music-note hairpin',
+  ookubo: 'a chubby old security guard with a grey mustache in an olive uniform and cap',
 };
 
 // 컷: [장면, 꼭 보여야 할 것]. {taiga} 같은 자리는 CUT_CHARS로 바뀐다.

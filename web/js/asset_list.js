@@ -13,8 +13,8 @@ function requiredAssets() {
       list.push({
         kind: 'portrait', group: c.name === '???' ? '시오리' : c.name, id,
         path: `portraits/${id}.png`, spec: SPEC.portrait,
-        sheet: `${px}\n\n${PROMPT_STYLE.sheetRes}\n\n${CHARACTER_SHEETS[char]}`,
-        prompt: `${px}\n\n${PROMPT_STYLE.portraitRes}\n\n${PROMPT_STYLE.portrait} ${FACE_PROMPTS[id] || 'expression: ' + face}`,
+        sheet: `${px}\n\n${PROMPT_STYLE.character}\n\n${PROMPT_STYLE.sheetRes}\n\n${CHARACTER_SHEETS[char]}`,
+        prompt: `${px}\n\n${PROMPT_STYLE.character}\n\n${PROMPT_STYLE.portraitRes}\n\n${PROMPT_STYLE.portrait} ${FACE_PROMPTS[id] || 'expression: ' + face}`,
       });
     }
   }
@@ -37,7 +37,7 @@ function requiredAssets() {
       .replace('{color}', `${COLOR_NAME[color] || ''} (${color})`);
     return {
       must,
-      prompt: `${PROMPT_STYLE.cut.replace('{palette}', palette)}\n\nScene: ${scene}\n\nKeep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.`,
+      prompt: `${PROMPT_STYLE.cut.replace('{palette}', palette)}\n\nScene: ${scene}\n\n${PROMPT_STYLE.cutFaces} Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.`,
     };
   };
 
