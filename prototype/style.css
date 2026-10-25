@@ -113,7 +113,7 @@ body {
 .cut {
   --owner: #888;
   position: relative; width: 236px; height: 196px;
-  background: #fff; border: 2px solid var(--ink);
+  background: #fff; color: var(--ink); border: 2px solid var(--ink);
   display: flex; flex-direction: column; cursor: grab;
   touch-action: none;
 }

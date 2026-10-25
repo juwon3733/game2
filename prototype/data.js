@@ -4,6 +4,7 @@ const OWNERS = {
   taiga:   { name: '타이가', color: '#c9961a' },
   mitsuru: { name: '미츠루', color: '#3b8fd0' },
   himari:  { name: '히마리', color: '#e0679a' },
+  ookubo:  { name: '오오쿠보', color: '#6b8a5a' },
 };
 
 // 상태 태그의 시간 순서. 앞의 값이 항상 먼저 일어난다.
@@ -43,6 +44,13 @@ const CUTS = {
     art: [{ sfx: '쿵!!' }, { prop: '바닥에 떨어진 상자' }],
     desc: '문 앞에서 깜짝 놀라 돌아보는 타이가. 상자가 바닥에 떨어져 있다. 화면 밖에서 커다란 소리.',
     tags: { box: 'dropped', fall: 'after', taiga: 'door', phone: 'unused' },
+  },
+  E: {
+    owner: 'ookubo', title: '외침',
+    art: [{ prop: '계단에서 뛰쳐나오는 타이가' }, { tiny: '입을 크게 벌림 · 울 것 같은 얼굴' }],
+    desc: '계단을 뛰쳐나오며 뭔가 크게 외치는 타이가. 겁에 질린 얼굴이다. 손에는 아무것도 없다.',
+    bubble: 'burst',
+    tags: { fall: 'after', taiga: 'stairs' },
   },
   F: {
     owner: 'taiga', title: '배터리 0%',

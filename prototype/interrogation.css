@@ -1,0 +1,148 @@
+/* 심문 프로토타입 전용. 공용 컷/버튼 스타일은 style.css */
+
+#game { display: flex; flex-direction: column; min-height: 100vh; height: auto; }
+.intro-box a { color: inherit; }
+
+/* ---------- 증인 ---------- */
+.witness {
+  display: flex; align-items: center; gap: 14px;
+  padding: 12px 16px; background: var(--desk-2); color: var(--paper);
+  border-bottom: 2px solid #111;
+}
+.portrait {
+  width: 64px; height: 64px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  border: 3px solid var(--paper); font-size: 26px; font-weight: bold; color: #fff;
+  image-rendering: pixelated;
+}
+.portrait.hurt { animation: shake .2s linear 3; }
+.w-info { flex: 1; min-width: 0; }
+.w-name { font-size: 18px; font-weight: bold; }
+.w-trait { font-size: 12px; color: #aaa; margin: 2px 0 6px; }
+.ink { display: flex; gap: 6px; }
+.ink .bottle {
+  width: 16px; height: 22px; border: 2px solid var(--paper); border-top-width: 5px;
+  background: linear-gradient(to top, #2d4f9e 75%, transparent 75%);
+}
+.ink .bottle.empty { background: transparent; opacity: .4; }
+.btn.koharu { background: #f2a14a; border-color: #000; }
+.btn.koharu:disabled { background: #555; color: #999; }
+
+/* ---------- 증언 페이지 ---------- */
+.strip-wrap { padding: 18px 16px 8px; overflow-x: auto; }
+.strip {
+  display: flex; align-items: stretch; gap: 0;
+  background: var(--paper); padding: 18px 10px; width: max-content; min-width: 100%;
+  border: 1px solid #000; box-shadow: 6px 6px 0 #111;
+  outline: 2px dashed var(--line); outline-offset: -8px;
+}
+.t-cut { width: 220px; flex-shrink: 0; position: relative; }
+.t-cut .cut { width: 100%; height: 100%; min-height: 200px; cursor: pointer; }
+.t-cut.current .cut { outline: 4px solid var(--ink); outline-offset: 3px; }
+.t-cut.underline .cut { box-shadow: 0 0 0 4px #f2a14a; }
+.t-cut .t-num {
+  position: absolute; top: -12px; left: -8px; z-index: 3;
+  background: var(--ink); color: var(--paper); font-size: 11px; padding: 1px 5px;
+}
+.t-cut.inserted .cut { outline: 4px solid var(--red); outline-offset: 3px; animation: slam .35s ease-out; }
+@keyframes slam { 0% { transform: translateY(-40px) scale(1.15); } 100% { transform: none; } }
+
+.gap {
+  width: 26px; flex-shrink: 0; margin: 0 4px;
+  display: flex; align-items: center; justify-content: center;
+  color: #b9b2a3; font-size: 14px;
+  border: 2px dashed transparent; transition: width .15s, background .15s;
+}
+.gap::before { content: '▼'; }
+body.dragging-cut .gap, body.selecting-cut .gap { border-color: #b9b2a3; width: 44px; cursor: pointer; }
+.gap.drop-hover { background: #fff3c4; border-color: var(--gold) !important; width: 70px !important; }
+.gap.wrong { animation: shake .25s linear 4; background: #ffd9d9; }
+
+/* ---------- 왜곡 ---------- */
+.cut.d-glitter .cut-art {
+  background-image:
+    radial-gradient(circle, #f5a3d3 3px, transparent 3.5px),
+    radial-gradient(var(--tone) 1px, transparent 1.2px);
+  background-size: 18px 18px, 5px 5px;
+}
+.cut.d-glitter .cut-art::after { content: '✧ ✦ ✧'; position: absolute; top: 4px; right: 6px; color: #e98cc4; font-size: 12px; }
+.cut.d-scribble .cut-art {
+  background-image:
+    repeating-linear-gradient(35deg, transparent 0 6px, rgba(200,30,30,.8) 6px 9px),
+    repeating-linear-gradient(-50deg, transparent 0 9px, rgba(30,30,30,.7) 9px 12px) !important;
+  background-size: auto !important;
+}
+.cut.d-exaggerate .art-sfx { font-size: 46px; letter-spacing: -2px; }
+.cut.d-blank .cut-art::after {
+  content: '(여백)'; position: absolute; left: 22%; top: 18%; width: 46%; height: 52%;
+  background: #fff; border: 2px dashed #bbb; color: #bbb; font-size: 11px;
+  display: flex; align-items: center; justify-content: center;
+}
+.cut.d-crayon, .cut.d-blackout { font-family: 'Galmuri9', var(--font); }
+.cut.d-crayon .cut-art, .cut.d-blackout .cut-art {
+  background-image: repeating-linear-gradient(80deg, #ffe8a8 0 4px, #ffd6e6 4px 7px, #d8f0ff 7px 11px);
+  background-size: auto;
+}
+.cut.d-crayon .art-prop, .cut.d-blackout .art-prop { border-radius: 40% 10% 35% 15%; border-width: 2px; transform: rotate(-2deg); }
+.cut.d-blackout .cut-art { background: repeating-linear-gradient(70deg, #111 0 5px, #2a2a2a 5px 8px); }
+.cut.d-blackout .art-prop { background: #222; color: #888; border-color: #555; }
+.cut.peeled .cut-art { animation: peel .6s ease-out; }
+@keyframes peel { 0% { clip-path: inset(0 0 0 100%); } 100% { clip-path: inset(0 0 0 0); } }
+.dist-tag {
+  position: absolute; bottom: 4px; right: 4px; z-index: 2;
+  font-size: 10px; background: var(--red); color: #fff; padding: 0 4px;
+}
+
+/* ---------- 대화 ---------- */
+.dialog {
+  position: relative; margin: 8px 16px; min-height: 92px;
+  background: var(--paper); border: 2px solid #000; box-shadow: 4px 4px 0 #111;
+  padding: 10px 14px 10px; cursor: default;
+}
+.dialog.waiting { cursor: pointer; }
+.d-speaker { font-weight: bold; font-size: 13px; color: #555; min-height: 16px; }
+.d-text { font-size: 15px; line-height: 1.6; margin-top: 3px; min-height: 24px; }
+.d-choices { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
+.d-choices:empty { display: none; }
+.d-controls { display: flex; gap: 8px; margin-top: 8px; }
+.d-more { position: absolute; right: 12px; bottom: 6px; font-size: 11px; color: #888; animation: blink 1s steps(2) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.dialog:not(.waiting) .d-more { display: none; }
+.dialog.waiting .d-controls { display: none; }
+.probed-mark { color: #999; font-size: 11px; margin-left: 4px; }
+
+/* ---------- 내 컷 / 대사 조각 ---------- */
+.evidence {
+  display: flex; gap: 14px; padding: 8px 16px 18px; color: #ddd;
+}
+.evidence h3 { margin: 0 0 8px; font-size: 13px; color: #aaa; }
+.ev-col { min-width: 0; }
+.ev-col:first-child { flex: 1; }
+.lines-col { width: 280px; flex-shrink: 0; }
+.ev-cuts { display: flex; gap: 10px; overflow-x: auto; padding: 6px 2px 10px; }
+.ev-cuts .cut { width: 190px; flex-shrink: 0; height: auto; min-height: 170px; }
+.ev-cuts .cut.new::before {
+  content: 'NEW'; position: absolute; top: -8px; left: -6px; z-index: 3;
+  background: var(--gold); color: #000; font-size: 10px; padding: 0 4px;
+}
+.ev-cuts .cut.used { opacity: .45; }
+
+.bang {
+  position: fixed; inset: 0; z-index: 150; pointer-events: none;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 120px; font-weight: bold; color: var(--ink);
+  -webkit-text-stroke: 3px #fff;
+  background: repeating-conic-gradient(from 0deg at 50% 50%, rgba(0,0,0,.18) 0 2deg, transparent 2deg 9deg);
+  animation: bang .7s ease-out forwards;
+}
+@keyframes bang { 0% { transform: scale(2.2); opacity: 0; } 30% { transform: scale(1); opacity: 1; } 100% { opacity: 0; } }
+
+body.busy .evidence, body.busy .strip { pointer-events: none; }
+
+@media (max-width: 860px) {
+  .evidence { flex-direction: column; }
+  .lines-col { width: 100%; }
+  .lines { flex-direction: row; flex-wrap: wrap; }
+  .t-cut { width: 180px; }
+  .witness { flex-wrap: wrap; }
+}
