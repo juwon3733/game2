@@ -514,3 +514,6 @@ body { word-break: keep-all; overflow-wrap: break-word; }
 .tr-mind { margin-left: auto; display: flex; align-items: center; gap: 6px; font-size: 15px; color: var(--txt); background: rgba(14,16,30,.72); padding: 4px 10px; border-radius: 4px; }
 .tr-mind small { font-size: 12px; color: var(--sub); }
 .tr-mind .ink-b { width: 14px; height: 20px; }
+
+/* 퍼즐 칸 번호가 컷 제목(시점 이름)을 가리지 않게 */
+.pz-slot .cutv-head { padding-left: 34px; }

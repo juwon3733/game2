@@ -466,10 +466,10 @@ Scene: Back view of a young delivery worker with spiky bleached blond hair (acce
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + gold (#c9961a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: a young delivery worker with spiky bleached blond hair (accent color) under a backwards black cap, a small earring and a black uniform with reflective stripes on the stairs gripping a dead smartphone, biting his lip in frustration.
+Scene: At night on a dim stairwell: a young delivery worker with spiky bleached blond hair (accent color) under a backwards black cap, a small earring and a black uniform with reflective stripes holds up a smartphone close to the viewer; its black screen shows only one big empty battery icon, clearly readable. He bites his lip in frustration.
 ```
 
-> 꼭 보여야 할 것: (진실) 꺼진 휴대폰
+> 꼭 보여야 할 것: (진실) 꺼진 휴대폰의 큰 빈 배터리 아이콘
 
 ## 대화 14 — 컷 · 미츠루 시점 (파랑) (2장)
 
@@ -483,12 +483,12 @@ Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game scr
 
 Palette: 8 grey levels from black to white, and one accent color blue (#3b8fd0). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
-Scene: a gentle man in his early 30s with glasses and a light shirt with both hands lifted clearly above the piano keys, not touching them, turning toward a curtained balcony door, a small child-sized shadow behind the curtain.
+Scene: a gentle man in his early 30s with glasses and a light shirt sitting at a black upright piano in a cozy living room at night, both hands lifted clearly above the keys and not touching them, his head turned toward the curtained glass door to the balcony; behind the thin curtain, the small shadow of a child.
 
 Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
-> 꼭 보여야 할 것: 멈춘 손, 커튼 너머 작은 그림자
+> 꼭 보여야 할 것: 멈춘 손(건반에서 뗀 손), 업라이트 피아노, 커튼 너머 작은 그림자
 
 **`C.png`
 ```
@@ -522,19 +522,19 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + pink (#e0679a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: a 9-year-old girl with brown twin tails tied with ribbons, a small music-note hairpin, a t-shirt with a piano-key pattern and a denim overall skirt standing on a flowerpot and climbing the balcony railing, reaching for her hairpin caught on the outer ledge. The neighboring balcony behind the partition is empty.
+Scene: Seen from inside a 5th-floor apartment balcony high above the ground at night; far below, the harbor town lights and the dark sea make the height obvious: a 9-year-old girl with brown twin tails tied with ribbons, a small music-note hairpin, a t-shirt with a piano-key pattern and a denim overall skirt has stepped up onto a flowerpot set against the railing and leans her upper body over the top of the railing, stretching one arm down toward the narrow outer ledge just outside the railing, where her music-note hairpin lies, drawn large and clearly in the accent color. On one side, a white emergency partition board; the neighbor's balcony beyond it is empty.
 ```
 
-> 꼭 보여야 할 것: 화분을 밟은 발, 난간, 바깥 턱의 머리핀
+> 꼭 보여야 할 것: 화분을 밟은 발, 난간 위로 내민 몸, 난간 바로 바깥 턱의 큰 머리핀(포인트 색), 빈 칸막이, 아래로 보이는 항구 야경(높이)
 
 **`I.png`
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + pink (#e0679a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: An adult's arm pulling a 9-year-old girl with brown twin tails tied with ribbons, a small music-note hairpin, a t-shirt with a piano-key pattern and a denim overall skirt back to safety from the railing. She clutches the hairpin in her hand. The adult is leaning dangerously outward over the railing.
+Scene: Seen from the side on a 5th-floor apartment balcony high above the ground at night; far below, the harbor town lights and the dark sea make the height obvious: an adult's arm reaches through the gap beside the white emergency partition and pulls a 9-year-old girl with brown twin tails tied with ribbons, a small music-note hairpin, a t-shirt with a piano-key pattern and a denim overall skirt back down from the railing onto the balcony floor; she clutches her music-note hairpin, drawn clearly in the accent color. The adult (glasses, light shirt) leans dangerously far out over the railing on his side of the partition.
 ```
 
-> 꼭 보여야 할 것: 손에 쥔 머리핀, 바깥으로 기우는 어른
+> 꼭 보여야 할 것: 손에 쥔 머리핀(포인트 색), 칸막이 틈으로 뻗은 어른 팔, 바깥으로 기우는 어른, 아래 항구 야경(높이)
 
 **`t_himari_1_truth.png`
 ```
@@ -549,10 +549,10 @@ Scene: a 9-year-old girl with brown twin tails tied with ribbons, a small music-
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + pink (#e0679a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: a 9-year-old girl with brown twin tails tied with ribbons, a small music-note hairpin, a t-shirt with a piano-key pattern and a denim overall skirt looking at her hairpin caught on the balcony's outer ledge.
+Scene: From inside the room through the open glass door, on a 5th-floor apartment balcony high above the ground at night; far below, the harbor town lights and the dark sea make the height obvious: a 9-year-old girl with brown twin tails tied with ribbons, a small music-note hairpin, a t-shirt with a piano-key pattern and a denim overall skirt leans on the balcony railing and stares at her music-note hairpin lying on the narrow outer ledge just outside the railing, drawn large in the accent color.
 ```
 
-> 꼭 보여야 할 것: (진실) 턱에 걸린 머리핀
+> 꼭 보여야 할 것: (진실) 난간 바깥 턱의 큰 머리핀(포인트 색), 항구 야경(높이)
 
 **`t_himari_3_truth.png`
 ```
@@ -632,10 +632,10 @@ Scene: a chubby old security guard with a grey mustache in an olive uniform and 
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + olive green (#6b8a5a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: a young delivery worker with spiky bleached blond hair (light grey) under a backwards black cap, a small earring and a black uniform with reflective stripes running out of a stairwell, same outfit and delivery backpack as always, but his face is scribbled over with a crude horned monster doodle like a child's pen scribble (a prejudiced memory). He is not wearing a guard uniform.
+Scene: At night: a young delivery worker with spiky bleached blond hair (light grey) under a backwards black cap, a small earring and a black uniform with reflective stripes running out of a stairwell, same outfit and delivery backpack as always, but his face is scribbled over with a crude horned monster doodle like a child's pen scribble (a prejudiced memory). He is not wearing a guard uniform. Through the glass entrance door, the dark night street lit by a single streetlamp.
 ```
 
-> 꼭 보여야 할 것: 낙서: 얼굴이 괴물 낙서
+> 꼭 보여야 할 것: 낙서: 얼굴이 괴물 낙서, 밤
 
 **`t_ookubo_2_truth.png`
 ```
