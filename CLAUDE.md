@@ -22,6 +22,7 @@
 | `AGENTS.md` | 이미지 생성 에이전트(GPT/Codex)용 작업 지시서 |
 | `tools/check-assets.mjs` | 이미지 파일명·형식·크기 검사 |
 | `tools/export-prompts.mjs` | 프롬프트 파일 재생성 (`--check`로 동기화 검사) |
+| `tools/compose/` | **배경음악·효과음 작곡** (numpy FM 신시사이저). `songs.py` 곡 악보, `sfx.py` 효과음, `python3 tools/compose/build.py [이름]` → `web/assets/audio/` |
 | `docs/` | 기획 문서 (01~10), `WORKFLOW.md`, **`11_quality_plan.md` (지금 따르는 품질 올리기 계획)** |
 | `prototype/` | 초기 프로토타입 (참고용, 손대지 않음) |
 
@@ -43,6 +44,7 @@
 - 그림은 GPT 이미지를 적극적으로 쓴다. 코드로 직접 그린 그림·CSS 장식은 "AI 슬롭" 티가 나서 사용자가 싫어한다. 코드 그림은 이미지가 없을 때의 임시용.
 - 탐색 맵(`maps/`), 걷는 캐릭터 시트(`sprites/`), 타이틀 키아트(`title/key.png`)도 GPT 이미지. 맵 그림이 들어오면 Claude가 그림을 보고 `explore.js`의 충돌 칸(`rows`)과 물건 위치를 맞춘다.
 - 상반신은 `style_version` 3: 원본 256×384 도트 4배, 배경 없이 양옆·위 여백. 지금 있는 16장(128×192)은 교체 대상.
+- 소리는 Claude가 직접 작곡한다(PC-98식 FM 음원). 곡 7개(title office explore trial tension truth epilogue), 효과음 19개. 장면별 곡은 `script_ch1.js`의 `SCENE_BGM`.
 - 미정: 레이 성별(현재 중성적), 배경 국가(현재 일본풍). `docs/09_open_questions.md`.
 
 ## 로컬 실행

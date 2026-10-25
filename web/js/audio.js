@@ -8,7 +8,7 @@ function saveJSON(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } ca
 const SETTINGS = Object.assign({ textSpeed: 1, autoWait: 1, bgm: 0.55, sfx: 0.8 }, loadJSON('gaha-settings') || {});
 function saveSettings() { saveJSON('gaha-settings', SETTINGS); applyVolumes(); }
 
-// 곡: loop는 반복 구간 길이(초). 파일은 정확히 그 길이로 만들어져 있다(tools/compose).
+// 곡 파일은 tools/compose/build.py가 반복 길이에 딱 맞게 렌더링한다(끝이 처음으로 자연스럽게 이어짐).
 const MUSIC = {
   title:    { file: 'assets/audio/bgm_title.mp3' },
   office:   { file: 'assets/audio/bgm_office.mp3' },
@@ -94,9 +94,10 @@ function sfx(name, { rate = 1, vol = 1 } = {}) {
 // 첫 입력에서 소리를 깨우고, 기다리던 곡과 효과음을 미리 받아 둔다
 ['pointerdown', 'keydown', 'touchstart'].forEach((ev) => addEventListener(ev, () => {
   const c = audioCtx();
-  if (!c || c.state === 'running') return;
+  if (!c || AU.woke) return;
+  AU.woke = true;
   c.resume().then(() => {
     SOUNDS.forEach((n) => loadBuf(`assets/audio/sfx_${n}.wav`));
-    if (AU.want) { const w = AU.want; AU.want = null; bgm(w); }
+    if (AU.want && !AU.cur) bgm(AU.want);
   });
 }, { capture: true }));
