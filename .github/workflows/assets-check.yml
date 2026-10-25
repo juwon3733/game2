@@ -1,0 +1,19 @@
+name: 에셋 검사
+
+on:
+  pull_request:
+    paths: ['web/**', 'tools/**', '.github/workflows/assets-check.yml']
+  push:
+    branches: [main]
+    paths: ['web/**', 'tools/**']
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: 파일명 · 형식 · 크기 검사
+        run: node tools/check-assets.mjs

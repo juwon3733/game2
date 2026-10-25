@@ -316,7 +316,7 @@ function titleScreen() {
       ${SCENES.map(([id, label]) => `<option value="${id}">${label}</option>`).join('')}
     </select>
     <button id="t-jump" style="margin-top:6px;padding:10px 30px;font-size:20px">이 장면부터</button>
-    <div class="note">이미지는 임시 그림이에요. web/assets 폴더에 정해진 이름의 PNG를 넣으면 자동으로 바뀝니다.<br>대사 넘기기: 클릭 / Space · 탐색: 방향키·WASD 또는 클릭</div>`;
+    <div class="note">아직 없는 이미지는 임시 그림으로 나와요. <a href="assets.html" style="color:#9fc3ff">에셋 현황 보기 →</a><br>대사 넘기기: 클릭 / Space · 탐색: 방향키·WASD 또는 클릭</div>`;
   $('#stage').appendChild(t);
   t.querySelector('#t-start').onclick = () => { t.remove(); playFrom('office'); };
   t.querySelector('#t-jump').onclick = () => { const v = t.querySelector('#t-scene').value; t.remove(); playFrom(v); };

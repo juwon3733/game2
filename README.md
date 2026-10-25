@@ -5,7 +5,25 @@
 
 애니풍 도트 그래픽의 **스토리 + 퍼즐 + 추리/심문** 어드벤처.
 
-## 문서
+## 플레이
+
+- 게임 (1장): https://juwon3733.github.io/game2/
+- 에셋 현황 (이미지 목록 · 프롬프트): https://juwon3733.github.io/game2/assets.html
+
+`main`에 병합되면 자동으로 배포된다. 작업 방식은 [docs/WORKFLOW.md](docs/WORKFLOW.md).
+
+## 폴더
+
+| 폴더 | 내용 |
+|---|---|
+| `web/` | 게임 본체 (1장 웹 버전). [web/README.md](web/README.md) |
+| `web/assets/` | ChatGPT로 뽑은 이미지 (`portraits`, `bg`, `cuts`) |
+| `docs/` | 기획 문서 |
+| `tools/` | 검사 도구 (`check-assets.mjs`) |
+| `prototype/` | 초기 퍼즐·심문 프로토타입 (참고용) |
+| `.github/` | 자동 검사, 자동 배포, PR 양식 |
+
+## 기획 문서
 
 | 문서 | 내용 |
 |---|---|
@@ -18,6 +36,5 @@
 | [07. 아트 · UI · 사운드](docs/07_art_ui_sound.md) | 해상도, 도트 규격, 컷 조립 방식, UI, 사운드 |
 | [08. 제작 계획](docs/08_production.md) | 엔진, 범위, 에셋 수량, 마일스톤, 리스크 |
 | [09. 미정 사항](docs/09_open_questions.md) | 아직 결정하지 않은 것들 |
-| [10. 이미지 프롬프트](docs/10_asset_prompts.md) | ChatGPT로 뽑을 이미지 목록과 파일명 |
-
-플레이: [web/](web/README.md) (1장 웹 버전)
+| [10. 이미지](docs/10_asset_prompts.md) | 이미지 규격, 스타일 원칙, 뽑는 요령 |
+| [작업 방식](docs/WORKFLOW.md) | 브랜치, 이미지 올리는 법, 자동 검사, 배포 |

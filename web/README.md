@@ -12,7 +12,7 @@ powershell -ExecutionPolicy Bypass -File web/serve.ps1
 
 ## 이미지 넣기
 
-`docs/10_asset_prompts.md`의 프롬프트로 ChatGPT에서 이미지를 뽑아, 표의 파일명 그대로 아래 폴더에 넣으면 된다. 없는 파일은 임시 그림으로 대신한다.
+`assets.html`(에셋 현황 페이지)에 필요한 이미지, 파일명, 프롬프트가 모두 있다. 올리는 방법은 `docs/WORKFLOW.md`. 없는 파일은 임시 그림으로 대신한다.
 
 - `assets/portraits/` 캐릭터 상반신 (예: `rei_normal.png`)
 - `assets/bg/` 배경 (예: `office.png`)
@@ -28,6 +28,9 @@ powershell -ExecutionPolicy Bypass -File web/serve.ps1
 |---|---|
 | `js/data_ch1.js` | 캐릭터, 배경, 컷, 대사 조각, 퍼즐, 증인, 결론 질문 |
 | `js/assets.js` | 이미지 경로, 임시 그림, 컷 화면 요소 |
+| `js/asset_prompts.js` | ChatGPT 프롬프트, 이미지 규격 |
+| `js/asset_list.js` | 필요한 이미지 전체 목록 (현황 페이지와 CI 검사가 같이 씀) |
+| `assets.html` | 에셋 현황 페이지 |
 | `js/engine.js` | 무대(배경/캐릭터/대사창/선택지/모달/수첩) |
 | `js/explore.js` | 탑뷰 탐색, 도트 스프라이트, 맵 |
 | `js/trial.js` | 심문 |
