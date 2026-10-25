@@ -180,7 +180,9 @@ async function sceneExplore2() {
     on: {
       partition: async () => {
         if (shiori) {
+          show('shiori', 'normal', 'center');
           await say('', '칸막이 앞에 교복 차림의 여자아이가 서 있다. 옆집 쪽을 가리키더니——');
+          hide('shiori');
           EX.extras = [];
           shiori = false;
           await say('', '——사라졌다.');
@@ -278,7 +280,9 @@ async function sceneEpilogue() {
   await say('rei', '…떨어진 게 아니라, 구한 거였어요.');
   await say('asagiri', '그래. …괜찮아. 힘든 건 잊어도 돼.');
   clearChars();
+  show('shiori', 'normal', 'center');
   await say('', '창밖, 길 건너에 교복 차림의 여자아이가 서 있다가——');
+  hide('shiori');
   await say('', '——사라졌다.');
   hideText();
   await banner('1장 「낙하」 끝', '여기까지 플레이해 주셔서 고마워요', 3000);
@@ -316,7 +320,7 @@ function titleScreen() {
       ${SCENES.map(([id, label]) => `<option value="${id}">${label}</option>`).join('')}
     </select>
     <button id="t-jump" style="margin-top:6px;padding:10px 30px;font-size:20px">이 장면부터</button>
-    <div class="note">아직 없는 이미지는 임시 그림으로 나와요. <a href="assets.html" style="color:#9fc3ff">에셋 현황 보기 →</a><br>대사 넘기기: 클릭 / Space · 탐색: 방향키·WASD 또는 클릭</div>`;
+    <div class="note"><a href="assets.html" style="color:#9fc3ff">에셋 현황 보기 →</a><br>대사 넘기기: 클릭 / Space · 탐색: 방향키·WASD 또는 클릭</div>`;
   $('#stage').appendChild(t);
   t.querySelector('#t-start').onclick = () => { t.remove(); playFrom('office'); };
   t.querySelector('#t-jump').onclick = () => { const v = t.querySelector('#t-scene').value; t.remove(); playFrom(v); };
