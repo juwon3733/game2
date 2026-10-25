@@ -93,6 +93,15 @@ function cutInfo(id) {
   return { title: id, owner: '', color: '#555', desc: '' };
 }
 
+// 컷 이미지를 화면 가득 크게 본다. 모달 위에도 뜬다.
+function zoomCut(src, info) {
+  const z = document.createElement('div');
+  z.className = 'zoom';
+  z.innerHTML = `<div class="zoom-box"><div class="zoom-head">${info.owner} 시점 「${info.title}」</div><img src="${src}"><div class="zoom-cap">${info.desc}</div><button>닫기</button></div>`;
+  z.onclick = (e) => { e.stopPropagation(); z.remove(); };
+  (document.getElementById('stage') || document.body).appendChild(z);
+}
+
 // 컷 하나의 화면 요소. 이미지가 없으면 글로 된 임시 컷.
 function cutView(id, opts = {}) {
   const info = cutInfo(id);
@@ -108,6 +117,12 @@ function cutView(id, opts = {}) {
     body.classList.add('has-img');
     // AI 그림이 단서를 빠뜨려도 퍼즐이 풀리도록 설명을 짧게 붙인다
     body.insertAdjacentHTML('afterend', `<div class="cutv-cap">${info.desc}</div>`);
+    const z = document.createElement('button');
+    z.className = 'cutv-zoom';
+    z.textContent = '🔍';
+    z.title = '크게 보기';
+    z.onclick = (e) => { e.stopPropagation(); zoomCut(img.src, info); };
+    body.appendChild(z);
   };
   img.onerror = () => {
     img.remove();
