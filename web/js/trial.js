@@ -12,7 +12,7 @@ function showLine(who, text, face) {
 }
 
 function renderTrial(W, st) {
-  $('#tr-ink').innerHTML = Array.from({ length: diff().ink }, (_, k) => k).map((k) => `<span class="ink-b${k < st.ink ? '' : ' empty'}"></span>`).join('');
+  const ink = Array.from({ length: diff().ink }, (_, k) => `<span class="ink-b${k < st.ink ? '' : ' empty'}"></span>`).join('');
   const s = W.statements[st.idx];
   const peeled = st.peeled && W.peel.includes(st.idx);
   const panel = $('#tr-panel');
@@ -20,7 +20,9 @@ function renderTrial(W, st) {
   const v = cutView(peeled ? s.cut + '_truth' : s.cut);
   if (peeled) v.classList.add('peeled');
   panel.appendChild(v);
-  panel.insertAdjacentHTML('beforeend', `<div class="tr-dots">${W.statements.map((_, i) => `<span class="tr-dot${i === st.idx ? ' on' : ''}${i === st.hint ? ' hint' : ''}"></span>`).join('')}</div>`);
+  // 증언 위치 막대 + 증인의 마음(틀리면 한 칸씩 줄고, 다 닳으면 증언을 처음부터)
+  panel.insertAdjacentHTML('beforeend', `<div class="tr-dots">${W.statements.map((_, i) => `<span class="tr-dot${i === st.idx ? ' on' : ''}${i === st.hint ? ' hint' : ''}"></span>`).join('')}
+    <span class="tr-mind" title="틀린 컷을 내밀면 한 칸 줄고, 다 닳으면 증언을 처음부터 다시 듣는다">증인의 마음 ${ink}<small>틀리면 −1</small></span></div>`);
 }
 
 async function runTrial(id) {
@@ -29,6 +31,9 @@ async function runTrial(id) {
   clearChars();
   show(W.char, CHARACTERS[W.char].faces[0], 'left');
   $('#trial').classList.remove('hidden');
+  // 심문 중엔 증인 시점 색 하나만 강조색으로, 자동·빨리 넘기기는 숨긴다
+  $('#stage').style.setProperty('--accent', OWNERS[W.char] ? OWNERS[W.char].color : CHARACTERS[W.char].accent);
+  $('#stage').classList.add('in-trial');
   goal(W.goal);
   renderTrial(W, { ink: diff().ink, idx: 0, peeled: false, hint: -1 });
   bgm('trial');
@@ -43,6 +48,7 @@ async function runTrial(id) {
     ]);
   }
 
+  if (W.intro) await sayAll(W.intro);
   await trialRound(W);
   // 2라운드: 증인이 말을 바꾼다
   if (W.round2) {
@@ -56,6 +62,8 @@ async function runTrial(id) {
   for (const c of W.rewards) await gainCut(c);
   $('#trial').classList.add('hidden');
   $('#actions').classList.remove('trial');
+  $('#stage').classList.remove('in-trial');
+  $('#stage').style.removeProperty('--accent');
   goal('');
   clearChars();
   hideText();
@@ -121,6 +129,7 @@ async function trialRound(W) {
       renderTrial(W, st);
       const shown = W.cg && (await cg(W.cg));
       await sayAll(W.success);
+      if (W.gives) gainLine(W.gives);
       if (shown) cgEnd();
       return;
     }

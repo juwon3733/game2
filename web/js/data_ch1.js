@@ -91,7 +91,7 @@ const LINES = {
 const PUZZLES = {
   page1: {
     title: '페이지 1 — 그날 밤, 5층',
-    goal: '택배 기사 타이가는 사건 순간 어디에 있었을까? 컷 4장을 일어난 순서대로 놓자.',
+    goal: '쿵 소리가 난 순간, 타이가는 어디에 있었나. 컷 4장을 일어난 순서로.',
     cuts: ['A', 'B', 'C', 'D'],
     solution: ['A', 'B', 'C', 'D'],
     bubbles: {},
@@ -100,7 +100,7 @@ const PUZZLES = {
   },
   page2: {
     title: '페이지 2 — 히마리의 베란다',
-    goal: '머리핀이 날아간 순간부터 타이가가 계단을 내려갈 때까지. 8장 중 6장만 쓴다. 빈 말풍선도 채우자.',
+    goal: '머리핀이 날아간 순간부터 타이가가 계단을 내려갈 때까지. 6장만 쓴다.',
     cuts: ['A', 'C', 'D', 'E', 'F', 'G', 'H', 'I'],
     solution: ['G', 'H', 'C', 'I', 'D', 'F'],
     decoys: ['A', 'E'],
@@ -114,7 +114,7 @@ const PUZZLES = {
 const WITNESSES = {
   ookubo: {
     char: 'ookubo', bg: 'guardroom',
-    goal: '오오쿠보의 증언 중 틀린 곳에서 [반박!]을 누르고, 그걸 깨뜨릴 컷을 들이밀자.',
+    goal: '오오쿠보의 증언에서 순서가 틀린 곳을 찾아라.',
     statements: [
       { text: '나는 그때 순찰 일지를 쓰고 있었지. 성실하게!', cut: 't_ookubo_1', dist: '미화',
         cutDesc: '책상에서 반듯하게 순찰 일지를 쓰는 오오쿠보. 주변이 이상하게 반짝인다.',
@@ -131,9 +131,11 @@ const WITNESSES = {
     answer: { statement: 2, cut: 'D' },
     koharu: [['koharu', '오오쿠보 씨, 쿵 소리가 났을 때 타이가 씨가 어디 있었는지… 정말 보셨어요?', 'worried'], ['ookubo', '그, 그야… 음…', 'flustered']],
     rebut: '쿵 소리가 났을 때 이 사람은 5층에 있었어요. 문 밖에.',
+    gives: 'L2', // 반박에 성공하면 외침 대사 조각을 확실히 얻는다 (파고들기를 안 했어도)
     success: [
       ['ookubo', '…어? 그, 그럴 리가…', 'flustered'],
       ['ookubo', '…야구가 끝내기였거든. 와 하고 소리 지르고 있었는데… 그 소리랑 헷갈렸나…', 'flustered'],
+      ['ookubo', '그러고 보니 그 청년, 뛰쳐나오면서 "구급차!"라고 소리쳤던 것 같기도 하고…', 'flustered'],
       ['', '증언 컷의 낙서가 찢어지며 원래 얼굴이 드러난다.'],
       ['koharu', '이 얼굴… 도망치는 사람 얼굴이 아니에요.', 'worried'],
     ],
@@ -160,14 +162,17 @@ const WITNESSES = {
   },
   taiga: {
     char: 'taiga', bg: 'interrogate', cg: 'cg_taiga_run',
-    goal: '타이가가 숨기는 게 있다. 틀린 증언에 컷을 들이밀자. 말풍선이 빈 컷은 대사를 채워야 증거가 된다.',
+    intro: [['towa', '말풍선이 빈 컷은 그대로는 증거가 안 돼. 반박할 때 대사 조각을 골라 채워. 조각은 [파고들기]로 모아.']],
+    goal: '타이가가 숨기는 것을 찾아라.',
     statements: [
       { text: '배달 갔어요. 초인종 눌렀고.', cut: 't_taiga_1',
         cutDesc: '5층 초인종을 누르는 손. 문 너머에서 피아노 소리.',
         press: [['taiga', '안에서 피아노 소리가 났어요. 못 들었나 보다 했죠.', 'sad'], ['taiga', '혼잣말도 들린 것 같고. "택배 왔나?" 그런 거.', 'sad']] },
       { text: '엄청 큰 소리가 났고.', cut: 't_taiga_2', dist: '과장',
         cutDesc: '화면 전체를 뒤덮는 거대한 "쿵".',
-        press: [['taiga', '…심장 떨어지는 줄 알았어요. 문 두드렸는데 대답이 없었어요.', 'sad']] },
+        press: [['taiga', '…심장 떨어지는 줄 알았어요. 문 두드렸는데 대답이 없었어요.', 'sad'],
+          ['koharu', '(선배, 경비원 아저씨가 그랬죠. 타이가 씨가 1층에서 "구급차!"라고 소리쳤다고.)', 'worried']],
+        gives: 'L2' },
       { text: '…무서워서 도망쳤어요.', cut: 't_taiga_3', dist: '생략',
         cutDesc: '계단을 내려가는 뒷모습. 얼굴과 손 부분이 하얀 여백으로 비어 있다.',
         truthDesc: '꺼진 휴대폰을 쥐고 이를 악문 타이가. 화면에 배터리 0%.',
@@ -192,7 +197,8 @@ const WITNESSES = {
   },
   himari: {
     char: 'himari', bg: 'himari_door', cg: 'cg_rescue',
-    goal: '히마리는 겁먹었다. 몰아붙이지 말고, 진실을 보여 줄 컷 하나를 골라 [보여주기]. 빈 말풍선을 채우는 걸 잊지 말자.',
+    intro: [['towa', '이번엔 [반박!] 대신 [컷 보여주기]. 몰아붙이지 마. 진실이 담긴 컷 하나면 돼.']],
+    goal: '히마리에게 그날 밤의 진실을 보여 줘라.',
     gentle: true,
     statements: [
       { text: '계속 숙제했어요.', cut: 't_himari_1', dist: '크레용',

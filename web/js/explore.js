@@ -227,8 +227,10 @@ function explore(mapId, opts) {
   return new Promise((resolve) => {
     EX = {
       map, ctx, ox, oy, W, H, opts,
-      player: { x: opts.start[0], y: opts.start[1], dir: 'down', move: null },
-      koharu: { x: opts.start[0], y: opts.start[1], dir: 'down', move: null },
+      // fx, fy: 발 위치(칸 단위 실수). 칸에 묶이지 않고 자유롭게 움직인다
+      player: { fx: opts.start[0] + 0.5, fy: opts.start[1] + 0.75, dir: 'down', moving: false, dist: 0 },
+      koharu: { fx: opts.start[0] + 0.5, fy: opts.start[1] + 0.75, dir: 'down', moving: false, dist: 0 },
+      trail: [],
       keys: {}, path: [], hover: null, paused: false, done: false,
       examined: new Set(opts.examined || []),
       extras: opts.extras || [],   // 시오리 등 추가 스프라이트
@@ -278,75 +280,126 @@ function solidAt(x, y) {
 }
 
 const DIRS = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
+const SPEED = 4.2;              // 칸/초
+const HALF_W = 0.28, DEPTH = 0.3; // 발밑 충돌 상자(가로 반폭, 세로 깊이)
 
-function startMove(ent, dir) {
-  ent.dir = dir;
-  const [dx, dy] = DIRS[dir];
-  const nx = ent.x + dx, ny = ent.y + dy;
-  if (solidAt(nx, ny)) return false;
-  // 코하루는 플레이어가 있던 칸으로 따라온다
-  const k = EX.koharu;
-  const kdx = ent.x - k.x, kdy = ent.y - k.y;
-  if (Math.abs(kdx) + Math.abs(kdy) === 1) {
-    k.dir = kdx > 0 ? 'right' : kdx < 0 ? 'left' : kdy > 0 ? 'down' : 'up';
-    k.move = { fx: k.x, fy: k.y, t: 0 };
-    k.x = ent.x; k.y = ent.y;
-  } else if (Math.abs(kdx) + Math.abs(kdy) > 1) {
-    k.x = ent.x; k.y = ent.y; k.move = null;
+const tileOf = (e) => [Math.floor(e.fx), Math.floor(e.fy - 0.15)];
+
+// 발밑 상자가 막힌 칸에 걸리는지
+function blockedAt(fx, fy) {
+  for (const [x, y] of [[fx - HALF_W, fy - DEPTH], [fx + HALF_W, fy - DEPTH], [fx - HALF_W, fy - 0.02], [fx + HALF_W, fy - 0.02]]) {
+    if (solidAt(Math.floor(x), Math.floor(y))) return true;
   }
-  ent.move = { fx: ent.x, fy: ent.y, t: 0 };
-  ent.x = nx; ent.y = ny;
-  if (ent === EX.player) sfx('step', { vol: 0.35, rate: 0.9 + Math.random() * 0.2 });
-  return true;
+  return false;
 }
 
-function heldDir() {
+// (dx, dy) 방향으로 한 프레임 이동. 벽에 닿으면 축마다 따로 미끄러진다.
+function moveBy(e, dx, dy) {
+  let moved = 0;
+  if (dx && !blockedAt(e.fx + dx, e.fy)) { e.fx += dx; moved += Math.abs(dx); }
+  else if (dx && !dy) moved += nudge(e, 'y', dx);
+  if (dy && !blockedAt(e.fx, e.fy + dy)) { e.fy += dy; moved += Math.abs(dy); }
+  else if (dy && !dx) moved += nudge(e, 'x', dy);
+  return moved;
+}
+
+// 좁은 문으로 들어갈 때: 막힌 방향의 바로 앞 칸이 열려 있으면 그 칸 가운데 쪽으로 살짝 밀어 준다
+function nudge(e, axis, d) {
+  const step = Math.abs(d);
+  if (axis === 'x') {
+    const ty = Math.floor(e.fy - 0.15 + Math.sign(d) * 0.6), cx = Math.floor(e.fx) + 0.5;
+    if (solidAt(Math.floor(e.fx), ty) || Math.abs(cx - e.fx) < 0.01) return 0;
+    const m = Math.sign(cx - e.fx) * Math.min(step, Math.abs(cx - e.fx));
+    if (blockedAt(e.fx + m, e.fy)) return 0;
+    e.fx += m; return Math.abs(m);
+  }
+  const tx = Math.floor(e.fx + Math.sign(d) * 0.6), cy = Math.floor(e.fy - 0.15) + 0.7;
+  if (solidAt(tx, Math.floor(e.fy - 0.15)) || Math.abs(cy - e.fy) < 0.01) return 0;
+  const m = Math.sign(cy - e.fy) * Math.min(step, Math.abs(cy - e.fy));
+  if (blockedAt(e.fx, e.fy + m)) return 0;
+  e.fy += m; return Math.abs(m);
+}
+
+function faceVec(e, dx, dy) {
+  if (Math.abs(dx) > Math.abs(dy)) e.dir = dx > 0 ? 'right' : 'left';
+  else if (dy) e.dir = dy > 0 ? 'down' : 'up';
+}
+
+function heldVec() {
   const k = EX.keys;
-  if (k.ArrowUp || k.w || k.KeyW || k.up) return 'up';
-  if (k.ArrowDown || k.s || k.KeyS || k.down) return 'down';
-  if (k.ArrowLeft || k.a || k.KeyA || k.left) return 'left';
-  if (k.ArrowRight || k.d || k.KeyD || k.right) return 'right';
-  return null;
+  let x = 0, y = 0;
+  if (k.ArrowUp || k.w || k.KeyW || k.up) y -= 1;
+  if (k.ArrowDown || k.s || k.KeyS || k.down) y += 1;
+  if (k.ArrowLeft || k.a || k.KeyA || k.left) x -= 1;
+  if (k.ArrowRight || k.d || k.KeyD || k.right) x += 1;
+  const l = Math.hypot(x, y);
+  return l ? [x / l, y / l] : null;
 }
-
-const SPEED = 6.5; // 칸/초
 
 function update(dt) {
   const p = EX.player;
-  for (const ent of [p, EX.koharu]) {
-    if (ent.move) {
-      ent.move.t += dt * SPEED;
-      if (ent.move.t >= 1) ent.move = null;
+  const step = SPEED * dt;
+  let moved = 0;
+  const v = heldVec();
+  if (v) {
+    EX.path = []; EX.pending = null;
+    faceVec(p, v[0], v[1]);
+    moved = moveBy(p, v[0] * step, v[1] * step);
+  } else if (EX.path.length) {
+    // 클릭 이동: 칸 가운데를 차례로 지나간다
+    const [tx, ty] = EX.path[0];
+    const gx = tx + 0.5, gy = ty + 0.7;
+    const dx = gx - p.fx, dy = gy - p.fy, d = Math.hypot(dx, dy);
+    if (d < 0.06) EX.path.shift();
+    else {
+      const k = Math.min(step, d) / d;
+      faceVec(p, dx, dy);
+      moved = moveBy(p, dx * k, dy * k);
+      if (!moved) { p.fx = gx; p.fy = gy; } // 모서리에 걸리면 칸 가운데로 맞춘다
+      moved = moved || 0.001;
     }
-  }
-  if (p.move) return;
-  const d = heldDir();
-  if (d) { EX.path = []; EX.pending = null; if (!startMove(p, d)) p.dir = d; return; }
-  if (EX.path.length) {
-    const [nx, ny] = EX.path.shift();
-    const dir = nx > p.x ? 'right' : nx < p.x ? 'left' : ny > p.y ? 'down' : 'up';
-    if (!startMove(p, dir)) EX.path = [];
-    return;
-  }
-  if (EX.pending) {
+  } else if (EX.pending) {
     const o = EX.pending;
     EX.pending = null;
     facePoint(p, o);
     interact(o);
   }
+  p.moving = moved > 0;
+  if (p.moving) {
+    const before = Math.floor(p.dist * 2.4);
+    p.dist += moved;
+    if (Math.floor(p.dist * 2.4) !== before) sfx('step', { vol: 0.3, rate: 0.9 + Math.random() * 0.2 });
+    EX.trail.push([p.fx, p.fy]);
+    if (EX.trail.length > 400) EX.trail.shift();
+  }
+  // 코하루: 플레이어가 지나간 길을 0.9칸 뒤에서 따라온다
+  const k = EX.koharu;
+  let need = 0.9, tx = k.fx, ty = k.fy;
+  for (let i = EX.trail.length - 1, lx = p.fx, ly = p.fy; i >= 0; i--) {
+    const [x, y] = EX.trail[i];
+    need -= Math.hypot(x - lx, y - ly);
+    lx = x; ly = y;
+    if (need <= 0) { tx = x; ty = y; break; }
+  }
+  const kdx = tx - k.fx, kdy = ty - k.fy, kd = Math.hypot(kdx, kdy);
+  k.moving = kd > 0.01;
+  if (k.moving) { faceVec(k, kdx, kdy); k.fx = tx; k.fy = ty; k.dist += kd; }
 }
 
 function facePoint(p, o) {
-  const cx = Math.max(o.x, Math.min(p.x, o.x + (o.w || 1) - 1));
-  const cy = Math.max(o.y, Math.min(p.y, o.y + (o.h || 1) - 1));
-  if (cx > p.x) p.dir = 'right'; else if (cx < p.x) p.dir = 'left'; else if (cy > p.y) p.dir = 'down'; else if (cy < p.y) p.dir = 'up';
+  const [px, py] = tileOf(p);
+  const cx = Math.max(o.x, Math.min(px, o.x + (o.w || 1) - 1));
+  const cy = Math.max(o.y, Math.min(py, o.y + (o.h || 1) - 1));
+  if (cx > px) p.dir = 'right'; else if (cx < px) p.dir = 'left'; else if (cy > py) p.dir = 'down'; else if (cy < py) p.dir = 'up';
 }
 
 // 앞에 있는 오브젝트 (없으면 발밑)
 function facingObj() {
   const p = EX.player;
   const [dx, dy] = DIRS[p.dir];
-  return objAt(p.x + dx, p.y + dy) || objAt(p.x, p.y);
+  const ax = Math.floor(p.fx + dx * 0.75), ay = Math.floor(p.fy - 0.15 + dy * 0.75);
+  const [px, py] = tileOf(p);
+  return objAt(ax, ay) || objAt(px, py);
 }
 
 async function interact(o) {
@@ -367,10 +420,10 @@ async function interact(o) {
 
 // BFS로 목표 칸(또는 오브젝트 옆 칸)까지 경로
 function pathTo(tx, ty, adjacent) {
-  const p = EX.player;
+  const [sx, sy] = tileOf(EX.player);
   const key = (x, y) => y * EX.W + x;
-  const prev = new Map([[key(p.x, p.y), null]]);
-  const q = [[p.x, p.y]];
+  const prev = new Map([[key(sx, sy), null]]);
+  const q = [[sx, sy]];
   const isGoal = (x, y) => (adjacent ? adjacent(x, y) : x === tx && y === ty);
   let found = null;
   while (q.length) {
@@ -386,7 +439,7 @@ function pathTo(tx, ty, adjacent) {
   if (!found) return null;
   const path = [];
   let cur = found;
-  while (cur && !(cur[0] === p.x && cur[1] === p.y)) { path.unshift(cur); cur = prev.get(key(cur[0], cur[1])); }
+  while (cur) { path.unshift(cur); cur = prev.get(key(cur[0], cur[1])); }
   return path;
 }
 
@@ -413,17 +466,26 @@ function clickTile(tx, ty) {
 
 // ---------- 그리기 ----------
 
+// 캔버스 가로는 무대 가로(1280~1720)에 맞추고 맵은 가운데
+function fitCanvas() {
+  const cv = $('#explore'), cw = $('#stage').offsetWidth || 1280;
+  if (cv.width !== cw) { cv.width = cw; EX.ctx.imageSmoothingEnabled = false; }
+  EX.ox = Math.floor((cw - EX.W * TS) / 2);
+}
+
 function draw(now) {
+  fitCanvas();
   const { ctx, map, ox, oy, W, H } = EX;
+  const CW = ctx.canvas.width;
   // 밤하늘
   const g = ctx.createLinearGradient(0, 0, 0, 720);
   g.addColorStop(0, '#0d1022'); g.addColorStop(1, '#2b2f55');
   ctx.fillStyle = g;
-  ctx.fillRect(0, 0, 1280, 720);
+  ctx.fillRect(0, 0, CW, 720);
   for (let i = 0; i < 60; i++) {
     const h = hash(i, 7);
     ctx.fillStyle = i % 3 ? '#f2d27a' : '#9fb3ff';
-    ctx.fillRect(h % 1280, 600 + ((h >> 10) % 120), 3, 3);
+    ctx.fillRect(h % CW, 600 + ((h >> 10) % 120), 3, 3);
   }
 
   ctx.save();
@@ -444,17 +506,14 @@ function draw(now) {
   const drawables = [];
   // 맵 그림에 없는 물건(overlay)만 그림 위에 덧그린다
   map.objects.forEach((o) => { if (o.draw && visibleObj(o) && (!art || o.overlay)) drawables.push({ y: o.y, fn: () => OBJ_DRAW[o.draw](ctx, o.x * TILE, o.y * TILE) }); });
-  const entPos = (e) => {
-    if (!e.move) return [e.x, e.y];
-    const t = Math.min(1, e.move.t);
-    return [e.move.fx + (e.x - e.move.fx) * t, e.move.fy + (e.y - e.move.fy) * t];
-  };
-  const entFrame = (e) => (e.move ? (Math.floor(e.move.t * 2 + (e.x + e.y)) % 2) + 1 : 0);
+  // drawWalker는 칸 왼쪽 위 기준이라 발 위치에서 되돌린다
+  const entPos = (e) => [e.fx - 0.5, e.fy - 1];
+  const entFrame = (e) => (e.moving ? (Math.floor(e.dist * 3.2) % 2) + 1 : 0);
   const k = EX.koharu, p = EX.player;
   const [kx, ky] = entPos(k);
-  drawables.push({ y: ky, fn: () => drawWalker(ctx, 'koharu', k.dir, entFrame(k), kx, ky) });
+  drawables.push({ y: ky + 0.5, fn: () => drawWalker(ctx, 'koharu', k.dir, entFrame(k), kx, ky) });
   const [pxx, pyy] = entPos(p);
-  drawables.push({ y: pyy + 0.01, fn: () => drawWalker(ctx, 'rei', p.dir, entFrame(p), pxx, pyy) });
+  drawables.push({ y: pyy + 0.501, fn: () => drawWalker(ctx, 'rei', p.dir, entFrame(p), pxx, pyy) });
   EX.extras.forEach((e) => drawables.push({ y: e.y, fn: () => {
     ctx.globalAlpha = 0.55 + 0.25 * Math.sin(now / 300);
     drawWalker(ctx, e.who, e.dir || 'down', 0, e.x, e.y);
@@ -493,7 +552,7 @@ function draw(now) {
       ctx.font = '22px Galmuri11, sans-serif';
       const label = `${o.label}  (클릭해서 조사)`;
       const w = ctx.measureText(label).width + 24;
-      const lx = Math.min(1280 - w - 10, ox + (o.x + (o.w || 1) / 2) * TS - w / 2);
+      const lx = Math.min(CW - w - 10, ox + (o.x + (o.w || 1) / 2) * TS - w / 2);
       const ly = oy + o.y * TS - 46;
       ctx.fillStyle = 'rgba(20,20,26,.9)'; ctx.fillRect(lx, ly, w, 34);
       ctx.fillStyle = '#fff'; ctx.fillText(label, lx + 12, ly + 24);
@@ -509,7 +568,7 @@ function draw(now) {
 
 function canvasTile(e) {
   const r = $('#explore').getBoundingClientRect();
-  const sx = ((e.clientX - r.left) / r.width) * 1280;
+  const sx = ((e.clientX - r.left) / r.width) * $('#explore').width;
   const sy = ((e.clientY - r.top) / r.height) * 720;
   return [Math.floor((sx - EX.ox) / TS), Math.floor((sy - EX.oy) / TS)];
 }

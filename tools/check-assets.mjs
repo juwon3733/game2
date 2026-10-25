@@ -81,8 +81,10 @@ function countColors(file, limit) {
   return seen.size;
 }
 
-// 종류별 최대 색 수. 지금 들어간 이미지: 상반신 22~24(256×384 버전은 약 40), 배경 32, 컷 5~9(회색 8단계 + 포인트 1), 크레용 컷 32.
-const colorLimit = (a) => (a.kind === 'cut' && !/crayon/i.test(a.prompt) ? 12 : 64);
+// 종류별 최대 색 수. 흑백 컷만 엄격하게 본다(회색 8단계 + 포인트 1).
+// 타이틀·CG·UI는 GPT 원본 화질 그대로 쓰므로 제한 없음. 색을 줄이면(양자화) 화질이 떨어진다.
+const colorLimit = (a) => (a.kind === 'cut' && !/crayon/i.test(a.prompt) ? 12
+  : ['title', 'cg', 'ui'].includes(a.kind) ? Infinity : a.kind === 'cut' ? 64 : 256);
 
 const norm = (s) => s.toLowerCase().replace(/\s*\(\d+\)/g, '').replace(/[\s-]+/g, '_').replace(/\.(png|jpe?g|webp)$/, '');
 
@@ -110,7 +112,7 @@ for (const folder of ['portraits', 'bg', 'cuts', 'maps', 'sprites', 'title', 'ui
       warnings.push({ file: rel, msg: `크기 ${info.w}×${info.h} — 권장 비율은 ${a.spec.w}×${a.spec.h}이에요. 화면에서 잘릴 수 있어요.` });
     }
     const limit = colorLimit(a);
-    const colors = countColors(file, limit);
+    const colors = limit === Infinity ? 0 : countColors(file, limit);
     if (colors > limit) {
       errors.push({ file: rel, msg: `색이 ${limit}개보다 많아요. 저해상도 도트가 아니라 일반 일러스트로 나온 것 같아요.${a.kind === 'cut' ? ' 컷은 회색 8단계와 포인트 색 1개만 써요.' : ''}` });
       continue;

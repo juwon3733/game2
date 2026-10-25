@@ -61,13 +61,13 @@ async function sceneOffice() {
 
 async function sceneExplore1() {
   await banner('하나미즈키 맨션 5층', '8월 24일 밤', 1500);
-  goal('사에키 씨 집과 주변을 조사해 잔상(컷)을 모으자. 노란 ! 가 단서. (0/4)');
+  goal('사에키 씨 집과 주변에서 잔상을 찾아라. (0/4)');
   const req = ['parcel', 'door', 'piano', 'pot'];
   let got = 0;
   const found = async (cut) => {
     await gainCut(cut);
     got++;
-    goal(`사에키 씨 집과 주변을 조사해 잔상(컷)을 모으자. 노란 ! 가 단서. (${got}/4)`);
+    goal(`사에키 씨 집과 주변에서 잔상을 찾아라. (${got}/4)`);
     if (got === 4) {
       show('koharu', 'happy', 'right');
       await say('koharu', '선배! 컷 4장 다 모았어요! 이제 순서를 맞춰 봐요!', 'happy');
@@ -175,7 +175,7 @@ async function sceneExplore2() {
   show('rei', 'serious', 'left');
   await say('rei', '…아직 한 명이 안 읽혔어.', 'serious');
   clearChars();
-  goal('다시 5층. 아직 읽지 못한 잔상이 있다. 베란다를 살펴보자.');
+  goal('아직 읽지 못한 잔상이 있다. 베란다로.');
   let shiori = true;
   await explore('mansion5f', {
     start: [8, 5], required: ['partition'],

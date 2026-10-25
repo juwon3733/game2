@@ -61,7 +61,7 @@ function runPuzzle(id) {
     // 끌어 놓기: 묶음 → 칸, 칸 ↔ 칸(맞바꿈), 칸 → 바깥(묶음으로). 그냥 누르면 예전처럼 차례로 들어간다.
     let drag = null, dragged = false;
     const stagePt = (e) => {
-      const r = $('#stage').getBoundingClientRect(), k = r.width / 1280;
+      const r = $('#stage').getBoundingClientRect(), k = r.height / 720;
       return [(e.clientX - r.left) / k, (e.clientY - r.top) / k];
     };
     const slotAt = (e) => { const el = document.elementFromPoint(e.clientX, e.clientY); return el && el.closest('.pz-slot'); };
