@@ -256,3 +256,7 @@ const PROFILES = {
   komatsu: '히마리의 엄마 코마츠 사키. 혼자 일하며 히마리를 키운다. 그날 밤은 야근이었다.',
   akari: '길 건너 편의점 점원 미나세 아카리. 그날 밤 타이가 대신 119에 전화했다.',
 };
+
+// 물증과 단어 조각 (장마다 data_chN.js가 Object.assign으로 더한다)
+const ITEMS = {};
+const WORDS = {};

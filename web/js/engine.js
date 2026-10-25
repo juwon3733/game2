@@ -308,8 +308,9 @@ function openModal(html, cls = '') {
 function closeModal() { $('#modal').className = 'hidden'; $('#modal').innerHTML = ''; G.busyModal = false; }
 
 // 컷을 골라야 하는 모달. filter로 고를 수 있는 컷 제한. 취소하면 null.
-function pickCut(title, sub, { cancel = true, only = null } = {}) {
-  const ids = only ? only.filter((id) => G.cuts.includes(id)) : G.cuts;
+function pickCut(title, sub, { cancel = true, only = null, items = false } = {}) {
+  const all = items ? [...G.cuts, ...G.items] : G.cuts;
+  const ids = only ? only.filter((id) => all.includes(id)) : all;
   const m = openModal(`<div class="md-title">${title}</div><div class="md-sub">${sub || ''}</div><div class="md-grid${ids.length <= 5 ? ' few' : ''}"></div>${cancel ? '<button class="md-cancel">취소</button>' : ''}`, 'pick');
   const grid = m.querySelector('.md-grid');
   return new Promise((resolve) => {
@@ -383,6 +384,23 @@ function gainCut(id) {
   });
 }
 
+// 물증(메모·물건): 컷처럼 반박에 내밀 수 있다
+function gainItem(id) {
+  if (G.items.includes(id)) return Promise.resolve();
+  G.items.push(id);
+  sfx('place');
+  const m = openModal('<div class="md-title gain">물증을 손에 넣었다</div><div class="md-one"></div><div class="md-sub">수첩의 [물증] 탭에 들어갔다.</div><button class="md-ok">확인</button>', 'gain');
+  m.querySelector('.md-one').appendChild(cutView(id));
+  return new Promise((r) => { m.querySelector('.md-ok').onclick = () => { closeModal(); r(); }; });
+}
+
+// 단어 조각: 네임(가설) 빈칸에 넣는 말. 조용히 얻고 알림만 띄운다
+function gainWord(id) {
+  if (!WORDS[id] || G.words.includes(id)) return;
+  G.words.push(id);
+  toast(`단어 「${WORDS[id].text}」`);
+}
+
 function gainLine(id) {
   if (G.lines.includes(id) || Object.values(G.fills).includes(id)) return;
   G.lines.push(id);
@@ -399,14 +417,20 @@ $('#btn-note').onclick = (e) => {
   sfx('page', { vol: 0.6 });
   const met = Object.keys(PROFILES).filter((k) => (G.flags.met || []).includes(k));
   const m = openModal(`<div class="md-title">사건 수첩</div>
-    <div class="nb-tabs"><button data-tab="cuts" class="on">컷 ${G.cuts.length}</button><button data-tab="lines">대사 조각 ${G.lines.length}</button><button data-tab="people">인물 ${met.length}</button></div>
+    <div class="nb-tabs"><button data-tab="cuts" class="on">컷 ${G.cuts.length}</button><button data-tab="items">물증 ${G.items.length}</button><button data-tab="lines">대사 조각 ${G.lines.length}</button><button data-tab="words">단어 ${G.words.length}</button><button data-tab="people">인물 ${met.length}</button></div>
     <div class="nb-page" data-page="cuts"><div class="md-grid"></div></div>
+    <div class="nb-page hidden" data-page="items"><div class="md-grid nb-items"></div></div>
+    <div class="nb-page hidden" data-page="words"><div class="nb-words"></div></div>
     <div class="nb-page hidden" data-page="lines"><div class="md-lines"></div></div>
     <div class="nb-page hidden" data-page="people"><div class="nb-people"></div></div>
     <button class="md-cancel">닫기</button>`, 'note');
   const grid = m.querySelector('.md-grid');
   G.cuts.forEach((id) => grid.appendChild(cutView(id, { fills: G.fills })));
   if (!G.cuts.length) grid.innerHTML = '<div class="md-empty">아직 모은 컷이 없다.</div>';
+  const ig = m.querySelector('.nb-items');
+  G.items.forEach((id) => ig.appendChild(cutView(id)));
+  if (!G.items.length) ig.innerHTML = '<div class="md-empty">아직 물증이 없다.</div>';
+  m.querySelector('.nb-words').innerHTML = G.words.map((w) => `<span class="word-chip cat-${WORDS[w].cat}">${WORDS[w].text}</span>`).join('') || '<div class="md-empty">아직 단어 조각이 없다. 컷을 크게 보고 수상한 곳을 짚거나, 증언을 파고들자.</div>';
   const lines = m.querySelector('.md-lines');
   G.lines.forEach((id) => lines.insertAdjacentHTML('beforeend', `<div class="line-btn static"><b>"${LINES[id].text}"</b><small>${LINES[id].from}</small></div>`));
   Object.entries(G.fills).forEach(([cut, id]) => lines.insertAdjacentHTML('beforeend', `<div class="line-btn static used"><b>"${LINES[id].text}"</b><small>「${CUTS[cut].title}」 말풍선에 넣음</small></div>`));

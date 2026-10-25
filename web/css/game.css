@@ -536,3 +536,48 @@ body { word-break: keep-all; overflow-wrap: break-word; }
 .rank-rows { display: grid; gap: 6px; margin: 10px auto 6px; width: 320px; font-size: 19px; }
 .rank-rows div { display: flex; justify-content: space-between; border-bottom: 1px dashed rgba(255,255,255,.12); padding: 4px 0; }
 .ts-scenes li.ts-ch { padding: 10px 20px 4px; color: var(--gold); font-size: 17px; }
+
+/* 물증 카드 / 단어 조각 / 짚기 */
+.cutv.item .cutv-body { background: #f3eedf; background-image: repeating-linear-gradient(0deg, transparent 0 27px, rgba(80,90,140,.18) 27px 28px); }
+.cutv-memo { font-size: 16px; line-height: 1.6; padding: 10px 12px; color: #2a2a33; }
+.nb-words { display: flex; flex-wrap: wrap; gap: 8px; }
+.word-chip { padding: 6px 12px; border-radius: 4px; background: #e8e2d4; border: 2px solid #1d1d22; font-size: 18px; }
+.word-chip.cat-person { background: #f2dfe4; } .word-chip.cat-place { background: #dfe9f2; } .word-chip.cat-time { background: #efe6cf; } .word-chip.cat-thing { background: #e3efdf; } .word-chip.cat-act { background: #ece3f2; }
+#modal.spot .md-box { width: 1000px; }
+.spot-wrap img { width: 100%; cursor: crosshair; display: block; image-rendering: auto; }
+.spot-list { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+.tr-hold { background: var(--red); color: #fff; padding: 0 8px; border-radius: 3px; margin-left: 6px; font-size: 14px; }
+.tr-dot.broken { background: rgba(255,255,255,.55); }
+
+.zoom-img { position: relative; }
+.zoom-head small { font-size: 15px; color: #8a6d1e; margin-left: 12px; font-weight: normal; }
+.spot-mark { position: absolute; width: 34px; height: 34px; margin: -17px 0 0 -17px; border: 3px solid var(--gold); border-radius: 50%; pointer-events: none; animation: pulse .5s ease-out; }
+.spot-chips { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+.spot-chips button { font-size: 13px; padding: 3px 8px; border: 1px dashed #777; background: rgba(255,255,255,.85); cursor: pointer; }
+.spot-chips button.got { border-style: solid; border-color: var(--gold); }
+
+/* ---------- 네임 (가설 문장) ---------- */
+.name-screen { position: absolute; inset: 0; z-index: 45; background: rgba(6,7,14,.78); display: flex; align-items: center; justify-content: center; }
+.name-box { position: relative; width: min(1060px, calc(100% - 80px)); background: rgba(14,16,30,.94); color: var(--txt); border: 1px solid var(--line); border-radius: 10px; padding: 26px 34px 22px; box-shadow: 0 20px 60px rgba(0,0,0,.5);
+  background-image: repeating-linear-gradient(0deg, transparent 0 47px, rgba(80,100,160,.16) 47px 48px); }
+.name-head { font-size: 24px; margin-bottom: 14px; }
+.name-head b { background: var(--accent); color: #111; padding: 2px 10px; border-radius: 3px; margin-right: 8px; font-weight: normal; }
+.name-head small { display: block; font-size: 16px; color: var(--sub); margin-top: 6px; }
+.name-text { font-size: 26px; line-height: 2.05; }
+.name-blank { font: inherit; font-size: 23px; min-width: 110px; padding: 0 12px; margin: 0 4px; border: none; border-bottom: 3px dashed var(--sub); background: rgba(255,255,255,.06); color: var(--sub); cursor: pointer; }
+.name-blank.set { color: #fff; border-bottom-style: solid; border-bottom-color: var(--accent); background: rgba(255,255,255,.12); }
+.name-say { margin-top: 16px; font-size: 18px; color: var(--sub); min-height: 26px; }
+.name-bar { display: flex; gap: 10px; justify-content: flex-end; margin-top: 12px; }
+.name-pop { position: absolute; z-index: 3; min-width: 180px; max-width: 420px; display: flex; flex-wrap: wrap; gap: 6px; padding: 10px; background: #12142a; border-radius: 6px; box-shadow: 0 10px 30px rgba(0,0,0,.5); }
+.name-pop-head { width: 100%; font-size: 14px; color: var(--sub); }
+.name-pop button { font-size: 18px; padding: 5px 12px; border: 1px solid var(--line); border-radius: 4px; background: var(--btn); color: var(--txt); cursor: pointer; }
+.name-pop button:hover { background: var(--btn-hi); }
+
+/* 컷 배열: 칸 안의 자리(.pz-half). 동시 칸은 두 자리가 나란히, 두 칸 너비 */
+.pz-slot { border: none; gap: 8px; align-items: stretch; }
+.pz-half { flex: 1; min-width: 0; position: relative; border: 4px dashed #b9b2a3; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 20px; }
+.pz-half.filled { border: none; }
+.pz-half .cutv { width: 100%; height: 100%; aspect-ratio: auto; }
+.pz-slot.sim { grid-column: span 2; }
+.pz-slot.sim .pz-half:not(.filled) { border-color: var(--accent, #c9961a); }
+.pz-half.drop { outline: 5px solid var(--gold); outline-offset: 2px; }

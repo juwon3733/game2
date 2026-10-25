@@ -89,6 +89,7 @@ function bgPlaceholder(id) {
 
 // 컷 정보: 내 컷(CUTS) 또는 증언 컷(WITNESSES의 statements)
 function cutInfo(id) {
+  if (typeof ITEMS !== 'undefined' && ITEMS[id]) return { title: ITEMS[id].title, owner: '물증', color: '#4a4d5e', desc: ITEMS[id].desc, item: true };
   if (CUTS[id]) {
     const c = CUTS[id];
     return { title: c.title, owner: OWNERS[c.owner].name, color: OWNERS[c.owner].color, desc: c.desc, sfx: c.sfx, bubble: c.bubble };
@@ -107,10 +108,28 @@ function cutInfo(id) {
 }
 
 // 컷 이미지를 화면 가득 크게 본다. 모달 위에도 뜬다.
-function zoomCut(src, info) {
+// 단서 짚기: 컷에 spots가 있으면 크게 볼 때 그림을 눌러 단어 조각을 얻는다
+function spotsOf(id) { return (CUTS[id] && CUTS[id].spots) || []; }
+
+function zoomCut(src, info, id) {
   const z = document.createElement('div');
   z.className = 'zoom';
-  z.innerHTML = `<div class="zoom-box"><div class="zoom-head">${info.owner} 시점 「${info.title}」</div><img src="${src}">${diff().zoomDesc ? `<div class="zoom-cap">${info.desc}</div>` : ''}<button>닫기</button></div>`;
+  const spots = spotsOf(id);
+  z.innerHTML = `<div class="zoom-box"><div class="zoom-head">${info.owner} 시점 「${info.title}」${spots.length ? '<small>수상한 곳을 눌러 보자</small>' : ''}</div><div class="zoom-img"><img src="${src}"></div>${diff().zoomDesc ? `<div class="zoom-cap">${info.desc}</div>` : ''}<button>닫기</button></div>`;
+  const img = z.querySelector('img');
+  img.onclick = (e) => {
+    e.stopPropagation();
+    if (!spots.length) return;
+    const r = img.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+    const s = spots.find((p) => x >= p.x && x <= p.x + p.w && y >= p.y && y <= p.y + p.h);
+    if (!s) return;
+    sfx('press');
+    const mark = document.createElement('span');
+    mark.className = 'spot-mark';
+    Object.assign(mark.style, { left: (s.x + s.w / 2) * 100 + '%', top: (s.y + s.h / 2) * 100 + '%' });
+    z.querySelector('.zoom-img').appendChild(mark);
+    gainWord(s.word);
+  };
   z.onclick = (e) => { e.stopPropagation(); z.remove(); };
   (document.getElementById('stage') || document.body).appendChild(z);
 }
@@ -124,6 +143,13 @@ function cutView(id, opts = {}) {
   el.style.setProperty('--owner', info.color);
   el.innerHTML = `<div class="cutv-head"><span>${info.owner} 시점</span><span>「${info.title}」</span></div><div class="cutv-body"></div>`;
   const body = el.querySelector('.cutv-body');
+  // 물증은 그림 대신 메모 카드
+  if (info.item) {
+    el.classList.add('item');
+    el.querySelector('.cutv-head').innerHTML = `<span>물증</span><span>${info.title}</span>`;
+    body.innerHTML = `<div class="cutv-memo">${info.desc}</div>`;
+    return el;
+  }
   if (CUTS[id] && CUTS[id].blank) {
     el.classList.add('blank');
     body.innerHTML = `<div class="cutv-whisper">${info.desc}</div>`;
@@ -140,12 +166,18 @@ function cutView(id, opts = {}) {
     z.className = 'cutv-zoom';
     z.textContent = '🔍';
     z.title = '크게 보기';
-    z.onclick = (e) => { e.stopPropagation(); zoomCut(img.src, info); };
+    z.onclick = (e) => { e.stopPropagation(); zoomCut(img.src, info, id); };
     el.querySelector('.cutv-head').appendChild(z); // 그림 위가 아니라 머리띠에 둬서 단서를 가리지 않게
   };
   img.onerror = () => {
     img.remove();
     body.innerHTML = `${info.sfx ? `<div class="cutv-sfx">${info.sfx}</div>` : ''}<div class="cutv-desc">${info.desc}</div>`;
+    // 그림이 아직 없을 때는 살펴볼 곳을 글로 보여 준다
+    const sp = spotsOf(id);
+    if (sp.length && !opts.noSpots) {
+      body.insertAdjacentHTML('beforeend', `<div class="spot-chips">${sp.map((s, i) => `<button data-i="${i}">${s.label}</button>`).join('')}</div>`);
+      body.querySelectorAll('.spot-chips button').forEach((b) => (b.onclick = (e) => { e.stopPropagation(); sfx('press'); gainWord(sp[b.dataset.i].word); b.classList.add('got'); }));
+    }
     if (info.dist) body.insertAdjacentHTML('beforeend', `<span class="cutv-dist">${info.dist}</span>`);
   };
   img.src = ASSET.cut(id);

@@ -8,11 +8,17 @@ function conflictTag(a, b) {
   return Object.keys(ta).find((t) => t in tb && tagRank(t, ta[t]) > tagRank(t, tb[t]));
 }
 
+// solution 항목이 배열이면 "동시 칸": 같은 순간의 두 컷을 한 칸에 나란히 놓는다(둘의 순서는 상관없음).
 function runPuzzle(id) {
   const P = PUZZLES[id];
   const n = P.solution.length;
+  const group = (i) => [].concat(P.solution[i]);
+  const cap = (i) => group(i).length;
   const cols = n === 4 ? 2 : 3;
-  const st = { slots: Array(n).fill(null), tray: shuffle(P.cuts, P.solution), locked: new Set(), tries: 0, hints: 0, bad: null };
+  const st = { slots: Array.from({ length: n }, () => []), tray: shuffle(P.cuts, P.solution.flat()), locked: new Set(), tries: 0, hints: 0, bad: null };
+  const placed = () => st.slots.flat();
+  const sameSet = (a, b) => a.length === b.length && a.every((c) => b.includes(c));
+  const firstFree = () => st.slots.findIndex((s, i) => !st.locked.has(i) && s.length < cap(i));
   const root = $('#puzzle');
   root.classList.remove('hidden');
   goal(P.goal);
@@ -20,7 +26,8 @@ function runPuzzle(id) {
   clearChars();
 
   return new Promise(async (resolve) => {
-    let msg ='토와: 컷을 칸으로 끌어다 놓거나 눌러서 넣어. 칸끼리 끌면 자리가 바뀌고, 칸의 컷을 누르면 빠져.';
+    let msg = '토와: 컷을 칸으로 끌어다 놓거나 눌러서 넣어. 칸끼리 끌면 자리가 바뀌고, 칸의 컷을 누르면 빠져.'
+      + (P.solution.some(Array.isArray) ? ' 넓은 칸은 같은 순간의 두 컷이 나란히 들어가는 동시 칸이야.' : '');
     let done = false;
 
     const render = () => {
@@ -36,17 +43,26 @@ function runPuzzle(id) {
           <button class="act-btn objection" data-a="check">${done ? '다음 ▶' : '이 순서로 확정'}</button>
         </div>`;
       const paper = root.querySelector('.pz-paper');
-      st.slots.forEach((cid, i) => {
+      st.slots.forEach((cids, i) => {
         const s = document.createElement('div');
-        s.className = 'pz-slot' + (cid ? ' filled' : '');
+        s.className = 'pz-slot' + (cids.length ? ' filled' : '') + (cap(i) > 1 ? ' sim' : '');
         if (st.bad) {
           if (st.bad.pairs.includes(i)) s.classList.add('bad-right');
           if (st.bad.pairs.includes(i - 1)) s.classList.add('bad-left');
-          if (st.bad.decoys.includes(i)) s.classList.add('decoy');
+          if (st.bad.decoys.includes(i) || st.bad.sims.includes(i)) s.classList.add('decoy');
         }
         s.dataset.slot = i;
-        s.innerHTML = `<span class="pz-num">${i + 1}${st.locked.has(i) ? ' 📎' : ''}</span>${cid ? '' : '빈 칸'}`;
-        if (cid) s.appendChild(cutView(cid, { fills: P.bubbles[cid] ? G.fills : null }));
+        s.innerHTML = `<span class="pz-num">${i + 1}${cap(i) > 1 ? ' 동시' : ''}${st.locked.has(i) ? ' 📎' : ''}</span>`;
+        for (let h = 0; h < cap(i); h++) {
+          const cid = cids[h];
+          const half = document.createElement('div');
+          half.className = 'pz-half' + (cid ? ' filled' : '');
+          half.dataset.slot = i;
+          half.dataset.half = h;
+          if (cid) half.appendChild(cutView(cid, { fills: P.bubbles[cid] ? G.fills : null }));
+          else half.textContent = '빈 칸';
+          s.appendChild(half);
+        }
         paper.appendChild(s);
       });
       const tray = root.querySelector('.pz-tray');
@@ -58,21 +74,33 @@ function runPuzzle(id) {
       if (!st.tray.length) tray.insertAdjacentHTML('beforeend', '<p style="font-size:18px;color:#999">모든 컷을 놓았다.</p>');
     };
 
-    // 끌어 놓기: 묶음 → 칸, 칸 ↔ 칸(맞바꿈), 칸 → 바깥(묶음으로). 그냥 누르면 예전처럼 차례로 들어간다.
+    // 칸 i에 컷을 넣는다. 자리가 없으면 h번째(없으면 마지막) 컷을 밀어내고, 밀려난 컷을 돌려준다.
+    const put = (i, cid, h) => {
+      const s = st.slots[i];
+      if (s.length < cap(i)) { s.push(cid); return null; }
+      const k = h != null && h < s.length ? h : s.length - 1;
+      const out = s[k];
+      s[k] = cid;
+      return out;
+    };
+    const take = (i, h) => st.slots[i].splice(h, 1)[0];
+
+    // 끌어 놓기: 묶음 → 칸, 칸 ↔ 칸(맞바꿈), 칸 → 바깥(묶음으로). 그냥 누르면 차례로 들어간다.
     let drag = null, dragged = false;
     const stagePt = (e) => {
       const r = $('#stage').getBoundingClientRect(), k = r.height / 720;
       return [(e.clientX - r.left) / k, (e.clientY - r.top) / k];
     };
-    const slotAt = (e) => { const el = document.elementFromPoint(e.clientX, e.clientY); return el && el.closest('.pz-slot'); };
+    const halfAt = (e) => { const el = document.elementFromPoint(e.clientX, e.clientY); return el && (el.closest('.pz-half') || el.closest('.pz-slot')); };
     root.onpointerdown = (e) => {
       if (done || G.busyModal || e.button > 0 || e.target.closest('.bubble, .cutv-zoom, [data-a]')) return;
-      const card = e.target.closest('[data-tray], .pz-slot.filled');
+      const card = e.target.closest('[data-tray], .pz-half.filled');
       if (!card) return;
-      const slot = card.classList.contains('pz-slot') ? Number(card.dataset.slot) : null;
+      const slot = card.classList.contains('pz-half') ? Number(card.dataset.slot) : null;
       if (slot !== null && st.locked.has(slot)) return;
       e.preventDefault();
-      drag = { tray: card.dataset.tray, slot, src: slot !== null ? card.querySelector('.cutv') : card, x: e.clientX, y: e.clientY, ghost: null };
+      drag = { tray: card.dataset.tray, slot, half: slot !== null ? Number(card.dataset.half) : null,
+        src: slot !== null ? card.querySelector('.cutv') : card, x: e.clientX, y: e.clientY, ghost: null };
     };
     const onMove = (e) => {
       if (!drag) return;
@@ -85,8 +113,8 @@ function runPuzzle(id) {
       }
       const [x, y] = stagePt(e);
       Object.assign(drag.ghost.style, { left: x - 115 + 'px', top: y - 60 + 'px' });
-      root.querySelectorAll('.pz-slot.drop').forEach((s) => s.classList.remove('drop'));
-      const t = slotAt(e);
+      root.querySelectorAll('.drop').forEach((s) => s.classList.remove('drop'));
+      const t = halfAt(e);
       if (t && !st.locked.has(Number(t.dataset.slot))) t.classList.add('drop');
     };
     const onUp = (e) => {
@@ -97,20 +125,23 @@ function runPuzzle(id) {
       d.ghost.remove();
       dragged = true;
       setTimeout(() => { dragged = false; }, 0);
-      const t = slotAt(e);
+      const t = halfAt(e);
       const to = t ? Number(t.dataset.slot) : null;
-      const cid = d.tray || st.slots[d.slot];
+      const toHalf = t && t.dataset.half != null ? Number(t.dataset.half) : null;
       if (to !== null && !st.locked.has(to)) {
-        if (d.slot !== null) { st.slots[d.slot] = st.slots[to]; st.slots[to] = cid; }
-        else {
-          if (st.slots[to]) st.tray.push(st.slots[to]);
-          st.slots[to] = cid;
-          st.tray.splice(st.tray.indexOf(cid), 1);
+        if (d.slot !== null) {
+          if (to === d.slot) { render(); return; }
+          const cid = take(d.slot, d.half);
+          const out = put(to, cid, toHalf);
+          if (out) st.slots[d.slot].splice(d.half, 0, out);
+        } else {
+          const out = put(to, d.tray, toHalf);
+          st.tray.splice(st.tray.indexOf(d.tray), 1);
+          if (out) st.tray.push(out);
         }
         sfx('place');
       } else if (d.slot !== null && !t) {
-        st.slots[d.slot] = null;
-        st.tray.push(cid);
+        st.tray.push(take(d.slot, d.half));
         sfx('cancel');
       }
       st.bad = null;
@@ -134,20 +165,19 @@ function runPuzzle(id) {
       }
       const t = e.target.closest('[data-tray]');
       if (t) {
-        const i = st.slots.indexOf(null);
-        if (i < 0) { msg ='토와: 칸이 꽉 찼어. 칸에 있는 컷을 눌러서 빼.'; return render(); }
-        st.slots[i] = t.dataset.tray;
+        const i = firstFree();
+        if (i < 0) { msg = '토와: 칸이 꽉 찼어. 칸에 있는 컷을 눌러서 빼.'; return render(); }
+        put(i, t.dataset.tray);
         st.tray.splice(st.tray.indexOf(t.dataset.tray), 1);
         sfx('place');
         st.bad = null;
         return render();
       }
-      const s = e.target.closest('.pz-slot.filled');
+      const s = e.target.closest('.pz-half.filled');
       if (s) {
         const i = Number(s.dataset.slot);
-        if (st.locked.has(i)) { msg ='토와: 그 칸은 확실해서 고정해 뒀어.'; return render(); }
-        st.tray.push(st.slots[i]);
-        st.slots[i] = null;
+        if (st.locked.has(i)) { msg = '토와: 그 칸은 확실해서 고정해 뒀어.'; return render(); }
+        st.tray.push(take(i, Number(s.dataset.half)));
         st.bad = null;
         sfx('cancel');
         return render();
@@ -162,7 +192,7 @@ function runPuzzle(id) {
       }
       if (done) return;
       if (a === 'reset') {
-        st.slots.forEach((c, i) => { if (c && !st.locked.has(i)) { st.tray.push(c); st.slots[i] = null; } });
+        st.slots.forEach((c, i) => { if (!st.locked.has(i)) { st.tray.push(...c); st.slots[i] = []; } });
         st.bad = null;
         return render();
       }
@@ -170,45 +200,52 @@ function runPuzzle(id) {
         if (st.hints >= diff().hints) { msg = '토와: 힌트는 여기까지. 나머지는 직접 읽어.'; return render(); }
         st.hints++;
         G.stats.hints++;
-        if (st.hints === 1) msg ='토와: ' + P.hint;
+        if (st.hints === 1) msg = '토와: ' + P.hint;
         else {
-          const i = P.solution.findIndex((c, k) => st.slots[k] !== c);
-          if (i < 0) msg ='토와: 순서는 다 맞아. 말풍선을 확인해 봐.';
+          const i = P.solution.findIndex((c, k) => !sameSet(st.slots[k], group(k)));
+          if (i < 0) msg = '토와: 순서는 다 맞아. 말풍선을 확인해 봐.';
           else {
-            const want = P.solution[i];
-            const from = st.slots.indexOf(want);
-            if (from >= 0) st.slots[from] = st.slots[i];
-            else { st.tray.splice(st.tray.indexOf(want), 1); if (st.slots[i]) st.tray.push(st.slots[i]); }
-            st.slots[i] = want;
+            // 정답 컷을 다른 칸·묶음에서 빼 오고, 이 칸에 있던 컷은 묶음으로
+            const want = group(i);
+            st.tray.push(...st.slots[i].filter((c) => !want.includes(c)));
+            st.slots.forEach((s, k) => { if (k !== i) st.slots[k] = s.filter((c) => !want.includes(c)); });
+            st.tray = st.tray.filter((c) => !want.includes(c));
+            st.slots[i] = want.slice();
             st.locked.add(i);
-            msg =`토와: …${i + 1}번 칸은 「${CUTS[want].title}」. 확실해. 고정해 뒀어.`;
+            msg = `토와: …${i + 1}번 칸은 ${want.map((c) => `「${CUTS[c].title}」`).join('와 ')}. 확실해. 고정해 뒀어.`;
           }
         }
         st.bad = null;
         return render();
       }
       if (a === 'check') {
-        if (st.slots.includes(null)) { msg ='토와: 아직 빈 칸이 있어.'; return render(); }
-        const missing = Object.keys(P.bubbles).find((c) => st.slots.includes(c) && !G.fills[c]);
-        if (missing) { msg =`토와: 「${CUTS[missing].title}」 컷의 말풍선이 비어 있어. 말풍선을 눌러서 채워.`; return render(); }
+        if (st.slots.some((s, i) => s.length < cap(i))) { msg = '토와: 아직 빈 칸이 있어.'; return render(); }
+        const missing = Object.keys(P.bubbles).find((c) => placed().includes(c) && !G.fills[c]);
+        if (missing) { msg = `토와: 「${CUTS[missing].title}」 컷의 말풍선이 비어 있어. 말풍선을 눌러서 채워.`; return render(); }
         st.tries++;
-        const orderOk = P.solution.every((c, i) => st.slots[i] === c);
-        const badBubble = Object.keys(P.bubbles).find((c) => st.slots.includes(c) && G.fills[c] !== P.bubbles[c]);
+        const orderOk = P.solution.every((c, i) => sameSet(st.slots[i], group(i)));
+        const badBubble = Object.keys(P.bubbles).find((c) => placed().includes(c) && G.fills[c] !== P.bubbles[c]);
         if (orderOk && !badBubble) { done = true; return playPage(); }
 
-        const decoys = st.slots.map((c, i) => ((P.decoys || []).includes(c) ? i : -1)).filter((i) => i >= 0);
-        const pairs = [];
+        const decoys = st.slots.map((s, i) => (s.some((c) => (P.decoys || []).includes(c)) ? i : -1)).filter((i) => i >= 0);
+        const pairs = [], sims = [];
         const msgs = [];
+        // 동시 칸의 두 컷은 같은 순간이어야 한다: 둘 다 가진 태그 값이 같아야 함
+        st.slots.forEach((s, i) => {
+          if (s.length < 2 || decoys.includes(i)) return;
+          const [a1, b1] = s, ta = CUTS[a1].tags, tb = CUTS[b1].tags;
+          const t = Object.keys(ta).find((k) => k in tb && ta[k] !== tb[k]);
+          if (t) { sims.push(i); msgs.push(`${i + 1}번 동시 칸의 두 컷은 「${TAG_NAME[t]}」이(가) 달라.`); }
+        });
         for (let i = 0; i < n - 1; i++) {
-          const a1 = st.slots[i], b1 = st.slots[i + 1];
           if (decoys.includes(i) || decoys.includes(i + 1)) continue;
-          const t = conflictTag(a1, b1);
+          const t = st.slots[i].flatMap((a1) => st.slots[i + 1].map((b1) => conflictTag(a1, b1))).find(Boolean);
           if (t) { pairs.push(i); msgs.push(`${i + 1}번 → ${i + 2}번은 「${TAG_NAME[t]}」이(가) 거꾸로야.`); }
         }
         if (decoys.length) msgs.unshift(`${decoys[0] + 1}번 컷은 이 페이지 범위 밖이야. 목표 문장을 다시 읽어 봐.`);
         if (badBubble) msgs.push(`「${CUTS[badBubble].title}」 말풍선 대사가 이상해.`);
         if (!msgs.length) {
-          const d = P.solution.findIndex((c, i) => st.slots[i] !== c);
+          const d = P.solution.findIndex((c, i) => !sameSet(st.slots[i], group(i)));
           pairs.push(Math.max(0, d - 1));
           msgs.push(`${d + 1}번 칸 근처가 이상해. 앞뒤 컷을 비교해 봐.`);
         }
@@ -216,22 +253,22 @@ function runPuzzle(id) {
         G.stats.wrong++;
         const fb = diff().feedback;
         if (fb === 'count') {
-          // 어려움: 몇 칸이 틀렸는지만
-          const wrong = P.solution.filter((c, i) => st.slots[i] !== c).length + (badBubble ? 1 : 0);
+          const wrong = P.solution.filter((c, i) => !sameSet(st.slots[i], group(i))).length + (badBubble ? 1 : 0);
           st.bad = null;
           msg = `토와: 에러. 맞지 않는 곳이 ${wrong}군데.`;
           return render();
         }
-        st.bad = { pairs, decoys };
-        // 보통: 어느 칸 사이인지만, 무엇이 거꾸로인지는 말하지 않는다
-        const shown = fb === 'tag' ? msgs : msgs.map((m) => m.replace(/은 「.*?」이\(가\) 거꾸로야\./, ' 사이가 이상해.').replace(/ 말풍선 대사가 이상해\./, ' 말풍선이 이상해.'));
-        msg ='토와: 에러. ' + shown[0] + (shown.length > 1 ? ` (그 밖에 ${shown.length - 1}곳 더)` : '');
+        st.bad = { pairs, decoys, sims };
+        // 어느 칸 사이인지만 말하고, 무엇이 거꾸로인지는 말하지 않는다
+        const shown = fb === 'tag' ? msgs : msgs.map((m) => m.replace(/은 「.*?」이\(가\) 거꾸로야\./, ' 사이가 이상해.')
+          .replace(/의 두 컷은 「.*?」이\(가\) 달라\./, '의 두 컷은 같은 순간이 아니야.').replace(/ 말풍선 대사가 이상해\./, ' 말풍선이 이상해.'));
+        msg = '토와: 에러. ' + shown[0] + (shown.length > 1 ? ` (그 밖에 ${shown.length - 1}곳 더)` : '');
         return render();
       }
     };
 
     const playPage = async () => {
-      msg ='…';
+      msg = '…';
       render();
       const paper = root.querySelector('.pz-paper');
       paper.classList.add('reading');
@@ -239,14 +276,15 @@ function runPuzzle(id) {
       // 칸이 하나씩 밝아지며, 의성어가 있는 컷은 그 소리가 난다
       for (const s of slots) {
         s.classList.add('lit');
-        const cid = st.slots[Number(s.dataset.slot)];
-        sfx(PAGE_SFX[cid] || 'page', { vol: PAGE_SFX[cid] ? 1 : 0.5 });
-        if (cid === 'D') quake();
-        await sleep(900);
+        const cids = st.slots[Number(s.dataset.slot)];
+        const loud = cids.find((c) => PAGE_SFX[c]);
+        sfx(PAGE_SFX[loud] || 'page', { vol: loud ? 1 : 0.5 });
+        if (cids.some((c) => PAGE_QUAKE.includes(c))) quake();
+        await sleep(cids.length > 1 ? 1200 : 900);
       }
       sfx('correct');
       paper.classList.remove('reading');
-      msg ='레이: ' + P.rei;
+      msg = '레이: ' + P.rei;
       render();
     };
 
@@ -256,7 +294,15 @@ function runPuzzle(id) {
       await sayAll([
         ['towa', '컷 정리 시간. 잔상에는 시간이 안 적혀 있어. 그림 속 단서로 순서를 맞춰야 해.'],
         ['towa', '오른쪽 묶음의 컷을 원고지 칸으로 끌어다 놔. 그냥 누르면 1번부터 차례로 들어가. 읽는 순서는 왼쪽 위 → 오른쪽 아래.'],
-        ['towa', '다 놓았으면 [이 순서로 확정]. 틀리면 어디가 왜 이상한지 알려줄게.'],
+        ['towa', '다 놓았으면 [이 순서로 확정]. 틀리면 어디가 이상한지 알려줄게.'],
+      ]);
+      hideText();
+    }
+    if (P.solution.some(Array.isArray) && !G.flags.simTut) {
+      G.flags.simTut = true;
+      await sayAll([
+        ['towa', '이번 원고지엔 넓은 칸이 있어. 동시 칸. 같은 순간을 서로 다른 자리에서 본 두 컷이 나란히 들어가.'],
+        ['towa', '두 컷의 시계·소리·불빛 같은 게 똑같아야 같은 순간이야. 둘의 좌우 순서는 상관없어.'],
       ]);
       hideText();
     }
@@ -265,6 +311,8 @@ function runPuzzle(id) {
 
 // 페이지 재생 때 컷마다 나는 소리
 const PAGE_SFX = { A: 'chime', D: 'thud', F: 'phone' };
+// 페이지 재생 때 화면이 흔들리는 컷
+const PAGE_QUAKE = ['D'];
 
 function shuffle(ids, solution) {
   const a = ids.slice();
