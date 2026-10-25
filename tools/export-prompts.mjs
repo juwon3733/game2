@@ -28,7 +28,7 @@ const item = (a, followup) => ({
   kind: a.kind,
   width: a.spec.w,
   height: a.spec.h,
-  transparent: a.kind === 'portrait',
+  transparent: a.kind === 'portrait' || a.kind === 'sprite',
   must_show: a.must || null,
   prompt: a.prompt,                 // 단독으로 쓸 때의 전체 프롬프트
   followup_prompt: followup || null, // 같은 묶음에서 앞 그림에 이어 쓸 때의 짧은 프롬프트
@@ -46,7 +46,7 @@ for (const [char, items] of Object.entries(byChar)) {
     items: items.map((a, i) => {
       const face = (S.FACE_PROMPTS[a.id] || '').replace(/^expression:\s*/i, '');
       const follow = i === 0
-        ? `방금 설정화 캐릭터 그대로, 같은 도트 스타일과 같은 팔레트로 그려줘. 모바일 가챠게임 캐릭터처럼 예쁘고 매력적으로.\n\n${S.PROMPT_STYLE.portraitRes} No anti-aliasing.\n\nWaist-up portrait facing slightly to the side, plain transparent background, vertical 1024x1536. Expression: ${face}.`
+        ? `방금 설정화 캐릭터 그대로, 같은 도트 스타일과 같은 팔레트로 그려줘. 모바일 가챠게임 캐릭터처럼 예쁘고 매력적으로.\n\n${S.PROMPT_STYLE.portraitRes} No anti-aliasing.\n\nWaist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: ${face}.`
         : `같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.\n\nExpression: ${face}.`;
       return item(a, follow);
     }),
@@ -85,11 +85,20 @@ for (const [id, title, test] of cutGroups) {
       const scene = (a.prompt.match(/Scene: ([\s\S]*?)\n\n/) || [])[1] || '';
       const rule = /crayon memory/.test(a.prompt)
         ? '같은 크레용 도트 스타일, 같은 픽셀 크기로 다음 컷을 그려줘.'
-        : `같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(흑백 + 회색 + ${colorOf(a)} 하나)로 다음 컷을 그려줘.`;
+        : `같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + ${colorOf(a)} 하나)로 다음 컷을 그려줘.`;
       return item(a, `${rule} 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.\n\nScene: ${scene}`);
     }),
   });
 }
+// 탐색 맵·걷는 캐릭터·타이틀
+batches.push({ id: 'map', title: '탐색 맵', note: '칸 배치를 최대한 지킨다. 조금 어긋나도 Claude가 충돌 칸을 그림에 맞춘다.', items: list.filter((a) => a.kind === 'map').map((a) => item(a, null)) });
+batches.push({
+  id: 'sprite', title: '걷는 캐릭터 (탐색용)',
+  note: '한 대화에서 레이 → 코하루 → 시오리 순서로 만든다. 칸 크기와 발 높이를 셋이 똑같이 맞춘다. 상반신 이미지를 기준으로 첨부하면 좋다.',
+  items: list.filter((a) => a.kind === 'sprite').map((a, i) => item(a, i === 0 ? null : `같은 스프라이트 시트 규칙(192x384, 64x96 칸 3열×4행, 같은 픽셀 크기와 발 높이)으로 다음 캐릭터를 그려줘. 투명 배경.\n\nCharacter: ${(a.prompt.match(/Character: (.*)$/) || [])[1]}`)),
+});
+batches.push({ id: 'title', title: '타이틀 키아트', note: '상반신 이미지를 기준으로 첨부해 같은 얼굴로 그린다.', items: list.filter((a) => a.kind === 'title').map((a) => item(a, null)) });
+
 const rest = cuts.filter((a) => !used.has(a.id));
 if (rest.length) throw new Error('묶음에 배정되지 않은 컷: ' + rest.map((a) => a.id).join(', '));
 

@@ -316,10 +316,8 @@ function titleScreen() {
   t.innerHTML = `
     <div class="ts-bg" style="background-image:url(${ASSET.bg('night')})"></div>
     <div class="ts-shade"></div>
-    <div class="ts-strip">${['A', 'G', 't_taiga_3'].map((c) => `<div class="ts-panel"><img src="${ASSET.cut(c)}" alt=""></div>`).join('')}</div>
     <img class="ts-char ts-koharu" src="${ASSET.portrait('koharu', 'happy')}" alt="">
     <img class="ts-char ts-rei" src="${ASSET.portrait('rei', 'normal')}" alt="">
-    <div class="ts-motes">${Array.from({ length: 18 }, (_, i) => `<i style="left:${(i * 53) % 100}%;animation-delay:${-(i * 1.7) % 12}s;animation-duration:${9 + (i % 5) * 2}s"></i>`).join('')}</div>
     <div class="ts-logo">
       <div class="ts-chapter">CHAPTER 1 · 낙하</div>
       <h1><span>같은 하루,</span><span class="ts-l2">다른 칸</span></h1>
@@ -336,6 +334,10 @@ function titleScreen() {
     </div>
     <div class="ts-hint">대사 넘기기 클릭 · Space　　탐색 방향키 · WASD · 클릭</div>`;
   $('#stage').appendChild(t);
+  // 키아트(GPT 이미지)가 있으면 배경과 캐릭터를 그걸로 바꾼다
+  const key = new Image();
+  key.onload = () => { t.classList.add('has-key'); t.querySelector('.ts-bg').style.backgroundImage = `url(${key.src})`; };
+  key.src = ASSET.title();
   const go = (scene) => {
     t.classList.add('leaving');
     setTimeout(() => { t.remove(); hud(true); playFrom(scene); }, 450);

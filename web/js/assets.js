@@ -5,7 +5,19 @@ const ASSET = {
   portrait: (char, face) => `assets/portraits/${char}_${face}.png`,
   bg: (id) => `assets/bg/${id}.png`,
   cut: (id) => `assets/cuts/${id}.png`,
+  map: (id) => `assets/maps/${id}.png`,
+  sprite: (who) => `assets/sprites/${who}.png`,
+  title: () => 'assets/title/key.png',
 };
+
+// 있으면 쓰고 없으면 null로 남는 이미지 (탐색 맵, 걷는 캐릭터)
+function optionalImg(src) {
+  const img = new Image();
+  img.ok = false;
+  img.onload = () => { img.ok = true; };
+  img.src = src;
+  return img;
+}
 
 const svgUrl = (svg) => 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
 

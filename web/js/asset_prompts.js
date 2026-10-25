@@ -22,6 +22,9 @@ const SPEC = {
   portrait: { w: 1024, h: 1536, note: '세로 1024×1536 · 원본 256×384 도트 4배 · 투명 배경 · 양옆·위 여백' },
   bg: { w: 1536, h: 1024, note: '가로 1536×1024' },
   cut: { w: 1536, h: 1024, note: '가로 1536×1024 · 저해상도 도트 · 회색 8단계 + 포인트 색 1개' },
+  map: { w: 1248, h: 624, note: '가로 1248×624 · 원본 416×208 도트를 정확히 3배 · 16px 칸 26×13' },
+  sprite: { w: 192, h: 384, note: '192×384 · 64×96 칸 3열×4행 · 투명 배경' },
+  title: { w: 1536, h: 1024, note: '가로 1536×1024 · 왼쪽 40%는 제목 자리로 비움' },
 };
 
 // 캐릭터 설정화: 표정 상반신을 뽑기 전에 같은 대화창에서 먼저 뽑는다.
@@ -101,4 +104,29 @@ const CUT_PROMPTS = {
   t_himari_2_truth: ['{himari} looking at her hairpin caught on the balcony\'s outer ledge.', '(진실) 턱에 걸린 머리핀'],
   t_himari_3: ['Child\'s crayon drawing of a blanket colored completely black, a tiny fist in the corner.', '크레용, 새까만 이불'],
   t_himari_3_truth: ['{himari} crying under a blanket, holding her music-note hairpin tightly.', '(진실) 머리핀을 쥔 손'],
+};
+
+// 탐색 맵·걷는 캐릭터·타이틀 키아트. 게임은 이미지가 있으면 쓰고, 없으면 코드로 그린 임시 그림을 쓴다.
+// 맵 그림이 들어오면 Claude가 그림을 보고 explore.js의 충돌 칸(rows)과 물건 위치를 그림에 맞춘다.
+const WORLD_PROMPTS = {
+  map_mansion5f: `Top-down 3/4 view pixel art game map, like a high-quality modern Japanese RPG made in RPG Maker but with richer detail. Native resolution exactly 416x208 pixels on a 16-pixel tile grid (26 tiles wide, 13 tiles tall), upscaled exactly 3x with nearest-neighbor to 1248x624. Night, warm indoor lamp light and cool moonlight. No characters, no text.
+
+Layout by tile rows, top to bottom:
+- Rows 0-3: the 5th floor outdoor corridor of an old Japanese apartment building. Row 1 is the corridor's back wall with ceiling lamps, a fire extinguisher box and electric meter boxes. Rows 2-3 are the concrete corridor floor. A staircase going down at the far left (column 1).
+- Row 4: thick wall between corridor and apartments. Column 9 is the open front door of Saeki's apartment (stone entrance floor, door swung open). Column 18 is the closed door of the neighbor's apartment with a small nameplate and a pink sticker.
+- Rows 5-9, columns 1-17: inside Saeki's apartment, one wide living room with warm wooden floor and cream wallpaper on the top wall (row 5). A black upright piano with its lid open and sheet music at columns 2-3, row 7. A green two-seat sofa with a pink cushion at columns 12-13, row 6. A low wooden table with sheet music, notebooks and a mug on a rug at columns 8-9, row 8. A wall calendar on the top wall at column 5. A pair of men's shoes and a pair of small white children's indoor shoes just inside the door at column 10, row 6. A bookshelf at column 1, row 6, a potted plant at column 17, row 6, a small TV stand at columns 14-15, row 9.
+- Columns 19-25, rows 5-10: the neighbor's apartment, not accessible, shown as plain dark roof.
+- Row 10: the apartment's back wall with a glass sliding door to the balcony at columns 7-9 (the middle one open), an outdoor air-conditioner unit and hanging laundry on the outside.
+- Row 11: a narrow concrete balcony running the whole width. A terracotta plant pot with soil spilled around it and tiny child footprints at column 16. A white emergency partition board standing across the balcony at column 17, with a small gap underneath. The neighbor's balcony continues on the right from column 18, with a pink flower pot at column 18 and warm light from the neighbor's window.
+- Row 12: the balcony's metal railing; through the bars, far below, the lights of a harbor town at night.
+Full color, limited palette of about 48 colors, clean dark outlines, soft dithered shadows, no anti-aliasing.`,
+  sprite: `Top-down RPG walking sprite sheet in pixel art, for the same game as the character portraits. Transparent background. The sheet is exactly 192x384: a grid of 3 columns by 4 rows, each cell 64x96, every cell the same size with the character centered and feet at the same height near the bottom of the cell. Native pixel size 2x2 (each cell is 32x48 pixels upscaled 2x with nearest-neighbor). Columns: standing, left foot forward, right foot forward. Rows from top: facing down (toward the viewer), facing left, facing right, facing up (back view). Cute chibi proportions about 2.5 heads tall, but keep the face, hair and outfit recognizable as the portrait design. Clean dark outline, limited palette of about 24 colors, no anti-aliasing, no text, no grid lines.
+
+Character: {char}`,
+  sprites: {
+    rei: 'an androgynous 22-year-old investigator, messy short black hair with one ahoge and a small lavender hair clip, sleepy violet-grey eyes, oversized grey hoodie under a long beige trench coat.',
+    koharu: 'a cheerful 20-year-old rookie detective girl, orange-brown side ponytail with a sky-blue scrunchie, navy suit jacket over a white shirt with a sky-blue ribbon tie, navy pants, white sneakers.',
+    shiori: 'a pale 16-year-old girl ghost, long straight black hair with blunt bangs, old navy sailor school uniform with a white ribbon, barefoot, slightly translucent.',
+  },
+  title_key: `Key visual illustration for the title screen of a mystery visual novel, in fine detailed pixel art (native about 512x341, upscaled 3x with nearest-neighbor to 1536x1024, full color, about 64 colors, no anti-aliasing). Late-summer harbor town at night, seen from a sloped street with old apartment buildings, warm window lights and the sea with harbor lights in the distance. On the right half: {rei} standing in front, looking back over the shoulder at the viewer with a calm sleepy expression, and {koharu} slightly behind, smiling. Several translucent black-and-white manga panels float in the air around them like scattered memories, each showing a faint scene from the same night. The left 40% of the image is calm, darker night sky and street with no important details, reserved for the title text. No text, no letters, no logo.`,
 };

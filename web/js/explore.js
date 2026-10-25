@@ -41,6 +41,20 @@ const SPRITE_EXTRA = {
 };
 
 const spriteCache = {};
+// GPT가 만든 걷는 캐릭터 시트 (64×96 칸, 열: 정지/걸음A/걸음B, 행: 아래/왼/오른/위)
+const SHEET_ROW = { down: 0, left: 1, right: 2, up: 3 };
+const SHEETS = Object.fromEntries(['rei', 'koharu', 'shiori'].map((w) => [w, optionalImg(ASSET.sprite(w))]));
+
+// 발이 (x, y) 칸 바닥에 오게 캐릭터를 그린다. ctx는 원본 해상도(16px 칸) 기준.
+function drawWalker(ctx, who, dir, frame, x, y) {
+  const sh = SHEETS[who];
+  if (sh && sh.ok) {
+    const cw = sh.naturalWidth / 3, ch = sh.naturalHeight / 4, w = cw / SCALE, h = ch / SCALE;
+    ctx.drawImage(sh, frame * cw, SHEET_ROW[dir] * ch, cw, ch, x * TILE + TILE / 2 - w / 2, y * TILE + TILE - h + 1, w, h);
+    return;
+  }
+  ctx.drawImage(sprite(who, dir, frame), x * TILE, y * TILE - 4);
+}
 
 function buildSprite(who, dir, legs, flipLegs) {
   const pal = PALETTES[who];
@@ -157,6 +171,7 @@ const OBJ_DRAW = {
 
 const MAPS = {
   mansion5f: {
+    img: optionalImg(ASSET.map('mansion5f')),
     label: '하나미즈키 맨션 5층',
     hallWallRow: 1,
     rows: [
@@ -407,15 +422,20 @@ function draw(now) {
   ctx.save();
   ctx.translate(ox, oy);
   ctx.scale(SCALE, SCALE);
-  for (let y = 0; y < H; y++) {
-    for (let x = 0; x < W; x++) {
-      const t = TERRAIN[map.rows[y][x]];
-      if (t) t.draw(ctx, x * TILE, y * TILE, x, y, map);
+  // 맵 그림이 있으면 그걸 깔고(가구까지 그려져 있음), 없으면 코드로 그린 임시 맵
+  const art = map.img && map.img.ok;
+  if (art) ctx.drawImage(map.img, 0, 0, W * TILE, H * TILE);
+  else {
+    for (let y = 0; y < H; y++) {
+      for (let x = 0; x < W; x++) {
+        const t = TERRAIN[map.rows[y][x]];
+        if (t) t.draw(ctx, x * TILE, y * TILE, x, y, map);
+      }
     }
   }
   // 오브젝트 + 캐릭터를 y순으로
   const drawables = [];
-  map.objects.forEach((o) => { if (o.draw && visibleObj(o)) drawables.push({ y: o.y, fn: () => OBJ_DRAW[o.draw](ctx, o.x * TILE, o.y * TILE) }); });
+  if (!art) map.objects.forEach((o) => { if (o.draw && visibleObj(o)) drawables.push({ y: o.y, fn: () => OBJ_DRAW[o.draw](ctx, o.x * TILE, o.y * TILE) }); });
   const entPos = (e) => {
     if (!e.move) return [e.x, e.y];
     const t = Math.min(1, e.move.t);
@@ -424,12 +444,12 @@ function draw(now) {
   const entFrame = (e) => (e.move ? (Math.floor(e.move.t * 2 + (e.x + e.y)) % 2) + 1 : 0);
   const k = EX.koharu, p = EX.player;
   const [kx, ky] = entPos(k);
-  drawables.push({ y: ky, fn: () => ctx.drawImage(sprite('koharu', k.dir, entFrame(k)), kx * TILE, ky * TILE - 4) });
+  drawables.push({ y: ky, fn: () => drawWalker(ctx, 'koharu', k.dir, entFrame(k), kx, ky) });
   const [pxx, pyy] = entPos(p);
-  drawables.push({ y: pyy + 0.01, fn: () => ctx.drawImage(sprite('rei', p.dir, entFrame(p)), pxx * TILE, pyy * TILE - 4) });
+  drawables.push({ y: pyy + 0.01, fn: () => drawWalker(ctx, 'rei', p.dir, entFrame(p), pxx, pyy) });
   EX.extras.forEach((e) => drawables.push({ y: e.y, fn: () => {
     ctx.globalAlpha = 0.55 + 0.25 * Math.sin(now / 300);
-    ctx.drawImage(sprite(e.who, e.dir || 'down', 0), e.x * TILE, e.y * TILE - 4);
+    drawWalker(ctx, e.who, e.dir || 'down', 0, e.x, e.y);
     ctx.globalAlpha = 1;
   } }));
   drawables.sort((a, b) => a.y - b.y).forEach((d) => d.fn());

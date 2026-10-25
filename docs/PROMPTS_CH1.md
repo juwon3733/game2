@@ -29,7 +29,7 @@ Character reference sheet of an androgynous 22-year-old investigator with a cool
 
 Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
 
-Waist-up portrait facing slightly to the side, plain transparent background, vertical 1024x1536. Expression: sleepy, indifferent, half-closed eyes.
+Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: sleepy, indifferent, half-closed eyes.
 ```
 
 **`rei_serious.png`
@@ -69,7 +69,7 @@ Character reference sheet of a cheerful 20-year-old rookie detective girl. Big s
 
 Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
 
-Waist-up portrait facing slightly to the side, plain transparent background, vertical 1024x1536. Expression: friendly smile.
+Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: friendly smile.
 ```
 
 **`koharu_happy.png`
@@ -109,7 +109,7 @@ Character reference sheet of a tired but handsome 47-year-old police chief with 
 
 Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
 
-Waist-up portrait facing slightly to the side, plain transparent background, vertical 1024x1536. Expression: tired, lollipop in mouth.
+Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: tired, lollipop in mouth.
 ```
 
 ## 대화 4 — 토와 상반신 (1장)
@@ -135,7 +135,7 @@ Chibi avatar of a hacker shown only on a monitor screen: small 2-head-tall chara
 
 Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
 
-Waist-up portrait facing slightly to the side, plain transparent background, vertical 1024x1536. Expression: smug chibi inside a monitor frame.
+Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: smug chibi inside a monitor frame.
 ```
 
 ## 대화 5 — 아사기리 상반신 (1장)
@@ -161,7 +161,7 @@ Character reference sheet of an elegant, gentle 61-year-old cafe owner woman. Be
 
 Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
 
-Waist-up portrait facing slightly to the side, plain transparent background, vertical 1024x1536. Expression: warm gentle smile, holding a coffee cup.
+Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: warm gentle smile, holding a coffee cup.
 ```
 
 ## 대화 6 — 오오쿠보 상반신 (2장)
@@ -187,7 +187,7 @@ Character reference sheet of a friendly, chubby 63-year-old apartment security g
 
 Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
 
-Waist-up portrait facing slightly to the side, plain transparent background, vertical 1024x1536. Expression: proud and confident, arms crossed.
+Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: proud and confident, arms crossed.
 ```
 
 **`ookubo_flustered.png`
@@ -220,7 +220,7 @@ Character reference sheet of a 21-year-old delivery worker with a "scary-looking
 
 Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
 
-Waist-up portrait facing slightly to the side, plain transparent background, vertical 1024x1536. Expression: defensive glare, arms crossed.
+Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: defensive glare, arms crossed.
 ```
 
 **`taiga_sad.png`
@@ -253,7 +253,7 @@ Character reference sheet of an adorable 9-year-old girl. Big round brown eyes, 
 
 Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
 
-Waist-up portrait facing slightly to the side, plain transparent background, vertical 1024x1536. Expression: shy, half hidden behind a door.
+Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: shy, half hidden behind a door.
 ```
 
 **`himari_crying.png`
@@ -286,7 +286,7 @@ Character reference sheet of an ethereal, beautiful 16-year-old girl. Large calm
 
 Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
 
-Waist-up portrait facing slightly to the side, plain transparent background, vertical 1024x1536. Expression: calm, faint smile, pointing at something.
+Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: calm, faint smile, pointing at something.
 ```
 
 ## 대화 10 — 배경 (7장)
@@ -367,7 +367,7 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 
 **`D.png`
 ```
-같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(흑백 + 회색 + gold (#c9961a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + gold (#c9961a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
 Scene: a young delivery worker with spiky bleached blond hair (accent color) under a backwards black cap, a small earring and a black uniform with reflective stripes, startled at an apartment front door at night, turning back toward something off-panel. His cardboard box has just dropped to the floor at his feet. Simple speed lines from the side.
 ```
@@ -376,7 +376,7 @@ Scene: a young delivery worker with spiky bleached blond hair (accent color) und
 
 **`F.png`
 ```
-같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(흑백 + 회색 + gold (#c9961a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + gold (#c9961a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
 Scene: Close-up on a stairwell: a hand gripping a dead smartphone, the screen showing a big empty battery icon. Blond hair (accent color) at the edge of the panel.
 ```
@@ -385,7 +385,7 @@ Scene: Close-up on a stairwell: a hand gripping a dead smartphone, the screen sh
 
 **`t_taiga_1.png`
 ```
-같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(흑백 + 회색 + gold (#c9961a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + gold (#c9961a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
 Scene: First-person view of a hand pressing an apartment doorbell at night, music notes coming through the door.
 ```
@@ -394,7 +394,7 @@ Scene: First-person view of a hand pressing an apartment doorbell at night, musi
 
 **`t_taiga_2.png`
 ```
-같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(흑백 + 회색 + gold (#c9961a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + gold (#c9961a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
 Scene: An enormous impact effect filling the entire panel, the apartment hallway tiny underneath (an exaggerated memory).
 ```
@@ -403,7 +403,7 @@ Scene: An enormous impact effect filling the entire panel, the apartment hallway
 
 **`t_taiga_3.png`
 ```
-같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(흑백 + 회색 + gold (#c9961a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + gold (#c9961a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
 Scene: Back view of a young delivery worker with spiky bleached blond hair (accent color) under a backwards black cap, a small earring and a black uniform with reflective stripes going down stairs, with his face and hands left completely blank white as if erased.
 ```
@@ -412,7 +412,7 @@ Scene: Back view of a young delivery worker with spiky bleached blond hair (acce
 
 **`t_taiga_3_truth.png`
 ```
-같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(흑백 + 회색 + gold (#c9961a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + gold (#c9961a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
 Scene: a young delivery worker with spiky bleached blond hair (accent color) under a backwards black cap, a small earring and a black uniform with reflective stripes on the stairs gripping a dead smartphone, biting his lip in frustration.
 ```
@@ -440,7 +440,7 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 
 **`C.png`
 ```
-같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(흑백 + 회색 + blue (#3b8fd0) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + blue (#3b8fd0) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
 Scene: a gentle man in his early 30s with glasses and a light shirt leaning through the gap of a balcony partition at night, reaching out desperately. Beyond the partition: a child's small feet standing on the railing, and a tiny glint of a small hairpin caught on the outer ledge (only a small sparkle, no toy or other object). Leave empty space at the top center for a speech bubble.
 ```
@@ -468,7 +468,7 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 
 **`H.png`
 ```
-같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(흑백 + 회색 + pink (#e0679a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + pink (#e0679a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
 Scene: a 9-year-old girl with brown twin tails tied with ribbons, a small music-note hairpin, a t-shirt with a piano-key pattern and a denim overall skirt standing on a flowerpot and climbing the balcony railing, reaching for her hairpin caught on the outer ledge. The neighboring balcony behind the partition is empty.
 ```
@@ -477,7 +477,7 @@ Scene: a 9-year-old girl with brown twin tails tied with ribbons, a small music-
 
 **`I.png`
 ```
-같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(흑백 + 회색 + pink (#e0679a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + pink (#e0679a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
 Scene: An adult's arm pulling a 9-year-old girl with brown twin tails tied with ribbons, a small music-note hairpin, a t-shirt with a piano-key pattern and a denim overall skirt back to safety from the railing. She clutches the hairpin in her hand. The adult is leaning dangerously outward over the railing.
 ```
@@ -486,7 +486,7 @@ Scene: An adult's arm pulling a 9-year-old girl with brown twin tails tied with 
 
 **`t_himari_1_truth.png`
 ```
-같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(흑백 + 회색 + pink (#e0679a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + pink (#e0679a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
 Scene: a 9-year-old girl with brown twin tails tied with ribbons, a small music-note hairpin, a t-shirt with a piano-key pattern and a denim overall skirt at her desk, looking out the window instead of at her homework.
 ```
@@ -495,7 +495,7 @@ Scene: a 9-year-old girl with brown twin tails tied with ribbons, a small music-
 
 **`t_himari_2_truth.png`
 ```
-같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(흑백 + 회색 + pink (#e0679a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + pink (#e0679a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
 Scene: a 9-year-old girl with brown twin tails tied with ribbons, a small music-note hairpin, a t-shirt with a piano-key pattern and a denim overall skirt looking at her hairpin caught on the balcony's outer ledge.
 ```
@@ -504,7 +504,7 @@ Scene: a 9-year-old girl with brown twin tails tied with ribbons, a small music-
 
 **`t_himari_3_truth.png`
 ```
-같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(흑백 + 회색 + pink (#e0679a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + pink (#e0679a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
 Scene: a 9-year-old girl with brown twin tails tied with ribbons, a small music-note hairpin, a t-shirt with a piano-key pattern and a denim overall skirt crying under a blanket, holding her music-note hairpin tightly.
 ```
@@ -569,7 +569,7 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 
 **`t_ookubo_1.png`
 ```
-같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(흑백 + 회색 + olive green (#6b8a5a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + olive green (#6b8a5a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
 Scene: a chubby old security guard with a grey mustache in an olive uniform and cap proudly writing in a logbook at his desk, absurd sparkles and flowers around him (an exaggerated, self-flattering memory).
 ```
@@ -578,7 +578,7 @@ Scene: a chubby old security guard with a grey mustache in an olive uniform and 
 
 **`t_ookubo_2.png`
 ```
-같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(흑백 + 회색 + olive green (#6b8a5a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + olive green (#6b8a5a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
 Scene: a young delivery worker with spiky bleached blond hair (light grey) under a backwards black cap, a small earring and a black uniform with reflective stripes running out of a stairwell, same outfit and delivery backpack as always, but his face is scribbled over with a crude horned monster doodle like a child's pen scribble (a prejudiced memory). He is not wearing a guard uniform.
 ```
@@ -587,7 +587,7 @@ Scene: a young delivery worker with spiky bleached blond hair (light grey) under
 
 **`t_ookubo_2_truth.png`
 ```
-같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(흑백 + 회색 + olive green (#6b8a5a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + olive green (#6b8a5a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
 Scene: a young delivery worker with spiky bleached blond hair (light grey) under a backwards black cap, a small earring and a black uniform with reflective stripes running out of a stairwell, face clearly visible, scared and about to cry, shouting.
 ```
@@ -596,9 +596,78 @@ Scene: a young delivery worker with spiky bleached blond hair (light grey) under
 
 **`t_ookubo_3.png`
 ```
-같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(흑백 + 회색 + olive green (#6b8a5a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + olive green (#6b8a5a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
 Scene: A dull impact on a flowerbed in front of an apartment building at night, seen from far away: a puff of dust and crushed flowers. No person is visible.
 ```
 
 > 꼭 보여야 할 것: 화단의 충격
+
+## 대화 16 — 탐색 맵 (1장)
+
+칸 배치를 최대한 지킨다. 조금 어긋나도 Claude가 충돌 칸을 그림에 맞춘다.
+
+**`mansion5f.png`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
+
+Top-down 3/4 view pixel art game map, like a high-quality modern Japanese RPG made in RPG Maker but with richer detail. Native resolution exactly 416x208 pixels on a 16-pixel tile grid (26 tiles wide, 13 tiles tall), upscaled exactly 3x with nearest-neighbor to 1248x624. Night, warm indoor lamp light and cool moonlight. No characters, no text.
+
+Layout by tile rows, top to bottom:
+- Rows 0-3: the 5th floor outdoor corridor of an old Japanese apartment building. Row 1 is the corridor's back wall with ceiling lamps, a fire extinguisher box and electric meter boxes. Rows 2-3 are the concrete corridor floor. A staircase going down at the far left (column 1).
+- Row 4: thick wall between corridor and apartments. Column 9 is the open front door of Saeki's apartment (stone entrance floor, door swung open). Column 18 is the closed door of the neighbor's apartment with a small nameplate and a pink sticker.
+- Rows 5-9, columns 1-17: inside Saeki's apartment, one wide living room with warm wooden floor and cream wallpaper on the top wall (row 5). A black upright piano with its lid open and sheet music at columns 2-3, row 7. A green two-seat sofa with a pink cushion at columns 12-13, row 6. A low wooden table with sheet music, notebooks and a mug on a rug at columns 8-9, row 8. A wall calendar on the top wall at column 5. A pair of men's shoes and a pair of small white children's indoor shoes just inside the door at column 10, row 6. A bookshelf at column 1, row 6, a potted plant at column 17, row 6, a small TV stand at columns 14-15, row 9.
+- Columns 19-25, rows 5-10: the neighbor's apartment, not accessible, shown as plain dark roof.
+- Row 10: the apartment's back wall with a glass sliding door to the balcony at columns 7-9 (the middle one open), an outdoor air-conditioner unit and hanging laundry on the outside.
+- Row 11: a narrow concrete balcony running the whole width. A terracotta plant pot with soil spilled around it and tiny child footprints at column 16. A white emergency partition board standing across the balcony at column 17, with a small gap underneath. The neighbor's balcony continues on the right from column 18, with a pink flower pot at column 18 and warm light from the neighbor's window.
+- Row 12: the balcony's metal railing; through the bars, far below, the lights of a harbor town at night.
+Full color, limited palette of about 48 colors, clean dark outlines, soft dithered shadows, no anti-aliasing.
+```
+
+## 대화 17 — 걷는 캐릭터 (탐색용) (3장)
+
+한 대화에서 레이 → 코하루 → 시오리 순서로 만든다. 칸 크기와 발 높이를 셋이 똑같이 맞춘다. 상반신 이미지를 기준으로 첨부하면 좋다.
+
+**`rei.png`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
+
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+
+Top-down RPG walking sprite sheet in pixel art, for the same game as the character portraits. Transparent background. The sheet is exactly 192x384: a grid of 3 columns by 4 rows, each cell 64x96, every cell the same size with the character centered and feet at the same height near the bottom of the cell. Native pixel size 2x2 (each cell is 32x48 pixels upscaled 2x with nearest-neighbor). Columns: standing, left foot forward, right foot forward. Rows from top: facing down (toward the viewer), facing left, facing right, facing up (back view). Cute chibi proportions about 2.5 heads tall, but keep the face, hair and outfit recognizable as the portrait design. Clean dark outline, limited palette of about 24 colors, no anti-aliasing, no text, no grid lines.
+
+Character: an androgynous 22-year-old investigator, messy short black hair with one ahoge and a small lavender hair clip, sleepy violet-grey eyes, oversized grey hoodie under a long beige trench coat.
+```
+
+**`koharu.png`
+```
+같은 스프라이트 시트 규칙(192x384, 64x96 칸 3열×4행, 같은 픽셀 크기와 발 높이)으로 다음 캐릭터를 그려줘. 투명 배경.
+
+Character: a cheerful 20-year-old rookie detective girl, orange-brown side ponytail with a sky-blue scrunchie, navy suit jacket over a white shirt with a sky-blue ribbon tie, navy pants, white sneakers.
+```
+
+**`shiori.png`
+```
+같은 스프라이트 시트 규칙(192x384, 64x96 칸 3열×4행, 같은 픽셀 크기와 발 높이)으로 다음 캐릭터를 그려줘. 투명 배경.
+
+Character: a pale 16-year-old girl ghost, long straight black hair with blunt bangs, old navy sailor school uniform with a white ribbon, barefoot, slightly translucent.
+```
+
+## 대화 18 — 타이틀 키아트 (1장)
+
+상반신 이미지를 기준으로 첨부해 같은 얼굴로 그린다.
+
+**`key.png`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
+
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+
+Key visual illustration for the title screen of a mystery visual novel, in fine detailed pixel art (native about 512x341, upscaled 3x with nearest-neighbor to 1536x1024, full color, about 64 colors, no anti-aliasing). Late-summer harbor town at night, seen from a sloped street with old apartment buildings, warm window lights and the sea with harbor lights in the distance. On the right half: an androgynous 22-year-old investigator, messy short black hair with one ahoge and a small lavender hair clip, sleepy violet-grey eyes, oversized grey hoodie under a long beige trench coat. standing in front, looking back over the shoulder at the viewer with a calm sleepy expression, and a cheerful 20-year-old rookie detective girl, orange-brown side ponytail with a sky-blue scrunchie, navy suit jacket over a white shirt with a sky-blue ribbon tie, navy pants, white sneakers. slightly behind, smiling. Several translucent black-and-white manga panels float in the air around them like scattered memories, each showing a faint scene from the same night. The left 40% of the image is calm, darker night sky and street with no important details, reserved for the title text. No text, no letters, no logo.
+```
