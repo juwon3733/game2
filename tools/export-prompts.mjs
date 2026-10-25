@@ -1,6 +1,9 @@
-// 1장 이미지 프롬프트 전체를 ChatGPT 대화창 순서대로 docs/PROMPTS_CH1.md에 뽑는다.
-// 사용: node tools/export-prompts.mjs
-// 같은 대화창에서 이어 뽑는 그림은 짧은 후속 프롬프트로 써서 그림체가 흔들리지 않게 한다.
+// 1장 이미지 프롬프트를 ChatGPT 대화창(작업 묶음) 순서로 정리해 두 파일로 뽑는다.
+//   web/assets/prompts.json  — 이미지 생성 에이전트가 읽는 작업 목록 (AGENTS.md 참고)
+//   docs/PROMPTS_CH1.md      — 사람이 읽는 같은 내용
+// 사용: node tools/export-prompts.mjs          (파일 갱신)
+//       node tools/export-prompts.mjs --check  (갱신이 필요하면 실패. CI용)
+// 같은 묶음 안에서 이어 뽑는 그림은 짧은 후속 프롬프트로 써서 그림체가 흔들리지 않게 한다.
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -14,73 +17,130 @@ for (const f of ['js/data_ch1.js', 'js/asset_prompts.js', 'js/asset_list.js']) {
   vm.runInContext(fs.readFileSync(path.join(web, f), 'utf8'), ctx, { filename: f });
 }
 const list = JSON.parse(vm.runInContext('JSON.stringify(requiredAssets())', ctx));
-const S = JSON.parse(vm.runInContext('JSON.stringify({ PROMPT_STYLE, BG_PROMPTS, CUT_PROMPTS, CUT_CHARS, FACE_PROMPTS })', ctx));
+const S = JSON.parse(vm.runInContext('JSON.stringify({ PROMPT_STYLE, BG_PROMPTS, FACE_PROMPTS })', ctx));
 
-const out = [];
-const block = (file, text) => { out.push(`**\`${file}\`**`, '```', text.trim(), '```', ''); };
-let win = 0;
-const window = (title, note) => { win++; out.push(`## 대화창 ${win} — ${title}`, '', note ? `${note}\n` : ''); };
+// ---------- 작업 묶음 만들기 ----------
 
-out.push('# 1장 이미지 프롬프트 전체', '');
-out.push('> `node tools/export-prompts.mjs`로 자동 생성된 파일. 직접 고치지 말고 `web/js/asset_prompts.js`를 고친 뒤 다시 생성한다.', '');
-out.push('- **대화창마다 새 ChatGPT 채팅**을 연다. 한 창 안에서는 위에서부터 차례로 붙여넣는다.');
-out.push('- 받은 이미지는 **다운로드 버튼으로 원본 PNG**를 받아 굵은 파일명 그대로 저장한다.');
-out.push('- 저장 위치: 상반신 `web/assets/portraits/`, 배경 `web/assets/bg/`, 컷 `web/assets/cuts/`', '');
+const batches = [];
+const item = (a, followup) => ({
+  id: a.id,
+  file: `web/assets/${a.path}`,
+  kind: a.kind,
+  width: a.spec.w,
+  height: a.spec.h,
+  transparent: a.kind === 'portrait',
+  must_show: a.must || null,
+  prompt: a.prompt,                 // 단독으로 쓸 때의 전체 프롬프트
+  followup_prompt: followup || null, // 같은 묶음에서 앞 그림에 이어 쓸 때의 짧은 프롬프트
+});
 
-// 캐릭터: 설정화(전체 프롬프트) → 첫 표정(해상도 포함) → 나머지 표정(짧게)
+// 캐릭터: 설정화 → 표정들
 const byChar = {};
 list.filter((a) => a.kind === 'portrait').forEach((a) => { (byChar[a.id.split('_')[0]] = byChar[a.id.split('_')[0]] || []).push(a); });
-for (const items of Object.values(byChar)) {
-  window(`${items[0].group} (상반신 ${items.length}장)`, '첫 블록은 설정화라 게임에 안 들어간다. 기준 그림이니 마음에 들 때까지 다시 뽑는다.');
-  block('설정화 (저장 안 해도 됨)', items[0].sheet);
-  items.forEach((a, i) => {
-    const face = (S.FACE_PROMPTS[a.id] || '').replace(/^expression:\s*/i, '');
-    if (i === 0) {
-      block(`${a.id}.png`, `방금 설정화 캐릭터 그대로, 같은 도트 스타일과 같은 팔레트로 그려줘.\n\n${S.PROMPT_STYLE.portraitRes} No anti-aliasing.\n\nWaist-up portrait facing slightly to the side, plain transparent background, vertical 1024x1536. Expression: ${face}.`);
-    } else {
-      block(`${a.id}.png`, `같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.\n\nExpression: ${face}.`);
-    }
+for (const [char, items] of Object.entries(byChar)) {
+  batches.push({
+    id: `portrait-${char}`,
+    title: `${items[0].group} 상반신`,
+    note: '먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.',
+    reference_sheet_prompt: items[0].sheet,
+    items: items.map((a, i) => {
+      const face = (S.FACE_PROMPTS[a.id] || '').replace(/^expression:\s*/i, '');
+      const follow = i === 0
+        ? `방금 설정화 캐릭터 그대로, 같은 도트 스타일과 같은 팔레트로 그려줘.\n\n${S.PROMPT_STYLE.portraitRes} No anti-aliasing.\n\nWaist-up portrait facing slightly to the side, plain transparent background, vertical 1024x1536. Expression: ${face}.`
+        : `같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.\n\nExpression: ${face}.`;
+      return item(a, follow);
+    }),
   });
 }
 
-// 배경: 한 창에서 첫 장은 전체, 나머지는 짧게
+// 배경: 첫 장은 전체, 나머지는 짧게
 const bgs = list.filter((a) => a.kind === 'bg');
-window(`배경 (${bgs.length}장)`, '배경끼리 그림체를 맞추려고 한 창에서 이어 뽑는다.');
-bgs.forEach((a, i) => {
-  if (i === 0) block(`${a.id}.png`, a.prompt);
-  else block(`${a.id}.png`, `같은 도트 스타일, 같은 픽셀 크기와 팔레트로 다음 배경을 그려줘. 사람 없이, 가로 1536x1024.\n\n${S.BG_PROMPTS[a.id]} Keep the lower third simple because characters will stand in front.`);
+batches.push({
+  id: 'bg',
+  title: '배경',
+  note: '배경끼리 그림체를 맞추려고 한 대화에서 이어 만든다.',
+  items: bgs.map((a, i) => item(a, i === 0 ? null : `같은 도트 스타일, 같은 픽셀 크기와 팔레트로 다음 배경을 그려줘. 사람 없이, 가로 1536x1024.\n\n${S.BG_PROMPTS[a.id]} Keep the lower third simple because characters will stand in front.`)),
 });
 
-// 컷: 시점 주인(포인트 색)별로 창을 나눈다. 첫 장은 전체, 나머지는 짧게
+// 컷: 포인트 색(시점 주인)별로 묶는다
 const cuts = list.filter((a) => a.kind === 'cut');
 const colorOf = (a) => (a.prompt.match(/accent color ([^.]*?\(#[0-9a-f]{6}\))/i) || [])[1];
-const groups = [
-  ['컷 · 타이가 시점 + 증언 (금색)', (a) => /gold/.test(a.prompt) && !/crayon memory/.test(a.prompt)],
-  ['컷 · 미츠루 시점 (파랑)', (a) => /blue \(#3b8fd0\)/.test(a.prompt)],
-  ['컷 · 히마리 시점 (분홍)', (a) => /pink \(#e0679a\)/.test(a.prompt) && !/crayon memory/.test(a.prompt)],
-  ['컷 · 히마리 크레용 기억 (예외: 크레용 색)', (a) => /crayon memory/.test(a.prompt)],
-  ['컷 · 오오쿠보 증언 (올리브)', (a) => /olive/.test(a.prompt)],
+const cutGroups = [
+  ['cut-gold', '컷 · 타이가 시점 + 증언 (금색)', (a) => /gold \(#c9961a\)/.test(a.prompt) && !/crayon memory/.test(a.prompt)],
+  ['cut-blue', '컷 · 미츠루 시점 (파랑)', (a) => /blue \(#3b8fd0\)/.test(a.prompt)],
+  ['cut-pink', '컷 · 히마리 시점 (분홍)', (a) => /pink \(#e0679a\)/.test(a.prompt) && !/crayon memory/.test(a.prompt)],
+  ['cut-crayon', '컷 · 히마리 크레용 기억 (예외: 크레용 색)', (a) => /crayon memory/.test(a.prompt)],
+  ['cut-olive', '컷 · 오오쿠보 증언 (올리브)', (a) => /olive green \(#6b8a5a\)/.test(a.prompt)],
 ];
 const used = new Set();
-for (const [title, test] of groups) {
+for (const [id, title, test] of cutGroups) {
   const items = cuts.filter((a) => !used.has(a.id) && test(a));
   if (!items.length) continue;
   items.forEach((a) => used.add(a.id));
-  window(`${title} (${items.length}장)`, '같은 포인트 색 컷끼리 한 창에서 뽑으면 팔레트가 맞는다.');
-  items.forEach((a, i) => {
-    const scene = (a.prompt.match(/Scene: ([\s\S]*?)\n\n/) || [])[1] || '';
-    if (i === 0) block(`${a.id}.png`, a.prompt);
-    else {
-      const crayon = /crayon memory/.test(a.prompt);
-      const rule = crayon ? '같은 크레용 도트 스타일, 같은 픽셀 크기로 다음 컷을 그려줘.' : `같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(흑백 + 회색 + ${colorOf(a)} 하나)로 다음 컷을 그려줘.`;
-      block(`${a.id}.png`, `${rule} 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.\n\nScene: ${scene}`);
-    }
-    if (a.must) out.push(`> 꼭 보여야 할 것: ${a.must}`, '');
+  batches.push({
+    id, title,
+    note: '같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.',
+    items: items.map((a, i) => {
+      if (i === 0) return item(a, null);
+      const scene = (a.prompt.match(/Scene: ([\s\S]*?)\n\n/) || [])[1] || '';
+      const rule = /crayon memory/.test(a.prompt)
+        ? '같은 크레용 도트 스타일, 같은 픽셀 크기로 다음 컷을 그려줘.'
+        : `같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(흑백 + 회색 + ${colorOf(a)} 하나)로 다음 컷을 그려줘.`;
+      return item(a, `${rule} 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.\n\nScene: ${scene}`);
+    }),
   });
 }
 const rest = cuts.filter((a) => !used.has(a.id));
-if (rest.length) throw new Error('창에 배정되지 않은 컷: ' + rest.map((a) => a.id).join(', '));
+if (rest.length) throw new Error('묶음에 배정되지 않은 컷: ' + rest.map((a) => a.id).join(', '));
 
-const file = path.join(root, 'docs', 'PROMPTS_CH1.md');
-fs.writeFileSync(file, out.join('\n'));
-console.log(`docs/PROMPTS_CH1.md — ${list.length}장, 대화창 ${win}개`);
+// ---------- JSON ----------
+
+const json = {
+  chapter: 1,
+  generated_by: 'node tools/export-prompts.mjs (직접 고치지 말 것. web/js/asset_prompts.js를 고친 뒤 다시 생성)',
+  rules: {
+    style: 'PC-98식 저해상도 도트. 컷은 흑백 + 회색 2단 + 포인트 색 1개, 캐릭터/배경은 풀컬러.',
+    format: 'PNG만. 파일명과 대소문자는 file 그대로. 크기는 width x height.',
+    skip_existing: '이미 저장소에 있는 file은 다시 만들지 않는다 (교체 요청이 있을 때만).',
+    validate: 'node tools/check-assets.mjs 가 통과해야 한다.',
+  },
+  total: list.length,
+  batches,
+};
+const jsonText = JSON.stringify(json, null, 2) + '\n';
+
+// ---------- 마크다운 ----------
+
+const md = [];
+const block = (file, text) => md.push(`**\`${file}\``, '```', text.trim(), '```', '');
+md.push('# 1장 이미지 프롬프트 전체', '');
+md.push('> `node tools/export-prompts.mjs`로 자동 생성된 파일. 직접 고치지 말고 `web/js/asset_prompts.js`를 고친 뒤 다시 생성한다.', '> 이미지 생성 에이전트는 같은 내용의 `web/assets/prompts.json`과 `AGENTS.md`를 쓴다.', '');
+md.push('- **묶음마다 새 ChatGPT 대화**를 연다. 한 대화 안에서는 위에서부터 차례로 붙여넣는다.');
+md.push('- 받은 이미지는 **원본 PNG**로 굵은 파일명 그대로 저장한다.', '');
+batches.forEach((b, n) => {
+  md.push(`## 대화 ${n + 1} — ${b.title} (${b.items.length}장)`, '', b.note, '');
+  if (b.reference_sheet_prompt) block('설정화 (저장 안 해도 됨)', b.reference_sheet_prompt);
+  b.items.forEach((it, i) => {
+    block(it.file.split('/').pop(), b.reference_sheet_prompt || i > 0 ? it.followup_prompt : it.prompt);
+    if (it.must_show) md.push(`> 꼭 보여야 할 것: ${it.must_show}`, '');
+  });
+});
+const mdText = md.join('\n');
+
+// ---------- 쓰기 / 검사 ----------
+
+const targets = [
+  [path.join(web, 'assets', 'prompts.json'), jsonText],
+  [path.join(root, 'docs', 'PROMPTS_CH1.md'), mdText],
+];
+if (process.argv.includes('--check')) {
+  const stale = targets.filter(([f, t]) => !fs.existsSync(f) || fs.readFileSync(f, 'utf8').replace(/\r\n/g, '\n') !== t);
+  if (stale.length) {
+    console.log('::error::프롬프트 파일이 게임 데이터와 다릅니다. `node tools/export-prompts.mjs`를 실행해 다시 생성하세요: ' + stale.map(([f]) => path.relative(root, f)).join(', '));
+    process.exit(1);
+  }
+  console.log('프롬프트 파일 최신 상태');
+} else {
+  targets.forEach(([f, t]) => fs.writeFileSync(f, t));
+  console.log(`web/assets/prompts.json, docs/PROMPTS_CH1.md — ${list.length}장, 묶음 ${batches.length}개`);
+}

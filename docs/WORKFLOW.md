@@ -22,7 +22,24 @@
 
 > 처음 한 번만: 저장소 **Settings → Pages → Build and deployment → Source** 를 **GitHub Actions** 로 바꿔야 배포가 시작된다.
 
-## 이미지 올리는 법 (ChatGPT → GitHub)
+## 이미지 만드는 법 (기본: 에이전트에게 맡기기)
+
+GitHub에 연결된 이미지 생성 에이전트(ChatGPT/Codex 등)에게 저장소를 맡긴다. 에이전트는 `AGENTS.md`를 읽고 `web/assets/prompts.json`의 프롬프트로 이미지를 만들어 `assets/…` 브랜치로 PR을 연다.
+
+```
+juwon3733/game2 저장소의 AGENTS.md대로 이미지 만들어서 PR 올려줘. 범위: cut-gold
+```
+
+- **범위**에는 묶음 id(`portrait-rei`, `bg`, `cut-gold` …)나 파일 id(`D`, `rei_normal` …)를 쓴다. 생략하면 없는 이미지 전부를 만든다.
+- 묶음 id 목록: `portrait-rei` `portrait-koharu` `portrait-kurogane` `portrait-towa` `portrait-asagiri` `portrait-ookubo` `portrait-taiga` `portrait-himari` `portrait-shiori` `bg` `cut-gold` `cut-blue` `cut-pink` `cut-crayon` `cut-olive`
+- 한 번에 너무 많이 맡기면 그림체가 흔들리기 쉽다. **묶음 1~3개씩** 맡기는 걸 권한다.
+- PR이 올라오면 Claude가 게임 화면에서 확인하고 병합한다.
+
+프롬프트를 바꾸려면 `web/js/asset_prompts.js`를 고치고 `node tools/export-prompts.mjs`로 `prompts.json`을 다시 만든다. 안 맞으면 PR 검사에서 실패한다.
+
+## 이미지 직접 올리는 법 (ChatGPT 웹 → GitHub)
+
+에이전트 없이 직접 할 때.
 
 1. **에셋 현황 페이지**를 연다. 필요한 이미지 46장이 카드로 나온다. 빨간 카드가 아직 없는 이미지.
 2. 카드의 **[프롬프트 복사]** → ChatGPT에 붙여넣기.
@@ -56,6 +73,7 @@
 
 - 필요한 이미지 목록: `web/js/asset_list.js` (게임 데이터 `web/js/data_ch1.js`에서 자동으로 만든다)
 - 프롬프트: `web/js/asset_prompts.js`
+- 에이전트용 작업 목록 `web/assets/prompts.json`과 사람용 `docs/PROMPTS_CH1.md`는 `node tools/export-prompts.mjs`로 다시 생성한다.
 
 캐릭터 표정이나 컷을 추가하면 에셋 현황 페이지와 검사에 자동으로 반영된다.
 

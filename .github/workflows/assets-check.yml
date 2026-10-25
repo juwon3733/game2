@@ -2,7 +2,7 @@ name: 에셋 검사
 
 on:
   pull_request:
-    paths: ['web/**', 'tools/**', '.github/workflows/assets-check.yml']
+    paths: ['web/**', 'tools/**', 'docs/PROMPTS_CH1.md', '.github/workflows/assets-check.yml']
   push:
     branches: [main]
     paths: ['web/**', 'tools/**']
@@ -15,5 +15,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+      - name: 프롬프트 파일이 게임 데이터와 맞는지
+        run: node tools/export-prompts.mjs --check
       - name: 파일명 · 형식 · 크기 검사
         run: node tools/check-assets.mjs

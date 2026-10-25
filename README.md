@@ -12,6 +12,8 @@
 
 `main`에 병합되면 자동으로 배포된다. 작업 방식은 [docs/WORKFLOW.md](docs/WORKFLOW.md).
 
+이미지는 이미지 생성 에이전트가 [AGENTS.md](AGENTS.md)와 `web/assets/prompts.json`을 읽고 만들어 PR로 올린다.
+
 ## 폴더
 
 | 폴더 | 내용 |
