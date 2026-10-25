@@ -24,10 +24,6 @@ function fitStage() {
   $('#stage').style.transform = `scale(${s})`;
   $('#stage').style.left = (innerWidth - W * s) / 2 + 'px';
   $('#stage').style.top = (innerHeight - 720 * s) / 2 + 'px';
-  // 상반신(원본 256×384 도트)은 도트 한 칸이 실제 화면 픽셀의 정수 배가 되게 키워서 또렷하게 그린다
-  const dev = s * (devicePixelRatio || 1);
-  const n = Math.max(1, Math.round(1.8 * dev));
-  $('#stage').style.setProperty('--char-h', (384 * n) / dev + 'px');
   // 탐색 캔버스(1280×720, 맵은 1:1)는 실제 화면 배율이 정수일 때만 또렷하게, 아니면 부드럽게
   const k = s * (devicePixelRatio || 1);
   $('#stage').style.setProperty('--pix-canvas', Math.abs(k - Math.round(k)) < 0.01 ? 'pixelated' : 'auto');

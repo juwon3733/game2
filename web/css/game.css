@@ -458,8 +458,8 @@ button { font-family: inherit; }
 body { word-break: keep-all; overflow-wrap: break-word; }
 :root { --accent: #c9a24a; --btn: #23263c; --btn-hi: #2e3250; --btn-edge: #0b0c16; }
 
-/* 상반신: 도트를 정수 배율로 (fitStage가 --char-h 계산), 위쪽 기준으로 세워 얼굴이 대사창에 안 가리게 */
-.char { top: 6px; bottom: auto; height: var(--char-h, 690px); image-rendering: pixelated; }
+/* 상반신: 위쪽 기준으로 세워 얼굴이 대사창에 안 가리게, 도트는 픽셀 그대로 */
+.char { top: 6px; bottom: auto; image-rendering: pixelated; }
 
 /* 대사창: 낮게 (한두 줄) */
 #textbox { height: 112px; padding: 22px 36px 12px; }
@@ -517,3 +517,14 @@ body { word-break: keep-all; overflow-wrap: break-word; }
 
 /* 퍼즐 칸 번호가 컷 제목(시점 이름)을 가리지 않게 */
 .pz-slot .cutv-head { padding-left: 34px; }
+
+/* 상반신: 크게, 불투명하게 (가장자리 흐림 제거, v3 그림은 여백이 있어 필요 없음) */
+.char { top: 0; -webkit-mask-image: none; mask-image: none; }
+.char.dim { filter: brightness(.72); }
+#textbox { background: linear-gradient(180deg, rgba(14,16,30,.94), rgba(10,11,22,.97)); }
+#textbox.narr { background: linear-gradient(180deg, rgba(8,9,16,.92), rgba(6,7,12,.96)); }
+.char[data-pos="left"] { left: 27%; }
+.char[data-pos="right"] { left: 73%; }
+
+/* 상반신은 창 크기와 상관없이 같은 크기(가슴 위가 대사창 위에 오게). 도트는 픽셀 그대로 키운다 */
+.char { height: 860px; top: 0; }
