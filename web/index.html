@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>같은 하루, 다른 칸 — 1장 낙하</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/galmuri@2.39.3/dist/galmuri.css">
+<link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+<div id="viewport">
+  <div id="stage">
+    <img id="bg" alt="">
+    <div id="chars"></div>
+
+    <canvas id="explore" width="1280" height="720" class="hidden"></canvas>
+    <div id="pad" class="hidden">
+      <button data-dir="up">▲</button><button data-dir="left">◀</button><button data-dir="down">▼</button><button data-dir="right">▶</button>
+      <button id="pad-a">조사</button>
+    </div>
+
+    <div id="trial" class="hidden">
+      <div class="tr-gauge"><span class="tr-label">증인의 마음</span><span id="tr-ink"></span></div>
+      <div id="tr-panel" class="tr-panel"></div>
+    </div>
+
+    <div id="puzzle" class="hidden"></div>
+
+    <div id="goal" class="hidden"></div>
+    <div id="hud">
+      <button id="btn-note" class="hud-btn">수첩</button>
+    </div>
+
+    <div id="textbox" class="hidden">
+      <div id="tb-name"></div>
+      <div id="tb-text"></div>
+      <div id="tb-next">▼</div>
+    </div>
+    <div id="actions" class="hidden"></div>
+    <div id="choices" class="hidden"></div>
+
+    <div id="modal" class="hidden"></div>
+    <div id="banner" class="hidden"></div>
+    <div id="toast" class="hidden"></div>
+  </div>
+</div>
+
+<script src="js/data_ch1.js"></script>
+<script src="js/assets.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/explore.js"></script>
+<script src="js/trial.js"></script>
+<script src="js/puzzle.js"></script>
+<script src="js/script_ch1.js"></script>
+</body>
+</html>
