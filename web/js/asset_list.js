@@ -28,10 +28,14 @@ function requiredAssets() {
   }
 
   const cutPrompt = (id, color) => {
-    const [scene, must] = CUT_PROMPTS[id] || [id, ''];
+    const [raw, must] = CUT_PROMPTS[id] || [id, ''];
+    const scene = raw.replace(/\{(\w+)\}/g, (m, k) => CUT_CHARS[k] || m);
+    const crayon = /crayon/i.test(scene);
+    const palette = (crayon ? PROMPT_STYLE.cutPaletteCrayon : PROMPT_STYLE.cutPalette)
+      .replace('{color}', `${COLOR_NAME[color] || ''} (${color})`);
     return {
       must,
-      prompt: `${PROMPT_STYLE.cut.replace('{color}', `${COLOR_NAME[color] || ''} (${color})`)}\n\n${scene} Horizontal 1536x1024.`,
+      prompt: `${PROMPT_STYLE.cut.replace('{palette}', palette)}\n\nScene: ${scene}\n\nKeep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.`,
     };
   };
 
