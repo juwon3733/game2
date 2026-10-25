@@ -24,7 +24,8 @@ const server = http.createServer((req, res) => {
 await new Promise((r) => server.listen(0, r));
 const base = `http://localhost:${server.address().port}/`;
 
-const scenes = [...fs.readFileSync(path.join(web, 'js', 'script_ch1.js'), 'utf8').matchAll(/^\s+\['(\w+)', '/gm)].map((m) => m[1]);
+const scripts = fs.readdirSync(path.join(web, 'js')).filter((f) => /^script_ch\d+\.js$/.test(f)).sort();
+const scenes = scripts.flatMap((f) => [...fs.readFileSync(path.join(web, 'js', f), 'utf8').matchAll(/^\s+\['(\w+)', '/gm)].map((m) => m[1]));
 const browser = await chromium.launch();
 const problems = [];
 

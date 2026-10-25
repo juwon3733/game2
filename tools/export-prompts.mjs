@@ -13,11 +13,15 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const web = path.join(root, 'web');
 const ctx = vm.createContext({});
-for (const f of ['js/data_ch1.js', 'js/asset_prompts.js', 'js/asset_list.js']) {
+// 장별 데이터(data_chN.js)와 프롬프트(asset_prompts*.js)를 전부 읽는다
+const jsFiles = fs.readdirSync(path.join(web, 'js'));
+const dataFiles = jsFiles.filter((f) => /^data_ch\d+\.js$/.test(f)).sort();
+const promptFiles = jsFiles.filter((f) => /^asset_prompts(_ch\d+)?\.js$/.test(f)).sort();
+for (const f of [...dataFiles, ...promptFiles, 'asset_list.js'].map((x) => 'js/' + x)) {
   vm.runInContext(fs.readFileSync(path.join(web, f), 'utf8'), ctx, { filename: f });
 }
 const list = JSON.parse(vm.runInContext('JSON.stringify(requiredAssets())', ctx));
-const S = JSON.parse(vm.runInContext('JSON.stringify({ PROMPT_STYLE, BG_PROMPTS, FACE_PROMPTS })', ctx));
+const S = JSON.parse(vm.runInContext('JSON.stringify({ PROMPT_STYLE, BG_PROMPTS, FACE_PROMPTS, OWNERS })', ctx));
 const UI_PROMPTS_TEXT = JSON.parse(vm.runInContext('JSON.stringify(Object.fromEntries(Object.entries(UI_PROMPTS).map(([k, v]) => [k, v.p])))', ctx));
 
 // ---------- 작업 묶음 만들기 ----------
@@ -102,8 +106,21 @@ batches.push({ id: 'ui', title: 'UI 스킨', note: '한 대화에서 차례로 �
 batches.push({ id: 'cg', title: '이벤트 CG', note: '상반신 이미지를 기준으로 첨부해 같은 얼굴로 그린다. 배경 7장과 같은 도트 스타일.', items: list.filter((a) => a.kind === 'cg').map((a) => item(a, null)) });
 batches.push({ id: 'title', title: '타이틀 키아트', note: '상반신 이미지를 기준으로 첨부해 같은 얼굴로 그린다.', items: list.filter((a) => a.kind === 'title').map((a) => item(a, null)) });
 
-const rest = cuts.filter((a) => !used.has(a.id));
-if (rest.length) throw new Error('묶음에 배정되지 않은 컷: ' + rest.map((a) => a.id).join(', '));
+// 2장부터: 시점 주인(포인트 색)별로 자동으로 묶는다
+const byOwner = {};
+cuts.filter((a) => !used.has(a.id)).forEach((a) => {
+  const hex = (a.prompt.match(/\((#[0-9a-f]{6})\)/i) || [])[1] || 'misc';
+  const owner = Object.entries(S.OWNERS).find(([, o]) => o.color.toLowerCase() === hex.toLowerCase());
+  const key = owner ? owner[0] : hex.replace('#', '');
+  (byOwner[key] = byOwner[key] || { name: owner ? owner[1].name : hex, items: [] }).items.push(a);
+});
+for (const [key, g] of Object.entries(byOwner)) {
+  batches.push({
+    id: `cut-${key}`, title: `컷 · ${g.name} 시점`,
+    note: '같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.',
+    items: g.items.map((a, i) => item(a, i === 0 ? null : `같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + ${colorOf(a)} 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.\n\nScene: ${(a.prompt.match(/Scene: ([\s\S]*?)\n\n/) || [])[1] || ''}`)),
+  });
+}
 
 // ---------- JSON ----------
 

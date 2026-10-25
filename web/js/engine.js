@@ -10,9 +10,15 @@ const G = {
   koharuLeft: 2,
   busyModal: false,
   flags: {},       // 튜토리얼 본 것 등 (저장됨)
+  items: [],       // 물증 (메모·물건). 반박에 컷처럼 내밀 수 있다
+  words: [],       // 단어 조각 (네임 빈칸에 넣는다)
+  stats: { wrong: 0, hints: 0, help: 0, accuse: null }, // 원고 평가용
   auto: false,     // 자동 진행
   skip: false,     // 빨리 넘기기
 };
+
+// 장 목록. script_chN.js가 CHAPTERS[N] = { title, scenes, state, fn, bgm, cast } 를 채운다.
+const CHAPTERS = {};
 
 // ---------- 화면 크기 맞추기 ----------
 

@@ -528,3 +528,11 @@ body { word-break: keep-all; overflow-wrap: break-word; }
 
 /* 상반신은 창 크기와 상관없이 같은 크기(가슴 위가 대사창 위에 오게). 도트는 픽셀 그대로 키운다 */
 .char { height: 860px; top: 0; }
+
+/* 원고 평가 / 장면 선택의 장 제목 */
+#modal.rank .md-box { width: 520px; background: #12142a; color: var(--txt); border: 1px solid var(--line); text-align: center; }
+.rank-head { font-size: 22px; color: var(--sub); }
+.rank-letter { font-size: 120px; line-height: 1.1; margin: 8px 0 4px; color: var(--accent); text-shadow: 0 6px 0 #000; }
+.rank-rows { display: grid; gap: 6px; margin: 10px auto 6px; width: 320px; font-size: 19px; }
+.rank-rows div { display: flex; justify-content: space-between; border-bottom: 1px dashed rgba(255,255,255,.12); padding: 4px 0; }
+.ts-scenes li.ts-ch { padding: 10px 20px 4px; color: var(--gold); font-size: 17px; }

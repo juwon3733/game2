@@ -14,7 +14,11 @@ const assetDir = path.join(web, 'assets');
 
 // 브라우저용 데이터 파일을 그대로 읽어 필요한 이미지 목록을 만든다
 const ctx = vm.createContext({});
-for (const f of ['js/data_ch1.js', 'js/asset_prompts.js', 'js/asset_list.js']) {
+// 장별 데이터(data_chN.js)와 프롬프트(asset_prompts*.js)를 전부 읽는다
+const jsFiles = fs.readdirSync(path.join(web, 'js'));
+const dataFiles = jsFiles.filter((f) => /^data_ch\d+\.js$/.test(f)).sort();
+const promptFiles = jsFiles.filter((f) => /^asset_prompts(_ch\d+)?\.js$/.test(f)).sort();
+for (const f of [...dataFiles, ...promptFiles, 'asset_list.js'].map((x) => 'js/' + x)) {
   vm.runInContext(fs.readFileSync(path.join(web, f), 'utf8'), ctx, { filename: f });
 }
 const required = JSON.parse(vm.runInContext('JSON.stringify(requiredAssets())', ctx));

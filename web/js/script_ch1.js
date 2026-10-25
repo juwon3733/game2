@@ -1,6 +1,6 @@
 // 1장 「낙하」 진행 스크립트.
 
-const SCENES = [
+const CH1_SCENES = [
   ['office', '브리핑 (잔상과 사무실)'],
   ['explore1', '탐색 1: 5층 조사'],
   ['puzzle1', '컷 정리: 페이지 1'],
@@ -14,7 +14,7 @@ const SCENES = [
 ];
 
 // 장면별로 그 시점까지 가지고 있어야 하는 것
-const STATE_AT = {
+const CH1_STATE = {
   office: { cuts: [], lines: [] },
   explore1: { cuts: [], lines: [] },
   puzzle1: { cuts: ['A', 'B', 'C', 'D'], lines: [] },
@@ -256,6 +256,7 @@ async function sceneConclusion() {
       const c = await pickCut(`질문 ${i + 1}. ${q.q}`, '대답이 되는 컷을 고르자.', { cancel: false, only: q.choices });
       if ((diff().strict && q.strict ? q.strict : q.answer).includes(c)) { sfx('correct'); break; }
       sfx('wrong'); quake();
+      G.stats.wrong++;
       await say('kurogane', '…그 컷으론 설명이 안 되지. 다시.');
     }
     show('rei', 'serious', 'left');
@@ -326,106 +327,21 @@ async function sceneEpilogue() {
   sfx('ghost');
   await say('', '김 서린 창에 손가락으로 쓴 글씨가 떠오른다. 「…기억나?」');
   hideText();
-  await banner('1장 「낙하」 끝', '여기까지 플레이해 주셔서 고마워요', 3000);
+  await banner('1장 「낙하」 끝', '', 2200);
+  await showRank('1장 「낙하」');
 }
 
-const SCENE_FN = {
+const CH1_FN = {
   office: sceneOffice, explore1: sceneExplore1, puzzle1: scenePuzzle1, ookubo: sceneOokubo, taiga: sceneTaiga,
   explore2: sceneExplore2, himari: sceneHimari, puzzle2: scenePuzzle2, conclusion: sceneConclusion, epilogue: sceneEpilogue,
 };
 
 // 장면마다 흐르는 곡
-const SCENE_BGM = {
+const CH1_BGM = {
   office: 'office', explore1: 'explore', puzzle1: 'tension', ookubo: 'trial', taiga: 'trial',
   explore2: 'explore', himari: 'tension', puzzle2: 'tension', conclusion: 'trial', epilogue: 'epilogue',
 };
 
-const SCENE_CAST = { office: ['rei', 'koharu', 'kurogane', 'towa'], ookubo: ['ookubo'], taiga: ['taiga', 'akari'], explore2: ['shiori'], himari: ['himari'], conclusion: ['komatsu'] };
+const CH1_CAST = { office: ['rei', 'koharu', 'kurogane', 'towa'], ookubo: ['ookubo'], taiga: ['taiga', 'akari'], explore2: ['shiori'], himari: ['himari'], conclusion: ['komatsu'] };
 
-// ---------- 저장 ----------
-// 장면이 시작될 때마다 자동 저장. 타이틀의 [이어하기]가 그 장면부터 다시 시작한다.
-const SAVE_KEY = 'gaha-ch1-save';
-function saveProgress(scene) {
-  saveJSON(SAVE_KEY, { scene, cuts: G.cuts, lines: G.lines, fills: G.fills, koharuLeft: G.koharuLeft, flags: G.flags, at: Date.now() });
-}
-
-async function playFrom(scene, saved) {
-  const s = saved || STATE_AT[scene];
-  G.cuts = s.cuts.slice();
-  G.lines = s.lines.slice();
-  G.fills = Object.assign({}, s.fills || {});
-  G.koharuLeft = saved ? saved.koharuLeft : diff().koharu;
-  G.flags = Object.assign({}, saved ? saved.flags : {});
-  LOG.length = 0;
-  const start = SCENES.findIndex(([id]) => id === scene);
-  // 장면 선택으로 중간부터 시작하면 앞 장면에서 만난 인물을 수첩에 미리 넣는다
-  if (!saved) G.flags.met = SCENES.slice(0, start).flatMap(([id]) => SCENE_CAST[id] || []);
-  for (let i = start; i < SCENES.length; i++) {
-    const id = SCENES[i][0];
-    saveProgress(id);
-    await fade(true, 400);
-    clearChars(); hideText(); goal('');
-    bgm(SCENE_BGM[id]);
-    const run = SCENE_FN[id]();
-    setTimeout(() => fade(false, 600), 60);
-    await run;
-  }
-  try { localStorage.removeItem(SAVE_KEY); localStorage.setItem('gaha-ch1-clear', '1'); } catch { /* 저장 불가 */ }
-  await fade(true, 800);
-  titleScreen();
-  fade(false, 600);
-}
-
-// ---------- 타이틀 ----------
-
-function titleScreen() {
-  clearChars();
-  hideText();
-  goal('');
-  hud(false);
-  bgm('title');
-  const save = loadJSON(SAVE_KEY);
-  const t = document.createElement('div');
-  t.className = 'title-screen';
-  t.innerHTML = `
-    <div class="ts-bg" style="background-image:url(${ASSET.bg('night')})"></div>
-    <div class="ts-shade"></div>
-    <img class="ts-char ts-koharu" src="${ASSET.portrait('koharu', 'happy')}" alt="">
-    <img class="ts-char ts-rei" src="${ASSET.portrait('rei', 'normal')}" alt="">
-    <div class="ts-logo">
-      <div class="ts-chapter">CHAPTER 1 · 낙하</div>
-      <h1><span>같은 하루,</span><span class="ts-l2">다른 칸</span></h1>
-      <div class="ts-tag">같은 밤, 서로 다르게 기억된 네 장면</div>
-    </div>
-    <nav class="ts-menu">
-      ${save ? `<button id="t-cont" class="ts-btn primary">이어하기<small>${(SCENES.find(([id]) => id === save.scene) || [, ''])[1]}</small></button>` : ''}
-      <button id="t-start" class="ts-btn${save ? '' : ' primary'}">처음부터</button>
-      <button id="t-select" class="ts-btn">장면 선택</button>
-      <a class="ts-btn small" href="assets.html">에셋 현황</a>
-    </nav>
-    <div class="ts-scenes hidden">
-      <div class="ts-scenes-head">장면 선택 <button class="ts-close" aria-label="닫기">✕</button></div>
-      <ol>${SCENES.map(([id, label], i) => `<li><button data-scene="${id}"><b>${String(i + 1).padStart(2, '0')}</b>${label}</button></li>`).join('')}</ol>
-    </div>
-    <div class="ts-hint">대사 넘기기 클릭 · Space　　탐색 방향키 · WASD · 클릭</div>`;
-  $('#stage').appendChild(t);
-  // 키아트(GPT 이미지)가 있으면 배경과 캐릭터를 그걸로 바꾼다
-  const key = new Image();
-  key.onload = () => { t.classList.add('has-key'); t.querySelector('.ts-bg').style.backgroundImage = `url(${key.src})`; };
-  key.src = ASSET.title();
-  const go = (scene, saved) => {
-    sfx('select');
-    t.classList.add('leaving');
-    setTimeout(() => { t.remove(); hud(true); playFrom(scene, saved); }, 450);
-  };
-  const list = t.querySelector('.ts-scenes');
-  t.querySelector('#t-start').onclick = () => go('office');
-  if (save) t.querySelector('#t-cont').onclick = () => go(save.scene, save);
-  t.querySelector('#t-select').onclick = () => list.classList.remove('hidden');
-  t.querySelector('.ts-close').onclick = () => list.classList.add('hidden');
-  list.querySelectorAll('[data-scene]').forEach((b) => (b.onclick = () => go(b.dataset.scene)));
-}
-
-hud(true);
-const jump = location.hash.slice(1);
-if (SCENE_FN[jump]) playFrom(jump); else titleScreen();
+CHAPTERS[1] = { title: '낙하', scenes: CH1_SCENES, state: CH1_STATE, fn: CH1_FN, bgm: CH1_BGM, cast: CH1_CAST };

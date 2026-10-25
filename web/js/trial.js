@@ -95,6 +95,7 @@ async function trialRound(W) {
     }
     if (act === 'koharu') {
       G.koharuLeft--;
+      G.stats.help++;
       st.ink++;
       st.hint = ans.statement === 'any' ? 2 : ans.statement;
       renderTrial(W, st);
@@ -135,6 +136,7 @@ async function trialRound(W) {
     }
 
     st.ink--;
+    G.stats.wrong++;
     sfx('wrong'); quake();
     renderTrial(W, st);
     const img = onStage[W.char];

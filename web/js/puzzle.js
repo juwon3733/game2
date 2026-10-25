@@ -169,6 +169,7 @@ function runPuzzle(id) {
       if (a === 'hint') {
         if (st.hints >= diff().hints) { msg = '토와: 힌트는 여기까지. 나머지는 직접 읽어.'; return render(); }
         st.hints++;
+        G.stats.hints++;
         if (st.hints === 1) msg ='토와: ' + P.hint;
         else {
           const i = P.solution.findIndex((c, k) => st.slots[k] !== c);
@@ -212,6 +213,7 @@ function runPuzzle(id) {
           msgs.push(`${d + 1}번 칸 근처가 이상해. 앞뒤 컷을 비교해 봐.`);
         }
         sfx('wrong'); quake();
+        G.stats.wrong++;
         const fb = diff().feedback;
         if (fb === 'count') {
           // 어려움: 몇 칸이 틀렸는지만
