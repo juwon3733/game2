@@ -24,7 +24,7 @@
 | `tools/check-assets.mjs` | 이미지 파일명·형식·크기 검사 |
 | `tools/export-prompts.mjs` | 프롬프트 파일 재생성 (`--check`로 동기화 검사) |
 | `tools/compose/` | **배경음악·효과음 작곡** (numpy FM 신시사이저). `songs.py` 곡 악보, `sfx.py` 효과음, `python3 tools/compose/build.py [이름]` → `web/assets/audio/` |
-| `docs/` | 기획 문서 (01~10), `WORKFLOW.md`, **`11_quality_plan.md` (지금 따르는 품질 올리기 계획)** |
+| `docs/` | 기획 문서 (01~10), `WORKFLOW.md`, **`11_quality_plan.md` (지금 따르는 품질 올리기 계획)**, `12_story_plan.md`(전체 스토리), **`13_deduction_upgrade.md`(추리 보강: 단서 짚기·네임·시각표·겹쳐 보기·중간 지목)** |
 | `prototype/` | 초기 프로토타입 (참고용, 손대지 않음) |
 
 ## 작업 방식
