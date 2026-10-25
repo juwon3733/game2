@@ -231,6 +231,7 @@ function explore(mapId, opts) {
       player: { fx: opts.start[0] + 0.5, fy: opts.start[1] + 0.75, dir: 'down', moving: false, dist: 0 },
       koharu: { fx: opts.start[0] + 0.5, fy: opts.start[1] + 0.75, dir: 'down', moving: false, dist: 0 },
       trail: [],
+      puffs: [], emote: null,
       keys: {}, path: [], hover: null, paused: false, done: false,
       examined: new Set(opts.examined || []),
       extras: opts.extras || [],   // 시오리 등 추가 스프라이트
@@ -368,7 +369,10 @@ function update(dt) {
   if (p.moving) {
     const before = Math.floor(p.dist * 2.4);
     p.dist += moved;
-    if (Math.floor(p.dist * 2.4) !== before) sfx('step', { vol: 0.3, rate: 0.9 + Math.random() * 0.2 });
+    if (Math.floor(p.dist * 2.4) !== before) {
+      sfx('step', { vol: 0.3, rate: 0.9 + Math.random() * 0.2 });
+      EX.puffs.push({ x: p.fx, y: p.fy, t: performance.now() }); // 발밑 먼지
+    }
     EX.trail.push([p.fx, p.fy]);
     if (EX.trail.length > 400) EX.trail.shift();
   }
@@ -406,6 +410,9 @@ async function interact(o) {
   if (!o || EX.paused) return;
   const h = EX.opts.on[o.id];
   sfx('select');
+  // 처음 보는 필수 조사 지점이면 "!", 아니면 "…"
+  const fresh = (EX.opts.required || []).includes(o.id) && !EX.examined.has(o.id);
+  EX.emote = { ch: fresh ? '!' : '…', t: performance.now() };
   EX.paused = true;
   EX.keys = {};
   if (h) await h(o);
@@ -519,7 +526,28 @@ function draw(now) {
     drawWalker(ctx, e.who, e.dir || 'down', 0, e.x, e.y);
     ctx.globalAlpha = 1;
   } }));
+  // 발밑 먼지: 회색 점 세 개가 퍼지며 사라진다
+  EX.puffs = EX.puffs.filter((f) => now - f.t < 320);
+  EX.puffs.forEach((f) => {
+    const k = (now - f.t) / 320, r = 1 + Math.floor(k * 4), x = Math.round(f.x * TILE), y = Math.round(f.y * TILE);
+    ctx.fillStyle = k < 0.5 ? '#c9c4b8' : '#8f8a80';
+    ctx.fillRect(x - r - 1, y - 1, 1, 1); ctx.fillRect(x + r, y - 1, 1, 1); ctx.fillRect(x, y - 1 - Math.floor(r / 2), 1, 1);
+  });
   drawables.sort((a, b) => a.y - b.y).forEach((d) => d.fn());
+  // 레이 머리 위 말풍선 (튀어 오르고 잠시 머문다)
+  if (EX.emote) {
+    const age = now - EX.emote.t;
+    if (age > 1400 && !EX.paused) EX.emote = null;
+    else {
+      const hop = age < 120 ? -3 : age < 200 ? 1 : 0;
+      const bx = Math.round(p.fx * TILE) - 5, by = Math.round(p.fy * TILE) - 38 + hop;
+      ctx.fillStyle = '#1d1d22'; ctx.fillRect(bx - 1, by - 1, 12, 11); ctx.fillRect(bx + 3, by + 10, 3, 2);
+      ctx.fillStyle = '#fbf8ee'; ctx.fillRect(bx, by, 10, 9); ctx.fillRect(bx + 4, by + 9, 1, 1);
+      ctx.fillStyle = EX.emote.ch === '!' ? '#c94040' : '#1d1d22';
+      if (EX.emote.ch === '!') { ctx.fillRect(bx + 4, by + 1, 2, 5); ctx.fillRect(bx + 4, by + 7, 2, 1); }
+      else { ctx.fillRect(bx + 2, by + 6, 1, 1); ctx.fillRect(bx + 5, by + 6, 1, 1); ctx.fillRect(bx + 8, by + 6, 1, 1); }
+    }
+  }
 
   // 아직 안 본 필수 조사 지점에 ! 표시
   const bob = Math.round(Math.sin(now / 200) * 1.5);

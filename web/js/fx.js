@@ -45,9 +45,11 @@ const FX = (() => {
     glitter: { n: 26, init: () => ({ x: rnd(0, W), y: rnd(0, H), vx: 0, vy: 0, t: rnd(0, 6) }), color: '#fff6c8' },
     haze:    { n: 0 },
     stage:   { n: 20, init: () => ({ x: rnd(0, W), y: rnd(0, H), vx: rnd(-1, 1), vy: rnd(-2, -0.5), t: rnd(0, 6) }), color: '#cfd8ff' },
+    // 형광등·스탠드가 가끔 깜빡인다
+    flicker: { n: 22, init: () => ({ x: rnd(0, W), y: rnd(0, H), vx: rnd(-1.5, 1.5), vy: rnd(-2, -0.5), t: rnd(0, 6) }), color: '#e8ecf0', flicker: true },
   };
   // 배경마다 기본 분위기
-  const MOOD_OF = { office: 'dust', interrogate: 'dust', cafe: 'dust', crescent_stage: 'stage', booth: 'haze', greenroom: 'dust', backstage: 'dust', tendo_office: 'dust' };
+  const MOOD_OF = { office: 'dust', interrogate: 'flicker', hospital: 'flicker', cafe: 'dust', crescent_stage: 'stage', booth: 'haze', greenroom: 'dust', backstage: 'flicker', tendo_office: 'dust' };
   let override = null;
 
   function setMood(m) {
@@ -65,9 +67,14 @@ const FX = (() => {
   function drawAmb(t, dt) {
     ac.clearRect(0, 0, W, H);
     bc.clearRect(0, 0, W, H);
+    if (memory) drawMemory();
     const m = override || mood;
     if (!m) return;
     const M = MOODS[m];
+    if (M.flicker && !reduce() && Math.random() < 0.005) {
+      once(stage, 'fx-dim', 90);
+      if (Math.random() < 0.5) setTimeout(() => once(stage, 'fx-dim', 70), 160);
+    }
     if (m === 'haze' || m === 'stage') drawHaze(t);
     if (m === 'stage') drawBeams(t);
     for (const p of parts) {
@@ -87,6 +94,28 @@ const FX = (() => {
       }
     }
   }
+  // 회상: 가장자리가 디더로 어두워지고 필름 티끌이 튄다
+  let memory = false, vig = null;
+  function drawMemory() {
+    if (!vig || vig.width !== W) {
+      vig = document.createElement('canvas');
+      vig.width = W; vig.height = H;
+      const x = vig.getContext('2d');
+      for (let y = 0; y < H; y += 2) for (let i = 0; i < W; i += 2) {
+        const dx = (i - W / 2) / (W / 2), dy = (y - H / 2) / (H / 2);
+        const lv = Math.round(Math.max(0, Math.min(16, (Math.hypot(dx * 0.9, dy) - 0.6) * 30)));
+        if (!lv) continue;
+        x.fillStyle = lv >= 16 ? '#120e0a' : pat(x, lv, '#120e0a');
+        x.fillRect(i, y, 2, 2);
+      }
+    }
+    ac.drawImage(vig, 0, 0);
+    for (let i = 0; i < 40; i++) {
+      ac.fillStyle = i % 3 ? 'rgba(255,240,210,.35)' : 'rgba(0,0,0,.4)';
+      ac.fillRect(Math.floor(rnd(0, W)), Math.floor(rnd(0, H)), 1, i % 7 ? 1 : 3);
+    }
+  }
+
   // 무대 연기: 디더 띠가 천천히 흐른다
   function drawHaze(t) {
     for (let i = 0; i < 3; i++) {
@@ -285,6 +314,42 @@ const FX = (() => {
       return sleep(ms + 200);
     },
     eraseEnd() { wipe = null; },
+    // 회상 장면 (흑백 갈색 + 테두리 + 티끌)
+    memory(on) { memory = !!on; stage.classList.toggle('fx-memory', !!on); },
+    // 장 제목: 만화 칸이 그려지고 제목이 찍힌다
+    // faces: 위 두 칸에 넣을 인물 [[이름, 표정], …] (만화 칸처럼 흑백으로 잘라 넣는다)
+    async title(top, main, sub = '', faces = []) {
+      const c = document.createElement('div');
+      c.className = 'fx-title';
+      const cell = (i) => (faces[i] ? `<img src="${ASSET.portrait(faces[i][0], faces[i][1])}" alt="" onerror="this.remove()">` : '');
+      c.innerHTML = `<div class="ft-panels"><i>${cell(0)}</i><i>${cell(1)}</i><i></i></div><div class="ft-top">${top}</div><div class="ft-main"></div><div class="ft-sub">${sub}</div>`;
+      stage.appendChild(c);
+      sfx('banner');
+      const quick = G.skip;
+      await sleep(quick ? 50 : 700);
+      const el = c.querySelector('.ft-main');
+      for (const ch of main) {
+        el.textContent += ch;
+        if (!quick && ch.trim()) { sfx('press', { vol: 0.5 }); await sleep(110); }
+      }
+      if (!quick) FX.lines(500);
+      c.classList.add('done');
+      await sleep(quick ? 200 : 1700);
+      c.classList.add('out');
+      await sleep(400);
+      c.remove();
+    },
+    // 증인이 무너진다: 마지막 반박이 통했을 때
+    async breakdown(char) {
+      const img = onStage[char];
+      sfx('objection');
+      if (!reduce()) once(stage, 'fx-invert', 120);
+      once(stage, 'quake-big', 520);
+      FX.lines(1100);
+      if (img) once(img, 'fx-break', 1000);
+      FX.stamp('증언 붕괴');
+      await sleep(G.skip ? 100 : 1100);
+    },
     // 증인 쪽으로 화면을 당긴다 (pos: left/right/center), off면 원래대로
     zoom(pos) {
       stage.dataset.zoom = pos || '';

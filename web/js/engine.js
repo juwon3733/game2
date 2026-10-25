@@ -73,6 +73,7 @@ function bg(id) {
   }
   curBg = id;
   FX.bg(id);
+  img.classList.remove('settle'); void img.offsetWidth; img.classList.add('settle');
   loadImg(img, ASSET.bg(id), () => bgPlaceholder(id));
 }
 
@@ -155,21 +156,33 @@ const TEXT_MS = [42, 26, 12, 0];
 // 말하는 사람마다 다른 높이의 타자음
 const VOICE = { rei: 0.82, koharu: 1.22, kurogane: 0.68, towa: 1.4, asagiri: 0.95, ookubo: 0.72, taiga: 0.9, himari: 1.5, shiori: 1.08, komatsu: 1.05, akari: 1.3 };
 
+// [[단어]]는 강조색. 문장부호에서 잠깐 쉰다.
+const PAUSE = { '…': 7, '.': 4, '?': 5, '!': 5, ',': 3, '—': 4 };
+function markup(text) {
+  return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/\[\[(.+?)\]\]/g, '<em>$1</em>');
+}
+const plain = (text) => text.replace(/\[\[(.+?)\]\]/g, '$1');
+
 async function typeInto(el, text, voice) {
-  el.textContent = '';
+  el.innerHTML = '';
   let done = false;
   typing = () => { done = true; };
   const ms = G.skip ? 0 : TEXT_MS[SETTINGS.textSpeed];
   if (ms) {
+    // 강조 구간을 나눠 한 글자씩 붙인다
+    const segs = text.split(/(\[\[.+?\]\])/).filter(Boolean).map((x) => (x.startsWith('[[') ? [x.slice(2, -2), true] : [x, false]));
     let i = 0;
-    for (const ch of text) {
-      if (done) break;
-      el.textContent += ch;
-      if (voice && ch.trim() && i++ % 3 === 0) sfx('blip', { rate: voice, vol: 0.3 });
-      await sleep(ms);
+    for (const [seg, em] of segs) {
+      const node = em ? el.appendChild(document.createElement('em')) : el;
+      for (const ch of seg) {
+        if (done) break;
+        if (em) node.textContent += ch; else node.insertAdjacentText('beforeend', ch);
+        if (voice && ch.trim() && i++ % 3 === 0) sfx('blip', { rate: voice, vol: 0.3 });
+        await sleep(ms * (PAUSE[ch] || 1));
+      }
     }
   }
-  el.textContent = text;
+  el.innerHTML = markup(text);
   typing = null;
 }
 
@@ -200,8 +213,13 @@ async function say(who, text, face) {
     $('#tb-name').textContent = '';
     focusChar(null);
   }
+  // (전화) 로 시작하면 전화 너머 목소리, 괄호로 감싼 말은 속마음
+  const phone = /^\(전화\)\s*/.test(text);
+  if (phone) text = text.replace(/^\(전화\)\s*/, '');
+  tb.classList.toggle('phone', phone);
+  tb.classList.toggle('thought', !phone && /^\(.*\)$/.test(text));
   const ch = who && CHARACTERS[who];
-  LOG.push({ name: ch ? ch.name : '', color: ch ? ch.accent : '', text });
+  LOG.push({ name: ch ? ch.name : '', color: ch ? ch.accent : '', text: plain(text) });
   // 짧은 외침은 대사창이 들썩인다
   const shout = !!who && /!$/.test(text) && text.length <= 14;
   tb.classList.toggle('jolt', false);
@@ -250,12 +268,14 @@ function choice(options, prompt) {
   box.innerHTML = prompt ? `<div class="ch-prompt">${prompt}</div>` : '';
   box.classList.remove('hidden');
   setMode(null);
+  // 고르는 동안 시간이 멈춘 것처럼 화면이 가라앉는다
+  $('#stage').classList.add('fx-choice');
   return new Promise((resolve) => {
     options.forEach((text, i) => {
       const b = document.createElement('button');
       b.className = 'ch-btn';
       b.textContent = text;
-      b.onclick = () => { sfx('select'); box.classList.add('hidden'); box.innerHTML = ''; resolve(i); };
+      b.onclick = () => { sfx('select'); box.classList.add('hidden'); box.innerHTML = ''; $('#stage').classList.remove('fx-choice'); resolve(i); };
       box.appendChild(b);
     });
   });
@@ -461,12 +481,12 @@ $('#btn-note').onclick = (e) => {
 function cg(id) {
   return new Promise((resolve) => {
     const probe = new Image();
-    probe.onload = () => { const el = $('#cg'); el.src = probe.src; el.classList.add('on'); resolve(true); };
+    probe.onload = () => { const el = $('#cg'); el.src = probe.src; el.classList.add('on'); $('#stage').classList.add('cg-on'); resolve(true); };
     probe.onerror = () => resolve(false);
     probe.src = ASSET.cg(id);
   });
 }
-function cgEnd() { $('#cg').classList.remove('on'); }
+function cgEnd() { $('#cg').classList.remove('on'); $('#stage').classList.remove('cg-on'); }
 
 function hud(on) { $('#hud').classList.toggle('hidden', !on); }
 

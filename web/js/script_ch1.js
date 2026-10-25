@@ -30,7 +30,7 @@ const CH1_STATE = {
 // ---------- 장면 ----------
 
 async function sceneOffice() {
-  await banner('1장', '「낙하」', 2000);
+  await FX.title('CHAPTER 1', '낙하', '8월 24일 밤 · 츠키미나토 구시가', [['taiga', 'angry'], ['himari', 'normal']]);
   bg('office');
   await say('', '츠키미나토 경찰서 지하. 압수품 상자 사이에 소파 하나와 전기포트. 「잔상과」의 사무실이다.');
   show('rei', 'normal', 'left');
@@ -51,7 +51,7 @@ async function sceneOffice() {
   await say('', '선반 맨 위, 먼지 쌓인 상자에 「6년 전 / 등대」라고 적혀 있다. 코하루의 눈이 거기서 잠깐 멈춘다.');
   await say('koharu', '잔상… 이라는 걸로 확인하는 거죠? 선배가 그걸 볼 수 있다고 들었어요!', 'happy');
   await say('rei', '강한 감정이 남은 물건을 만지면, 그 순간이 만화 컷처럼 보여.', 'serious');
-  await say('rei', '근데 컷에는 시간이 안 적혀 있어. …순서는 우리가 맞춰야 해.', 'serious');
+  await say('rei', '근데 컷에는 시간이 안 적혀 있어. …[[순서]]는 우리가 맞춰야 해.', 'serious');
   hide('kurogane');
   show('towa', 'normal', 'center');
   await say('towa', '현장에선 내가 원격으로 분석해 줄게. 귀찮지만.');
@@ -312,8 +312,10 @@ async function sceneEpilogue() {
     await say('rei', '…마지막 장이 하얗네.', 'normal');
     await gainCut('Y1');
     FX.ghost();
+    FX.memory(true);
     await say('', '——도서관 바닥. 원고지를 잔뜩 펼쳐 놓은 두 아이.');
     await say('', '「마지막 칸은 비워 두자. 나중에 같이 그리게.」');
+    FX.memory(false);
     await say('rei', '…….', 'surprised');
     await say('koharu', '선배? 커피 식어요.', 'normal');
   }

@@ -76,6 +76,7 @@ async function runTrial(id) {
     await trialRound(id, R);
   }
   FX.mood(null);
+  if (!W.gentle) await FX.breakdown(W.char);
   for (const c of W.rewards || []) await gainCut(c);
   if (W.outro) await sayAll(W.outro);
   $('#trial').classList.add('hidden');

@@ -148,7 +148,7 @@ function meet(who, pos, face) {
 // ---------- 장면 ----------
 
 async function sceneOffice2() {
-  await banner('2장', '「앙코르 없음」', 2000);
+  await FX.title('CHAPTER 2', '앙코르 없음', '8월 26일 · 역 앞 라이브하우스 「크레센트」', [['ruru', 'angry'], ['tendo', 'smile']]);
   bg('office');
   await say('', '8월 26일 아침. 잔상과 사무실. 전기포트가 끓는 소리.');
   show('kurogane', 'normal', 'center');
@@ -169,7 +169,7 @@ async function sceneOffice2() {
   hide('kurogane');
   show('towa', 'normal', 'center');
   await say('towa', '이번엔 사람이 많아. 다들 서로 다른 데를 보고 있었어. 컷 하나 믿지 마.');
-  await say('towa', '그리고 보고서는 네가 직접 써. 「네임」으로. 누가, 언제, 무엇을. 단어는 컷을 크게 보고 짚어서 모아.');
+  await say('towa', '그리고 보고서는 네가 직접 써. [[네임]]으로. 누가, 언제, 무엇을. 단어는 컷을 [[크게 보고 짚어서]] 모아.');
   clearChars();
 }
 
@@ -498,7 +498,7 @@ async function sceneExplore2c() {
         await gainItem('whitecard');
         show('rei', 'serious', 'left');
         await say('rei', '(…「8/27 22:00 크레센트 — 상담」. 오늘 밤.)', 'serious');
-        await say('rei', '(…22시 전에 끝내야 해.)', 'serious');
+        await say('rei', '(…[[22시]] 전에 끝내야 해.)', 'serious');
         tick();
       },
       aoi: async () => {
@@ -640,8 +640,10 @@ async function sceneEpilogue2() {
     await say('', '레이는 키리시마의 수첩 마지막 장을 넘긴다. 「앙코르」 다음 줄이 하얗게 비어 있다.');
     await gainCut('Y2');
     FX.ghost();
+    FX.memory(true);
     await say('', '——도서관. 원고를 소리 내어 읽는 여자아이와, 박수 대신 펜으로 책상을 두드리는 아이.');
     await say('', '「박수 소리도 그려 줘.」');
+    FX.memory(false);
     show('rei', 'surprised', 'left');
     await say('rei', '…….', 'surprised');
     clearChars();
