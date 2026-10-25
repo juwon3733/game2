@@ -542,7 +542,7 @@ Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game scr
 
 Palette: black, white, two greys, and one accent color olive green (#6b8a5a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
-Scene: a young delivery worker with bleached blond hair (accent color) and a black uniform and cap bursting out of a stairwell into the entrance hall, shouting with a terrified face, both hands empty. Leave empty space at the top center for a speech bubble.
+Scene: a young delivery worker with bleached blond hair (light grey) and a black uniform and cap bursting out of a stairwell into the entrance hall, shouting with a terrified face, both hands empty. Leave empty space at the top center for a speech bubble.
 
 Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
@@ -571,7 +571,7 @@ Scene: A figure running out of a stairwell, the face scribbled over like a horne
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(흑백 + 회색 + olive green (#6b8a5a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: a young delivery worker with bleached blond hair (accent color) and a black uniform and cap running out of a stairwell, face clearly visible, scared and about to cry, shouting.
+Scene: a young delivery worker with bleached blond hair (light grey) and a black uniform and cap running out of a stairwell, face clearly visible, scared and about to cry, shouting.
 ```
 
 > 꼭 보여야 할 것: (진실) 겁먹은 얼굴

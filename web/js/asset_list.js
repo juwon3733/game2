@@ -29,7 +29,9 @@ function requiredAssets() {
 
   const cutPrompt = (id, color) => {
     const [raw, must] = CUT_PROMPTS[id] || [id, ''];
-    const scene = raw.replace(/\{(\w+)\}/g, (m, k) => CUT_CHARS[k] || m);
+    // 타이가 금발은 타이가 시점(금색) 컷에서만 포인트 색. 다른 시점에선 밝은 회색으로 그린다.
+    const scene = raw.replace(/\{(\w+)\}/g, (m, k) => CUT_CHARS[k] || m)
+      .replace(/\(accent color\)/g, color === '#c9961a' ? '(accent color)' : '(light grey)');
     const crayon = /crayon/i.test(scene);
     const palette = (crayon ? PROMPT_STYLE.cutPaletteCrayon : PROMPT_STYLE.cutPalette)
       .replace('{color}', `${COLOR_NAME[color] || ''} (${color})`);
