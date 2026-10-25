@@ -431,7 +431,7 @@ Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game scr
 
 Palette: black, white, two greys, and one accent color blue (#3b8fd0). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
-Scene: a gentle man in his early 30s with glasses and a light shirt lifting his hands off piano keys and turning toward a curtained balcony door, a small child-sized shadow behind the curtain.
+Scene: a gentle man in his early 30s with glasses and a light shirt with both hands lifted clearly above the piano keys, not touching them, turning toward a curtained balcony door, a small child-sized shadow behind the curtain.
 
 Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
@@ -442,7 +442,7 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(흑백 + 회색 + blue (#3b8fd0) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: a gentle man in his early 30s with glasses and a light shirt leaning through the gap of a balcony partition at night, reaching out desperately. Beyond the partition: a child's small feet standing on the railing, and something shiny caught on the outer ledge. Leave empty space at the top center for a speech bubble.
+Scene: a gentle man in his early 30s with glasses and a light shirt leaning through the gap of a balcony partition at night, reaching out desperately. Beyond the partition: a child's small feet standing on the railing, and a tiny glint of a small hairpin caught on the outer ledge (only a small sparkle, no toy or other object). Leave empty space at the top center for a speech bubble.
 ```
 
 > 꼭 보여야 할 것: 칸막이, 뻗은 팔, 난간 위 작은 발, 바깥 턱의 반짝임, 위쪽 가운데 빈 공간
@@ -459,7 +459,7 @@ Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game scr
 
 Palette: black, white, two greys, and one accent color pink (#e0679a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
-Scene: On a balcony at night, a music-note hairpin flying away in the wind from the hair of a 9-year-old girl with brown twin tails tied with ribbons and a small music-note hairpin. She stands on the balcony floor reaching for it.
+Scene: On a balcony at night, a music-note hairpin flying away in the wind from the hair of a 9-year-old girl with brown twin tails tied with ribbons, a small music-note hairpin, a t-shirt with a piano-key pattern and a denim overall skirt. She stands on the balcony floor reaching for it.
 
 Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
@@ -470,7 +470,7 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(흑백 + 회색 + pink (#e0679a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: a 9-year-old girl with brown twin tails tied with ribbons and a small music-note hairpin standing on a flowerpot and climbing the balcony railing, reaching for her hairpin caught on the outer ledge. The neighboring balcony behind the partition is empty.
+Scene: a 9-year-old girl with brown twin tails tied with ribbons, a small music-note hairpin, a t-shirt with a piano-key pattern and a denim overall skirt standing on a flowerpot and climbing the balcony railing, reaching for her hairpin caught on the outer ledge. The neighboring balcony behind the partition is empty.
 ```
 
 > 꼭 보여야 할 것: 화분을 밟은 발, 난간, 바깥 턱의 머리핀
@@ -479,7 +479,7 @@ Scene: a 9-year-old girl with brown twin tails tied with ribbons and a small mus
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(흑백 + 회색 + pink (#e0679a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: An adult's arm pulling a 9-year-old girl with brown twin tails tied with ribbons and a small music-note hairpin back to safety from the railing. She clutches the hairpin in her hand. The adult is leaning dangerously outward over the railing.
+Scene: An adult's arm pulling a 9-year-old girl with brown twin tails tied with ribbons, a small music-note hairpin, a t-shirt with a piano-key pattern and a denim overall skirt back to safety from the railing. She clutches the hairpin in her hand. The adult is leaning dangerously outward over the railing.
 ```
 
 > 꼭 보여야 할 것: 손에 쥔 머리핀, 바깥으로 기우는 어른
@@ -488,7 +488,7 @@ Scene: An adult's arm pulling a 9-year-old girl with brown twin tails tied with 
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(흑백 + 회색 + pink (#e0679a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: a 9-year-old girl with brown twin tails tied with ribbons and a small music-note hairpin at her desk, looking out the window instead of at her homework.
+Scene: a 9-year-old girl with brown twin tails tied with ribbons, a small music-note hairpin, a t-shirt with a piano-key pattern and a denim overall skirt at her desk, looking out the window instead of at her homework.
 ```
 
 > 꼭 보여야 할 것: (진실) 창밖을 보는 아이
@@ -497,7 +497,7 @@ Scene: a 9-year-old girl with brown twin tails tied with ribbons and a small mus
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(흑백 + 회색 + pink (#e0679a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: a 9-year-old girl with brown twin tails tied with ribbons and a small music-note hairpin looking at her hairpin caught on the balcony's outer ledge.
+Scene: a 9-year-old girl with brown twin tails tied with ribbons, a small music-note hairpin, a t-shirt with a piano-key pattern and a denim overall skirt looking at her hairpin caught on the balcony's outer ledge.
 ```
 
 > 꼭 보여야 할 것: (진실) 턱에 걸린 머리핀
@@ -506,7 +506,7 @@ Scene: a 9-year-old girl with brown twin tails tied with ribbons and a small mus
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(흑백 + 회색 + pink (#e0679a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: a 9-year-old girl with brown twin tails tied with ribbons and a small music-note hairpin crying under a blanket, holding her music-note hairpin tightly.
+Scene: a 9-year-old girl with brown twin tails tied with ribbons, a small music-note hairpin, a t-shirt with a piano-key pattern and a denim overall skirt crying under a blanket, holding her music-note hairpin tightly.
 ```
 
 > 꼭 보여야 할 것: (진실) 머리핀을 쥔 손
@@ -580,7 +580,7 @@ Scene: a chubby old security guard with a grey mustache in an olive uniform and 
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(흑백 + 회색 + olive green (#6b8a5a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A figure running out of a stairwell, the face scribbled over like a horned monster doodle (a prejudiced memory).
+Scene: a young delivery worker with spiky bleached blond hair (light grey) under a backwards black cap, a small earring and a black uniform with reflective stripes running out of a stairwell, same outfit and delivery backpack as always, but his face is scribbled over with a crude horned monster doodle like a child's pen scribble (a prejudiced memory). He is not wearing a guard uniform.
 ```
 
 > 꼭 보여야 할 것: 낙서: 얼굴이 괴물 낙서
@@ -598,7 +598,7 @@ Scene: a young delivery worker with spiky bleached blond hair (light grey) under
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(흑백 + 회색 + olive green (#6b8a5a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A dull impact on a flowerbed in front of an apartment building at night, seen from a distance.
+Scene: A dull impact on a flowerbed in front of an apartment building at night, seen from far away: a puff of dust and crushed flowers. No person is visible.
 ```
 
 > 꼭 보여야 할 것: 화단의 충격

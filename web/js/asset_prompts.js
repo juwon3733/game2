@@ -71,7 +71,7 @@ const BG_PROMPTS = {
 const CUT_CHARS = {
   taiga: 'a young delivery worker with spiky bleached blond hair (accent color) under a backwards black cap, a small earring and a black uniform with reflective stripes',
   mitsuru: 'a gentle man in his early 30s with glasses and a light shirt',
-  himari: 'a 9-year-old girl with brown twin tails tied with ribbons and a small music-note hairpin',
+  himari: 'a 9-year-old girl with brown twin tails tied with ribbons, a small music-note hairpin, a t-shirt with a piano-key pattern and a denim overall skirt',
   ookubo: 'a chubby old security guard with a grey mustache in an olive uniform and cap',
 };
 
@@ -79,8 +79,8 @@ const CUT_CHARS = {
 // 장면은 컷이 작게 보여도 읽히도록 큰 덩어리 위주로 쓴다.
 const CUT_PROMPTS = {
   A: ['{taiga} holding a cardboard box under his arm, pressing the doorbell of an apartment front door at night. Big music notes drifting out through the door gap.', '옆구리에 낀 상자, 문틈의 음표(♪)'],
-  B: ['{mitsuru} lifting his hands off piano keys and turning toward a curtained balcony door, a small child-sized shadow behind the curtain.', '멈춘 손, 커튼 너머 작은 그림자'],
-  C: ['{mitsuru} leaning through the gap of a balcony partition at night, reaching out desperately. Beyond the partition: a child\'s small feet standing on the railing, and something shiny caught on the outer ledge. Leave empty space at the top center for a speech bubble.', '칸막이, 뻗은 팔, 난간 위 작은 발, 바깥 턱의 반짝임, 위쪽 가운데 빈 공간'],
+  B: ['{mitsuru} with both hands lifted clearly above the piano keys, not touching them, turning toward a curtained balcony door, a small child-sized shadow behind the curtain.', '멈춘 손, 커튼 너머 작은 그림자'],
+  C: ['{mitsuru} leaning through the gap of a balcony partition at night, reaching out desperately. Beyond the partition: a child\'s small feet standing on the railing, and a tiny glint of a small hairpin caught on the outer ledge (only a small sparkle, no toy or other object). Leave empty space at the top center for a speech bubble.', '칸막이, 뻗은 팔, 난간 위 작은 발, 바깥 턱의 반짝임, 위쪽 가운데 빈 공간'],
   D: ['{taiga}, startled at an apartment front door at night, turning back toward something off-panel. His cardboard box has just dropped to the floor at his feet. Simple speed lines from the side.', '바닥에 떨어진 상자, 놀란 얼굴'],
   E: ['{taiga} bursting out of a stairwell into the entrance hall, shouting with a terrified face, both hands empty. Leave empty space at the top center for a speech bubble.', '빈 손, 외치는 입, 위쪽 가운데 빈 공간'],
   F: ['Close-up on a stairwell: a hand gripping a dead smartphone, the screen showing a big empty battery icon. Blond hair (accent color) at the edge of the panel.', '휴대폰 화면의 빈 배터리'],
@@ -88,9 +88,9 @@ const CUT_PROMPTS = {
   H: ['{himari} standing on a flowerpot and climbing the balcony railing, reaching for her hairpin caught on the outer ledge. The neighboring balcony behind the partition is empty.', '화분을 밟은 발, 난간, 바깥 턱의 머리핀'],
   I: ['An adult\'s arm pulling {himari} back to safety from the railing. She clutches the hairpin in her hand. The adult is leaning dangerously outward over the railing.', '손에 쥔 머리핀, 바깥으로 기우는 어른'],
   t_ookubo_1: ['{ookubo} proudly writing in a logbook at his desk, absurd sparkles and flowers around him (an exaggerated, self-flattering memory).', '미화: 반짝이, 꽃'],
-  t_ookubo_2: ['A figure running out of a stairwell, the face scribbled over like a horned monster doodle (a prejudiced memory).', '낙서: 얼굴이 괴물 낙서'],
+  t_ookubo_2: ['{taiga} running out of a stairwell, same outfit and delivery backpack as always, but his face is scribbled over with a crude horned monster doodle like a child\'s pen scribble (a prejudiced memory). He is not wearing a guard uniform.', '낙서: 얼굴이 괴물 낙서'],
   t_ookubo_2_truth: ['{taiga} running out of a stairwell, face clearly visible, scared and about to cry, shouting.', '(진실) 겁먹은 얼굴'],
-  t_ookubo_3: ['A dull impact on a flowerbed in front of an apartment building at night, seen from a distance.', '화단의 충격'],
+  t_ookubo_3: ['A dull impact on a flowerbed in front of an apartment building at night, seen from far away: a puff of dust and crushed flowers. No person is visible.', '화단의 충격'],
   t_taiga_1: ['First-person view of a hand pressing an apartment doorbell at night, music notes coming through the door.', '초인종, 음표'],
   t_taiga_2: ['An enormous impact effect filling the entire panel, the apartment hallway tiny underneath (an exaggerated memory).', '과장: 화면을 뒤덮는 충격'],
   t_taiga_3: ['Back view of {taiga} going down stairs, with his face and hands left completely blank white as if erased.', '생략: 하얀 여백'],
