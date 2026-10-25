@@ -43,6 +43,10 @@ async function sceneOffice() {
   await say('kurogane', '피아노 강사 사에키 미츠루, 31세. 어젯밤 5층 베란다에서 떨어져 의식불명.');
   await say('kurogane', '경비원이 "쿵 소리 직후 택배 기사가 도망치는 걸 봤다"고 했다. 강력계는 그 택배 기사를 범인으로 몰고 있지.');
   await say('kurogane', '본인은 "무서워서 도망쳤다"는 말만 반복하고. …확인해 와.');
+  await say('', '쿠로가네가 손목시계를 들여다본다. 초침이 움직이지 않는다. 8시 31분.');
+  await say('koharu', '과장님, 그 시계 멈췄는데요?', 'normal');
+  await say('kurogane', '…알아. 이게 맞는 시간이야.');
+  await say('', '선반 맨 위, 먼지 쌓인 상자에 「6년 전 / 등대」라고 적혀 있다. 코하루의 눈이 거기서 잠깐 멈춘다.');
   await say('koharu', '잔상… 이라는 걸로 확인하는 거죠? 선배가 그걸 볼 수 있다고 들었어요!', 'happy');
   await say('rei', '강한 감정이 남은 물건을 만지면, 그 순간이 만화 컷처럼 보여.', 'serious');
   await say('rei', '근데 컷에는 시간이 안 적혀 있어. …순서는 우리가 맞춰야 해.', 'serious');
@@ -269,7 +273,11 @@ async function sceneConclusion() {
   hideText();
   const c = await choice(['"네 잘못 아니야."', '"선생님은 너를 지키고 싶었던 거야."', '(말없이 「끌어당김」 컷을 보여준다)'], '히마리에게 뭐라고 할까?');
   if (c === 0) await say('', '히마리가 엄마 품에 얼굴을 묻고 소리 내어 운다. 엄마가 등을 토닥인다.');
-  if (c === 1) { await say('himari', '…선생님이?', 'normal'); await say('', '히마리가 쥐고 있던 음표 머리핀을 천천히 다시 꽂는다.'); }
+  if (c === 1) {
+    G.flags.yohaku1 = true; // 여백 컷 조건
+    await say('himari', '…선생님이?', 'normal');
+    await say('', '히마리가 쥐고 있던 음표 머리핀을 천천히 다시 꽂는다.');
+  }
   if (c === 2) await say('', '히마리가 컷 속, 자신을 끌어당기며 웃고 있는 선생님을 오래 바라본다.');
   clearChars();
 }
@@ -290,12 +298,28 @@ async function sceneEpilogue() {
   await say('asagiri', '오늘은 무슨 일이 있었어?');
   await say('rei', '…떨어진 게 아니라, 구한 거였어요.');
   await say('asagiri', '그래. …괜찮아. 힘든 건 잊어도 돼.');
+  // 여백 컷: 히마리에게 "선생님은 너를 지키고 싶었던 거야"라고 했을 때만
+  if (G.flags.yohaku1) {
+    await say('', '코트 주머니에 뭔가 걸린다. 사에키 씨 집에서 무심코 챙겨 온 악보의 마지막 장.');
+    await say('rei', '…마지막 장이 하얗네.', 'normal');
+    await gainCut('Y1');
+    sfx('ghost');
+    await say('', '——도서관 바닥. 원고지를 잔뜩 펼쳐 놓은 두 아이.');
+    await say('', '「마지막 칸은 비워 두자. 나중에 같이 그리게.」');
+    await say('rei', '…….', 'surprised');
+    await say('koharu', '선배? 커피 식어요.', 'normal');
+  }
   clearChars();
   show('shiori', 'normal', 'center');
   sfx('ghost');
   await say('', '창밖, 길 건너에 교복 차림의 여자아이가 서 있다가——');
   hide('shiori');
   await say('', '——사라졌다.');
+  bgm(null, 2.5);
+  await say('', '그날 밤. 혼자 남은 레이는 오른손 검지의 굳은살을 내려다본다.');
+  await say('', '펜을 오래 쥔 사람의 손. 그런데 레이는 그림을 그린 기억이 없다.');
+  sfx('ghost');
+  await say('', '김 서린 창에 손가락으로 쓴 글씨가 떠오른다. 「…기억나?」');
   hideText();
   await banner('1장 「낙하」 끝', '여기까지 플레이해 주셔서 고마워요', 3000);
 }

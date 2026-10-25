@@ -42,6 +42,7 @@ function requiredAssets() {
   };
 
   for (const [id, c] of Object.entries(CUTS)) {
+    if (c.blank) continue; // 여백 컷은 일부러 그림이 없다
     const color = OWNERS[c.owner].color;
     list.push({ kind: 'cut', group: '내 컷', id, label: c.title, path: `cuts/${id}.png`, spec: SPEC.cut, ...cutPrompt(id, color) });
   }

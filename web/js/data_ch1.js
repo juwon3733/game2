@@ -44,6 +44,7 @@ const OWNERS = {
   mitsuru: { name: '미츠루', color: '#3b8fd0' },
   himari:  { name: '히마리', color: '#e0679a' },
   ookubo:  { name: '오오쿠보', color: '#6b8a5a' },
+  blank:   { name: '???', color: '#9a9a9a' },
 };
 
 const CUTS = {
@@ -74,6 +75,9 @@ const CUTS = {
   I: { owner: 'himari', title: '끌어당김',
        desc: '누군가의 팔이 히마리를 안쪽으로 끌어당긴다. 히마리 손에 머리핀. 팔의 주인은 난간 바깥으로 기울어 있다.',
        tags: { hairpin: 'hand', himari: 'safe', mitsuru: 'pull', fall: 'before' } },
+  // 여백 컷: 아무것도 그려지지 않은 하얀 컷. 그림 파일이 없다(일부러 비어 있음).
+  Y1: { owner: 'blank', title: '여백', blank: true,
+        desc: '아무것도 그려지지 않은 하얀 칸. 가만히 보고 있으면, 누군가의 목소리가 들린다.', tags: {} },
 };
 
 const LINES = {
@@ -132,6 +136,22 @@ const WITNESSES = {
       ['koharu', '이 얼굴… 도망치는 사람 얼굴이 아니에요.', 'worried'],
     ],
     peel: [1],
+    // 2라운드: 첫 반박이 통하면 증인이 말을 바꾼다
+    round2: {
+      statements: [
+        { text: '그, 그래도! 그놈이 5층에서 뭘 했는지는 아무도 모르잖아!', cut: 't_ookubo_2_truth',
+          cutDesc: '(오오쿠보가 고쳐 본 기억) 겁먹은 얼굴로 외치며 뛰쳐나오는 타이가.',
+          press: [['ookubo', '택배 기사가 5층에서 볼일이 뭐가 있어. 수상하잖아!', 'flustered'], ['koharu', '(택배 기사니까… 택배 아닐까요, 선배.)', 'worried']] },
+      ],
+      answer: { statement: 0, cut: 'A' },
+      shout: '그건 알 수 있어!',
+      rebut: '배달하고 있었어요. 상자를 들고 초인종을 눌렀어요. 문 너머에선 피아노 소리가 났고요.',
+      success: [
+        ['ookubo', '…피아노. 그래, 그 집 선생님 피아노…', 'normal'],
+        ['ookubo', '…미안하다. 내가 괜히 그 청년을…', 'flustered'],
+      ],
+      koharu: [['koharu', '(선배, 타이가 씨가 5층 문 앞에서 뭘 하고 있었는지 보여주는 컷이 있잖아요.)', 'worried']],
+    },
     rewards: ['E'],
     wrong: [['ookubo', '그게 뭐? 그거랑 이거랑 무슨 상관이야!', 'flustered']],
     close: [['ookubo', '에잇, 됐어! 나 바빠! 다음에 와!', 'flustered'], ['koharu', '(…처음부터 다시 들어 봐요, 선배.)', 'worried']],

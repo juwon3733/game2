@@ -25,27 +25,46 @@ function renderTrial(W, st) {
 
 async function runTrial(id) {
   const W = WITNESSES[id];
-  const st = { ink: 3, idx: 0, peeled: false, hint: -1 };
-  const ans = W.answer;
   bg(W.bg);
   clearChars();
   show(W.char, CHARACTERS[W.char].faces[0], 'left');
   $('#trial').classList.remove('hidden');
   goal(W.goal);
-  renderTrial(W, st);
+  renderTrial(W, { ink: 3, idx: 0, peeled: false, hint: -1 });
   bgm('trial');
   await banner('— 증언 —', `${CHARACTERS[W.char].name}의 기억이 컷으로 펼쳐진다`, 1500);
 
   if (!G.flags.trialTut) {
     G.flags.trialTut = true;
     await sayAll([
-      ['towa', '심문 설명할게. 오른쪽 위가 증인의 기억 컷이야. 감정 때문에 그림이 비틀려 있어(빨간 딱지).'],
-      ['towa', '증언을 하나씩 넘겨 보면서, 의심 가는 건 [파고들기]로 캐물어. 공짜야. 새 단서나 대사 조각이 나와.'],
-      ['towa', '틀린 증언을 찾았으면 [반박!]을 누르고, 그 증언을 깨뜨릴 내 컷을 골라. 엉뚱한 걸 고르면 증인 마음(파란 병)이 줄어.'],
-      ['towa', '마음이 다 닳으면 처음부터야. 한 칸 남았을 땐 [코하루 도움]을 쓸 수 있어. 1장 전체에서 두 번.'],
+      ['towa', '심문 설명할게. 오른쪽이 증인의 기억 컷. 감정 때문에 그림이 비틀려 있어(빨간 딱지).'],
+      ['towa', '증언을 넘겨 보다가 수상하면 [파고들기]. 공짜야. 새 단서나 대사 조각이 나와.'],
+      ['towa', '틀린 증언에서 [반박!]을 누르고 그걸 깨뜨릴 컷을 골라. 틀리면 증인 마음(파란 병)이 줄고, 다 닳으면 처음부터야.'],
     ]);
   }
 
+  await trialRound(W);
+  // 2라운드: 증인이 말을 바꾼다
+  if (W.round2) {
+    const R = Object.assign({}, W, W.round2, { peel: W.round2.peel || [] });
+    hideText();
+    show(W.char, CHARACTERS[W.char].faces[0], 'left');
+    bgm('trial');
+    await banner('— 증언 추가 —', `${CHARACTERS[W.char].name}이(가) 말을 바꾼다`, 1300);
+    await trialRound(R);
+  }
+  for (const c of W.rewards) await gainCut(c);
+  $('#trial').classList.add('hidden');
+  $('#actions').classList.remove('trial');
+  goal('');
+  clearChars();
+  hideText();
+}
+
+// 증언 한 바퀴. 맞는 컷을 들이밀 때까지 반복한다.
+async function trialRound(W) {
+  const st = { ink: 3, idx: 0, peeled: false, hint: -1 };
+  const ans = W.answer;
   for (;;) {
     renderTrial(W, st);
     const s = W.statements[st.idx];
@@ -92,7 +111,7 @@ async function runTrial(id) {
 
     if (cutOk && stOk && lineOk) {
       sfx('objection'); quake(); flash();
-      await banner(W.gentle ? '이걸 봐 줘.' : '순서가 틀렸어!', W.gentle ? '' : `「${s.text}」`, 1400, 'objection');
+      await banner(W.gentle ? '이걸 봐 줘.' : W.shout || '순서가 틀렸어!', W.gentle ? '' : `「${s.text}」`, 1400, 'objection');
       show('rei', 'serious', 'right');
       await say('rei', W.rebut, 'serious');
       hide('rei');
@@ -103,12 +122,6 @@ async function runTrial(id) {
       const shown = W.cg && (await cg(W.cg));
       await sayAll(W.success);
       if (shown) cgEnd();
-      for (const c of W.rewards) await gainCut(c);
-      $('#trial').classList.add('hidden');
-      $('#actions').classList.remove('trial');
-      goal('');
-      clearChars();
-      hideText();
       return;
     }
 

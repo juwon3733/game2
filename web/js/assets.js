@@ -124,6 +124,11 @@ function cutView(id, opts = {}) {
   el.style.setProperty('--owner', info.color);
   el.innerHTML = `<div class="cutv-head"><span>${info.owner} 시점</span><span>「${info.title}」</span></div><div class="cutv-body"></div>`;
   const body = el.querySelector('.cutv-body');
+  if (CUTS[id] && CUTS[id].blank) {
+    el.classList.add('blank');
+    body.innerHTML = `<div class="cutv-whisper">${info.desc}</div>`;
+    return el;
+  }
   const img = new Image();
   img.className = 'cutv-img';
   img.draggable = false;

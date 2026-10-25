@@ -19,3 +19,15 @@ jobs:
         run: node tools/export-prompts.mjs --check
       - name: 파일명 · 형식 · 크기 검사
         run: node tools/check-assets.mjs
+
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: 브라우저 설치
+        run: npm i --no-save playwright@1.63.0 && npx playwright install --with-deps chromium
+      - name: 모든 장면을 열어 오류 검사
+        run: node tools/smoke.mjs

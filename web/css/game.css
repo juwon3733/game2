@@ -399,3 +399,7 @@ button { font-family: inherit; }
 .pz-ghost { position: absolute; z-index: 99; width: 230px; pointer-events: none; opacity: .9; transform: rotate(-3deg); box-shadow: 10px 10px 0 rgba(0,0,0,.5); }
 .pz-slot.drop { outline: 5px solid var(--gold); outline-offset: 2px; }
 .pz-dragging { opacity: .35; }
+
+/* 여백 컷: 아무것도 없는 하얀 칸 */
+.cutv.blank .cutv-body { background: #fff; background-image: none; }
+.cutv-whisper { font-size: 15px; color: #c8c4ba; text-align: center; padding: 0 18px; line-height: 1.5; }
