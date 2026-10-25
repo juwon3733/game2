@@ -45,7 +45,9 @@ async function sceneOffice() {
   await say('kurogane', '본인은 "무서워서 도망쳤다"는 말만 반복하고. …확인해 와.');
   await say('', '쿠로가네가 손목시계를 들여다본다. 초침이 움직이지 않는다. 8시 31분.');
   await say('koharu', '과장님, 그 시계 멈췄는데요?', 'normal');
+  FX.zoom('center');
   await say('kurogane', '…알아. 이게 맞는 시간이야.');
+  FX.zoom(null);
   await say('', '선반 맨 위, 먼지 쌓인 상자에 「6년 전 / 등대」라고 적혀 있다. 코하루의 눈이 거기서 잠깐 멈춘다.');
   await say('koharu', '잔상… 이라는 걸로 확인하는 거죠? 선배가 그걸 볼 수 있다고 들었어요!', 'happy');
   await say('rei', '강한 감정이 남은 물건을 만지면, 그 순간이 만화 컷처럼 보여.', 'serious');
@@ -186,7 +188,7 @@ async function sceneExplore2() {
         if (shiori) {
           const art = await cg('cg_shiori');
           if (!art) show('shiori', 'normal', 'center');
-          sfx('ghost');
+          FX.ghost();
           await say('', '칸막이 앞에 교복 차림의 여자아이가 서 있다. 옆집 쪽을 가리키더니——');
           if (art) cgEnd(); else hide('shiori');
           EX.extras = [];
@@ -309,7 +311,7 @@ async function sceneEpilogue() {
     await say('', '코트 주머니에 뭔가 걸린다. 사에키 씨 집에서 무심코 챙겨 온 악보의 마지막 장.');
     await say('rei', '…마지막 장이 하얗네.', 'normal');
     await gainCut('Y1');
-    sfx('ghost');
+    FX.ghost();
     await say('', '——도서관 바닥. 원고지를 잔뜩 펼쳐 놓은 두 아이.');
     await say('', '「마지막 칸은 비워 두자. 나중에 같이 그리게.」');
     await say('rei', '…….', 'surprised');
@@ -317,14 +319,14 @@ async function sceneEpilogue() {
   }
   clearChars();
   show('shiori', 'normal', 'center');
-  sfx('ghost');
+  FX.ghost();
   await say('', '창밖, 길 건너에 교복 차림의 여자아이가 서 있다가——');
   hide('shiori');
   await say('', '——사라졌다.');
   bgm(null, 2.5);
   await say('', '그날 밤. 혼자 남은 레이는 오른손 검지의 굳은살을 내려다본다.');
   await say('', '펜을 오래 쥔 사람의 손. 그런데 레이는 그림을 그린 기억이 없다.');
-  sfx('ghost');
+  FX.ghost();
   await say('', '김 서린 창에 손가락으로 쓴 글씨가 떠오른다. 「…기억나?」');
   hideText();
   await banner('1장 「낙하」 끝', '', 2200);

@@ -75,6 +75,7 @@ async function runTrial(id) {
     await banner('— 증언 추가 —', `${CHARACTERS[W.char].name}이(가) 말을 바꾼다`, 1300);
     await trialRound(id, R);
   }
+  FX.mood(null);
   for (const c of W.rewards || []) await gainCut(c);
   if (W.outro) await sayAll(W.outro);
   $('#trial').classList.add('hidden');
@@ -120,6 +121,8 @@ async function trialRound(wid, R) {
   while (st.done.size < R.answers.length) {
     renderTrial(W, st);
     const s = st.stmts[st.idx];
+    // 미화된 기억은 반짝이가 흩날린다 (벗겨지면 멈춘다)
+    FX.mood(s.dist === '미화' && !st.peeled.has(st.idx) ? 'glitter' : null);
     showLine(W.char, s.text, s.face);
     $('#actions').classList.add('trial');
     const act = await actions([
@@ -190,15 +193,21 @@ async function trialRound(wid, R) {
     const ok = hit && (!hit[0].line || G.fills[cutId] === hit[0].line);
     if (ok) {
       const [a, k] = hit;
-      sfx('objection'); quake(); flash();
-      await banner(W.gentle ? '이걸 봐 줘.' : a.shout || '순서가 틀렸어!', W.gentle ? '' : `「${s.text}」`, 1400, 'objection');
+      sfx('objection');
+      hideText();
+      if (W.gentle) { flash(); await banner('이걸 봐 줘.', '', 1400, 'objection'); }
+      else { await FX.cutin('rei', a.shout || '순서가 틀렸어!'); quake(); flash(); }
       if (a.rebut) {
         show('rei', 'serious', 'right');
         await say('rei', a.rebut, 'serious');
         hide('rei');
       }
       st.done.add(k);
-      (a.peel || [st.idx]).forEach((i) => st.peeled.add(i));
+      const peel = a.peel || [st.idx];
+      // 지금 보이는 증언 컷이 벗겨지면 찢어져 떨어진다
+      if (peel.includes(st.idx) && !st.peeled.has(st.idx)) FX.tear($('#tr-panel .cutv'));
+      peel.forEach((i) => st.peeled.add(i));
+      FX.mood(null);
       bgm('truth');
       sfx('page');
       renderTrial(W, st);
@@ -226,7 +235,8 @@ async function trialRound(wid, R) {
 
     st.ink--;
     G.stats.wrong++;
-    sfx('wrong'); quake();
+    sfx('wrong'); quake(); flash('rgba(190,30,40,.45)');
+    if (st.ink === 1) FX.pulse();
     renderTrial(W, st);
     const img = onStage[W.char];
     if (img) { img.classList.remove('shake'); void img.offsetWidth; img.classList.add('shake'); }
@@ -252,6 +262,7 @@ async function trialRound(wid, R) {
     st.held = R.hold.statement;
     st.idx = R.hold.statement;
     renderTrial(W, st);
+    FX.stamp('보류', 'hold');
     await sayAll(R.hold.lines);
     G.flags['hold_' + wid] = true;
   }

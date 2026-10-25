@@ -52,7 +52,7 @@ async function playFrom(scene, saved) {
       const id = C.scenes[i][0];
       saveProgress(ch, id);
       await fade(true, 400);
-      clearChars(); hideText(); goal('');
+      clearChars(); hideText(); goal(''); FX.zoom(null); FX.mood(null);
       bgm((C.bgm || {})[id]);
       const run = C.fn[id]();
       setTimeout(() => fade(false, 600), 60);
@@ -86,6 +86,7 @@ function manuscriptRank() {
 async function showRank(chTitle) {
   const r = manuscriptRank();
   sfx('correct');
+  FX.lines(800, r.rank === 'S' ? '#f2c14e' : '#ffffff');
   const m = openModal(`<div class="rank-box"><div class="rank-head">원고 평가 · ${chTitle}</div>
     <div class="rank-letter">${r.rank}</div>
     <div class="rank-rows">

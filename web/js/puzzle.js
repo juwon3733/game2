@@ -278,11 +278,13 @@ function runPuzzle(id) {
         s.classList.add('lit');
         const cids = st.slots[Number(s.dataset.slot)];
         const loud = cids.find((c) => PAGE_SFX[c]);
-        sfx(PAGE_SFX[loud] || 'page', { vol: loud ? 1 : 0.5 });
-        if (cids.some((c) => PAGE_QUAKE.includes(c))) quake();
+        const hit = cids.find((c) => PAGE_IMPACT[c]);
+        if (hit) FX.impact(PAGE_IMPACT[hit]);
+        else sfx(PAGE_SFX[loud] || 'page', { vol: loud ? 1 : 0.5 });
         await sleep(cids.length > 1 ? 1200 : 900);
       }
       sfx('correct');
+      FX.stamp('완성!');
       paper.classList.remove('reading');
       msg = '레이: ' + P.rei;
       render();
@@ -311,8 +313,8 @@ function runPuzzle(id) {
 
 // 페이지 재생 때 컷마다 나는 소리
 const PAGE_SFX = { A: 'chime', D: 'thud', F: 'phone', '2A': 'chime', '2N': 'objection', '2E': 'thud', '2P': 'page' };
-// 페이지 재생 때 화면이 흔들리는 컷
-const PAGE_QUAKE = ['D', '2E'];
+// 페이지 재생 때 화면을 때리는 컷: 반전 프레임 + 집중선 + 의성어
+const PAGE_IMPACT = { D: '쿵!!', '2N': '지금!', '2E': '쾅!!' };
 
 function shuffle(ids, solution) {
   const a = ids.slice();

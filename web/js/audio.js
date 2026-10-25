@@ -5,7 +5,7 @@ function loadJSON(k) { try { return JSON.parse(localStorage.getItem(k)) || null;
 function saveJSON(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* 저장 불가(사생활 모드 등) */ } }
 
 // textSpeed: 0 느림 ~ 3 즉시, autoWait: 자동 진행 대기 배율
-const SETTINGS = Object.assign({ textSpeed: 1, autoWait: 1, bgm: 0.55, sfx: 0.8 }, loadJSON('gaha-settings') || {});
+const SETTINGS = Object.assign({ textSpeed: 1, autoWait: 1, bgm: 0.55, sfx: 0.8, fxReduce: 0 }, loadJSON('gaha-settings') || {});
 
 // 추리 규칙 (난이도 선택 없음. 이 게임의 기본 난이도)
 //  - 컷 아래 설명 없음: 그림 속 단서를 직접 읽는다 (크게 보기에서만 설명)

@@ -55,7 +55,7 @@ function runName({ title, sub = '', parts, threshold = 3, report = false, report
     const check = async () => {
       if (blanks.some((i) => !picks[i])) { msg = '빈칸이 남아 있어.'; return render(); }
       const n = blanks.filter(right).length;
-      if (n === blanks.length) { sfx('correct'); return finish({ ok: true, picks: Object.assign({}, picks) }); }
+      if (n === blanks.length) { sfx('correct'); FX.lines(500); FX.stamp('확정!'); await sleep(700); return finish({ ok: true, picks: Object.assign({}, picks) }); }
       G.stats.wrong++;
       sfx('wrong'); quake();
       msg = n >= threshold ? `${blanks.length}칸 중 ${n}칸은 맞아. 나머지를 다시 생각해 봐.` : '아직 맞지 않아. 단서를 다시 보자.';

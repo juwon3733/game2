@@ -40,11 +40,9 @@ fitStage();
 // ---------- 화면 전환 / 효과 ----------
 
 // 검은 화면으로 덮기(true) / 걷기(false)
+// 검은 화면으로 덮기(true) / 걷기(false). 도트 디더로 번진다 (fx.js)
 function fade(on, ms = 450) {
-  const f = $('#fade');
-  f.style.transitionDuration = ms + 'ms';
-  f.classList.toggle('on', on);
-  return sleep(ms);
+  return FX.fade(on, ms);
 }
 
 function quake() {
@@ -53,6 +51,7 @@ function quake() {
 }
 
 function flash(color = '#fff') {
+  if (SETTINGS.fxReduce) return;
   const f = $('#flash');
   f.style.background = color;
   f.classList.remove('go'); void f.offsetWidth; f.classList.add('go');
@@ -73,10 +72,12 @@ function bg(id) {
     setTimeout(() => old.remove(), 800);
   }
   curBg = id;
+  FX.bg(id);
   loadImg(img, ASSET.bg(id), () => bgPlaceholder(id));
 }
 
 const onStage = {}; // char -> img
+const REACT = { angry: 're-shake', flustered: 're-shake', crying: 're-sink', sad: 're-sink', scared: 're-sink', surprised: 're-jump', cornered: 're-jump' };
 
 function show(char, face = CHARACTERS[char].faces[0], pos = 'center') {
   G.flags.met = G.flags.met || [];
@@ -91,6 +92,12 @@ function show(char, face = CHARACTERS[char].faces[0], pos = 'center') {
     setTimeout(() => img.classList.remove('enter'), 30);
   }
   img.dataset.pos = pos;
+  // 이미 나와 있던 인물의 표정이 바뀌면 몸으로도 반응한다
+  if (img.dataset.face && img.dataset.face !== face && REACT[face]) {
+    const r = REACT[face];
+    img.classList.remove(...Object.values(REACT)); void img.offsetWidth; img.classList.add(r);
+    if (r !== 're-sink') setTimeout(() => img.classList.remove(r), 700);
+  } else if (img.dataset.face !== face) img.classList.remove('re-sink');
   if (img.dataset.face !== face) {
     img.dataset.face = face;
     // 상반신 그림이 없으면 임시 그림 대신 아예 안 보인다(이름은 대사창에 나옴)
@@ -195,6 +202,10 @@ async function say(who, text, face) {
   }
   const ch = who && CHARACTERS[who];
   LOG.push({ name: ch ? ch.name : '', color: ch ? ch.accent : '', text });
+  // 짧은 외침은 대사창이 들썩인다
+  const shout = !!who && /!$/.test(text) && text.length <= 14;
+  tb.classList.toggle('jolt', false);
+  if (shout) { void tb.offsetWidth; tb.classList.add('jolt'); }
   await typeInto($('#tb-text'), text, VOICE[who]);
   $('#tb-next').classList.remove('hidden');
   await waitAdvance(text.length);
@@ -361,6 +372,7 @@ function setFill(cutId, lineId) {
 function gainCut(id) {
   if (G.cuts.includes(id)) return Promise.resolve();
   G.cuts.push(id);
+  FX.echo();
   sfx('cut');
   flash('rgba(255,255,255,.7)');
   const m = openModal('<div class="md-title gain">잔상을 읽었다</div><div class="md-one"></div><div class="md-sub">수첩에 컷이 추가되었다.</div><button class="md-ok">확인</button>', 'gain');
@@ -475,6 +487,7 @@ function openSettings() {
       <label>자동 진행 간격</label><input type="range" min="0.5" max="2" step="0.1" data-key="autoWait" value="${SETTINGS.autoWait}">
       <label>배경음악</label>${range('bgm')}
       <label>효과음</label>${range('sfx')}
+      <label>화면 효과</label>${seg('fxReduce', ['보통', '줄이기 (번쩍임·반전 끔)'])}
     </div>
     <div class="set-help">대사 넘기기: 클릭 · Space · Enter　|　Ctrl 누르고 있기: 빨리 넘기기　|　휠 위로: 대사 기록</div>
     <button class="md-cancel">닫기</button>`, 'settings');

@@ -329,7 +329,7 @@ async function sceneExplore2b() {
       jacketk: async () => {
         if (shiori) {
           shiori = false;
-          sfx('ghost');
+          FX.ghost();
           show('shiori', 'normal', 'center');
           await say('', '의자 옆에 교복 차림의 여자아이가 서서, 재킷 안주머니를 가리킨다.');
           await say('shiori', '…앙코르.');
@@ -423,6 +423,9 @@ async function sceneAccuse2() {
   await say('koharu', '사장님은 장갑 낀 사람이 계단 쪽으로 가는 걸 봤다고 했고요….', 'worried');
   show('towa', 'normal', 'left');
   await say('towa', '정리는 네가 해. 남의 말 말고, 네가 본 컷으로.');
+  FX.zoom('center');
+  await sleep(400);
+  FX.zoom(null);
   clearChars();
   hideText();
   const r = await runName({
@@ -445,6 +448,7 @@ async function sceneAccuse2() {
       await say('kurogane', '(전화) 루루 송치는 일단 멈췄다. 대신 쿠라모치 시노를 임의동행했다.');
       clearChars();
       bg('booth');
+      FX.pulse();
       await say('', '같은 시각. 크레센트 조명 부스. 형사 둘이 쿠라모치의 팔을 잡는다.');
       show('kuramochi', 'scared', 'center');
       await say('kuramochi', '…….', 'scared');
@@ -557,9 +561,12 @@ async function sceneTendo() {
   hide('kurogane');
   show('tendo', 'cornered', 'left');
   await say('tendo', '…….', 'cornered');
+  FX.zoom('left');
   await say('tendo', '…어차피 오늘 밤이면 다 지워질 거였는데.', 'cornered');
-  show('rei', 'serious', 'right');
-  await say('rei', '…지워져?', 'serious');
+  FX.zoom(null);
+  FX.pulse();
+  show('rei', 'surprised', 'right');
+  await say('rei', '…지워져?', 'surprised');
   await say('tendo', '변호사 불러.', 'angry');
   clearChars();
 }
@@ -599,10 +606,13 @@ async function sceneConclusion2() {
     }
   }
   show('kuramochi', 'resolute', 'right');
+  FX.lines(600);
   await say('kuramochi', '…제가 봤어요. 사장님이 끈을 주머니에 넣고, 부스를 보면서 손가락을 입에 댔어요. 법정에서도 말할게요.', 'resolute');
   hide('kuramochi');
   show('tendo', 'cornered', 'left');
+  FX.zoom('left');
   await say('tendo', '…….', 'cornered');
+  FX.zoom(null);
   hide('tendo');
   show('ruru', 'crying', 'left');
   await say('ruru', '…근데 나도 흔들었어. 그래서 더 헐거워졌을 수도 있잖아.', 'crying');
@@ -624,11 +634,12 @@ async function sceneConclusion2() {
 async function sceneEpilogue2() {
   if (G.flags.yohaku2) {
     bg('crescent_stage');
+    FX.mood('dust');
     await say('', '불 꺼진 크레센트. 관객 없는 무대에서 루루가 기타 하나로 「앙코르 없음」을 부른다.');
     await say('', '핀과 아오이가 객석 첫 줄, 관계자석 옆에 앉아 있다.');
     await say('', '레이는 키리시마의 수첩 마지막 장을 넘긴다. 「앙코르」 다음 줄이 하얗게 비어 있다.');
     await gainCut('Y2');
-    sfx('ghost');
+    FX.ghost();
     await say('', '——도서관. 원고를 소리 내어 읽는 여자아이와, 박수 대신 펜으로 책상을 두드리는 아이.');
     await say('', '「박수 소리도 그려 줘.」');
     show('rei', 'surprised', 'left');
@@ -653,6 +664,8 @@ async function sceneEpilogue2() {
   await say('rei', '사장 서랍.');
   await say('towa', '…에러.');
   sfx('cancel');
+  FX.glitch(800);
+  await sleep(300);
   hide('towa');
   await say('', '접속이 끊긴다.');
   show('koharu', 'worried', 'right');
@@ -661,11 +674,16 @@ async function sceneEpilogue2() {
   bgm(null, 2.5);
   bg('crescent_stage');
   await say('', '22:00. 빈 크레센트.');
-  sfx('ghost');
+  FX.ghost();
   await say('', '흰 장갑을 낀 손이 무대 한가운데 마이크 스탠드를 천천히 쓸어내린다.');
+  hideText();
+  await FX.erase(2400);
   await say('', '스탠드에 남아 있던 루루의 잔상이, 가장자리부터 하얗게 지워진다.');
   await say('', '「…한발 늦었네, 시노노메. 아니, 네가 한발 빨랐나.」');
   hideText();
+  await fade(true, 900);
+  FX.eraseEnd();
+  await fade(false, 300);
   await banner('2장 「앙코르 없음」 끝', '', 2200);
   await showRank('2장 「앙코르 없음」');
 }
