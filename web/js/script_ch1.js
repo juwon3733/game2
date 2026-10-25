@@ -180,10 +180,11 @@ async function sceneExplore2() {
     on: {
       partition: async () => {
         if (shiori) {
-          show('shiori', 'normal', 'center');
+          const art = await cg('cg_shiori');
+          if (!art) show('shiori', 'normal', 'center');
           sfx('ghost');
           await say('', '칸막이 앞에 교복 차림의 여자아이가 서 있다. 옆집 쪽을 가리키더니——');
-          hide('shiori');
+          if (art) cgEnd(); else hide('shiori');
           EX.extras = [];
           shiori = false;
           await say('', '——사라졌다.');
@@ -259,6 +260,10 @@ async function sceneConclusion() {
   await say('kurogane', '…됐다. 강력계엔 내가 말하지.');
   clearChars();
   bgm('truth');
+  if (await cg('cg_page')) {
+    await say('', '여섯 칸짜리 원고. 그날 밤 일어난 일의, 진짜 순서.');
+    cgEnd();
+  }
   show('himari', 'crying', 'left');
   await say('', '복도 끝 의자에, 엄마 손을 잡은 히마리가 앉아 있다.');
   hideText();
@@ -277,9 +282,11 @@ async function sceneEpilogue() {
   show('koharu', 'happy', 'right');
   await say('koharu', '네! 히나타 코하루입니다!', 'happy');
   show('rei', 'normal', 'left');
+  const cafe = await cg('cg_cafe');
   await say('', '아사기리는 말없이 레이 앞에 단 커피를 놓는다.');
   await say('koharu', '어? 선배 단 거 싫어하지 않았어요?', 'normal');
   await say('rei', '…이건 괜찮아.');
+  if (cafe) cgEnd();
   await say('asagiri', '오늘은 무슨 일이 있었어?');
   await say('rei', '…떨어진 게 아니라, 구한 거였어요.');
   await say('asagiri', '그래. …괜찮아. 힘든 건 잊어도 돼.');

@@ -657,7 +657,147 @@ Character: a cheerful 20-year-old rookie detective girl, orange-brown side ponyt
 Character: a pale 16-year-old girl ghost, long straight black hair with blunt bangs, old navy sailor school uniform with a white ribbon, barefoot, slightly translucent.
 ```
 
-## 대화 18 — 타이틀 키아트 (1장)
+## 대화 18 — UI 스킨 (9장)
+
+한 대화에서 차례로 만들어 스타일을 맞춘다. 크기는 정확히 지키고, 9-slice 틀은 모서리 밖 가장자리가 똑같이 반복되게.
+
+**`ui_textbox.png`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
+
+Pixel art UI element for a mystery visual novel whose theme is manga pages: cream manga paper (#f7f3ea) with a bold black ink border (#1d1d22), small screentone dot patterns and a hint of gold (#f2c14e) accents. Crisp pixel art at native resolution, upscaled exactly 3x with nearest-neighbor, no anti-aliasing, no text, no letters. Flat front view, no perspective, no drop shadow outside the element, transparent background outside the element.
+
+A dialogue box frame, 288x144. 9-slice friendly: the four 24x24 corners have small ink flourishes, the edges between them are a uniform repeatable ink border, the center is plain cream paper with a very faint screentone so it can stretch.
+```
+
+**`ui_textbox_dark.png`
+```
+같은 UI 스타일(크림색 원고지, 검은 잉크 테두리, 금색 포인트, 3배 도트)로 다음 요소를 만들어줘. 글자 없이, 투명 배경.
+
+A narration box frame, 288x144, same shape as the dialogue box but dark: deep navy-black paper (#14141a) with a thin light-grey ink border. 9-slice friendly: 24x24 corners, uniform edges, plain center.
+```
+
+**`ui_name.png`
+```
+같은 UI 스타일(크림색 원고지, 검은 잉크 테두리, 금색 포인트, 3배 도트)로 다음 요소를 만들어줘. 글자 없이, 투명 배경.
+
+A small name plate tab, 144x48, like a manga caption box: cream paper with a black ink border and a small gold corner. 9-slice friendly: 12x12 corners, uniform edges, plain center.
+```
+
+**`ui_button.png`
+```
+같은 UI 스타일(크림색 원고지, 검은 잉크 테두리, 금색 포인트, 3배 도트)로 다음 요소를 만들어줘. 글자 없이, 투명 배경.
+
+A button, 144x48: cream paper with a 3-pixel black ink border and a slightly darker bottom edge so it looks pressable. 9-slice friendly: 12x12 corners, uniform edges, plain center.
+```
+
+**`ui_button_hot.png`
+```
+같은 UI 스타일(크림색 원고지, 검은 잉크 테두리, 금색 포인트, 3배 도트)로 다음 요소를 만들어줘. 글자 없이, 투명 배경.
+
+The same button in its hovered state, 144x48: gold (#f2c14e) paper with the same black ink border. 9-slice friendly.
+```
+
+**`ui_button_red.png`
+```
+같은 UI 스타일(크림색 원고지, 검은 잉크 테두리, 금색 포인트, 3배 도트)로 다음 요소를 만들어줘. 글자 없이, 투명 배경.
+
+A dramatic red action button, 144x48: red (#e0383e) with a black ink border and small white speed-line marks in the corners. 9-slice friendly: 12x12 corners, uniform edges, plain red center.
+```
+
+**`ui_panel.png`
+```
+같은 UI 스타일(크림색 원고지, 검은 잉크 테두리, 금색 포인트, 3배 도트)로 다음 요소를 만들어줘. 글자 없이, 투명 배경.
+
+A large panel frame for menus and the case notebook, 288x288: cream paper with a bold ink border, a paper-clip at the top-left corner and screentone in the corners. 9-slice friendly: 36x36 corners, uniform edges, plain center.
+```
+
+**`ui_icons.png`
+```
+같은 UI 스타일(크림색 원고지, 검은 잉크 테두리, 금색 포인트, 3배 도트)로 다음 요소를 만들어줘. 글자 없이, 투명 배경.
+
+A horizontal strip of 8 icons, each exactly 96x96 (32x32 native), evenly spaced with transparent background, black ink outline style with small gold accents, in this order from left to right: 1 a small notebook, 2 a scroll of dialogue lines (log), 3 a play triangle with a small "A" shape made only of pixels (auto), 4 a double fast-forward arrow (skip), 5 a gear (settings), 6 a magnifying glass, 7 a small blue ink bottle, 8 a cat-ear headphone.
+```
+
+**`ui_objection.png`
+```
+같은 UI 스타일(크림색 원고지, 검은 잉크 테두리, 금색 포인트, 3배 도트)로 다음 요소를 만들어줘. 글자 없이, 투명 배경.
+
+A wide cut-in banner background, 1536x512, for the moment the hero rebuts a witness: explosive black and red manga speed lines radiating from the left, white screentone burst, torn paper edges at top and bottom. Leave the middle empty and calm for text that will be overlaid by the game. No characters, no text.
+```
+
+## 대화 19 — 이벤트 CG (5장)
+
+상반신 이미지를 기준으로 첨부해 같은 얼굴로 그린다. 배경 7장과 같은 도트 스타일.
+
+**`cg_shiori.png`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
+
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+
+Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. Full color, limited palette of about 32 colors.
+
+Event illustration (CG) for a key story moment, horizontal 1536x1024, full color, same faces as the character portraits. At night on the narrow concrete balcony of an old apartment, beside a white emergency partition board, a 16-year-old girl ghost with long straight black hair and blunt bangs in an old navy sailor school uniform, barefoot stands still and points toward the neighbor's balcony, pale and faintly translucent, while an androgynous young investigator with messy short black hair and a lavender hair clip, oversized grey hoodie under a long beige trench coat in the foreground looks at her, startled. Cool moonlight, warm light from the neighbor's window.
+```
+
+**`cg_taiga_run.png`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
+
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+
+Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. Full color, limited palette of about 32 colors.
+
+Event illustration (CG) for a key story moment, horizontal 1536x1024, full color, same faces as the character portraits. Night street of a harbor town. a young delivery worker with spiky bleached blond hair under a backwards black cap, black uniform with reflective stripes sprints across the road toward a brightly lit convenience store, a dead smartphone in his hand, teeth clenched, motion lines. Seen from behind at a low angle.
+```
+
+**`cg_rescue.png`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
+
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+
+Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. Full color, limited palette of about 32 colors.
+
+Event illustration (CG) for a key story moment, horizontal 1536x1024, full color, same faces as the character portraits. The true moment, seen from the side at night: on a 5th-floor balcony, a gentle man in his early 30s with glasses and a light shirt leans far out through the gap of the emergency partition and pulls a 9-year-old girl with brown twin tails tied with pink ribbons, a t-shirt with a piano-key pattern and a denim overall skirt back from the railing with one arm; she clutches a small music-note hairpin. His body tilts dangerously outward over the railing. Tense, but warm and protective.
+```
+
+**`cg_page.png`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
+
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+
+Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. Full color, limited palette of about 32 colors.
+
+Event illustration (CG) for a key story moment, horizontal 1536x1024, full color, same faces as the character portraits. In a quiet hospital corridor at dawn, an androgynous young investigator with messy short black hair and a lavender hair clip, oversized grey hoodie under a long beige trench coat holds up a finished manga page made of six panels that tell the true story of the night, looking at it with a calm, tired face, a cheerful young detective girl with an orange-brown side ponytail and sky-blue scrunchie, navy suit jacket and sky-blue ribbon tie peeking over the shoulder. Soft morning light from a window.
+```
+
+**`cg_cafe.png`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
+
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+
+Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. Full color, limited palette of about 32 colors.
+
+Event illustration (CG) for a key story moment, horizontal 1536x1024, full color, same faces as the character portraits. Inside a small cozy cafe on a hill at sunset, called Yohaku: an elegant 61-year-old cafe owner with silver hair in a bun and round gold glasses, cream blouse and linen apron behind the counter places a cup of sweet coffee in front of an androgynous young investigator with messy short black hair and a lavender hair clip, oversized grey hoodie under a long beige trench coat, and a cheerful young detective girl with an orange-brown side ponytail and sky-blue scrunchie, navy suit jacket and sky-blue ribbon tie beside them smiles brightly. Warm orange light, harbor and sea through the window.
+```
+
+## 대화 20 — 타이틀 키아트 (1장)
 
 상반신 이미지를 기준으로 첨부해 같은 얼굴로 그린다.
 

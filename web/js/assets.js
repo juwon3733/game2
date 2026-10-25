@@ -8,6 +8,7 @@ const ASSET = {
   map: (id) => `assets/maps/${id}.png`,
   sprite: (who) => `assets/sprites/${who}.png`,
   title: () => 'assets/title/key.png',
+  cg: (id) => `assets/cg/${id}.png`,
 };
 
 // 있으면 쓰고 없으면 null로 남는 이미지 (탐색 맵, 걷는 캐릭터)

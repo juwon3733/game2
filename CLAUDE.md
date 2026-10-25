@@ -16,7 +16,8 @@
 | 경로 | 내용 |
 |---|---|
 | `web/` | 게임 본체 (빌드 없음, 순수 JS). `js/script_ch1.js` 진행, `js/data_ch1.js` 데이터, `js/explore.js` 탑뷰 탐색, `js/trial.js` 심문, `js/puzzle.js` 컷 배열 |
-| `web/assets/` | 이미지 (`portraits/`, `bg/`, `cuts/`, `maps/`, `sprites/`, `title/`). 없으면 게임이 임시 그림을 그린다 |
+| `web/assets/` | 이미지 (`portraits/`, `bg/`, `cuts/`, `maps/`, `sprites/`, `title/`, `ui/`, `cg/`), 소리(`audio/`). 이미지가 없으면 게임이 임시 그림/기본 CSS를 쓴다 |
+| `web/fonts/` | Galmuri 글꼴 (OFL, CDN 없이) |
 | `web/js/asset_prompts.js` | **이미지 프롬프트 원본** (유일한 원본) |
 | `web/assets/prompts.json`, `docs/PROMPTS_CH1.md` | 위에서 자동 생성. 직접 고치지 않는다 |
 | `AGENTS.md` | 이미지 생성 에이전트(GPT/Codex)용 작업 지시서 |

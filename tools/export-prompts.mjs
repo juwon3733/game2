@@ -18,6 +18,7 @@ for (const f of ['js/data_ch1.js', 'js/asset_prompts.js', 'js/asset_list.js']) {
 }
 const list = JSON.parse(vm.runInContext('JSON.stringify(requiredAssets())', ctx));
 const S = JSON.parse(vm.runInContext('JSON.stringify({ PROMPT_STYLE, BG_PROMPTS, FACE_PROMPTS })', ctx));
+const UI_PROMPTS_TEXT = JSON.parse(vm.runInContext('JSON.stringify(Object.fromEntries(Object.entries(UI_PROMPTS).map(([k, v]) => [k, v.p])))', ctx));
 
 // ---------- 작업 묶음 만들기 ----------
 
@@ -28,7 +29,7 @@ const item = (a, followup) => ({
   kind: a.kind,
   width: a.spec.w,
   height: a.spec.h,
-  transparent: a.kind === 'portrait' || a.kind === 'sprite',
+  transparent: a.kind === 'portrait' || a.kind === 'sprite' || a.kind === 'ui',
   must_show: a.must || null,
   prompt: a.prompt,                 // 단독으로 쓸 때의 전체 프롬프트
   followup_prompt: followup || null, // 같은 묶음에서 앞 그림에 이어 쓸 때의 짧은 프롬프트
@@ -97,6 +98,8 @@ batches.push({
   note: '한 대화에서 레이 → 코하루 → 시오리 순서로 만든다. 칸 크기와 발 높이를 셋이 똑같이 맞춘다. 상반신 이미지를 기준으로 첨부하면 좋다.',
   items: list.filter((a) => a.kind === 'sprite').map((a, i) => item(a, i === 0 ? null : `같은 스프라이트 시트 규칙(192x384, 64x96 칸 3열×4행, 같은 픽셀 크기와 발 높이)으로 다음 캐릭터를 그려줘. 투명 배경.\n\nCharacter: ${(a.prompt.match(/Character: (.*)$/) || [])[1]}`)),
 });
+batches.push({ id: 'ui', title: 'UI 스킨', note: '한 대화에서 차례로 만들어 스타일을 맞춘다. 크기는 정확히 지키고, 9-slice 틀은 모서리 밖 가장자리가 똑같이 반복되게.', items: list.filter((a) => a.kind === 'ui').map((a, i) => item(a, i === 0 ? null : `같은 UI 스타일(크림색 원고지, 검은 잉크 테두리, 금색 포인트, 3배 도트)로 다음 요소를 만들어줘. 글자 없이, 투명 배경.\n\n${UI_PROMPTS_TEXT[a.id]}`)) });
+batches.push({ id: 'cg', title: '이벤트 CG', note: '상반신 이미지를 기준으로 첨부해 같은 얼굴로 그린다. 배경 7장과 같은 도트 스타일.', items: list.filter((a) => a.kind === 'cg').map((a) => item(a, null)) });
 batches.push({ id: 'title', title: '타이틀 키아트', note: '상반신 이미지를 기준으로 첨부해 같은 얼굴로 그린다.', items: list.filter((a) => a.kind === 'title').map((a) => item(a, null)) });
 
 const rest = cuts.filter((a) => !used.has(a.id));
@@ -133,7 +136,7 @@ batches.forEach((b, n) => {
   md.push(`## 대화 ${n + 1} — ${b.title} (${b.items.length}장)`, '', b.note, '');
   if (b.reference_sheet_prompt) block('설정화 (저장 안 해도 됨)', b.reference_sheet_prompt);
   b.items.forEach((it, i) => {
-    block(it.file.split('/').pop(), b.reference_sheet_prompt || i > 0 ? it.followup_prompt : it.prompt);
+    block(it.file.split('/').pop(), (b.reference_sheet_prompt || i > 0) && it.followup_prompt ? it.followup_prompt : it.prompt);
     if (it.must_show) md.push(`> 꼭 보여야 할 것: ${it.must_show}`, '');
   });
 });

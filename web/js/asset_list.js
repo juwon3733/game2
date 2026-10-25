@@ -65,5 +65,13 @@ function requiredAssets() {
   }
   list.push({ kind: 'title', group: '타이틀', id: 'title_key', label: '타이틀 키아트', path: 'title/key.png', spec: SPEC.title,
     prompt: `${px2}\n\n${PROMPT_STYLE.character}\n\n${W.title_key.replace('{rei}', W.sprites.rei.replace(/^an? /, 'an ')).replace('{koharu}', W.sprites.koharu)}` });
+  for (const [id, u] of Object.entries(UI_PROMPTS)) {
+    list.push({ kind: 'ui', group: 'UI 스킨', id, label: id.replace('ui_', ''), path: `ui/${id}.png`, spec: { w: u.w, h: u.h, note: `${u.w}×${u.h}${u.slice ? ` · 9-slice 모서리 ${u.slice}px` : ''}` },
+      prompt: `${PROMPT_STYLE.pixel}\n\n${UI_STYLE}\n\n${u.p}` });
+  }
+  for (const [id, p] of Object.entries(CG_PROMPTS)) {
+    list.push({ kind: 'cg', group: '이벤트 CG', id, label: id.replace('cg_', ''), path: `cg/${id}.png`, spec: SPEC.cg,
+      prompt: `${PROMPT_STYLE.pixel}\n\n${PROMPT_STYLE.character}\n\n${PROMPT_STYLE.bgRes}\n\nEvent illustration (CG) for a key story moment, horizontal 1536x1024, full color, same faces as the character portraits. ${p.replace(/\{(\w+)\}/g, (m, k) => CG_CHARS[k] || m)}` });
+  }
   return list;
 }

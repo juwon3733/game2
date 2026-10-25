@@ -354,3 +354,26 @@ button { font-family: inherit; }
 .set-seg button.on { background: var(--ink); color: #fff; }
 .set-grid input[type=range] { width: 100%; accent-color: var(--ink); }
 .set-help { font-size: 17px; color: #666; }
+
+/* ---------- 이벤트 CG ---------- */
+#cg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; z-index: 16; opacity: 0; pointer-events: none; transition: opacity .6s; }
+#cg.on { opacity: 1; }
+
+/* ---------- UI 스킨 (assets/ui/ 이미지가 있을 때만, ui.js가 skin-* 클래스를 붙인다) ---------- */
+#stage.skin-textbox #textbox:not(.narr) { background: none; border: 24px solid transparent; border-image: var(--ui-textbox) 24 fill / 24px stretch; box-shadow: none; padding: 14px 16px 0; }
+#stage.skin-textbox_dark #textbox.narr { background: none; border: 24px solid transparent; border-image: var(--ui-textbox_dark) 24 fill / 24px stretch; box-shadow: none; padding: 14px 16px 0; }
+#stage.skin-textbox #tb-name { top: -46px; left: 0; }
+#stage.skin-name #tb-name { background: none !important; color: var(--ink); border: 12px solid transparent; border-image: var(--ui-name) 12 fill / 12px stretch; padding: 0 8px; }
+#stage.skin-name #tb-name::before { content: ''; display: inline-block; width: 12px; height: 12px; margin-right: 8px; background: var(--name-accent, var(--gold)); }
+#stage.skin-button :is(.act-btn, .ch-btn, .md-ok, .md-cancel, .hud-btn) { background: none; border: 12px solid transparent; border-image: var(--ui-button) 12 fill / 12px stretch; box-shadow: none; color: var(--ink); }
+#stage.skin-button_hot :is(.act-btn:hover:not(:disabled), .ch-btn:hover, .md-ok:hover, .md-cancel:hover, .hud-btn:hover, .hud-btn.on) { border-image: var(--ui-button_hot) 12 fill / 12px stretch; }
+#stage.skin-button_red .act-btn.objection { border-image: var(--ui-button_red) 12 fill / 12px stretch; color: #fff; }
+#stage.skin-panel .md-box { background: none; border: 36px solid transparent; border-image: var(--ui-panel) 36 fill / 36px stretch; box-shadow: none; padding: 0 6px; }
+#stage.skin-icons .hud-btn { position: relative; font-size: 0; width: 60px; height: 60px; padding: 0; }
+#stage.skin-icons .hud-btn::after { content: ''; position: absolute; inset: 4px; background: var(--ui-icons) no-repeat; background-size: 416px 52px; image-rendering: pixelated; }
+#stage.skin-icons #btn-note::after { background-position: 0 0; }
+#stage.skin-icons #btn-log::after { background-position: -52px 0; }
+#stage.skin-icons #btn-auto::after { background-position: -104px 0; }
+#stage.skin-icons #btn-skip::after { background-position: -156px 0; }
+#stage.skin-icons #btn-set::after { background-position: -208px 0; }
+#stage.skin-objection #banner.objection { background: var(--ui-objection) center / cover no-repeat, #000; image-rendering: pixelated; }

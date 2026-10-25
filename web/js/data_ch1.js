@@ -137,7 +137,7 @@ const WITNESSES = {
     close: [['ookubo', '에잇, 됐어! 나 바빠! 다음에 와!', 'flustered'], ['koharu', '(…처음부터 다시 들어 봐요, 선배.)', 'worried']],
   },
   taiga: {
-    char: 'taiga', bg: 'interrogate',
+    char: 'taiga', bg: 'interrogate', cg: 'cg_taiga_run',
     goal: '타이가가 숨기는 게 있다. 틀린 증언에 컷을 들이밀자. 말풍선이 빈 컷은 대사를 채워야 증거가 된다.',
     statements: [
       { text: '배달 갔어요. 초인종 눌렀고.', cut: 't_taiga_1',
@@ -167,7 +167,7 @@ const WITNESSES = {
     close: [['taiga', '…나가 주세요.', 'angry'], ['koharu', '(…처음부터 다시요, 선배.)', 'worried']],
   },
   himari: {
-    char: 'himari', bg: 'himari_door',
+    char: 'himari', bg: 'himari_door', cg: 'cg_rescue',
     goal: '히마리는 겁먹었다. 몰아붙이지 말고, 진실을 보여 줄 컷 하나를 골라 [보여주기]. 빈 말풍선을 채우는 걸 잊지 말자.',
     gentle: true,
     statements: [

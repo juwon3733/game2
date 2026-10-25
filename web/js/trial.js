@@ -5,6 +5,7 @@ function showLine(who, text, face) {
   if (face && onStage[who]) show(who, face, onStage[who].dataset.pos);
   $('#tb-name').textContent = CHARACTERS[who].name;
   $('#tb-name').style.background = CHARACTERS[who].accent;
+  $('#tb-name').style.setProperty('--name-accent', CHARACTERS[who].accent);
   $('#tb-text').textContent = text;
   $('#tb-next').classList.add('hidden');
   focusChar(who);
@@ -98,7 +99,9 @@ async function runTrial(id) {
       bgm('truth');
       sfx('page');
       renderTrial(W, st);
+      const shown = W.cg && (await cg(W.cg));
       await sayAll(W.success);
+      if (shown) cgEnd();
       for (const c of W.rewards) await gainCut(c);
       $('#trial').classList.add('hidden');
       goal('');

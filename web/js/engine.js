@@ -170,6 +170,7 @@ async function say(who, text, face) {
     if (face && onStage[who]) show(who, face, onStage[who].dataset.pos);
     $('#tb-name').textContent = CHARACTERS[who].name;
     $('#tb-name').style.background = CHARACTERS[who].accent;
+    $('#tb-name').style.setProperty('--name-accent', CHARACTERS[who].accent);
     focusChar(onStage[who] ? who : null);
   } else {
     $('#tb-name').textContent = '';
@@ -385,6 +386,18 @@ $('#btn-note').onclick = (e) => {
   G.lines.forEach((id) => lines.insertAdjacentHTML('beforeend', `<div class="line-btn static"><b>"${LINES[id].text}"</b><small>${LINES[id].from}</small></div>`));
   m.querySelector('.md-cancel').onclick = closeModal;
 };
+
+// ---------- 이벤트 CG ----------
+// 그림이 있으면 화면 가득 띄우고 true. 없으면 false라서 대본이 원래 연출(상반신)로 넘어간다.
+function cg(id) {
+  return new Promise((resolve) => {
+    const probe = new Image();
+    probe.onload = () => { const el = $('#cg'); el.src = probe.src; el.classList.add('on'); resolve(true); };
+    probe.onerror = () => resolve(false);
+    probe.src = ASSET.cg(id);
+  });
+}
+function cgEnd() { $('#cg').classList.remove('on'); }
 
 function hud(on) { $('#hud').classList.toggle('hidden', !on); }
 

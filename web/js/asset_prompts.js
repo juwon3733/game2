@@ -25,6 +25,7 @@ const SPEC = {
   map: { w: 1248, h: 624, note: '가로 1248×624 · 원본 416×208 도트를 정확히 3배 · 16px 칸 26×13' },
   sprite: { w: 192, h: 384, note: '192×384 · 64×96 칸 3열×4행 · 투명 배경' },
   title: { w: 1536, h: 1024, note: '가로 1536×1024 · 왼쪽 40%는 제목 자리로 비움' },
+  cg: { w: 1536, h: 1024, note: '가로 1536×1024 · 풀컬러 도트 이벤트 그림' },
 };
 
 // 캐릭터 설정화: 표정 상반신을 뽑기 전에 같은 대화창에서 먼저 뽑는다.
@@ -129,4 +130,37 @@ Character: {char}`,
     shiori: 'a pale 16-year-old girl ghost, long straight black hair with blunt bangs, old navy sailor school uniform with a white ribbon, barefoot, slightly translucent.',
   },
   title_key: `Key visual illustration for the title screen of a mystery visual novel, in fine detailed pixel art (native about 512x341, upscaled 3x with nearest-neighbor to 1536x1024, full color, about 64 colors, no anti-aliasing). Late-summer harbor town at night, seen from a sloped street with old apartment buildings, warm window lights and the sea with harbor lights in the distance. On the right half: {rei} standing in front, looking back over the shoulder at the viewer with a calm sleepy expression, and {koharu} slightly behind, smiling. Several translucent black-and-white manga panels float in the air around them like scattered memories, each showing a faint scene from the same night. The left 40% of the image is calm, darker night sky and street with no important details, reserved for the title text. No text, no letters, no logo.`,
+};
+
+// UI 스킨: 9-slice(모서리 고정, 가운데 늘어남)로 쓰는 틀 이미지와 아이콘. 한 대화에서 같은 스타일로 만든다.
+// 크기는 원본 도트의 정확히 3배. slice는 확대 후 픽셀 기준 모서리 두께.
+const UI_STYLE = 'Pixel art UI element for a mystery visual novel whose theme is manga pages: cream manga paper (#f7f3ea) with a bold black ink border (#1d1d22), small screentone dot patterns and a hint of gold (#f2c14e) accents. Crisp pixel art at native resolution, upscaled exactly 3x with nearest-neighbor, no anti-aliasing, no text, no letters. Flat front view, no perspective, no drop shadow outside the element, transparent background outside the element.';
+const UI_PROMPTS = {
+  ui_textbox: { w: 288, h: 144, slice: 24, p: 'A dialogue box frame, 288x144. 9-slice friendly: the four 24x24 corners have small ink flourishes, the edges between them are a uniform repeatable ink border, the center is plain cream paper with a very faint screentone so it can stretch.' },
+  ui_textbox_dark: { w: 288, h: 144, slice: 24, p: 'A narration box frame, 288x144, same shape as the dialogue box but dark: deep navy-black paper (#14141a) with a thin light-grey ink border. 9-slice friendly: 24x24 corners, uniform edges, plain center.' },
+  ui_name: { w: 144, h: 48, slice: 12, p: 'A small name plate tab, 144x48, like a manga caption box: cream paper with a black ink border and a small gold corner. 9-slice friendly: 12x12 corners, uniform edges, plain center.' },
+  ui_button: { w: 144, h: 48, slice: 12, p: 'A button, 144x48: cream paper with a 3-pixel black ink border and a slightly darker bottom edge so it looks pressable. 9-slice friendly: 12x12 corners, uniform edges, plain center.' },
+  ui_button_hot: { w: 144, h: 48, slice: 12, p: 'The same button in its hovered state, 144x48: gold (#f2c14e) paper with the same black ink border. 9-slice friendly.' },
+  ui_button_red: { w: 144, h: 48, slice: 12, p: 'A dramatic red action button, 144x48: red (#e0383e) with a black ink border and small white speed-line marks in the corners. 9-slice friendly: 12x12 corners, uniform edges, plain red center.' },
+  ui_panel: { w: 288, h: 288, slice: 36, p: 'A large panel frame for menus and the case notebook, 288x288: cream paper with a bold ink border, a paper-clip at the top-left corner and screentone in the corners. 9-slice friendly: 36x36 corners, uniform edges, plain center.' },
+  ui_icons: { w: 768, h: 96, slice: 0, p: 'A horizontal strip of 8 icons, each exactly 96x96 (32x32 native), evenly spaced with transparent background, black ink outline style with small gold accents, in this order from left to right: 1 a small notebook, 2 a scroll of dialogue lines (log), 3 a play triangle with a small "A" shape made only of pixels (auto), 4 a double fast-forward arrow (skip), 5 a gear (settings), 6 a magnifying glass, 7 a small blue ink bottle, 8 a cat-ear headphone.' },
+  ui_objection: { w: 1536, h: 512, slice: 0, p: 'A wide cut-in banner background, 1536x512, for the moment the hero rebuts a witness: explosive black and red manga speed lines radiating from the left, white screentone burst, torn paper edges at top and bottom. Leave the middle empty and calm for text that will be overlaid by the game. No characters, no text.' },
+};
+
+// 이벤트 CG: 중요한 순간을 한 장으로. 풀컬러 도트, 상반신과 같은 얼굴.
+const CG_PROMPTS = {
+  cg_shiori: 'At night on the narrow concrete balcony of an old apartment, beside a white emergency partition board, {shiori} stands still and points toward the neighbor\'s balcony, pale and faintly translucent, while {rei} in the foreground looks at her, startled. Cool moonlight, warm light from the neighbor\'s window.',
+  cg_taiga_run: 'Night street of a harbor town. {taiga} sprints across the road toward a brightly lit convenience store, a dead smartphone in his hand, teeth clenched, motion lines. Seen from behind at a low angle.',
+  cg_rescue: 'The true moment, seen from the side at night: on a 5th-floor balcony, {mitsuru} leans far out through the gap of the emergency partition and pulls {himari} back from the railing with one arm; she clutches a small music-note hairpin. His body tilts dangerously outward over the railing. Tense, but warm and protective.',
+  cg_page: 'In a quiet hospital corridor at dawn, {rei} holds up a finished manga page made of six panels that tell the true story of the night, looking at it with a calm, tired face, {koharu} peeking over the shoulder. Soft morning light from a window.',
+  cg_cafe: 'Inside a small cozy cafe on a hill at sunset, called Yohaku: {asagiri} behind the counter places a cup of sweet coffee in front of {rei}, and {koharu} beside them smiles brightly. Warm orange light, harbor and sea through the window.',
+};
+const CG_CHARS = {
+  rei: 'an androgynous young investigator with messy short black hair and a lavender hair clip, oversized grey hoodie under a long beige trench coat',
+  koharu: 'a cheerful young detective girl with an orange-brown side ponytail and sky-blue scrunchie, navy suit jacket and sky-blue ribbon tie',
+  taiga: 'a young delivery worker with spiky bleached blond hair under a backwards black cap, black uniform with reflective stripes',
+  himari: 'a 9-year-old girl with brown twin tails tied with pink ribbons, a t-shirt with a piano-key pattern and a denim overall skirt',
+  mitsuru: 'a gentle man in his early 30s with glasses and a light shirt',
+  asagiri: 'an elegant 61-year-old cafe owner with silver hair in a bun and round gold glasses, cream blouse and linen apron',
+  shiori: 'a 16-year-old girl ghost with long straight black hair and blunt bangs in an old navy sailor school uniform, barefoot',
 };
