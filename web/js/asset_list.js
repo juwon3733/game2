@@ -3,7 +3,9 @@
 
 const COLOR_NAME = { '#c9961a': 'gold', '#3b8fd0': 'blue', '#e0679a': 'pink', '#6b8a5a': 'olive green',
   '#e4572e': 'vermilion orange', '#3aa58a': 'teal green', '#a07ad8': 'lavender purple', '#3a78c9': 'cobalt blue', '#d9a21b': 'amber', '#b0306a': 'magenta',
-  '#38a3a5': 'teal', '#c4703a': 'burnt orange', '#7d4fd1': 'violet', '#8f9a4a': 'khaki green' };
+  '#38a3a5': 'teal', '#c4703a': 'burnt orange', '#7d4fd1': 'violet', '#8f9a4a': 'khaki green',
+  '#e85d75': 'rose red', '#d4883a': 'warm orange', '#5a8fbf': 'steel blue', '#7a9a3a': 'moss green', '#a03a3a': 'dark red',
+  '#f2a14a': 'bright orange', '#5a7a9a': 'slate blue', '#3a5aa0': 'navy blue', '#e07a9a': 'strawberry pink', '#6ac0d0': 'ice blue', '#8a5a3a': 'coffee brown' };
 
 function requiredAssets() {
   const list = [];
@@ -53,8 +55,8 @@ function requiredAssets() {
   // 증언 컷과 진실판. 진실판이 수집 컷을 재사용하면(truthCut) 새로 그리지 않는다
   const seen = new Set();
   for (const w of Object.values(WITNESSES)) {
-    const color = OWNERS[w.char].color;
     allStatements(w).forEach((s) => {
+      const color = OWNERS[s.char || w.char].color; // 교차 심문은 말하는 사람 색으로
       const ids = [s.cut];
       if (s.truthDesc && !s.truthCut) ids.push(s.cut + '_truth');
       ids.filter((id) => !seen.has(id) && !CUTS[id]).forEach((id) => { // 수집 컷을 그대로 증언에 쓰면 따로 그리지 않는다

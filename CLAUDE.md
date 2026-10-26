@@ -44,12 +44,16 @@
 - 배경: 풀컬러 도트, 늦여름 항구도시 밤 분위기 (7장 완료, 그대로 유지).
 - **2장 「앙코르 없음」 구현됨** (장면 13개, 중간 지목: 쿠라모치를 지목하면 연행됨). 그림은 전부 임시. GPT에 맡길 묶음: `portrait-ruru pin aoi kuramochi tendo kirishima`, `bg`(새 6장), `cut-pin cut-ruru cut-aoi cut-kuramochi cut-kirishima cut-tendo`, `map`(crescent backstage tendooffice). 맵 그림이 오면 `script_ch2.js`의 rows·물건 위치를 맞추고, 컷이 오면 `data_ch2.js`의 spots 좌표를 그림에 맞춘다.
 - **3장 「둘 중 하나」 구현됨** (장면 16개, 중간 지목: 유키를 지목하면 데려가지고 진짜 유키가 학원을 포기하겠다고 함). 새 규칙: 시각표(`time3`), 파기 칸(`page3c`), 돋보기(가짜 미래 컷 이음매 짚기), 변장 인물(`CHARACTERS.yukin.as='yuki'`). 그림 전부 임시. GPT 묶음: `portrait-yuki nagi madoka tofu ren`, `bg`(새 6장), `cut-twin cut-hasegawa cut-tofu cut-madoka`, `map`(tokiwa arcade). 미래 컷 F2·F3은 이음매(스크린톤 점 간격, 그림자 방향)가 그림에 꼭 보여야 함.
+- **4장 「지워 드립니다」 구현됨** (장면 14개, 중간 지목: 하야카를 지목하면 거짓 자백). 새 규칙: 잘린 증언(`dist:'삭제'`에 남의 컷 이식 + 동의 구하기), 교차 심문(`statement.char` + `W.char2`, 누가 거짓말인지 선택), 흐려지는 현장(`W.erode`: 오답 3번마다 컷 흐림), 두 페이지 퍼즐(`P.pageBreak`). GPT 묶음: `portrait-hayaka keiko okamoto murase nishimura`, `cut-hayaka cut-keiko cut-genzo cut-okamoto cut-murase`, `bg`, `map`(sakurayu siteoffice).
+- **5장 「편집자」 구현됨** (장면 13개, 중간 지목: 렌을 지목하면 렌 심문이 어려워짐 `inkPenalty`). 새 규칙: 원본 복원(`runRestore`, 편집 컷 `edited/original`), 실시간 편집 대결(`W.editor` + `answers[k].changes`). 마지막에 아사기리=편집장. 새 표정: asagiri_cold ren_sad kurogane_sad towa_serious. GPT 묶음: `portrait-tanabe` + 위 새 표정, `cut-koharu cut-tanabe cut-sota cut-kurogane cut-ren cut-asagiri`, `bg`, `map`(koharuroom). 편집 컷(5Ae 5Be 5Ce 5Ee 5De, t_ren_*)은 이음매가 그림에 보여야 함.
+- 장마다 단어 조각은 새로 시작한다: 결론 네임에 쓰는 단어는 그 장 안에서 다 얻을 수 있어야 한다(자동 플레이로 확인).
+- 남은 장: 종장 「같은 하루」 (두 줄 타임라인, 자기 심문, 엔딩 3개).
 - 1장 이미지 들어감. **다시 받을 컷**: `H I B t_himari_2_truth t_ookubo_2 t_taiga_3_truth t_taiga_2` (높이·머리핀·밤·단서 크기, t_taiga_2는 폭발이 아니라 "큰 소리"로. 프롬프트 고침). 남은 것: `ui cg`, 타이틀 원본 화질. GPT가 풀컬러로 주면 Claude가 384×256 → 회색 8 + 포인트 1 디더링 → 1536×1024로 변환해 넣는다.
 - 그림은 GPT 이미지를 적극적으로 쓴다. 코드로 직접 그린 그림·CSS 장식은 "AI 슬롭" 티가 나서 사용자가 싫어한다. 코드 그림은 이미지가 없을 때의 임시용.
 - 탐색 맵(`maps/`), 걷는 캐릭터 시트(`sprites/`), 타이틀 키아트(`title/key.png`)도 GPT 이미지. 맵 그림이 들어오면 Claude가 그림을 보고 `explore.js`의 충돌 칸(`rows`)과 물건 위치를 맞춘다.
 - 상반신은 `style_version` 3: 원본 256×384 도트 4배, 배경 없이 양옆·위 여백. 지금 있는 16장(128×192)은 교체 대상.
 - 연출 효과는 `js/fx.js` (저해상도 캔버스 + 디더, 계단식 애니메이션): 디더 장면 전환, 배경별 분위기(먼지·무대 조명·연기·반짝이·유령), 반박 컷인, 충격(반전 프레임·집중선·의성어), 증언 컷 찢기, 잔상 파문, 심장 박동, 글리치, 가장자리부터 지우기, 화면 당기기, 표정 반응, 장 제목 카드(`FX.title`), 회상(`FX.memory`), 형광등 깜빡임, 증언 붕괴, 탐색 말풍선·발밑 먼지, CG 레터박스. 대사: `[[단어]]` 강조, `(전화)` 전화 목소리, `(…)` 속마음, 문장부호에서 쉼. 설정에 [화면 효과: 줄이기].
-- 소리는 Claude가 직접 작곡한다(PC-98식 FM 음원). 곡 11개(1장 title office explore trial tension truth epilogue, 2장 live encore tendo, 3장 madoka), 효과음 19개. 장면별 곡은 `script_chN.js`의 `CHN_BGM`, 증인별 곡은 `WITNESSES[id].bgm`.
+- 소리는 Claude가 직접 작곡한다(PC-98식 FM 음원). 곡 13개(1장 title office explore trial tension truth epilogue, 2장 live encore tendo, 3장 madoka, 4장 fire, 5장 editor), 효과음 19개. 장면별 곡은 `script_chN.js`의 `CHN_BGM`, 증인별 곡은 `WITNESSES[id].bgm`.
 - 심문 `answers[k].with`: 겹쳐 보기(같은 순간의 다른 시점 컷을 하나 더 내야 깨짐). 2장 텐도 반박 3(2T+2K). 
 - 추리 난이도는 고르는 게 아니라 **게임 기본이 어렵게** (사용자 요청). `audio.js`의 `RULES`: 컷 설명 없이 그림으로 풀기, 퍼즐 오답은 어느 칸 사이인지만, 힌트 2·코하루 1, 결론은 가장 정확한 컷만. 컷 단서는 그림에 크게 들어가야 한다.
 - 여성 캐릭터 비중을 높인다(사용자 요청). 장별 여성 인물은 `docs/12_story_plan.md` §0-1.
@@ -61,4 +65,4 @@
 npx serve web          # 또는 python3 -m http.server -d web 8124
 ```
 
-주소 뒤에 `#ookubo`처럼 장면 id를 붙이면 그 장면부터 시작한다 (1장 `office explore1 puzzle1 ookubo taiga explore2 himari puzzle2 conclusion epilogue`, 2장 `office2 explore2a puzzle2a kuramochi explore2b pin ruru accuse2 explore2c tendo puzzle2b conclusion2 epilogue2`, 3장 `office3 explore3a puzzle3a tofu madoka1 accuse3 academy3 puzzle3b yukin hospital3 nagi explore3b madoka puzzle3c conclusion3 epilogue3`). 타이틀 화면의 장면 선택도 같다.
+주소 뒤에 `#ookubo`처럼 장면 id를 붙이면 그 장면부터 시작한다 (1장 `office explore1 puzzle1 ookubo taiga explore2 himari puzzle2 conclusion epilogue`, 2장 `office2 explore2a puzzle2a kuramochi explore2b pin ruru accuse2 explore2c tendo puzzle2b conclusion2 epilogue2`, 3장 `office3 … epilogue3`, 4장 `office4 explore4a puzzle4a okamoto hayaka1 accuse4 hayaka explore4b cross4 hospital4 keiko puzzle4b conclusion4 epilogue4`, 5장 `office5 explore5a route5 restore5 tanabe puzzle5a accuse5 warehouse5 ren kurogane5 puzzle5b conclusion5 epilogue5`). 타이틀 화면의 장면 선택도 같다.

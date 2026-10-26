@@ -86,7 +86,7 @@ Expression: big cheerful grin, eyes closed with joy.
 Expression: worried, eyebrows raised, hand near chest.
 ```
 
-## 대화 3 — 쿠로가네 상반신 (1장)
+## 대화 3 — 쿠로가네 상반신 (2장)
 
 먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
 
@@ -112,7 +112,14 @@ Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1
 Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: tired, lollipop in mouth.
 ```
 
-## 대화 4 — 토와 상반신 (1장)
+**`kurogane_sad.png`
+```
+같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
+
+Expression: sad and tired, no lollipop, holding an old stopped wristwatch.
+```
+
+## 대화 4 — 토와 상반신 (2장)
 
 먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
 
@@ -138,7 +145,14 @@ Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1
 Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: smug chibi inside a monitor frame.
 ```
 
-## 대화 5 — 아사기리 상반신 (1장)
+**`towa_serious.png`
+```
+같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
+
+Expression: serious chibi inside a monitor frame, headphone LEDs red instead of green.
+```
+
+## 대화 5 — 아사기리 상반신 (2장)
 
 먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
 
@@ -162,6 +176,13 @@ Character reference sheet of an elegant, gentle 61-year-old cafe owner woman. Be
 Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
 
 Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: warm gentle smile, holding a coffee cup.
+```
+
+**`asagiri_cold.png`
+```
+같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
+
+Expression: calm but cold, the gentle smile gone, eyes looking down at the viewer, holding a coffee cup.
 ```
 
 ## 대화 6 — 오오쿠보 상반신 (2장)
@@ -741,7 +762,7 @@ Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transpa
 Expression: surprised, glasses slipping down her nose.
 ```
 
-## 대화 22 — 시오리 상반신 (2장)
+## 대화 22 — 시오리 상반신 (3장)
 
 먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
 
@@ -774,7 +795,226 @@ Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transpa
 Expression: cold, looking down at the viewer.
 ```
 
-## 대화 23 — 배경 (19장)
+**`ren_sad.png`
+```
+같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
+
+Expression: sad, looking away, one white-gloved hand on her eyepatch.
+```
+
+## 대화 23 — 하야카 상반신 (3장)
+
+먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
+
+**`설정화 (저장 안 해도 됨)`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
+
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+
+Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
+
+Character reference sheet of a fragile, pretty 17-year-old high school girl. Long dark brown hair in a low side braid, big tired rose-brown eyes with faint dark circles, navy sailor-style school uniform with a rose-red scarf, a small bathhouse-shaped keychain on her bag, a plain white wristband from a clinic. Rose red and navy accents.
+```
+
+**`hayaka_normal.png`
+```
+방금 설정화 캐릭터 그대로, 같은 도트 스타일과 같은 팔레트로 그려줘. 모바일 가챠게임 캐릭터처럼 예쁘고 매력적으로.
+
+Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
+
+Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: blank and tired, hugging her school bag.
+```
+
+**`hayaka_crying.png`
+```
+같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
+
+Expression: crying silently, gripping her wristband.
+```
+
+**`hayaka_smile.png`
+```
+같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
+
+Expression: small fragile smile.
+```
+
+## 대화 24 — 케이코 상반신 (3장)
+
+먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
+
+**`설정화 (저장 안 해도 됨)`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
+
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+
+Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
+
+Character reference sheet of a worn but kind 44-year-old working mother. Brown hair tied back with a simple orange hair tie, gentle tired eyes, a grey work jacket over a plain shirt, both hands wrapped in white bandages, a small scar of a burn on her neck. Warm orange and grey accents.
+```
+
+**`keiko_normal.png`
+```
+방금 설정화 캐릭터 그대로, 같은 도트 스타일과 같은 팔레트로 그려줘. 모바일 가챠게임 캐릭터처럼 예쁘고 매력적으로.
+
+Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
+
+Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: tired, holding her bandaged hands together.
+```
+
+**`keiko_crying.png`
+```
+같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
+
+Expression: crying, head bowed.
+```
+
+**`keiko_resolute.png`
+```
+같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
+
+Expression: resolute, looking straight ahead, bandaged hands clenched.
+```
+
+## 대화 25 — 오카모토 상반신 (2장)
+
+먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
+
+**`설정화 (저장 안 해도 됨)`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
+
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+
+Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
+
+Character reference sheet of a fierce, energetic 68-year-old grandmother who leads a neighborhood protest. Short permed grey hair, sharp eyes behind thick glasses, a moss-green cardigan, a white headband with protest writing (no readable letters), a megaphone at her side. Moss green accents.
+```
+
+**`okamoto_angry.png`
+```
+방금 설정화 캐릭터 그대로, 같은 도트 스타일과 같은 팔레트로 그려줘. 모바일 가챠게임 캐릭터처럼 예쁘고 매력적으로.
+
+Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
+
+Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: angry, pointing, mouth open shouting.
+```
+
+**`okamoto_normal.png`
+```
+같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
+
+Expression: calmer, adjusting her glasses.
+```
+
+## 대화 26 — 무라세 상반신 (3장)
+
+먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
+
+**`설정화 (저장 안 해도 됨)`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
+
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+
+Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
+
+Character reference sheet of a polite but cold 50-year-old construction site manager. Neat short black hair with grey at the temples, thin smiling eyes that never smile, grey work jacket with a company patch (abstract logo), a yellow safety helmet under his arm, a clipboard. Dark red accent on his tie.
+```
+
+**`murase_smile.png`
+```
+방금 설정화 캐릭터 그대로, 같은 도트 스타일과 같은 팔레트로 그려줘. 모바일 가챠게임 캐릭터처럼 예쁘고 매력적으로.
+
+Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
+
+Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: polite thin smile, bowing slightly.
+```
+
+**`murase_normal.png`
+```
+같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
+
+Expression: businesslike, checking his clipboard.
+```
+
+**`murase_cornered.png`
+```
+같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
+
+Expression: cornered, cold sweat, smile gone.
+```
+
+## 대화 27 — 니시무라 상반신 (1장)
+
+먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
+
+**`설정화 (저장 안 해도 됨)`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
+
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+
+Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
+
+Character reference sheet of an intimidating 55-year-old company executive man. Slicked-back black hair, narrow cold eyes, a perfectly tailored black suit, a silver lighter in his fingers, expressionless face. Dark grey and silver palette.
+```
+
+**`nishimura_normal.png`
+```
+방금 설정화 캐릭터 그대로, 같은 도트 스타일과 같은 팔레트로 그려줘. 모바일 가챠게임 캐릭터처럼 예쁘고 매력적으로.
+
+Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
+
+Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: expressionless, flicking a silver lighter.
+```
+
+## 대화 28 — 타나베 상반신 (2장)
+
+먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
+
+**`설정화 (저장 안 해도 됨)`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
+
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+
+Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
+
+Character reference sheet of a kind, slightly confused 40-year-old security guard man. Short black hair, round face, a navy guard uniform with a cap and a whistle, a slightly puzzled expression. Slate blue accents.
+```
+
+**`tanabe_normal.png`
+```
+방금 설정화 캐릭터 그대로, 같은 도트 스타일과 같은 팔레트로 그려줘. 모바일 가챠게임 캐릭터처럼 예쁘고 매력적으로.
+
+Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
+
+Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: polite, hand on his cap.
+```
+
+**`tanabe_confused.png`
+```
+같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
+
+Expression: confused, holding his head as if it aches.
+```
+
+## 대화 29 — 배경 (31장)
 
 배경끼리 그림체를 맞추려고 한 대화에서 이어 만든다.
 
@@ -915,7 +1155,91 @@ An art prep school studio in the morning: rows of easels, plaster busts, charcoa
 The exit of a covered shopping arcade at night opening onto a quiet street, a single streetlamp, the arcade roof ending against a dark sky. Keep the lower third simple because characters will stand in front.
 ```
 
-## 대화 24 — 컷 · 타이가 시점 + 증언 (금색) (7장)
+**`sakurayu.png`
+```
+같은 도트 스타일, 같은 픽셀 크기와 팔레트로 다음 배경을 그려줘. 사람 없이, 가로 1536x1024.
+
+A burned old Japanese public bathhouse (sento) at dusk in an empty redevelopment lot: charred wooden entrance with a half-burned noren curtain, a tall chimney still standing, police tape, a fence at the back. Keep the lower third simple because characters will stand in front.
+```
+
+**`sakurayu_boiler.png`
+```
+같은 도트 스타일, 같은 픽셀 크기와 팔레트로 다음 배경을 그려줘. 사람 없이, 가로 1536x1024.
+
+The burned boiler room of an old bathhouse: a scorched boiler, a blackened electrical panel on the wall, soot everywhere, a small window. Keep the lower third simple because characters will stand in front.
+```
+
+**`okamoto_house.png`
+```
+같은 도트 스타일, 같은 픽셀 크기와 팔레트로 다음 배경을 그려줘. 사람 없이, 가로 1536x1024.
+
+The second floor of an old grandmother's house: tatami room, a window looking down at a burned bathhouse across the street, protest banners rolled in the corner, a small table clock. Keep the lower third simple because characters will stand in front.
+```
+
+**`site_office.png`
+```
+같은 도트 스타일, 같은 픽셀 크기와 팔레트로 다음 배경을 그려줘. 사람 없이, 가로 1536x1024.
+
+A container-style construction site office: desks with blueprints, a whiteboard schedule, a key cabinet on the wall, yellow helmets on hooks, a window showing a burned chimney. Keep the lower third simple because characters will stand in front.
+```
+
+**`clinic.png`
+```
+같은 도트 스타일, 같은 픽셀 크기와 팔레트로 다음 배경을 그려줘. 사람 없이, 가로 1536x1024.
+
+An unnaturally clean white counseling room: white walls, a white sofa, a small white table, a framed logo of an empty speech bubble, soft shadowless light. Keep the lower third simple because characters will stand in front.
+```
+
+**`station_chief.png`
+```
+같은 도트 스타일, 같은 픽셀 크기와 팔레트로 다음 배경을 그려줘. 사람 없이, 가로 1536x1024.
+
+A police station chief's office: a heavy desk, a flag, a leather sofa, blinds with morning light, an oppressive atmosphere. Keep the lower third simple because characters will stand in front.
+```
+
+**`koharu_room.png`
+```
+같은 도트 스타일, 같은 픽셀 크기와 팔레트로 다음 배경을 그려줘. 사람 없이, 가로 1536x1024.
+
+A small one-room apartment overlooking the harbor in the morning: a desk with open drawers, a neatly made bed, a laptop left on, a framed photo on the wall, cute stickers everywhere. Keep the lower third simple because characters will stand in front.
+```
+
+**`library.png`
+```
+같은 도트 스타일, 같은 픽셀 크기와 팔레트로 다음 배경을 그려줘. 사람 없이, 가로 1536x1024.
+
+A quiet city library newspaper archive room: long tables, microfilm readers, bound newspapers on shelves, a wall clock, morning light. Keep the lower third simple because characters will stand in front.
+```
+
+**`busstop.png`
+```
+같은 도트 스타일, 같은 픽셀 크기와 팔레트로 다음 배경을 그려줘. 사람 없이, 가로 1536x1024.
+
+A bus stop in front of a huge glass corporate headquarters building at noon, a security guard booth at the gate, a bench. Keep the lower third simple because characters will stand in front.
+```
+
+**`warehouse.png`
+```
+같은 도트 스타일, 같은 픽셀 크기와 팔레트로 다음 배경을 그려줘. 사람 없이, 가로 1536x1024.
+
+An abandoned harbor warehouse at dusk: rusty half-open shutter, cranes and the sea behind, seagulls. Keep the lower third simple because characters will stand in front.
+```
+
+**`warehouse_in.png`
+```
+같은 도트 스타일, 같은 픽셀 크기와 팔레트로 다음 배경을 그려줘. 사람 없이, 가로 1536x1024.
+
+Inside an abandoned harbor warehouse: dusty floor, a single hanging lamp over an old table with two teacups, stacked crates, light leaking through holes in the roof. Keep the lower third simple because characters will stand in front.
+```
+
+**`cafe_night.png`
+```
+같은 도트 스타일, 같은 픽셀 크기와 팔레트로 다음 배경을 그려줘. 사람 없이, 가로 1536x1024.
+
+A small cozy retro cafe at night after closing: wooden counter, siphon coffee makers, only one warm lamp on, chairs up on some tables. Keep the lower third simple because characters will stand in front.
+```
+
+## 대화 30 — 컷 · 타이가 시점 + 증언 (금색) (7장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -988,7 +1312,7 @@ Scene: At night on a dim stairwell: a young delivery worker with spiky bleached 
 
 > 꼭 보여야 할 것: (진실) 꺼진 휴대폰의 큰 빈 배터리 아이콘
 
-## 대화 25 — 컷 · 미츠루 시점 (파랑) (2장)
+## 대화 31 — 컷 · 미츠루 시점 (파랑) (2장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -1016,7 +1340,7 @@ Scene: a gentle man in his early 30s with glasses and a light shirt leaning thro
 
 > 꼭 보여야 할 것: 칸막이, 뻗은 팔, 난간 위 작은 발, 바깥 턱의 반짝임, 위쪽 가운데 빈 공간
 
-## 대화 26 — 컷 · 히마리 시점 (분홍) (6장)
+## 대화 32 — 컷 · 히마리 시점 (분홍) (6장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -1080,7 +1404,7 @@ Scene: a 9-year-old girl with brown twin tails tied with ribbons, a small music-
 
 > 꼭 보여야 할 것: (진실) 머리핀을 쥔 손
 
-## 대화 27 — 컷 · 히마리 크레용 기억 (예외: 크레용 색) (3장)
+## 대화 33 — 컷 · 히마리 크레용 기억 (예외: 크레용 색) (3장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -1117,7 +1441,7 @@ Scene: Child's crayon drawing of a blanket colored completely black, a tiny fist
 
 > 꼭 보여야 할 것: 크레용, 새까만 이불
 
-## 대화 28 — 컷 · 오오쿠보 증언 (올리브) (5장)
+## 대화 34 — 컷 · 오오쿠보 증언 (올리브) (5장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -1172,7 +1496,7 @@ Scene: A dull impact on a flowerbed in front of an apartment building at night, 
 
 > 꼭 보여야 할 것: 화단의 충격
 
-## 대화 29 — 탐색 맵 (6장)
+## 대화 35 — 탐색 맵 (9장)
 
 칸 배치를 최대한 지킨다. 조금 어긋나도 Claude가 충돌 칸을 그림에 맞춘다.
 
@@ -1281,7 +1605,55 @@ Layout by tile rows, top to bottom:
 Full color, limited palette of about 48 colors, clean dark outlines, soft dithered shadows, no anti-aliasing.
 ```
 
-## 대화 30 — 걷는 캐릭터 (탐색용) (3장)
+**`sakurayu.png`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
+
+Top-down 3/4 view pixel art game map, like a high-quality modern Japanese RPG made in RPG Maker but with richer detail. Native resolution exactly 416x208 pixels on a 16-pixel tile grid (26 tiles wide, 13 tiles tall), upscaled exactly 3x with nearest-neighbor to 1248x624. A burned old Japanese public bathhouse at dusk, soot, police tape. No characters, no text.
+
+Layout by tile rows, top to bottom:
+- Columns 1-15, rows 1-5: the burned bathhouse interior (charred wooden floor). Row 1 is the back wall with a flyer at column 3. A front counter at columns 4-5 of row 3. An empty bath tub at columns 10-12, rows 3-4.
+- Column 16: a wall with a doorway at row 4.
+- Columns 17-24, rows 1-5: the boiler room (concrete): an electrical panel on the wall at column 21 of row 2, a big boiler at columns 18-19 of row 4.
+- Row 6: the building's outer wall with the bathhouse entrance at column 8 and the boiler room back door at column 20.
+- Rows 7-8: a back street. Row 9: a wooden fence with a gap at columns 15-18. Rows 10-11, columns 15-18: a path to the house across the street; everything else in rows 10-11 is dark.
+Full color, limited palette of about 48 colors, clean dark outlines, soft dithered shadows, no anti-aliasing.
+```
+
+**`siteoffice.png`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
+
+Top-down 3/4 view pixel art game map, like a high-quality modern Japanese RPG made in RPG Maker but with richer detail. Native resolution exactly 416x208 pixels on a 16-pixel tile grid (26 tiles wide, 13 tiles tall), upscaled exactly 3x with nearest-neighbor to 1248x624. A construction site container office in the morning. No characters, no text.
+
+Layout by tile rows, top to bottom:
+- Row 1: the back wall with a key cabinet at column 3, a helmet rack at columns 6-7, a whiteboard schedule at columns 17-19, a window at columns 22-23.
+- Rows 2-9: office floor (linoleum). The site manager's desk at columns 11-13 of row 3. A few other desks and filing cabinets along the walls.
+- Row 10: the front wall with the door at column 11. Row 11: gravel yard outside.
+Full color, limited palette of about 48 colors, clean dark outlines, soft dithered shadows, no anti-aliasing.
+```
+
+**`koharuroom.png`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
+
+Top-down 3/4 view pixel art game map, like a high-quality modern Japanese RPG made in RPG Maker but with richer detail. Native resolution exactly 416x208 pixels on a 16-pixel tile grid (26 tiles wide, 13 tiles tall), upscaled exactly 3x with nearest-neighbor to 1248x624. A small one-room apartment in the morning, cute stickers, a harbor view window. No characters, no text.
+
+Layout by tile rows, top to bottom:
+- Columns 1-6 and 20-24 in every row: dark, not accessible.
+- Row 1, columns 7-19: the back wall with a framed photo at column 12.
+- Rows 2-9, columns 7-19: the room (wooden floor). A desk with open drawers at columns 8-9 of row 2. A laptop on a low table at column 16 of row 3. A neatly made bed at columns 16-17, rows 7-8. A sticker notebook on the floor at column 9, row 6.
+- Row 10: the front wall with the door at column 12. Row 11, columns 7-19: the outdoor corridor.
+Full color, limited palette of about 48 colors, clean dark outlines, soft dithered shadows, no anti-aliasing.
+```
+
+## 대화 36 — 걷는 캐릭터 (탐색용) (3장)
 
 한 대화에서 레이 → 코하루 → 시오리 순서로 만든다. 칸 크기와 발 높이를 셋이 똑같이 맞춘다. 상반신 이미지를 기준으로 첨부하면 좋다.
 
@@ -1312,7 +1684,7 @@ Character: a cheerful 20-year-old rookie detective girl, orange-brown side ponyt
 Character: a pale 16-year-old girl ghost, long straight black hair with blunt bangs, old navy sailor school uniform with a white ribbon, barefoot, slightly translucent.
 ```
 
-## 대화 31 — UI 스킨 (9장)
+## 대화 37 — UI 스킨 (9장)
 
 한 대화에서 차례로 만들어 스타일을 맞춘다. 크기는 정확히 지키고, 9-slice 틀은 모서리 밖 가장자리가 똑같이 반복되게.
 
@@ -1383,7 +1755,7 @@ A horizontal strip of 8 icons, each exactly 96x96 (32x32 native), evenly spaced 
 A wide cut-in banner background, 1536x512, for the moment the hero rebuts a witness: explosive black and red manga speed lines radiating from the left, white screentone burst, torn paper edges at top and bottom. Leave the middle empty and calm for text that will be overlaid by the game. No characters, no text.
 ```
 
-## 대화 32 — 이벤트 CG (5장)
+## 대화 38 — 이벤트 CG (5장)
 
 상반신 이미지를 기준으로 첨부해 같은 얼굴로 그린다. 배경 7장과 같은 도트 스타일.
 
@@ -1442,7 +1814,7 @@ Character design in the style of modern Japanese anime mobile gacha games (subcu
 Event illustration (CG) for a key story moment, horizontal 1536x1024, full color, same faces as the character portraits. Inside a small cozy cafe on a hill at sunset, called Yohaku: an elegant 61-year-old cafe owner with silver hair in a bun and round gold glasses, cream blouse and linen apron behind the counter places a cup of sweet coffee in front of an androgynous young investigator with messy short black hair and a lavender hair clip, oversized grey hoodie under a long beige trench coat, and a cheerful young detective girl with an orange-brown side ponytail and sky-blue scrunchie, navy suit jacket and sky-blue ribbon tie beside them smiles brightly. Warm orange light, harbor and sea through the window.
 ```
 
-## 대화 33 — 타이틀 키아트 (1장)
+## 대화 39 — 타이틀 키아트 (1장)
 
 상반신 이미지를 기준으로 첨부해 같은 얼굴로 그린다.
 
@@ -1457,7 +1829,7 @@ Character design in the style of modern Japanese anime mobile gacha games (subcu
 Key visual illustration for the title screen of a mystery visual novel. Late-summer harbor town at night, seen from a sloped street with old apartment buildings, warm window lights and the sea with harbor lights in the distance. On the right half: an androgynous 22-year-old investigator, messy short black hair with one ahoge and a small lavender hair clip, sleepy violet-grey eyes, oversized grey hoodie under a long beige trench coat. standing in front, looking back over the shoulder at the viewer with a calm sleepy expression, and a cheerful 20-year-old rookie detective girl, orange-brown side ponytail with a sky-blue scrunchie, navy suit jacket over a white shirt with a sky-blue ribbon tie, navy pants, white sneakers. slightly behind, smiling. Several translucent black-and-white manga panels float in the air around them like scattered memories, each showing a faint scene from the same night. The left 40% of the image is calm, darker night sky and street with no important details, reserved for the title text. No text, no letters, no logo.
 ```
 
-## 대화 34 — 컷 · 핀 시점 (5장)
+## 대화 40 — 컷 · 핀 시점 (5장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -1512,7 +1884,7 @@ Scene: A sparkling memory: a 19-year-old girl vocalist with long platinum-white 
 
 > 꼭 보여야 할 것: 미화: 벽까지 덮은 반짝이
 
-## 대화 35 — 컷 · 루루 시점 (8장)
+## 대화 41 — 컷 · 루루 시점 (8장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -1594,7 +1966,7 @@ Scene: a man in a plain black suit with neat short black hair bursting out of th
 
 > 꼭 보여야 할 것: (진실) 손을 뻗는 키리시마의 다급한 얼굴
 
-## 대화 36 — 컷 · 아오이 시점 (2장)
+## 대화 42 — 컷 · 아오이 시점 (2장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -1622,7 +1994,7 @@ Scene: The moment of the fall, seen from the drum riser: no light pattern anymor
 
 > 꼭 보여야 할 것: 무늬 없음, 밀려 넘어지는 루루, 정장의 등, 떨어지는 리그
 
-## 대화 37 — 컷 · 쿠라모치 시점 (6장)
+## 대화 43 — 컷 · 쿠라모치 시점 (6장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -1686,7 +2058,7 @@ Scene: From the lighting booth through the glass: the stage below is visible, bu
 
 > 꼭 보여야 할 것: 생략: 캣워크 자리가 통째로 하얀 여백
 
-## 대화 38 — 컷 · 키리시마 시점 (5장)
+## 대화 44 — 컷 · 키리시마 시점 (5장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -1741,7 +2113,7 @@ Scene: First-person view bursting out of the stage wing onto the stage: grid pat
 
 > 꼭 보여야 할 것: 격자 무늬, 점프하는 루루, 기우는 리그, 뻗은 손, 위쪽 빈 공간
 
-## 대화 39 — 컷 · 텐도 시점 (5장)
+## 대화 45 — 컷 · 텐도 시점 (5장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -1796,7 +2168,7 @@ Scene: Seen from the top of a steel staircase: the lighting rig in front; the ra
 
 > 꼭 보여야 할 것: 생략: 리그 옆 난간 자리 하얀 여백
 
-## 대화 40 — 컷 · 스즈네 시점 (12장)
+## 대화 46 — 컷 · 스즈네 시점 (12장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -1914,7 +2286,7 @@ Scene: An empty steep wooden staircase in a pastry shop at night, the second flo
 
 > 꼭 보여야 할 것: 아무도 없는 계단
 
-## 대화 41 — 컷 · 하세가와 시점 (2장)
+## 대화 47 — 컷 · 하세가와 시점 (2장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -1942,7 +2314,7 @@ Scene: Blurry first-person view from the floor at the foot of a staircase: a 19-
 
 > 꼭 보여야 할 것: 흐릿한 시야, 휴대폰을 쥔 점원, 벽시계 9:20, 반창고(포인트 색)
 
-## 대화 42 — 컷 · 두부집 할머니 시점 (4장)
+## 대화 48 — 컷 · 두부집 할머니 시점 (4장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -1988,7 +2360,7 @@ Scene: A girl with the ribbon on her RIGHT side waves cheerfully from a pastry s
 
 > 꼭 보여야 할 것: 오른쪽 리본 점원이 손을 흔듦
 
-## 대화 43 — 컷 · 마도카 시점 (4장)
+## 대화 49 — 컷 · 마도카 시점 (4장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2033,3 +2405,554 @@ Scene: Inside a tarot booth: tarot cards on a purple cloth, a customer's hands a
 ```
 
 > 꼭 보여야 할 것: 부스의 타로 카드와 손님의 손
+
+## 대화 50 — 컷 · 하야카 시점 (7장)
+
+같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
+
+**`4A.png`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.
+
+Palette: 8 grey levels from black to white, and one accent color rose red (#e85d75). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
+
+Scene: Inside an old bathhouse at night, the front counter: an old man in a bathhouse happi coat shouts angrily across the counter, purchase documents on the counter (accent color). A wall clock clearly shows 9:00.
+
+Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+```
+
+> 꼭 보여야 할 것: 소리치는 할아버지, 매입 서류(포인트 색), 벽시계 9:00
+
+**`4E.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + rose red (#e85d75) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: At night from a dark alley corner: a tired woman in a grey work jacket with her hair tied back stands at a fence holding a flashlight (accent color), looking around nervously like a lookout. A clock tower shows 10:50.
+```
+
+> 꼭 보여야 할 것: 울타리 앞 손전등(포인트 색)을 든 엄마, 시계탑 10:50
+
+**`4K.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + rose red (#e85d75) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: An unnaturally white counseling room: across a white table, a white-gloved hand slides a document toward the viewer; on the wall, a logo of an empty speech bubble (accent color). A wall clock shows 9:00.
+```
+
+> 꼭 보여야 할 것: 하얀 방, 흰 장갑, 빈 말풍선 로고(포인트 색), 벽시계 9:00
+
+**`t_hayaka_1.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + rose red (#e85d75) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: Back view of a schoolgirl leaving an old bathhouse at night, the door closing behind her.
+```
+
+> 꼭 보여야 할 것: 목욕탕을 나서는 뒷모습
+
+**`t_hayaka_2.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + rose red (#e85d75) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: A manga panel that has been neatly cut out with scissors: the whole inside is empty white, with faint white glove fingerprints on the edge.
+```
+
+> 꼭 보여야 할 것: 삭제: 오려 낸 빈 칸, 가장자리의 흰 장갑 자국
+
+**`t_hayaka_3.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + rose red (#e85d75) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: A manga panel neatly cut out: empty white inside, with a tiny yellow stain of flashlight glow left in one corner.
+```
+
+> 꼭 보여야 할 것: 삭제: 오려 낸 빈 칸, 귀퉁이의 손전등 빛 자국
+
+**`t_hayaka_4.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + rose red (#e85d75) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: An unnaturally white room with an empty speech bubble logo; a girl's hand signs a document.
+```
+
+> 꼭 보여야 할 것: 하얀 방, 서명하는 손
+
+## 대화 51 — 컷 · 케이코 시점 (6장)
+
+같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
+
+**`4B.png`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.
+
+Palette: 8 grey levels from black to white, and one accent color warm orange (#d4883a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
+
+Scene: At night behind a bathhouse fence: first-person view of the viewer's own hands receiving a flashlight (accent color) from a gloved hand with an abstract company logo on the glove. Far away, festival lanterns; a clock tower shows 10:30.
+
+Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+```
+
+> 꼭 보여야 할 것: 건네받는 손전등(포인트 색), 장갑의 로고, 시계탑 10:30, 축제 등불
+
+**`4F.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + warm orange (#d4883a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: At night by a fence: smoke and sparks burst out of a small boiler room window of a bathhouse (accent color on the sparks). A clock tower shows 11:00.
+```
+
+> 꼭 보여야 할 것: 보일러실 창의 불꽃(포인트 색), 시계탑 11:00
+
+**`4G.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + warm orange (#d4883a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: First-person view pushing through a bathhouse changing-room curtain into thick smoke, the viewer's bandage-free hands reaching forward; deep inside, a coughing sound effect shape (accent color).
+```
+
+> 꼭 보여야 할 것: 연기 속으로 젖히는 포렴, 기침 소리 모양(포인트 색)
+
+**`4M.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + warm orange (#d4883a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: A hospital room at dawn: bandaged hands hold an old man's hand on the bed (accent color on the bandages). The window is getting light; a clock shows 6:00.
+```
+
+> 꼭 보여야 할 것: 붕대 감은 손(포인트 색), 새벽 창, 시계 6:00
+
+**`t_keiko_1.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + warm orange (#d4883a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: A tidy kitchen at night, a woman sitting alone at the table; everything is unnaturally clean.
+```
+
+> 꼭 보여야 할 것: 부엌에 혼자 앉은 여자
+
+**`t_keiko_2.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + warm orange (#d4883a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: A panel completely blurred as if covered by thick smoke; shapes cannot be recognized.
+```
+
+> 꼭 보여야 할 것: 흐림: 연기처럼 흐린 컷
+
+## 대화 52 — 컷 · 무라세 시점 (4장)
+
+같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
+
+**`4C.png`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.
+
+Palette: 8 grey levels from black to white, and one accent color dark red (#a03a3a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
+
+Scene: First-person view at night: a hand unlocking the back door of a boiler room with a key (accent color), a tool bag on the ground. A wristwatch clearly shows 10:40.
+
+Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+```
+
+> 꼭 보여야 할 것: 열쇠(포인트 색), 공구 가방, 손목시계 10:40
+
+**`4J.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + dark red (#a03a3a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: Inside a construction site office at night: through the window, a bathhouse burning; a man's hand holds a phone to his ear. On the wall calendar, a red circle (accent color) around the end of the month. A digital clock shows 23:20.
+```
+
+> 꼭 보여야 할 것: 창밖 불길, 귀에 댄 휴대폰, 달력의 동그라미(포인트 색), 23:20
+
+**`t_cross_2.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + dark red (#a03a3a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: A construction site office at night; the chair in front of the desk is a blank white hole as if erased.
+```
+
+> 꼭 보여야 할 것: 생략: 의자 자리 하얀 여백
+
+**`t_cross_4.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + dark red (#a03a3a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: A sooty electrical panel with suspiciously neat wiring.
+```
+
+> 꼭 보여야 할 것: 그을린 배전반
+
+## 대화 53 — 컷 · 오카모토 시점 (8장)
+
+같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
+
+**`4D.png`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.
+
+Palette: 8 grey levels from black to white, and one accent color moss green (#7a9a3a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
+
+Scene: Looking down from a second-floor window at night: two men in yellow safety helmets with an abstract company logo enter the back gate of a bathhouse (accent color on the helmets). In the corner of the alley, a small figure of a schoolgirl. On the window sill, a table clock shows 10:45.
+
+Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+```
+
+> 꼭 보여야 할 것: 헬멧 둘(포인트 색), 골목 모퉁이 교복 차림, 탁상시계 10:45
+
+**`4I.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + moss green (#7a9a3a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: Night in front of a burning bathhouse: a woman carries an old man on her back out of the flames; red fire truck lights. In the foreground, a hand holds a phone showing a call and 23:15 (accent color).
+```
+
+> 꼭 보여야 할 것: 노인을 업고 나오는 여자, 소방차 불빛, 휴대폰 23:15(포인트 색)
+
+**`4L.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + moss green (#7a9a3a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: Early evening in a community hall: elderly people under a protest banner (no readable letters), the front seat empty (accent color on the empty chair). A wall clock shows 7:00.
+```
+
+> 꼭 보여야 할 것: 반대 모임, 비어 있는 맨 앞자리(포인트 색), 7:00
+
+**`t_okamoto_1.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + moss green (#7a9a3a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: An exaggerated, frightened memory: two gigantic shadowy figures as tall as houses smash through a bathhouse back gate at night.
+```
+
+> 꼭 보여야 할 것: 과장: 집채만 한 그림자 둘
+
+**`t_okamoto_2.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + moss green (#7a9a3a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: Back view of a schoolgirl running down a night alley, with flames drawn behind her.
+```
+
+> 꼭 보여야 할 것: 골목을 달리는 교복, 뒤로 불길
+
+**`t_okamoto_3.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + moss green (#7a9a3a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: A hand holding a phone to an ear; the window behind is red with firelight.
+```
+
+> 꼭 보여야 할 것: 휴대폰, 붉은 창
+
+**`t_cross_1.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + moss green (#7a9a3a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: Looking down from a window at night: two men in safety helmets enter a back gate.
+```
+
+> 꼭 보여야 할 것: 창에서 본 헬멧 둘
+
+**`t_cross_3.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + moss green (#7a9a3a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: Sparks bursting from a small boiler room window at night.
+```
+
+> 꼭 보여야 할 것: 보일러실 창의 불꽃
+
+## 대화 54 — 컷 · 겐조 시점 (1장)
+
+같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
+
+**`4H.png`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.
+
+Palette: 8 grey levels from black to white, and one accent color steel blue (#5a8fbf). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
+
+Scene: Blurry first-person view through smoke, being carried on someone's back: a sooty nape and an orange hair tie (accent color) right in front; above, a burning ceiling beam.
+
+Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+```
+
+> 꼭 보여야 할 것: 흐린 시야, 업어 준 사람의 그을린 목덜미와 머리끈(포인트 색), 불타는 들보
+
+## 대화 55 — 컷 · 코하루 시점 (8장)
+
+같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
+
+**`5Ae.png`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.
+
+Palette: 8 grey levels from black to white, and one accent color bright orange (#f2a14a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
+
+Scene: A small apartment that looks ransacked: a broken door, an overturned desk, papers everywhere. IMPORTANT: it is an edited picture: the door's shadow falls the opposite way from every other shadow, and the edge of the pasted door area shows a faint seam line (accent color on the scattered papers).
+
+Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+```
+
+> 꼭 보여야 할 것: 편집: 어질러진 방, 문 그림자만 반대 방향, 이음매
+
+**`5A.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + bright orange (#f2a14a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: Before dawn in a tidy small apartment: a hand writes a memo at a neat desk; next to it, a scorched police badge (accent color). A clock shows 4:10.
+```
+
+> 꼭 보여야 할 것: 정돈된 책상, 메모 쓰는 손, 그을린 경찰 배지(포인트 색), 4:10
+
+**`5Be.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + bright orange (#f2a14a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: A library newspaper room: a 20-year-old rookie detective girl with an orange-brown side ponytail and a sky-blue scrunchie reads an old newspaper while two men in black stand right behind her. IMPORTANT: edited picture: the two men are pasted in, their screentone dots are clearly larger than the rest, with a visible seam around them.
+```
+
+> 꼭 보여야 할 것: 편집: 뒤의 검은 옷 남자 둘만 스크린톤이 굵음, 이음매
+
+**`5B.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + bright orange (#f2a14a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: A library newspaper room, wall clock 9:00: close view of an old newspaper about a lighthouse library fire with a photo of a young police officer (accent color on the photo), held by a 20-year-old rookie detective girl with an orange-brown side ponytail and a sky-blue scrunchie's hands.
+```
+
+> 꼭 보여야 할 것: 오래된 신문의 순경 사진(포인트 색), 벽시계 9:00
+
+**`5Ce.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + bright orange (#f2a14a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: A bus stop in front of a glass headquarters: several white-gloved hands drag a 20-year-old rookie detective girl with an orange-brown side ponytail and a sky-blue scrunchie into a white van. IMPORTANT: edited picture: the gloved hands have unnaturally smooth clean lines unlike the rest, with a visible seam where they were pasted.
+```
+
+> 꼭 보여야 할 것: 편집: 매끈한 흰 장갑 손들, 이음매
+
+**`5C.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + bright orange (#f2a14a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: Noon at a bus stop in front of a glass headquarters: a 20-year-old rookie detective girl with an orange-brown side ponytail and a sky-blue scrunchie smiles while typing on her phone; the screen shows a short sent message (accent color).
+```
+
+> 꼭 보여야 할 것: 웃으며 문자 보내는 코하루, 휴대폰 화면(포인트 색)
+
+**`5De.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + bright orange (#f2a14a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: Inside an abandoned warehouse: a 20-year-old rookie detective girl with an orange-brown side ponytail and a sky-blue scrunchie tied to a chair. IMPORTANT: edited picture: there is only one ceiling lamp, but shadows fall in two different directions.
+```
+
+> 꼭 보여야 할 것: 편집: 그림자가 두 방향
+
+**`5D.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + bright orange (#f2a14a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: Dusk at the harbor: first-person view walking alone toward an abandoned warehouse; at the door, a woman with long silver-white hair, an eyepatch and a long white coat waits (accent color on her coat). The sky is orange; 6:00.
+```
+
+> 꼭 보여야 할 것: 혼자 걸어가는 시점, 문 앞의 흰 코트(포인트 색)
+
+## 대화 56 — 컷 · 타나베 시점 (3장)
+
+같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
+
+**`5Ee.png`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.
+
+Palette: 8 grey levels from black to white, and one accent color slate blue (#5a7a9a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
+
+Scene: View from a guard booth window: a woman with long silver-white hair, an eyepatch and a long white coat drags a girl by the arm. IMPORTANT: edited picture: the white-coated figure has no shadow at all while everything else does.
+
+Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+```
+
+> 꼭 보여야 할 것: 편집: 흰 코트만 그림자가 없음
+
+**`5E.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + slate blue (#5a7a9a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: View from a guard booth window at noon: a 20-year-old rookie detective girl with an orange-brown side ponytail and a sky-blue scrunchie stands alone and asks for directions, pointing toward the harbor (accent color). The guard's wristwatch shows 12:10.
+```
+
+> 꼭 보여야 할 것: 혼자 길을 묻는 아가씨(포인트 색), 손목시계 12:10
+
+**`t_tanabe_2.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + slate blue (#5a7a9a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: A girl crying on a bus stop bench; her face area is unnaturally smooth like a different drawing pasted in.
+```
+
+> 꼭 보여야 할 것: 편집: 매끈하게 붙인 우는 얼굴
+
+## 대화 57 — 컷 · 렌 시점 (6장)
+
+같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
+
+**`5F.png`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.
+
+Palette: 8 grey levels from black to white, and one accent color ice blue (#6ac0d0). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
+
+Scene: Inside an abandoned warehouse: an old table with two teacups; across the table, a 20-year-old rookie detective girl with an orange-brown side ponytail and a sky-blue scrunchie holds out a scorched police badge with both hands, asking earnestly (accent color on the teacups).
+
+Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+```
+
+> 꼭 보여야 할 것: 찻잔 둘(포인트 색), 배지를 내미는 코하루
+
+**`6Y6.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + ice blue (#6ac0d0) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: Outside a burning lighthouse library on a lawn at night: first-person view with one hand covering one eye; flames swallow the upper floor windows (accent color on the flames).
+```
+
+> 꼭 보여야 할 것: 한쪽 눈을 가린 손, 위층을 삼키는 불길(포인트 색)
+
+**`t_ren_1.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + ice blue (#6ac0d0) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: a woman with long silver-white hair, an eyepatch and a long white coat pulls a 20-year-old rookie detective girl with an orange-brown side ponytail and a sky-blue scrunchie by the wrist into a warehouse. The area around the wrist has noticeably thicker lines than the rest (a pasted seam).
+```
+
+> 꼭 보여야 할 것: 편집: 손목 둘레만 굵은 선
+
+**`t_ren_2.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + ice blue (#6ac0d0) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: A child sick in bed with fever; a wall calendar where the date square has a different paper texture, as if a different date was pasted over it.
+```
+
+> 꼭 보여야 할 것: 편집: 달력 날짜 칸만 질감이 다름
+
+**`t_ren_1b.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + ice blue (#6ac0d0) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: a 20-year-old rookie detective girl with an orange-brown side ponytail and a sky-blue scrunchie behind iron bars inside a warehouse; the bars stand upright but their shadows on the floor are skewed in a wrong direction.
+```
+
+> 꼭 보여야 할 것: 편집: 창살 그림자가 어긋남
+
+**`t_ren_2b.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + ice blue (#6ac0d0) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: A child running away alone between burning bookshelves, back view.
+```
+
+> 꼭 보여야 할 것: 편집: 불타는 서가 사이로 달아나는 아이
+
+## 대화 58 — 컷 · 소타 시점 (4장)
+
+같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
+
+**`6Y1.png`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.
+
+Palette: 8 grey levels from black to white, and one accent color navy blue (#3a5aa0). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
+
+Scene: Six years ago at night: first-person view from a bicycle on a cape road, looking up at a lighthouse-shaped library with smoke pouring from a window. A wristwatch shows 8:20 (accent color).
+
+Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+```
+
+> 꼭 보여야 할 것: 6년 전, 등대 도서관의 연기, 손목시계 8:20(포인트 색)
+
+**`6Y2.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + navy blue (#3a5aa0) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: First-person view kicking open a library door into smoke between tall bookshelves (accent color on the door). 8:25 on a wall clock.
+```
+
+> 꼭 보여야 할 것: 연기 속 서가, 문(포인트 색)
+
+**`6Y3.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + navy blue (#3a5aa0) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: First-person view in smoke at the foot of library stairs: hands lift a 16-year-old with messy short black hair and an ink stain on the right index finger who is coughing; the ink stain on the child's right index finger is clearly visible (accent color).
+```
+
+> 꼭 보여야 할 것: 아이를 안아 올림, 오른손 검지 잉크 얼룩(포인트 색)
+
+**`6Y5.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + navy blue (#3a5aa0) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: First-person view turning back into the smoke and fire of a library; from the floor above, a speech shape of a girl's voice (accent color).
+```
+
+> 꼭 보여야 할 것: 다시 연기 속으로, 위층의 목소리(포인트 색)
+
+## 대화 59 — 컷 · 쿠로가네 시점 (1장)
+
+같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
+
+**`6Y4.png`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.
+
+Palette: 8 grey levels from black to white, and one accent color strawberry pink (#e07a9a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
+
+Scene: At a library entrance at night: first-person view receiving a child from a young police officer in uniform's arms; on the viewer's wrist, a watch stopped at 8:31 (accent color).
+
+Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+```
+
+> 꼭 보여야 할 것: 아이를 받아 안음, 8:31에 멈춘 손목시계(포인트 색)
+
+## 대화 60 — 컷 · 아사기리 시점 (1장)
+
+같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
+
+**`t_asagiri_1.png`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.
+
+Palette: 8 grey levels from black to white, and one accent color coffee brown (#8a5a3a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
+
+Scene: Close view over a cafe counter: a woman's hand offers a cup of sweet coffee with steam; on the ring finger, a faint pale mark where a ring used to be (accent color).
+
+Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+```
+
+> 꼭 보여야 할 것: 커피잔, 약지의 희미한 반지 자국(포인트 색)

@@ -46,7 +46,14 @@ function runPuzzle(id) {
           <button class="act-btn objection" data-a="check">${done ? '다음 ▶' : '이 순서로 확정'}</button>
         </div>`;
       const paper = root.querySelector('.pz-paper');
+      // 두 페이지 퍼즐: 구분선 줄은 얇게, 나머지 줄은 같은 높이로
+      if (P.pageBreak) {
+        const r1 = Math.ceil(P.pageBreak / cols), r2 = Math.ceil((n - P.pageBreak) / cols);
+        paper.style.gridTemplateRows = `repeat(${r1}, 1fr) 26px repeat(${r2}, 1fr)`;
+      }
       st.slots.forEach((cids, i) => {
+        // 두 페이지 퍼즐: 페이지가 넘어가는 자리에 구분선
+        if (P.pageBreak && i === P.pageBreak) paper.insertAdjacentHTML('beforeend', `<div class="pz-pagebreak" style="grid-column: 1 / -1">— 2쪽 —</div>`);
         const s = document.createElement('div');
         s.className = 'pz-slot' + (cids.length ? ' filled' : '') + (i === D ? ' discard' : cap(i) > 1 ? ' sim' : '');
         if (st.bad) {
@@ -253,7 +260,7 @@ function runPuzzle(id) {
           const t = st.slots[i].flatMap((a1) => st.slots[i + 1].map((b1) => conflictTag(a1, b1))).find(Boolean);
           if (t) { pairs.push(i); msgs.push(`${i + 1}번 → ${i + 2}번은 「${TAG_NAME[t]}」이(가) 거꾸로야.`); }
         }
-        if (decoys.length) msgs.unshift(`${decoys[0] + 1}번 컷은 이 페이지 범위 밖이야. 목표 문장을 다시 읽어 봐.`);
+        if (decoys.length) msgs.unshift(`${decoys[0] + 1}` + (P.decoyMsg || '번 컷은 이 페이지 범위 밖이야. 목표 문장을 다시 읽어 봐.'));
         if (D >= 0 && !sameSet(st.slots[D], group(D))) { decoys.push(D); msgs.unshift('파기 칸이 이상해. 진짜 컷을 버렸거나, 가짜가 원고에 남았어.'); }
         if (badBubble) msgs.push(`「${CUTS[badBubble].title}」 말풍선 대사가 이상해.`);
         if (!msgs.length) {

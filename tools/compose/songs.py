@@ -347,5 +347,39 @@ def madoka():
     return tr
 
 
+# ---------- 4·5장 ----------
+
+def fire():
+    """4장: 불탄 목욕탕. 느리고 무거운 단조, 낮은 현과 종소리"""
+    tr = Track(66, 16)
+    prog = ['Fm', 'Fm', 'Db', 'C7', 'Fm', 'Ab', 'Bbm7', 'C7sus4 C7',
+            'Db', 'Eb', 'Cm7', 'Fm', 'Bbm7', 'Eb', 'Dbmaj7', 'C7']
+    tr.bus('str', 0, 0.45, 0.6); tr.bus('bell', 0.3, 0.32, 0.6); tr.bus('bass', 0, 0.6, 0.2); tr.bus('ep', -0.3, 0.38, 0.45)
+    tr.bus('dr', 0, 0.3, 0.3)
+    block(tr, 'str', strings, prog, [(0, 3.95)], octave=3, vel=0.5, top=3)
+    basses(tr, 'bass', bass, prog, [(0, 3.8, 0)], vel=0.6)
+    arp(tr, 'ep', epiano, prog, [0, 2, 1, 2], step=1, octave=4, vel=0.35)
+    for b in range(0, 16, 2):
+        tr.drum('dr', 'timp', b * 4, 0.45)
+    melody(tr, 'bell', bell, 0, ['c^:3 bb:1', 'ab:2 g:2', 'f:3 ab:1', 'g:4', 'c^:2 eb^:2', 'db^:2 c^:2', 'bb:3 c^:1', 'c^:4'], octave=5, vel=0.45)
+    melody(tr, 'str', strings, 8, ['f^:2 eb^:2', 'g^:2 f^ eb^', 'eb^:2 c^:2', 'f^:4', 'db^:2 f^:2', 'g^:2 bb^:2', 'ab^:2 f^:2', 'e^:4'], octave=5, vel=0.55)
+    return tr
+
+
+def editor():
+    """5장: 편집국. 차갑고 반복적인 아르페지오와 낮은 펄스"""
+    tr = Track(120, 16)
+    prog = ['Am', 'Am', 'F', 'G', 'Am', 'Am', 'Dm', 'E7', 'F', 'G', 'Em', 'Am', 'Dm', 'Bm7b5', 'Esus4', 'E7']
+    tr.bus('arp', -0.35, 0.36, 0.35); tr.bus('arp2', 0.35, 0.26, 0.45); tr.bus('pad', 0, 0.22, 0.6); tr.bus('bass', 0, 0.6, 0.1)
+    tr.bus('dr', 0, 0.38, 0.15); tr.bus('bell', 0.15, 0.36, 0.55)
+    arp(tr, 'arp', pulse, prog, [0, 2, 4, 2], step=0.25, octave=4, vel=0.42, dur=0.18)
+    arp(tr, 'arp2', glock, prog, [4, 2, 0, 2], step=0.5, octave=5, vel=0.3)
+    block(tr, 'pad', pad, prog, [(0, 3.95)], octave=3, vel=0.4, top=3)
+    basses(tr, 'bass', pluck_bass, prog, [(x / 2, 0.4, 0) for x in range(8)], vel=0.6)
+    drums(tr, 'dr', {'kick': [0, 2], 'tick': [(x / 2, 0.3 + 0.2 * (x % 2 == 0)) for x in range(8)], 'rim': [(3, 0.4)]}, 16)
+    melody(tr, 'bell', bell, 8, ['e^:2 c^:2', 'd^:2 b:2', 'g^:2 e^:2', 'a^:4', 'f^:2 d^:2', 'd^:2 f^:2', 'e^:2 b:2', 'g#:4'], octave=5, vel=0.45)
+    return tr
+
+
 SONGS = {'title': title, 'office': office, 'explore': explore, 'trial': trial, 'tension': tension, 'truth': truth,
-         'epilogue': epilogue, 'live': live, 'encore': encore, 'tendo': tendo, 'madoka': madoka}
+         'epilogue': epilogue, 'live': live, 'encore': encore, 'tendo': tendo, 'madoka': madoka, 'fire': fire, 'editor': editor}

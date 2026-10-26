@@ -6,7 +6,12 @@
 //    answers[k] = { statement, cut | spot, line, requires: [k...], shout, rebut, success,
 //                   changes: { 증언번호: 새 증언 }, peel: [증언번호], gives, words, items, rewards, choice }
 //    with: 겹쳐 보기. 첫 컷이 맞으면 같은 순간을 다른 자리에서 본 컷·물증을 하나 더 내야 한다 (id 또는 배열)
-//    hold = { statement, lines }  모든 반박이 끝난 뒤 "지금은 못 깨는 증언"으로 남긴다(나중에 다른 심문에서 연다)
+//    hold = { statement, lines }
+//  4·5장:
+//    statement.char  교차 심문: 이 증언을 말하는 사람 (W.char2가 오른쪽에 함께 선다)
+//    W.erode         흐려지는 현장: 틀린 반박 3번마다 수첩의 컷 1장이 흐려진다(심문이 끝나면 토와가 복구, 원고 평가 −)
+//    W.inkPenalty    이 플래그가 켜져 있으면 증인의 마음 −1 로 시작
+//    W.editor        실시간 편집: 반박이 통해 증언이 바뀔 때 편집 연출  모든 반박이 끝난 뒤 "지금은 못 깨는 증언"으로 남긴다(나중에 다른 심문에서 연다)
 
 function showLine(who, text, face) {
   $('#textbox').classList.remove('hidden', 'narr');
@@ -29,12 +34,12 @@ function roundOf(R) {
 }
 
 function renderTrial(W, st) {
-  const ink = Array.from({ length: diff().ink }, (_, k) => `<span class="ink-b${k < st.ink ? '' : ' empty'}"></span>`).join('');
+  const ink = Array.from({ length: st.maxInk }, (_, k) => `<span class="ink-b${k < st.ink ? '' : ' empty'}"></span>`).join('');
   const s = st.stmts[st.idx];
   const peeled = st.peeled.has(st.idx);
   const panel = $('#tr-panel');
   const held = st.held === st.idx;
-  panel.innerHTML = `<div class="tr-label">증언 ${st.idx + 1} / ${st.stmts.length} · ${CHARACTERS[W.char].name}의 기억${held ? ' <span class="tr-hold">보류</span>' : ''}</div>`;
+  panel.innerHTML = `<div class="tr-label">증언 ${st.idx + 1} / ${st.stmts.length} · ${CHARACTERS[s.char || W.char].name}의 기억${held ? ' <span class="tr-hold">보류</span>' : ''}</div>`;
   const v = cutView(peeled ? s.truthCut || s.cut + '_truth' : s.cut);
   if (peeled) v.classList.add('peeled');
   panel.appendChild(v);
@@ -48,6 +53,7 @@ async function runTrial(id) {
   bg(W.bg);
   clearChars();
   show(W.char, W.face || CHARACTERS[W.char].faces[0], 'left');
+  if (W.char2) show(W.char2, CHARACTERS[W.char2].faces[0], 'right');
   $('#trial').classList.remove('hidden');
   // 심문 중엔 증인 시점 색 하나만 강조색으로, 자동·빨리 넘기기는 숨긴다
   $('#stage').style.setProperty('--accent', OWNERS[W.char] ? OWNERS[W.char].color : CHARACTERS[W.char].accent);
@@ -78,6 +84,12 @@ async function runTrial(id) {
   }
   FX.mood(null);
   if (!W.gentle) await FX.breakdown(W.char);
+  // 흐려진 컷은 토와가 복구한다 (대신 원고 평가가 떨어진다)
+  if (G.blurred && G.blurred.length) {
+    G.stats.help += G.blurred.length;
+    await say('towa', `흐려진 컷 ${G.blurred.length}장, 복구해 뒀어. …다음엔 그렇게 많이 틀리지 마. 현장이 지워지고 있어.`);
+    G.blurred = [];
+  }
   for (const c of W.rewards || []) await gainCut(c);
   if (W.outro) await sayAll(W.outro);
   $('#trial').classList.add('hidden');
@@ -116,16 +128,17 @@ function pickSpot(cutId, spots, title) {
 
 async function trialRound(wid, R) {
   const W = R;
-  const st = { ink: diff().ink, idx: 0, hint: -1, R, stmts: R.statements.slice(), peeled: new Set(), done: new Set(), held: -1 };
+  const maxInk = Math.max(1, diff().ink - (W.inkPenalty && G.flags[W.inkPenalty] ? 1 : 0));
+  const st = { ink: maxInk, maxInk, idx: 0, hint: -1, R, stmts: R.statements.slice(), peeled: new Set(), done: new Set(), held: -1, wrongs: 0 };
   const ready = (k) => !st.done.has(k) && (R.answers[k].requires || []).every((r) => st.done.has(r));
-  const reset = () => { st.ink = diff().ink; st.idx = 0; st.hint = -1; };
+  const reset = () => { st.ink = maxInk; st.idx = 0; st.hint = -1; };
 
   while (st.done.size < R.answers.length) {
     renderTrial(W, st);
     const s = st.stmts[st.idx];
     // 미화된 기억은 반짝이가 흩날린다 (벗겨지면 멈춘다)
     FX.mood(s.dist === '미화' && !st.peeled.has(st.idx) ? 'glitter' : null);
-    showLine(W.char, s.text, s.face);
+    showLine(s.char || W.char, s.text, s.face);
     $('#actions').classList.add('trial');
     const act = await actions([
       { id: 'prev', label: '◀ 이전', cls: 'small', disabled: st.idx === 0 },
@@ -238,6 +251,12 @@ async function trialRound(wid, R) {
       (a.words || []).forEach(gainWord);
       for (const it of a.items || []) await gainItem(it);
       for (const c of a.rewards || []) await gainCut(c);
+      if (a.changes && W.editor) {
+        // 증인이 눈앞에서 증언 컷을 고쳐 그린다
+        FX.glitch(600); FX.stamp('편집!'); sfx('ghost');
+        await sleep(G.skip ? 50 : 700);
+        await sayAll(a.editLines || []);
+      }
       Object.entries(a.changes || {}).forEach(([i, ns]) => { st.stmts[i] = ns; st.peeled.delete(Number(i)); });
       if (st.done.size < R.answers.length) { bgm(W.bgm || 'trial'); show(W.char, W.face || CHARACTERS[W.char].faces[0], 'left'); }
       continue;
@@ -245,6 +264,17 @@ async function trialRound(wid, R) {
 
     st.ink--;
     G.stats.wrong++;
+    // 흐려지는 현장: 틀린 반박 3번마다 컷 하나가 흐려진다
+    if (W.erode && ++st.wrongs % 3 === 0) {
+      G.blurred = G.blurred || [];
+      const left = G.cuts.filter((c) => !G.blurred.includes(c));
+      if (left.length) {
+        const c = left[Math.floor(Math.random() * left.length)];
+        G.blurred.push(c);
+        FX.glitch(400);
+        toast(`현장이 지워지고 있다 — 「${cutInfo(c).title}」이(가) 흐려졌다`);
+      }
+    }
     sfx('wrong'); quake(); flash('rgba(190,30,40,.45)');
     if (st.ink === 1) FX.pulse();
     renderTrial(W, st);
@@ -277,5 +307,27 @@ async function trialRound(wid, R) {
     FX.stamp('보류', 'hold');
     await sayAll(R.hold.lines);
     G.flags['hold_' + wid] = true;
+  }
+}
+
+// 원본 복원: 편집된 컷의 이음매를 짚어 덧칠한 층을 긁어내면 원본 컷이 나온다.
+// CUTS[id] = { edited: true, original: '원본 id', spots: [{ id, label, x, y, w, h, restore: true }, …] }
+async function runRestore(ids, title = '원본 복원') {
+  for (const id of ids) {
+    const c = CUTS[id];
+    if (!c || G.cuts.includes(c.original)) continue;
+    for (;;) {
+      const sid = await pickSpot(id, c.spots, `${title} — 「${c.title}」의 이음매를 짚어 긁어내자`);
+      const spot = c.spots.find((p) => p.id === sid);
+      if (spot && spot.restore) {
+        FX.glitch(300); sfx('page');
+        await gainCut(c.original);
+        break;
+      }
+      if (!sid) { toast('이음매를 찾아야 원본이 나온다.'); continue; }
+      G.stats.wrong++;
+      sfx('wrong');
+      toast('거기엔 이음매가 없다.');
+    }
   }
 }

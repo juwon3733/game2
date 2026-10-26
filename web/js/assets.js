@@ -141,6 +141,7 @@ function cutView(id, opts = {}) {
   const el = document.createElement('div');
   el.className = 'cutv' + (info.dist ? ' dist-' + info.dist : '');
   el.dataset.cut = id;
+  if (typeof G !== 'undefined' && (G.blurred || []).includes(id)) el.classList.add('eroded'); // 흐려지는 현장
   el.style.setProperty('--owner', info.color);
   el.innerHTML = `<div class="cutv-head"><span>${info.owner} 시점</span><span>「${info.title}」</span></div><div class="cutv-body"></div>`;
   const body = el.querySelector('.cutv-body');
