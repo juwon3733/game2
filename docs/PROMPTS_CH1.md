@@ -632,7 +632,7 @@ Character design in the style of modern Japanese anime mobile gacha games (subcu
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
-Character reference sheet of a stern, handsome 34-year-old band manager man. Neat short black hair, narrow tired teal eyes, always in a plain black suit and dark tie, a radio transceiver clipped to the belt, a small worn notebook in the breast pocket. Teal green accents.
+Character reference sheet of a stern, handsome 34-year-old band manager man. Neat short black hair, narrow tired teal eyes, always in a plain black suit and dark tie, a radio transceiver clipped to the belt, a small worn notebook in the breast pocket. Bare wrists, no wristwatch. Teal green accents.
 ```
 
 **`kirishima_normal.png`

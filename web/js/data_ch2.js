@@ -100,7 +100,7 @@ Object.assign(CUTS, {
   '2K': { owner: 'pin', title: '대기실',
           desc: '대기실. 우는 루루를 안은 핀. 거울 앞에 화장 도구. 벽 모니터에 헤이즈 낀 무대와 캣워크, 그 위에 사람 그림자 하나, 그림자 손목에 금빛 반짝임.',
           tags: { time: 'haze' },
-          spots: [{ id: 'glint', label: '그림자의 손목', x: 0.74, y: 0.18, w: 0.08, h: 0.1, word: 'th_watch' }, { id: 'monitor', label: '벽 모니터 속 캣워크', x: 0.6, y: 0.05, w: 0.35, h: 0.35, word: 't_haze' },
+          spots: [{ id: 'glint', label: '그림자의 손목', x: 0.78, y: 0.12, w: 0.12, h: 0.16, word: 'th_watch' }, { id: 'monitor', label: '벽 모니터 속 캣워크', x: 0.63, y: 0.02, w: 0.26, h: 0.29, word: 't_haze' },
             { id: 'mirror', label: '거울', x: 0.05, y: 0.1, w: 0.3, h: 0.4 }, { id: 'ruru', label: '우는 루루', x: 0.3, y: 0.45, w: 0.25, h: 0.45 },
             { id: 'sleeve', label: '핀의 소매', x: 0.5, y: 0.5, w: 0.2, h: 0.35 }, { id: 'makeup', label: '화장 도구', x: 0, y: 0.6, w: 0.25, h: 0.25 }] },
   '2P': { owner: 'ruru', title: '오디션 안내지',
@@ -130,7 +130,7 @@ Object.assign(LINES, {
 Object.assign(ITEMS, {
   cuesheet:  { title: '조명 큐 시트', desc: '벽에 붙은 셋리스트 겸 큐 시트. 「1 크럼 ★ / MC 흰빛 / 2 파도의 말 물결 / 앙코르 격자」. 앙코르 줄에 빨간 펜으로 두 줄, 옆에 「앙코르 없음 — 사장 지시」.' },
   scouts:    { title: '스카우트 명함 2장', desc: '접수대의 초대 명단에 끼워진 다른 레코드사 명함 2장. 초대한 사람: 키리시마.' },
-  checklist: { title: '점검표 원본', desc: '리그 칸에 큰 동그라미. 「클램프 헐거움 · 안전 와이어 없음」. 쿠라모치가 콘솔 서랍에 숨겨 둔 원본.' },
+  checklist: { title: '점검표 원본', desc: '리그 칸에 큰 동그라미. 「클램프 헐거움 · 안전 와이어 없음 · 고정 없이 쓰면 저음 진동에 밀림(1시간 이내 위험)」. 쿠라모치가 콘솔 서랍에 숨겨 둔 원본.' },
   notebook:  { title: '키리시마의 수첩', desc: '셋리스트 끝에 「앙코르 — 루루 솔로 (스카우트 2명 초대함)」. 다른 쪽에 「할 말: 반 걸음 뒤에 서.」' },
   strap:     { title: '휴지통의 래칫 끈', desc: '텐도 사장실 휴지통에서 나온 주황색 래칫 끈. 버클에 캣워크 난간과 같은 회색 페인트 가루. 손잡이에 「키리시마」 네임펜.' },
   estimate:  { title: '렌탈 견적서', desc: '추가 조명 리그 렌탈. 「안전 와이어 옵션 삭제 −18만 엔」. 승인 서명: 텐도.' },
@@ -198,24 +198,25 @@ Object.assign(WITNESSES, {
         success: [
           ['', '쿠라모치가 장갑 낀 손으로 점검표를 덮는다.'],
           ['kuramochi', '헐거웠어요. 클램프 하나가. 안전 와이어도 없었고.', 'scared'],
+          ['kuramochi', '그대로 두면 베이스랑 킥 진동에 조금씩 밀려요. 한 시간쯤이면 빠진다고 점검표에 적었어요.', 'scared'],
           ['kuramochi', '키리시마 씨가 점검표를 들고 사장님한테 갔어요. 돌아와서는… 사장님이 「한 번만 버텨」라고 했대요.', 'scared'],
           ['kuramochi', '그리고 사장님이 저한테 점검표를 다시 쓰라고 했어요. 원본은… 콘솔 서랍에 있어요. 버리지 못했어요.', 'scared'],
         ],
         peel: [0], gives: 'L4', items: ['checklist'], words: ['th_checklist', 't_rehearsal', 'p_kuramochi'],
-        changes: { 1: { text: '알고는 있었어요. 그래도 공연 중엔 정말 갑자기였어요.', cut: 't_kuramochi_2',
+        changes: { 1: { text: '헐거운 건 알았어요. 그래도 공연 중엔 큐 치느라 콘솔만 봤어요. 리그 쪽은 안 봤어요.', cut: 't_kuramochi_2',
           cutDesc: '버튼과 페이더만 보이는 조명 콘솔 클로즈업.',
-          press: [['kuramochi', '정말이에요. 아무 신호도 없이.', 'scared']] } } },
-      { statement: 1, cut: '2D', requires: [0], shout: '갑자기가 아니야!',
-        rebut: '이건 쿠라모치 씨 자리에 남은 잔상이에요. 무전기를 쥐고 리그를 보고 있었어요. 뭔가를 기다리면서.',
+          press: [['kuramochi', '앙코르 큐는 손으로 쳐야 했으니까요. 고개 들 틈이 없었어요.', 'scared']] } } },
+      { statement: 1, cut: '2D', requires: [0], shout: '리그를 보고 있었어!',
+        rebut: '이건 쿠라모치 씨 자리에 남은 잔상이에요. 콘솔이 아니라 유리 너머 리그. 손엔 무전기.',
         success: [
-          ['kuramochi', '개장 직전에 키리시마 씨가 부스로 뛰어왔어요. 윙에서 올려다보니까, 리그에 묶어 둔 끈이 없어졌다고.', 'scared'],
+          ['kuramochi', '개장 직전, 헤이즈를 깔고 있을 때 키리시마 씨가 부스로 뛰어왔어요. 윙에서 올려다보니까, 리그에 묶어 둔 끈이 없어졌다고.', 'scared'],
           ['kuramochi', '캣워크 계단 문은 작업 끝나고 사장님이 잠갔어요. 안전 때문이라면서. 열쇠는 사장님만 갖고 있고, 예비 끈도 없었어요.', 'scared'],
           ['kuramochi', '공연을 멈추는 것도 주최인 사장님만 할 수 있어요. 키리시마 씨가 계속 전화했는데 안 받았어요. 그사이에 문이 열렸고요.', 'scared'],
           ['kuramochi', '그래서 키리시마 씨는 윙에서 리그만 보겠다고 했어요. 흔들리면 무전으로 「지금」이라고 할 테니까 무대등을 끄라고. 불이 꺼지면 루루 씨가 멈출 거라고.', 'scared'],
           ['kuramochi', '근데 무전이 오자마자 떨어졌어요. 불을 끌 틈도 없이.', 'scared'],
           ['koharu', '끈… 매니저님이 리그를 묶어 뒀었다는 거예요?', 'worried'],
         ],
-        gives: 'L6', words: ['th_strap', 'th_radio', 'a_untie'] },
+        gives: 'L6', words: ['th_strap', 'th_radio', 'a_untie', 't_haze'] },
     ],
     hold: { statement: 2, lines: [
       ['', '레이가 세 번째 증언 앞에서 멈춘다.'],
@@ -331,7 +332,7 @@ Object.assign(WITNESSES, {
           prompt: '텐도: 「그건 루루한테 한 말이야. 공연 한 번만 버티라고!」 — 어떻게 받아칠까?',
           options: ['"루루 씨도 그 자리에 있었잖아요."', '"매니저 손에 동그라미 친 점검표가 있어요. 무대에선 리허설 소리가 나고. 루루는 거기 없었어요."', '"그 말, 녹음돼 있어요."'],
           answer: 1,
-          success: [['', '텐도의 입꼬리가 내려간다.'], ['rei', '그 말은 리허설 중에, 점검표를 든 매니저한테 한 거예요.', 'serious']],
+          success: [['', '텐도의 입꼬리가 내려간다.'], ['tendo', '…매니저가 엄살을 부리길래.', 'normal']],
           wrong: [['tendo', '증거 있어? 없잖아.', 'smile']],
         },
         peel: [0], words: ['p_tendo'] },
@@ -362,7 +363,7 @@ Object.assign(WITNESSES, {
   },
   // 보류 해제: 쿠라모치 증언 3을 다시 연다
   kuramochi2: {
-    char: 'kuramochi', bg: 'tendo_office', face: 'scared',
+    char: 'kuramochi', bg: 'tendo_office', face: 'scared',  // 텐도는 변호사와 옆방으로 나가 있다
     goal: '클립을 꽂아 둔 증언. 하얀 여백 속을 벗겨라.',
     statements: [
       { text: '개장 전엔 부스에서 조명만 확인했어요. 캣워크엔 아무도 없었어요.', cut: 't_kuramochi_3', dist: '생략',

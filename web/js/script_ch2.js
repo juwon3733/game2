@@ -117,17 +117,17 @@ const CH2_SCENES = [
 const C2A = ['2A', '2B', '2C', '2D', '2E', '2F'];
 const C2B = [...C2A, '2G', '2H', '2I', '2L', '2N'];
 const W2A = ['p_ruru', 'p_pin', 'p_aoi', 'p_kuramochi', 'p_kirishima', 't_show', 'pl_booth', 'pl_seats'];
-const W2B = [...W2A, 'th_checklist', 't_rehearsal', 'th_strap', 'th_radio', 'a_untie', 'p_tendo', 'a_tie', 'pl_catwalk', 'a_untie', 'th_clamp', 't_work'];
-const W2C = [...W2B, 'pl_greenroom', 'a_shake', 't_haze', 'pl_wing', 'a_push', 'th_watch'];
+const W2B = [...W2A, 'th_checklist', 't_rehearsal', 'th_strap', 'th_radio', 'a_untie', 't_haze', 'p_tendo', 'a_tie', 'pl_catwalk', 'th_clamp', 't_work'];
+const W2C = [...W2B, 'pl_greenroom', 'a_shake', 'pl_wing', 'a_push', 'th_watch'];
 const W2D = [...W2C, 'a_hide'];
 const CH2_STATE = {
   office2: {},
   explore2a: {},
   puzzle2a: { cuts: C2A, items: ['cuesheet', 'scouts'], words: W2A },
   kuramochi: { cuts: C2A, items: ['cuesheet', 'scouts'], words: W2A },
-  explore2b: { cuts: C2A, lines: ['L4', 'L6'], items: ['cuesheet', 'scouts', 'checklist'], words: W2A.concat('th_checklist', 't_rehearsal', 'th_strap', 'th_radio', 'a_untie') },
+  explore2b: { cuts: C2A, lines: ['L4', 'L6'], items: ['cuesheet', 'scouts', 'checklist'], words: W2A.concat('th_checklist', 't_rehearsal', 'th_strap', 'th_radio', 'a_untie', 't_haze') },
   pin: { cuts: C2B, lines: ['L4', 'L6', 'L5'], items: ['cuesheet', 'scouts', 'checklist', 'notebook'], words: W2B },
-  ruru: { cuts: [...C2B, '2K'], lines: ['L4', 'L6', 'L5', 'L7'], items: ['cuesheet', 'scouts', 'checklist', 'notebook'], words: W2B.concat('pl_greenroom', 'a_shake', 't_haze') },
+  ruru: { cuts: [...C2B, '2K'], lines: ['L4', 'L6', 'L5', 'L7'], items: ['cuesheet', 'scouts', 'checklist', 'notebook'], words: W2B.concat('pl_greenroom', 'a_shake') },
   accuse2: { cuts: [...C2B, '2K', '2P'], lines: ['L4', 'L5', 'L7'], fills: { '2N': 'L6' }, items: ['cuesheet', 'scouts', 'checklist', 'notebook'], words: W2C },
   explore2c: { cuts: [...C2B, '2K', '2P'], lines: ['L4', 'L5', 'L7'], fills: { '2N': 'L6' }, items: ['cuesheet', 'scouts', 'checklist', 'notebook'], words: W2C },
   tendo: { cuts: [...C2B, '2K', '2P', '2T'], lines: ['L4', 'L5', 'L7'], fills: { '2N': 'L6' }, items: ['cuesheet', 'scouts', 'checklist', 'notebook', 'strap', 'whitecard', 'estimate', 'insurance'], words: W2C },
@@ -166,7 +166,7 @@ async function sceneOffice2() {
   show('rei', 'normal', 'left');
   await say('rei', '본인이 인정하는데 왜 우리한테.');
   await say('kurogane', '인정하는 얼굴이 아니라서.');
-  await say('kurogane', '체포영장까지 48시간. 그 안에 못 뒤집으면 송치다.');
+  await say('kurogane', '체포한 지 하루. 48시간 안에 못 뒤집으면 검찰로 넘어간다.');
   sfx('door');
   show('taiga', 'sad', 'right');
   await say('taiga', '택배요. 잔상과 앞으로.', 'sad');
@@ -371,6 +371,7 @@ async function sceneExplore2b() {
         metTendo = true;
         meet('tendo', 'right', 'smile');
         await say('tendo', '잔상과? 들었어요. 텐도 프로모션 텐도예요. 협조할게요, 뭐든지.', 'smile');
+        await say('', '여자가 손목을 들어 시간을 본다. 크고 각진 금시계.');
         await say('tendo', '루루는 착한 애예요. 욱해서 그랬겠지. 그래도 혼자 다 뒤집어쓰는 건 안 되잖아요.', 'normal');
         await say('tendo', '그리고 이건 경찰한테 아직 안 한 얘긴데요.', 'normal');
         await say('tendo', '개장 직전에, 장갑 낀 사람이 캣워크 계단 쪽으로 가는 걸 봤어요. 조명 기사 아가씨.', 'normal');
@@ -538,12 +539,14 @@ async function sceneTendo() {
   show('tendo', 'smile', 'left');
   await say('tendo', '잔상? 좋아, 보여 줄게. 보여 주고 싶은 것만.', 'smile');
   await runTrial('tendo');
-  // 보류 해제: 쿠라모치가 다시 동의한다
+  // 보류 해제: 쿠라모치가 다시 동의한다. 텐도가 없는 자리에서
   bg('tendo_office');
+  clearChars();
+  await say('', '변호사가 텐도를 데리고 옆 회의실로 나간다. 문이 닫힌다.');
   sfx('door');
-  show('koharu', 'normal', 'right');
   if (G.flags.kuraTaken) {
     await say('', '코하루가 경찰서 유치장에서 쿠라모치를 데려왔다. 수갑은 풀려 있다.');
+    show('koharu', 'normal', 'right');
     show('kuramochi', 'scared', 'left');
     await say('kuramochi', '…저를 지목하셨죠. 괜찮아요. 입 다물고 있던 건 사실이니까.', 'scared');
     hideText();
@@ -553,6 +556,7 @@ async function sceneTendo() {
     else await say('kuramochi', '「말하면 너도 공범」이라고 했어요. 점검표를 고쳐 쓴 건 저니까.', 'scared');
   } else {
     await say('', '코하루가 크레센트에서 쿠라모치를 데려왔다.');
+    show('koharu', 'normal', 'right');
     show('kuramochi', 'scared', 'left');
     await say('kuramochi', '코하루 씨가, 이제 말해도 된다고 해서.', 'scared');
   }
@@ -561,6 +565,9 @@ async function sceneTendo() {
   bg('tendo_office');
   await say('kurogane', '(전화) 휴지통의 끈, 렌탈 견적서, 보험 증권, 점검표 원본, 쿠라모치 진술. 물증은 됐다.');
   hide('kurogane');
+  clearChars();
+  sfx('door');
+  await say('', '회의실 문이 열린다. 텐도가 돌아온다.');
   show('tendo', 'cornered', 'left');
   await say('', '텐도가 금시계를 손바닥으로 덮는다.');
   FX.zoom('left');
@@ -616,7 +623,8 @@ async function sceneConclusion2() {
   await say('tendo', '표는 반도 안 팔렸어. 은행은 더 기다려 주지 않고.', 'cornered');
   FX.zoom(null);
   await say('tendo', '리그가 내려앉으면 공연 중단. 보험금은 나오고, 책임은 점검표에 「이상 없음」이라고 쓴 공연장 몫. 그거면 됐어.', 'cornered');
-  await say('tendo', '본공연이 끝날 즈음 내려앉게 해 뒀어. 앙코르는 없다고 몇 번을 말했어. 무대엔 아무도 없을 시간이었다고.', 'cornered');
+  await say('tendo', '점검표에 그렇게 써 있었지. 끈만 없으면 한 시간이면 빠진다고. 개장 직전에 풀면 본공연 끝날 즈음이야.', 'cornered');
+  await say('tendo', '앙코르는 없다고 몇 번을 말했어. 무대엔 아무도 없을 시간이었다고.', 'cornered');
   await say('tendo', '그런데 그 애가 나갔어. 앙코르 하겠다고.', 'cornered');
   show('rei', 'serious', 'right');
   await say('rei', '사람이 죽자 특약 쪽으로 바꾸셨죠. 출연자 고의면 회사는 배상을 안 해도 되니까. 경찰한테 루루를 봤다고 한 건 그래서예요.', 'serious');
@@ -626,7 +634,6 @@ async function sceneConclusion2() {
   await say('ruru', '내가 앙코르 하러 안 나갔으면. 나도 흔들었잖아. 그래서 더 헐거워졌을 수도 있고.', 'crying');
   show('rei', 'normal', 'right');
   await say('rei', '조금은 그랬을 수도 있어. 근데 끈이 있었으면 안 떨어졌어. 끈을 푼 사람이 있어.', 'normal');
-  await say('rei', '키리시마 씨는 공연을 못 멈추니까, 대신 윙에서 리그를 지켜보기로 한 거야.', 'normal');
   bgm('truth');
   hideText();
   const c = await choice(['"네 탓 아니야."', '"앙코르, 해 줄래?"', '(수첩의 앙코르 쪽을 펼쳐서 건넨다)'], '루루에게 뭐라고 할까?');
