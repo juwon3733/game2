@@ -184,7 +184,7 @@ Object.assign(WITNESSES, {
       { text: '리허설 점검 때 리그는 이상 없었어요. 점검표에도 그렇게 썼고요.', cut: 't_kuramochi_1', dist: '생략',
         cutDesc: '점검표에 「이상 없음」이라고 서명하는 손. 리그 칸만 하얀 여백으로 비어 있다.',
         truthDesc: '점검표 리그 칸의 큰 동그라미. 그 위에 덧쓴 「이상 없음」.',
-        press: [['kuramochi', '…서명은 제가 했어요. 제 이름이니까요.', 'normal']] },
+        press: [['kuramochi', '서명은 제가 했어요. 제 이름이니까요.', 'normal']] },
       { text: '공연 중엔 콘솔만 봤어요. 리그가 흔들리는 건 못 봤어요.', cut: 't_kuramochi_2',
         cutDesc: '버튼과 페이더만 보이는 조명 콘솔 클로즈업.',
         press: [['kuramochi', '앙코르는 원래 없던 거라 큐를 손으로 쳤어요. 바빴어요.', 'normal']] },
@@ -197,7 +197,7 @@ Object.assign(WITNESSES, {
         rebut: '리허설 때 캣워크에서 리그를 가리킨 사람이 있어요. 장갑 낀 손. 점검하던 쿠라모치 씨예요. 매니저는 그걸 올려다보고 있었고요.',
         success: [
           ['', '쿠라모치가 장갑 낀 손으로 점검표를 덮는다.'],
-          ['kuramochi', '…헐거웠어요. 클램프 하나가. 안전 와이어도 없었고.', 'scared'],
+          ['kuramochi', '헐거웠어요. 클램프 하나가. 안전 와이어도 없었고.', 'scared'],
           ['kuramochi', '키리시마 씨가 점검표를 들고 사장님한테 갔어요. 돌아와서는… 사장님이 「한 번만 버텨」라고 했대요.', 'scared'],
           ['kuramochi', '그리고 사장님이 저한테 점검표를 다시 쓰라고 했어요. 원본은… 콘솔 서랍에 있어요. 버리지 못했어요.', 'scared'],
         ],
@@ -224,7 +224,7 @@ Object.assign(WITNESSES, {
     ] },
     koharu: [['koharu', '(선배, 첫 페이지에서 뺐던 리허설 컷… 거기 누가 있었죠?)', 'worried']],
     wrong: [['kuramochi', '…그게 무슨 상관이에요.', 'normal']],
-    close: [['kuramochi', '…일해야 해요. 나가 주세요.', 'scared'], ['koharu', '(겁먹으셨어요. 조금 있다 다시 말 걸어 봐요.)', 'worried']],
+    close: [['kuramochi', '일해야 해요. 나가 주세요.', 'scared'], ['koharu', '(겁먹으셨어요. 조금 있다 다시 말 걸어 봐요.)', 'worried']],
   },
   pin: {
     char: 'pin', bg: 'greenroom', face: 'normal',
@@ -316,7 +316,8 @@ Object.assign(WITNESSES, {
       { text: '개장 전에 객석에서 똑똑히 봤어. 루루가 캣워크에서 리그를 흔드는 걸.', cut: 't_tendo_2', dist: '과장',
         cutDesc: '거대하게 그려진 루루가 리그를 흔든다. 화면 앞쪽에 비스듬한 철제 계단 난간이 걸쳐 있다.',
         spots: [{ id: 'rail', label: '앞쪽에 걸친 철제 난간', x: 0, y: 0.55, w: 0.45, h: 0.45 },
-          { id: 'ruru', label: '거대한 루루', x: 0.4, y: 0.1, w: 0.4, h: 0.6 }, { id: 'rig', label: '리그', x: 0.3, y: 0, w: 0.6, h: 0.18 }],
+          { id: 'rig', label: '리그', x: 0.3, y: 0, w: 0.6, h: 0.18 }, { id: 'hand', label: '리그를 쥔 손', x: 0.55, y: 0.18, w: 0.2, h: 0.15 },
+          { id: 'ruru', label: '거대한 루루', x: 0.4, y: 0.1, w: 0.4, h: 0.6 }, { id: 'stage', label: '아래쪽 무대', x: 0.45, y: 0.75, w: 0.55, h: 0.25 }],
         press: [['tendo', '객석 한가운데서. 경찰한테도 그대로 말했어.', 'smile']] },
       { text: '난 그 뒤로 사무실에 있었어. 캣워크는 올라간 적도 없어.', cut: 't_tendo_3',
         cutDesc: '크레센트 사무실 의자에 앉아 서류를 보는 텐도.',
@@ -335,7 +336,7 @@ Object.assign(WITNESSES, {
         },
         peel: [0], words: ['p_tendo'] },
       { statement: 1, spot: ['rail', 'rig'], shout: '객석에선 이 그림이 안 나와!',
-        rebut: '앞쪽에 계단 난간이 걸쳐 있어요. 리그가 눈높이고. 이건 객석이 아니라 캣워크 계단 중간에서 본 그림이에요.',
+        rebut: '앞쪽에 계단 난간이 걸쳐 있어요. 리그가 눈높이고. 객석에선 이렇게 안 보여요. 캣워크 계단 중간에서 본 그림이에요.',
         success: [
           ['tendo', '걱정돼서 올라가 본 거야! 사장이 자기 무대 걱정하는 게 죄야?', 'angry'],
           ['rei', '어제 무대 뒤에서는 조명 기사가 계단 쪽으로 가는 걸 봤다고 하셨죠. 경찰한테는 루루라고 하셨고요.', 'serious'],
@@ -350,6 +351,7 @@ Object.assign(WITNESSES, {
         rebut: '같은 순간이에요. 헤이즈가 깔린 캣워크, 대기실 모니터 속 그림자의 손목이 반짝여요. 루루는 그때 핀 품에서 울고 있었고. 끈을 푼 손엔 이 시계가 있어요.',
         success: [
           ['tendo', '이런 시계는 흔해!', 'cornered'],
+          ['rei', '계단 문 열쇠는 흔하지 않죠. 작업 끝나고 문을 잠근 것도, 열쇠를 갖고 있던 것도 사장님이에요.', 'serious'],
           ['tendo', '그리고 잔상? 그런 건 증거가 안 돼. 내 변호사가 웃겠네.', 'cornered'],
         ],
         peel: [2], words: ['a_untie', 'th_watch', 't_haze'] },
@@ -372,14 +374,14 @@ Object.assign(WITNESSES, {
         rebut: '헤이즈가 깔린 캣워크. 부스 유리 정면이에요. 끈을 풀던 손, 쿠라모치 씨 자리에선 다 보였어요.',
         success: [
           ['', '하얀 여백이 벗겨진다. 띠를 재킷 주머니에 넣으며, 부스를 향해 손가락을 입에 대는 텐도.'],
-          ['kuramochi', '…제가 봤어요.', 'resolute'],
+          ['kuramochi', '제가 봤어요.', 'resolute'],
           ['kuramochi', '법정에서도 말할게요.', 'resolute'],
         ],
         peel: [0], rewards: ['2M'], words: ['a_hide'] },
     ],
     koharu: [['koharu', '(선배, 오늘 사장실 휴지통에서 찾은 거… 그 순간의 컷이잖아요.)', 'worried']],
-    wrong: [['kuramochi', '…그건 아니에요.', 'scared']],
-    close: [['kuramochi', '…죄송해요. 조금만….', 'scared']],
+    wrong: [['kuramochi', '그건 아니에요.', 'scared']],
+    close: [['kuramochi', '죄송해요. 조금만 쉬고요.', 'scared']],
   },
 });
 

@@ -51,7 +51,7 @@ const C6D = [...C6C, 'S8'];
 const W6A = ['p_shiori', 'p_kurogane', 'pl_lighthouse', 'a_runaway'];
 const W6B = [...W6A, 'pl_bench', 'p_nishi', 'th_backpage', 'a_draw'];
 const W6C = [...W6B, 'th_lighter', 'a_runback', 'a_handover'];
-const I6 = ['lighter', 'manuscript'];
+const I6 = ['lighter', 'manuscript', 'petition'];
 const CH6_STATE = {
   offer6: {}, explore6: { cuts: C6A, words: W6A },
   asagiri6: { cuts: C6B, items: I6, words: W6B }, self6: { cuts: C6B, items: I6, words: [...W6B, 'th_lighter', 'a_runback'] },
@@ -64,9 +64,7 @@ const marginCount = () => MARGIN_FLAGS.filter((f) => G.flags[f]).length;
 // ---------- 장면 ----------
 
 async function sceneOffer6() {
-  CHARACTERS.ren.name = '렌';
   await FX.title('FINAL', '같은 하루', '8월 31일 · 곶 끝 등대 도서관 터', [['shiori', 'normal'], ['rei', 'serious']]);
-  CHARACTERS.shiori.name = '시오리';
   bg('office');
   FX.mood('dust');
   await say('', '8월 31일 아침. 해체된 잔상과 사무실. 누군가 커피를 내려 두었다. 단 커피.');
@@ -90,7 +88,7 @@ async function sceneExplore6() {
   bg('lighthouse');
   bgm('final');
   await banner('곶 끝', '등대 도서관 터 · 8월 31일 저녁', 1600);
-  await say('', '바다를 향해 튀어나온 곶 끝. 반쯤 무너진 등대 모양의 도서관. 6년 동안 아무도 손대지 않았다.');
+  await say('', '바다를 향해 튀어나온 곶 끝. 반쯤 무너진 등대 모양의 도서관. 녹슨 철망이 건물을 빙 둘러싸고 있다.');
   show('kurogane', 'sad', 'center');
   await say('kurogane', '직무 정지지만, 오늘은 같이 간다.', 'sad');
   show('ren', 'normal', 'left');
@@ -106,7 +104,7 @@ async function sceneExplore6() {
     start: [16, 9], required: req,
     on: {
       seat: async () => {
-        await say('', '2층 열람석. 그을린 책상에 펜 자국이 깊이 패어 있다. 두 사람이 마주 앉던 자리.');
+        await say('', '2층 열람석. 그을린 책상에 펜 자국이 깊이 패어 있다. 문 닫을 시간이 지나도 사서가 두 사람에게만 열어 두던 자리.');
         await gainCut('R1'); await gainCut('S1'); tick();
       },
       form: async () => {
@@ -127,7 +125,10 @@ async function sceneExplore6() {
         await gainCut('R4'); tick();
       },
       gate: async () => {
-        await say('', '도서관 문. 경첩만 남았다. 레이의 숨이 가빠진다.');
+        await say('', '도서관 문. 경첩만 남았다. 옆 게시판에 빛바랜 전단과, 그 위를 덮은 새 종이.');
+        await gainItem('petition');
+        await say('kurogane', '불 난 뒤로 봉쇄된 채 그대로다. 보존회랑 하쿠요가 땅을 두고 소송 중이라 철거도 못 했지.', 'sad');
+        await say('', '전단의 등대 그림. 펜선이 낯익다. 레이의 숨이 가빠진다.');
         await gainCut('R5'); tick();
       },
       lighter: async () => {
@@ -136,10 +137,11 @@ async function sceneExplore6() {
         await gainCut('S4');
         await say('rei', '(이 얼굴. 서장실 소파에 앉아 있던 사람.)', 'serious');
         gainWord('p_nishi');
+        await say('kurogane', '니시무라. 그때는 하쿠요 용지 담당이었다. 이 곶을 사겠다고 매일 드나들었지.', 'sad');
         tick();
       },
       box: async () => {
-        await say('', '2층 서가 아래 철제 상자. 안에 반쯤 탄 원고 다발. 마지막 장 뒷면에 연필 그림.');
+        await say('', '2층 서가 아래 철제 상자. 뚜껑이 그을렸지만 열린다. 안에 가장자리가 탄 원고 다발. 마지막 장 뒷면에 연필 그림.');
         await gainItem('manuscript');
         gainWord('th_backpage'); gainWord('a_draw');
         await gainCut('S5'); tick();
@@ -167,7 +169,7 @@ async function sceneSelf6() {
   bg('lighthouse_in');
   await say('', '불탄 2층. 레이가 그날 앉던 자리에 앉는다.');
   show('towa', 'serious', 'right');
-  await say('towa', '레이. 네 증언 페이지를 띄울게. 6년 동안 네가 믿어 온 순서 그대로.');
+  await say('towa', '레이. 네 증언 페이지를 띄울게. 네가 지금까지 믿어 온 순서 그대로.');
   hide('towa');
   await runTrial('self6');
   clearChars();
@@ -178,14 +180,16 @@ async function sceneShiori6() {
   FX.ghost(4000);
   FX.mood('ghost');
   show('shiori', 'smile', 'center');
-  await say('', '열람석 맞은편. 교복 차림의 여자아이가 앉아 있다. 6년 전 그대로.');
+  await say('', '열람석 맞은편에 시오리가 앉아 있다. 그날 밤의 교복 그대로.');
   await say('shiori', '오래 걸렸네, 레이.', 'smile');
   show('rei', 'crying', 'left');
   await say('rei', '미안. 그 칸, 내가 그었어. 네 이름.', 'crying');
   await say('shiori', '알아. 그래도 돌아왔잖아. 연기 속으로.', 'smile');
   await say('shiori', '마지막 한 칸은 내가 줄게. 내가 왜 다시 들어갔는지.', 'normal');
   await gainCut('S8');
-  await say('shiori', '그 얼굴을 그린 장을 두고 나왔거든. 그게 없으면 아무도 그 사람을 못 찾으니까.', 'normal');
+  await say('shiori', '순경 아저씨가 너를 업고 나가면서, 바로 따라 나오라고 했어.', 'normal');
+  await say('shiori', '근데 계단 아래에서 그 장이 생각났어. 상자에 넣어 두긴 했는데, 불 꺼지고 누가 열어 볼지 몰라서. 내 손으로 건네고 싶었어.', 'normal');
+  await say('rei', '그래서 밖으로 안 나오고, 계단을 다시 올라갔구나.', 'crying');
   FX.mood(null);
   hide('shiori');
   clearChars();
@@ -208,10 +212,10 @@ async function sceneConclusion6() {
   bg('lighthouse');
   await banner('결론', '같은 하루', 1300);
   show('kurogane', 'sad', 'center');
-  await say('kurogane', '읽어 봐라, 시노노메. 6년 전 그날을.', 'sad');
+  await say('kurogane', '읽어 봐라, 시노노메. 그날을.', 'sad');
   hide('kurogane');
   hideText();
-  await runName({ title: '6년 전 8월 31일', sub: '모든 빈칸이 맞아야 확정할 수 있다.', parts: NAME6_FINAL, threshold: 4 });
+  await runName({ title: '그날 밤', sub: '모든 빈칸이 맞아야 확정할 수 있다.', parts: NAME6_FINAL, threshold: 4 });
   await montage(G.lastSolution);
   for (let i = 0; i < CONCLUSION6.length; i++) {
     const q = CONCLUSION6[i];
@@ -222,8 +226,9 @@ async function sceneConclusion6() {
       sfx('wrong'); quake(); G.stats.wrong++;
     }
   }
-  show('rei', 'serious', 'left');
-  await say('rei', '원고 뒷면에 시오리가 그린 얼굴, 그리고 1층 서고에서 나온 라이터. 그날 불을 지른 사람은 니시무라예요.', 'serious');
+  show('kurogane', 'sad', 'center');
+  await say('kurogane', '영장 청구한다. 이번엔 서장 결재 안 기다린다.', 'sad');
+  hide('kurogane');
   show('ren', 'normal', 'right');
   await say('ren', '증언할게. 법정에서. 안대도 벗고.', 'normal');
   hide('ren');
@@ -238,23 +243,34 @@ async function sceneConclusion6() {
   clearChars();
 }
 
-// 진실·여백 엔딩 공통 에필로그
+// 진실·여백 엔딩 공통 에필로그: 인물을 한 줄씩 나열하지 않고, 하루를 세 장면으로 묶는다
 async function epilogueMontage() {
   bgm('epilogue');
-  const lines = [
-    '——병원. 깨어난 사에키 미츠루가 침대 옆 키보드로 서툴게 한 소절을 친다. 히마리가 음표 머리핀을 꽂고 따라 친다.',
-    '——새 소속사. 아마네 루루의 데뷔곡 제목은 「앙코르」.',
-    '——유키는 미대에, 나기는 토키와 양과점에. 유키는 오른쪽, 나기는 왼쪽에 리본을 매고 같은 날 집을 나선다.',
-    '——다시 짓는 사쿠라유. 겐조가 휠체어에서 손녀에게 보일러 닦는 법을 가르친다. 케이코의 붕대는 풀렸다.',
-    '——법정. 렌이 안대를 벗고 증언대에 선다.',
-    '——크레센트. 쿠라모치가 새 큐 시트 맨 위에 적는다. 「앙코르: 핀 조명 하나」.',
-    '——아케이드. 비어 있던 점술 부스 자리에 두부집 할머니가 화분을 내놓는다.',
-    '——잔상과 사무실. 담요를 두른 토와가 모니터 대신 소파에 앉아 있다. "…나 고양이 아니야."',
-    '——쿠로가네의 손목시계가 다시 간다. 8시 31분에서, 오늘로.',
-    '——카페 「여백」의 문에 손글씨 메모. 「잠시 휴업」.',
-  ];
-  for (const l of lines) await say('', l);
+  // 낮: 병원과 사쿠라유
+  bg('hospital');
+  await say('', '9월 첫 주. 레이와 코하루는 커피를 두 잔씩 사 들고 시내를 돈다. 첫 번째는 병원.');
+  await say('', '4층 휴게실에서 미츠루가 키보드로 한 소절을 치다 틀린다. 옆에 앉은 히마리가 음표 머리핀을 고쳐 꽂고, 같은 소절을 틀리지 않고 따라 친다.');
+  await say('', '사쿠라유는 가림막 안에서 다시 올라가는 중이다. 겐조가 휠체어에 앉아 하야카에게 보일러 닦는 법을 일러 주고, 붕대를 푼 케이코가 그 옆에서 벽돌을 나른다.');
+  // 저녁: 상점가
+  bg('arcade');
+  await say('', '해가 질 무렵 상점가. 토키와 양과점 앞에서 앞치마 차림의 나기가 손을 흔들자, 화구 가방을 멘 유키가 길 건너에서 뛰어온다. 리본은 각자 제자리에.');
+  await say('', '비어 있던 점술 부스 자리엔 두부집 할머니의 화분이 놓였다. 옆 게시판의 크레센트 포스터에는 아마네 루루 데뷔 무대, 마지막 곡 「앙코르」. 귀퉁이에 쿠라모치의 글씨로 「핀 조명 하나」.');
+  // 밤: 사무실
+  await say('', '돌아오는 길, 카페 「여백」 문엔 손글씨 쪽지가 붙어 있다. 「잠시 휴업」.');
+  bg('office');
+  await say('', '잔상과 사무실 문에 「해체」 종이는 다시 붙지 않았다. 소파에서 담요를 두른 토와가 뉴스를 본다. 법원 앞, 안대를 벗은 렌이 기자들 사이를 지나간다.');
+  await say('', '쿠로가네가 담요 한 장을 더 던져 준다. 걷어 올린 소매 아래로 손목시계 초침이 돌아간다.');
+  await say('towa', '…나 고양이 아니야.');
 }
+
+// 여백 엔딩: 1~5장에서 말 대신 건넨 것들을 한 번씩 떠올린다
+const MARGIN_RECALL = [
+  ['yohaku1', '컷 속 선생님의 팔을 보고 머리핀을 다시 꽂던 히마리의 손가락.'],
+  ['yohaku2', '수첩의 「앙코르 — 루루 솔로」를 따라 쓰던 루루의 손가락.'],
+  ['sketch3', '스케치북을 넘기다 「매일 고마워」에서 멈춘 나기의 손.'],
+  ['rescueShown', '연기로 뛰어드는 엄마의 등을 본 뒤, 붕대 감은 손을 잡던 하야카.'],
+  ['badgeBack', '그을린 배지를 레이 손바닥에 도로 얹던 코하루의 두 손.'],
+];
 
 async function sceneEnding6() {
   const end = G.flags.ending || 'truth';
@@ -262,6 +278,10 @@ async function sceneEnding6() {
     bg('lighthouse');
     show('asagiri', 'normal', 'center');
     await say('asagiri', '그래. 이번엔 아프지 않게.', 'normal');
+    show('koharu', 'crying', 'right');
+    await say('koharu', '선배, 그날을 지우면 오빠가 선배를 업고 나온 것도 같이 없어져요.', 'crying');
+    await say('koharu', '오빠가 마지막으로 한 일이에요. 그걸 선배가 모르는 채로 옆에 있는 건, 저 못 하겠어요.', 'crying');
+    hide('koharu');
     hideText();
     await FX.erase(2600);
     await fade(true, 900);
@@ -271,10 +291,10 @@ async function sceneEnding6() {
     await fade(false, 900);
     await say('', '9월 1일 아침. 잔상과 사무실 소파에서 레이가 눈을 뜬다.');
     show('shiori', 'normal', 'right');
-    await say('', '창가에 교복 차림의 여자아이가 서 있다. 더 이상 아무 말도 하지 않는다.');
+    await say('', '창가에 교복 차림의 여학생이 서 있다. 아무 말도 하지 않는다.');
     hide('shiori');
-    await say('', '코하루의 책상은 비어 있다. 쪽지 한 장. 「선배, 잘 지내요.」');
-    await say('rei', '…….');
+    await say('', '코하루의 책상은 비어 있다. 그을린 배지 하나와 쪽지 한 장. 「선배, 잘 지내요.」');
+    await say('', '레이는 쪽지를 두 번 읽고, 누구 글씨인지 끝내 떠올리지 못한다.');
     hideText();
     await banner('편집 엔딩', '「아무 일도 없었던 하루」', 2600);
   } else {
@@ -287,13 +307,14 @@ async function sceneEnding6() {
       await say('', '최종 페이지 끝에, 칸이 하나 더 남아 있다. 아무것도 그려지지 않은 칸.');
       await gainCut('Y6');
       const art = await cg('cg_margin');
-      await say('', '레이가 6년 만에 펜을 쥔다. 오른손 검지의 굳은살이 펜대에 꼭 맞는다.');
-      await say('', '빈 칸에, 열람석에 마주 앉은 두 아이를 그린다. 그리고 말풍선 하나.');
+      await say('', '레이가 6년 만에 펜을 쥔다. 펜 끝이 종이에 닿기 전, 손이 먼저 떠올리는 것들이 있다.');
+      for (const [f, l] of MARGIN_RECALL) if (G.flags[f]) await say('', l);
+      await say('', '오른손 검지의 굳은살이 펜대에 꼭 맞는다. 빈 칸에, 열람석에 마주 앉은 두 사람을 그린다. 그리고 말풍선 하나.');
       if (art) cgEnd();
       FX.ghost(3000);
       show('shiori', 'smile', 'right');
       await say('shiori', '「레이, 다음 칸은 네가 그려.」', 'smile');
-      await say('rei', '…응. 그릴게.', 'crying');
+      await say('rei', '응. 그릴게.', 'crying');
       await say('shiori', '박수 소리도 그려 줘.', 'smile');
       hide('shiori');
       await say('', '시오리가 웃으며 손을 한 번 흔들고 흩어진다.');
@@ -309,7 +330,6 @@ async function sceneEnding6() {
     }
     await epilogueMontage();
     if (end === 'margin') {
-      bg('office');
       show('koharu', 'happy', 'right');
       show('rei', 'normal', 'left');
       await say('koharu', '선배! 원고 다 됐어요? 마감 오늘이에요!', 'happy');
@@ -318,23 +338,20 @@ async function sceneEnding6() {
       clearChars();
     }
     if (end === 'truth') {
-      bg('office');
       show('koharu', 'happy', 'right');
       show('rei', 'normal', 'left');
-      await say('', '9월 1일 아침. 잔상과 사무실 문에 「해체」 종이는 다시 붙지 않았다.');
-      await say('koharu', '선배, 오늘 커피 담당 저예요. 단 거죠?', 'happy');
+      await say('koharu', '선배, 내일 커피 담당 저예요. 단 거죠?', 'happy');
       await say('rei', '응. 단 거.', 'normal');
-      if ((G.flags.bond || 0) >= 3) await say('koharu', '6년 치 따라잡으려면 아직 멀었네요. 내일도 제가 할게요.', 'happy');
+      if ((G.flags.bond || 0) >= 3) await say('koharu', '6년 치 따라잡으려면 아직 멀었네요. 모레도 제가 할게요.', 'happy');
       clearChars();
     }
     hideText();
     await banner(end === 'margin' ? '여백 엔딩' : '진실 엔딩', end === 'margin' ? '「다음 칸」' : '「같은 하루」', 2600);
+    if (end === 'truth') await say('tip', `여백 조건 ${marginCount()} / ${MARGIN_FLAGS.length}. 1~5장 끝의 감정 선택에서 말 대신 컷·물건을 건네는 [[세 번째 보기]]를 모두 고르면 다른 결말이 열린다.`);
   }
   await banner('같은 하루, 다른 칸', '— 끝 —', 3000);
   await credits(G.flags.ending || 'truth');
   await showRank('종장 「같은 하루」');
-  CHARACTERS.shiori.name = '???';
-  CHARACTERS.ren.name = '???';
 }
 
 const CH6_FN = {
