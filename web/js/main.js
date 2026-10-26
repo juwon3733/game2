@@ -11,6 +11,9 @@ function findScene(id) {
 }
 const sceneLabel = (id) => { const f = findScene(id); return f ? `${f.ch}장 · ${CHAPTERS[f.ch].scenes[f.i][1]}` : ''; };
 
+// 여백 엔딩 조건: 장마다 하나씩 있는 감정 선택 (1장 히마리, 2장 루루, 3장 스케치북, 4장 하야카, 5장 배지)
+const MARGIN_FLAGS = ['yohaku1', 'yohaku2', 'sketch3', 'rescueShown', 'badgeBack'];
+
 // ---------- 저장 ----------
 // 장면이 시작될 때마다 자동 저장. 타이틀의 [이어하기]가 그 장면부터 다시 시작한다.
 const SAVE_KEY = 'gaha-save';
@@ -62,6 +65,7 @@ async function playFrom(scene, saved) {
     // 다음 장이 있으면 이어서. 장이 바뀌면 소지품은 새로, 튜토리얼 표시 등은 유지
     if (!CHAPTERS[ch + 1]) break;
     const keep = { trialTut: G.flags.trialTut, puzzleTut: G.flags.puzzleTut, simTut: G.flags.simTut, discardTut: G.flags.discardTut, timeTut: G.flags.timeTut, met: G.flags.met };
+    MARGIN_FLAGS.forEach((f) => { if (G.flags[f]) keep[f] = true; }); // 여백 엔딩 조건은 장을 넘어 이어진다
     ch += 1; start = 0;
     const first = CHAPTERS[ch].scenes[0][0];
     loadState(ch, first, null);

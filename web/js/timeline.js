@@ -22,7 +22,7 @@ function runTimeline(id) {
     const render = () => {
       root.innerHTML = `
         <div class="pz-main">
-          <div class="tl-paper" style="grid-template-columns: 110px repeat(${T}, 1fr)">
+          <div class="tl-paper" style="grid-template-columns: 110px repeat(${T}, minmax(0, 1fr))">
             <div class="tl-corner">시각표</div>${P.times.map((t) => `<div class="tl-time">${t}</div>`).join('')}
             ${P.rows.map((row, r) => `<div class="tl-who${st.bad.includes(r) ? ' bad' : ''}">${row.who}</div>`
               + P.times.map((_, t) => `<div class="tl-cell" data-r="${r}" data-t="${t}"></div>`).join('')).join('')}

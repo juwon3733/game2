@@ -381,5 +381,25 @@ def editor():
     return tr
 
 
+# ---------- 종장 ----------
+
+def final():
+    """종장: 등대. 타이틀 곡의 멜로디를 장조로 바꿔 천천히. 다음 칸을 그리는 곡"""
+    tr = Track(72, 16)
+    prog = ['Fmaj7', 'C/E', 'Dm7', 'Bbmaj7', 'Fmaj7', 'C/E', 'Gm7', 'C7sus4 C7',
+            'Bbmaj7', 'C', 'Am7', 'Dm7', 'Gm7', 'C7', 'Fmaj7', 'Fmaj7']
+    tr.bus('ep', -0.25, 0.5, 0.45); tr.bus('str', 0.15, 0.3, 0.6); tr.bus('bass', 0, 0.55, 0.2)
+    tr.bus('mel', 0.05, 0.5, 0.5); tr.bus('bell', 0.35, 0.3, 0.6)
+    arp(tr, 'ep', epiano, prog, [0, 2, 4, 1, 3, 2, 4, 1], step=0.5, octave=4, vel=0.42)
+    block(tr, 'str', strings, prog, [(0, 3.95)], octave=3, vel=0.42, top=3)
+    basses(tr, 'bass', bass, prog, [(0, 3.5, 0)], vel=0.6)
+    melody(tr, 'mel', flute, 0, ['a:1.5 f:.5 e d', 'e:2 c:2', 'f:1.5 a:.5 c^ d^', 'd^:4',
+                                  'a:1.5 f:.5 e d', 'e g c^:2', 'bb:1.5 a:.5 g e', 'f:3 -'], octave=5, vel=0.55)
+    melody(tr, 'mel', strings, 8, ['d^:2 f^ d^', 'e^:2 c^:2', 'c^:1.5 e^:.5 a^ g^', 'f^:4',
+                                    'bb^:2 a^ g^', 'g^:2 e^ c^', 'a^:4', 'c^^:4'], octave=5, vel=0.58)
+    melody(tr, 'bell', glock, 8, ['f^:4', 'e^:4', 'e^:4', 'd^:4', 'd^:4', 'e^:4', 'f^:4', 'f^:4'], octave=5, vel=0.35)
+    return tr
+
+
 SONGS = {'title': title, 'office': office, 'explore': explore, 'trial': trial, 'tension': tension, 'truth': truth,
-         'epilogue': epilogue, 'live': live, 'encore': encore, 'tendo': tendo, 'madoka': madoka, 'fire': fire, 'editor': editor}
+         'epilogue': epilogue, 'live': live, 'encore': encore, 'tendo': tendo, 'madoka': madoka, 'fire': fire, 'editor': editor, 'final': final}

@@ -30,6 +30,7 @@ const MUSIC = {
   madoka:   { file: 'assets/audio/bgm_madoka.mp3' },   // 3장: 점술가 마도카
   fire:     { file: 'assets/audio/bgm_fire.mp3' },     // 4장: 불탄 목욕탕
   editor:   { file: 'assets/audio/bgm_editor.mp3' },   // 5장: 편집국
+  final:    { file: 'assets/audio/bgm_final.mp3' },    // 종장: 등대
 };
 const SOUNDS = ['blip', 'next', 'select', 'cancel', 'cut', 'objection', 'wrong', 'correct', 'press', 'page', 'place', 'step',
   'chime', 'thud', 'door', 'ghost', 'phone', 'banner', 'save'];

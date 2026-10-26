@@ -784,3 +784,4 @@ body { word-break: keep-all; overflow-wrap: break-word; }
 .cutv.eroded .cutv-body { filter: blur(3px) grayscale(1) contrast(.7); }
 .cutv.eroded::after { content: '흐려짐'; position: absolute; left: 6px; bottom: 6px; background: #444; color: #ddd; font-size: 14px; padding: 2px 6px; }
 .pz-pagebreak { text-align: center; color: #8a8478; font-size: 18px; letter-spacing: 6px; border-top: 3px dashed #b9b2a3; padding-top: 2px; height: 22px; }
+.tl-cell { min-width: 0; overflow: hidden; }
