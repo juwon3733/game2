@@ -464,6 +464,7 @@ async function sceneConclusion3() {
     marginMark('sketch3');
     await say('', '나기가 스케치북을 넘긴다. 승강장 그림 바로 앞 장, 계산대에 선 나기의 뒷모습. 「매일 고마워」.');
   }
+  await say('rei', '(나기는 언니 자리를 지켰어. 나는 누구 자리를 비워 두고 나왔을까.)', 'serious');
   clearChars();
 }
 

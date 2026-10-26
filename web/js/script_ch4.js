@@ -142,6 +142,7 @@ async function sceneExplore4a() {
   bg('sakurayu');
   await banner('사쿠라유', '8월 29일 오후 · 출입 금지', 1500);
   await say('', '철거를 기다리는 공터 한가운데, 굴뚝만 그대로 선 목욕탕. 그을음 냄새가 아직 짙다.');
+  await say('rei', '(연기 냄새. 다리가 먼저 반대쪽으로 움직인다. 전에도 이랬던 것 같아.)', 'serious');
   const req = ['counter', 'fence', 'chimney', 'panel', 'okamotowin', 'poster'];
   let got = 0, metMurase = false;
   const tick = () => { got++; goal(`사쿠라유에서 잔상을 찾아라. (${got}/6)`); if (got === 6) EX.end(); };

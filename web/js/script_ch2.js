@@ -637,6 +637,7 @@ async function sceneConclusion2() {
     await say('', '루루가 키리시마의 글씨를 손가락으로 천천히 따라 쓴다. 「앙코르 — 루루 솔로」.');
     await say('', '한참 아무 말도 하지 않다가, 고개를 끄덕인다.');
   }
+  await say('rei', '(루루는 무대에서 안 내려갔어. 내 기억엔 계단 내려가는 발소리만 남아 있는데.)', 'serious');
   clearChars();
 }
 

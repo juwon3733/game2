@@ -302,6 +302,7 @@ async function sceneConclusion() {
     await say('', '그리고 쥐고 있던 음표 머리핀을 천천히 다시 꽂는다.');
   }
   await say('komatsu', '고맙습니다. 선생님 깨어나시면, 이 아이랑 같이 인사하러 갈게요.');
+  await say('rei', '(선생님은 안 놓았어. 나는 그날 뭘 놓고 뛰었더라.)', 'serious');
   clearChars();
 }
 
