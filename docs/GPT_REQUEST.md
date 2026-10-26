@@ -1,6 +1,6 @@
-# GPT 그림 요청 (10/26 기준)
+# GPT 그림 요청 (10/26 리뷰 반영 후)
 
-전체 283장 중 없는 그림 204장 + 다시 받을 그림 32장. 아래 글을 GPT(이미지 에이전트)에게 그대로 보낸다.
+전체 284장 중 없는 그림 205장 + 다시 받을 그림 33장. 아래 글을 GPT(이미지 에이전트)에게 그대로 보낸다.
 
 ```
 AGENTS.md대로 이미지 만들어서 PR 올려줘. 작업 전에 최신 main의 web/assets/prompts.json을 다시 읽어.
@@ -9,6 +9,7 @@ AGENTS.md대로 이미지 만들어서 PR 올려줘. 작업 전에 최신 main�
 1차 — 교체(이미 파일이 있지만 프롬프트가 바뀜, 덮어써):
 - portrait-rei: rei_serious rei_surprised (캔 커피 없이) + 없는 rei_crying
 - portrait-taiga: taiga_sad (볼 빨감 없이)
+- portrait-kirishima: kirishima_normal (손목시계 없이)
 - portrait-kurogane: kurogane_normal (47세로) + 없는 kurogane_sad
 - portrait-asagiri: asagiri_normal (61세로) + 없는 asagiri_cold asagiri_sad
 - portrait-shiori: shiori_normal (가리키지 않는 자세) + 없는 shiori_point shiori_smile
@@ -30,7 +31,7 @@ portrait-towa portrait-aoi portrait-yuki portrait-nagi portrait-yukin portrait-m
 
 6차 — 4장: bg(sakurayu sakurayu_boiler okamoto_house site_office clinic), cut-hayaka cut-keiko cut-murase cut-okamoto cut-genzo
 
-7차 — 5장: bg(station_chief koharu_room library busstop warehouse warehouse_in cafe_night), cut-koharu cut-tanabe cut-ren cut-sota cut-kurogane
+7차 — 5장: bg(station_chief koharu_room library busstop warehouse pier warehouse_in cafe_night), cut-koharu cut-tanabe cut-ren cut-sota cut-kurogane
 
 8차 — 종장: bg(lighthouse lighthouse_in lighthouse_dawn), cut-rei cut-shiori cut-asagiri, cut-crayon의 AF
 
