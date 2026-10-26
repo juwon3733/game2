@@ -7,6 +7,9 @@
 
 const WORD_CAT = { person: '사람', place: '장소', time: '때', thing: '물건', act: '행동', state: '상태', line: '말' };
 
+// 빈칸 뒤 조사: 단어가 들어 있으면 그 받침에 맞추고, 비어 있으면 '을(를)' 그대로
+const josaAfter = (str, word) => (word && WORDS[word] ? josa(WORDS[word].text + str).slice(WORDS[word].text.length) : str);
+
 function runName({ title, sub = '', parts, threshold = 3, report = false, reportLabel = '이대로 보고한다' }) {
   const blanks = parts.map((p, i) => (typeof p === 'string' ? -1 : i)).filter((i) => i >= 0);
   const picks = {};
@@ -22,7 +25,7 @@ function runName({ title, sub = '', parts, threshold = 3, report = false, report
     const render = () => {
       root.innerHTML = `<div class="name-box">
         <div class="name-head"><b>네임</b> ${title}<small>${sub}</small></div>
-        <div class="name-text">${parts.map((p, i) => (typeof p === 'string' ? p.replace(/\n/g, '<br>')
+        <div class="name-text">${parts.map((p, i) => (typeof p === 'string' ? josaAfter(p, picks[i - 1]).replace(/\n/g, '<br>')
           : `<button class="name-blank${picks[i] ? ' set' : ''}" data-i="${i}">${picks[i] ? WORDS[picks[i]].text : WORD_CAT[p.cat]}</button>`)).join('')}</div>
         <div class="name-say">${msg}</div>
         <div class="name-bar">

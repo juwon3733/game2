@@ -401,5 +401,27 @@ def final():
     return tr
 
 
+# ---------- 추격: 반박이 연달아 맞을 때 ----------
+
+def chase():
+    """심문 막판: 반박이 이어질 때. 심문 곡의 동기를 빠르게, 옥타브 베이스로 몰아붙인다"""
+    tr = Track(168, 16)
+    prog = ['Dm', 'Dm', 'Bb', 'C', 'Dm', 'Dm', 'Gm', 'A7', 'Bb', 'C', 'Am', 'Dm', 'Gm', 'Bb', 'A7', 'A7']
+    tr.bus('bass', 0, 0.8, 0.06); tr.bus('stab', -0.25, 0.45, 0.2); tr.bus('dr', 0, 0.42, 0.1)
+    tr.bus('lead', 0.15, 0.52, 0.25); tr.bus('str', -0.1, 0.32, 0.4); tr.bus('arp', 0.3, 0.25, 0.3)
+    basses(tr, 'bass', bass, prog, [(x / 4, 0.22, 12 if x % 2 else 0) for x in range(16)], vel=0.72)
+    block(tr, 'stab', brass, prog, [(0, 0.25), (0.75, 0.25), (1.5, 0.25), (2.5, 0.2), (3, 0.5)], octave=4, vel=0.55)
+    arp(tr, 'arp', pulse, prog, [0, 1, 2, 3], step=0.25, octave=5, vel=0.25, dur=0.15)
+    drums(tr, 'dr', {'kick': [0, 0.75, 1.5, 2, 2.75, 3.5], 'snare': [1, 3, (3.75, 0.5)], 'hat': [(x / 4, 0.25 + 0.15 * (x % 2 == 0)) for x in range(16)]}, 16)
+    for b in (0, 8):
+        tr.drum('dr', 'cym', b * 4, 0.75)
+    mel_a = ['a:1.5 a:.5 f^ e^', 'd^:2 - a', 'bb d^ f^:1.5 e^:.5', 'e^ c^ g:2',
+             'a:1.5 a:.5 f^ g^', 'a^:2 g^ f^', 'bb^ a^ g^ f^', 'e^:2 c#^:2']
+    melody(tr, 'lead', lead, 0, mel_a, vel=0.6)
+    melody(tr, 'lead', lead, 8, ['f^ g^ a^:2', 'g^ a^ c^^:2', 'a^:2 e^:2', 'f^:3 -', 'd^ f^ bb^ a^', 'g^ f^ d^ bb', 'a:1 c#^ e^ g^', 'a^:4'], vel=0.62)
+    block(tr, 'str', strings, prog[8:], [(0, 3.9)], octave=3, vel=0.32, start_bar=8, top=3)
+    return tr
+
+
 SONGS = {'title': title, 'office': office, 'explore': explore, 'trial': trial, 'tension': tension, 'truth': truth,
-         'epilogue': epilogue, 'live': live, 'encore': encore, 'tendo': tendo, 'madoka': madoka, 'fire': fire, 'editor': editor, 'final': final}
+         'epilogue': epilogue, 'live': live, 'encore': encore, 'tendo': tendo, 'madoka': madoka, 'fire': fire, 'editor': editor, 'final': final, 'chase': chase}

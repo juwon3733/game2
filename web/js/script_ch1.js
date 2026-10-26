@@ -46,7 +46,7 @@ async function sceneOffice() {
   await say('', '쿠로가네가 손목시계를 들여다본다. 초침이 움직이지 않는다. 8시 31분.');
   await say('koharu', '과장님, 그 시계 멈췄는데요?', 'normal');
   FX.zoom('center');
-  await say('kurogane', '…알아. 이게 맞는 시간이야.');
+  await say('kurogane', '알아. 이게 맞는 시간이야.');
   FX.zoom(null);
   await say('', '선반 맨 위, 먼지 쌓인 상자에 「6년 전 / 등대」라고 적혀 있다. 코하루의 눈이 거기서 잠깐 멈춘다.');
   await say('koharu', '잔상… 이라는 걸로 확인하는 거죠? 선배가 그걸 볼 수 있다고 들었어요!', 'happy');
@@ -72,7 +72,7 @@ async function sceneExplore1() {
     goal(`사에키 씨 집과 주변에서 잔상을 찾아라. (${got}/4)`);
     if (got === 4) {
       show('koharu', 'happy', 'right');
-      await say('koharu', '선배! 컷 4장 다 모았어요! 이제 순서를 맞춰 봐요!', 'happy');
+      await say('koharu', '문고리, 피아노, 화분… 이 집, 그날 밤이 아직 다 남아 있네요.', 'worried');
       EX.end();
     }
   };
@@ -81,7 +81,7 @@ async function sceneExplore1() {
     on: {
       parcel: async () => {
         await say('', '현관 앞에 놓인 택배 상자. 증거품 태그가 붙어 있다.');
-        await say('rei', '…강한 감정이 남아 있어. 놀람이랑, 초조함.');
+        await say('rei', '강한 감정이 남아 있어. 놀람이랑, 초조함.');
         await found('A');
       },
       door: async () => {
@@ -118,11 +118,11 @@ async function sceneExplore1() {
       railing: async () => {
         await say('', '난간 아래로 1층 화단이 보인다. 한쪽이 움푹 패어 있다.');
         show('koharu', 'worried', 'right');
-        await say('koharu', '…여기서.', 'worried');
+        await say('koharu', '여기서.', 'worried');
       },
       shoes: async () => { await say('', '현관의 신발. 남자 구두와 레슨용 아이 실내화 한 켤레.'); },
       nbdoor: async () => { await say('', '옆집. 「코마츠」 문패. 안은 조용하다.'); },
-      stairs: async () => { await say('rei', '…아직 덜 읽었어. 돌아가는 건 나중에.'); },
+      stairs: async () => { await say('rei', '아직 덜 읽었어. 돌아가는 건 나중에.'); },
     },
   });
   goal('');
@@ -134,7 +134,7 @@ async function scenePuzzle1() {
   show('koharu', 'worried', 'right');
   await say('koharu', '타이가 씨는 쿵 소리가 났을 때 문 밖에 있었다… 그럼 범인이 아니라는 거죠?', 'worried');
   show('rei', 'serious', 'left');
-  await say('rei', '…경비원 증언이랑 안 맞아. 경비원부터 읽자.', 'serious');
+  await say('rei', '경비원 증언이랑 안 맞아. 경비원부터 읽자.', 'serious');
   clearChars();
 }
 
@@ -154,17 +154,17 @@ async function sceneTaiga() {
   bg('interrogate');
   await say('', '츠키미나토 경찰서 취조실. 금발의 청년이 팔짱을 끼고 앉아 있다.');
   show('taiga', 'angry', 'left');
-  await say('taiga', '…도망쳤다니까요. 그게 다예요.');
+  await say('taiga', '도망쳤다니까요. 그게 다예요.');
   show('koharu', 'normal', 'right');
   await say('koharu', '타이가 씨, 기억을 보여주실 수 있을까요? 저희가 확인하고 싶어서요.');
   await say('taiga', '싫어요. 볼 것도 없어요.', 'angry');
   for (;;) {
     hideText();
     const c = await choice(['"당신이 안 했다는 거 알아요."', '"왜 거짓말해요."', '(말없이 기다린다)'], '레이: 뭐라고 말할까?');
-    if (c === 0) { await say('taiga', '…뭘 안다고.', 'sad'); await say('taiga', '…맘대로 해요.', 'sad'); break; }
+    if (c === 0) { await say('taiga', '뭘 안다고.', 'sad'); await say('taiga', '…맘대로 해요.', 'sad'); break; }
     if (c === 1) { await say('taiga', '거짓말 아니라고요!', 'angry'); await say('koharu', '서, 선배…! 그렇게 말하면…', 'worried'); continue; }
     await say('koharu', '저기, 타이가 씨. 저희 타이가 씨 편이에요. 진짜로요.', 'happy');
-    await say('taiga', '…하아. 알았어요.', 'sad');
+    await say('taiga', '하아. 알았어요.', 'sad');
     break;
   }
   hide('koharu');
@@ -175,7 +175,7 @@ async function sceneExplore2() {
   bg('night');
   await say('', '타이가는 풀려났다. 레이는 다시 맨션으로 돌아갔다.');
   show('rei', 'serious', 'left');
-  await say('rei', '…아직 한 명이 안 읽혔어.', 'serious');
+  await say('rei', '아직 한 명이 안 읽혔어.', 'serious');
   clearChars();
   goal('아직 읽지 못한 잔상이 있다. 베란다로.');
   let shiori = true;
@@ -235,7 +235,7 @@ async function sceneHimari() {
 async function scenePuzzle2() {
   bg('night');
   show('rei', 'serious', 'left');
-  await say('rei', '…이제 다 읽혔어. 순서만 맞추면 돼.', 'serious');
+  await say('rei', '이제 다 읽혔어. 순서만 맞추면 돼.', 'serious');
   clearChars();
   await runPuzzle('page2');
 }
@@ -259,15 +259,16 @@ async function sceneConclusion() {
       if (q.answer.includes(c)) { sfx('correct'); break; }
       sfx('wrong'); quake();
       G.stats.wrong++;
-      await say('kurogane', '…그 컷으론 설명이 안 되지. 다시.');
+      await say('kurogane', '그 컷으론 설명이 안 되지. 다시.');
     }
     show('rei', 'serious', 'left');
     await say('rei', replies[i], 'serious');
     hide('rei');
   }
-  await say('kurogane', '…됐다. 강력계엔 내가 말하지.');
+  await say('kurogane', '됐다. 강력계엔 내가 말하지.');
   clearChars();
   bgm('truth');
+  await montage(G.lastSolution);
   if (await cg('cg_page')) {
     await say('', '여섯 칸짜리 원고. 그날 밤 일어난 일의, 진짜 순서.');
     cgEnd();
@@ -275,7 +276,7 @@ async function sceneConclusion() {
   show('himari', 'crying', 'left');
   await say('', '복도 끝 의자에, 엄마 손을 잡은 히마리가 앉아 있다.');
   show('komatsu', 'normal', 'right');
-  await say('komatsu', '…형사님들이시죠. 히마리가 아무 말도 안 해서, 저는 아무것도 몰랐어요.');
+  await say('komatsu', '형사님들이시죠. 히마리가 아무 말도 안 해서, 저는 아무것도 몰랐어요.');
   await say('komatsu', '그날 제가 조금만 일찍 왔으면….');
   hideText();
   const c = await choice(['"네 잘못 아니야."', '"선생님은 너를 지키고 싶었던 거야."', '(말없이 「끌어당김」 컷을 보여준다)'], '히마리에게 뭐라고 할까?');
@@ -286,7 +287,7 @@ async function sceneConclusion() {
     await say('', '히마리가 쥐고 있던 음표 머리핀을 천천히 다시 꽂는다.');
   }
   if (c === 2) await say('', '히마리가 컷 속, 자신을 끌어당기며 웃고 있는 선생님을 오래 바라본다.');
-  await say('komatsu', '…고맙습니다. 선생님 깨어나시면, 이 아이랑 같이 인사하러 갈게요.');
+  await say('komatsu', '고맙습니다. 선생님 깨어나시면, 이 아이랑 같이 인사하러 갈게요.');
   clearChars();
 }
 
@@ -294,17 +295,18 @@ async function sceneEpilogue() {
   bg('cafe');
   await say('', '구시가 언덕의 작은 카페 「여백」.');
   show('asagiri', 'normal', 'center');
-  await say('asagiri', '어서 와요. 처음 보는 얼굴이네. 레이 짱 후배?');
+  await say('asagiri', '어서 와요. 처음 보는 얼굴이네. 레이 후배?');
   show('koharu', 'happy', 'right');
   await say('koharu', '네! 히나타 코하루입니다!', 'happy');
   show('rei', 'normal', 'left');
   const cafe = await cg('cg_cafe');
   await say('', '아사기리는 말없이 레이 앞에 단 커피를 놓는다.');
-  await say('koharu', '어? 선배 단 거 싫어하지 않았어요?', 'normal');
-  await say('rei', '…이건 괜찮아.');
+  await say('koharu', '어, 주문도 안 했는데요?', 'normal');
+  await say('asagiri', '레이는 늘 이거야. 써 보이는 얼굴로 단 걸 마시거든.');
+  await say('rei', '…쓸데없는 소리.'); 
   if (cafe) cgEnd();
   await say('asagiri', '오늘은 무슨 일이 있었어?');
-  await say('rei', '…떨어진 게 아니라, 구한 거였어요.');
+  await say('rei', '피아노 선생님이 베란다 밖으로 손을 뻗었어요. 아이 머리핀 하나 때문에.');
   await say('asagiri', '그래. …괜찮아. 힘든 건 잊어도 돼.');
   // 여백 컷: 히마리에게 "선생님은 너를 지키고 싶었던 거야"라고 했을 때만
   if (G.flags.yohaku1) {
@@ -320,16 +322,20 @@ async function sceneEpilogue() {
     await say('koharu', '선배? 커피 식어요.', 'normal');
   }
   clearChars();
-  show('shiori', 'normal', 'center');
+  show('shiori', 'normal', 'farright', { far: true });
   FX.ghost();
   await say('', '창밖, 길 건너에 교복 차림의 여자아이가 서 있다가——');
   hide('shiori');
   await say('', '——사라졌다.');
   bgm(null, 2.5);
+  await fade(true, 500);
+  clearChars();
+  bg('night');
+  fade(false, 700);
   await say('', '그날 밤. 혼자 남은 레이는 오른손 검지의 굳은살을 내려다본다.');
   await say('', '펜을 오래 쥔 사람의 손. 그런데 레이는 그림을 그린 기억이 없다.');
   FX.ghost();
-  await say('', '김 서린 창에 손가락으로 쓴 글씨가 떠오른다. 「…기억나?」');
+  await say('', '어두운 창유리에, 손가락으로 쓴 것 같은 글씨가 잠깐 떠올랐다 사라진다. 「기억나?」');
   hideText();
   await banner('1장 「낙하」 끝', '', 2200);
   await showRank('1장 「낙하」');

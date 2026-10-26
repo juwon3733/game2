@@ -161,7 +161,7 @@ Object.assign(WITNESSES, {
   kuramochi: {
     char: 'kuramochi', bg: 'booth', face: 'normal',
     goal: '쿠라모치의 증언에서 그림과 맞지 않는 곳을 찾아라.',
-    intro: [['towa', '이번 증인은 반박이 한 번으로 안 끝나. 깨면 말을 바꿔. 바뀐 말을 다시 들어.']],
+    intro: [['tip', '이 증인은 반박 한 번으로 끝나지 않는다. 깨면 말을 바꾼다. 바뀐 증언을 다시 듣자.']],
     statements: [
       { text: '리허설 점검 때 리그는 이상 없었어요. 점검표에도 그렇게 썼고요.', cut: 't_kuramochi_1', dist: '생략',
         cutDesc: '점검표에 「이상 없음」이라고 서명하는 손. 리그 칸만 하얀 여백으로 비어 있다.',
@@ -201,7 +201,6 @@ Object.assign(WITNESSES, {
     hold: { statement: 2, lines: [
       ['', '레이가 세 번째 증언 앞에서 멈춘다.'],
       ['rei', '(…여기, 캣워크 자리가 통째로 하얘. 뭘 봤어. 근데 지금 가진 컷으로는 못 벗겨.)', 'serious'],
-      ['towa', '보류. 증언에 클립 꽂아 둘게. 나중에 맞는 컷을 찾으면 다시 열어.'],
       ['kuramochi', '…저는, 할 말 없어요.', 'scared'],
     ] },
     koharu: [['koharu', '(선배, 첫 페이지에서 뺐던 리허설 컷… 거기 누가 있었죠?)', 'worried']],
@@ -214,7 +213,7 @@ Object.assign(WITNESSES, {
     statements: [
       { text: '어제 싸움이요? 루루는 끝까지 멋있었어요.', cut: 't_pin_1', dist: '미화',
         cutDesc: '반짝이로 빛나는 루루. 상대(키리시마)는 흐린 실루엣.',
-        press: [['pin', '…루루가 「없어져 버려」라고 했어요.', 'crying'], ['pin', '그래도 그건 상처받아서 그런 거예요! 루루 나쁜 애 아니에요!', 'crying']],
+        press: [['pin', '루루가 「없어져 버려」라고 했어요.', 'crying'], ['pin', '그래도 그건 상처받아서 그런 거예요! 루루 나쁜 애 아니에요!', 'crying']],
         gives: 'L7' },
       { text: '루루는 개장 전에 캣워크 같은 데 안 올라갔어요! 쭉 저랑 대기실에 있었어요.', cut: 't_pin_2', dist: '미화',
         cutDesc: '거울 앞에 나란히 앉은 반짝이는 두 사람.', truthCut: '2H',
@@ -228,7 +227,7 @@ Object.assign(WITNESSES, {
         rebut: '이건 루루 자신의 잔상이야. 작업등 아래, 캣워크에서 클램프를 붙잡고 있어.',
         success: [
           ['pin', '…….', 'crying'],
-          ['pin', '…올라갔어요. 근데 금방 울면서 내려왔어요.', 'crying'],
+          ['pin', '올라갔어요. 근데 금방 울면서 내려왔어요.', 'crying'],
           ['pin', '그다음부턴 진짜 저랑 있었어요. 개장 때까지 계속. 제가 계속 안고 있었어요.', 'crying'],
           ['', '증언 컷의 반짝이가 두 장 한꺼번에 벗겨진다.'],
         ],
@@ -245,7 +244,7 @@ Object.assign(WITNESSES, {
     statements: [
       { text: '어제 그 사람이 그랬어. 넌 여기 있으면 안 된다고. 나 같은 건 필요 없다는 거지.', cut: 't_ruru_1', dist: '낙서',
         cutDesc: '등 돌린 정장 차림의 남자. 루루 자신의 얼굴이 새까만 낙서로 지워져 있다.', truthCut: '2P',
-        press: [['ruru', '…마지막으로 한 말이 「없어져 버려」였어. 내가.', 'angry']] },
+        press: [['ruru', '마지막으로 한 말이 「없어져 버려」였어. 내가.', 'angry']] },
       { text: '개장 전에 캣워크 올라가서 리그를 세게 흔들었어.', cut: 't_ruru_2', dist: '과장',
         cutDesc: '거대한 손이 리그를 마구 흔든다. 리그가 엿가락처럼 휘었다.', truthCut: '2H',
         press: [['ruru', '그 사람이 거기 있었어. 뭘 묶고 있었는데, 무대 망치는 줄 알고.', 'angry'], ['ruru', '「반 걸음 뒤에 서」래. 명령하지 말라고 했어.', 'angry']] },
@@ -261,9 +260,9 @@ Object.assign(WITNESSES, {
       { statement: 2, cut: '2G', shout: '네 손으로는 못 떨어뜨려!',
         rebut: '네가 올라가기 전에 그 사람이 리그를 난간에 묶어 뒀어. 리그는 리허설 때부터 헐거웠고, 끈이 그걸 붙잡고 있었어.',
         success: [
-          ['ruru', '…묶어… 뒀다고?', 'normal'],
+          ['ruru', '묶어… 뒀다고?', 'normal'],
           ['', '증언 컷의 과장이 쪼그라들며 벗겨진다. 클램프 바로 옆, 단단한 매듭.'],
-          ['ruru', '…그럼 그 사람, 거기서 그걸 묶고 있었던 거야? 내가 흔든 건…', 'crying'],
+          ['ruru', '그럼 그 사람, 거기서 그걸 묶고 있었던 거야? 내가 흔든 건…', 'crying'],
         ],
         peel: [1], words: ['a_tie', 'pl_catwalk'] },
       { statement: 3, cut: '2N', line: 'L6', shout: '우연이 아니야!',
@@ -271,28 +270,28 @@ Object.assign(WITNESSES, {
         success: [
           ['ruru', '…….', 'crying'],
           ['', '여백이 채워진다. 손을 뻗는 키리시마의 얼굴.'],
-          ['ruru', '…이런 얼굴, 한 번도 안 보여 줬잖아.', 'crying'],
+          ['ruru', '이런 얼굴, 한 번도 안 보여 줬잖아.', 'crying'],
         ],
         peel: [3], words: ['pl_wing', 'a_push', 'p_kirishima'] },
       { statement: 0, cut: 'notebook', shout: '그 사람은 너를 버린 게 아니야!',
         rebut: '오늘 객석에 다른 레코드사 사람을 불러 놨어. 수첩에 적혀 있어. 앙코르는 네 솔로였어.',
         success: [
           ['', '낙서가 눈물처럼 번지며 벗겨진다. 스튜디오 앞, 종이를 내미는 키리시마.'],
-          ['ruru', '…오디션 안내지. 다른 회사.', 'crying'],
+          ['ruru', '오디션 안내지. 다른 회사.', 'crying'],
           ['ruru', '「넌 이 소속사에 있으면 안 돼.」…그게 그 뜻이었어?', 'crying'],
-          ['ruru', '…그럼 왜 그렇게 말했어. 바보 같이.', 'crying'],
+          ['ruru', '그럼 왜 그렇게 말했어. 바보 같이.', 'crying'],
         ],
         peel: [0], rewards: ['2P'] },
     ],
     koharu: [['koharu', '(선배, 루루 씨가 올라가기 전 캣워크… 형광등 아래 컷이 있었죠.)', 'worried']],
     wrong: [['ruru', '그래서 뭐. 내가 했다니까.', 'angry']],
-    close: [['ruru', '…나가. 다 내 탓이야. 그걸로 됐잖아.', 'angry'], ['koharu', '(…처음부터 다시요, 선배.)', 'worried']],
+    close: [['ruru', '나가. 다 내 탓이야. 그걸로 됐잖아.', 'angry'], ['koharu', '(…처음부터 다시요, 선배.)', 'worried']],
   },
   tendo: {
     char: 'tendo', bg: 'tendo_office', face: 'smile', bgm: 'tendo',
     goal: '텐도의 증언에서 말과 그림이 어긋나는 곳을 찾아라.',
-    intro: [['towa', '이 사람 컷은 왜곡이 적어. 착각이 아니라 알고 하는 거짓말이야. 말이랑 그림이 어긋나는 데를 찾아. 그림 속을 직접 짚어야 할 수도 있어.'],
-      ['towa', '그리고 컷 한 장으로 안 깨지면 [[겹쳐 보기]]. 같은 순간을 다른 자리에서 본 컷을 하나 더 내.']],
+    intro: [['towa', '이 사람 컷은 왜곡이 적어. 알고 하는 거짓말이야. 말이랑 그림이 어긋나는 데를 찾아.'],
+      ['tip', '컷 한 장으로 안 깨지면 [[겹쳐 보기]]. 같은 순간을 다른 자리에서 본 컷을 하나 더 낸다. 증언 컷 속을 직접 짚어야 할 때도 있다.']],
     statements: [
       { text: '리허설 때 리그 문제? 아무도 나한테 말 안 했어.', cut: 't_tendo_1', dist: '생략',
         cutDesc: '크레센트 복도에서 웃는 텐도. 상대의 말풍선 자리가 하얀 여백.', truthCut: '2L',
@@ -309,12 +308,12 @@ Object.assign(WITNESSES, {
     answers: [
       { statement: 0, cut: '2L', line: 'L4', shout: '말했어. 당신한테!',
         rebut: '리허설 중 복도. 매니저가 점검표를 들고 따졌고, 당신은 이렇게 답했어. 「한 번만 버텨.」',
-        success: [['tendo', '…아아, 그거.', 'normal']],
+        success: [['tendo', '아아, 그거.', 'normal']],
         choice: {
           prompt: '텐도: 「그건 루루한테 한 말이야. 공연 한 번만 버티라고!」 — 어떻게 받아칠까?',
           options: ['"루루 씨도 그 자리에 있었잖아요."', '"매니저 손에 동그라미 친 점검표가 있어요. 무대에선 리허설 소리가 나고. 루루는 거기 없었어요."', '"그 말, 녹음돼 있어요."'],
           answer: 1,
-          success: [['tendo', '…….', 'angry'], ['rei', '같은 말이라도 어느 칸에 붙느냐에 따라 뜻이 바뀌어요. 이 말은 리그 얘기 칸에 붙어 있어요.', 'serious']],
+          success: [['tendo', '…….', 'angry'], ['rei', '같은 말이라도 언제 했느냐로 뜻이 바뀌어요. 그 말은 리허설 중에, 점검표를 든 매니저한테 한 거예요.', 'serious']],
           wrong: [['tendo', '증거 있어? 없잖아.', 'smile']],
         },
         peel: [0], words: ['p_tendo'] },
@@ -322,7 +321,7 @@ Object.assign(WITNESSES, {
         rebut: '앞쪽에 계단 난간이 걸쳐 있어요. 리그가 눈높이고. 이건 객석이 아니라 캣워크 계단 중간에서 본 그림이에요.',
         success: [
           ['tendo', '…….', 'angry'],
-          ['tendo', '…걱정돼서 올라가 본 거다! 사장이 자기 무대 걱정하는 게 죄야?', 'angry'],
+          ['tendo', '걱정돼서 올라가 본 거다! 사장이 자기 무대 걱정하는 게 죄야?', 'angry'],
         ],
         words: ['pl_catwalk'],
         changes: { 2: { text: '올라가 보니 루루가 리그를 만지고 있었어. 난 바로 내려왔어. 끈 같은 건 본 적도 없어.', cut: 't_tendo_3b', dist: '생략',
@@ -331,7 +330,7 @@ Object.assign(WITNESSES, {
       { statement: 2, cut: '2T', with: '2K', requires: [1], shout: '끈을 푼 건 당신이야!',
         rebut: '같은 순간이에요. 헤이즈가 깔린 캣워크, 대기실 모니터 속 그림자의 손목이 반짝여요. 루루는 그때 핀 품에서 울고 있었고. 끈을 푼 손엔 이 시계가 있어요.',
         success: [
-          ['tendo', '…이런 시계는 흔해!', 'cornered'],
+          ['tendo', '이런 시계는 흔해!', 'cornered'],
           ['tendo', '그리고 잔상? 그런 건 증거가 안 돼. 내 변호사가 웃겠네.', 'cornered'],
         ],
         peel: [2], words: ['a_untie', 'th_watch', 't_haze'] },

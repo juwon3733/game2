@@ -85,12 +85,23 @@ function hauntedId() {
   return exploreTargets().reduce((a, o) => (!a || d(o) < d(a) ? o : a), null)?.id;
 }
 
+// 사람인 조사 대상: [말 걸기]로 따로 묶는다 (지도 데이터에 who가 없으면 id로 찾는다)
+const EX_PEOPLE = { kura: 'kuramochi', tendo: 'tendo', aoi: 'aoi', murase: 'murase' };
+const whoOf = (o) => o.who || EX_PEOPLE[o.id] || null;
+
 function renderExplore() {
   const box = $('#explore');
   const haunt = hauntedId();
+  const btn = (o) => {
+    const who = whoOf(o);
+    const known = who && (G.flags.met || []).includes(who);
+    const face = who ? `<span class="ex-face"${known ? ` style="${faceStyle(who)}"` : ''}>${known ? '' : '?'}</span>` : '';
+    return `<button class="ex-btn${who ? ' talk' : ''}${EX.examined.has(o.id) ? ' seen' : ''}${o.id === haunt ? ' haunt' : ''}" data-id="${o.id}">${face}${o.label}</button>`;
+  };
+  const all = exploreTargets();
+  const things = all.filter((o) => !whoOf(o)), people = all.filter(whoOf);
   box.innerHTML = `<div class="ex-head">${EX.map.label}</div>
-    <div class="ex-list">${exploreTargets().map((o) =>
-      `<button class="ex-btn${EX.examined.has(o.id) ? ' seen' : ''}${o.id === haunt ? ' haunt' : ''}" data-id="${o.id}">${o.label}</button>`).join('')}</div>`;
+    <div class="ex-list">${people.length ? `<div class="ex-group">말 걸기</div>${people.map(btn).join('')}<div class="ex-group">살펴보기</div>` : ''}${things.map(btn).join('')}</div>`;
   box.querySelectorAll('[data-id]').forEach((b) => {
     b.onclick = (e) => { e.stopPropagation(); interact(EX.map.objects.find((o) => o.id === b.dataset.id)); };
   });

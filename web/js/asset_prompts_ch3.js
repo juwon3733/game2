@@ -2,11 +2,12 @@
 // 고친 뒤엔 node tools/export-prompts.mjs 로 prompts.json / PROMPTS 문서를 다시 만든다.
 
 Object.assign(CHARACTER_SHEETS, {
-  yuki: 'Character reference sheet of a gentle, artistic 19-year-old girl, the older of identical twins. Big soft teal eyes, glossy dark navy bob hair with a cream ribbon tied on the RIGHT side, a charcoal smudge on her LEFT hand (she is left-handed), cream blouse under a pastry shop apron with a small cake emblem, an art portfolio bag on her shoulder. Teal and cream accents.',
-  nagi: 'Character reference sheet of a lively but anxious 19-year-old girl, the younger of identical twins, with exactly the same face as her sister. Big teal eyes, glossy dark navy bob hair with a cream ribbon tied on the LEFT side, a white bandage around her right ankle, cream blouse under a pastry shop apron with a small cake emblem. Teal and cream accents.',
-  madoka: 'Character reference sheet of a beautiful, mysterious 26-year-old tarot fortune teller woman. Long wavy violet-black hair, half-lidded amethyst eyes with long lashes, a dark violet dress under a large black shawl covered in small silver star sequins, many rings, a tarot card held between two fingers, a charming smile that hides something. Violet and silver accents.',
+  yuki: 'Character reference sheet of a gentle, artistic 19-year-old girl, the older of identical twins. Big soft teal eyes, long glossy dark navy hair with a cream ribbon tied on the RIGHT side, a charcoal smudge on her LEFT hand (she is left-handed), cream blouse under a pastry shop apron with a small cake emblem, an art portfolio bag on her shoulder. Teal and cream accents.',
+  nagi: 'Character reference sheet of a lively but anxious 19-year-old girl, the younger of identical twins, with exactly the same face as her sister. Big teal eyes, long glossy dark navy hair with a cream ribbon tied on the LEFT side, a white bandage around her right ankle, cream blouse under a pastry shop apron with a small cake emblem. Teal and cream accents.',
+  yukin: 'Character reference sheet of a 19-year-old girl pretending to be her identical twin sister: exactly the same face as the twins, big teal eyes, long glossy dark navy hair with a cream ribbon tied on the RIGHT side (copying her sister), cream blouse under a pastry shop apron with a small cake emblem, clean hands with no charcoal, no art bag, a slightly too-stiff polite smile. Teal and cream accents.',
+  madoka: 'Character reference sheet of a beautiful, mysterious 26-year-old tarot fortune teller woman. Long wavy violet-black hair, half-lidded amethyst eyes with long lashes, an off-shoulder dark violet dress with a high leg slit under a large black shawl covered in small silver star sequins, many rings, a tarot card held between two fingers, a charming smile that hides something. Violet and silver accents.',
   tofu: 'Character reference sheet of a lively, sharp-eyed 78-year-old grandmother who runs a tofu shop. Neat white hair in a small bun, round glasses, a navy work apron and a white headscarf, rubber boots, a wooden tofu paddle in hand, a proud grin. Navy and khaki accents.',
-  ren: 'Character reference sheet of a striking, cold 22-year-old woman. Long straight silver-white hair, one pale grey eye and a black eyepatch over the other, a long pure white coat with a high collar, white gloves, a calm unreadable smile. White and pale silver palette.',
+  ren: 'Character reference sheet of a striking, cold 22-year-old woman. Long straight silver-white hair, one pale grey eye and a black eyepatch over the other, a long pure white coat with a high collar worn open over a fitted white high-neck dress, white thigh-high boots, white gloves, a calm unreadable smile. White and pale silver palette.',
 });
 
 Object.assign(FACE_PROMPTS, {
@@ -16,6 +17,9 @@ Object.assign(FACE_PROMPTS, {
   nagi_normal: 'expression: forced bright customer-service smile',
   nagi_scared: 'expression: frightened, eyes darting, hands gripping her apron',
   nagi_crying: 'expression: crying, ribbon slightly undone',
+  yukin_normal: 'expression: stiff polite customer-service smile, hands folded on her apron',
+  yukin_crying: 'expression: crying, hiding her face with her right hand',
+  yukin_smile: 'expression: forced bright smile, eyes not smiling',
   madoka_smile: 'expression: charming mysterious smile, a tarot card near her lips',
   madoka_normal: 'expression: calm and composed, shuffling cards',
   madoka_cornered: 'expression: cornered, smile frozen, sweat on her temple, shawl slipping',
@@ -36,7 +40,7 @@ Object.assign(BG_PROMPTS, {
 });
 
 Object.assign(CUT_CHARS, {
-  twin: 'a 19-year-old girl with a dark bob and a ribbon, wearing a pastry shop apron',
+  twin: 'a 19-year-old girl with long dark navy hair and a ribbon, wearing a pastry shop apron',
   madoka: 'a woman wrapped in a black shawl covered with star sequins',
   tofu: 'an old grandmother with a white headscarf',
 });

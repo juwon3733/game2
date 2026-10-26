@@ -31,3 +31,5 @@ jobs:
         run: npm i --no-save playwright@1.63.0 && npx playwright install --with-deps chromium
       - name: 모든 장면을 열어 오류 검사
         run: node tools/smoke.mjs
+      - name: 장마다 처음부터 끝까지 정답으로 풀어 보기
+        run: node tools/playthrough.mjs

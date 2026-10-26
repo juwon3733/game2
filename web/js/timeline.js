@@ -16,7 +16,8 @@ function runTimeline(id) {
   clearChars();
 
   return new Promise(async (resolve) => {
-    let msg = '토와: 묶음에서 컷을 누르고, 들어갈 칸을 눌러. 칸의 컷을 누르면 빠져. 컷이 없는 시각은 비워 둬.';
+    const MSG0 = '묶음에서 컷을 누르고, 들어갈 칸을 누른다. 칸의 컷을 누르면 빠진다. 컷이 없는 시각은 비워 둔다.';
+    let msg = MSG0;
     let done = false;
 
     const render = () => {
@@ -31,8 +32,8 @@ function runTimeline(id) {
         </div>
         <div class="pz-bar">
           <div class="pz-say">${sayBar(msg)}</div>
-          <button class="act-btn small" data-a="reset">모두 빼기</button>
-          <button class="act-btn small press" data-a="hint">토와 힌트</button>
+          ${done ? '' : `<button class="act-btn small" data-a="reset">모두 빼기</button>
+          <button class="act-btn small press" data-a="hint">토와 힌트</button>`}
           <button class="act-btn objection" data-a="check">${done ? '다음 ▶' : '이 시각표로 확정'}</button>
         </div>`;
       root.querySelectorAll('.tl-cell').forEach((c) => {
@@ -83,12 +84,14 @@ function runTimeline(id) {
     const onAction = async (a) => {
       if (a === 'check' && done) {
         root.classList.add('hidden'); root.onclick = null; goal('');
+        G.lastSolution = P.times.flatMap((_, t) => P.rows.map((row) => row.cells[t]).filter(Boolean)); // 결론 몽타주용
         return resolve({ tries: st.tries, hints: st.hints });
       }
       if (done) return;
       if (a === 'reset') {
         st.grid.forEach((row, r) => row.forEach((c, t) => { if (c && !st.locked.has(key(r, t))) { st.tray.push(c); row[t] = null; } }));
         st.pick = null; st.bad = [];
+        msg = MSG0;
         return render();
       }
       if (a === 'hint') {
@@ -145,9 +148,9 @@ function runTimeline(id) {
     if (!G.flags.timeTut) {
       G.flags.timeTut = true;
       await sayAll([
-        ['towa', '이번엔 [[시각표]]. 사람마다 한 줄, 시각마다 한 칸이야.'],
-        ['towa', '컷 속 시계를 읽어. 벽시계, 계산대, 휴대폰, 역 시계. 그리고 그 컷이 누구 줄인지는 손이나 발 같은 데서 알아내.'],
-        ['towa', '한 사람이 같은 시각에 두 군데 있을 순 없어. 컷이 없는 시각은 비워 둬.'],
+        ['tip', '[[시각표]]: 사람마다 한 줄, 시각마다 한 칸.'],
+        ['tip', '컷 속 시계(벽시계·계산대·휴대폰·역 시계)로 시각을 읽고, 누구의 컷인지는 손이나 발 같은 데서 알아낸다.'],
+        ['tip', '한 사람이 같은 시각에 두 군데 있을 수는 없다. 컷이 없는 시각은 비워 둔다.'],
       ]);
       hideText();
     }

@@ -16,7 +16,7 @@
 
 Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
@@ -53,7 +53,7 @@ Expression: eyes wide, startled.
 Expression: crying quietly for the first time, tears on the cheeks, sleepy eyes wide open.
 ```
 
-## 대화 2 — 코하루 상반신 (3장)
+## 대화 2 — 코하루 상반신 (4장)
 
 먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
 
@@ -63,11 +63,11 @@ Expression: crying quietly for the first time, tears on the cheeks, sleepy eyes 
 
 Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
-Character reference sheet of a cheerful 20-year-old rookie detective girl. Big sparkling amber eyes, orange-brown side ponytail tied with a sky-blue scrunchie with a small star charm, navy suit jacket with rolled sleeves over a white shirt with a loose sky-blue ribbon tie, navy pants, white sneakers, a police badge clipped to her belt, a notebook covered in cute stickers. Sunny orange and sky-blue accent colors. Full body front view plus face close-up.
+Character reference sheet of a cheerful 20-year-old rookie detective girl. Big sparkling amber eyes, orange-brown side ponytail tied with a sky-blue scrunchie with a small star charm, long orange-brown hair in a high side ponytail reaching her waist, fitted navy suit jacket with rolled sleeves over a white shirt with a loose sky-blue ribbon tie and the top button undone, short navy pencil skirt, black tights, white sneakers, a police badge clipped to her belt, a notebook covered in cute stickers. Sunny orange and sky-blue accent colors. Full body front view plus face close-up.
 ```
 
 **`koharu_normal.png`
@@ -93,6 +93,13 @@ Expression: big cheerful grin, eyes closed with joy.
 Expression: worried, eyebrows raised, hand near chest.
 ```
 
+**`koharu_crying.png`
+```
+같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
+
+Expression: crying, tears streaming, still trying to smile.
+```
+
 ## 대화 3 — 쿠로가네 상반신 (2장)
 
 먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
@@ -103,7 +110,7 @@ Expression: worried, eyebrows raised, hand near chest.
 
 Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
@@ -126,7 +133,7 @@ Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transpa
 Expression: sad and tired, no lollipop, holding an old stopped wristwatch.
 ```
 
-## 대화 4 — 토와 상반신 (2장)
+## 대화 4 — 토와 상반신 (3장)
 
 먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
 
@@ -136,7 +143,7 @@ Expression: sad and tired, no lollipop, holding an old stopped wristwatch.
 
 Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
@@ -159,7 +166,14 @@ Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transpa
 Expression: serious chibi inside a monitor frame, headphone LEDs red instead of green.
 ```
 
-## 대화 5 — 아사기리 상반신 (2장)
+**`towa_real.png`
+```
+같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
+
+Expression: IMPORTANT: this one is NOT on a monitor. Towa in person for the first time: a small shy young woman (not chibi, normal proportions like the other characters) with the same long ash-blonde wavy hair and big green eyes, cat-ear headphones around her neck, wrapped in the same cream blanket like a cape, serious expression, no monitor frame.
+```
+
+## 대화 5 — 아사기리 상반신 (3장)
 
 먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
 
@@ -169,7 +183,7 @@ Expression: serious chibi inside a monitor frame, headphone LEDs red instead of 
 
 Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
@@ -192,7 +206,14 @@ Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transpa
 Expression: calm but cold, the gentle smile gone, eyes looking down at the viewer, holding a coffee cup.
 ```
 
-## 대화 6 — 오오쿠보 상반신 (2장)
+**`asagiri_sad.png`
+```
+같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
+
+Expression: quiet grief, eyes lowered, holding an old crayon drawing, the gentle smile gone.
+```
+
+## 대화 6 — 오오쿠보 상반신 (3장)
 
 먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
 
@@ -202,7 +223,7 @@ Expression: calm but cold, the gentle smile gone, eyes looking down at the viewe
 
 Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
@@ -225,6 +246,13 @@ Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transpa
 Expression: flustered, sweating, eyes darting.
 ```
 
+**`ookubo_sad.png`
+```
+같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
+
+Expression: guilty and sincere, eyes open, brows lowered, cap in his hands, about to apologize, no smile.
+```
+
 ## 대화 7 — 타이가 상반신 (2장)
 
 먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
@@ -235,7 +263,7 @@ Expression: flustered, sweating, eyes darting.
 
 Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
@@ -255,7 +283,7 @@ Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transpa
 ```
 같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
 
-Expression: ashamed, looking down, biting lip.
+Expression: ashamed and sad, looking down, biting lip, pale face, no blush on the cheeks.
 ```
 
 ## 대화 8 — 히마리 상반신 (2장)
@@ -268,11 +296,11 @@ Expression: ashamed, looking down, biting lip.
 
 Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
-Character reference sheet of an adorable 9-year-old girl. Big round brown eyes, brown twin tails tied with pink ribbons, a small gold music-note hairpin, pink t-shirt with a piano-key pattern, denim overall skirt, shy expression.
+Character reference sheet of an adorable 9-year-old girl. Big round brown eyes, brown twin tails tied with pink ribbons, NO hairpin in her hair (she keeps her gold music-note hairpin hidden in her fist), pink t-shirt with a piano-key pattern, denim overall skirt, shy expression.
 ```
 
 **`himari_normal.png`
@@ -281,14 +309,14 @@ Character reference sheet of an adorable 9-year-old girl. Big round brown eyes, 
 
 Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
 
-Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: shy, half hidden behind a door.
+Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: shy, half hidden behind a door, no hairpin in her hair.
 ```
 
 **`himari_crying.png`
 ```
 같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
 
-Expression: crying, clutching something in her fist.
+Expression: crying, clutching something hidden in her fist, no hairpin in her hair.
 ```
 
 ## 대화 9 — 시오리 상반신 (2장)
@@ -301,7 +329,7 @@ Expression: crying, clutching something in her fist.
 
 Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
@@ -334,11 +362,11 @@ Expression: warm gentle smile, holding a bookmark hairpin, slightly translucent.
 
 Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
-Character reference sheet of a gentle, tired 36-year-old single mother who works late shifts. Soft brown bob hair, kind worried eyes like her daughter's, beige cardigan over a simple white blouse, an office lanyard, a small music-note keychain on her bag. Warm rose and beige accents.
+Character reference sheet of a gentle, tired 36-year-old single mother who works late shifts. Long soft brown hair loosely tied over one shoulder, kind worried eyes like her daughter's, beige cardigan over a simple white blouse, an office lanyard, a small music-note keychain on her bag. Warm rose and beige accents.
 ```
 
 **`komatsu_normal.png`
@@ -360,11 +388,11 @@ Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transpa
 
 Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
-Character reference sheet of a lively 20-year-old convenience store clerk girl. Short black hair with mint-green tips and a star hairpin, bright honest eyes, green-and-white store uniform vest over a T-shirt, name tag, wired earbuds around her neck. Mint and white accents.
+Character reference sheet of a lively 20-year-old convenience store clerk girl. Long black hair with mint-green tips in a high ponytail and a star hairpin, bright honest eyes, a fitted green-and-white store uniform vest over a cropped T-shirt, denim shorts, name tag, wired earbuds around her neck. Mint and white accents.
 ```
 
 **`akari_normal.png`
@@ -386,11 +414,11 @@ Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transpa
 
 Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
-Character reference sheet of a stunning 19-year-old indie rock vocalist and guitarist girl with a sharp tongue. Large vivid amber-orange eyes with sharp star-shaped highlights, shoulder-length sky-blue to cobalt hair with blunt bangs and two small braided loops tied low at each side with tiny blue flower clips, a black newsboy cap tilted to one side with a plaid blue ribbon bow and a small round white bird-shaped plush mascot sitting on its brim, a black ribbon choker, an oversized white stage jacket with silver buttons over a black tank top, a blue plaid pleated skirt, black tights with white frilly ankle socks, a guitar pick necklace, a vintage stage microphone in one hand. On stage a perfect idol smile, off stage a cool glare. Blue, white and amber accents.
+Character reference sheet of a stunning 19-year-old indie rock vocalist and guitarist girl with a sharp tongue. Large vivid amber-orange eyes with sharp star-shaped highlights, waist-length sky-blue to cobalt hair with blunt bangs and two small braided loops at each side with tiny blue flower clips, a black newsboy cap tilted to one side with a plaid blue ribbon bow and a small round white bird-shaped plush mascot sitting on its brim, a black ribbon choker, an oversized white stage jacket with silver buttons worn off the shoulders over a cropped black tank top showing her midriff, a short blue plaid pleated skirt, black thigh-high socks, a guitar pick necklace, a vintage stage microphone in one hand. On stage a perfect idol smile, off stage a cool glare. Blue, white and amber accents.
 ```
 
 **`ruru_normal.png`
@@ -433,11 +461,11 @@ Expression: perfect stage idol smile, mouth open, holding the microphone, one ha
 
 Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
-Character reference sheet of a sweet, dreamy 18-year-old bassist girl. Big soft rose-pink eyes, short fluffy silver-white bob hair with pastel coral-pink tips on the inner layer, a crossed silver hairpin on the bangs, a black beret with two small white plum-blossom flowers and a thin ribbon, a long black coat with white double-line trim and very wide sleeves embroidered with white plum blossoms, a white blouse with a big bow tie and a pink gem brooch, a black belt, white shorts, a black lace-up garter on one thigh, a bass case covered in stickers. Black, white and rose-pink accents.
+Character reference sheet of a sweet, dreamy 18-year-old bassist girl. Big soft rose-pink eyes, long fluffy silver-white hair down to her back with pastel coral-pink tips on the inner layer, a crossed silver hairpin on the bangs, a black beret with two small white plum-blossom flowers and a thin ribbon, a long black coat with white double-line trim and very wide sleeves embroidered with white plum blossoms, an off-shoulder white blouse with a big bow tie and a pink gem brooch, a black belt, short white shorts, a black lace-up garter on one thigh, a bass case covered in stickers. Black, white and rose-pink accents.
 ```
 
 **`pin_normal.png`
@@ -473,11 +501,11 @@ Expression: sobbing, beret slipping, flower sleeves pressed to her eyes.
 
 Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
-Character reference sheet of a cool 21-year-old drummer girl and band leader. Short navy-black hair with an undercut, calm sharp cobalt-blue eyes, silver ear cuffs, black tank top under an open cobalt work shirt, cargo pants, drumsticks in her back pocket, taped fingers. Cobalt blue and black accents.
+Character reference sheet of a cool 21-year-old drummer girl and band leader. Long navy-black hair in a high ponytail, calm sharp cobalt-blue eyes, silver ear cuffs, a black crop tank top under an open cobalt work shirt, low-slung cargo pants, drumsticks in her back pocket, taped fingers. Cobalt blue and black accents.
 ```
 
 **`aoi_normal.png`
@@ -506,11 +534,11 @@ Expression: serious, frowning, holding a folded document.
 
 Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
-Character reference sheet of a quiet 28-year-old live-house lighting technician woman. Short brown bob with a neat side part, tired honest amber eyes, a headset with microphone around her neck, black crew T-shirt with a small crescent moon logo, a tool belt, thick black work gloves always on her hands. Amber and black accents.
+Character reference sheet of a quiet 28-year-old live-house lighting technician woman. Long brown hair in a low loose ponytail, tired honest amber eyes, a headset with microphone around her neck, a fitted black crew T-shirt with a small crescent moon logo, a tool belt, thick black work gloves always on her hands. Amber and black accents.
 ```
 
 **`kuramochi_normal.png`
@@ -546,7 +574,7 @@ Expression: resolute, looking straight ahead, gloves taken off.
 
 Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
@@ -593,7 +621,7 @@ Expression: cornered, forced smile cracking, sweat on her temple.
 
 Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
@@ -626,11 +654,11 @@ Expression: a rare small gentle smile, slightly sad.
 
 Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
-Character reference sheet of a gentle, artistic 19-year-old girl, the older of identical twins. Big soft teal eyes, glossy dark navy bob hair with a cream ribbon tied on the RIGHT side, a charcoal smudge on her LEFT hand (she is left-handed), cream blouse under a pastry shop apron with a small cake emblem, an art portfolio bag on her shoulder. Teal and cream accents.
+Character reference sheet of a gentle, artistic 19-year-old girl, the older of identical twins. Big soft teal eyes, long glossy dark navy hair with a cream ribbon tied on the RIGHT side, a charcoal smudge on her LEFT hand (she is left-handed), cream blouse under a pastry shop apron with a small cake emblem, an art portfolio bag on her shoulder. Teal and cream accents.
 ```
 
 **`yuki_normal.png`
@@ -666,11 +694,11 @@ Expression: soft relieved smile.
 
 Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
-Character reference sheet of a lively but anxious 19-year-old girl, the younger of identical twins, with exactly the same face as her sister. Big teal eyes, glossy dark navy bob hair with a cream ribbon tied on the LEFT side, a white bandage around her right ankle, cream blouse under a pastry shop apron with a small cake emblem. Teal and cream accents.
+Character reference sheet of a lively but anxious 19-year-old girl, the younger of identical twins, with exactly the same face as her sister. Big teal eyes, long glossy dark navy hair with a cream ribbon tied on the LEFT side, a white bandage around her right ankle, cream blouse under a pastry shop apron with a small cake emblem. Teal and cream accents.
 ```
 
 **`nagi_normal.png`
@@ -696,7 +724,7 @@ Expression: frightened, eyes darting, hands gripping her apron.
 Expression: crying, ribbon slightly undone.
 ```
 
-## 대화 20 — 마도카 상반신 (4장)
+## 대화 20 — 유키 상반신 (3장)
 
 먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
 
@@ -706,11 +734,51 @@ Expression: crying, ribbon slightly undone.
 
 Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
-Character reference sheet of a beautiful, mysterious 26-year-old tarot fortune teller woman. Long wavy violet-black hair, half-lidded amethyst eyes with long lashes, a dark violet dress under a large black shawl covered in small silver star sequins, many rings, a tarot card held between two fingers, a charming smile that hides something. Violet and silver accents.
+Character reference sheet of a 19-year-old girl pretending to be her identical twin sister: exactly the same face as the twins, big teal eyes, long glossy dark navy hair with a cream ribbon tied on the RIGHT side (copying her sister), cream blouse under a pastry shop apron with a small cake emblem, clean hands with no charcoal, no art bag, a slightly too-stiff polite smile. Teal and cream accents.
+```
+
+**`yukin_normal.png`
+```
+방금 설정화 캐릭터 그대로, 같은 도트 스타일과 같은 팔레트로 그려줘. 모바일 가챠게임 캐릭터처럼 예쁘고 매력적으로.
+
+Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
+
+Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: stiff polite customer-service smile, hands folded on her apron.
+```
+
+**`yukin_crying.png`
+```
+같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
+
+Expression: crying, hiding her face with her right hand.
+```
+
+**`yukin_smile.png`
+```
+같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
+
+Expression: forced bright smile, eyes not smiling.
+```
+
+## 대화 21 — 마도카 상반신 (4장)
+
+먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
+
+**`설정화 (저장 안 해도 됨)`
+```
+이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
+
+Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
+
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+
+Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
+
+Character reference sheet of a beautiful, mysterious 26-year-old tarot fortune teller woman. Long wavy violet-black hair, half-lidded amethyst eyes with long lashes, an off-shoulder dark violet dress with a high leg slit under a large black shawl covered in small silver star sequins, many rings, a tarot card held between two fingers, a charming smile that hides something. Violet and silver accents.
 ```
 
 **`madoka_smile.png`
@@ -743,7 +811,7 @@ Expression: cornered, smile frozen, sweat on her temple, shawl slipping.
 Expression: crying, makeup running, holding the shawl tightly.
 ```
 
-## 대화 21 — 두부집 할머니 상반신 (2장)
+## 대화 22 — 두부집 할머니 상반신 (2장)
 
 먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
 
@@ -753,7 +821,7 @@ Expression: crying, makeup running, holding the shawl tightly.
 
 Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
@@ -776,7 +844,7 @@ Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transpa
 Expression: surprised, glasses slipping down her nose.
 ```
 
-## 대화 22 — 시오리 상반신 (3장)
+## 대화 23 — 시오리 상반신 (3장)
 
 먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
 
@@ -786,11 +854,11 @@ Expression: surprised, glasses slipping down her nose.
 
 Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
-Character reference sheet of a striking, cold 22-year-old woman. Long straight silver-white hair, one pale grey eye and a black eyepatch over the other, a long pure white coat with a high collar, white gloves, a calm unreadable smile. White and pale silver palette.
+Character reference sheet of a striking, cold 22-year-old woman. Long straight silver-white hair, one pale grey eye and a black eyepatch over the other, a long pure white coat with a high collar worn open over a fitted white high-neck dress, white thigh-high boots, white gloves, a calm unreadable smile. White and pale silver palette.
 ```
 
 **`ren_smile.png`
@@ -816,7 +884,7 @@ Expression: cold, looking down at the viewer.
 Expression: sad, looking away, one white-gloved hand on her eyepatch.
 ```
 
-## 대화 23 — 하야카 상반신 (3장)
+## 대화 24 — 하야카 상반신 (3장)
 
 먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
 
@@ -826,7 +894,7 @@ Expression: sad, looking away, one white-gloved hand on her eyepatch.
 
 Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
@@ -856,7 +924,7 @@ Expression: crying silently, gripping her wristband.
 Expression: small fragile smile.
 ```
 
-## 대화 24 — 케이코 상반신 (3장)
+## 대화 25 — 케이코 상반신 (3장)
 
 먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
 
@@ -866,11 +934,11 @@ Expression: small fragile smile.
 
 Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
-Character reference sheet of a worn but kind 44-year-old working mother. Brown hair tied back with a simple orange hair tie, gentle tired eyes, a grey work jacket over a plain shirt, both hands wrapped in white bandages, a small scar of a burn on her neck. Warm orange and grey accents.
+Character reference sheet of a worn but kind 44-year-old working mother. Brown hair tied back with a simple orange hair tie, gentle tired eyes, a grey work jacket over a plain shirt, both hands wrapped in white bandages, a fresh burn dressing (white gauze) on the nape of her neck. Warm orange and grey accents.
 ```
 
 **`keiko_normal.png`
@@ -896,7 +964,7 @@ Expression: crying, head bowed.
 Expression: resolute, looking straight ahead, bandaged hands clenched.
 ```
 
-## 대화 25 — 오카모토 상반신 (2장)
+## 대화 26 — 오카모토 상반신 (2장)
 
 먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
 
@@ -906,7 +974,7 @@ Expression: resolute, looking straight ahead, bandaged hands clenched.
 
 Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
@@ -929,7 +997,7 @@ Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transpa
 Expression: calmer, adjusting her glasses.
 ```
 
-## 대화 26 — 무라세 상반신 (3장)
+## 대화 27 — 무라세 상반신 (3장)
 
 먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
 
@@ -939,7 +1007,7 @@ Expression: calmer, adjusting her glasses.
 
 Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
@@ -969,7 +1037,7 @@ Expression: businesslike, checking his clipboard.
 Expression: cornered, cold sweat, smile gone.
 ```
 
-## 대화 27 — 니시무라 상반신 (1장)
+## 대화 28 — 니시무라 상반신 (1장)
 
 먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
 
@@ -979,7 +1047,7 @@ Expression: cornered, cold sweat, smile gone.
 
 Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
@@ -995,7 +1063,7 @@ Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1
 Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: expressionless, flicking a silver lighter.
 ```
 
-## 대화 28 — 타나베 상반신 (2장)
+## 대화 29 — 타나베 상반신 (2장)
 
 먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
 
@@ -1005,7 +1073,7 @@ Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transpa
 
 Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
@@ -1028,7 +1096,7 @@ Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transpa
 Expression: confused, holding his head as if it aches.
 ```
 
-## 대화 29 — 배경 (34장)
+## 대화 30 — 배경 (34장)
 
 배경끼리 그림체를 맞추려고 한 대화에서 이어 만든다.
 
@@ -1274,7 +1342,7 @@ Inside the burned upper floor of a lighthouse-shaped library: charred bookshelve
 The tip of a cape at dawn: the ruined lighthouse library silhouetted against a pink and orange sky, calm sea, birds, a bench. Keep the lower third simple because characters will stand in front.
 ```
 
-## 대화 30 — 컷 · 타이가 시점 + 증언 (금색) (7장)
+## 대화 31 — 컷 · 타이가 시점 + 증언 (금색) (7장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -1347,7 +1415,7 @@ Scene: At night on a dim stairwell: a young delivery worker with spiky bleached 
 
 > 꼭 보여야 할 것: (진실) 꺼진 휴대폰의 큰 빈 배터리 아이콘
 
-## 대화 31 — 컷 · 미츠루 시점 (파랑) (2장)
+## 대화 32 — 컷 · 미츠루 시점 (파랑) (2장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -1375,7 +1443,7 @@ Scene: a gentle man in his early 30s with glasses and a light shirt leaning thro
 
 > 꼭 보여야 할 것: 칸막이, 뻗은 팔, 난간 위 작은 발, 바깥 턱의 반짝임, 위쪽 가운데 빈 공간
 
-## 대화 32 — 컷 · 히마리 시점 (분홍) (6장)
+## 대화 33 — 컷 · 히마리 시점 (분홍) (6장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -1439,7 +1507,7 @@ Scene: a 9-year-old girl with brown twin tails tied with ribbons, a small music-
 
 > 꼭 보여야 할 것: (진실) 머리핀을 쥔 손
 
-## 대화 33 — 컷 · 히마리 크레용 기억 (예외: 크레용 색) (4장)
+## 대화 34 — 컷 · 히마리 크레용 기억 (예외: 크레용 색) (4장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -1485,7 +1553,7 @@ Scene: Child's crayon drawing of a blanket colored completely black, a tiny fist
 
 > 꼭 보여야 할 것: 크레용, 새까만 이불
 
-## 대화 34 — 컷 · 오오쿠보 증언 (올리브) (5장)
+## 대화 35 — 컷 · 오오쿠보 증언 (올리브) (5장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -1517,7 +1585,7 @@ Scene: a chubby old security guard with a grey mustache in an olive uniform and 
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + olive green (#6b8a5a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: At night: a young delivery worker with spiky bleached blond hair (light grey) under a backwards black cap, a small earring and a black uniform with reflective stripes running out of a stairwell, same outfit and delivery backpack as always, but his face is scribbled over with a crude horned monster doodle like a child's pen scribble (a prejudiced memory). He is not wearing a guard uniform. Through the glass entrance door, the dark night street lit by a single streetlamp.
+Scene: At night: a young delivery worker with spiky bleached blond hair (light grey) under a backwards black cap, a small earring and a black uniform with reflective stripes running out of a stairwell, same outfit and delivery backpack as always, but his face is scribbled over with a crude horned monster doodle like a child's pen scribble (a prejudiced memory). He is not wearing a guard uniform. Through the glass entrance door, a pitch-dark night street lit only by a single streetlamp; no daylight, no white sky, no utility poles.
 ```
 
 > 꼭 보여야 할 것: 낙서: 얼굴이 괴물 낙서, 밤
@@ -1540,7 +1608,7 @@ Scene: A dull impact on a flowerbed in front of an apartment building at night, 
 
 > 꼭 보여야 할 것: 화단의 충격
 
-## 대화 35 — UI 스킨 (9장)
+## 대화 36 — UI 스킨 (9장)
 
 한 대화에서 차례로 만들어 스타일을 맞춘다. 크기는 정확히 지키고, 9-slice 틀은 모서리 밖 가장자리가 똑같이 반복되게.
 
@@ -1611,7 +1679,7 @@ A horizontal strip of 8 icons, each exactly 96x96 (32x32 native), evenly spaced 
 A wide cut-in banner background, 1536x512, for the moment the hero rebuts a witness: explosive black and red manga speed lines radiating from the left, white screentone burst, torn paper edges at top and bottom. Leave the middle empty and calm for text that will be overlaid by the game. No characters, no text.
 ```
 
-## 대화 36 — 이벤트 CG (7장)
+## 대화 37 — 이벤트 CG (11장)
 
 상반신 이미지를 기준으로 첨부해 같은 얼굴로 그린다. 배경 7장과 같은 도트 스타일.
 
@@ -1621,9 +1689,9 @@ A wide cut-in banner background, 1536x512, for the moment the hero rebuts a witn
 
 High-quality, highly detailed pixel-art style illustration at the full 1536x1024 resolution, like the key visual of a premium modern pixel-art visual novel: crisp fine pixel detail, rich lighting and color, clean anime faces. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
-Event illustration (CG) for a key story moment, horizontal 1536x1024, full color, same faces as the character portraits. At night on the narrow concrete balcony of an old apartment, beside a white emergency partition board, a 16-year-old girl ghost with long straight black hair and blunt bangs in an old navy sailor school uniform, barefoot stands still and points toward the neighbor's balcony, pale and faintly translucent, while an androgynous young investigator with messy short black hair and a lavender hair clip, oversized grey hoodie under a long beige trench coat in the foreground looks at her, startled. Cool moonlight, warm light from the neighbor's window.
+Event illustration (CG) for a key story moment, horizontal 1536x1024, full color, same faces as the character portraits. At night on the narrow concrete balcony of an old apartment, beside a white emergency partition board, a 16-year-old girl with long straight black hair, blunt bangs, a bookmark hairpin and an old navy sailor uniform stands still and points toward the neighbor's balcony, pale and faintly translucent, while an androgynous young investigator with messy short black hair and a lavender hair clip, oversized grey hoodie under a long beige trench coat in the foreground looks at her, startled. Cool moonlight, warm light from the neighbor's window.
 ```
 
 **`cg_taiga_run.png`
@@ -1632,7 +1700,7 @@ Event illustration (CG) for a key story moment, horizontal 1536x1024, full color
 
 High-quality, highly detailed pixel-art style illustration at the full 1536x1024 resolution, like the key visual of a premium modern pixel-art visual novel: crisp fine pixel detail, rich lighting and color, clean anime faces. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Event illustration (CG) for a key story moment, horizontal 1536x1024, full color, same faces as the character portraits. Night street of a harbor town. a young delivery worker with spiky bleached blond hair under a backwards black cap, black uniform with reflective stripes sprints across the road toward a brightly lit convenience store, a dead smartphone in his hand, teeth clenched, motion lines. Seen from behind at a low angle.
 ```
@@ -1643,7 +1711,7 @@ Event illustration (CG) for a key story moment, horizontal 1536x1024, full color
 
 High-quality, highly detailed pixel-art style illustration at the full 1536x1024 resolution, like the key visual of a premium modern pixel-art visual novel: crisp fine pixel detail, rich lighting and color, clean anime faces. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Event illustration (CG) for a key story moment, horizontal 1536x1024, full color, same faces as the character portraits. The true moment, seen from the side at night: on a 5th-floor balcony, a gentle man in his early 30s with glasses and a light shirt leans far out through the gap of the emergency partition and pulls a 9-year-old girl with brown twin tails tied with pink ribbons, a t-shirt with a piano-key pattern and a denim overall skirt back from the railing with one arm; she clutches a small music-note hairpin. His body tilts dangerously outward over the railing. Tense, but warm and protective.
 ```
@@ -1654,7 +1722,7 @@ Event illustration (CG) for a key story moment, horizontal 1536x1024, full color
 
 High-quality, highly detailed pixel-art style illustration at the full 1536x1024 resolution, like the key visual of a premium modern pixel-art visual novel: crisp fine pixel detail, rich lighting and color, clean anime faces. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Event illustration (CG) for a key story moment, horizontal 1536x1024, full color, same faces as the character portraits. In a quiet hospital corridor at dawn, an androgynous young investigator with messy short black hair and a lavender hair clip, oversized grey hoodie under a long beige trench coat holds up a finished manga page made of six panels that tell the true story of the night, looking at it with a calm, tired face, a cheerful young detective girl with an orange-brown side ponytail and sky-blue scrunchie, navy suit jacket and sky-blue ribbon tie peeking over the shoulder. Soft morning light from a window.
 ```
@@ -1665,9 +1733,53 @@ Event illustration (CG) for a key story moment, horizontal 1536x1024, full color
 
 High-quality, highly detailed pixel-art style illustration at the full 1536x1024 resolution, like the key visual of a premium modern pixel-art visual novel: crisp fine pixel detail, rich lighting and color, clean anime faces. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Event illustration (CG) for a key story moment, horizontal 1536x1024, full color, same faces as the character portraits. Inside a small cozy cafe on a hill at sunset, called Yohaku: an elegant 61-year-old cafe owner with silver hair in a bun and round gold glasses, cream blouse and linen apron behind the counter places a cup of sweet coffee in front of an androgynous young investigator with messy short black hair and a lavender hair clip, oversized grey hoodie under a long beige trench coat, and a cheerful young detective girl with an orange-brown side ponytail and sky-blue scrunchie, navy suit jacket and sky-blue ribbon tie beside them smiles brightly. Warm orange light, harbor and sea through the window.
+```
+
+**`cg_encore.png`
+```
+이미지를 만들어줘. 최고 화질로, 색을 줄이지 말고.
+
+High-quality, highly detailed pixel-art style illustration at the full 1536x1024 resolution, like the key visual of a premium modern pixel-art visual novel: crisp fine pixel detail, rich lighting and color, clean anime faces. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
+
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+
+Event illustration (CG) for a key story moment, horizontal 1536x1024, full color, same faces as the character portraits. An empty small live house at night with the house lights off: on the stage, lit by a single white spotlight, a 19-year-old girl vocalist with long blue hair with two small braided loops, a black cap with a small white bird mascot and an oversized white stage jacket sits on an amp and sings alone with an acoustic guitar; in the empty first row of the audience floor, an 18-year-old girl bassist with long silver-white hair with pink tips, a black beret with white flowers and a long black coat and a 21-year-old girl drummer with a long navy-black ponytail and an open cobalt work shirt sit side by side listening, an empty folding chair with a black suit jacket draped over it beside them.
+```
+
+**`cg_twins.png`
+```
+이미지를 만들어줘. 최고 화질로, 색을 줄이지 말고.
+
+High-quality, highly detailed pixel-art style illustration at the full 1536x1024 resolution, like the key visual of a premium modern pixel-art visual novel: crisp fine pixel detail, rich lighting and color, clean anime faces. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
+
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+
+Event illustration (CG) for a key story moment, horizontal 1536x1024, full color, same faces as the character portraits. Late at night in a closed retro pastry shop: her identical twin sister with long navy hair and a cream ribbon on the LEFT side, a pastry shop apron sits on the stairs crying, and a 19-year-old girl with long navy hair and a cream ribbon on the RIGHT side, charcoal on her left hand kneels in front of her holding both her hands; their cream ribbons on opposite sides. Warm dim light from the cake showcase.
+```
+
+**`cg_carry.png`
+```
+이미지를 만들어줘. 최고 화질로, 색을 줄이지 말고.
+
+High-quality, highly detailed pixel-art style illustration at the full 1536x1024 resolution, like the key visual of a premium modern pixel-art visual novel: crisp fine pixel detail, rich lighting and color, clean anime faces. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
+
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+
+Event illustration (CG) for a key story moment, horizontal 1536x1024, full color, same faces as the character portraits. A burning old bathhouse entrance at night, fire and embers: a 44-year-old woman in a grey work jacket with her hair tied back with an orange hair tie walks out of the smoke carrying a 78-year-old bathhouse owner in a soot-stained white undershirt on her back, her face and neck sooty, gritting her teeth; red fire-engine lights sweep across the scene.
+```
+
+**`cg_sota.png`
+```
+이미지를 만들어줘. 최고 화질로, 색을 줄이지 말고.
+
+High-quality, highly detailed pixel-art style illustration at the full 1536x1024 resolution, like the key visual of a premium modern pixel-art visual novel: crisp fine pixel detail, rich lighting and color, clean anime faces. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
+
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+
+Event illustration (CG) for a key story moment, horizontal 1536x1024, full color, same faces as the character portraits. Six years ago, at night, at the foot of a smoky library staircase lit by fire: a young police officer in his twenties with a kind face and a shining police badge lifts a 16-year-old with messy short black hair, an oversized hoodie and an ink stain on the right index finger who has collapsed, holding the teenager close; his police badge glints. Behind them, up the stairs, a faint figure of a 16-year-old girl with long straight black hair, blunt bangs, a bookmark hairpin and an old navy sailor uniform watches.
 ```
 
 **`cg_margin.png`
@@ -1676,7 +1788,7 @@ Event illustration (CG) for a key story moment, horizontal 1536x1024, full color
 
 High-quality, highly detailed pixel-art style illustration at the full 1536x1024 resolution, like the key visual of a premium modern pixel-art visual novel: crisp fine pixel detail, rich lighting and color, clean anime faces. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Event illustration (CG) for a key story moment, horizontal 1536x1024, full color, same faces as the character portraits. Rei sitting at the burned reading table of the lighthouse library at dawn, holding a pen for the first time in six years, drawing in the last empty panel of a manuscript page; a faint translucent Shiori leans over the table smiling, the sea shining through the round window.
 ```
@@ -1687,12 +1799,12 @@ Event illustration (CG) for a key story moment, horizontal 1536x1024, full color
 
 High-quality, highly detailed pixel-art style illustration at the full 1536x1024 resolution, like the key visual of a premium modern pixel-art visual novel: crisp fine pixel detail, rich lighting and color, clean anime faces. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Event illustration (CG) for a key story moment, horizontal 1536x1024, full color, same faces as the character portraits. At the tip of the cape at sunrise, translucent Shiori in her old sailor uniform smiles and waves as she scatters into light, Rei and Koharu standing hand in hand watching, the ruined lighthouse library behind.
 ```
 
-## 대화 37 — 타이틀 키아트 (1장)
+## 대화 38 — 타이틀 키아트 (1장)
 
 상반신 이미지를 기준으로 첨부해 같은 얼굴로 그린다.
 
@@ -1702,12 +1814,12 @@ Event illustration (CG) for a key story moment, horizontal 1536x1024, full color
 
 High-quality, highly detailed pixel-art style illustration at the full 1536x1024 resolution, like the key visual of a premium modern pixel-art visual novel: crisp fine pixel detail, rich lighting and color, clean anime faces. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
 
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
+Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
 Key visual illustration for the title screen of a mystery visual novel. Late-summer harbor town at night, seen from a sloped street with old apartment buildings, warm window lights and the sea with harbor lights in the distance. On the right half: an androgynous 22-year-old investigator, messy short black hair with one ahoge and a small lavender hair clip, sleepy violet-grey eyes, oversized grey hoodie under a long beige trench coat. standing in front, looking back over the shoulder at the viewer with a calm sleepy expression, and a cheerful 20-year-old rookie detective girl, orange-brown side ponytail with a sky-blue scrunchie, navy suit jacket over a white shirt with a sky-blue ribbon tie, navy pants, white sneakers. slightly behind, smiling. Several translucent black-and-white manga panels float in the air around them like scattered memories, each showing a faint scene from the same night. The left 40% of the image is calm, darker night sky and street with no important details, reserved for the title text. No text, no letters, no logo.
 ```
 
-## 대화 38 — 컷 · 핀 시점 (5장)
+## 대화 39 — 컷 · 핀 시점 (5장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -1719,7 +1831,7 @@ Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game scr
 
 Palette: 8 grey levels from black to white, and one accent color lavender purple (#a07ad8). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
-Scene: First song of a live show, seen from the bassist's position at stage left: the back of a 19-year-old girl vocalist with shoulder-length blue hair in two small braided loops and a black cap with a small white bird mascot wearing a white oversized stage jacket (accent color) at the center microphone, a packed audience of silhouetted heads beyond her. Star shapes projected on the stage floor. Above: a lighting rig (a metal truss with four stage lights and one pattern projector) hanging above the center of the stage, next to a metal catwalk railing about one meter away; the gap between the rig and the catwalk railing is clearly empty, nothing tied there.
+Scene: First song of a live show, seen from the bassist's position at stage left: the back of a 19-year-old girl vocalist with long blue hair with two small braided loops and a black cap with a small white bird mascot wearing a white oversized stage jacket (accent color) at the center microphone, a packed audience of silhouetted heads beyond her. Star shapes projected on the stage floor. Above: a lighting rig (a metal truss with four stage lights and one pattern projector) hanging above the center of the stage, next to a metal catwalk railing about one meter away; the gap between the rig and the catwalk railing is clearly empty, nothing tied there.
 
 Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
@@ -1730,7 +1842,7 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + lavender purple (#a07ad8) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A cramped dressing room: an 18-year-old girl bassist with a short silver-white bob with pink tips, a black beret with white flowers and a long black coat with wide sleeves hugging a 19-year-old girl vocalist with shoulder-length blue hair in two small braided loops and a black cap with a small white bird mascot, who is crying. On the wall, a small monitor shows the stage covered in haze with blue standby light, and on the catwalk in the monitor a tiny dark human silhouette; at the silhouette's wrist one small bright glint (accent color).
+Scene: A cramped dressing room: an 18-year-old girl bassist with long silver-white hair with pink tips, a black beret with white flowers and a long black coat with wide sleeves hugging a 19-year-old girl vocalist with long blue hair with two small braided loops and a black cap with a small white bird mascot, who is crying. On the wall, a small monitor shows the stage covered in haze with blue standby light, and on the catwalk in the monitor a tiny dark human silhouette; at the silhouette's wrist one small bright glint (accent color).
 ```
 
 > 꼭 보여야 할 것: 벽 모니터 속 헤이즈와 캣워크 위 작은 그림자, 손목의 작은 반짝임(포인트 색)
@@ -1739,7 +1851,7 @@ Scene: A cramped dressing room: an 18-year-old girl bassist with a short silver-
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + lavender purple (#a07ad8) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A sparkling, flattering memory: a 19-year-old girl vocalist with shoulder-length blue hair in two small braided loops and a black cap with a small white bird mascot shining with glitter and flowers, looking cool and noble; the man she argues with is only a blurry grey silhouette.
+Scene: A sparkling, flattering memory: a 19-year-old girl vocalist with long blue hair with two small braided loops and a black cap with a small white bird mascot shining with glitter and flowers, looking cool and noble; the man she argues with is only a blurry grey silhouette.
 ```
 
 > 꼭 보여야 할 것: 미화: 반짝이, 흐린 상대
@@ -1748,7 +1860,7 @@ Scene: A sparkling, flattering memory: a 19-year-old girl vocalist with shoulder
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + lavender purple (#a07ad8) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A sparkling memory: an 18-year-old girl bassist with a short silver-white bob with pink tips, a black beret with white flowers and a long black coat with wide sleeves and a 19-year-old girl vocalist with shoulder-length blue hair in two small braided loops and a black cap with a small white bird mascot sitting side by side in front of a dressing room mirror, smiling, everything covered in glitter and hearts.
+Scene: A sparkling memory: an 18-year-old girl bassist with long silver-white hair with pink tips, a black beret with white flowers and a long black coat with wide sleeves and a 19-year-old girl vocalist with long blue hair with two small braided loops and a black cap with a small white bird mascot sitting side by side in front of a dressing room mirror, smiling, everything covered in glitter and hearts.
 ```
 
 > 꼭 보여야 할 것: 미화: 거울 앞 두 사람
@@ -1757,12 +1869,12 @@ Scene: A sparkling memory: an 18-year-old girl bassist with a short silver-white
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + lavender purple (#a07ad8) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A sparkling memory: a 19-year-old girl vocalist with shoulder-length blue hair in two small braided loops and a black cap with a small white bird mascot doing an 18-year-old girl bassist with a short silver-white bob with pink tips, a black beret with white flowers and a long black coat with wide sleeves's makeup, laughing; flowers and glitter cover the whole panel, including the wall behind them.
+Scene: A sparkling memory: a 19-year-old girl vocalist with long blue hair with two small braided loops and a black cap with a small white bird mascot doing an 18-year-old girl bassist with long silver-white hair with pink tips, a black beret with white flowers and a long black coat with wide sleeves's makeup, laughing; flowers and glitter cover the whole panel, including the wall behind them.
 ```
 
 > 꼭 보여야 할 것: 미화: 벽까지 덮은 반짝이
 
-## 대화 39 — 컷 · 루루 시점 (8장)
+## 대화 40 — 컷 · 루루 시점 (8장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -1785,7 +1897,7 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + vermilion orange (#e4572e) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Under fluorescent work lights on the catwalk: a 19-year-old girl vocalist with shoulder-length blue hair in two small braided loops and a black cap with a small white bird mascot grabs a clamp of the lighting rig with both hands, her side face gritting her teeth, angry and tearful. Right next to the clamp, a big tight knot of strap tying the rig to the railing, clearly visible. Leave empty space at the top right for a speech bubble.
+Scene: Under fluorescent work lights on the catwalk: a 19-year-old girl vocalist with long blue hair with two small braided loops and a black cap with a small white bird mascot grabs a clamp of the lighting rig with both hands, her side face gritting her teeth, angry and tearful. Right next to the clamp, a big tight knot of strap tying the rig to the railing, clearly visible. Leave empty space at the top right for a speech bubble.
 ```
 
 > 꼭 보여야 할 것: 클램프를 붙잡은 손, 클램프 옆 큰 매듭, 작업등, 오른쪽 위 빈 공간
@@ -1794,7 +1906,7 @@ Scene: Under fluorescent work lights on the catwalk: a 19-year-old girl vocalist
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + vermilion orange (#e4572e) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: At night in front of a rehearsal studio on a city street: a man in a plain black suit with neat short black hair holds out a sheet of paper to a 19-year-old girl vocalist with shoulder-length blue hair in two small braided loops and a black cap with a small white bird mascot in casual clothes. The paper shows a record label logo (accent color). Ruru looks hurt.
+Scene: At night in front of a rehearsal studio on a city street: a man in a plain black suit with neat short black hair holds out a sheet of paper to a 19-year-old girl vocalist with long blue hair with two small braided loops and a black cap with a small white bird mascot in casual clothes. The paper shows a record label logo (accent color). Ruru looks hurt.
 ```
 
 > 꼭 보여야 할 것: 밤거리, 사복 루루, 종이의 레코드사 로고(포인트 색)
@@ -1803,7 +1915,7 @@ Scene: At night in front of a rehearsal studio on a city street: a man in a plai
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + vermilion orange (#e4572e) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Back view of a man in a plain black suit with neat short black hair turning away on a dark street. In front of him, a 19-year-old girl vocalist with shoulder-length blue hair in two small braided loops and a black cap with a small white bird mascot, but her face is scribbled over completely black with crude pen scribbles (self-hatred).
+Scene: Back view of a man in a plain black suit with neat short black hair turning away on a dark street. In front of him, a 19-year-old girl vocalist with long blue hair with two small braided loops and a black cap with a small white bird mascot, but her face is scribbled over completely black with crude pen scribbles (self-hatred).
 ```
 
 > 꼭 보여야 할 것: 낙서: 루루 자신의 얼굴이 새까만 낙서
@@ -1844,7 +1956,7 @@ Scene: a man in a plain black suit with neat short black hair bursting out of th
 
 > 꼭 보여야 할 것: (진실) 손을 뻗는 키리시마의 다급한 얼굴
 
-## 대화 40 — 컷 · 아오이 시점 (2장)
+## 대화 41 — 컷 · 아오이 시점 (2장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -1856,7 +1968,7 @@ Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game scr
 
 Palette: 8 grey levels from black to white, and one accent color cobalt blue (#3a78c9). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
-Scene: Seen from behind the drum kit (cymbals in the foreground with the drummer's hands, accent color on the drumsticks): the stage floor is covered with wavy stripe patterns of light. a 19-year-old girl vocalist with shoulder-length blue hair in two small braided loops and a black cap with a small white bird mascot without her jacket, in a black tank top, sings. Above her, a lighting rig (a metal truss with four stage lights and one pattern projector) hanging above the center of the stage, next to a metal catwalk railing about one meter away, perfectly still.
+Scene: Seen from behind the drum kit (cymbals in the foreground with the drummer's hands, accent color on the drumsticks): the stage floor is covered with wavy stripe patterns of light. a 19-year-old girl vocalist with long blue hair with two small braided loops and a black cap with a small white bird mascot without her jacket, in a black tank top, sings. Above her, a lighting rig (a metal truss with four stage lights and one pattern projector) hanging above the center of the stage, next to a metal catwalk railing about one meter away, perfectly still.
 
 Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
@@ -1867,12 +1979,12 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + cobalt blue (#3a78c9) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: The moment of the fall, seen from the drum riser: no light pattern anymore, the stage suddenly dark. a 19-year-old girl vocalist with shoulder-length blue hair in two small braided loops and a black cap with a small white bird mascot pushed sideways and falling down, and in her place the back of a man in a black suit, with the lighting rig crashing down onto him. Dust and broken light.
+Scene: The moment of the fall, seen from the drum riser: no light pattern anymore, the stage suddenly dark. a 19-year-old girl vocalist with long blue hair with two small braided loops and a black cap with a small white bird mascot pushed sideways and falling down, and in her place the back of a man in a black suit, with the lighting rig crashing down onto him. Dust and broken light.
 ```
 
 > 꼭 보여야 할 것: 무늬 없음, 밀려 넘어지는 루루, 정장의 등, 떨어지는 리그
 
-## 대화 41 — 컷 · 쿠라모치 시점 (6장)
+## 대화 42 — 컷 · 쿠라모치 시점 (6장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -1936,7 +2048,7 @@ Scene: From the lighting booth through the glass: the stage below is visible, bu
 
 > 꼭 보여야 할 것: 생략: 캣워크 자리가 통째로 하얀 여백
 
-## 대화 42 — 컷 · 키리시마 시점 (5장)
+## 대화 43 — 컷 · 키리시마 시점 (5장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -1948,7 +2060,7 @@ Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game scr
 
 Palette: 8 grey levels from black to white, and one accent color teal green (#3aa58a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
-Scene: Afternoon rehearsal, seen from the first row of an empty audience floor looking up at the stage: a 19-year-old girl vocalist with shoulder-length blue hair in two small braided loops and a black cap with a small white bird mascot in a grey hoodie doing a mic check. Above, on the metal catwalk, a woman lighting technician with a short bob, a headset and thick black work gloves points at a clamp of the lighting rig. In the foreground, on the viewer's knee, a clipboard checklist (accent color). Empty seats beside.
+Scene: Afternoon rehearsal, seen from the first row of an empty audience floor looking up at the stage: a 19-year-old girl vocalist with long blue hair with two small braided loops and a black cap with a small white bird mascot in a grey hoodie doing a mic check. Above, on the metal catwalk, a woman lighting technician with a long low ponytail, a headset and thick black work gloves points at a clamp of the lighting rig. In the foreground, on the viewer's knee, a clipboard checklist (accent color). Empty seats beside.
 
 Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
@@ -1968,7 +2080,7 @@ Scene: Under harsh white fluorescent work lights with every seat of the audience
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + teal green (#3aa58a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Peeking from the wing between dark curtains at the stage: wavy stripe light patterns on the floor, a 19-year-old girl vocalist with shoulder-length blue hair in two small braided loops and a black cap with a small white bird mascot without her jacket singing. Above, the lighting rig and the catwalk railing next to it: the railing is bare, no strap, no knot. In the foreground, a hand in a black suit sleeve holding a radio transceiver (accent color).
+Scene: Peeking from the wing between dark curtains at the stage: wavy stripe light patterns on the floor, a 19-year-old girl vocalist with long blue hair with two small braided loops and a black cap with a small white bird mascot without her jacket singing. Above, the lighting rig and the catwalk railing next to it: the railing is bare, no strap, no knot. In the foreground, a hand in a black suit sleeve holding a radio transceiver (accent color).
 ```
 
 > 꼭 보여야 할 것: 물결 무늬, 재킷 없는 루루, 매듭 없는 난간, 손의 무전기(포인트 색)
@@ -1986,12 +2098,12 @@ Scene: A backstage corridor during rehearsal (music notes coming from the stage 
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + teal green (#3aa58a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: First-person view bursting out of the stage wing onto the stage: grid patterns of light on the floor, a 19-year-old girl vocalist with shoulder-length blue hair in two small braided loops and a black cap with a small white bird mascot mid-jump at the center, and above her the lighting rig tilting and about to fall. The viewer's own hand in a black suit sleeve reaches out toward her (accent color on the radio in the other hand). Leave empty space at the top center for a speech bubble.
+Scene: First-person view bursting out of the stage wing onto the stage: grid patterns of light on the floor, a 19-year-old girl vocalist with long blue hair with two small braided loops and a black cap with a small white bird mascot mid-jump at the center, and above her the lighting rig tilting and about to fall. The viewer's own hand in a black suit sleeve reaches out toward her (accent color on the radio in the other hand). Leave empty space at the top center for a speech bubble.
 ```
 
 > 꼭 보여야 할 것: 격자 무늬, 점프하는 루루, 기우는 리그, 뻗은 손, 위쪽 빈 공간
 
-## 대화 43 — 컷 · 텐도 시점 (5장)
+## 대화 44 — 컷 · 텐도 시점 (5장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2023,7 +2135,7 @@ Scene: A backstage corridor: a woman in her fifties with a tight updo and a tail
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + magenta (#b0306a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: An exaggerated memory: a gigantic a 19-year-old girl vocalist with shoulder-length blue hair in two small braided loops and a black cap with a small white bird mascot shaking the lighting rig on the catwalk. The rig is at eye level, and in the lower left foreground the diagonal steel handrail of a staircase cuts across the panel, clearly visible.
+Scene: An exaggerated memory: a gigantic a 19-year-old girl vocalist with long blue hair with two small braided loops and a black cap with a small white bird mascot shaking the lighting rig on the catwalk. The rig is at eye level, and in the lower left foreground the diagonal steel handrail of a staircase cuts across the panel, clearly visible.
 ```
 
 > 꼭 보여야 할 것: 과장: 거대한 루루, 앞쪽의 비스듬한 계단 난간, 눈높이의 리그
@@ -2046,7 +2158,7 @@ Scene: Seen from the top of a steel staircase: the lighting rig in front; the ra
 
 > 꼭 보여야 할 것: 생략: 리그 옆 난간 자리 하얀 여백
 
-## 대화 44 — 컷 · 스즈네 시점 (12장)
+## 대화 45 — 컷 · 스즈네 시점 (12장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2058,7 +2170,7 @@ Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game scr
 
 Palette: 8 grey levels from black to white, and one accent color teal (#38a3a5). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
-Scene: A pastry shop at night: a 19-year-old girl with a dark bob and a ribbon, wearing a pastry shop apron with the ribbon on her RIGHT side pulls down the shop shutter. A round wall clock clearly shows 8:50. At the bottom of the panel, her ankle with a big white bandage (accent color), clearly visible.
+Scene: A pastry shop at night: a 19-year-old girl with long dark navy hair and a ribbon, wearing a pastry shop apron with the ribbon on her RIGHT side pulls down the shop shutter. A round wall clock clearly shows 8:50. At the bottom of the panel, her ankle with a big white bandage (accent color), clearly visible.
 
 Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
@@ -2078,7 +2190,7 @@ Scene: At the register counter at night: close view of a hand counting bills and
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + teal (#38a3a5) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: At night at the foot of a steep wooden staircase in a pastry shop: a man's legs lying on the floor; a 19-year-old girl with a dark bob and a ribbon, wearing a pastry shop apron stands frozen, hands over her mouth. A wall clock clearly shows 9:15. Her ankle with a white bandage (accent color) is visible.
+Scene: At night at the foot of a steep wooden staircase in a pastry shop: a man's legs lying on the floor; a 19-year-old girl with long dark navy hair and a ribbon, wearing a pastry shop apron stands frozen, hands over her mouth. A wall clock clearly shows 9:15. Her ankle with a white bandage (accent color) is visible.
 ```
 
 > 꼭 보여야 할 것: 쓰러진 다리, 벽시계 9:15, 발목 반창고(포인트 색)
@@ -2123,7 +2235,7 @@ Scene: A night train platform: a girl with an art portfolio bag looks at a smart
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + teal (#38a3a5) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A pastry shop at night: a 19-year-old girl with a dark bob and a ribbon, wearing a pastry shop apron with the ribbon on her RIGHT side stands in front of the half-closed shutter. At the very bottom of the panel, her ankle with a white bandage is visible (accent color), as if she did not notice it was in the picture. A wall clock in the corner.
+Scene: A pastry shop at night: a 19-year-old girl with long dark navy hair and a ribbon, wearing a pastry shop apron with the ribbon on her RIGHT side stands in front of the half-closed shutter. At the very bottom of the panel, her ankle with a white bandage is visible (accent color), as if she did not notice it was in the picture. A wall clock in the corner.
 ```
 
 > 꼭 보여야 할 것: 오른쪽 리본, 화면 아래 반창고 발목(포인트 색), 벽시계
@@ -2164,7 +2276,7 @@ Scene: An empty steep wooden staircase in a pastry shop at night, the second flo
 
 > 꼭 보여야 할 것: 아무도 없는 계단
 
-## 대화 45 — 컷 · 하세가와 시점 (2장)
+## 대화 46 — 컷 · 하세가와 시점 (2장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2187,12 +2299,12 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + burnt orange (#c4703a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Blurry first-person view from the floor at the foot of a staircase: a 19-year-old girl with a dark bob and a ribbon, wearing a pastry shop apron stands frozen holding a smartphone, trembling. A wall clock shows 9:20. Her bandaged ankle (accent color) is near the viewer.
+Scene: Blurry first-person view from the floor at the foot of a staircase: a 19-year-old girl with long dark navy hair and a ribbon, wearing a pastry shop apron stands frozen holding a smartphone, trembling. A wall clock shows 9:20. Her bandaged ankle (accent color) is near the viewer.
 ```
 
 > 꼭 보여야 할 것: 흐릿한 시야, 휴대폰을 쥔 점원, 벽시계 9:20, 반창고(포인트 색)
 
-## 대화 46 — 컷 · 두부집 할머니 시점 (4장)
+## 대화 47 — 컷 · 두부집 할머니 시점 (4장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2238,7 +2350,7 @@ Scene: A girl with the ribbon on her RIGHT side waves cheerfully from a pastry s
 
 > 꼭 보여야 할 것: 오른쪽 리본 점원이 손을 흔듦
 
-## 대화 47 — 컷 · 마도카 시점 (4장)
+## 대화 48 — 컷 · 마도카 시점 (4장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2250,7 +2362,7 @@ Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game scr
 
 Palette: 8 grey levels from black to white, and one accent color violet (#7d4fd1). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
-Scene: Drawn like a tarot-card vision with a thin ornate border: a 19-year-old girl with a dark bob and a ribbon, wearing a pastry shop apron with the ribbon on her RIGHT side carries cake boxes up a steep staircase. A small clock on the landing shows 9:05. Accent color on the ribbon.
+Scene: Drawn like a tarot-card vision with a thin ornate border: a 19-year-old girl with long dark navy hair and a ribbon, wearing a pastry shop apron with the ribbon on her RIGHT side carries cake boxes up a steep staircase. A small clock on the landing shows 9:05. Accent color on the ribbon.
 
 Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
@@ -2261,7 +2373,7 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + violet (#7d4fd1) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Drawn like a tarot-card vision with a thin ornate border: a 19-year-old girl with a dark bob and a ribbon, wearing a pastry shop apron with the ribbon on her RIGHT side grabs a cash envelope (accent color) in a storage room. IMPORTANT: the area around her hand and the envelope is a visibly pasted-on patch: its screentone dots are clearly denser and a different size than the rest of the panel, with a faint rectangular seam line around it.
+Scene: Drawn like a tarot-card vision with a thin ornate border: a 19-year-old girl with long dark navy hair and a ribbon, wearing a pastry shop apron with the ribbon on her RIGHT side grabs a cash envelope (accent color) in a storage room. IMPORTANT: the area around her hand and the envelope is a visibly pasted-on patch: its screentone dots are clearly denser and a different size than the rest of the panel, with a faint rectangular seam line around it.
 ```
 
 > 꼭 보여야 할 것: 타로 테두리, 봉투를 쥔 손(포인트 색), 손 둘레만 스크린톤 점이 다르고 이음매가 보임
@@ -2284,7 +2396,7 @@ Scene: Inside a tarot booth: tarot cards on a purple cloth, a customer's hands a
 
 > 꼭 보여야 할 것: 부스의 타로 카드와 손님의 손
 
-## 대화 48 — 컷 · 하야카 시점 (7장)
+## 대화 49 — 컷 · 하야카 시점 (7장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2357,7 +2469,7 @@ Scene: An unnaturally white room with an empty speech bubble logo; a girl's hand
 
 > 꼭 보여야 할 것: 하얀 방, 서명하는 손
 
-## 대화 49 — 컷 · 케이코 시점 (6장)
+## 대화 50 — 컷 · 케이코 시점 (6장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2389,7 +2501,7 @@ Scene: At night by a fence: smoke and sparks burst out of a small boiler room wi
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + warm orange (#d4883a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: First-person view pushing through a bathhouse changing-room curtain into thick smoke, the viewer's bandage-free hands reaching forward; deep inside, a coughing sound effect shape (accent color).
+Scene: First-person view pushing through a bathhouse changing-room curtain into thick smoke, the viewer's hands in thick work gloves reaching forward; deep inside, a coughing sound effect shape (accent color).
 ```
 
 > 꼭 보여야 할 것: 연기 속으로 젖히는 포렴, 기침 소리 모양(포인트 색)
@@ -2421,7 +2533,7 @@ Scene: A panel completely blurred as if covered by thick smoke; shapes cannot be
 
 > 꼭 보여야 할 것: 흐림: 연기처럼 흐린 컷
 
-## 대화 50 — 컷 · 무라세 시점 (4장)
+## 대화 51 — 컷 · 무라세 시점 (4장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2467,7 +2579,7 @@ Scene: A sooty electrical panel with suspiciously neat wiring.
 
 > 꼭 보여야 할 것: 그을린 배전반
 
-## 대화 51 — 컷 · 오카모토 시점 (8장)
+## 대화 52 — 컷 · 오카모토 시점 (8장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2549,7 +2661,7 @@ Scene: Sparks bursting from a small boiler room window at night.
 
 > 꼭 보여야 할 것: 보일러실 창의 불꽃
 
-## 대화 52 — 컷 · 겐조 시점 (1장)
+## 대화 53 — 컷 · 겐조 시점 (1장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2568,7 +2680,7 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 
 > 꼭 보여야 할 것: 흐린 시야, 업어 준 사람의 그을린 목덜미와 머리끈(포인트 색), 불타는 들보
 
-## 대화 53 — 컷 · 코하루 시점 (8장)
+## 대화 54 — 컷 · 코하루 시점 (8장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2650,7 +2762,7 @@ Scene: Dusk at the harbor: first-person view walking alone toward an abandoned w
 
 > 꼭 보여야 할 것: 혼자 걸어가는 시점, 문 앞의 흰 코트(포인트 색)
 
-## 대화 54 — 컷 · 타나베 시점 (3장)
+## 대화 55 — 컷 · 타나베 시점 (3장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2687,7 +2799,7 @@ Scene: A girl crying on a bus stop bench; her face area is unnaturally smooth li
 
 > 꼭 보여야 할 것: 편집: 매끈하게 붙인 우는 얼굴
 
-## 대화 55 — 컷 · 렌 시점 (6장)
+## 대화 56 — 컷 · 렌 시점 (6장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2728,7 +2840,7 @@ Scene: a woman with long silver-white hair, an eyepatch and a long white coat pu
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + ice blue (#6ac0d0) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A child sick in bed with fever; a wall calendar where the date square has a different paper texture, as if a different date was pasted over it.
+Scene: A 16-year-old sick in bed with fever; a wall calendar where the date square has a different paper texture, as if a different date was pasted over it.
 ```
 
 > 꼭 보여야 할 것: 편집: 달력 날짜 칸만 질감이 다름
@@ -2746,12 +2858,12 @@ Scene: a 20-year-old rookie detective girl with an orange-brown side ponytail an
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + ice blue (#6ac0d0) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A child running away alone between burning bookshelves, back view.
+Scene: A 16-year-old running away alone between burning bookshelves, back view.
 ```
 
 > 꼭 보여야 할 것: 편집: 불타는 서가 사이로 달아나는 아이
 
-## 대화 56 — 컷 · 소타 시점 (4장)
+## 대화 57 — 컷 · 소타 시점 (4장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2783,7 +2895,7 @@ Scene: First-person view kicking open a library door into smoke between tall boo
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + navy blue (#3a5aa0) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: First-person view in smoke at the foot of library stairs: hands lift a 16-year-old with messy short black hair and an ink stain on the right index finger who is coughing; the ink stain on the child's right index finger is clearly visible (accent color).
+Scene: First-person view in smoke at the foot of library stairs: hands lift a 16-year-old with messy short black hair, an oversized hoodie and an ink stain on the right index finger who is coughing; the ink stain on the teenager's right index finger is clearly visible (accent color).
 ```
 
 > 꼭 보여야 할 것: 아이를 안아 올림, 오른손 검지 잉크 얼룩(포인트 색)
@@ -2797,7 +2909,7 @@ Scene: First-person view turning back into the smoke and fire of a library; from
 
 > 꼭 보여야 할 것: 다시 연기 속으로, 위층의 목소리(포인트 색)
 
-## 대화 57 — 컷 · 쿠로가네 시점 (1장)
+## 대화 58 — 컷 · 쿠로가네 시점 (1장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2809,14 +2921,14 @@ Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game scr
 
 Palette: 8 grey levels from black to white, and one accent color strawberry pink (#e07a9a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
-Scene: At a library entrance at night: first-person view receiving a child from a young police officer in uniform's arms; on the viewer's wrist, a watch stopped at 8:31 (accent color).
+Scene: At a library entrance at night: first-person view receiving an unconscious a 16-year-old with messy short black hair, an oversized hoodie and an ink stain on the right index finger from a young police officer in uniform's arms; on the viewer's wrist, a watch stopped at 8:31 (accent color).
 
 Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 꼭 보여야 할 것: 아이를 받아 안음, 8:31에 멈춘 손목시계(포인트 색)
 
-## 대화 58 — 컷 · 레이 시점 (10장)
+## 대화 59 — 컷 · 레이 시점 (10장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2902,7 +3014,7 @@ Scene: Blurry first-person view carried on a police officer's back away from a b
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 +  (#6b5fa8) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Two manga panels joined: a child running down stairs, and immediately next to it, a girl's hand falling away; a very thin seam line between the two panels.
+Scene: Two manga panels joined: a 16-year-old running down stairs, and immediately next to it, a girl's hand falling away; a very thin seam line between the two panels.
 ```
 
 > 꼭 보여야 할 것: 편집: 뛰쳐나감과 떨어지는 손이 붙은 이음매
@@ -2911,12 +3023,12 @@ Scene: Two manga panels joined: a child running down stairs, and immediately nex
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 +  (#6b5fa8) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A child standing alone in front of a burning lighthouse library, nobody else in sight.
+Scene: A 16-year-old standing alone in front of a burning lighthouse library, nobody else in sight.
 ```
 
 > 꼭 보여야 할 것: 불타는 도서관 앞에 혼자 선 아이
 
-## 대화 59 — 컷 · 시오리 시점 (8장)
+## 대화 60 — 컷 · 시오리 시점 (8장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2998,7 +3110,7 @@ Scene: First-person view turning back up a smoky staircase toward the upper floo
 
 > 꼭 보여야 할 것: 다시 2층으로, 뒤따르는 순경(포인트 색)
 
-## 대화 60 — 컷 · 아사기리 시점 (4장)
+## 대화 61 — 컷 · 아사기리 시점 (4장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -3030,7 +3142,7 @@ Scene: A spotless official fire report document on a desk, perfectly neat.
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + coffee brown (#8a5a3a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A child sleeping in bed with a fever, unnaturally calm and seamless.
+Scene: A 16-year-old sleeping in bed with a fever, unnaturally calm and seamless.
 ```
 
 > 꼭 보여야 할 것: 편집: 너무 고요한 감기 걸린 아이

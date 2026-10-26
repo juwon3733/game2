@@ -127,8 +127,9 @@ function titleScreen() {
     <nav class="ts-menu">
       ${save ? `<button id="t-cont" class="ts-btn primary">이어하기<small>${sceneLabel(save.scene)}</small></button>` : ''}
       <button id="t-start" class="ts-btn${save ? '' : ' primary'}">처음부터</button>
+      <button id="t-load" class="ts-btn">불러오기</button>
       <button id="t-select" class="ts-btn">장면 선택</button>
-      <a class="ts-btn small" href="assets.html">에셋 현황</a>
+      <button id="t-gallery" class="ts-btn small">갤러리</button>
     </nav>
     <div class="ts-scenes hidden">
       <div class="ts-scenes-head">장면 선택 <button class="ts-close" aria-label="닫기">✕</button></div>
@@ -150,9 +151,13 @@ function titleScreen() {
   t.querySelector('#t-start').onclick = () => go(CHAPTERS[1].scenes[0][0]);
   if (save) t.querySelector('#t-cont').onclick = () => go(save.scene, save);
   t.querySelector('#t-select').onclick = () => list.classList.remove('hidden');
+  t.querySelector('#t-load').onclick = () => { sfx('select'); openSlots('load'); };
+  t.querySelector('#t-gallery').onclick = () => { sfx('select'); openGallery(); };
   t.querySelector('.ts-close').onclick = () => list.classList.add('hidden');
   list.querySelectorAll('[data-scene]').forEach((b) => (b.onclick = () => go(b.dataset.scene)));
 }
+
+$('#btn-save').onclick = (e) => { e.stopPropagation(); openSlots('save'); };
 
 hud(true);
 const jump = location.hash.slice(1);

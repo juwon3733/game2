@@ -5,6 +5,8 @@
 // 레이의 편집된 기억은 "손이 떨어지는 칸"을 "뛰쳐나간 칸" 바로 뒤에 붙여, 레이가 시오리를 버렸다고 믿게 했다.
 
 CHARACTERS.rei.faces.push('crying');
+CHARACTERS.asagiri.faces.push('sad');
+CHARACTERS.asagiri.alt = { sad: 'cold' };
 CHARACTERS.shiori.faces.push('smile');
 
 Object.assign(BACKGROUNDS, {
@@ -28,7 +30,7 @@ Object.assign(CUTS, {
   R4: { owner: 'rei', title: '벤치', desc: '곶 끝 벤치. 무릎에 얼굴을 묻는다. 등대 불빛이 한 바퀴 돈다. 손목시계 8시 15분.', tags: { clock6: '2015' } },
   R5: { owner: 'rei', title: '되돌아 뜀', desc: '도서관 창에서 연기. 벤치를 박차고 되돌아 뛰는 시점. 8시 20분.', tags: { clock6: '2020' } },
   R6: { owner: 'rei', title: '2층 계단', desc: '연기로 가득한 2층 계단. 시야가 기울며 바닥이 다가온다. 8시 25분.', tags: { clock6: '2025' } },
-  R7: { owner: 'rei', title: '손이 떨어짐', desc: '흐린 시야. 나를 잡고 있던 손이 떨어진다. 손을 놓는 게 아니라, 누군가에게 나를 넘기는 손. 8시 28분.', tags: { clock6: '2028' } },
+  R7: { owner: 'rei', title: '손이 떨어짐', desc: '흐린 시야. 나를 잡고 있던 손이 다른 팔 쪽으로 나를 민다. 8시 28분.', tags: { clock6: '2028' } },
   R8: { owner: 'rei', title: '등 위', desc: '흐릿하다. 경찰 제복의 등에 업혀 있다. 멀어지는 도서관 문 안으로 작은 그림자가 들어간다. 8시 33분.', tags: { clock6: '2033' } },
   S1: { owner: 'shiori', title: '읽어 주기', desc: '원고를 소리 내어 읽는다. 맞은편 아이의 펜 끝이 리듬에 맞춰 움직인다. 7시 30분.', tags: { clock6: '1930' } },
   S2: { owner: 'shiori', title: '등', desc: '응모 서류를 쥔 채 돌아선 아이의 등. 서류의 「글」 칸이 그어져 있다. 7시 50분.', tags: { clock6: '1950' } },
@@ -65,7 +67,7 @@ Object.assign(PUZZLES, {
     rows: [{ who: '레이', cells: ['R1', 'R2', 'R3', 'R4', 'R5', 'R6', 'R7', 'R8'] }, { who: '시오리', cells: ['S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8'] }],
     cuts: ['R1', 'R2', 'R3', 'R4', 'R5', 'R6', 'R7', 'R8', 'S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8'],
     hint: '「손이 떨어짐」은 뛰쳐나간 바로 뒤가 아니야. 같은 높이의 시오리 칸을 봐.',
-    rei: '…나는 도망친 게 아니었어. 되돌아갔어. 그리고 시오리가, 나를 살렸어.',
+    rei: '그 밤, 나는 계단을 다시 올라갔어. 그리고 시오리가 나를 순경 품에 밀어 넣었어.',
   },
 });
 
@@ -73,12 +75,12 @@ Object.assign(WITNESSES, {
   asagiri6: {
     char: 'asagiri', bg: 'lighthouse', face: 'cold', bgm: 'editor',
     goal: '최종 심문 1. 이음매가 거의 없는 편집. 그녀가 스스로 지운 것을 찾아 끼워라.',
-    intro: [['towa', '…아사기리 컷은 내가 만든 감지기로도 거의 안 잡혀. 거의.'], ['asagiri', '같이 읽어 줄게, 레이 짱. 마지막으로.', 'cold']],
+    intro: [['towa', '아사기리 컷은 내가 만든 감지기로도 거의 안 잡혀. 거의.'], ['asagiri', '같이 읽어 줄게, 레이. 마지막으로.', 'cold']],
     statements: [
       { text: '그날 불은 사고였어. 오래된 배선. 기록에도 그렇게 남아 있지.', cut: 't_asg_1',
         cutDesc: '말끔한 소방 보고서. 「보일러실 배전반 노후 누전」.',
         press: [['asagiri', '사쿠라유랑 같은 문장이지? 같은 사람이 썼으니까.', 'cold']] },
-      { text: '레이 짱은 그날 감기로 집에 누워 있었어. 그렇게 기억하는 게 레이 짱을 위한 거야.', cut: 't_asg_2', dist: '편집', truthCut: 'R5',
+      { text: '레이는 그날 감기로 집에 누워 있었어. 그렇게 기억하는 게 레이를 위한 거야.', cut: 't_asg_2', dist: '편집', truthCut: 'R5',
         cutDesc: '이불 속의 아이. 너무 고요하다. 이음매가 보이지 않는다.',
         press: [['asagiri', '6년 동안 그 그림으로 잘 살았잖아.', 'cold']] },
       { text: '나는 아무것도 잃지 않았어. 그래서 남이 잃은 걸 덜어 줄 수 있는 거야.', cut: 't_asg_3',
@@ -91,32 +93,32 @@ Object.assign(WITNESSES, {
         success: [['asagiri', '…….', 'cold']], words: ['th_lighter'] },
       { statement: 1, cut: 'R5', requires: [0], shout: '나는 거기 있었어!',
         rebut: '곶 끝 벤치에서 연기를 보고 되돌아 뛰는 내 컷이에요. 감기가 아니었어요.',
-        success: [['asagiri', '…그걸 다시 찾아냈구나.', 'cold']], peel: [1], words: ['a_runback'] },
+        success: [['asagiri', '그걸 다시 찾아냈구나.', 'cold']], peel: [1], words: ['a_runback'] },
       { statement: 2, cut: 'AF', requires: [1], shout: '당신도 잃었어!',
         rebut: '6년 동안 나한테 내준 커피잔에 남아 있던 컷이에요. 냉장고의 크레용 그림, 세 사람과 「엄마」. 창밖엔 깎인 산과 크레인. …당신도 잃었어요.',
         success: [
-          ['asagiri', '…….', 'normal'],
-          ['asagiri', '12년 전. 하쿠요가 처음 산을 깎을 때. 남편이랑 딸이 그 불에서.', 'normal'],
-          ['asagiri', '잊었어. 내가 나를 편집했어. 그랬더니 숨을 쉴 수 있더라.', 'normal'],
-          ['asagiri', '그래서 같은 걸 해 주고 싶었어. 잃은 사람들한테. …그게 하쿠요가 불을 덮는 데 쓰일 줄은 몰랐다고 하면, 거짓말이겠지.', 'normal'],
+          ['asagiri', '…….', 'sad'],
+          ['asagiri', '12년 전. 하쿠요가 처음 산을 깎을 때. 남편이랑 딸이 그 불에서.', 'sad'],
+          ['asagiri', '잊었어. 내가 나를 편집했어. 그랬더니 숨을 쉴 수 있더라.', 'sad'],
+          ['asagiri', '그래서 같은 걸 해 주고 싶었어. 잃은 사람들한테. …그게 하쿠요가 불을 덮는 데 쓰일 줄은 몰랐다고 하면, 거짓말이겠지.', 'cold'],
         ] },
     ],
     koharu: [['koharu', '(선배, 아사기리 씨가 두고 간 커피잔… 거기서 읽은 거 있었죠.)', 'worried']],
-    wrong: [['asagiri', '그건 레이 짱이 보고 싶은 그림이지.', 'cold']],
+    wrong: [['asagiri', '그건 레이가 보고 싶은 그림이지.', 'cold']],
     close: [['asagiri', '오늘은 바람이 차네. 다시 해.', 'cold']],
   },
   self6: {
     char: 'rei', bg: 'lighthouse_in', face: 'serious',
     goal: '최종 심문 2. 증인은 레이 자신. 「나는 도망쳤다」는 순서를 깨라.',
-    intro: [['towa', '…이번 증인은 너야, 레이.'], ['koharu', '선배. 저희가 옆에 있어요.', 'worried']],
+    intro: [['towa', '이번 증인은 너야, 레이.'], ['koharu', '선배. 저희가 옆에 있어요.', 'worried']],
     statements: [
       { text: '그날 나는 시오리랑 싸웠어. 콘테스트에 낼 원고에 시오리 이름을 빼려고 했어.', cut: 'R2',
-        press: [['rei', '…그 칸을 그은 건 내 손이야.', 'serious']] },
+        press: [['rei', '그 칸을 그은 건 내 손이야.', 'serious']] },
       { text: '그래서 원고를 두고 뛰쳐나갔어.', cut: 'R3',
         press: [['rei', '…거기까지는 맞아.', 'serious']] },
       { text: '그리고 시오리의 손이 떨어졌어. 나는 그 손을 놓고 도망쳤어.', cut: 't_self_3', dist: '편집', truthCut: 'R5',
         cutDesc: '뛰쳐나가는 계단 바로 다음 칸에 붙은, 떨어지는 손. 두 칸 사이에 아주 얇은 이음매.',
-        press: [['rei', '…6년 동안 이 순서로 봤어. 매일 밤.', 'crying']] },
+        press: [['rei', '6년 동안 이 순서로 봤어. 매일 밤.', 'crying']] },
       { text: '시오리가 죽은 건 내 탓이야. 나만 살아남았으니까.', cut: 't_self_4',
         cutDesc: '불타는 도서관 앞에 혼자 선 아이. 아무도 없다.',
         press: [['rei', '…….', 'crying']] },
@@ -134,7 +136,7 @@ Object.assign(WITNESSES, {
     ],
     rewards: ['R6', 'R7', 'R8'],
     koharu: [['koharu', '(선배, 시오리 씨 머리핀에서 읽은 컷… 계단 아래였어요.)', 'worried']],
-    wrong: [['rei', '…아니야. 그건 내가 아니야.', 'crying']],
+    wrong: [['rei', '아니야. 그건 내가 아니야.', 'crying']],
     close: [['koharu', '선배, 숨 쉬어요. 다시 해요.', 'worried']],
   },
 });

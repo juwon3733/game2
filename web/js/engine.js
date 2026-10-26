@@ -62,6 +62,7 @@ function flash(color = '#fff') {
 let curBg = null;
 function bg(id) {
   if (curBg === id) return;
+  if (typeof amb === 'function') amb(BG_AMB[id] || null);
   const img = $('#bg');
   // 이전 배경을 위에 겹쳐 두고 서서히 지운다
   if (curBg) {
@@ -80,7 +81,9 @@ function bg(id) {
 const onStage = {}; // char -> img
 const REACT = { angry: 're-shake', flustered: 're-shake', crying: 're-sink', sad: 're-sink', scared: 're-sink', surprised: 're-jump', cornered: 're-jump' };
 
-function show(char, face = CHARACTERS[char].faces[0], pos = 'center') {
+// opts.far: 멀리(창밖·길 건너) 서 있는 인물. 작고 흐리게.
+// 토와처럼 remote인 인물은 모니터 창으로 뜬다(opts.here면 실제로 그 자리에 있음).
+function show(char, face = CHARACTERS[char].faces[0], pos = 'center', opts = {}) {
   G.flags.met = G.flags.met || [];
   if (!G.flags.met.includes(char)) G.flags.met.push(char);
   let img = onStage[char];
@@ -93,6 +96,8 @@ function show(char, face = CHARACTERS[char].faces[0], pos = 'center') {
     setTimeout(() => img.classList.remove('enter'), 30);
   }
   img.dataset.pos = pos;
+  img.classList.toggle('far', !!opts.far);
+  img.classList.toggle('remote', !!CHARACTERS[char].remote && !opts.here);
   // 이미 나와 있던 인물의 표정이 바뀌면 몸으로도 반응한다
   if (img.dataset.face && img.dataset.face !== face && REACT[face]) {
     const r = REACT[face];
@@ -102,7 +107,12 @@ function show(char, face = CHARACTERS[char].faces[0], pos = 'center') {
   if (img.dataset.face !== face) {
     img.dataset.face = face;
     // 상반신 그림이 없으면 임시 그림 대신 아예 안 보인다(이름은 대사창에 나옴)
-    img.onerror = () => { img.style.visibility = 'hidden'; };
+    // 새 표정 그림이 아직 없으면 비슷한 표정(alt)으로
+    img.onerror = () => {
+      const alt = (CHARACTERS[char].alt || {})[face];
+      if (alt && !img.src.endsWith(`_${alt}.png`)) img.src = ASSET.portrait(char, alt);
+      else img.style.visibility = 'hidden';
+    };
     img.onload = () => { img.style.visibility = ''; };
     img.src = ASSET.portrait(char, face);
   }
@@ -154,7 +164,15 @@ function tryAdvance() {
 
 const TEXT_MS = [42, 26, 12, 0];
 // 말하는 사람마다 다른 높이의 타자음
-const VOICE = { rei: 0.82, koharu: 1.22, kurogane: 0.68, towa: 1.4, asagiri: 0.95, ookubo: 0.72, taiga: 0.9, himari: 1.5, shiori: 1.08, komatsu: 1.05, akari: 1.3 };
+const VOICE = { rei: 0.82, koharu: 1.22, kurogane: 0.68, towa: 1.4, asagiri: 0.95, ookubo: 0.72, taiga: 0.9, himari: 1.5, shiori: 1.08, komatsu: 1.05, akari: 1.3,
+  ruru: 1.12, pin: 1.35, aoi: 1.0, kuramochi: 0.98, tendo: 0.9, kirishima: 0.74,
+  yuki: 1.18, nagi: 1.24, yukin: 1.18, madoka: 1.02, tofu: 1.1, ren: 0.92,
+  hayaka: 1.2, keiko: 0.96, okamoto: 1.06, murase: 0.7, nishimura: 0.66, tanabe: 0.8, sota: 0.85, genzo: 0.62 };
+// 배경마다 깔리는 환경음
+const BG_AMB = { night: 'sea', office: 'hum', guardroom: 'hum', interrogate: 'hum', hospital: 'hum', himari_door: 'hum',
+  crescent_out: 'crowd', crescent_stage: 'crowd', backstage: 'hum', booth: 'hum', greenroom: 'hum',
+  arcade: 'crowd', arcade_exit: 'crowd', storage: 'hum', sakurayu: 'sea', sakurayu_boiler: 'fire', site_office: 'hum', clinic: 'hum', station_chief: 'hum',
+  koharu_room: 'rain', busstop: 'rain', warehouse: 'sea', warehouse_in: 'sea', library: 'hum', lighthouse: 'sea', lighthouse_in: 'fire', lighthouse_dawn: 'sea' };
 
 // [[단어]]는 강조색. 문장부호에서 잠깐 쉰다.
 const PAUSE = { '…': 7, '.': 4, '?': 5, '!': 5, ',': 3, '—': 4 };
@@ -163,7 +181,28 @@ function markup(text) {
 }
 const plain = (text) => text.replace(/\[\[(.+?)\]\]/g, '$1');
 
+// ---------- 조사 ----------
+// 「구급차!」을(를) → 「구급차!」를. 앞 낱말의 마지막 글자 받침으로 고른다.
+const JOSA = { '을(를)': ['을', '를'], '를(을)': ['을', '를'], '이(가)': ['이', '가'], '가(이)': ['이', '가'], '은(는)': ['은', '는'], '는(은)': ['은', '는'], '와(과)': ['과', '와'], '과(와)': ['과', '와'], '(으)로': ['으로', '로'], '(이)': ['이', ''] };
+function batchim(ch) {
+  const c = ch.charCodeAt(0);
+  if (c >= 0xac00 && c <= 0xd7a3) return (c - 0xac00) % 28; // 0 = 받침 없음, 8 = ㄹ
+  if (/[0-9]/.test(ch)) return [1, 8, 0, 1, 0, 0, 1, 8, 8, 0][ch]; // 영 일 이 삼 사 오 육 칠 팔 구
+  return /[lmnr]/i.test(ch) ? 1 : 0;
+}
+function josa(text) {
+  return String(text).replace(/(을\(를\)|를\(을\)|이\(가\)|가\(이\)|은\(는\)|는\(은\)|와\(과\)|과\(와\)|\(으\)로|\(이\))/g, (m, j, at, all) => {
+    const before = all.slice(0, at).replace(/[\s」』"'”’)\]!?….,~·]+$/, '');
+    const last = before.slice(-1);
+    if (!last) return JOSA[j][0];
+    const b = batchim(last);
+    if (j === '(으)로') return b && b !== 8 ? '으로' : '로';
+    return b ? JOSA[j][0] : JOSA[j][1];
+  });
+}
+
 async function typeInto(el, text, voice) {
+  text = josa(text);
   el.innerHTML = '';
   let done = false;
   typing = () => { done = true; };
@@ -178,7 +217,7 @@ async function typeInto(el, text, voice) {
         if (done) break;
         if (em) node.textContent += ch; else node.insertAdjacentText('beforeend', ch);
         if (voice && ch.trim() && i++ % 3 === 0) sfx('blip', { rate: voice, vol: 0.3 });
-        await sleep(ms * (PAUSE[ch] || 1));
+        await sleep(ms * (PAUSE[ch] || 1) * (em ? 2.2 : 1));
       }
     }
   }
@@ -202,8 +241,16 @@ function openLog() {
 async function say(who, text, face) {
   const tb = $('#textbox');
   tb.classList.remove('hidden');
-  tb.classList.toggle('narr', !who);
-  if (who && CHARACTERS[who]) {
+  // 'tip': 조작 안내. 인물 대사가 아니라 게임이 하는 말
+  const tip = who === 'tip';
+  tb.classList.toggle('narr', !who || tip);
+  tb.classList.toggle('tip', tip);
+  if (tip) {
+    $('#tb-name').textContent = '도움말';
+    $('#tb-name').style.background = '';
+    $('#tb-name').style.setProperty('--name-accent', '#8fa0c8');
+    focusChar(null);
+  } else if (who && CHARACTERS[who]) {
     if (face && onStage[who]) show(who, face, onStage[who].dataset.pos);
     $('#tb-name').textContent = CHARACTERS[who].name;
     $('#tb-name').style.background = CHARACTERS[who].accent;
@@ -222,14 +269,23 @@ async function say(who, text, face) {
   const over = !$('#puzzle').classList.contains('hidden') || document.querySelector('.name-screen') || (typeof EX !== 'undefined' && EX);
   setFace(who && CHARACTERS[who] && (!onStage[who] || over) ? who : null, face);
   const ch = who && CHARACTERS[who];
-  LOG.push({ name: ch ? ch.name : '', color: ch ? ch.accent : '', text: plain(text) });
+  LOG.push({ name: ch ? ch.name : '', color: ch ? ch.accent : '', text: josa(plain(text)) });
   // 짧은 외침은 대사창이 들썩인다
   const shout = !!who && /!$/.test(text) && text.length <= 14;
   tb.classList.toggle('jolt', false);
   if (shout) { void tb.offsetWidth; tb.classList.add('jolt'); }
+  // 대사에 따라 몸짓: 외침은 들썩, 물음은 갸웃. 강조 단어가 있으면 화면이 말하는 사람 쪽으로 살짝 당겨진다.
+  const body = onStage[who];
+  if (body && !SETTINGS.fxReduce) {
+    const g = /[!！]$/.test(text) ? 're-hop' : /[?？]$/.test(text) ? 're-tilt' : null;
+    if (g) { body.classList.remove('re-hop', 're-tilt'); void body.offsetWidth; body.classList.add(g); setTimeout(() => body.classList.remove(g), 500); }
+  }
+  const pull = body && /\[\[/.test(text) && !$('#stage').dataset.zoom && !SETTINGS.fxReduce;
+  if (pull) FX.zoom(body.dataset.pos);
   await typeInto($('#tb-text'), text, VOICE[who]);
   $('#tb-next').classList.remove('hidden');
   await waitAdvance(text.length);
+  if (pull) FX.zoom(null);
   $('#tb-next').classList.add('hidden');
 }
 
@@ -259,6 +315,7 @@ function setFace(who, face) {
 const SAY_WHO = { '토와': 'towa', '레이': 'rei', '코하루': 'koharu' };
 function sayBar(msg) {
   const who = SAY_WHO[(msg.match(/^(\S+?):/) || [])[1]];
+  msg = josa(msg);
   return who ? `<span class="pz-face" style="${faceStyle(who)}"></span>${msg}` : msg;
 }
 
@@ -336,7 +393,9 @@ function actions(list) {
 function goal(text) {
   const g = $('#goal');
   g.classList.toggle('hidden', !text);
-  g.innerHTML = text ? `<b>목표</b> ${text}` : '';
+  g.innerHTML = text ? `<b>목표</b> ${josa(text)}` : '';
+  // 목표가 두 줄이 되면 그 아래 패널(증언 번호 등)이 같이 내려간다
+  $('#stage').style.setProperty('--goal-h', (text ? g.offsetHeight : 0) + 'px');
 }
 
 async function banner(text, sub = '', ms = 1800, cls = '') {
@@ -344,7 +403,7 @@ async function banner(text, sub = '', ms = 1800, cls = '') {
   if (G.skip) ms = Math.min(ms, 500);
   const b = $('#banner');
   b.className = cls;
-  b.innerHTML = `<div class="bn-main">${text}</div>${sub ? `<div class="bn-sub">${sub}</div>` : ''}`;
+  b.innerHTML = `<div class="bn-main">${josa(text)}</div>${sub ? `<div class="bn-sub">${josa(sub)}</div>` : ''}`;
   await sleep(ms);
   b.className = 'hidden';
 }
@@ -352,7 +411,7 @@ async function banner(text, sub = '', ms = 1800, cls = '') {
 let toastT = null;
 function toast(text) {
   const t = $('#toast');
-  t.textContent = text;
+  t.textContent = josa(text);
   t.classList.remove('hidden');
   clearTimeout(toastT);
   toastT = setTimeout(() => t.classList.add('hidden'), 2200);
@@ -376,6 +435,11 @@ function pickCut(title, sub, { cancel = true, only = null, items = false } = {})
   const ids = only ? only.filter((id) => all.includes(id)) : all;
   const m = openModal(`<div class="md-title">${title}</div><div class="md-sub">${sub || ''}</div><div class="md-grid${ids.length <= 5 ? ' few' : ''}"></div>${cancel ? '<button class="md-cancel">취소</button>' : ''}`, 'pick');
   const grid = m.querySelector('.md-grid');
+  // 컷 수에 맞춰 열을 늘려 한 화면(두 줄 안팎)에 다 들어오게
+  const n = ids.length;
+  const cols = n <= 3 ? Math.max(n, 1) : n <= 6 ? 3 : n <= 8 ? 4 : n <= 10 ? 5 : n <= 12 ? 6 : 7;
+  grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+  grid.classList.toggle('many', n > 8);
   return new Promise((resolve) => {
     ids.forEach((id) => {
       const v = cutView(id, { fills: G.fills });

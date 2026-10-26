@@ -9,7 +9,10 @@ Object.assign(CHARACTERS, {
 CHARACTERS.asagiri.faces.push('cold');
 CHARACTERS.ren.faces.push('sad');
 CHARACTERS.kurogane.faces.push('sad');
-CHARACTERS.towa.faces.push('serious');
+CHARACTERS.towa.faces.push('serious', 'real');
+CHARACTERS.towa.alt = { real: 'serious' };
+CHARACTERS.koharu.faces.push('crying');
+CHARACTERS.koharu.alt = { crying: 'worried' };
 
 Object.assign(BACKGROUNDS, {
   koharu_room:   { label: '코하루의 자취방', sky: ['#2a2a3a', '#7a6a8a'] },
@@ -114,7 +117,7 @@ Object.assign(PUZZLES, {
     decoyMsg: '번 컷은 편집된 컷이야. 원고에는 원본만 써.',
     bubbles: {},
     hint: '편집된 컷엔 이음매가 있어. 그리고 같은 장면의 원본이 꼭 하나 있어.',
-    rei: '…끌려간 게 아니야. 혼자 걸어갔어.',
+    rei: '정류장에서도, 경비실 앞에서도 혼자야. 웃고 있어.',
   },
   page5b: {
     title: '최종 재구성 — 오늘, 그리고 6년 전',
@@ -136,7 +139,7 @@ Object.assign(WITNESSES, {
     goal: '경비원의 기억도 고쳐져 있다. 원본으로 깨라.',
     statements: [
       { text: '흰 코트가 아가씨 팔을 잡아끌고 갔습니다. 똑똑히 봤어요.', cut: '5Ee', truthCut: '5E',
-        press: [['tanabe', '…근데 이상하게 그 장면만 생각하면 머리가 아파요.', 'confused']] },
+        press: [['tanabe', '근데 이상하게 그 장면만 생각하면 머리가 아파요.', 'confused']] },
       { text: '아가씨는 겁에 질려 울고 있었고요.', cut: 't_tanabe_2',
         cutDesc: '정류장 벤치. 우는 얼굴의 아가씨. 얼굴 부분만 다른 그림처럼 매끈하다.',
         press: [['tanabe', '그랬던… 것 같아요.', 'confused']] },
@@ -144,20 +147,20 @@ Object.assign(WITNESSES, {
     answers: [
       { statement: 0, cut: '5E', shout: '혼자였어!',
         rebut: '경비실 창에 남은 원본이에요. 아가씨는 혼자 서서 길을 물었어요. "폐창고가 어디예요?"',
-        success: [['tanabe', '…아. 그랬어요. 길을 물었어요. 제가 손가락으로 항구 쪽을 가리켰고.', 'confused']],
+        success: [['tanabe', '아. 그랬어요. 길을 물었어요. 제가 손가락으로 항구 쪽을 가리켰고.', 'confused']],
         peel: [0], words: ['a_walk', 'pl_warehouse'] },
       { statement: 1, cut: '5C', shout: '웃고 있었어!',
         rebut: '정류장에서 문자를 보내는 아가씨. "지금 갈게요". 웃고 있어요.',
-        success: [['tanabe', '…그러게요. 웃고 있었어요. 왜 울었다고 기억했지….', 'confused'], ['towa', '…누가 이 사람 기억에도 손을 댔어. 깔끔하게.']] },
+        success: [['tanabe', '그러게요. 웃고 있었어요. 왜 울었다고 기억했지….', 'confused'], ['towa', '…누가 이 사람 기억에도 손을 댔어. 깔끔하게.']] },
     ],
-    koharu: [['towa', '(…원본 복원한 컷 중에 정류장 근처가 있었지.)']],
+    koharu: [['towa', '원본 복원한 컷 중에 정류장 근처가 있었지.']],
     wrong: [['tanabe', '그, 그런가요?', 'confused']],
     close: [['tanabe', '죄송합니다. 근무 중이라….', 'normal']],
   },
   ren: {
     char: 'ren', bg: 'warehouse_in', face: 'smile', bgm: 'editor', editor: true, inkPenalty: 'renAccused',
     goal: '편집 대결. 렌은 증언 컷을 눈앞에서 고쳐 그린다. 고칠 때마다 생기는 이음매를 짚어라.',
-    intro: [['towa', '…렌이 고치는 건 내가 따라잡을 수 있어. 고칠 때마다 이음매가 생겨. 바로 짚어.'], ['ren', '오랜만에 같이 읽자, 시노노메.', 'smile']],
+    intro: [['towa', '렌이 고치는 건 내가 따라잡을 수 있어.'], ['tip', '렌이 증언 컷을 실시간으로 고친다. 고칠 때마다 생기는 이음매를 바로 짚는다.'], ['ren', '오랜만에 같이 읽자, 시노노메.', 'smile']],
     statements: [
       { text: '코하루는 내가 데려왔어. 억지로.', cut: 't_ren_1', dist: '편집',
         cutDesc: '흰 코트가 코하루의 손목을 끌고 창고로 들어간다. 손목 둘레만 선이 굵다.',
@@ -171,7 +174,7 @@ Object.assign(WITNESSES, {
     answers: [
       { statement: 0, spot: 'wrist', shout: '거기 붙였어!',
         rebut: '손목 둘레만 선 굵기가 달라요. 끌고 가는 손을 나중에 붙였어요.',
-        success: [['ren', '…역시 눈은 좋네.', 'smile']],
+        success: [['ren', '역시 눈은 좋네.', 'smile']],
         editLines: [['ren', '그럼 이렇게 고치지.', 'smile']],
         changes: { 0: { text: '좋아, 스스로 왔다고 쳐. 근데 돌려보낼 생각은 없었어.', cut: 't_ren_1b', dist: '편집',
           cutDesc: '창고 안, 쇠창살 너머의 코하루. 창살의 그림자만 바닥과 어긋난다.',
@@ -179,22 +182,22 @@ Object.assign(WITNESSES, {
           press: [['ren', '창살은 마음에 들어?', 'smile']] } } },
       { statement: 0, spot: 'bars', requires: [0], shout: '그림자가 어긋났어!',
         rebut: '창살은 서 있는데 그림자는 바닥에 비스듬해요. 창살도 나중에 그렸어요. 코하루는 갇힌 적이 없어요.',
-        success: [['ren', '…그래. 차를 내줬지. 그 아이가 오빠 얘길 물어서.', 'normal']],
+        success: [['ren', '그래. 차를 내줬지. 그 아이가 오빠 얘길 물어서.', 'normal']],
         editLines: [['ren', '그럼 6년 전 얘기로 넘어가자.', 'normal']] },
       { statement: 1, spot: 'calendar', requires: [1], shout: '날짜를 고쳤어!',
         rebut: '달력 날짜 칸만 종이 질감이 달라요. 8월 31일 위에 다른 날을 덧붙였어요.',
         success: [['ren', '…….', 'sad']],
-        editLines: [['ren', '…알았어. 그럼 사실대로 그려 줄게. 네가 원하는 대로.', 'sad']],
+        editLines: [['ren', '알았어. 그럼 사실대로 그려 줄게. 네가 원하는 대로.', 'sad']],
         changes: { 1: { text: '그래, 너도 거기 있었어. 그리고 시오리를 두고 도망쳤지.', cut: 't_ren_2b', dist: '편집',
           cutDesc: '불타는 서가 사이로 혼자 달아나는 아이의 뒷모습.',
-          press: [['ren', '…그게 네가 믿는 그림이잖아. 6년 동안.', 'sad']] } } },
-      { statement: 1, cut: '6Y3', requires: [2], shout: '도망친 게 아니야!',
-        rebut: '소타 순경의 배지에 남은 컷이에요. 계단 아래에서 아이를 안아 올려요. 그 아이 오른손 검지에 잉크. …나예요. 나는 도망친 게 아니라, 되돌아가 있었어요.',
+          press: [['ren', '그게 네가 믿는 그림이잖아. 6년 동안.', 'sad']] } } },
+      { statement: 1, cut: '6Y3', requires: [2], shout: '그 아이, 계단 아래에 있었어!',
+        rebut: '소타 순경의 배지에 남은 컷이에요. 계단 아래에서 아이를 안아 올려요. 그 아이 오른손 검지에 잉크. …나예요. 그 시각에 나는 계단 아래, 연기 속에 있었어요.',
         success: [
           ['ren', '…….', 'sad'],
           ['ren', '6년 전 네 하루를 지운 건 나야.', 'sad'],
           ['ren', '네가 부탁했어. 병원에서. 「다 잊게 해 줘」라고.', 'sad'],
-        ], words: ['p_rei', 'a_rescue'] },
+        ], words: ['p_rei', 'a_rescue'], cg: 'cg_sota' },
     ],
     rewards: ['5F', '6Y5', '6Y6'],
     koharu: [['koharu', '(선배, 오빠 배지에서 읽은 컷… 아이를 안아 올리는 거.)', 'worried']],
@@ -204,22 +207,22 @@ Object.assign(WITNESSES, {
   asagiri5: {
     char: 'asagiri', bg: 'cafe_night', face: 'normal',
     goal: '6년 동안 똑같던 말. 그 이음매를 짚어라.',
-    intro: [['towa', '…레이. 이 컷, 이음매가 거의 없어. 근데 거의, 야.']],
+    intro: [['towa', '레이. 이 컷, 이음매가 거의 없어. 근데 거의, 야.']],
     statements: [
       { text: '힘든 건 잊어도 돼.', cut: 't_asagiri_1',
         cutDesc: '카운터 너머로 단 커피를 내미는 손. 6년 동안 매번 같은 각도, 같은 김.',
         spots: [{ id: 'cup', label: '커피잔', x: 0.4, y: 0.5, w: 0.2, h: 0.25 }, { id: 'ring', label: '약지의 하얀 자국', x: 0.55, y: 0.4, w: 0.12, h: 0.12 }, { id: 'steam', label: '김', x: 0.4, y: 0.25, w: 0.2, h: 0.2 }],
-        press: [['asagiri', '레이 짱한테는 늘 이 말을 하고 싶었어.', 'normal']] },
+        press: [['asagiri', '레이한테는 늘 이 말을 하고 싶었어.', 'normal']] },
     ],
     answers: [
       { statement: 0, spot: 'ring', shout: '그 자국!',
         rebut: '약지에 반지 자국. 이 컷은 6년 동안 같은 장면을 붙여 쓴 거예요. 그런데 이 자국만 해가 갈수록 희미해져요. 당신이 지운 가족의 흔적이에요.',
         success: [
           ['asagiri', '…….', 'cold'],
-          ['asagiri', '잘 읽네, 레이 짱. 내가 가르친 대로.', 'cold'],
+          ['asagiri', '잘 읽네, 레이. 내가 가르친 대로.', 'cold'],
         ] },
     ],
-    koharu: [['towa', '(…손가락. 약지를 봐.)']],
+    koharu: [['towa', '손가락. 약지를 봐.']],
     wrong: [['asagiri', '커피 식겠다.', 'normal']],
     close: [['asagiri', '오늘은 문 닫을 시간이야.', 'normal']],
   },

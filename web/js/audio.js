@@ -31,7 +31,10 @@ const MUSIC = {
   fire:     { file: 'assets/audio/bgm_fire.mp3' },     // 4장: 불탄 목욕탕
   editor:   { file: 'assets/audio/bgm_editor.mp3' },   // 5장: 편집국
   final:    { file: 'assets/audio/bgm_final.mp3' },    // 종장: 등대
+  chase:    { file: 'assets/audio/bgm_chase.mp3' },    // 심문 막판: 반박이 이어질 때
 };
+// 배경 아래에 아주 작게 까는 환경음 (tools/compose/ambience.py)
+const AMBIENCE = { sea: 'assets/audio/amb_sea.mp3', rain: 'assets/audio/amb_rain.mp3', crowd: 'assets/audio/amb_crowd.mp3', fire: 'assets/audio/amb_fire.mp3', hum: 'assets/audio/amb_hum.mp3' };
 const SOUNDS = ['blip', 'next', 'select', 'cancel', 'cut', 'objection', 'wrong', 'correct', 'press', 'page', 'place', 'step',
   'chime', 'thud', 'door', 'ghost', 'phone', 'banner', 'save'];
 
@@ -90,6 +93,28 @@ async function bgm(id, fade = 1.2) {
   AU.cur = { id, src, gain: g };
 }
 
+// 환경음 바꾸기. null이면 끈다. 배경음악 볼륨을 따라가고 그보다 훨씬 작게.
+async function amb(id) {
+  AU.wantAmb = id;
+  const c = AU.ctx;
+  if (!c || c.state !== 'running') return;
+  if (AU.amb && AU.amb.id === id) return;
+  const old = AU.amb;
+  AU.amb = null;
+  if (old) { old.gain.gain.setTargetAtTime(0, c.currentTime, 0.4); setTimeout(() => { try { old.src.stop(); } catch { /* 이미 멈춤 */ } }, 2000); }
+  if (!id || !AMBIENCE[id]) return;
+  const buf = await loadBuf(AMBIENCE[id]);
+  if (!buf || AU.wantAmb !== id) return;
+  const src = c.createBufferSource();
+  src.buffer = buf; src.loop = true;
+  const g = c.createGain();
+  g.gain.value = 0;
+  g.gain.setTargetAtTime(0.22, c.currentTime, 0.6);
+  src.connect(g); g.connect(AU.bgm);
+  src.start();
+  AU.amb = { id, src, gain: g };
+}
+
 function sfx(name, { rate = 1, vol = 1 } = {}) {
   const c = AU.ctx;
   if (!c || c.state !== 'running' || SETTINGS.sfx <= 0) return;
@@ -113,5 +138,6 @@ function sfx(name, { rate = 1, vol = 1 } = {}) {
   c.resume().then(() => {
     SOUNDS.forEach((n) => loadBuf(`assets/audio/sfx_${n}.wav`));
     if (AU.want && !AU.cur) bgm(AU.want);
+    if (AU.wantAmb && !AU.amb) amb(AU.wantAmb);
   });
 }, { capture: true }));

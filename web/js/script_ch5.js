@@ -38,6 +38,7 @@ const CH5_SCENES = [
   ['tanabe', '심문 1: 하쿠요 경비원'],
   ['puzzle5a', '컷 정리: 코하루의 길'],
   ['accuse5', '중간 보고: 코하루를 데려간 사람'],
+  ['harbor5', '방파제'],
   ['warehouse5', '항구 끝 폐창고'],
   ['ren', '심문 2: 렌 — 편집 대결'],
   ['kurogane5', '멈춘 시계'],
@@ -60,7 +61,7 @@ const CH5_STATE = {
   office5: {}, explore5a: { words: W5A }, route5: { cuts: C5A, items: ['history'], words: W5A },
   restore5: { cuts: C5B, items: ['history'], words: W5B }, tanabe: { cuts: C5C, items: ['history'], words: [...W5B, 'p_koharu', 'a_edit'] },
   puzzle5a: { cuts: C5C, items: ['history'], words: W5C }, accuse5: { cuts: C5C, items: ['history'], words: W5C },
-  warehouse5: { cuts: C5C, items: ['history'], words: W5C }, ren: { cuts: C5D, items: ['history', 'badge'], words: W5C },
+  harbor5: { cuts: C5C, items: ['history'], words: W5C }, warehouse5: { cuts: C5C, items: ['history'], words: W5C }, ren: { cuts: C5D, items: ['history', 'badge'], words: W5C },
   kurogane5: { cuts: C5E, items: ['history', 'badge'], words: W5C }, puzzle5b: { cuts: C5F, items: ['history', 'badge'], words: W5D },
   conclusion5: { cuts: C5F, items: ['history', 'badge'], words: W5D }, epilogue5: { cuts: C5F, items: ['history', 'badge'], words: W5D },
 };
@@ -73,11 +74,14 @@ async function sceneOffice5() {
   FX.mood('dust');
   await say('', '8월 30일 아침. 잔상과 사무실. 문에 「해체 — 출입 금지」 종이가 붙어 있다. 레이는 그걸 떼어 내고 들어간다.');
   await say('', '코하루의 책상. 스티커 붙은 수첩이 없다. 머그컵이 말라 있다.');
+  await say('', '모니터 모서리에 포스트잇. 「내일 아침 커피 담당 = 나!」 날짜는 어제.');
+  show('rei', 'normal', 'left');
+  await say('rei', '(시끄러운 게 없으니까, 이 방이 이렇게 넓었나.)', 'normal');
+  hide('rei');
   show('towa', 'serious', 'center');
-  await say('towa', '코하루 휴대폰, 오늘 오후 6시에 항구 쪽에서 꺼졌어.');
+  await say('towa', '코하루 휴대폰, 새벽에 집을 나선 뒤로 연락이 안 돼.');
   await say('towa', '근데 레이. 이상해. 코하루가 지나간 길에 남은 잔상이… 전부 너무 깔끔해.');
   await say('rei', '…….');
-  show('kurogane', 'sad', 'right');
   await say('kurogane', '(전화) 나는 직무 정지라 움직일 수가 없다. …시노노메. 그 애를 찾아라.');
   await say('kurogane', '(전화) 흰 코트를 조심해. 렌이라는 이름이다.');
   gainWord('p_ren');
@@ -120,6 +124,10 @@ async function sceneExplore5a() {
 async function sceneRoute5() {
   bg('library');
   await say('', '시립 도서관 신문 열람실. 사서가 말한다. 「그 아가씨, 아침에 6년 전 신문을 찾았어요.」');
+  await say('', '책상에 펼쳐진 채인 6년 전 9월 1일 자 지역 신문. 「곶 끝 등대 도서관 화재 — 여고생 1명·순경 1명 사망」.');
+  show('rei', 'serious', 'left');
+  await say('rei', '(이 기사. 한 번도 끝까지 읽은 적이 없어.)', 'serious');
+  hide('rei');
   await gainCut('5Be');
   bg('busstop');
   await say('', '하쿠요 본사 앞 버스정류장. 벤치 위에 코하루의 별 참 하나가 떨어져 있다.');
@@ -130,23 +138,24 @@ async function sceneRoute5() {
   gainWord('p_tanabe');
   await gainCut('5Ee');
   show('rei', 'serious', 'left');
-  await say('rei', '…전부 「끌려가는」 그림이야. 근데 전부 손끝이 차가워.', 'serious');
+  await say('rei', '전부 「끌려가는」 그림이야. 근데 전부 손끝이 차가워.', 'serious');
   clearChars();
 }
 
 async function sceneRestore5() {
   bg('office');
   show('towa', 'serious', 'center');
-  await say('towa', '레이. 이건 3장 미래 컷이랑 같은 솜씨야. 덧칠한 층이 있어.');
-  await say('towa', '[[이음매를 짚어서 긁어내.]] 밑에 원본이 남아 있을 거야.');
+  await say('towa', '레이. 이건 아케이드 점술가의 미래 컷이랑 같은 솜씨야. 덧칠한 층이 있어.');
+  await say('towa', '덧칠한 층 밑에 원본이 남아 있을 거야. 붙인 자리부터 벗겨 봐.');
+  await say('tip', '편집된 컷의 [[이음매]]를 짚으면 원본이 드러난다.');
   hide('towa');
   hideText();
   await runRestore(['5Ae', '5Be', '5Ce', '5Ee']);
   gainWord('p_koharu'); gainWord('a_edit');
   show('rei', 'surprised', 'left');
-  await say('rei', '…「지금 갈게요」. 웃고 있어.', 'surprised');
+  await say('rei', '「지금 갈게요」. 웃고 있어.', 'surprised');
   show('towa', 'serious', 'right');
-  await say('towa', '…코하루, 자기 발로 갔어.');
+  await say('towa', '코하루, 자기 발로 갔어.');
   clearChars();
 }
 
@@ -179,19 +188,35 @@ async function sceneAccuse5() {
   show('towa', 'serious', 'center');
   if (r.ok) {
     G.stats.accuse = true;
-    await say('towa', '…코하루 자신. 그래. 편집국은 레이 너를 부르려고 그림만 고친 거야.');
+    await say('towa', '코하루 자신. 그래. 편집국은 레이 너를 부르려고 그림만 고친 거야.');
     await say('towa', '그럼 렌은 기다리고 있을 거야. 항구 끝 폐창고에서.');
   } else {
     G.stats.accuse = false;
     if (who === 'p_ren') {
       G.flags.renAccused = true;
-      await say('towa', '…렌을 납치범으로 올렸어. 강력계가 움직이면 편집국이 경계할 거야.');
+      await say('towa', '렌을 납치범으로 올렸어. 강력계가 움직이면 편집국이 경계할 거야.');
       FX.glitch(500);
       await say('towa', '창고 안 잔상이 더 단단해졌어. 렌이 더 많이 고쳐 놓을 거야.');
     } else {
-      await say('towa', '…그건 그림에 속은 거야. 그래도 가야 해. 항구 끝 폐창고.');
+      await say('towa', '그건 그림에 속은 거야. 그래도 가야 해. 항구 끝 폐창고.');
     }
   }
+  clearChars();
+}
+
+async function sceneHarbor5() {
+  bg('warehouse');
+  await say('', '항구 끝으로 가는 방파제. 해가 기운다. 레이의 휴대폰 화면에 고양이 귀 아바타가 떠 있다.');
+  show('towa', 'serious', 'right');
+  await say('towa', '레이. 하나만 미리 말해 둘게.');
+  await say('towa', '렌은 나랑 같은 데서 일했어. 거짓말은 해도, 쓸데없는 거짓말은 안 하는 애야.');
+  show('rei', 'serious', 'left');
+  await say('rei', '같은 데?', 'serious');
+  await say('towa', '다녀와서 말할게. 지금은 코하루부터.');
+  hide('towa');
+  await say('', '방파제 끝에서 항구 등대 불이 켜진다. 6년 전 그 밤에도 저 불은 돌고 있었을 것이다.');
+  await say('rei', '(코하루는 왜 혼자 갔을까. 나한테 말하면 말릴 줄 알았겠지.)', 'serious');
+  await say('rei', '(말렸겠지. 나라면.)', 'normal');
   clearChars();
 }
 
@@ -210,6 +235,8 @@ async function sceneWarehouse5() {
   show('ren', 'smile', 'left');
   await say('ren', '늦었네, 시노노메. 차가 식었어.', 'smile');
   await say('koharu', '선배, 렌 씨는 나쁜 사람 아니에요. 오빠 얘기를 해 줬어요. 근데… 거기서부터는 선배가 들어야 한대요.', 'worried');
+  await say('koharu', '오빠는 순경이었어요. 맨날 막대사탕을 물고 다녔어요. 담배 끊는다고.', 'normal');
+  await say('koharu', '그날도 주머니에 사탕이 두 개 있었대요. 하나는 저 주려고.', 'worried');
   await say('', '코하루가 그을린 경찰 배지를 레이의 손에 쥐여 준다.');
   await gainItem('badge');
   await gainCut('6Y2');
@@ -225,12 +252,12 @@ async function sceneRen() {
   await runTrial('ren');
   bg('warehouse_in');
   show('ren', 'sad', 'left');
-  await say('ren', '…넌 그날 시오리를 찾으러 되돌아갔어. 그리고 소타 순경이 널 업고 나왔지.', 'sad');
+  await say('ren', '넌 그날 시오리를 찾으러 되돌아갔어. 그리고 소타 순경이 널 업고 나왔지.', 'sad');
   await say('ren', '소타는 시오리를 데리러 [[다시 들어갔고]], 둘 다 나오지 못했어.', 'sad');
   gainWord('a_return');
   await say('ren', '난 그 밖에서 한쪽 눈을 잃었고. …그래서 지워 줬어. 네가 울면서 부탁하길래.', 'sad');
   show('koharu', 'crying', 'right');
-  await say('koharu', '…오빠가 업고 나온 아이가, 선배였어요?', 'crying');
+  await say('koharu', '오빠가 업고 나온 아이가, 선배였어요?', 'crying');
   await say('rei', '…….', 'serious');
   clearChars();
 }
@@ -240,23 +267,27 @@ async function sceneKurogane5() {
   sfx('door');
   await say('', '창고 문이 열린다. 직무 정지 중인 쿠로가네가 막대사탕도 없이 서 있다.');
   show('kurogane', 'sad', 'right');
-  await say('kurogane', '…다 들었냐.', 'sad');
+  await say('kurogane', '다 들었냐.', 'sad');
   await say('', '쿠로가네가 손목시계를 풀어 레이에게 내민다. 8시 31분에 멈춘 시계.');
   await gainCut('6Y4');
   await say('kurogane', '그날 현장에 너도 있었다. 소타한테서 널 받아 안은 게 나다. 그때 시계가 멈췄어.');
   await say('kurogane', '잔상과는… 언젠가 그날을 제대로 읽어 줄 독자를 기다리려고 만든 거다. 그리고 너를 곁에 두려고.', 'sad');
-  show('towa', 'serious', 'left');
-  await say('towa', '…나도 말할게. 나, 원래 편집국에 있었어. 「이음매 감지」 시스템 만들던 엔지니어.');
+  await say('', '쿠로가네가 빈 주머니를 더듬다가 손을 멈춘다. 늘 거기 있던 막대사탕이 없다.');
+  await say('kurogane', '소타 녀석 버릇이었다. 그 녀석 대신 6년째 끊고 있는 거다. 담배.', 'sad');
+  sfx('door');
+  await say('', '쿠로가네 뒤에서, 담요를 뒤집어쓴 작은 사람이 걸어 나온다. 모니터 밖에서는 처음 보는 얼굴.');
+  show('towa', 'real', 'left', { here: true });
+  await say('towa', '나도 말할게. 나, 원래 편집국에 있었어. 「이음매 감지」 시스템 만들던 엔지니어.');
   await say('towa', '편집을 막으려고 만든 건데, 편집을 더 감쪽같이 하는 데 쓰이더라. 그래서 나왔어.');
-  await say('rei', '…그래서 고양이 아니라고 했구나.', 'normal');
-  await say('towa', '…그건 상관없잖아.');
+  await say('rei', '그래서 고양이 아니라고 했구나.', 'normal');
+  await say('towa', '그건 상관없잖아.');
   clearChars();
 }
 
 async function scenePuzzle5b() {
   bg('warehouse_in');
   show('rei', 'serious', 'left');
-  await say('rei', '…두 페이지. 오늘 코하루가 걸어온 길, 그리고 6년 전 그 밤.', 'serious');
+  await say('rei', '두 페이지. 오늘 코하루가 걸어온 길, 그리고 6년 전 그 밤.', 'serious');
   clearChars();
   await runPuzzle('page5b');
 }
@@ -265,20 +296,21 @@ async function sceneConclusion5() {
   bg('warehouse_in');
   await banner('결론', '폐창고', 1300);
   show('kurogane', 'sad', 'center');
-  await say('kurogane', '…네 네임으로 말해 봐라. 이번엔 강력계도 서장도 없다. 우리만 있어.', 'sad');
+  await say('kurogane', '네 네임으로 말해 봐라. 이번엔 강력계도 서장도 없다. 우리만 있어.', 'sad');
   hide('kurogane');
   hideText();
   await runName({ title: '오늘, 그리고 6년 전', sub: '모든 빈칸이 맞아야 확정할 수 있다.', parts: NAME5_FINAL, threshold: 4 });
+  await montage(G.lastSolution);
   show('rei', 'serious', 'left');
-  await say('rei', '…코하루는 혼자 걸어왔어요. 납치처럼 고친 건 렌. 나를 여기 부르려고.', 'serious');
+  await say('rei', '코하루는 혼자 걸어왔어요. 납치처럼 고친 건 렌. 나를 여기 부르려고.', 'serious');
   await say('rei', '6년 전, 소타 순경은 나를 업고 나왔고… 시오리를 데리러 다시 들어갔어요.', 'serious');
   hide('rei');
   bgm('truth');
   show('koharu', 'crying', 'right');
-  await say('koharu', '…오빠, 마지막까지 오빠였네요.', 'crying');
+  await say('koharu', '오빠, 마지막까지 오빠였네요.', 'crying');
   hideText();
   const c = await choice(['"…고마워. 소타 씨한테."', '"미안해. 나 때문에."', '(배지를 코하루의 손에 돌려준다)'], '코하루에게 뭐라고 할까?');
-  if (c === 0) await say('koharu', '…네. 오빠한테 전할게요. 선배 지금 잘 지낸다고.', 'crying');
+  if (c === 0) await say('koharu', '네. 오빠한테 전할게요. 선배 지금 잘 지낸다고.', 'crying');
   if (c === 1) { show('koharu', 'worried', 'right'); await say('koharu', '선배 때문 아니에요. 오빠가 선택한 거예요. 그러니까 사과하지 마요.', 'worried'); }
   if (c === 2) { G.flags.badgeBack = true; await say('', '코하루가 배지를 두 손으로 감싼다. "…선배가 들고 있어요. 오빠도 그게 좋을 거예요."'); }
   clearChars();
@@ -286,7 +318,7 @@ async function sceneConclusion5() {
 
 async function sceneEpilogue5() {
   bg('warehouse');
-  await say('', '밤. 창고 밖 부두. 바닷바람.');
+  await say('', '해 질 녘. 창고 밖 부두. 바닷바람.');
   FX.ghost(3000);
   show('shiori', 'normal', 'center');
   await say('', '부두 끝에 교복 차림의 여자아이가 서 있다. 이번엔 사라지지 않는다.');
@@ -295,12 +327,16 @@ async function sceneEpilogue5() {
   hide('shiori');
   show('rei', 'surprised', 'left');
   await say('rei', '…시오리.', 'surprised');
+  show('koharu', 'normal', 'right');
+  await say('koharu', '선배? 누구랑 얘기해요?', 'worried');
+  await say('rei', '내일, 같이 가 줄래. 등대.', 'serious');
+  await say('koharu', '당연하죠. 커피 담당도 저예요.', 'happy');
   clearChars();
   bg('cafe_night');
   bgm('epilogue');
   await say('', '카페 「여백」. 문 닫을 시간이 지났는데 불이 켜져 있다.');
   show('asagiri', 'normal', 'center');
-  await say('asagiri', '어서 와, 레이 짱. 오늘은 무슨 일이 있었어?');
+  await say('asagiri', '어서 와, 레이. 오늘은 무슨 일이 있었어?');
   await say('', '아사기리가 단 커피를 내민다. 6년 동안 같은 잔, 같은 각도, 같은 김.');
   show('rei', 'serious', 'left');
   await say('rei', '(…이 커피잔. 한 번도 읽어 본 적이 없어.)', 'serious');
@@ -312,7 +348,7 @@ async function sceneEpilogue5() {
   bgm(null, 2);
   await say('', '아사기리가 커피잔을 내려놓는다.');
   await say('asagiri', '8월 31일이네.', 'cold');
-  await say('asagiri', '…다시 잊게 해 줄까?', 'cold');
+  await say('asagiri', '다시 잊게 해 줄까?', 'cold');
   hideText();
   await banner('5장 「편집자」 끝', '', 2200);
   await showRank('5장 「편집자」');
@@ -320,13 +356,13 @@ async function sceneEpilogue5() {
 
 const CH5_FN = {
   office5: sceneOffice5, explore5a: sceneExplore5a, route5: sceneRoute5, restore5: sceneRestore5, tanabe: sceneTanabe,
-  puzzle5a: scenePuzzle5a, accuse5: sceneAccuse5, warehouse5: sceneWarehouse5, ren: sceneRen, kurogane5: sceneKurogane5,
+  puzzle5a: scenePuzzle5a, accuse5: sceneAccuse5, harbor5: sceneHarbor5, warehouse5: sceneWarehouse5, ren: sceneRen, kurogane5: sceneKurogane5,
   puzzle5b: scenePuzzle5b, conclusion5: sceneConclusion5, epilogue5: sceneEpilogue5,
 };
 
 const CH5_BGM = {
   office5: 'tension', explore5a: 'explore', route5: 'explore', restore5: 'editor', tanabe: 'trial', puzzle5a: 'tension',
-  accuse5: 'tension', warehouse5: 'editor', ren: 'editor', kurogane5: 'truth', puzzle5b: 'tension', conclusion5: 'trial',
+  accuse5: 'tension', harbor5: 'epilogue', warehouse5: 'editor', ren: 'editor', kurogane5: 'truth', puzzle5b: 'tension', conclusion5: 'trial',
   epilogue5: 'epilogue',
 };
 

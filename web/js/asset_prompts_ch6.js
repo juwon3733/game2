@@ -36,13 +36,30 @@ Object.assign(CUT_PROMPTS, {
   S8: ['First-person view turning back up a smoky staircase toward the upper floor; behind, the footsteps of a police officer following (accent color on the officer\'s cap). 8:33.', '다시 2층으로, 뒤따르는 순경(포인트 색)'],
   AF: ['An old small apartment kitchen twelve years ago: a child\'s crayon drawing of three people stuck on a fridge (accent color on the drawing); through the window, a hillside cut by construction cranes and a glow of fire.', '냉장고의 크레용 그림(포인트 색), 창밖 크레인과 불빛'],
   t_asg_1: ['A spotless official fire report document on a desk, perfectly neat.', '말끔한 소방 보고서'],
-  t_asg_2: ['A child sleeping in bed with a fever, unnaturally calm and seamless.', '편집: 너무 고요한 감기 걸린 아이'],
+  t_asg_2: ['A 16-year-old sleeping in bed with a fever, unnaturally calm and seamless.', '편집: 너무 고요한 감기 걸린 아이'],
   t_asg_3: ['A cafe counter at night, spotless; the wall behind is completely empty.', '아무것도 걸리지 않은 벽'],
-  t_self_3: ['Two manga panels joined: a child running down stairs, and immediately next to it, a girl\'s hand falling away; a very thin seam line between the two panels.', '편집: 뛰쳐나감과 떨어지는 손이 붙은 이음매'],
-  t_self_4: ['A child standing alone in front of a burning lighthouse library, nobody else in sight.', '불타는 도서관 앞에 혼자 선 아이'],
+  t_self_3: ['Two manga panels joined: a 16-year-old running down stairs, and immediately next to it, a girl\'s hand falling away; a very thin seam line between the two panels.', '편집: 뛰쳐나감과 떨어지는 손이 붙은 이음매'],
+  t_self_4: ['A 16-year-old standing alone in front of a burning lighthouse library, nobody else in sight.', '불타는 도서관 앞에 혼자 선 아이'],
+});
+
+Object.assign(CG_CHARS, {
+  ruru: 'a 19-year-old girl vocalist with long blue hair with two small braided loops, a black cap with a small white bird mascot and an oversized white stage jacket',
+  pin: 'an 18-year-old girl bassist with long silver-white hair with pink tips, a black beret with white flowers and a long black coat',
+  aoi: 'a 21-year-old girl drummer with a long navy-black ponytail and an open cobalt work shirt',
+  yuki: 'a 19-year-old girl with long navy hair and a cream ribbon on the RIGHT side, charcoal on her left hand',
+  nagi: 'her identical twin sister with long navy hair and a cream ribbon on the LEFT side, a pastry shop apron',
+  keiko: 'a 44-year-old woman in a grey work jacket with her hair tied back with an orange hair tie',
+  genzo: 'a 78-year-old bathhouse owner in a soot-stained white undershirt',
+  sota: 'a young police officer in his twenties with a kind face and a shining police badge',
+  young_rei: 'a 16-year-old with messy short black hair, an oversized hoodie and an ink stain on the right index finger',
+  shiori: 'a 16-year-old girl with long straight black hair, blunt bangs, a bookmark hairpin and an old navy sailor uniform',
 });
 
 Object.assign(CG_PROMPTS, {
+  cg_encore: 'An empty small live house at night with the house lights off: on the stage, lit by a single white spotlight, {ruru} sits on an amp and sings alone with an acoustic guitar; in the empty first row of the audience floor, {pin} and {aoi} sit side by side listening, an empty folding chair with a black suit jacket draped over it beside them.',
+  cg_twins: 'Late at night in a closed retro pastry shop: {nagi} sits on the stairs crying, and {yuki} kneels in front of her holding both her hands; their cream ribbons on opposite sides. Warm dim light from the cake showcase.',
+  cg_carry: 'A burning old bathhouse entrance at night, fire and embers: {keiko} walks out of the smoke carrying {genzo} on her back, her face and neck sooty, gritting her teeth; red fire-engine lights sweep across the scene.',
+  cg_sota: 'Six years ago, at night, at the foot of a smoky library staircase lit by fire: {sota} lifts {young_rei} who has collapsed, holding the teenager close; his police badge glints. Behind them, up the stairs, a faint figure of {shiori} watches.',
   cg_margin: 'Rei sitting at the burned reading table of the lighthouse library at dawn, holding a pen for the first time in six years, drawing in the last empty panel of a manuscript page; a faint translucent Shiori leans over the table smiling, the sea shining through the round window.',
   cg_farewell: 'At the tip of the cape at sunrise, translucent Shiori in her old sailor uniform smiles and waves as she scatters into light, Rei and Koharu standing hand in hand watching, the ruined lighthouse library behind.',
 });

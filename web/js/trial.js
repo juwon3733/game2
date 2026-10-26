@@ -25,6 +25,47 @@ function showLine(who, text, face) {
 }
 
 // 1장식 데이터를 answers 모양으로 맞춘다
+// ---------- 틀린 반박에 대한 반응 ----------
+// 무엇을 내밀었느냐(증인 자신의 기억 / 남의 기억 / 물건 / 컷 속 짚기)에 따라 증인이 다르게 받아친다.
+// 증언 자체는 맞게 짚었는데 내민 것만 틀렸으면 "아깝다" 쪽 반응. W.wrongBy[컷·짚을 곳 id]가 있으면 그게 먼저.
+const WRONG_POOL = {
+  polite: {
+    own: ['그건 제 기억이잖아요. 그게 왜요?', '제가 본 걸 저한테 보여 줘서 뭐 하게요.'],
+    item: ['그 물건이 지금 이 얘기랑 무슨 상관이에요?', '그걸로 뭘 말하고 싶은 건데요?'],
+    other: ['{name} 씨가 본 거요? 그 얘긴 지금 안 했는데요.', '그건 다른 사람이 본 거잖아요.'],
+    spot: ['거기가 뭐요? 아무것도 없는데요.', '그림을 아무 데나 짚는다고 말이 바뀌진 않아요.'],
+  },
+  casual: {
+    own: ['그건 내 기억이잖아. 그래서?', '내가 본 걸 나한테 보여 줘서 뭐 하게.'],
+    item: ['그 물건이 지금 얘기랑 무슨 상관인데.', '그걸로 뭘 말하고 싶은 거야?'],
+    other: ['{name}이(가) 본 거? 그 얘긴 지금 안 했잖아.', '그건 남이 본 거잖아.'],
+    spot: ['거기가 뭐. 아무것도 없잖아.', '아무 데나 짚는다고 말이 바뀌진 않아.'],
+  },
+};
+const NEAR = ['(이 증언이 수상한 건 맞아. 내민 게 틀렸어.)', '(증언은 맞게 짚었어. 이걸로는 안 깨져.)'];
+function wrongReaction(W, st, here, cutId, spotId) {
+  const key = spotId || cutId;
+  if (W.wrongBy && W.wrongBy[key]) return W.wrongBy[key];
+  st.wrongN = (st.wrongN || 0) + 1;
+  const near = here.length > 0 && !W.gentle;
+  const base = W.wrong || [];
+  // 처음 틀렸을 땐 증인 고유의 반응, 그다음부터는 내민 것에 따라
+  if (W.gentle || st.wrongN === 1) return near ? [...base, ['rei', NEAR[0], 'serious']] : base;
+  const polite = (W.statements || []).some((x) => /요[.?!…」]*$/.test(x.text || ''));
+  const pool = WRONG_POOL[polite ? 'polite' : 'casual'];
+  const owner = cutId && CUTS[cutId] ? CUTS[cutId].owner : null;
+  const kind = spotId ? 'spot' : !CUTS[cutId] ? 'item' : owner === W.char || owner === W.char2 ? 'own' : 'other';
+  const list = pool[kind];
+  let line = list[st.wrongN % list.length];
+  const name = owner && CHARACTERS[owner] ? CHARACTERS[owner].name : '';
+  if (kind === 'other' && !name) line = list[1];
+  line = line.replace('{name}', name);
+  const who = W.char2 && st.R && st.R.statements[st.idx] && st.R.statements[st.idx].char ? st.R.statements[st.idx].char : W.char;
+  const out = [[who, line, (base[0] && base[0][2]) || undefined]];
+  if (near) out.push(['rei', NEAR[st.wrongN % NEAR.length], 'serious']);
+  return out;
+}
+
 function roundOf(R) {
   if (R.answers) return R;
   return Object.assign({}, R, {
@@ -60,14 +101,15 @@ async function runTrial(id) {
   $('#stage').classList.add('in-trial');
   goal(W.goal);
   bgm(W.bgm || 'trial');
+  hideText();
   await banner('— 증언 —', `${CHARACTERS[W.char].name}의 기억이 컷으로 펼쳐진다`, 1500);
 
   if (!G.flags.trialTut) {
     G.flags.trialTut = true;
     await sayAll([
-      ['towa', '심문 설명할게. 오른쪽이 증인의 기억 컷. 감정 때문에 그림이 비틀려 있어(빨간 딱지).'],
-      ['towa', '증언을 넘겨 보다가 수상하면 [파고들기]. 공짜야. 새 단서나 대사 조각이 나와.'],
-      ['towa', '틀린 증언에서 [반박!]을 누르고 그걸 깨뜨릴 컷을 골라. 틀리면 증인 마음이 줄고, 다 닳으면 처음부터야.'],
+      ['tip', '심문: 오른쪽은 증인의 기억 컷. 빨간 딱지가 붙은 컷은 감정 때문에 그림이 비틀려 있다.'],
+      ['tip', '◀ ▶로 증언을 넘긴다. 수상하면 [파고들기]. 벌점 없이 새 단서나 대사 조각이 나온다.'],
+      ['tip', '틀린 증언에서 [반박!]을 누르고 그걸 깨뜨릴 컷을 고른다. 틀리면 오른쪽 위 「증인의 마음」 칸이 하나 줄고, 다 닳으면 처음부터.'],
     ]);
   }
 
@@ -219,11 +261,14 @@ async function trialRound(wid, R) {
       sfx('objection');
       hideText();
       if (W.gentle) { flash(); await banner('이걸 봐 줘.', '', 1400, 'objection'); }
-      else { await FX.cutin('rei', a.shout || '순서가 틀렸어!'); quake(); flash(); }
+      else { await FX.cutin('rei', a.shout || '그건 틀렸어!'); quake(); flash(); }
       if (a.rebut) {
+        // 반박하는 동안은 증언 패널을 걷어 내고 레이를 앞에 세운다
+        $('#stage').classList.add('rebutting');
         show('rei', 'serious', 'right');
         await say('rei', a.rebut, 'serious');
         hide('rei');
+        $('#stage').classList.remove('rebutting');
       }
       st.done.add(k);
       const peel = a.peel || [st.idx];
@@ -258,7 +303,8 @@ async function trialRound(wid, R) {
         await sayAll(a.editLines || []);
       }
       Object.entries(a.changes || {}).forEach(([i, ns]) => { st.stmts[i] = ns; st.peeled.delete(Number(i)); });
-      if (st.done.size < R.answers.length) { bgm(W.bgm || 'trial'); show(W.char, W.face || CHARACTERS[W.char].faces[0], 'left'); }
+      // 마지막 하나만 남으면 몰아붙이는 곡으로
+      if (st.done.size < R.answers.length) { bgm(R.answers.length >= 2 && st.done.size === R.answers.length - 1 && !W.gentle ? 'chase' : W.bgm || 'trial'); show(W.char, W.face || CHARACTERS[W.char].faces[0], 'left'); }
       continue;
     }
 
@@ -290,7 +336,7 @@ async function trialRound(wid, R) {
     } else if (!spotId && R.answers.some((a, k) => !st.done.has(k) && a.cut === cutId)) {
       extra.push(['koharu', '(그 컷은 맞는 것 같은데… 다른 증언에 들이밀어야 할 것 같아요.)', 'worried']);
     }
-    await sayAll([...(W.wrong || []), ...extra]);
+    await sayAll([...wrongReaction(W, st, here, cutId, spotId), ...extra]);
     if (st.ink === 0) {
       await sayAll(W.close || []);
       reset();

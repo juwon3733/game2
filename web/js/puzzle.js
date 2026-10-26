@@ -28,7 +28,8 @@ function runPuzzle(id) {
   clearChars();
 
   return new Promise(async (resolve) => {
-    let msg = '토와: 컷을 칸으로 끌어다 놓거나 눌러서 넣어. 칸끼리 끌면 자리가 바뀌고, 칸의 컷을 누르면 빠져.'
+    const MSG0 = '컷을 칸으로 끌어다 놓거나 눌러서 넣는다. 칸끼리 끌면 자리가 바뀌고, 칸의 컷을 누르면 빠진다.';
+    let msg = MSG0
       + (P.solution.some(Array.isArray) ? ' 넓은 칸은 같은 순간의 두 컷이 나란히 들어가는 동시 칸이야.' : '');
     let done = false;
 
@@ -41,8 +42,8 @@ function runPuzzle(id) {
         </div>
         <div class="pz-bar">
           <div class="pz-say">${sayBar(msg)}</div>
-          <button class="act-btn small" data-a="reset">모두 빼기</button>
-          <button class="act-btn small press" data-a="hint">토와 힌트</button>
+          ${done ? '' : `<button class="act-btn small" data-a="reset">모두 빼기</button>
+          <button class="act-btn small press" data-a="hint">토와 힌트</button>`}
           <button class="act-btn objection" data-a="check">${done ? '다음 ▶' : '이 순서로 확정'}</button>
         </div>`;
       const paper = root.querySelector('.pz-paper');
@@ -206,12 +207,14 @@ function runPuzzle(id) {
       if (a === 'check' && done) {
         root.classList.add('hidden'); root.onclick = null; root.onpointerdown = null; goal('');
         removeEventListener('pointermove', onMove); removeEventListener('pointerup', onUp); removeEventListener('pointercancel', onCancel);
+        G.lastSolution = P.solution.slice(0, D >= 0 ? D : P.solution.length).flat(); // 결론 몽타주용
         return resolve({ tries: st.tries, hints: st.hints });
       }
       if (done) return;
       if (a === 'reset') {
         st.slots.forEach((c, i) => { if (!st.locked.has(i)) { st.tray.push(...c); st.slots[i] = []; } });
         st.bad = null;
+        msg = MSG0;
         return render();
       }
       if (a === 'hint') {
@@ -314,25 +317,25 @@ function runPuzzle(id) {
     if (!G.flags.puzzleTut) {
       G.flags.puzzleTut = true;
       await sayAll([
-        ['towa', '컷 정리 시간. 잔상에는 시간이 안 적혀 있어. 그림 속 단서로 순서를 맞춰야 해.'],
-        ['towa', '오른쪽 묶음의 컷을 원고지 칸으로 끌어다 놔. 그냥 누르면 1번부터 차례로 들어가. 읽는 순서는 왼쪽 위 → 오른쪽 아래.'],
-        ['towa', '다 놓았으면 [이 순서로 확정]. 틀리면 어디가 이상한지 알려줄게.'],
+        ['tip', '컷 정리: 잔상에는 시간이 적혀 있지 않다. 그림 속 단서로 순서를 맞춘다.'],
+        ['tip', '오른쪽 묶음의 컷을 원고지 칸으로 끌어다 놓는다. 누르기만 하면 1번 칸부터 차례로 들어간다. 읽는 순서는 왼쪽 위 → 오른쪽 아래.'],
+        ['tip', '다 놓았으면 [이 순서로 확정]. 틀리면 몇 번 칸과 몇 번 칸 사이가 이상한지만 알려 준다. 왜 이상한지는 직접 찾아야 한다.'],
       ]);
       hideText();
     }
     if (D >= 0 && !G.flags.discardTut) {
       G.flags.discardTut = true;
       await sayAll([
-        ['towa', '이번 원고지엔 [[파기 칸]]이 있어. 누가 고쳐 그린 가짜 컷은 원고에 넣지 말고 거기 버려.'],
-        ['towa', '가짜는 이음매가 있어. 스크린톤이 어긋나거나, 그림자 방향이 다르거나. 크게 보고 확인해.'],
+        ['tip', '이번 원고지에는 [[파기 칸]]이 있다. 누가 고쳐 그린 가짜 컷은 원고에 넣지 말고 거기 버린다.'],
+        ['tip', '가짜에는 이음매가 있다. 스크린톤이 어긋나거나 그림자 방향이 다르다. 컷을 크게 보고 확인하자.'],
       ]);
       hideText();
     }
     if (P.solution.slice(0, D >= 0 ? D : n).some(Array.isArray) && !G.flags.simTut) {
       G.flags.simTut = true;
       await sayAll([
-        ['towa', '이번 원고지엔 넓은 칸이 있어. 동시 칸. 같은 순간을 서로 다른 자리에서 본 두 컷이 나란히 들어가.'],
-        ['towa', '두 컷의 시계·소리·불빛 같은 게 똑같아야 같은 순간이야. 둘의 좌우 순서는 상관없어.'],
+        ['tip', '넓은 칸은 동시 칸. 같은 순간을 서로 다른 자리에서 본 두 컷이 나란히 들어간다.'],
+        ['tip', '두 컷의 시계·소리·불빛이 같아야 같은 순간이다. 둘의 좌우 순서는 상관없다.'],
       ]);
       hideText();
     }

@@ -11,6 +11,9 @@ Object.assign(FACE_PROMPTS, {
   ren_sad: 'expression: sad, looking away, one white-gloved hand on her eyepatch',
   kurogane_sad: 'expression: sad and tired, no lollipop, holding an old stopped wristwatch',
   towa_serious: 'expression: serious chibi inside a monitor frame, headphone LEDs red instead of green',
+  towa_real: 'IMPORTANT: this one is NOT on a monitor. Towa in person for the first time: a small shy young woman (not chibi, normal proportions like the other characters) with the same long ash-blonde wavy hair and big green eyes, cat-ear headphones around her neck, wrapped in the same cream blanket like a cape, serious expression, no monitor frame',
+  koharu_crying: 'expression: crying, tears streaming, still trying to smile',
+  asagiri_sad: 'expression: quiet grief, eyes lowered, holding an old crayon drawing, the gentle smile gone',
 });
 
 Object.assign(BG_PROMPTS, {
@@ -26,7 +29,7 @@ Object.assign(CUT_CHARS, {
   koharu: 'a 20-year-old rookie detective girl with an orange-brown side ponytail and a sky-blue scrunchie',
   ren: 'a woman with long silver-white hair, an eyepatch and a long white coat',
   sota: 'a young police officer in uniform',
-  child_rei: 'a 16-year-old with messy short black hair and an ink stain on the right index finger',
+  child_rei: 'a 16-year-old with messy short black hair, an oversized hoodie and an ink stain on the right index finger',
 });
 
 Object.assign(CUT_PROMPTS, {
@@ -43,15 +46,15 @@ Object.assign(CUT_PROMPTS, {
   '5F': ['Inside an abandoned warehouse: an old table with two teacups; across the table, {koharu} holds out a scorched police badge with both hands, asking earnestly (accent color on the teacups).', '찻잔 둘(포인트 색), 배지를 내미는 코하루'],
   '6Y1': ['Six years ago at night: first-person view from a bicycle on a cape road, looking up at a lighthouse-shaped library with smoke pouring from a window. A wristwatch shows 8:20 (accent color).', '6년 전, 등대 도서관의 연기, 손목시계 8:20(포인트 색)'],
   '6Y2': ['First-person view kicking open a library door into smoke between tall bookshelves (accent color on the door). 8:25 on a wall clock.', '연기 속 서가, 문(포인트 색)'],
-  '6Y3': ['First-person view in smoke at the foot of library stairs: hands lift {child_rei} who is coughing; the ink stain on the child\'s right index finger is clearly visible (accent color).', '아이를 안아 올림, 오른손 검지 잉크 얼룩(포인트 색)'],
-  '6Y4': ['At a library entrance at night: first-person view receiving a child from {sota}\'s arms; on the viewer\'s wrist, a watch stopped at 8:31 (accent color).', '아이를 받아 안음, 8:31에 멈춘 손목시계(포인트 색)'],
+  '6Y3': ['First-person view in smoke at the foot of library stairs: hands lift {child_rei} who is coughing; the ink stain on the teenager\'s right index finger is clearly visible (accent color).', '아이를 안아 올림, 오른손 검지 잉크 얼룩(포인트 색)'],
+  '6Y4': ['At a library entrance at night: first-person view receiving an unconscious {child_rei} from {sota}\'s arms; on the viewer\'s wrist, a watch stopped at 8:31 (accent color).', '아이를 받아 안음, 8:31에 멈춘 손목시계(포인트 색)'],
   '6Y5': ['First-person view turning back into the smoke and fire of a library; from the floor above, a speech shape of a girl\'s voice (accent color).', '다시 연기 속으로, 위층의 목소리(포인트 색)'],
   '6Y6': ['Outside a burning lighthouse library on a lawn at night: first-person view with one hand covering one eye; flames swallow the upper floor windows (accent color on the flames).', '한쪽 눈을 가린 손, 위층을 삼키는 불길(포인트 색)'],
   t_tanabe_2: ['A girl crying on a bus stop bench; her face area is unnaturally smooth like a different drawing pasted in.', '편집: 매끈하게 붙인 우는 얼굴'],
   t_ren_1: ['{ren} pulls {koharu} by the wrist into a warehouse. The area around the wrist has noticeably thicker lines than the rest (a pasted seam).', '편집: 손목 둘레만 굵은 선'],
   t_ren_1b: ['{koharu} behind iron bars inside a warehouse; the bars stand upright but their shadows on the floor are skewed in a wrong direction.', '편집: 창살 그림자가 어긋남'],
-  t_ren_2: ['A child sick in bed with fever; a wall calendar where the date square has a different paper texture, as if a different date was pasted over it.', '편집: 달력 날짜 칸만 질감이 다름'],
-  t_ren_2b: ['A child running away alone between burning bookshelves, back view.', '편집: 불타는 서가 사이로 달아나는 아이'],
+  t_ren_2: ['A 16-year-old sick in bed with fever; a wall calendar where the date square has a different paper texture, as if a different date was pasted over it.', '편집: 달력 날짜 칸만 질감이 다름'],
+  t_ren_2b: ['A 16-year-old running away alone between burning bookshelves, back view.', '편집: 불타는 서가 사이로 달아나는 아이'],
   t_asagiri_1: ['Close view over a cafe counter: a woman\'s hand offers a cup of sweet coffee with steam; on the ring finger, a faint pale mark where a ring used to be (accent color).', '커피잔, 약지의 희미한 반지 자국(포인트 색)'],
 });
 
