@@ -10,7 +10,7 @@
     "skip_existing": "이미 저장소에 있는 file은 다시 만들지 않는다 (교체 요청이 있을 때만).",
     "validate": "node tools/check-assets.mjs 가 통과해야 한다."
   },
-  "total": 125,
+  "total": 169,
   "batches": [
     {
       "id": "portrait-rei",
@@ -545,6 +545,200 @@
       ]
     },
     {
+      "id": "portrait-yuki",
+      "title": "유키 상반신",
+      "note": "먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.",
+      "reference_sheet_prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.\n\nCharacter design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.\n\nNative resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.\n\nCharacter reference sheet of a gentle, artistic 19-year-old girl, the older of identical twins. Big soft teal eyes, glossy dark navy bob hair with a cream ribbon tied on the RIGHT side, a charcoal smudge on her LEFT hand (she is left-handed), cream blouse under a pastry shop apron with a small cake emblem, an art portfolio bag on her shoulder. Teal and cream accents.",
+      "items": [
+        {
+          "id": "yuki_normal",
+          "file": "web/assets/portraits/yuki_normal.png",
+          "kind": "portrait",
+          "width": 1024,
+          "height": 1536,
+          "transparent": true,
+          "must_show": null,
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.\n\nCharacter design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.\n\nNative resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors.\n\nSame character as the reference sheet above, waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character: no door, wall, frame, furniture, panel or shape. The head, hair and both arms stay inside the image with clear empty margin on the left, right and top; only the waist touches the bottom edge. expression: shy, holding a charcoal pencil in her left hand",
+          "followup_prompt": "방금 설정화 캐릭터 그대로, 같은 도트 스타일과 같은 팔레트로 그려줘. 모바일 가챠게임 캐릭터처럼 예쁘고 매력적으로.\n\nNative resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.\n\nWaist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: shy, holding a charcoal pencil in her left hand."
+        },
+        {
+          "id": "yuki_crying",
+          "file": "web/assets/portraits/yuki_crying.png",
+          "kind": "portrait",
+          "width": 1024,
+          "height": 1536,
+          "transparent": true,
+          "must_show": null,
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.\n\nCharacter design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.\n\nNative resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors.\n\nSame character as the reference sheet above, waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character: no door, wall, frame, furniture, panel or shape. The head, hair and both arms stay inside the image with clear empty margin on the left, right and top; only the waist touches the bottom edge. expression: crying quietly, clutching her portfolio bag",
+          "followup_prompt": "같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.\n\nExpression: crying quietly, clutching her portfolio bag."
+        },
+        {
+          "id": "yuki_smile",
+          "file": "web/assets/portraits/yuki_smile.png",
+          "kind": "portrait",
+          "width": 1024,
+          "height": 1536,
+          "transparent": true,
+          "must_show": null,
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.\n\nCharacter design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.\n\nNative resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors.\n\nSame character as the reference sheet above, waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character: no door, wall, frame, furniture, panel or shape. The head, hair and both arms stay inside the image with clear empty margin on the left, right and top; only the waist touches the bottom edge. expression: soft relieved smile",
+          "followup_prompt": "같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.\n\nExpression: soft relieved smile."
+        }
+      ]
+    },
+    {
+      "id": "portrait-nagi",
+      "title": "나기 상반신",
+      "note": "먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.",
+      "reference_sheet_prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.\n\nCharacter design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.\n\nNative resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.\n\nCharacter reference sheet of a lively but anxious 19-year-old girl, the younger of identical twins, with exactly the same face as her sister. Big teal eyes, glossy dark navy bob hair with a cream ribbon tied on the LEFT side, a white bandage around her right ankle, cream blouse under a pastry shop apron with a small cake emblem. Teal and cream accents.",
+      "items": [
+        {
+          "id": "nagi_normal",
+          "file": "web/assets/portraits/nagi_normal.png",
+          "kind": "portrait",
+          "width": 1024,
+          "height": 1536,
+          "transparent": true,
+          "must_show": null,
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.\n\nCharacter design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.\n\nNative resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors.\n\nSame character as the reference sheet above, waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character: no door, wall, frame, furniture, panel or shape. The head, hair and both arms stay inside the image with clear empty margin on the left, right and top; only the waist touches the bottom edge. expression: forced bright customer-service smile",
+          "followup_prompt": "방금 설정화 캐릭터 그대로, 같은 도트 스타일과 같은 팔레트로 그려줘. 모바일 가챠게임 캐릭터처럼 예쁘고 매력적으로.\n\nNative resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.\n\nWaist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: forced bright customer-service smile."
+        },
+        {
+          "id": "nagi_scared",
+          "file": "web/assets/portraits/nagi_scared.png",
+          "kind": "portrait",
+          "width": 1024,
+          "height": 1536,
+          "transparent": true,
+          "must_show": null,
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.\n\nCharacter design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.\n\nNative resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors.\n\nSame character as the reference sheet above, waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character: no door, wall, frame, furniture, panel or shape. The head, hair and both arms stay inside the image with clear empty margin on the left, right and top; only the waist touches the bottom edge. expression: frightened, eyes darting, hands gripping her apron",
+          "followup_prompt": "같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.\n\nExpression: frightened, eyes darting, hands gripping her apron."
+        },
+        {
+          "id": "nagi_crying",
+          "file": "web/assets/portraits/nagi_crying.png",
+          "kind": "portrait",
+          "width": 1024,
+          "height": 1536,
+          "transparent": true,
+          "must_show": null,
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.\n\nCharacter design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.\n\nNative resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors.\n\nSame character as the reference sheet above, waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character: no door, wall, frame, furniture, panel or shape. The head, hair and both arms stay inside the image with clear empty margin on the left, right and top; only the waist touches the bottom edge. expression: crying, ribbon slightly undone",
+          "followup_prompt": "같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.\n\nExpression: crying, ribbon slightly undone."
+        }
+      ]
+    },
+    {
+      "id": "portrait-madoka",
+      "title": "마도카 상반신",
+      "note": "먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.",
+      "reference_sheet_prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.\n\nCharacter design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.\n\nNative resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.\n\nCharacter reference sheet of a beautiful, mysterious 26-year-old tarot fortune teller woman. Long wavy violet-black hair, half-lidded amethyst eyes with long lashes, a dark violet dress under a large black shawl covered in small silver star sequins, many rings, a tarot card held between two fingers, a charming smile that hides something. Violet and silver accents.",
+      "items": [
+        {
+          "id": "madoka_smile",
+          "file": "web/assets/portraits/madoka_smile.png",
+          "kind": "portrait",
+          "width": 1024,
+          "height": 1536,
+          "transparent": true,
+          "must_show": null,
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.\n\nCharacter design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.\n\nNative resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors.\n\nSame character as the reference sheet above, waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character: no door, wall, frame, furniture, panel or shape. The head, hair and both arms stay inside the image with clear empty margin on the left, right and top; only the waist touches the bottom edge. expression: charming mysterious smile, a tarot card near her lips",
+          "followup_prompt": "방금 설정화 캐릭터 그대로, 같은 도트 스타일과 같은 팔레트로 그려줘. 모바일 가챠게임 캐릭터처럼 예쁘고 매력적으로.\n\nNative resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.\n\nWaist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: charming mysterious smile, a tarot card near her lips."
+        },
+        {
+          "id": "madoka_normal",
+          "file": "web/assets/portraits/madoka_normal.png",
+          "kind": "portrait",
+          "width": 1024,
+          "height": 1536,
+          "transparent": true,
+          "must_show": null,
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.\n\nCharacter design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.\n\nNative resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors.\n\nSame character as the reference sheet above, waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character: no door, wall, frame, furniture, panel or shape. The head, hair and both arms stay inside the image with clear empty margin on the left, right and top; only the waist touches the bottom edge. expression: calm and composed, shuffling cards",
+          "followup_prompt": "같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.\n\nExpression: calm and composed, shuffling cards."
+        },
+        {
+          "id": "madoka_cornered",
+          "file": "web/assets/portraits/madoka_cornered.png",
+          "kind": "portrait",
+          "width": 1024,
+          "height": 1536,
+          "transparent": true,
+          "must_show": null,
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.\n\nCharacter design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.\n\nNative resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors.\n\nSame character as the reference sheet above, waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character: no door, wall, frame, furniture, panel or shape. The head, hair and both arms stay inside the image with clear empty margin on the left, right and top; only the waist touches the bottom edge. expression: cornered, smile frozen, sweat on her temple, shawl slipping",
+          "followup_prompt": "같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.\n\nExpression: cornered, smile frozen, sweat on her temple, shawl slipping."
+        },
+        {
+          "id": "madoka_crying",
+          "file": "web/assets/portraits/madoka_crying.png",
+          "kind": "portrait",
+          "width": 1024,
+          "height": 1536,
+          "transparent": true,
+          "must_show": null,
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.\n\nCharacter design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.\n\nNative resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors.\n\nSame character as the reference sheet above, waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character: no door, wall, frame, furniture, panel or shape. The head, hair and both arms stay inside the image with clear empty margin on the left, right and top; only the waist touches the bottom edge. expression: crying, makeup running, holding the shawl tightly",
+          "followup_prompt": "같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.\n\nExpression: crying, makeup running, holding the shawl tightly."
+        }
+      ]
+    },
+    {
+      "id": "portrait-tofu",
+      "title": "두부집 할머니 상반신",
+      "note": "먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.",
+      "reference_sheet_prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.\n\nCharacter design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.\n\nNative resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.\n\nCharacter reference sheet of a lively, sharp-eyed 78-year-old grandmother who runs a tofu shop. Neat white hair in a small bun, round glasses, a navy work apron and a white headscarf, rubber boots, a wooden tofu paddle in hand, a proud grin. Navy and khaki accents.",
+      "items": [
+        {
+          "id": "tofu_normal",
+          "file": "web/assets/portraits/tofu_normal.png",
+          "kind": "portrait",
+          "width": 1024,
+          "height": 1536,
+          "transparent": true,
+          "must_show": null,
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.\n\nCharacter design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.\n\nNative resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors.\n\nSame character as the reference sheet above, waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character: no door, wall, frame, furniture, panel or shape. The head, hair and both arms stay inside the image with clear empty margin on the left, right and top; only the waist touches the bottom edge. expression: proud grin, tofu paddle on her shoulder",
+          "followup_prompt": "방금 설정화 캐릭터 그대로, 같은 도트 스타일과 같은 팔레트로 그려줘. 모바일 가챠게임 캐릭터처럼 예쁘고 매력적으로.\n\nNative resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.\n\nWaist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: proud grin, tofu paddle on her shoulder."
+        },
+        {
+          "id": "tofu_surprised",
+          "file": "web/assets/portraits/tofu_surprised.png",
+          "kind": "portrait",
+          "width": 1024,
+          "height": 1536,
+          "transparent": true,
+          "must_show": null,
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.\n\nCharacter design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.\n\nNative resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors.\n\nSame character as the reference sheet above, waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character: no door, wall, frame, furniture, panel or shape. The head, hair and both arms stay inside the image with clear empty margin on the left, right and top; only the waist touches the bottom edge. expression: surprised, glasses slipping down her nose",
+          "followup_prompt": "같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.\n\nExpression: surprised, glasses slipping down her nose."
+        }
+      ]
+    },
+    {
+      "id": "portrait-ren",
+      "title": "시오리 상반신",
+      "note": "먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.",
+      "reference_sheet_prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.\n\nCharacter design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.\n\nNative resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.\n\nCharacter reference sheet of a striking, cold 22-year-old woman. Long straight silver-white hair, one pale grey eye and a black eyepatch over the other, a long pure white coat with a high collar, white gloves, a calm unreadable smile. White and pale silver palette.",
+      "items": [
+        {
+          "id": "ren_smile",
+          "file": "web/assets/portraits/ren_smile.png",
+          "kind": "portrait",
+          "width": 1024,
+          "height": 1536,
+          "transparent": true,
+          "must_show": null,
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.\n\nCharacter design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.\n\nNative resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors.\n\nSame character as the reference sheet above, waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character: no door, wall, frame, furniture, panel or shape. The head, hair and both arms stay inside the image with clear empty margin on the left, right and top; only the waist touches the bottom edge. expression: calm unreadable smile, one gloved hand raised",
+          "followup_prompt": "방금 설정화 캐릭터 그대로, 같은 도트 스타일과 같은 팔레트로 그려줘. 모바일 가챠게임 캐릭터처럼 예쁘고 매력적으로.\n\nNative resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.\n\nWaist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: calm unreadable smile, one gloved hand raised."
+        },
+        {
+          "id": "ren_normal",
+          "file": "web/assets/portraits/ren_normal.png",
+          "kind": "portrait",
+          "width": 1024,
+          "height": 1536,
+          "transparent": true,
+          "must_show": null,
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.\n\nCharacter design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.\n\nNative resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors.\n\nSame character as the reference sheet above, waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character: no door, wall, frame, furniture, panel or shape. The head, hair and both arms stay inside the image with clear empty margin on the left, right and top; only the waist touches the bottom edge. expression: cold, looking down at the viewer",
+          "followup_prompt": "같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.\n\nExpression: cold, looking down at the viewer."
+        }
+      ]
+    },
+    {
       "id": "bg",
       "title": "배경",
       "note": "배경끼리 그림체를 맞추려고 한 대화에서 이어 만든다.",
@@ -691,6 +885,72 @@
           "must_show": null,
           "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.\n\nNative resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. Full color, limited palette of about 32 colors.\n\nLuxurious talent agency president office in the afternoon, a big wooden desk, a leather chair, framed band posters, a safe, a waste basket beside the desk, blinds with warm sunlight. No people. Horizontal 1536x1024 PNG.",
           "followup_prompt": "같은 도트 스타일, 같은 픽셀 크기와 팔레트로 다음 배경을 그려줘. 사람 없이, 가로 1536x1024.\n\nLuxurious talent agency president office in the afternoon, a big wooden desk, a leather chair, framed band posters, a safe, a waste basket beside the desk, blinds with warm sunlight. Keep the lower third simple because characters will stand in front."
+        },
+        {
+          "id": "tokiwa_shop",
+          "file": "web/assets/bg/tokiwa_shop.png",
+          "kind": "bg",
+          "width": 1536,
+          "height": 1024,
+          "transparent": false,
+          "must_show": null,
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.\n\nNative resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. Full color, limited palette of about 32 colors.\n\nAn old retro Japanese Western-style pastry shop at night after closing: empty cake showcase, a small register counter, a round wall clock, warm dim lights, a steep wooden staircase at the back going up to a storage room, police tape at the door. No people. Horizontal 1536x1024 PNG.",
+          "followup_prompt": "같은 도트 스타일, 같은 픽셀 크기와 팔레트로 다음 배경을 그려줘. 사람 없이, 가로 1536x1024.\n\nAn old retro Japanese Western-style pastry shop at night after closing: empty cake showcase, a small register counter, a round wall clock, warm dim lights, a steep wooden staircase at the back going up to a storage room, police tape at the door. Keep the lower third simple because characters will stand in front."
+        },
+        {
+          "id": "storage",
+          "file": "web/assets/bg/storage.png",
+          "kind": "bg",
+          "width": 1536,
+          "height": 1024,
+          "transparent": false,
+          "must_show": null,
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.\n\nNative resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. Full color, limited palette of about 32 colors.\n\nA cramped second-floor storage room of a pastry shop: stacked cake boxes, a small old safe with its door open, a steep staircase going down, a single bare bulb. No people. Horizontal 1536x1024 PNG.",
+          "followup_prompt": "같은 도트 스타일, 같은 픽셀 크기와 팔레트로 다음 배경을 그려줘. 사람 없이, 가로 1536x1024.\n\nA cramped second-floor storage room of a pastry shop: stacked cake boxes, a small old safe with its door open, a steep staircase going down, a single bare bulb. Keep the lower third simple because characters will stand in front."
+        },
+        {
+          "id": "arcade",
+          "file": "web/assets/bg/arcade.png",
+          "kind": "bg",
+          "width": 1536,
+          "height": 1024,
+          "transparent": false,
+          "must_show": null,
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.\n\nNative resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. Full color, limited palette of about 32 colors.\n\nA covered old shopping arcade (shotengai) at night, most shutters down, a tofu shop with a wall clock, a tiny tarot booth with a curtain and star decorations, paper lanterns, a narrow back alley between shops. No people. Horizontal 1536x1024 PNG.",
+          "followup_prompt": "같은 도트 스타일, 같은 픽셀 크기와 팔레트로 다음 배경을 그려줘. 사람 없이, 가로 1536x1024.\n\nA covered old shopping arcade (shotengai) at night, most shutters down, a tofu shop with a wall clock, a tiny tarot booth with a curtain and star decorations, paper lanterns, a narrow back alley between shops. Keep the lower third simple because characters will stand in front."
+        },
+        {
+          "id": "booth3",
+          "file": "web/assets/bg/booth3.png",
+          "kind": "bg",
+          "width": 1536,
+          "height": 1024,
+          "transparent": false,
+          "must_show": null,
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.\n\nNative resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. Full color, limited palette of about 32 colors.\n\nInside a tiny tarot fortune telling booth: a round table with a purple cloth and tarot cards, a crystal ball, star-shaped fairy lights, heavy curtains. No people. Horizontal 1536x1024 PNG.",
+          "followup_prompt": "같은 도트 스타일, 같은 픽셀 크기와 팔레트로 다음 배경을 그려줘. 사람 없이, 가로 1536x1024.\n\nInside a tiny tarot fortune telling booth: a round table with a purple cloth and tarot cards, a crystal ball, star-shaped fairy lights, heavy curtains. Keep the lower third simple because characters will stand in front."
+        },
+        {
+          "id": "academy",
+          "file": "web/assets/bg/academy.png",
+          "kind": "bg",
+          "width": 1536,
+          "height": 1024,
+          "transparent": false,
+          "must_show": null,
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.\n\nNative resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. Full color, limited palette of about 32 colors.\n\nAn art prep school studio in the morning: rows of easels, plaster busts, charcoal drawings pinned on the walls, big windows with soft light. No people. Horizontal 1536x1024 PNG.",
+          "followup_prompt": "같은 도트 스타일, 같은 픽셀 크기와 팔레트로 다음 배경을 그려줘. 사람 없이, 가로 1536x1024.\n\nAn art prep school studio in the morning: rows of easels, plaster busts, charcoal drawings pinned on the walls, big windows with soft light. Keep the lower third simple because characters will stand in front."
+        },
+        {
+          "id": "arcade_exit",
+          "file": "web/assets/bg/arcade_exit.png",
+          "kind": "bg",
+          "width": 1536,
+          "height": 1024,
+          "transparent": false,
+          "must_show": null,
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.\n\nNative resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. Full color, limited palette of about 32 colors.\n\nThe exit of a covered shopping arcade at night opening onto a quiet street, a single streetlamp, the arcade roof ending against a dark sky. No people. Horizontal 1536x1024 PNG.",
+          "followup_prompt": "같은 도트 스타일, 같은 픽셀 크기와 팔레트로 다음 배경을 그려줘. 사람 없이, 가로 1536x1024.\n\nThe exit of a covered shopping arcade at night opening onto a quiet street, a single streetlamp, the arcade roof ending against a dark sky. Keep the lower third simple because characters will stand in front."
         }
       ]
     },
@@ -1029,6 +1289,28 @@
           "transparent": false,
           "must_show": null,
           "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.\n\nTop-down 3/4 view pixel art game map, like a high-quality modern Japanese RPG made in RPG Maker but with richer detail. Native resolution exactly 416x208 pixels on a 16-pixel tile grid (26 tiles wide, 13 tiles tall), upscaled exactly 3x with nearest-neighbor to 1248x624. A luxurious talent agency president office in the afternoon, warm sunlight through blinds. No characters, no text.\n\nLayout by tile rows, top to bottom:\n- Row 1: the top wall with framed band posters at columns 5-6 and windows with blinds.\n- Rows 2-10: carpeted office floor. A big wooden desk at columns 10-13, row 3, with a drawer side facing down (column 11, row 4). A waste basket at column 15, row 3. A safe with document folders on top at columns 21-22, row 2. A leather sofa set at columns 3-5, row 5, with a low table.\n- Row 11: the bottom wall with the door at column 12.\nFull color, limited palette of about 48 colors, clean dark outlines, soft dithered shadows, no anti-aliasing.",
+          "followup_prompt": null
+        },
+        {
+          "id": "tokiwa",
+          "file": "web/assets/maps/tokiwa.png",
+          "kind": "map",
+          "width": 1248,
+          "height": 624,
+          "transparent": false,
+          "must_show": null,
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.\n\nTop-down 3/4 view pixel art game map, like a high-quality modern Japanese RPG made in RPG Maker but with richer detail. Native resolution exactly 416x208 pixels on a 16-pixel tile grid (26 tiles wide, 13 tiles tall), upscaled exactly 3x with nearest-neighbor to 1248x624. An old Japanese Western-style pastry shop at night, warm dim lamps. No characters, no text.\n\nLayout by tile rows, top to bottom:\n- Columns 1-12, rows 1-9: the shop floor (warm wooden floor). Row 1 is the back wall with a weekly shift chart at column 3 and a staff memo board at column 6. A cake showcase at columns 2-5 of row 3. A register counter at columns 8-9 of row 3 and a shop telephone at column 10. A small office desk at columns 3-4 of row 8. Column 12, row 5 is the foot of a steep staircase.\n- Column 13: a wall, with the staircase opening at row 5.\n- Columns 14-24, rows 2-6: the second-floor storage room (concrete floor): stacked cake boxes at columns 17-19 of row 2, an old safe with its door open at column 23 of row 2, a back door at column 24 of row 6.\n- Row 10: the shop front wall with the entrance at column 6. Row 11, columns 1-12: the arcade street outside with a half-closed shutter.\n- Columns 14-24, rows 7-11: dark roof, not accessible.\nFull color, limited palette of about 48 colors, clean dark outlines, soft dithered shadows, no anti-aliasing.",
+          "followup_prompt": null
+        },
+        {
+          "id": "arcade",
+          "file": "web/assets/maps/arcade.png",
+          "kind": "map",
+          "width": 1248,
+          "height": 624,
+          "transparent": false,
+          "must_show": null,
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.\n\nTop-down 3/4 view pixel art game map, like a high-quality modern Japanese RPG made in RPG Maker but with richer detail. Native resolution exactly 416x208 pixels on a 16-pixel tile grid (26 tiles wide, 13 tiles tall), upscaled exactly 3x with nearest-neighbor to 1248x624. A covered old shopping arcade at night, paper lanterns, most shutters down. No characters, no text.\n\nLayout by tile rows, top to bottom:\n- Row 1: shop fronts. A tofu shop at columns 19-20 with a wall clock at column 21.\n- Rows 2-4: the arcade street (tiled floor). A tiny tarot booth with a curtain and star lights at columns 4-6 of row 2, its small table at column 7, a trash can at column 3 of row 4.\n- Row 5: shop walls with a narrow back alley opening at columns 13-15.\n- Columns 13-15, rows 6-10: the narrow back alley with a drain at column 14, row 10. Row 11, columns 13-15: the back door of a pastry shop.\n- Everything else in rows 6-11 is dark rooftops, not accessible.\nFull color, limited palette of about 48 colors, clean dark outlines, soft dithered shadows, no anti-aliasing.",
           "followup_prompt": null
         }
       ]
@@ -1639,6 +1921,276 @@
           "must_show": "생략: 리그 옆 난간 자리 하얀 여백",
           "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.\n\nPalette: 8 grey levels from black to white, and one accent color magenta (#b0306a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.\n\nScene: Seen from the top of a steel staircase: the lighting rig in front; the railing right beside the rig is blank white, as if erased.\n\nAny person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.",
           "followup_prompt": "같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + magenta (#b0306a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.\n\nScene: Seen from the top of a steel staircase: the lighting rig in front; the railing right beside the rig is blank white, as if erased."
+        }
+      ]
+    },
+    {
+      "id": "cut-twin",
+      "title": "컷 · 스즈네 시점",
+      "note": "같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.",
+      "items": [
+        {
+          "id": "3A",
+          "file": "web/assets/cuts/3A.png",
+          "kind": "cut",
+          "width": 1536,
+          "height": 1024,
+          "transparent": false,
+          "must_show": "오른쪽 리본, 벽시계 8:50, 발목의 큰 반창고(포인트 색)",
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.\n\nPalette: 8 grey levels from black to white, and one accent color teal (#38a3a5). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.\n\nScene: A pastry shop at night: a 19-year-old girl with a dark bob and a ribbon, wearing a pastry shop apron with the ribbon on her RIGHT side pulls down the shop shutter. A round wall clock clearly shows 8:50. At the bottom of the panel, her ankle with a big white bandage (accent color), clearly visible.\n\nAny person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.",
+          "followup_prompt": null
+        },
+        {
+          "id": "3B",
+          "file": "web/assets/cuts/3B.png",
+          "kind": "cut",
+          "width": 1536,
+          "height": 1024,
+          "transparent": false,
+          "must_show": "오른손으로 쥔 펜, 계산대 화면 21:00, 매상 봉투(포인트 색)",
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.\n\nPalette: 8 grey levels from black to white, and one accent color teal (#38a3a5). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.\n\nScene: At the register counter at night: close view of a hand counting bills and writing in a ledger with a pen held in the RIGHT hand. The register display clearly shows 21:00. A thick cash envelope (accent color) on the counter.\n\nAny person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.",
+          "followup_prompt": "같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + teal (#38a3a5) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.\n\nScene: At the register counter at night: close view of a hand counting bills and writing in a ledger with a pen held in the RIGHT hand. The register display clearly shows 21:00. A thick cash envelope (accent color) on the counter."
+        },
+        {
+          "id": "3G",
+          "file": "web/assets/cuts/3G.png",
+          "kind": "cut",
+          "width": 1536,
+          "height": 1024,
+          "transparent": false,
+          "must_show": "쓰러진 다리, 벽시계 9:15, 발목 반창고(포인트 색)",
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.\n\nPalette: 8 grey levels from black to white, and one accent color teal (#38a3a5). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.\n\nScene: At night at the foot of a steep wooden staircase in a pastry shop: a man's legs lying on the floor; a 19-year-old girl with a dark bob and a ribbon, wearing a pastry shop apron stands frozen, hands over her mouth. A wall clock clearly shows 9:15. Her ankle with a white bandage (accent color) is visible.\n\nAny person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.",
+          "followup_prompt": "같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + teal (#38a3a5) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.\n\nScene: At night at the foot of a steep wooden staircase in a pastry shop: a man's legs lying on the floor; a 19-year-old girl with a dark bob and a ribbon, wearing a pastry shop apron stands frozen, hands over her mouth. A wall clock clearly shows 9:15. Her ankle with a white bandage (accent color) is visible."
+        },
+        {
+          "id": "3H",
+          "file": "web/assets/cuts/3H.png",
+          "kind": "cut",
+          "width": 1536,
+          "height": 1024,
+          "transparent": false,
+          "must_show": "휴대폰 화면 119 통화와 21:25, 반창고 발목(포인트 색)",
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.\n\nPalette: 8 grey levels from black to white, and one accent color teal (#38a3a5). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.\n\nScene: Close-up of a trembling hand holding a smartphone; the screen shows a call to 119 and the time 21:25 large at the top. Behind the hand, a bandaged ankle (accent color).\n\nAny person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.",
+          "followup_prompt": "같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + teal (#38a3a5) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.\n\nScene: Close-up of a trembling hand holding a smartphone; the screen shows a call to 119 and the time 21:25 large at the top. Behind the hand, a bandaged ankle (accent color)."
+        },
+        {
+          "id": "3K",
+          "file": "web/assets/cuts/3K.png",
+          "kind": "cut",
+          "width": 1536,
+          "height": 1024,
+          "transparent": false,
+          "must_show": "낮, 근무표(포인트 색), 오른손, 벽시계 3:00",
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.\n\nPalette: 8 grey levels from black to white, and one accent color teal (#38a3a5). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.\n\nScene: Daytime in a pastry shop: a RIGHT hand pins a weekly shift chart on the wall (accent color on the chart). Sunlight through the window. A wall clock shows 3:00.\n\nAny person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.",
+          "followup_prompt": "같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + teal (#38a3a5) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.\n\nScene: Daytime in a pastry shop: a RIGHT hand pins a weekly shift chart on the wall (accent color on the chart). Sunlight through the window. A wall clock shows 3:00."
+        },
+        {
+          "id": "3E",
+          "file": "web/assets/cuts/3E.png",
+          "kind": "cut",
+          "width": 1536,
+          "height": 1024,
+          "transparent": false,
+          "must_show": "왼손 목탄(포인트 색), 벽시계 9:00, 반창고 없는 발목",
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.\n\nPalette: 8 grey levels from black to white, and one accent color teal (#38a3a5). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.\n\nScene: At night in an art prep school studio: a girl at an easel draws a plaster bust with charcoal held in her LEFT hand (accent color on the charcoal). A wall clock clearly shows 9:00. Her ankles are bare, no bandage.\n\nAny person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.",
+          "followup_prompt": "같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + teal (#38a3a5) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.\n\nScene: At night in an art prep school studio: a girl at an easel draws a plaster bust with charcoal held in her LEFT hand (accent color on the charcoal). A wall clock clearly shows 9:00. Her ankles are bare, no bandage."
+        },
+        {
+          "id": "3F",
+          "file": "web/assets/cuts/3F.png",
+          "kind": "cut",
+          "width": 1536,
+          "height": 1024,
+          "transparent": false,
+          "must_show": "역 시계 9:25, 왼손의 휴대폰(포인트 색)",
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.\n\nPalette: 8 grey levels from black to white, and one accent color teal (#38a3a5). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.\n\nScene: A night train platform: a girl with an art portfolio bag looks at a smartphone held in her LEFT hand; the screen shows a message (accent color). A big station clock shows 9:25.\n\nAny person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.",
+          "followup_prompt": "같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + teal (#38a3a5) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.\n\nScene: A night train platform: a girl with an art portfolio bag looks at a smartphone held in her LEFT hand; the screen shows a message (accent color). A big station clock shows 9:25."
+        },
+        {
+          "id": "t_yukin_1",
+          "file": "web/assets/cuts/t_yukin_1.png",
+          "kind": "cut",
+          "width": 1536,
+          "height": 1024,
+          "transparent": false,
+          "must_show": "오른쪽 리본, 화면 아래 반창고 발목(포인트 색), 벽시계",
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.\n\nPalette: 8 grey levels from black to white, and one accent color teal (#38a3a5). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.\n\nScene: A pastry shop at night: a 19-year-old girl with a dark bob and a ribbon, wearing a pastry shop apron with the ribbon on her RIGHT side stands in front of the half-closed shutter. At the very bottom of the panel, her ankle with a white bandage is visible (accent color), as if she did not notice it was in the picture. A wall clock in the corner.\n\nAny person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.",
+          "followup_prompt": "같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + teal (#38a3a5) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.\n\nScene: A pastry shop at night: a 19-year-old girl with a dark bob and a ribbon, wearing a pastry shop apron with the ribbon on her RIGHT side stands in front of the half-closed shutter. At the very bottom of the panel, her ankle with a white bandage is visible (accent color), as if she did not notice it was in the picture. A wall clock in the corner."
+        },
+        {
+          "id": "t_yukin_2",
+          "file": "web/assets/cuts/t_yukin_2.png",
+          "kind": "cut",
+          "width": 1536,
+          "height": 1024,
+          "transparent": false,
+          "must_show": "미화: 반짝이는 금고와 봉투",
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.\n\nPalette: 8 grey levels from black to white, and one accent color teal (#38a3a5). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.\n\nScene: A flattering, sparkling memory: a hand neatly placing a cash envelope into a shining safe, with sparkles and flowers around it (accent color on the envelope).\n\nAny person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.",
+          "followup_prompt": "같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + teal (#38a3a5) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.\n\nScene: A flattering, sparkling memory: a hand neatly placing a cash envelope into a shining safe, with sparkles and flowers around it (accent color on the envelope)."
+        },
+        {
+          "id": "t_yukin_3",
+          "file": "web/assets/cuts/t_yukin_3.png",
+          "kind": "cut",
+          "width": 1536,
+          "height": 1024,
+          "transparent": false,
+          "must_show": "생략: 왼쪽 절반이 하얀 여백",
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.\n\nPalette: 8 grey levels from black to white, and one accent color teal (#38a3a5). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.\n\nScene: Back view of a girl leaving a pastry shop at night; the left half of the panel is left completely blank white, as if erased.\n\nAny person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.",
+          "followup_prompt": "같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + teal (#38a3a5) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.\n\nScene: Back view of a girl leaving a pastry shop at night; the left half of the panel is left completely blank white, as if erased."
+        },
+        {
+          "id": "t_nagi_1",
+          "file": "web/assets/cuts/t_nagi_1.png",
+          "kind": "cut",
+          "width": 1536,
+          "height": 1024,
+          "transparent": false,
+          "must_show": "생략: 벽시계 자리 하얀 여백, 휴대폰(포인트 색)",
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.\n\nPalette: 8 grey levels from black to white, and one accent color teal (#38a3a5). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.\n\nScene: A girl in an apron holds a smartphone to her ear; where the wall clock should be, there is a blank white hole as if erased (accent color on the phone).\n\nAny person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.",
+          "followup_prompt": "같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + teal (#38a3a5) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.\n\nScene: A girl in an apron holds a smartphone to her ear; where the wall clock should be, there is a blank white hole as if erased (accent color on the phone)."
+        },
+        {
+          "id": "t_nagi_2",
+          "file": "web/assets/cuts/t_nagi_2.png",
+          "kind": "cut",
+          "width": 1536,
+          "height": 1024,
+          "transparent": false,
+          "must_show": "아무도 없는 계단",
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.\n\nPalette: 8 grey levels from black to white, and one accent color teal (#38a3a5). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.\n\nScene: An empty steep wooden staircase in a pastry shop at night, the second floor light on, nobody in sight.\n\nAny person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.",
+          "followup_prompt": "같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + teal (#38a3a5) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.\n\nScene: An empty steep wooden staircase in a pastry shop at night, the second floor light on, nobody in sight."
+        }
+      ]
+    },
+    {
+      "id": "cut-hasegawa",
+      "title": "컷 · 하세가와 시점",
+      "note": "같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.",
+      "items": [
+        {
+          "id": "3C",
+          "file": "web/assets/cuts/3C.png",
+          "kind": "cut",
+          "width": 1536,
+          "height": 1024,
+          "transparent": false,
+          "must_show": "계단 위 별무늬 숄, 봉투(포인트 색), 손목시계 9:10",
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.\n\nPalette: 8 grey levels from black to white, and one accent color burnt orange (#c4703a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.\n\nScene: First-person view from the bottom of a steep staircase looking up at night: at the top, a woman wrapped in a black shawl covered with star sequins snatches a thick cash envelope (accent color) and turns away; the star sequins on the shawl glitter. In the lower corner, the viewer's own wrist with a watch clearly showing 9:10.\n\nAny person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.",
+          "followup_prompt": null
+        },
+        {
+          "id": "3D",
+          "file": "web/assets/cuts/3D.png",
+          "kind": "cut",
+          "width": 1536,
+          "height": 1024,
+          "transparent": false,
+          "must_show": "흐릿한 시야, 휴대폰을 쥔 점원, 벽시계 9:20, 반창고(포인트 색)",
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.\n\nPalette: 8 grey levels from black to white, and one accent color burnt orange (#c4703a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.\n\nScene: Blurry first-person view from the floor at the foot of a staircase: a 19-year-old girl with a dark bob and a ribbon, wearing a pastry shop apron stands frozen holding a smartphone, trembling. A wall clock shows 9:20. Her bandaged ankle (accent color) is near the viewer.\n\nAny person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.",
+          "followup_prompt": "같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + burnt orange (#c4703a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.\n\nScene: Blurry first-person view from the floor at the foot of a staircase: a 19-year-old girl with a dark bob and a ribbon, wearing a pastry shop apron stands frozen holding a smartphone, trembling. A wall clock shows 9:20. Her bandaged ankle (accent color) is near the viewer."
+        }
+      ]
+    },
+    {
+      "id": "cut-tofu",
+      "title": "컷 · 두부집 할머니 시점",
+      "note": "같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.",
+      "items": [
+        {
+          "id": "3J",
+          "file": "web/assets/cuts/3J.png",
+          "kind": "cut",
+          "width": 1536,
+          "height": 1024,
+          "transparent": false,
+          "must_show": "뒷골목에서 뛰어나오는 별무늬 숄(포인트 색), 두부집 시계 9:22",
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.\n\nPalette: 8 grey levels from black to white, and one accent color khaki green (#8f9a4a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.\n\nScene: View over a tofu shop counter into a night shopping arcade: a woman wrapped in a black shawl covered with star sequins runs out of a narrow back alley, the star sequins on the shawl glittering (accent color). On the tofu shop wall, a clock clearly shows 9:22.\n\nAny person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.",
+          "followup_prompt": null
+        },
+        {
+          "id": "t_tofu_1",
+          "file": "web/assets/cuts/t_tofu_1.png",
+          "kind": "cut",
+          "width": 1536,
+          "height": 1024,
+          "transparent": false,
+          "must_show": "두부집 벽시계 9:00, 건너편 셔터",
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.\n\nPalette: 8 grey levels from black to white, and one accent color khaki green (#8f9a4a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.\n\nScene: Inside a tofu shop at night: the wall clock clearly shows 9:00; across the arcade, a shutter coming down with a rattling sound effect drawn as lines.\n\nAny person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.",
+          "followup_prompt": "같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + khaki green (#8f9a4a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.\n\nScene: Inside a tofu shop at night: the wall clock clearly shows 9:00; across the arcade, a shutter coming down with a rattling sound effect drawn as lines."
+        },
+        {
+          "id": "t_tofu_2",
+          "file": "web/assets/cuts/t_tofu_2.png",
+          "kind": "cut",
+          "width": 1536,
+          "height": 1024,
+          "transparent": false,
+          "must_show": "골목으로 사라지는 반짝이는 숄 자락, 시계 9:20",
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.\n\nPalette: 8 grey levels from black to white, and one accent color khaki green (#8f9a4a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.\n\nScene: A night shopping arcade seen from a tofu shop: a glittering shawl edge disappears into a narrow alley (accent color on the sparkle). The tofu shop clock shows 9:20.\n\nAny person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.",
+          "followup_prompt": "같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + khaki green (#8f9a4a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.\n\nScene: A night shopping arcade seen from a tofu shop: a glittering shawl edge disappears into a narrow alley (accent color on the sparkle). The tofu shop clock shows 9:20."
+        },
+        {
+          "id": "t_tofu_3",
+          "file": "web/assets/cuts/t_tofu_3.png",
+          "kind": "cut",
+          "width": 1536,
+          "height": 1024,
+          "transparent": false,
+          "must_show": "오른쪽 리본 점원이 손을 흔듦",
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.\n\nPalette: 8 grey levels from black to white, and one accent color khaki green (#8f9a4a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.\n\nScene: A girl with the ribbon on her RIGHT side waves cheerfully from a pastry shop doorway in the evening.\n\nAny person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.",
+          "followup_prompt": "같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + khaki green (#8f9a4a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.\n\nScene: A girl with the ribbon on her RIGHT side waves cheerfully from a pastry shop doorway in the evening."
+        }
+      ]
+    },
+    {
+      "id": "cut-madoka",
+      "title": "컷 · 마도카 시점",
+      "note": "같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.",
+      "items": [
+        {
+          "id": "F1",
+          "file": "web/assets/cuts/F1.png",
+          "kind": "cut",
+          "width": 1536,
+          "height": 1024,
+          "transparent": false,
+          "must_show": "타로 테두리, 상자를 든 오른쪽 리본 점원, 계단참 시계 9:05",
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.\n\nPalette: 8 grey levels from black to white, and one accent color violet (#7d4fd1). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.\n\nScene: Drawn like a tarot-card vision with a thin ornate border: a 19-year-old girl with a dark bob and a ribbon, wearing a pastry shop apron with the ribbon on her RIGHT side carries cake boxes up a steep staircase. A small clock on the landing shows 9:05. Accent color on the ribbon.\n\nAny person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.",
+          "followup_prompt": null
+        },
+        {
+          "id": "F2",
+          "file": "web/assets/cuts/F2.png",
+          "kind": "cut",
+          "width": 1536,
+          "height": 1024,
+          "transparent": false,
+          "must_show": "타로 테두리, 봉투를 쥔 손(포인트 색), 손 둘레만 스크린톤 점이 다르고 이음매가 보임",
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.\n\nPalette: 8 grey levels from black to white, and one accent color violet (#7d4fd1). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.\n\nScene: Drawn like a tarot-card vision with a thin ornate border: a 19-year-old girl with a dark bob and a ribbon, wearing a pastry shop apron with the ribbon on her RIGHT side grabs a cash envelope (accent color) in a storage room. IMPORTANT: the area around her hand and the envelope is a visibly pasted-on patch: its screentone dots are clearly denser and a different size than the rest of the panel, with a faint rectangular seam line around it.\n\nAny person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.",
+          "followup_prompt": "같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + violet (#7d4fd1) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.\n\nScene: Drawn like a tarot-card vision with a thin ornate border: a 19-year-old girl with a dark bob and a ribbon, wearing a pastry shop apron with the ribbon on her RIGHT side grabs a cash envelope (accent color) in a storage room. IMPORTANT: the area around her hand and the envelope is a visibly pasted-on patch: its screentone dots are clearly denser and a different size than the rest of the panel, with a faint rectangular seam line around it."
+        },
+        {
+          "id": "F3",
+          "file": "web/assets/cuts/F3.png",
+          "kind": "cut",
+          "width": 1536,
+          "height": 1024,
+          "transparent": false,
+          "must_show": "타로 테두리, 미는 손(포인트 색), 손 그림자만 반대 방향",
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.\n\nPalette: 8 grey levels from black to white, and one accent color violet (#7d4fd1). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.\n\nScene: Drawn like a tarot-card vision with a thin ornate border: a hand pushes a man's back at the top of a staircase. The only light comes from the bottom of the stairs, so every shadow falls upward, EXCEPT the pushing hand's shadow which clearly falls downward (wrong direction). Accent color on the hand.\n\nAny person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.",
+          "followup_prompt": "같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + violet (#7d4fd1) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.\n\nScene: Drawn like a tarot-card vision with a thin ornate border: a hand pushes a man's back at the top of a staircase. The only light comes from the bottom of the stairs, so every shadow falls upward, EXCEPT the pushing hand's shadow which clearly falls downward (wrong direction). Accent color on the hand."
+        },
+        {
+          "id": "t_madoka_3",
+          "file": "web/assets/cuts/t_madoka_3.png",
+          "kind": "cut",
+          "width": 1536,
+          "height": 1024,
+          "transparent": false,
+          "must_show": "부스의 타로 카드와 손님의 손",
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.\n\nPalette: 8 grey levels from black to white, and one accent color violet (#7d4fd1). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.\n\nScene: Inside a tarot booth: tarot cards on a purple cloth, a customer's hands across the table, star fairy lights (accent color on the cards).\n\nAny person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.",
+          "followup_prompt": "같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + violet (#7d4fd1) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.\n\nScene: Inside a tarot booth: tarot cards on a purple cloth, a customer's hands across the table, star fairy lights (accent color on the cards)."
         }
       ]
     }

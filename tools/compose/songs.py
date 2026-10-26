@@ -327,5 +327,25 @@ def tendo():
     return tr
 
 
+# ---------- 3장 ----------
+
+def madoka():
+    """점술가 마도카: 반짝이지만 어딘가 어긋난 왈츠풍(셋잇단) 몽환곡"""
+    tr = Track(88, 16)
+    prog = ['Em', 'Cmaj7', 'Am6', 'B7', 'Em', 'Fmaj7', 'Am6', 'B7sus4 B7',
+            'Cmaj7', 'Bm7b5', 'Em', 'Em/D', 'Cmaj7', 'Fmaj7', 'B7sus4', 'B7']
+    tr.bus('harp', -0.3, 0.4, 0.5); tr.bus('bell', 0.35, 0.38, 0.6); tr.bus('pad', 0, 0.22, 0.6)
+    tr.bus('bass', 0, 0.55, 0.2); tr.bus('dr', 0.15, 0.32, 0.3); tr.bus('fl', -0.1, 0.42, 0.5)
+    arp(tr, 'harp', harp, prog, [0, 1, 2, 4, 2, 1], step=1 / 3, octave=4, vel=0.4)
+    block(tr, 'pad', pad, prog, [(0, 3.95)], octave=3, vel=0.45, top=3)
+    basses(tr, 'bass', bass, prog, [(0, 1.8, 0), (2, 1.8, 7)], vel=0.6)
+    drums(tr, 'dr', {'shaker': [(x / 3, 0.2 + 0.15 * (x % 3 == 0)) for x in range(12)], 'rim': [(1, 0.3), (3, 0.3)]}, 16)
+    melody(tr, 'bell', glock, 0, ['b:1.5 c^:.5 b a', 'g:2 e:2', 'a:1.5 b:.5 c^ e^', 'd#^:4',
+                                   'e^:1.5 f^:.5 e^ d^', 'c^:2 a:2', 'f#:1 a:1 c^ b', 'b:3 -'], octave=5, vel=0.45)
+    melody(tr, 'fl', flute, 8, ['g^:2 e^ c^', 'f^:2 d^ b', 'e^:1.5 g^:.5 b^:2', 'a^ g^ f#^ e^',
+                                 'g^:2 e^ c^', 'a^:2 f^ c^', 'd#^:2 f#^:2', 'e^:3 -'], octave=5, vel=0.5)
+    return tr
+
+
 SONGS = {'title': title, 'office': office, 'explore': explore, 'trial': trial, 'tension': tension, 'truth': truth,
-         'epilogue': epilogue, 'live': live, 'encore': encore, 'tendo': tendo}
+         'epilogue': epilogue, 'live': live, 'encore': encore, 'tendo': tendo, 'madoka': madoka}

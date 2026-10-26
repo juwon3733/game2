@@ -61,7 +61,7 @@ async function playFrom(scene, saved) {
     try { localStorage.setItem(`gaha-ch${ch}-clear`, '1'); } catch { /* 저장 불가 */ }
     // 다음 장이 있으면 이어서. 장이 바뀌면 소지품은 새로, 튜토리얼 표시 등은 유지
     if (!CHAPTERS[ch + 1]) break;
-    const keep = { trialTut: G.flags.trialTut, puzzleTut: G.flags.puzzleTut, simTut: G.flags.simTut, met: G.flags.met };
+    const keep = { trialTut: G.flags.trialTut, puzzleTut: G.flags.puzzleTut, simTut: G.flags.simTut, discardTut: G.flags.discardTut, timeTut: G.flags.timeTut, met: G.flags.met };
     ch += 1; start = 0;
     const first = CHAPTERS[ch].scenes[0][0];
     loadState(ch, first, null);

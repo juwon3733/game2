@@ -27,6 +27,7 @@ const MUSIC = {
   live:     { file: 'assets/audio/bgm_live.mp3' },     // 2장: 밴드의 곡 (기억 속처럼 먹먹하게)
   encore:   { file: 'assets/audio/bgm_encore.mp3' },   // 2장: 기타 하나로 부르는 앙코르
   tendo:    { file: 'assets/audio/bgm_tendo.mp3' },    // 2장: 사장 텐도의 심문
+  madoka:   { file: 'assets/audio/bgm_madoka.mp3' },   // 3장: 점술가 마도카
 };
 const SOUNDS = ['blip', 'next', 'select', 'cancel', 'cut', 'objection', 'wrong', 'correct', 'press', 'page', 'place', 'step',
   'chime', 'thud', 'door', 'ghost', 'phone', 'banner', 'save'];

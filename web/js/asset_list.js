@@ -2,13 +2,15 @@
 // 브라우저(assets.html)와 Node(tools/check-assets.mjs) 양쪽에서 쓴다.
 
 const COLOR_NAME = { '#c9961a': 'gold', '#3b8fd0': 'blue', '#e0679a': 'pink', '#6b8a5a': 'olive green',
-  '#e4572e': 'vermilion orange', '#3aa58a': 'teal green', '#a07ad8': 'lavender purple', '#3a78c9': 'cobalt blue', '#d9a21b': 'amber', '#b0306a': 'magenta' };
+  '#e4572e': 'vermilion orange', '#3aa58a': 'teal green', '#a07ad8': 'lavender purple', '#3a78c9': 'cobalt blue', '#d9a21b': 'amber', '#b0306a': 'magenta',
+  '#38a3a5': 'teal', '#c4703a': 'burnt orange', '#7d4fd1': 'violet', '#8f9a4a': 'khaki green' };
 
 function requiredAssets() {
   const list = [];
   const px = PROMPT_STYLE.pixel;
 
   for (const [char, c] of Object.entries(CHARACTERS)) {
+    if (c.as) continue; // 다른 인물 그림을 빌려 쓰는 경우
     for (const face of c.faces) {
       const id = `${char}_${face}`;
       list.push({
@@ -55,7 +57,7 @@ function requiredAssets() {
     allStatements(w).forEach((s) => {
       const ids = [s.cut];
       if (s.truthDesc && !s.truthCut) ids.push(s.cut + '_truth');
-      ids.filter((id) => !seen.has(id)).forEach((id) => {
+      ids.filter((id) => !seen.has(id) && !CUTS[id]).forEach((id) => { // 수집 컷을 그대로 증언에 쓰면 따로 그리지 않는다
         seen.add(id);
         list.push({
           kind: 'cut', group: `증언 컷 · ${CHARACTERS[w.char].name}`, id,

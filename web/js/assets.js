@@ -2,7 +2,8 @@
 // assets/ 폴더에 정해진 이름으로 PNG를 넣으면 자동으로 그 이미지를 쓴다. 없으면 임시 그림.
 
 const ASSET = {
-  portrait: (char, face) => `assets/portraits/${char}_${face}.png`,
+  // as: 다른 인물의 그림을 빌려 쓴다 (변장한 쌍둥이 등)
+  portrait: (char, face) => `assets/portraits/${(CHARACTERS[char] && CHARACTERS[char].as) || char}_${face}.png`,
   bg: (id) => `assets/bg/${id}.png`,
   cut: (id) => `assets/cuts/${id}.png`,
   map: (id) => `assets/maps/${id}.png`,

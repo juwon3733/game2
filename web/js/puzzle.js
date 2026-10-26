@@ -9,11 +9,13 @@ function conflictTag(a, b) {
 }
 
 // solution 항목이 배열이면 "동시 칸": 같은 순간의 두 컷을 한 칸에 나란히 놓는다(둘의 순서는 상관없음).
+// P.discard가 true면 solution의 마지막 묶음은 "파기 칸": 가짜 컷을 버리는 칸. 순서 판정에서 빠진다.
 function runPuzzle(id) {
   const P = PUZZLES[id];
   const n = P.solution.length;
   const group = (i) => [].concat(P.solution[i]);
   const cap = (i) => group(i).length;
+  const D = P.discard ? n - 1 : -1;
   const cols = n === 4 ? 2 : n >= 8 ? 4 : 3;
   const st = { slots: Array.from({ length: n }, () => []), tray: shuffle(P.cuts, P.solution.flat()), locked: new Set(), tries: 0, hints: 0, bad: null };
   const placed = () => st.slots.flat();
@@ -45,14 +47,14 @@ function runPuzzle(id) {
       const paper = root.querySelector('.pz-paper');
       st.slots.forEach((cids, i) => {
         const s = document.createElement('div');
-        s.className = 'pz-slot' + (cids.length ? ' filled' : '') + (cap(i) > 1 ? ' sim' : '');
+        s.className = 'pz-slot' + (cids.length ? ' filled' : '') + (i === D ? ' discard' : cap(i) > 1 ? ' sim' : '');
         if (st.bad) {
           if (st.bad.pairs.includes(i)) s.classList.add('bad-right');
           if (st.bad.pairs.includes(i - 1)) s.classList.add('bad-left');
           if (st.bad.decoys.includes(i) || st.bad.sims.includes(i)) s.classList.add('decoy');
         }
         s.dataset.slot = i;
-        s.innerHTML = `<span class="pz-num">${i + 1}${cap(i) > 1 ? ' 동시' : ''}${st.locked.has(i) ? ' 📎' : ''}</span>`;
+        s.innerHTML = `<span class="pz-num">${i === D ? '파기' : i + 1}${cap(i) > 1 && i !== D ? ' 동시' : ''}${st.locked.has(i) ? ' 📎' : ''}</span>`;
         for (let h = 0; h < cap(i); h++) {
           const cid = cids[h];
           const half = document.createElement('div');
@@ -232,17 +234,18 @@ function runPuzzle(id) {
         const msgs = [];
         // 동시 칸의 두 컷은 같은 순간이어야 한다: 둘 다 가진 태그 값이 같아야 함
         st.slots.forEach((s, i) => {
-          if (s.length < 2 || decoys.includes(i)) return;
+          if (s.length < 2 || decoys.includes(i) || i === D) return;
           const [a1, b1] = s, ta = CUTS[a1].tags, tb = CUTS[b1].tags;
           const t = Object.keys(ta).find((k) => k in tb && ta[k] !== tb[k]);
           if (t) { sims.push(i); msgs.push(`${i + 1}번 동시 칸의 두 컷은 「${TAG_NAME[t]}」이(가) 달라.`); }
         });
         for (let i = 0; i < n - 1; i++) {
-          if (decoys.includes(i) || decoys.includes(i + 1)) continue;
+          if (decoys.includes(i) || decoys.includes(i + 1) || i === D || i + 1 === D) continue;
           const t = st.slots[i].flatMap((a1) => st.slots[i + 1].map((b1) => conflictTag(a1, b1))).find(Boolean);
           if (t) { pairs.push(i); msgs.push(`${i + 1}번 → ${i + 2}번은 「${TAG_NAME[t]}」이(가) 거꾸로야.`); }
         }
         if (decoys.length) msgs.unshift(`${decoys[0] + 1}번 컷은 이 페이지 범위 밖이야. 목표 문장을 다시 읽어 봐.`);
+        if (D >= 0 && !sameSet(st.slots[D], group(D))) { decoys.push(D); msgs.unshift('파기 칸이 이상해. 진짜 컷을 버렸거나, 가짜가 원고에 남았어.'); }
         if (badBubble) msgs.push(`「${CUTS[badBubble].title}」 말풍선 대사가 이상해.`);
         if (!msgs.length) {
           const d = P.solution.findIndex((c, i) => !sameSet(st.slots[i], group(i)));
@@ -275,6 +278,7 @@ function runPuzzle(id) {
       const slots = paper.querySelectorAll('.pz-slot');
       // 칸이 하나씩 밝아지며, 의성어가 있는 컷은 그 소리가 난다
       for (const s of slots) {
+        if (Number(s.dataset.slot) === D) continue; // 파기 칸은 읽지 않는다
         s.classList.add('lit');
         const cids = st.slots[Number(s.dataset.slot)];
         const loud = cids.find((c) => PAGE_SFX[c]);
@@ -300,7 +304,15 @@ function runPuzzle(id) {
       ]);
       hideText();
     }
-    if (P.solution.some(Array.isArray) && !G.flags.simTut) {
+    if (D >= 0 && !G.flags.discardTut) {
+      G.flags.discardTut = true;
+      await sayAll([
+        ['towa', '이번 원고지엔 [[파기 칸]]이 있어. 누가 고쳐 그린 가짜 컷은 원고에 넣지 말고 거기 버려.'],
+        ['towa', '가짜는 이음매가 있어. 스크린톤이 어긋나거나, 그림자 방향이 다르거나. 크게 보고 확인해.'],
+      ]);
+      hideText();
+    }
+    if (P.solution.slice(0, D >= 0 ? D : n).some(Array.isArray) && !G.flags.simTut) {
       G.flags.simTut = true;
       await sayAll([
         ['towa', '이번 원고지엔 넓은 칸이 있어. 동시 칸. 같은 순간을 서로 다른 자리에서 본 두 컷이 나란히 들어가.'],
