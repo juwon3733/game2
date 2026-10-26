@@ -185,8 +185,8 @@ button { font-family: inherit; }
   border-bottom: 3px solid var(--ink);
 }
 .cutv-body {
-  flex: 1; position: relative; overflow: hidden;
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 10px;
+  flex: 1; position: relative; overflow: hidden auto;
+  display: flex; flex-direction: column; align-items: center; justify-content: safe center; gap: 8px; padding: 10px;
   background-color: #fff;
   background-image: radial-gradient(#cfc9bc 1.4px, transparent 1.6px); background-size: 7px 7px;
 }
@@ -217,7 +217,7 @@ button { font-family: inherit; }
 .cutv.dist-낙서 .cutv-body:not(.has-img) { background-image: repeating-linear-gradient(35deg, transparent 0 8px, rgba(200,30,30,.55) 8px 11px), repeating-linear-gradient(-50deg, transparent 0 12px, rgba(0,0,0,.4) 12px 15px); background-size: auto; }
 .cutv.dist-미화 .cutv-body:not(.has-img) { background-image: radial-gradient(circle, #f5a3d3 4px, transparent 4.5px); background-size: 26px 26px; }
 .cutv.dist-크레용 .cutv-body:not(.has-img) { background-image: repeating-linear-gradient(80deg, #ffe8a8 0 5px, #ffd6e6 5px 9px, #d8f0ff 9px 14px); background-size: auto; }
-.cutv.dist-생략 .cutv-body:not(.has-img)::after { content: '(여백)'; position: absolute; right: 12%; top: 14%; width: 34%; height: 40%; background: #fff; border: 3px dashed #bbb; color: #bbb; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+.cutv.dist-생략 .cutv-body:not(.has-img)::after { content: '(여백)'; position: absolute; right: 4px; top: 4px; width: 22%; height: 26%; opacity: .85; background: #fff; border: 3px dashed #bbb; color: #bbb; display: flex; align-items: center; justify-content: center; font-size: 18px; }
 .cutv.dist-과장 .cutv-desc { font-size: 26px; font-weight: bold; }
 
 .bubble {
@@ -534,7 +534,7 @@ body { word-break: keep-all; overflow-wrap: normal; }
 /* 원고 평가 / 장면 선택의 장 제목 */
 #modal.rank .md-box { width: 520px; background: #12142a; color: var(--txt); border: 1px solid var(--line); text-align: center; }
 .rank-head { font-size: 22px; color: var(--sub); }
-.rank-letter { font-size: 120px; line-height: 1.1; margin: 8px 0 4px; color: var(--accent); text-shadow: 0 6px 0 #000; }
+.rank-letter { font-size: 120px; line-height: 1.1; margin: 24px 0 12px; position: relative; z-index: 0; color: var(--accent); text-shadow: 0 6px 0 #000; }
 .rank-rows { display: grid; gap: 6px; margin: 10px auto 6px; width: 320px; font-size: 19px; }
 .rank-rows div { display: flex; justify-content: space-between; border-bottom: 1px dashed rgba(255,255,255,.12); padding: 4px 0; }
 .ts-scenes li.ts-ch { padding: 10px 20px 4px; color: var(--gold); font-size: 17px; }
@@ -1077,3 +1077,6 @@ body { word-break: keep-all; overflow-wrap: normal; }
 .pz-tray h3 { color: var(--paper); background: none; }
 .pz-tray .cutv:hover { box-shadow: 0 0 0 4px var(--accent); }
 .pz-say { background: var(--ink); color: var(--paper); border: 3px solid var(--paper); border-left: 10px solid var(--accent); box-shadow: 4px 4px 0 #000; }
+
+/* 긴 창(갤러리·저장·수첩)은 안쪽이 스크롤돼도 [닫기]가 늘 보이게 */
+#modal.gallery .md-cancel, #modal.slots .md-cancel, #modal.note .md-cancel { position: sticky; bottom: 0; z-index: 2; }

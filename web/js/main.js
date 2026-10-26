@@ -101,7 +101,7 @@ async function playFrom(scene, saved) {
 // 장 끝에서 보여 준다. 오답·힌트·도움이 적고 중간 지목을 맞히면 높다.
 function manuscriptRank() {
   const st = G.stats;
-  let score = 100 - st.wrong * 6 - st.hints * 5 - st.help * 8 + (st.accuse === true ? 15 : 0);
+  let score = 100 - st.wrong * 3 - st.hints * 5 - st.help * 8 + (st.accuse === true ? 15 : 0);
   score = Math.max(0, Math.min(115, score));
   const rank = score >= 100 ? 'S' : score >= 80 ? 'A' : score >= 60 ? 'B' : score >= 40 ? 'C' : 'D';
   return { rank, score, ...st };

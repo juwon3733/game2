@@ -60,6 +60,7 @@ function flash(color = '#fff') {
 // ---------- 배경 / 캐릭터 ----------
 
 let curBg = null;
+let bgUntil = 0; // 배경이 바뀌는 중이면 첫 대사를 그 뒤에 띄운다
 function bg(id) {
   if (curBg === id) return;
   if (typeof amb === 'function') amb(BG_AMB[id] || null);
@@ -71,6 +72,7 @@ function bg(id) {
     old.className = 'bg-old';
     img.after(old);
     setTimeout(() => old.remove(), 800);
+    bgUntil = performance.now() + 700;
   }
   curBg = id;
   FX.bg(id);
@@ -244,6 +246,7 @@ function openLog() {
 
 // who: 캐릭터 키 또는 '' (나레이션). face가 있으면 표정을 바꾼다.
 async function say(who, text, face) {
+  if (!G.skip && performance.now() < bgUntil) await sleep(bgUntil - performance.now());
   const tb = $('#textbox');
   tb.classList.remove('hidden');
   // 'tip': 조작 안내. 인물 대사가 아니라 게임이 하는 말
@@ -346,10 +349,11 @@ function setFace(who, face) {
   const src = ASSET.portrait(who, f);
   el.setAttribute('style', faceStyle(who, f));
   if (faceOk[src] === false) { tb.classList.remove('has-face'); return; }
-  tb.classList.add('has-face');
+  // 그림이 실제로 있는 게 확인된 뒤에만 얼굴 칸을 연다 (없는 그림이면 빈 네모가 잠깐 뜬다)
+  if (faceOk[src]) tb.classList.add('has-face'); else tb.classList.remove('has-face');
   if (faceOk[src] === undefined) {
     const probe = new Image();
-    probe.onload = () => { faceOk[src] = true; };
+    probe.onload = () => { faceOk[src] = true; if (el.style.backgroundImage.includes(src)) tb.classList.add('has-face'); };
     probe.onerror = () => {
       faceOk[src] = false;
       if (!el.style.backgroundImage.includes(src)) return;
@@ -468,6 +472,7 @@ function toast(text) {
 // ---------- 모달 ----------
 
 function openModal(html, cls = '') {
+  $('#toast').classList.add('hidden'); // 창이 뜨면 이전 알림은 걷는다
   const m = $('#modal');
   m.className = cls;
   m.innerHTML = `<div class="md-box">${html}</div>`;

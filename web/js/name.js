@@ -57,12 +57,11 @@ function runName({ title, sub = '', parts, threshold = 3, report = false, report
     };
     const check = async () => {
       if (blanks.some((i) => !picks[i])) { msg = '빈칸이 남아 있어.'; return render(); }
-      const n = blanks.filter(right).length;
-      if (n === blanks.length) { sfx('correct'); FX.lines(500); FX.stamp('확정!'); await sleep(700); return finish({ ok: true, picks: Object.assign({}, picks) }); }
+      if (blanks.every(right)) { sfx('correct'); FX.lines(500); FX.stamp('확정!'); await sleep(700); return finish({ ok: true, picks: Object.assign({}, picks) }); }
       G.stats.wrong++;
       sfx('wrong'); quake();
       // 몇 칸이 맞았는지는 알려 주지 않는다(하나씩 바꿔 넣어 맞히는 걸 막는다)
-      msg = n >= blanks.length * 0.7 ? '큰 줄기는 맞는 것 같은데, 어딘가 어긋나 있어.' : '아직 그날 일과 맞지 않아. 단서를 다시 보자.';
+      msg = '아직 그날 일과 맞지 않아. 단서를 다시 보자.';
       render();
     };
     root.onclick = (e) => { if (!e.target.closest('.name-pop, .name-blank')) root.querySelector('.name-pop')?.remove(); };

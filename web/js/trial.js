@@ -5,7 +5,7 @@
 //  2장식: answers 배열. 한 증인에게 여러 번 반박하고, 반박할 때마다 증언이 바뀌거나 벗겨진다.
 //    answers[k] = { statement, cut | spot, line, requires: [k...], shout, rebut, success,
 //                   changes: { 증언번호: 새 증언 }, peel: [증언번호], gives, words, items, rewards, choice }
-//    with: 겹쳐 보기. 첫 컷이 맞으면 같은 순간을 다른 자리에서 본 컷·물증을 하나 더 내야 한다 (id 또는 배열)
+//    with: 겹쳐 보기. 첫 컷이 맞으면 같은 일을 다른 쪽에서 받쳐 주는 컷·물증을 하나 더 내야 한다 (id 또는 배열)
 //    hold = { statement, lines }
 //  4·5장:
 //    statement.char  교차 심문: 이 증언을 말하는 사람 (W.char2가 오른쪽에 함께 선다)
@@ -44,7 +44,10 @@ const WRONG_POOL = {
     spot: ['거기가 뭐. 아무것도 없잖아.', '아무 데나 짚는다고 말이 바뀌진 않아.'],
   },
 };
-const NEAR = ['(이 증언이 수상한 건 맞아. 내민 게 틀렸어.)', '(증언은 맞게 짚었어. 이걸로는 안 깨져.)'];
+// 벗겨진 뒤 보일 컷: 진실 컷(truthCut·truthDesc)이 따로 없으면 원래 컷을 그대로 둔다
+function truthOf(s) { return s.truthCut || (s.truthDesc ? s.cut + '_truth' : s.cut); }
+// 틀렸을 때 레이의 혼잣말. 어느 증언이 맞는 자리인지는 흘리지 않는다
+const NEAR = ['(…이걸로는 안 깨져.)', '(다른 걸 봐야 해.)'];
 function wrongReaction(W, st, here, cutId, spotId) {
   const key = spotId || cutId;
   if (W.wrongBy && W.wrongBy[key]) return W.wrongBy[key];
@@ -52,7 +55,7 @@ function wrongReaction(W, st, here, cutId, spotId) {
   const near = here.length > 0 && !W.gentle;
   const base = W.wrong || [];
   // 처음 틀렸을 땐 증인 고유의 반응, 그다음부터는 내민 것에 따라
-  if (W.gentle || st.wrongN === 1) return near ? [...base, ['rei', NEAR[0], 'serious']] : base;
+  if (W.gentle || st.wrongN === 1) return base;
   const polite = (W.statements || []).some((x) => /요[.?!…」]*$/.test(x.text || ''));
   const pool = WRONG_POOL[polite ? 'polite' : 'casual'];
   const owner = cutId && CUTS[cutId] ? CUTS[cutId].owner : null;
@@ -66,7 +69,7 @@ function wrongReaction(W, st, here, cutId, spotId) {
   line = line.replace('{name}', name);
   const who = W.char2 && st.R && st.R.statements[st.idx] && st.R.statements[st.idx].char ? st.R.statements[st.idx].char : W.char;
   const out = [[who, line, (base[0] && base[0][2]) || undefined]];
-  if (near) out.push(['rei', NEAR[st.wrongN % NEAR.length], 'serious']);
+  if (st.wrongN % 3 === 0) out.push(['rei', NEAR[st.wrongN % NEAR.length], 'serious']);
   return out;
 }
 
@@ -85,7 +88,7 @@ function renderTrial(W, st) {
   const panel = $('#tr-panel');
   const held = st.held === st.idx;
   panel.innerHTML = `<div class="tr-label">증언 ${st.idx + 1} / ${st.stmts.length} · ${CHARACTERS[s.char || W.char].name}의 기억${held ? ' <span class="tr-hold">보류</span>' : ''}</div>`;
-  const v = cutView(peeled ? s.truthCut || s.cut + '_truth' : s.cut);
+  const v = cutView(peeled ? truthOf(s) : s.cut);
   if (peeled) v.classList.add('peeled');
   panel.appendChild(v);
   // 증언 위치 막대 + 증인의 마음(틀리면 한 칸씩 줄고, 다 닳으면 증언을 처음부터)
@@ -247,7 +250,7 @@ async function trialRound(wid, R) {
     }
     let cutId = null, spotId = null;
     if (how === 'spot') {
-      spotId = await pickSpot(st.peeled.has(st.idx) ? s.truthCut || s.cut + '_truth' : s.cut, s.spots, `증언: 「${s.text}」`);
+      spotId = await pickSpot(st.peeled.has(st.idx) ? truthOf(s) : s.cut, s.spots, `증언: 「${s.text}」`);
       if (!spotId) continue;
     } else {
       cutId = await pickCut(W.gentle ? '어떤 컷을 보여줄까?' : '이 증언을 깨뜨릴 컷·물증을 고르자', `증언: 「${s.text}」`, { items: true });
@@ -272,7 +275,7 @@ async function trialRound(wid, R) {
     // 겹쳐 보기: 한 장으로는 약하다. 같은 순간의 다른 시점을 겹친다
     let weak = false;
     if (ok && hit[0].with) {
-      const second = await pickCut('겹쳐 보기', `「${cutInfo(cutId).title}」에 겹칠 컷·물증을 하나 더 고르자. 같은 순간을 다른 자리에서 본 것.`, { items: true });
+      const second = await pickCut('겹쳐 보기', `「${cutInfo(cutId).title}」에 겹칠 컷·물증을 하나 더 고르자. 같은 일을 다른 쪽에서 받쳐 주는 것.`, { items: true });
       if (!second) continue;
       if (second !== cutId && firsts(hit[0]).includes(second)) await FX.overlay(cutId, second);
       else { ok = false; weak = true; }
@@ -354,7 +357,7 @@ async function trialRound(wid, R) {
     if (img) { img.classList.remove('shake'); void img.offsetWidth; img.classList.add('shake'); }
     const extra = [];
     if (weak) {
-      extra.push(['koharu', '(그 컷 하나로는 안 돼요. 같은 순간을 다른 자리에서 본 걸 겹쳐야 해요.)', 'worried']);
+      extra.push(['koharu', '(그 컷 하나로는 안 돼요. 같은 일을 다른 쪽에서 보여 주는 걸 하나 더 겹쳐야 해요.)', 'worried']);
     } else if (hit && !ok) {
       extra.push(['koharu', '(그 컷은 맞는 것 같은데… 말풍선 대사가 이상해요.)', 'worried']);
       G.lines.push(G.fills[cutId]); // 다시 고를 수 있게 대사 조각을 돌려준다
@@ -395,11 +398,12 @@ async function runRestore(ids, title = '원본 복원') {
       const spot = c.spots.find((p) => p.id === sid);
       if (spot && spot.restore) {
         FX.glitch(300); sfx('page');
+        $('#toast').classList.add('hidden');
         await gainCut(c.original);
         break;
       }
       if (!sid) { toast('이음매를 찾아야 원본이 나온다.'); continue; }
-      G.stats.wrong++;
+      // 이음매 찾기는 탐색이라 평가의 오답으로 세지 않는다
       sfx('wrong');
       toast('거기엔 이음매가 없다.');
     }
