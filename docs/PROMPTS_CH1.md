@@ -1103,7 +1103,7 @@ Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transpa
 Expression: confused, holding his head as if it aches.
 ```
 
-## 대화 30 — 배경 (34장)
+## 대화 30 — 배경 (35장)
 
 배경끼리 그림체를 맞추려고 한 대화에서 이어 만든다.
 
@@ -1312,6 +1312,13 @@ A bus stop in front of a huge glass corporate headquarters building at noon, a s
 같은 도트 스타일, 같은 픽셀 크기와 팔레트로 다음 배경을 그려줘. 사람 없이, 가로 1536x1024.
 
 An abandoned harbor warehouse at dusk: rusty half-open shutter, cranes and the sea behind, seagulls. Keep the lower third simple because characters will stand in front.
+```
+
+**`pier.png`
+```
+같은 도트 스타일, 같은 픽셀 크기와 팔레트로 다음 배경을 그려줘. 사람 없이, 가로 1536x1024.
+
+A long harbor breakwater at dusk: concrete path with tetrapods, a small red harbor lighthouse at the far end just switching on, an abandoned warehouse and cranes in the distance, orange and purple sky, seagulls. Keep the lower third simple because characters will stand in front.
 ```
 
 **`warehouse_in.png`
@@ -2719,16 +2726,16 @@ Scene: Before dawn in a tidy small apartment, the window still pitch dark: under
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + bright orange (#f2a14a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A library newspaper room: a 20-year-old rookie detective girl with an orange-brown side ponytail and a sky-blue scrunchie reads an old newspaper while two men in black stand right behind her. IMPORTANT: edited picture: the two men are pasted in, their screentone dots are clearly larger than the rest, with a visible seam around them.
+Scene: A library newspaper room: a 20-year-old rookie detective girl with an orange-brown side ponytail and a sky-blue scrunchie reads an old newspaper while two men in black stand right behind her. IMPORTANT: edited picture: the two men are pasted in, their screentone dots are clearly larger (bean-sized vs rice-sized on a 20-year-old rookie detective girl with an orange-brown side ponytail and a sky-blue scrunchie), with a faint seam around them.
 ```
 
-> 꼭 보여야 할 것: 편집: 뒤의 검은 옷 남자 둘만 스크린톤이 굵음, 이음매
+> 꼭 보여야 할 것: 편집: 남자 둘의 스크린톤 점이 코하루보다 굵음, 이음매
 
 **`5B.png`
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + bright orange (#f2a14a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A library newspaper room, wall clock 9:00: close view of an old newspaper about a lighthouse library fire with a photo of a young police officer (accent color on the photo), held by a 20-year-old rookie detective girl with an orange-brown side ponytail and a sky-blue scrunchie's hands.
+Scene: A library newspaper room, wall clock 9:00: close view of an old newspaper about a lighthouse library fire (headline: one schoolgirl and one police officer dead, one high school student rescued) with a photo of a young police officer (accent color on the photo), held by a 20-year-old rookie detective girl with an orange-brown side ponytail and a sky-blue scrunchie's hands.
 ```
 
 > 꼭 보여야 할 것: 오래된 신문의 순경 사진(포인트 색), 벽시계 9:00
@@ -2755,10 +2762,10 @@ Scene: A bus stop in front of a glass headquarters: a 20-year-old rookie detecti
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + bright orange (#f2a14a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Inside an abandoned warehouse: a 20-year-old rookie detective girl with an orange-brown side ponytail and a sky-blue scrunchie tied to a chair, stacked crates nearby. IMPORTANT: edited picture: there is only one ceiling lamp; the crates' shadows fall to the right, but the chair casts shadows in two different directions.
+Scene: Inside an abandoned warehouse: a 20-year-old rookie detective girl with an orange-brown side ponytail and a sky-blue scrunchie tied to a chair, stacked crates nearby. IMPORTANT: edited picture: there is only one ceiling lamp, yet each of the four chair legs casts two shadows (eight leg shadows in total, in two directions), while the crates cast only one shadow each.
 ```
 
-> 꼭 보여야 할 것: 편집: 의자 그림자가 두 방향
+> 꼭 보여야 할 것: 편집: 전등 하나인데 의자 다리 그림자가 여덟 개
 
 **`5D.png`
 ```
@@ -2847,7 +2854,7 @@ Scene: Outside a burning lighthouse library on a lawn at night: first-person vie
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + ice blue (#6ac0d0) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: a woman with long silver-white hair, an eyepatch and a long white coat pulls a 20-year-old rookie detective girl with an orange-brown side ponytail and a sky-blue scrunchie by the wrist into a warehouse through a half-open shutter, her sneakers digging in. The area around the wrist has noticeably thicker lines than the rest (a pasted seam).
+Scene: a woman with long silver-white hair, an eyepatch and a long white coat pulls a 20-year-old rookie detective girl with an orange-brown side ponytail and a sky-blue scrunchie by the wrist into a warehouse through a half-open shutter, one ceiling lamp inside. The area around the wrist has noticeably thicker lines than the rest (a pasted seam).
 ```
 
 > 꼭 보여야 할 것: 편집: 손목 둘레만 굵은 선
@@ -2911,10 +2918,10 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + navy blue (#3a5aa0) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: First-person view kicking open the library front door into low smoke between tall bookshelves (accent color on the door); deep inside, a spiral staircase leading up. No clock.
+Scene: First-person view kicking open the library front door into low smoke between tall bookshelves (accent color on the door); beside the door a clear notice board with a big arrow: emergency exit closed for construction, this door only. Deep inside, a spiral staircase leading up. No clock.
 ```
 
-> 꼭 보여야 할 것: 연기 속 서가, 문(포인트 색), 안쪽 깊숙이 계단
+> 꼭 보여야 할 것: 연기 속 서가, 문(포인트 색), 문 옆 「비상구 공사 중」 안내판, 안쪽 깊숙이 계단
 
 **`6Y3.png`
 ```
