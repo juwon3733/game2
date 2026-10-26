@@ -46,7 +46,7 @@ Object.assign(CUTS, {
           tags: { clock: '2100' },
           spots: [{ id: 'hand', label: '펜을 쥔 손', x: 0.35, y: 0.5, w: 0.25, h: 0.3, word: 'th_righthand' }, { id: 'clock', label: '계산대 화면', x: 0.7, y: 0.1, w: 0.25, h: 0.2, word: 't_2100' }] },
   '3G': { owner: 'twin', title: '발견',
-          desc: '창고 계단 아래. 쓰러진 사람의 다리. 얼어붙은 앞치마 차림. 벽시계 9시 15분. 발목에 반창고.',
+          desc: '창고 계단 아래. 쓰러진 사람의 다리. 내려다보는 앞치마 자락이 굳은 듯 멈춰 있다. 벽시계 9시 15분. 발목에 반창고.',
           tags: { clock: '2115' },
           spots: [{ id: 'clock', label: '벽시계', x: 0.05, y: 0.05, w: 0.2, h: 0.25, word: 't_2115' }, { id: 'ankle', label: '발목', x: 0.55, y: 0.78, w: 0.15, h: 0.2, word: 'th_bandage' }] },
   '3H': { owner: 'twin', title: '신고',
@@ -60,7 +60,7 @@ Object.assign(CUTS, {
           tags: { clock: '2100' },
           spots: [{ id: 'hand', label: '목탄을 쥔 손', x: 0.3, y: 0.45, w: 0.25, h: 0.3, word: 'th_lefthand' }, { id: 'clock', label: '벽시계', x: 0.75, y: 0.05, w: 0.2, h: 0.22, word: 't_2100' }] },
   '3F': { owner: 'twin', title: '막차 전',
-          desc: '역 승강장. 화판을 멘 채 왼손으로 휴대폰을 본다. 역 시계 9시 25분. 화면에 「나기: 오늘도 고마워」.',
+          desc: '역 승강장. 화판을 멘 채 왼손으로 휴대폰을 본다. 역 시계 9시 25분. 나기에게 보내는 메시지 「오늘도 고마워」.',
           tags: { clock: '2125' } },
   '3C': { owner: 'hasegawa', title: '계단 위',
           desc: '계단 아래에서 올려다본 2층. 별무늬 숄을 두른 사람이 봉투를 낚아채 돌아선다. 손목시계 9시 10분.',
@@ -130,7 +130,7 @@ Object.assign(PUZZLES, {
   page3c: {
     discard: true,
     title: '최종 재구성 — 8월 27일, 셔터부터 신고까지',
-    goal: '그날 밤을 순서대로. 넓은 칸은 같은 순간의 두 장. 누가 고쳐 그린 가짜는 파기 칸에 버린다.',
+    goal: '그날 밤을 순서대로. 넓은 칸은 같은 순간의 두 장. 누군가 고쳐 그린 가짜는 파기 칸에 버린다.',
     cuts: ['3A', '3B', '3E', 'F1', '3C', '3J', '3G', '3D', '3H', '3F', 'F2', 'F3'],
     solution: ['3A', ['3B', '3E'], 'F1', '3C', '3J', '3G', '3D', ['3H', '3F'], ['F2', 'F3']],
     bubbles: {},
@@ -158,9 +158,9 @@ Object.assign(WITNESSES, {
     ],
     answers: [
       { statement: 0, cut: '3A', shout: '셔터는 8시 50분이에요!',
-        rebut: '셔터를 내리는 점원의 컷. 가게 벽시계는 8시 50분이에요. 할머니 시계가 10분 빨라요.',
+        rebut: '셔터를 내릴 때 가게 벽시계는 8시 50분이었어요. 할머니 댁 시계가 10분 빨라요.',
         success: [
-          ['tofu', '어머. 그럼 우리 집 시계가 10분 빨랐던 거야?', 'surprised'],
+          ['tofu', '아이고. 그럼 우리 집 시계가 10분 빨랐던 거야?', 'surprised'],
           ['tofu', '그럼 그 숄 아가씨가 뛰어나온 것도 9시 20분이 아니라 9시 10분쯤이네.', 'surprised'],
         ],
         peel: [0], words: ['t_2110', 'p_tofu'] },
@@ -188,24 +188,24 @@ Object.assign(WITNESSES, {
     ],
     answers: [
       { statement: 0, spot: 'ankle', shout: '당신은 유키 씨가 아니야!',
-        rebut: '발목의 반창고. 학원에 있던 유키 씨에겐 없어요. 정산 장부도 오른손 글씨였고요. …당신은 나기 씨죠.',
+        rebut: '학원에 있던 유키 씨 발목엔 반창고가 없었어요. 왼손잡이인 유키 씨와 달리 장부는 오른손 글씨였고요. 당신은 나기 씨죠.',
         success: [
           ['yukin', '…….', 'crying'],
           ['', '오른쪽 리본이 풀린다. 「유키」가 그걸 왼쪽에 다시 묶는다.'],
           ['yukin', '나기예요. 한 달 전부터 언니 대신 나왔어요.', 'crying'],
-          ['yukin', '언니는 미술 학원에 다녀요. 점장님한텐 비밀로. 언니가 그만두면 가게가 힘들어지니까… 제가 언니인 척 하기로 했어요.', 'crying'],
+          ['yukin', '언니는 미술 학원에 다녀요. 점장님한텐 비밀로. 언니가 그만두면 가게가 힘들어지니까… 제가 언니인 척하기로 했어요.', 'crying'],
         ],
         peel: [0], words: ['a_swap', 'p_nagi'] },
       { statement: 1, cut: 'ledger', requires: [0], shout: '봉투는 금고에 없었어!',
         rebut: '장부의 「금고 입금」 칸이 비어 있어요. 봉투는 금고에 들어가지 않았어요.',
         success: [
           ['yukin', '넣으려고 했어요. 근데 점장님이 「내가 넣을게, 너 발목 아프잖아」 하고…', 'crying'],
-          ['yukin', '봉투를 들고 2층 창고로 올라가셨어요. 금고 열쇠가 창고에 있으니까.', 'crying'],
+          ['yukin', '봉투를 들고 2층 창고로 올라가셨어요. 금고가 창고에 있으니까요.', 'crying'],
         ],
         peel: [1], words: ['pl_storage'] },
     ],
     hold: { statement: 2, lines: [
-      ['rei', '(…이 10분의 여백. 아직 못 벗겨. 이 사람 눈이 아니라 다른 사람 눈에 남은 게 필요해.)', 'serious'],
+      ['rei', '(이 10분은 아직 못 벗겨. 다른 사람 눈에 남은 게 있어야 해.)', 'serious'],
     ] },
     koharu: [['koharu', '(선배, 할머니가 그랬잖아요. 동생은 지난주에 발목을…)', 'worried']],
     wrong: [['yukin', '무슨 말인지 모르겠어요.', 'normal']],
@@ -225,7 +225,7 @@ Object.assign(WITNESSES, {
     ],
     answers: [
       { statement: 0, cut: '3D', with: '3H', shout: '바로가 아니야!',
-        rebut: '점장님 눈에 남은 9시 20분. 당신은 휴대폰을 쥐고 서 있었어요. 신고 화면은 9시 25분. 발견은 15분이었고요.',
+        rebut: '발견은 9시 15분이에요. 그런데 9시 20분에도 당신은 휴대폰을 쥔 채 서 있었어요. 점장님 눈에 남아 있어요. 신고는 9시 25분이고요.',
         success: [
           ['nagi', '…….', 'crying'],
           ['nagi', '무서웠어요. 신고하면 경찰이 오고, 그럼 제가 유키가 아니란 게 들키고.', 'crying'],
@@ -234,7 +234,7 @@ Object.assign(WITNESSES, {
         ],
         peel: [0], words: ['t_10min', 'a_hesitate'], cg: 'cg_twins' },
       { statement: 1, cut: '3C', shout: '점장님은 누군가를 쫓고 있었어!',
-        rebut: '계단 아래에서 올려다본 점장님의 눈. 위에 별무늬 숄을 두른 사람이 봉투를 낚아채고 있어요.',
+        rebut: '점장님이 계단 아래에서 올려다본 컷이에요. 위에서 별무늬 숄을 두른 사람이 봉투를 낚아채고 있어요.',
         success: [
           ['nagi', '별무늬 숄.', 'scared'],
           ['nagi', '그거… 아케이드 점술가 마도카 씨가 늘 두르는 거예요. 저녁에 가끔 케이크 사러 오셨어요.', 'scared'],
@@ -248,7 +248,7 @@ Object.assign(WITNESSES, {
   madoka: {
     char: 'madoka', bg: 'booth3', face: 'smile', bgm: 'madoka',
     goal: '미래 컷의 이음매를 찾아라. 그리고 그 시각, 마도카는 어디 있었나.',
-    intro: [['towa', '이번 건 웃을 일이 아니야. 누가 가위랑 풀로 미래를 만들었어.'], ['tip', '컷을 크게 보고 이음매를 짚는다.']],
+    intro: [['towa', '웃는 얼굴에 속지 마. 이 미래 컷, 손댄 흔적이 있어.'], ['tip', '컷을 크게 보고 이음매를 짚는다.']],
     statements: [
       { text: '제 미래 컷에 나왔잖아요. 오른쪽 리본 아가씨가 봉투를 움켜쥐는 거.', cut: 'F2',
         spots: [{ id: 'seam', label: '봉투를 쥔 손 둘레', x: 0.35, y: 0.4, w: 0.3, h: 0.3 }, { id: 'ribbon', label: '오른쪽 리본', x: 0.5, y: 0.08, w: 0.15, h: 0.15 }, { id: 'bag', label: '봉투', x: 0.45, y: 0.5, w: 0.15, h: 0.15 }],
@@ -265,8 +265,7 @@ Object.assign(WITNESSES, {
         rebut: '봉투를 쥔 손 둘레만 스크린톤 점 간격이 달라요. 나중에 오려 붙인 거예요.',
         success: [
           ['madoka', '무슨 소리예요. 그건 제가 본 미래예요.', 'normal'],
-          ['towa', '이건 사람이 고친 거야. 가위랑 풀로.'],
-          ['koharu', '토와 씨… 목소리가 무서워요.', 'worried'],
+          ['towa', '이건 사람이 고친 거야. 가위랑 풀로. 누가 이런 짓을 가르쳤는지 알 것 같아.'],
         ],
         words: ['a_edit'] },
       { statement: 1, spot: 'shadow', requires: [0], shout: '그림자가 거꾸로야!',
@@ -274,12 +273,12 @@ Object.assign(WITNESSES, {
         success: [['madoka', '…….', 'cornered']],
         words: ['a_push3'] },
       { statement: 2, cut: '3C', with: '3J', requires: [1], shout: '부스엔 없었어!',
-        rebut: '9시 10분, 점장님 눈에 남은 별무늬 숄. 2분 뒤, 두부집 할머니가 본 뒷골목의 숄. 당신은 양과점 계단에 있었어요.',
+        rebut: '9시 10분, 점장님 눈에 별무늬 숄이 남아 있어요. 2분 뒤엔 두부집 할머니가 뒷골목에서 뛰어나오는 숄을 봤고요. 그 시각 당신은 부스가 아니라 양과점 계단에 있었어요.',
         success: [
           ['madoka', '…….', 'cornered'],
-          ['madoka', '빚이 있었어요. 이번 달 말까지.', 'crying'],
+          ['madoka', '이번 달 말까지 갚아야 할 빚이 있었어요.', 'crying'],
           ['madoka', '케이크 사러 갔다가, 점장님이 봉투 들고 2층 올라가는 걸 봤어요. 뒷문이 열려 있었고….', 'crying'],
-          ['madoka', '쫓아오시길래 뿌리쳤는데… 넘어지시는 소리가 났어요. 돌아보지 않았어요.', 'crying'],
+          ['madoka', '쫓아오시길래 뿌리쳤는데… 넘어지시는 소리가 났어요. 돌아보지도 않았어요.', 'crying'],
           ['madoka', '컷은 제가 고친 거 아니에요. 흰 장갑 낀 사람이 찾아와서, 이렇게 바꿔 두면 잔상과가 헛다리 짚을 거라고.', 'crying'],
         ],
         peel: [2] },

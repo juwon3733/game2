@@ -870,3 +870,32 @@ body { word-break: keep-all; overflow-wrap: normal; }
 .montage .cutv-zoom { display: none; }
 .ex-btn { padding: 9px 16px; font-size: 19px; }
 .ex-list { max-height: 590px; }
+
+/* 조사: 구역 이동 · 살펴보기/잔상 읽기 · 집중력 */
+.ex-head { display: flex; align-items: center; gap: 14px; }
+.ex-focus { margin-left: auto; font-size: 14px; color: var(--sub); display: inline-flex; align-items: center; gap: 3px; }
+.ex-focus i { display: inline-block; width: 10px; height: 14px; border: 1px solid var(--accent); }
+.ex-focus i.on { background: var(--accent); }
+.ex-areas { display: flex; gap: 6px; margin-top: 8px; }
+.ex-areas button { flex: 1; padding: 6px 8px; font-size: 16px; background: rgba(14,16,30,.8); color: var(--sub); border: 1px solid var(--line); border-radius: 4px; cursor: pointer; }
+.ex-areas button.on { color: #111; background: var(--accent); border-color: var(--accent); }
+.ex-row { display: flex; gap: 6px; }
+.ex-row .ex-btn { flex: 1; }
+.ex-btn.looked { box-shadow: inset 3px 0 0 var(--sub), 0 2px 0 var(--btn-edge); }
+.ex-read { flex: none; width: 64px; font-size: 16px; cursor: pointer; background: #2a2440; color: #d9cff7; border: 2px solid var(--btn-edge); border-radius: 4px; }
+.ex-read:hover:not(:disabled) { background: #3a3060; }
+.ex-read:disabled { cursor: default; opacity: .55; }
+.ex-row.read .ex-read { background: var(--accent); color: #111; opacity: 1; }
+.ex-row.empty .ex-btn { opacity: .5; }
+.ex-row.haunt .ex-btn { animation: haunt 2.4s steps(4) infinite; }
+.ex-row.haunt .ex-btn::after { content: ' …누군가 있다'; color: #8a7fb8; font-size: 16px; }
+
+/* 아이에게 컷을 보여 줄 때: 다그치는 반박이 아니라 조용히 */
+#banner.gentle { background: radial-gradient(ellipse at center, rgba(40,36,70,.92), rgba(10,10,20,.85)); }
+#banner.gentle .bn-main { font-size: 64px; color: #f3eefc; text-shadow: 0 0 18px rgba(190,170,255,.6); }
+
+/* 컷 묶음: 가로 스크롤 없이 세로로만 */
+.pz-tray { overflow-x: hidden; overflow-y: auto; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.pz-tray .cutv { min-width: 0; }
+.montage .mt-cut { height: auto !important; }
+.montage .mt-cut .cutv-cap { display: none; }

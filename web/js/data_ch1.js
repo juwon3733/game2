@@ -10,13 +10,13 @@ const CHARACTERS = {
   ookubo:   { name: '오오쿠보', hair: '#9a9a9a', outfit: '#5a6b4a', accent: '#6b8a5a', faces: ['normal', 'flustered', 'sad'], alt: { sad: 'flustered' } },
   taiga:    { name: '타이가',   hair: '#e8c450', outfit: '#3d3d3d', accent: '#c9961a', faces: ['angry', 'sad'] },
   himari:   { name: '히마리',   hair: '#5a3a2a', outfit: '#f3b6c9', accent: '#e0679a', faces: ['normal', 'crying'] },
-  shiori:   { name: '???',      hair: '#121212', outfit: '#2b3550', accent: '#e9e3d3', faces: ['normal'] },
+  shiori:   { name: '???',      hair: '#121212', outfit: '#2b3550', accent: '#e9e3d3', faces: ['normal', 'point'], alt: { point: 'normal' } },
   komatsu:  { name: '코마츠',   hair: '#6a4a3a', outfit: '#d9c7a8', accent: '#d98aa0', faces: ['normal'] },
   akari:    { name: '아카리',   hair: '#2a3a3a', outfit: '#3f8f6a', accent: '#4fae96', faces: ['normal'] },
 };
 
 const BACKGROUNDS = {
-  office:      { label: '잔상과 사무실 (경찰서 지하 창고)', sky: ['#2b2d35', '#4a4740'] },
+  office:      { label: '잔상과 사무실 (경찰서 별관 창고)', sky: ['#2b2d35', '#4a4740'] },
   guardroom:   { label: '하나미즈키 맨션 1층 경비실', sky: ['#3a4a3a', '#7a8a6a'] },
   interrogate: { label: '경찰서 취조실', sky: ['#25262c', '#54565e'] },
   himari_door: { label: '5층 복도, 옆집 현관', sky: ['#3b4a5a', '#c9a76a'] },
@@ -124,7 +124,7 @@ const WITNESSES = {
         truthDesc: '겁에 질려 울 것 같은 얼굴로 뭔가 외치며 뛰쳐나오는 타이가.',
         press: [['rei', '…뭐라고 하지 않았어요?'], ['ookubo', '뭐라고 소리쳤던 것 같기도 하고… 구급차? 몰라. 양키들은 원래 소리 지르잖아.']],
         gives: 'L2' },
-      { text: '그리고 나서 쿵 소리가 났어. 그놈이 도망친 다음에!', cut: 't_ookubo_3',
+      { text: '그러고 나서 쿵 소리가 났어. 그놈이 도망친 다음에!', cut: 't_ookubo_3',
         cutDesc: '화단 쪽에서 들려온 둔탁한 "쿵".',
         press: [['ookubo', '확실해. 그놈이 나가고, 쿵. 순서가 딱 그랬어.'], ['rei', '(…순서.)', 'serious']] },
     ],
@@ -135,10 +135,10 @@ const WITNESSES = {
     gives: 'L2', // 반박에 성공하면 외침 대사 조각을 확실히 얻는다 (파고들기를 안 했어도)
     success: [
       ['ookubo', '어? 그, 그럴 리가…', 'flustered'],
-      ['ookubo', '야구가 끝내기였거든. 와 하고 소리 지르고 있었는데… 그 소리랑 헷갈렸나…', 'flustered'],
+      ['ookubo', '그때 마침 끝내기 홈런이 터져서… 나도 TV 앞에서 와 하고 소리를 지르고 있었는데…', 'flustered'],
       ['ookubo', '그러고 보니 그 청년, 뛰쳐나오면서 "구급차!"라고 소리쳤던 것 같기도 하고…', 'flustered'],
       ['', '증언 컷의 낙서가 찢어지며 원래 얼굴이 드러난다.'],
-      ['koharu', '이 얼굴… 도망치는 사람 얼굴이 아니에요.', 'worried'],
+      ['koharu', '이 얼굴… 겁에 질려 있어요.', 'worried'],
     ],
     peel: [1],
     // 2라운드: 첫 반박이 통하면 증인이 말을 바꾼다
@@ -182,12 +182,12 @@ const WITNESSES = {
     answer: { statement: 2, cut: 'E', line: 'L2' },
     shout: '구급차를 부르고 있었잖아!',
     koharu: [['koharu', '타이가 씨, 내려가서… 뭘 하려고 했어요? 1층에서 누가 소리 지르는 걸 들은 사람이 있대요.', 'worried'], ['taiga', '…', 'sad']],
-    rebut: '도망친 사람은 구급차를 부르지 않아요.',
+    rebut: '1층에서 "구급차!"라고 외쳤잖아요. 경비원이 들었어요.',
     success: [
       ['taiga', '…!', 'sad'],
       ['taiga', '폰이 꺼져서. 아무것도 못 해서.', 'sad'],
-      ['taiga', '그게 쪽팔려서… 길 건너 편의점까지 뛰어가서 신고해 달라고 했어요.', 'sad'],
-      ['akari', '(전화) 네, 21시 26분이요. 금발 남자분이 뛰어 들어와서 "구급차! 5층!" 하고… 폰이 꺼졌다고 해서 제 폰으로 걸었어요.'],
+      ['taiga', '길 건너 편의점까지 뛰어가서 신고해 달라고 했어요. …그게 쪽팔려서 말 안 했어요.', 'sad'],
+      ['akari', '(전화) 네, 밤 9시 26분이요. 금발 남자분이 뛰어 들어와서 "구급차! 5층!" 하고… 폰이 꺼졌다고 해서 제 폰으로 걸었어요.'],
       ['akari', '(전화) 그분 계속 "빨리, 빨리" 했어요. 도망치는 사람 얼굴 아니었어요.'],
       ['kurogane', '(전화) 신고 기록과도 맞다.'],
       ['taiga', '다들 내가 도망쳤다고 하길래… 그냥 그렇게 두는 게 편했어요.', 'sad'],
@@ -218,7 +218,7 @@ const WITNESSES = {
         press: [['', '히마리가 계속 주먹을 꽉 쥐고 있다. 손가락 사이로 뭔가 반짝인다.'], ['koharu', '(선배, 저 손… 뭔가 쥐고 있어요.)', 'worried']] },
     ],
     answer: { statement: 'any', cut: 'C', line: 'L3' },
-    koharu: [['koharu', '히마리, 그거 예쁘다. 손에 쥔 거. 누가 준 거야?', 'happy'], ['himari', '…선생님이.'], ['koharu', '(선배, 선생님이 나오는 컷이에요. 선생님이 뭐라고 했는지 채워서 보여줘요.)', 'worried']],
+    koharu: [['koharu', '히마리, 그거 예쁘다. 손에 쥔 거. 누가 준 거야?', 'happy'], ['himari', '…선생님이.'], ['koharu', '(선배, 그날 밤 선생님이 히마리한테 뭐라고 했을까요…)', 'worried']],
     rebut: '선생님은 네 이름을 불렀어.',
     success: [
       ['himari', '…!', 'crying'],
@@ -230,7 +230,7 @@ const WITNESSES = {
     ],
     peel: [0, 1, 2],
     rewards: ['H', 'I'],
-    wrong: [['himari', '…(훌쩍)', 'crying'], ['koharu', '서, 선배! 애한테 너무 몰아붙이면…', 'worried']],
+    wrong: [['himari', '…(훌쩍)', 'crying'], ['koharu', '서, 선배! 애를 너무 몰아붙이면…', 'worried']],
     close: [['himari', '으아앙…!', 'crying'], ['koharu', '(…잠깐 쉬었다가 다시 해요.)', 'worried']],
   },
 };
@@ -252,7 +252,7 @@ const PROFILES = {
   towa: '모니터 너머에서 분석을 돕는 해커. 고양이 아님.',
   ookubo: '하나미즈키 맨션 경비원. 야구 중계를 좋아한다.',
   taiga: '택배 기사 반도 타이가. 쿵 소리 직후 건물을 뛰쳐나갔다.',
-  himari: '옆집 코마츠 씨네 9살 딸. 사에키 씨에게 피아노를 배운다.',
+  himari: '옆집 코마츠 씨네 아홉 살 딸. 사에키 씨에게 피아노를 배운다.',
   asagiri: '구시가 언덕의 카페 「여백」 주인.',
   shiori: '교복 차림의 여자아이. 레이에게만 보이는 것 같다.',
   komatsu: '히마리의 엄마 코마츠 사키. 혼자 일하며 히마리를 키운다. 그날 밤은 야근이었다.',

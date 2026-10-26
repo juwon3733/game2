@@ -64,6 +64,7 @@ const marginCount = () => MARGIN_FLAGS.filter((f) => G.flags[f]).length;
 // ---------- 장면 ----------
 
 async function sceneOffer6() {
+  CHARACTERS.ren.name = '렌';
   await FX.title('FINAL', '같은 하루', '8월 31일 · 곶 끝 등대 도서관 터', [['shiori', 'normal'], ['rei', 'serious']]);
   CHARACTERS.shiori.name = '시오리';
   bg('office');
@@ -71,12 +72,12 @@ async function sceneOffer6() {
   await say('', '8월 31일 아침. 해체된 잔상과 사무실. 누군가 커피를 내려 두었다. 단 커피.');
   show('asagiri', 'normal', 'center');
   await say('asagiri', '좋은 아침, 레이.');
-  await say('asagiri', '제안하러 왔어. 다시 잊게 해 줄게. 이번엔 완벽하게. 시오리도… 이제 그만 놓아주렴.', 'normal');
-  await say('asagiri', '대가는 편집국 수사를 멈추는 것. 오늘 밤까지 대답해 줘.', 'cold');
+  await say('asagiri', '어젯밤 말, 진심이야. 다시 잊게 해 줄게. 이번엔 흔적도 없이. 시오리도… 이제 그만 놓아주렴.', 'normal');
+  await say('asagiri', '대신 편집국 일에선 손을 떼. 대답은 오늘 밤까지.', 'cold');
   hide('asagiri');
-  await say('', '아사기리가 나간 뒤, 책상 위에 그녀의 커피잔이 남아 있다. 6년 동안 레이 앞에 놓이던 그 잔.');
+  await say('', '아사기리가 나간 뒤, 책상 위에 커피잔 하나가 남아 있다. 6년 동안 레이 앞에 놓이던 그 잔.');
   show('rei', 'serious', 'left');
-  await say('rei', '(…한 번도 읽어 본 적이 없어.)', 'serious');
+  await say('rei', '(어젯밤엔 말만 읽었어. 잔은 아직이야.)', 'serious');
   await gainCut('AF');
   show('koharu', 'worried', 'right');
   await say('koharu', '선배, 대답 안 했죠? 다행이다.', 'worried');
@@ -93,7 +94,7 @@ async function sceneExplore6() {
   show('kurogane', 'sad', 'center');
   await say('kurogane', '직무 정지지만, 오늘은 같이 간다.', 'sad');
   show('ren', 'normal', 'left');
-  await say('ren', '편집국이 여기만은 못 지웠어. 너무 많은 사람이 너무 세게 기억해서.', 'normal');
+  await say('ren', '편집국도 여기만은 못 지웠어. 기억하는 사람이 너무 많아서.', 'normal');
   show('towa', 'serious', 'right');
   await say('towa', '드론 띄웠어. …나도 같이 읽을게.');
   clearChars();
@@ -198,7 +199,7 @@ async function scenePuzzle6() {
   await say('kurogane', '네가 언젠가 열 수 있을 때까지 두려고 했다. 코하루는 첫날부터 그 상자만 보더라.', 'sad');
   await say('rei', '열 수 있을 것 같아요. 이제.', 'serious');
   hide('kurogane');
-  await say('rei', '두 줄로. 나의 밤과, 시오리의 밤.', 'serious');
+  await say('rei', '두 줄로 놓자. 내 밤이랑, 시오리의 밤.', 'serious');
   clearChars();
   await runTimeline('time6');
 }
@@ -222,7 +223,7 @@ async function sceneConclusion6() {
     }
   }
   show('rei', 'serious', 'left');
-  await say('rei', '원고 뒷면의 얼굴. 녹은 라이터. 렌과 쿠로가네 반장의 증언. 그날 불을 지른 사람은 니시무라예요.', 'serious');
+  await say('rei', '원고 뒷면에 시오리가 그린 얼굴, 그리고 1층 서고에서 나온 라이터. 그날 불을 지른 사람은 니시무라예요.', 'serious');
   show('ren', 'normal', 'right');
   await say('ren', '증언할게. 법정에서. 안대도 벗고.', 'normal');
   hide('ren');
@@ -239,16 +240,15 @@ async function sceneConclusion6() {
 
 // 진실·여백 엔딩 공통 에필로그
 async function epilogueMontage() {
-  bg('cafe');
   bgm('epilogue');
   const lines = [
     '——병원. 깨어난 사에키 미츠루가 침대 옆 키보드로 서툴게 한 소절을 친다. 히마리가 음표 머리핀을 꽂고 따라 친다.',
     '——새 소속사. 아마네 루루의 데뷔곡 제목은 「앙코르」.',
-    '——유키는 미대에, 나기는 토키와 양과점에. 둘은 각자 제 쪽에 리본을 매고 같은 날 집을 나선다.',
-    '——사쿠라유 터. 겐조가 휠체어에서 손녀에게 보일러 닦는 법을 가르친다. 케이코의 붕대는 풀렸다.',
+    '——유키는 미대에, 나기는 토키와 양과점에. 유키는 오른쪽, 나기는 왼쪽에 리본을 매고 같은 날 집을 나선다.',
+    '——다시 짓는 사쿠라유. 겐조가 휠체어에서 손녀에게 보일러 닦는 법을 가르친다. 케이코의 붕대는 풀렸다.',
     '——법정. 렌이 안대를 벗고 증언대에 선다.',
     '——크레센트. 쿠라모치가 새 큐 시트 맨 위에 적는다. 「앙코르: 핀 조명 하나」.',
-    '——아케이드. 비어 있던 점술 부스 자리에 두부집 할머니가 화분을 내놓았다.',
+    '——아케이드. 비어 있던 점술 부스 자리에 두부집 할머니가 화분을 내놓는다.',
     '——잔상과 사무실. 담요를 두른 토와가 모니터 대신 소파에 앉아 있다. "…나 고양이 아니야."',
     '——쿠로가네의 손목시계가 다시 간다. 8시 31분에서, 오늘로.',
     '——카페 「여백」의 문에 손글씨 메모. 「잠시 휴업」.',
@@ -281,7 +281,7 @@ async function sceneEnding6() {
     bg('lighthouse_dawn');
     bgm('truth');
     await say('', '새벽. 곶 끝. 하쿠요 본사에 수색 영장이 집행되고, 니시무라가 연행되었다는 소식이 라디오로 흘러나온다.');
-    await say('', '아사기리는 그날 아침 스스로 경찰서에 들어갔다.');
+    await say('', '날이 밝자, 아사기리가 스스로 경찰서를 찾아갔다는 소식도 들린다.');
     if (end === 'margin') {
       show('rei', 'serious', 'left');
       await say('', '최종 페이지 끝에, 칸이 하나 더 남아 있다. 아무것도 그려지지 않은 칸.');
@@ -321,7 +321,7 @@ async function sceneEnding6() {
       bg('office');
       show('koharu', 'happy', 'right');
       show('rei', 'normal', 'left');
-      await say('', '9월 1일 아침. 잔상과 사무실 문에 붙어 있던 「해체」 종이가 없다.');
+      await say('', '9월 1일 아침. 잔상과 사무실 문에 「해체」 종이는 다시 붙지 않았다.');
       await say('koharu', '선배, 오늘 커피 담당 저예요. 단 거죠?', 'happy');
       await say('rei', '응. 단 거.', 'normal');
       clearChars();
@@ -333,6 +333,7 @@ async function sceneEnding6() {
   await credits(G.flags.ending || 'truth');
   await showRank('종장 「같은 하루」');
   CHARACTERS.shiori.name = '???';
+  CHARACTERS.ren.name = '???';
 }
 
 const CH6_FN = {

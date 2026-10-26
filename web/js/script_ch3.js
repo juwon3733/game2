@@ -119,7 +119,7 @@ async function sceneOffice3() {
   clearChars();
   show('kurogane', 'normal', 'center');
   await say('kurogane', '아케이드 노포 「토키와 양과점」. 어젯밤, 마감 뒤 2층 창고 계단 아래에서 점장 하세가와가 쓰러진 채 발견됐다. 의식불명.');
-  await say('kurogane', '그날 매상 봉투 42만 엔이 없어졌다.');
+  await say('kurogane', '그날 매상 42만 엔이 든 봉투가 없어졌다.');
   gainWord('p_hasegawa'); gainWord('th_envelope'); gainWord('a_take');
   await say('kurogane', '강력계는 그날 마감 담당 점원 [[스즈네 유키]]를 보고 있다. 근무표에 이름이 있고, 신고도 유키가 했다.');
   gainWord('p_yuki');
@@ -174,7 +174,7 @@ async function sceneExplore3a() {
         await say('', '직원 메모판. 점장의 꼼꼼한 글씨.');
         await gainItem('roster'); tick();
         show('koharu', 'normal', 'right');
-        await say('koharu', '점장님, 직원들을 엄청 챙기셨나 봐요.', 'normal');
+        await say('koharu', '점장님이 직원들을 엄청 챙기셨나 봐요.', 'normal');
       },
       ledger: async () => {
         await say('', '안쪽 사무 책상. 펼쳐진 매상 장부.');
@@ -185,7 +185,7 @@ async function sceneExplore3a() {
       safe: async () => {
         await say('', '창고 금고. 열쇠가 꽂힌 채 문이 열려 있고, 안은 비어 있다.');
         show('koharu', 'worried', 'right');
-        await say('koharu', '봉투가… 여기 들어가야 했던 거죠?', 'worried');
+        await say('koharu', '원래는 봉투가 여기 들어 있어야 했던 거죠?', 'worried');
       },
       backdoor: async () => { await say('', '창고 뒷문. 아케이드 뒷골목으로 이어진다. 잠금쇠가 풀려 있다.'); },
     },
@@ -222,16 +222,16 @@ async function sceneMadoka1() {
   meet('madoka', 'left', 'smile');
   await say('madoka', '잔상과 분들이죠? 기다렸어요. 미즈시마 마도카예요. 저 모퉁이에서 타로를 봐요.', 'smile');
   gainWord('pl_booth3');
-  await say('madoka', '저도 비슷한 걸 봐요. 다만 저는 [[앞쪽]]이에요. 카드를 섞으면 아직 안 일어난 일이 컷처럼 떠오르거든요.', 'smile');
+  await say('madoka', '저도 비슷한 걸 봐요. 다만 저는 [[앞일]]이 보여요. 카드를 섞으면 아직 안 일어난 일이 컷처럼 떠오르거든요.', 'smile');
   show('koharu', 'happy', 'right');
   await say('koharu', '진짜요? 대단해요!', 'happy');
-  await say('madoka', '그날 저녁에 본 세 장이에요. 드릴게요. 수사에 도움이 된다면.', 'smile');
+  await say('madoka', '그날 저녁에 본 세 장이에요. 수사에 도움이 된다면 가져가세요.', 'smile');
   for (const c of ['F1', 'F2', 'F3']) await gainCut(c);
   await say('madoka', '오른쪽 리본 아가씨가 창고에 들어가고, 봉투를 쥐고, 누군가를 밀어요. 그래서 점장님께 조심하시라고 말씀드렸는데….', 'normal');
   await say('madoka', '지켜 드리지 못했네요.', 'normal');
   hide('koharu');
   show('rei', 'serious', 'right');
-  await say('rei', '(…이상해. 잔상인데, 세 장 중 두 장은 손끝이 [[차가워]].)', 'serious');
+  await say('rei', '(이상해. 세 장 중 두 장은 손끝이 [[차가워]]. 잔상이 아닌 것처럼.)', 'serious');
   await say('madoka', '왜 그렇게 보세요? 무섭게.', 'smile');
   await say('rei', '…원래 이 얼굴이에요.', 'normal');
   clearChars();
@@ -244,10 +244,7 @@ async function sceneAccuse3() {
   await say('kurogane', '(전화) 다른 이름이 있으면 오늘 밤 안에 보고해라.');
   hide('kurogane');
   show('koharu', 'worried', 'right');
-  await say('koharu', '근무표엔 유키 씨, 미래 컷엔 오른쪽 리본, 셔터를 내린 것도 오른쪽 리본이었어요….', 'worried');
-  await say('koharu', '근데 할머니는 숄 두른 사람도 봤다고 했고요.', 'worried');
-  show('towa', 'normal', 'left');
-  await say('towa', '남의 컷 말고 네 컷으로.');
+  await say('koharu', '이대로 데려가면 유키 씨는 아니라고 말할 기회도 없을 거예요.', 'worried');
   clearChars();
   hideText();
   const r = await runName({
@@ -259,7 +256,7 @@ async function sceneAccuse3() {
   if (r.ok) {
     G.stats.accuse = true;
     await say('kurogane', '(전화) …점술가? 수사에 협조하겠다고 찾아온 사람을?');
-    await say('kurogane', '(전화) 근거는 아직 네 컷뿐이군. 그래도 몇 시간 벌어 주지. 유키는 오늘은 참고인으로만 부르겠다.');
+    await say('kurogane', '(전화) 근거라곤 아직 네가 읽은 컷뿐이군. 그래도 몇 시간 벌어 주지. 유키는 오늘은 참고인으로만 부르겠다.');
   } else {
     G.stats.accuse = false;
     if (who === 'p_yuki') {
@@ -283,7 +280,7 @@ async function sceneAccuse3() {
 async function sceneAcademy3() {
   bg('academy');
   await banner('역 앞 미술 입시 학원', '8월 28일 저녁', 1400);
-  await say('', '근무표 뒤에 끼워져 있던 수강증 영수증 한 장. 「스즈네 유키 — 저녁반」. 코하루가 그걸 들고 여기까지 왔다.');
+  await say('', '근무표 뒤에 끼워져 있던 학원 수강료 영수증 한 장. 「스즈네 유키 — 저녁반」. 코하루가 찾아낸 그 종이를 들고, 두 사람은 역 앞으로 왔다.');
   show('koharu', 'normal', 'right');
   await say('koharu', '저녁반이면… 어젯밤에도 수업이 있었다는 거잖아요.', 'normal');
   await say('', '실기실. 석고상 앞에 이젤이 줄지어 있다. 창가 자리에서 오른쪽 리본을 단 여자아이가 목탄을 쥔 채 굳어 있다.');
@@ -292,14 +289,14 @@ async function sceneAcademy3() {
     await say('yuki', '형사님. 동생이, 아니 「유키」가 경찰서에 갔어요.', 'crying');
     await say('yuki', '제가 한 걸로 해 주세요. 학원은 그만둘게요. 나기는 아무 잘못 없어요. 다 제 욕심이었어요.', 'crying');
     show('rei', 'serious', 'right');
-    await say('rei', '그만두지 마. 아직 아무것도 안 읽었어.', 'serious');
+    await say('rei', '그만두지 마세요. 아직 아무것도 확인 안 됐어요.', 'serious');
   } else {
-    await say('yuki', '형사님이 왜 여기에.', 'normal');
+    await say('yuki', '형사님이 여긴 왜….', 'normal');
     await say('yuki', '저, 그날 밤 가게에 없었어요. 여기 있었어요. …근데 그걸 말하면 안 돼요.', 'crying');
   }
   gainWord('pl_academy');
   hide('koharu');
-  await say('', '레이가 그녀의 이젤에 손을 얹는다.');
+  await say('', '레이가 유키의 이젤에 손을 얹는다.');
   await gainCut('3E');
   await say('', '화판 귀퉁이에 끼운 스케치북. 마지막 장에 역 승강장 그림.');
   await gainCut('3F');
@@ -398,10 +395,10 @@ async function sceneMadoka() {
   await runTrial('madoka');
   bg('booth3');
   await say('kurogane', '(전화) …독촉장, 스팽글, 오려 낸 스크린톤. 마도카는 강력계에 넘기지.');
-  await say('rei', '(흰 장갑. 크레센트 밤 10시에 본 그 손도.)', 'serious');
+  await say('rei', '(흰 장갑. 크레센트에서 밤 10시에 본 손도 흰 장갑이었어.)', 'serious');
   hide('kurogane');
   show('rei', 'serious', 'right');
-  await say('rei', '(…누가 내 앞에 컷을 고쳐서 놓았어. 내가 알아채는지 보려고.)', 'serious');
+  await say('rei', '(누군가 일부러 고친 컷을 내 앞에 놓았어. 내가 알아채는지 보려고.)', 'serious');
   clearChars();
 }
 
@@ -418,14 +415,13 @@ async function sceneConclusion3() {
   await banner('결론', '토키와 양과점', 1300);
   await say('', '셔터를 반쯤 올린 양과점. 강력계 형사, 유키와 나기, 두부집 할머니. 뒷줄에 쿠로가네.');
   show('kurogane', 'normal', 'center');
-  await say('kurogane', '네 네임으로 말해 봐라.');
+  await say('kurogane', '말해 봐라.');
   hide('kurogane');
   hideText();
   await runName({ title: '8월 27일 밤 — 둘 중 하나', sub: '모든 빈칸이 맞아야 확정할 수 있다.', parts: NAME3_FINAL, threshold: 6 });
   await montage(G.lastSolution);
   show('rei', 'serious', 'left');
-  await say('rei', '그날 마감을 한 건 나기 씨, 유키 씨는 학원. 봉투를 가져간 건 마도카 씨예요. 점장님은 그 사람을 쫓다가 넘어졌어요.', 'serious');
-  await say('rei', '잔상은 증거가 안 되니까, 물증으로 말할게요.', 'serious');
+  await say('rei', '봉투를 가져간 건 마도카 씨예요. 점장님은 그 사람을 쫓다가 계단에서 넘어졌어요.', 'serious');
   hide('rei');
   for (let i = 0; i < CONCLUSION3.length; i++) {
     const q = CONCLUSION3[i];
@@ -450,12 +446,12 @@ async function sceneConclusion3() {
   await say('', '쌍둥이가 나란히 서 있다. 오른쪽 리본과 왼쪽 리본.');
   bgm('truth');
   hideText();
-  const c = await choice(['"둘 다 서로의 하루를 대신 살아 준 거야."', '"유키 씨, 학원 계속 다녀요."', '(유키의 스케치북을 나기에게 건넨다)'], '둘에게 뭐라고 할까?');
-  if (c === 0) await say('nagi', '언니 하루, 재밌었어. 케이크 냄새 나는 하루.', 'crying');
-  if (c === 1) await say('yuki', '응. 이번엔 숨기지 않고 다닐게. 점장님한테도 말할게.', 'crying');
+  const c = await choice(['"점장님이 둘 다 기다린대요."', '"유키 씨, 학원 계속 다녀요."', '(유키의 스케치북을 나기에게 건넨다)'], '둘에게 뭐라고 할까?');
+  if (c === 0) await say('nagi', '언니, 나 이제 내 이름으로 나갈게. 언니 하루도 재밌었지만.', 'crying');
+  if (c === 1) await say('yuki', '네. 이번엔 숨기지 않고 다닐게요. 점장님한테도 말씀드릴게요.', 'crying');
   if (c === 2) {
     G.flags.sketch3 = true;
-    await say('', '나기가 스케치북을 넘긴다. 마지막 장, 계산대에 선 나기의 뒷모습. 「매일 고마워」.');
+    await say('', '나기가 스케치북을 넘긴다. 승강장 그림 바로 앞 장, 계산대에 선 나기의 뒷모습. 「매일 고마워」.');
   }
   clearChars();
 }
@@ -464,23 +460,23 @@ async function sceneEpilogue3() {
   bg('arcade');
   await say('', '밤의 아케이드. 셔터가 하나둘 내려간다.');
   show('rei', 'normal', 'left');
-  await say('', '레이의 손에 유키의 스케치북이 들려 있다. 돌려주는 걸 깜빡했다.');
+  await say('', '레이의 손에 유키의 스케치북이 들려 있다. 쌍둥이가 「다음에 케이크 사러 오실 때 가져다주세요」 하며 맡긴 것이다.');
   FX.ghost();
-  show('shiori', 'normal', 'center');
+  show('shiori', 'point', 'center');
   await say('', '아케이드 기둥 옆에 교복 차림의 여자아이가 서서, 스케치북을 가리킨다.');
   await say('shiori', '그려.');
   hide('shiori');
-  await say('', '——사라졌다.');
-  await say('', '레이의 오른손이 떨린다. 검지의 굳은살이 욱신거린다.');
+  await say('', '셔터 내려가는 소리에 돌아보니, 기둥 옆엔 아무도 없다.');
+  await say('', '레이의 오른손이 저도 모르게 스케치북 모서리를 꽉 쥔다.');
   show('rei', 'surprised', 'left');
-  await say('rei', '(…나, 그림 그린 적 없는데.)', 'surprised');
+  await say('rei', '(…이 손, 뭘 그리고 싶어 해.)', 'surprised');
   clearChars();
   bg('arcade_exit');
   bgm(null, 2);
   await say('', '아케이드 출구. 가로등 아래에 흰 코트를 입은 사람이 서 있다. 은발, 한쪽 눈에 안대.');
   show('ren', 'smile', 'left');
   sfx('ghost');
-  await say('ren', '역시 너는 읽어내는구나, 시노노메.', 'smile');
+  await say('ren', '역시 읽어 냈구나, 시노노메.', 'smile');
   await say('ren', '6년 만이야.', 'normal');
   show('rei', 'serious', 'right');
   await say('rei', '…누구.', 'serious');
@@ -494,8 +490,9 @@ async function sceneEpilogue3() {
   await say('', '레이의 휴대폰 화면이 저절로 켜진다.');
   show('towa', 'normal', 'center');
   await say('towa', '렌.');
+  CHARACTERS.ren.name = '렌';
   await say('koharu', '토와 씨, 아는 사람이에요?', 'worried');
-  await say('towa', '에러.');
+  await say('towa', '…나중에 얘기할게.');
   FX.glitch(700);
   hideText();
   await banner('3장 「둘 중 하나」 끝', '', 2200);

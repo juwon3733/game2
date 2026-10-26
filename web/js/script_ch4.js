@@ -101,9 +101,10 @@ const CH4_STATE = {
 // ---------- 장면 ----------
 
 async function sceneOffice4() {
+  CHARACTERS.ren.name = '렌';
   await FX.title('CHAPTER 4', '지워 드립니다', '8월 29일 · 항만 재개발 지구', [['hayaka', 'normal'], ['keiko', 'normal']]);
   bg('office');
-  await say('', '8월 29일 아침. 잔상과 사무실. 코하루가 선반 맨 위의 상자를 올려다보고 있다. 「6년 전 / 등대」.');
+  await say('', '8월 29일 오전. 잔상과 사무실. 코하루가 선반 맨 위의 상자를 올려다보고 있다. 「6년 전 / 등대」.');
   show('koharu', 'normal', 'right');
   await say('koharu', '과장님, 이 상자 뭐예요?', 'normal');
   show('kurogane', 'normal', 'center');
@@ -124,7 +125,7 @@ async function sceneOffice4() {
   hide('towa');
   await say('kurogane', '하야카 엄마는 케이코. 하쿠요 하청에서 일하다 그만뒀다. 아버지 병실을 지키고 있어.');
   gainWord('p_keiko');
-  await say('koharu', '불이요.', 'worried');
+  await say('koharu', '불… 이었군요.', 'worried');
   await say('', '코하루의 손이 무릎 위에서 꽉 쥐어진다. 레이는 그걸 본다.');
   clearChars();
 }
@@ -171,7 +172,7 @@ async function sceneExplore4a() {
         await say('', '탈의실 벽의 전단. 「재개발 반대 주민 모임 — 8/28 19:00 공민관」.');
         await gainCut('4L'); tick();
       },
-      bath: async () => { await say('', '물이 빠진 탕. 바닥 타일에 후지산 벽화가 비친다. 반쯤 그을렸다.'); },
+      bath: async () => { await say('', '물이 빠진 탕. 벽의 후지산 그림이 반쯤 그을렸다.'); },
       boiler: async () => { await say('', '할아버지가 매일 닦았다는 보일러. 지금은 차갑다.'); },
       murase: async () => {
         if (metMurase) { show('murase', 'smile', 'right'); await say('murase', '안전 테이프 안쪽은 위험합니다. 조심하세요.', 'smile'); return; }
@@ -179,7 +180,7 @@ async function sceneExplore4a() {
         meet('murase', 'right', 'smile');
         await say('murase', '경찰분들이시군요. 하쿠요 하청 현장소장 무라세입니다. 협조하겠습니다.', 'smile');
         await say('murase', '안타까운 일이지요. 노후 배전반 누전입니다. 몇 번이나 위험하다고 말씀드렸는데.', 'normal');
-        await say('murase', '손녀분 일은 들으셨습니까? 다음 날 기억을 지웠다더군요. 저는 그게 마음에 걸려서요.', 'smile');
+        await say('murase', '손녀분 일은 들으셨습니까? 오늘 아침에 기억을 지웠다더군요. 저는 그게 마음에 걸려서요.', 'smile');
       },
     },
   });
@@ -221,11 +222,11 @@ async function sceneHayaka1() {
   await say('ren', '또 만났네, 시노노메.', 'smile');
   await say('ren', '그 아이는 지운 덕분에 잠들 수 있었어. 그걸 다시 펼쳐서 뭘 하려고?', 'normal');
   show('rei', 'serious', 'center');
-  await say('rei', '지운 게 진짜 그 아이를 위한 거였는지 확인하려고.', 'serious');
+  await say('rei', '그게 정말 그 애를 위한 건지 보려고.', 'serious');
   await say('ren', '잊는 게 구원일 때도 있어. 넌 누구보다 잘 알 텐데.', 'smile');
   hide('ren');
-  await say('', '돌아보면 복도는 비어 있다.');
-  await say('hayaka', '오늘은 싫어요. 내일 와 주세요.', 'crying');
+  await say('', '흰 코트는 대답을 기다리지 않고 엘리베이터에 오른다. 문이 닫힌다.');
+  await say('hayaka', '지금은 싫어요. 이따가… 할아버지 면회 끝나고 와 주세요.', 'crying');
   clearChars();
 }
 
@@ -233,12 +234,11 @@ async function sceneAccuse4() {
   bg('office');
   await banner('8월 29일 오후', '잔상과 사무실', 1300);
   show('kurogane', 'normal', 'center');
-  await say('kurogane', '강력계가 내일 하야카를 정식으로 부른다. 말다툼, 기억 삭제, 현장 근처 목격. 세 가지가 맞아떨어진다고.');
-  await say('kurogane', '네 생각은 다르냐. 오늘 밤 안에 보고해.');
+  await say('kurogane', '강력계가 오늘 저녁 하야카를 정식으로 부른다. 말다툼, 기억 삭제, 현장 근처 목격. 세 가지가 맞아떨어진다고.');
+  await say('kurogane', '네 생각은 다르냐. 그 전에 보고해.');
   hide('kurogane');
   show('koharu', 'worried', 'right');
-  await say('koharu', '하야카 씨는 불 나기 전에 골목에 있었고… 다음 날 기억을 지웠고….', 'worried');
-  await say('koharu', '울타리 앞에서 손전등을 받은 사람도 있어요. 망을 본 사람이요.', 'worried');
+  await say('koharu', '하야카 씨, 아무것도 기억 못 한다고 하면서 계속 울고 있었어요. 뭘 지웠는지는 몸이 기억하나 봐요.', 'worried');
   clearChars();
   hideText();
   const r = await runName({
@@ -251,15 +251,15 @@ async function sceneAccuse4() {
   if (r.ok) {
     G.stats.accuse = true;
     await say('kurogane', '하청 현장소장. 근거는 배전반하고 헬멧 로고뿐이군.');
-    await say('kurogane', '그래도 하야카는 참고인으로만 부르게 하지. 내일, 그 아이 잘린 칸부터 채워 봐라.');
+    await say('kurogane', '그래도 하야카는 참고인으로만 부르게 하지. 오늘 안에, 그 아이 잘린 칸부터 채워 봐라.');
   } else {
     G.stats.accuse = false;
     if (who === 'p_hayaka') {
       G.flags.hayakaTaken = true;
       await say('kurogane', '역시 손녀인가. 강력계도 그렇게 본다.');
       FX.pulse();
-      await say('', '그날 저녁. 경찰서에 불려 온 하야카는 아무것도 묻기 전에 말했다. 「제가 했어요.」');
-      await say('', '지운 밤을, 지운 채로 떠안겠다는 얼굴이었다.');
+      await say('', '그날 저녁. 경찰서에 불려 온 하야카는 아무것도 묻기도 전에 말했다. 「제가 했어요.」');
+      await say('', '무슨 일이 있었는지도 기억 못 하면서, 다 떠안겠다는 얼굴이었다.');
     } else if (who === 'p_keiko') {
       G.flags.keikoTaken = true;
       await say('kurogane', '엄마를? 손전등 하나로?');
@@ -283,7 +283,7 @@ async function sceneHayaka() {
   show('hayaka', 'crying', 'left');
   await say('hayaka', '엄마가… 정말로 불을 질렀을까요.', 'crying');
   show('rei', 'serious', 'right');
-  await say('rei', '망을 본 것까지만 봤잖아. 그 뒤는 아직 안 읽었어.', 'serious');
+  await say('rei', '엄마가 망을 보는 데까지만 봤잖아. 그 뒤는 아직 몰라.', 'serious');
   clearChars();
 }
 
@@ -332,9 +332,9 @@ async function sceneHospital4() {
   bg('hospital');
   await say('', '중환자실. 겐조는 아직 눈을 뜨지 않았다. 협탁에 그을린 손목시계.');
   show('koharu', 'worried', 'right');
-  await say('koharu', '할아버지가 마지막으로 본 것… 읽을 수 있을까요.', 'worried');
+  await say('koharu', '할아버지 시계에도 뭔가 남아 있을까요?', 'worried');
   show('rei', 'serious', 'left');
-  await say('rei', '…해 볼게.', 'serious');
+  await say('rei', '읽어 볼게.', 'serious');
   hideText();
   await gainCut('4H');
   await say('', '침대 옆 의자 위에 그을린 작업 장갑 한 켤레. 손바닥 쪽이 녹아 있다.');
@@ -346,10 +346,10 @@ async function sceneHospital4() {
 
 async function sceneKeiko() {
   bg('hospital');
-  if (G.flags.keikoTaken) await say('', '참고인 조사를 마친 케이코가 병실로 돌아왔다. 두 손의 붕대가 새로 감겨 있다.');
+  if (G.flags.keikoTaken) await say('', '참고인 조사를 마친 케이코가 병실로 돌아왔다. 두 손의 붕대가 새로 감겨 있다. 하야카가 조금 떨어져 서 있다.');
   else await say('', '병실 앞 복도. 케이코가 붕대 감은 손을 무릎 위에 올려놓고 앉아 있다. 조금 떨어져 하야카가 서 있다.');
   meet('keiko', 'left', 'normal');
-  await say('keiko', '하야카가 기억을 지웠다는 거, 저도 어제 알았어요.', 'normal');
+  await say('keiko', '하야카가 기억을 지웠다는 거, 저도 오늘 알았어요.', 'normal');
   await runTrial('keiko');
   clearChars();
 }
@@ -367,14 +367,14 @@ async function sceneConclusion4() {
   await banner('결론', '사쿠라유 앞', 1300);
   await say('', '그을린 굴뚝 아래. 강력계 형사, 무라세와 하쿠요 변호사, 오카모토 할머니, 케이코와 하야카. 뒤쪽에 쿠로가네.');
   show('kurogane', 'normal', 'center');
-  await say('kurogane', '네 네임으로.');
+  await say('kurogane', '시작해.');
   hide('kurogane');
   hideText();
   await runName({ title: '8월 28일 밤 — 사쿠라유', sub: '모든 빈칸이 맞아야 확정할 수 있다.', parts: NAME4_FINAL, threshold: 5 });
   await montage(G.lastSolution);
   show('rei', 'serious', 'left');
-  await say('rei', '불을 낸 건 무라세 씨. 케이코 씨는 망을 봤고, 그리고 불 속에서 아버지를 업고 나왔어요.', 'serious');
-  await say('rei', '하야카는 망을 보는 엄마까지만 봤어요. 그래서 엄마를 지키려고 그 밤을 지웠어요.', 'serious');
+  await say('rei', '불을 낸 건 무라세 씨예요. 케이코 씨는 망을 봤지만, 불이 나자 아버지를 업고 나왔어요.', 'serious');
+  await say('rei', '하야카는 망을 보는 엄마까지만 봤어요.', 'serious');
   hide('rei');
   for (let i = 0; i < CONCLUSION4.length; i++) {
     const q = CONCLUSION4[i];
@@ -426,10 +426,10 @@ async function sceneEpilogue4() {
   show('nishimura', 'normal', 'left');
   await say('', '서장 옆 소파에 검은 정장의 남자가 앉아 있다. 하쿠요 계열사 상무, 니시무라.');
   show('kurogane', 'normal', 'right');
-  await say('', '서장의 목소리가 낮다. 「잔상과는 오늘부로 해체. 쿠로가네 반장은 직무 정지.」');
+  await say('', '서장의 목소리가 낮다. 「잔상과는 오늘부로 해체. 쿠로가네 과장은 직무 정지.」');
   await say('kurogane', '알겠습니다.');
   await say('nishimura', '잔상이라. 재미있는 걸 보는 분들이었죠.', 'normal');
-  await say('', '복도에서 그 얼굴을 본 순간, 레이의 오른손 검지가 욱신거린다. 이유를 모른다.');
+  await say('', '복도에서 그 얼굴을 본 순간, 레이의 오른손 검지가 욱신거린다. 이유는 모른다.');
   clearChars();
   bg('office');
   FX.mood('dust');

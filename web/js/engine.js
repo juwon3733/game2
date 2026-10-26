@@ -292,9 +292,43 @@ async function say(who, text, face) {
 // ---------- 말하는 사람 얼굴 ----------
 // 상반신이 화면에 없을 때(퍼즐·탐색·전화) 대사창 왼쪽에 얼굴을 잘라 보여 준다
 const FACE_POS = { towa: '50% 46%' };
+// 그림마다 머리가 있는 자리를 찾아(투명 배경 기준) 얼굴이 칸 가운데에 오게 자른다. 결과는 퍼센트라 칸 크기와 상관없다.
+const FACE_CROP = {};
+function faceCrop(src) {
+  if (FACE_CROP[src] !== undefined) return FACE_CROP[src];
+  FACE_CROP[src] = null;
+  const img = new Image();
+  img.onload = () => {
+    const w = 96, h = Math.round(img.height * w / img.width);
+    const c = document.createElement('canvas'); c.width = w; c.height = h;
+    const x = c.getContext('2d'); x.drawImage(img, 0, 0, w, h);
+    let d; try { d = x.getImageData(0, 0, w, h).data; } catch { return; }
+    const op = (i, j) => d[(j * w + i) * 4 + 3] > 40;
+    let top = -1;
+    for (let j = 0; j < h && top < 0; j++) { let n = 0; for (let i = 0; i < w; i++) if (op(i, j)) n++; if (n >= 3) top = j; }
+    if (top < 0 || top > h * 0.6) return; // 배경이 꽉 찬 그림이면 기본값
+    // 머리 높이쯤(위에서 그림 높이의 15%)까지 줄마다 불투명한 가로 폭의 가운데를 모은다
+    const band = Math.round(h * 0.15), xs = [], ws = [];
+    for (let j = top; j < Math.min(h, top + band); j++) {
+      let l = -1, r = -1;
+      for (let i = 0; i < w; i++) if (op(i, j)) { if (l < 0) l = i; r = i; }
+      if (l >= 0) { xs.push((l + r) / 2); ws.push(r - l); }
+    }
+    xs.sort((a, b) => a - b); ws.sort((a, b) => a - b);
+    const cx = xs[xs.length >> 1], side = Math.max(w * 0.28, Math.min(w * 0.6, ws[Math.floor(ws.length * 0.6)] * 0.95));
+    const cy = top + side * 0.7;
+    const bw = w / side, bh = h / side;
+    const ox = Math.max(0, Math.min(bw - 1, (cx - side / 2) / side)), oy = Math.max(0, Math.min(bh - 1, (cy - side / 2) / side));
+    FACE_CROP[src] = `background-size:${(bw * 100).toFixed(1)}% auto;background-position:${(ox / (bw - 1) * 100).toFixed(1)}% ${(oy / (bh - 1) * 100).toFixed(1)}%`;
+    document.querySelectorAll('#tb-face, .pz-face, .ex-face').forEach((el) => { if (el.style.backgroundImage.includes(src)) el.setAttribute('style', `background-image:url(${src});${FACE_CROP[src]}`); });
+  };
+  img.src = src;
+  return null;
+}
 function faceStyle(who, face) {
   const f = face || (onStage[who] && onStage[who].dataset.face) || CHARACTERS[who].faces[0];
-  return `background-image:url(${ASSET.portrait(who, f)});background-position:${FACE_POS[who] || '50% 19%'}`;
+  const src = ASSET.portrait(who, f);
+  return `background-image:url(${src});${faceCrop(src) || `background-position:${FACE_POS[who] || '50% 19%'}`}`;
 }
 const faceOk = {};
 function setFace(who, face) {

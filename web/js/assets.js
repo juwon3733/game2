@@ -101,7 +101,7 @@ function cutInfo(id) {
       const truth = id.endsWith('_truth');
       return {
         title: '증언', owner: CHARACTERS[w.char].name, color: '#555',
-        desc: truth ? s.truthDesc : s.cutDesc, dist: truth ? null : s.dist,
+        desc: (truth ? s.truthDesc || s.cutDesc : s.cutDesc) || '', dist: truth ? null : s.dist,
       };
     }
   }

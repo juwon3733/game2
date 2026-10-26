@@ -34,11 +34,11 @@ const SPEC = {
 const CHARACTER_SHEETS = {
   rei: 'Character reference sheet of an androgynous 22-year-old investigator with a cool, sleepy charm. Large half-closed violet-grey eyes with soft highlights and faint dark circles, messy short black hair with one stray ahoge and a small lavender hair clip, oversized grey hoodie under a long beige trench coat with rolled sleeves, a pin badge shaped like a manga panel on the coat, a canned coffee in hand, pen callus on right index finger. Navy and lavender accent colors. Full body front view plus face close-up.',
   koharu: 'Character reference sheet of a cheerful 20-year-old rookie detective girl. Big sparkling amber eyes, orange-brown side ponytail tied with a sky-blue scrunchie with a small star charm, long orange-brown hair in a high side ponytail reaching her waist, fitted navy suit jacket with rolled sleeves over a white shirt with a loose sky-blue ribbon tie and the top button undone, short navy pencil skirt, black tights, white sneakers, a police badge clipped to her belt, a notebook covered in cute stickers. Sunny orange and sky-blue accent colors. Full body front view plus face close-up.',
-  kurogane: 'Character reference sheet of a tired but handsome 47-year-old police chief with a "cool uncle" design. Slicked-back black hair streaked with grey, light stubble, sharp tired eyes, rumpled white shirt with rolled sleeves, loose dark tie, shoulder holster strap, a strawberry lollipop stick in his mouth, old wristwatch. Iron grey and strawberry pink accents.',
+  kurogane: 'Character reference sheet of a tired but handsome 47-year-old police chief with a "cool uncle" design, clearly middle-aged (crow\'s feet, grey at the temples, a slightly weathered face — not a young man). Slicked-back black hair streaked with grey, light stubble, sharp tired eyes, rumpled white shirt with rolled sleeves, loose dark tie, shoulder holster strap, a strawberry lollipop stick in his mouth, old wristwatch. Iron grey and strawberry pink accents.',
   towa: 'Chibi avatar of a hacker shown only on a monitor screen: small 2-head-tall character with big sparkling green eyes, oversized cat-ear headphones with glowing LEDs, wrapped in a cream blanket like a cape, green monitor glow. Reference sheet with several expressions.',
   komatsu: 'Character reference sheet of a gentle, tired 36-year-old single mother who works late shifts. Long soft brown hair loosely tied over one shoulder, kind worried eyes like her daughter\'s, beige cardigan over a simple white blouse, an office lanyard, a small music-note keychain on her bag. Warm rose and beige accents.',
   akari: 'Character reference sheet of a lively 20-year-old convenience store clerk girl. Long black hair with mint-green tips in a high ponytail and a star hairpin, bright honest eyes, a fitted green-and-white store uniform vest over a cropped T-shirt, denim shorts, name tag, wired earbuds around her neck. Mint and white accents.',
-  asagiri: 'Character reference sheet of an elegant, gentle 61-year-old cafe owner woman. Beautiful silver hair in a neat bun with a wooden hairpin, round gold glasses, soft kind eyes, cream blouse with a linen apron, a coffee-bean brooch. Cream and coffee brown palette.',
+  asagiri: 'Character reference sheet of an elegant, gentle 61-year-old cafe owner woman, clearly in her sixties (soft wrinkles around the eyes and mouth, a mature face — not a young woman). Beautiful silver hair in a neat bun with a wooden hairpin, round gold glasses, soft kind eyes, cream blouse with a linen apron, a coffee-bean brooch. Cream and coffee brown palette.',
   ookubo: 'Character reference sheet of a friendly, chubby 63-year-old apartment security guard with a comical and lovable design. Round face, bushy grey eyebrows and mustache, olive green guard uniform and cap with a shiny badge, a whistle on a cord. Olive and brass accents.',
   taiga: 'Character reference sheet of a 21-year-old delivery worker with a "scary-looking but soft-hearted delinquent" design. Spiky bleached blond hair under a black cap worn backwards, sharp golden eyes, a small silver earring, black delivery uniform jacket with reflective stripes and rolled sleeves, fingerless gloves. Black and gold accents.',
   himari: 'Character reference sheet of an adorable 9-year-old girl. Big round brown eyes, brown twin tails tied with pink ribbons, NO hairpin in her hair (she keeps her gold music-note hairpin hidden in her fist), pink t-shirt with a piano-key pattern, denim overall skirt, shy expression.',
@@ -48,8 +48,8 @@ const CHARACTER_SHEETS = {
 // 표정 상반신: 캐릭터_표정
 const FACE_PROMPTS = {
   rei_normal: 'expression: sleepy, indifferent, half-closed eyes',
-  rei_serious: 'expression: eyes open, focused and sharp',
-  rei_surprised: 'expression: eyes wide, startled',
+  rei_serious: 'expression: eyes open, focused and sharp, NO can in hand, one hand slightly raised as if pointing out a contradiction',
+  rei_surprised: 'expression: eyes wide, startled, NO can in hand, both hands lowered',
   koharu_normal: 'expression: friendly smile',
   koharu_happy: 'expression: big cheerful grin, eyes closed with joy',
   koharu_worried: 'expression: worried, eyebrows raised, hand near chest',
@@ -65,7 +65,8 @@ const FACE_PROMPTS = {
   taiga_sad: 'expression: ashamed and sad, looking down, biting lip, pale face, no blush on the cheeks',
   himari_normal: 'expression: shy, half hidden behind a door, no hairpin in her hair',
   himari_crying: 'expression: crying, clutching something hidden in her fist, no hairpin in her hair',
-  shiori_normal: 'expression: calm, faint smile, pointing at something',
+  shiori_normal: 'expression: calm and quiet, faint smile, hands together in front of her skirt, NOT pointing',
+  shiori_point: 'expression: calm, faint smile, pointing at something to the side',
 };
 
 const BG_PROMPTS = {
@@ -90,28 +91,28 @@ const CUT_CHARS = {
 // 장면은 컷이 작게 보여도 읽히도록 큰 덩어리 위주로 쓴다.
 const CUT_PROMPTS = {
   A: ['{taiga} holding a cardboard box under his arm, pressing the doorbell of an apartment front door at night. Big music notes drifting out through the door gap.', '옆구리에 낀 상자, 문틈의 음표(♪)'],
-  B: ['{mitsuru} sitting at a black upright piano in a cozy living room at night, both hands lifted clearly above the keys and not touching them, his head turned toward the curtained glass door to the balcony; behind the thin curtain, the small shadow of a child.', '멈춘 손(건반에서 뗀 손), 업라이트 피아노, 커튼 너머 작은 그림자'],
+  B: ['{mitsuru} sitting at a black upright piano in a cozy living room at night, both hands lifted clearly above the keys and not touching them, his head turned toward the curtained glass door to the balcony; through the thin curtain, far outside beyond the white emergency partition board on the NEIGHBOR\'s balcony, the small shadow of a child climbing.', '멈춘 손(건반에서 뗀 손), 업라이트 피아노, 커튼 너머 작은 그림자'],
   C: ['{mitsuru} leaning through the gap of a balcony partition at night, reaching out desperately. Beyond the partition: a child\'s small feet standing on the railing, and a tiny glint of a small hairpin caught on the outer ledge (only a small sparkle, no toy or other object). Leave empty space at the top center for a speech bubble.', '칸막이, 뻗은 팔, 난간 위 작은 발, 바깥 턱의 반짝임, 위쪽 가운데 빈 공간'],
   D: ['{taiga}, startled at an apartment front door at night, turning back toward something off-panel. His cardboard box has just dropped to the floor at his feet. Simple speed lines from the side.', '바닥에 떨어진 상자, 놀란 얼굴'],
-  E: ['{taiga} bursting out of a stairwell into the entrance hall, shouting with a terrified face, both hands empty. Leave empty space at the top center for a speech bubble.', '빈 손, 외치는 입, 위쪽 가운데 빈 공간'],
+  E: ['At night: {taiga} bursting out of a stairwell into the dim entrance hall, shouting with a terrified face, both hands empty. Through the glass entrance door, a pitch-dark night street; no daylight anywhere. Leave empty space at the top center for a speech bubble.', '빈 손, 외치는 입, 위쪽 가운데 빈 공간'],
   F: ['Close-up on a stairwell: a hand gripping a dead smartphone, the screen showing a big empty battery icon. Blond hair (accent color) at the edge of the panel.', '휴대폰 화면의 빈 배터리'],
   G: ['On a balcony at night, a music-note hairpin flying away in the wind from the hair of {himari}. She stands on the balcony floor reaching for it.', '날아가는 음표 머리핀, 바닥에 선 아이'],
   H: ['Seen from inside a 5th-floor apartment balcony high above the ground at night; far below, the harbor town lights and the dark sea make the height obvious: {himari} has stepped up onto a flowerpot set against the railing and leans her upper body over the top of the railing, stretching one arm down toward the narrow outer ledge just outside the railing, where her music-note hairpin lies, drawn large and clearly in the accent color. On one side, a white emergency partition board; the neighbor\'s balcony beyond it is empty.', '화분을 밟은 발, 난간 위로 내민 몸, 난간 바로 바깥 턱의 큰 머리핀(포인트 색), 빈 칸막이, 아래로 보이는 항구 야경(높이)'],
   I: ['Seen from the side on a 5th-floor apartment balcony high above the ground at night; far below, the harbor town lights and the dark sea make the height obvious: an adult\'s arm reaches through the gap beside the white emergency partition and pulls {himari} back down from the railing onto the balcony floor; she clutches her music-note hairpin, drawn clearly in the accent color. The adult (glasses, light shirt) leans dangerously far out over the railing on his side of the partition.', '손에 쥔 머리핀(포인트 색), 칸막이 틈으로 뻗은 어른 팔, 바깥으로 기우는 어른, 아래 항구 야경(높이)'],
   t_ookubo_1: ['{ookubo} proudly writing in a logbook at his desk, absurd sparkles and flowers around him (an exaggerated, self-flattering memory).', '미화: 반짝이, 꽃'],
   t_ookubo_2: ['At night: {taiga} running out of a stairwell, same outfit and delivery backpack as always, but his face is scribbled over with a crude horned monster doodle like a child\'s pen scribble (a prejudiced memory). He is not wearing a guard uniform. Through the glass entrance door, a pitch-dark night street lit only by a single streetlamp; no daylight, no white sky, no utility poles.', '낙서: 얼굴이 괴물 낙서, 밤'],
-  t_ookubo_2_truth: ['{taiga} running out of a stairwell, face clearly visible, scared and about to cry, shouting.', '(진실) 겁먹은 얼굴'],
+  t_ookubo_2_truth: ['At night: {taiga} running out of a stairwell, face clearly visible, scared and about to cry, shouting. Through the glass entrance door, a pitch-dark night street lit by one streetlamp; no daylight.', '(진실) 겁먹은 얼굴'],
   t_ookubo_3: ['A dull impact on a flowerbed in front of an apartment building at night, seen from far away: a puff of dust and crushed flowers. No person is visible.', '화단의 충격'],
   t_taiga_1: ['First-person view of a hand pressing an apartment doorbell at night, music notes coming through the door.', '초인종, 음표'],
   t_taiga_2: ['An exaggerated memory of a SOUND, not an explosion: {taiga} in a 5th-floor apartment corridor at night covers his ears with both hands, drawn small, while the whole panel vibrates with huge concentric sound-wave rings and giant jagged empty sound-effect balloon shapes (no letters) coming from beyond the balcony. No fire, no smoke, no debris, no rocks, no blast, no flash.', '과장: 거대한 소리(음파·효과음 모양). 폭발·불·파편 없음'],
-  t_taiga_3: ['Back view of {taiga} going down stairs, with his face and hands left completely blank white as if erased.', '생략: 하얀 여백'],
-  t_taiga_3_truth: ['At night on a dim stairwell: {taiga} holds up a smartphone close to the viewer; its black screen shows only one big empty battery icon, clearly readable. He bites his lip in frustration.', '(진실) 꺼진 휴대폰의 큰 빈 배터리 아이콘'],
+  t_taiga_3: ['At night, back view of {taiga} going down stairs; IMPORTANT: his head and both hands are left as large completely blank white areas with no lines at all, as if cut out of the picture.', '생략: 하얀 여백'],
+  t_taiga_3_truth: ['At night, running down a dim stairwell two steps at a time: {taiga} glances down at the dead smartphone in his own hand, biting his lip; seen from over his shoulder, the black screen shows one big empty battery icon, clearly readable. He is NOT showing the phone to anyone.', '(진실) 꺼진 휴대폰의 큰 빈 배터리 아이콘'],
   t_himari_1: ['Child\'s crayon drawing of a little girl doing homework at a desk.', '크레용 그림체'],
   t_himari_1_truth: ['{himari} at her desk, looking out the window instead of at her homework.', '(진실) 창밖을 보는 아이'],
   t_himari_2: ['Child\'s crayon drawing of a little girl at a window, the balcony drawn strangely huge.', '크레용, 거대한 베란다'],
   t_himari_2_truth: ['From inside the room through the open glass door, on a 5th-floor apartment balcony high above the ground at night; far below, the harbor town lights and the dark sea make the height obvious: {himari} leans on the balcony railing and stares at her music-note hairpin lying on the narrow outer ledge just outside the railing, drawn large in the accent color.', '(진실) 난간 바깥 턱의 큰 머리핀(포인트 색), 항구 야경(높이)'],
   t_himari_3: ['Child\'s crayon drawing of a blanket colored completely black, a tiny fist in the corner.', '크레용, 새까만 이불'],
-  t_himari_3_truth: ['{himari} crying under a blanket, holding her music-note hairpin tightly.', '(진실) 머리핀을 쥔 손'],
+  t_himari_3_truth: ['{himari} crying under a blanket at night, eyes open and full of tears, sobbing, holding her music-note hairpin tightly against her chest.', '(진실) 머리핀을 쥔 손'],
 };
 
 // 탐색 맵·걷는 캐릭터·타이틀 키아트. 게임은 이미지가 있으면 쓰고, 없으면 코드로 그린 임시 그림을 쓴다.

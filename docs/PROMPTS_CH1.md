@@ -36,14 +36,14 @@ Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transpa
 ```
 같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
 
-Expression: eyes open, focused and sharp.
+Expression: eyes open, focused and sharp, NO can in hand, one hand slightly raised as if pointing out a contradiction.
 ```
 
 **`rei_surprised.png`
 ```
 같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
 
-Expression: eyes wide, startled.
+Expression: eyes wide, startled, NO can in hand, both hands lowered.
 ```
 
 **`rei_crying.png`
@@ -114,7 +114,7 @@ Character design in the style of modern Japanese anime mobile gacha games (subcu
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
-Character reference sheet of a tired but handsome 47-year-old police chief with a "cool uncle" design. Slicked-back black hair streaked with grey, light stubble, sharp tired eyes, rumpled white shirt with rolled sleeves, loose dark tie, shoulder holster strap, a strawberry lollipop stick in his mouth, old wristwatch. Iron grey and strawberry pink accents.
+Character reference sheet of a tired but handsome 47-year-old police chief with a "cool uncle" design, clearly middle-aged (crow's feet, grey at the temples, a slightly weathered face — not a young man). Slicked-back black hair streaked with grey, light stubble, sharp tired eyes, rumpled white shirt with rolled sleeves, loose dark tie, shoulder holster strap, a strawberry lollipop stick in his mouth, old wristwatch. Iron grey and strawberry pink accents.
 ```
 
 **`kurogane_normal.png`
@@ -187,7 +187,7 @@ Character design in the style of modern Japanese anime mobile gacha games (subcu
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
-Character reference sheet of an elegant, gentle 61-year-old cafe owner woman. Beautiful silver hair in a neat bun with a wooden hairpin, round gold glasses, soft kind eyes, cream blouse with a linen apron, a coffee-bean brooch. Cream and coffee brown palette.
+Character reference sheet of an elegant, gentle 61-year-old cafe owner woman, clearly in her sixties (soft wrinkles around the eyes and mouth, a mature face — not a young woman). Beautiful silver hair in a neat bun with a wooden hairpin, round gold glasses, soft kind eyes, cream blouse with a linen apron, a coffee-bean brooch. Cream and coffee brown palette.
 ```
 
 **`asagiri_normal.png`
@@ -319,7 +319,7 @@ Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transpa
 Expression: crying, clutching something hidden in her fist, no hairpin in her hair.
 ```
 
-## 대화 9 — 시오리 상반신 (2장)
+## 대화 9 — 시오리 상반신 (3장)
 
 먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
 
@@ -342,7 +342,14 @@ Character reference sheet of an ethereal, beautiful 16-year-old girl. Large calm
 
 Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
 
-Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: calm, faint smile, pointing at something.
+Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: calm and quiet, faint smile, hands together in front of her skirt, NOT pointing.
+```
+
+**`shiori_point.png`
+```
+같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
+
+Expression: calm, faint smile, pointing at something to the side.
 ```
 
 **`shiori_smile.png`
@@ -1401,7 +1408,7 @@ Scene: An exaggerated memory of a SOUND, not an explosion: a young delivery work
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + gold (#c9961a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Back view of a young delivery worker with spiky bleached blond hair (accent color) under a backwards black cap, a small earring and a black uniform with reflective stripes going down stairs, with his face and hands left completely blank white as if erased.
+Scene: At night, back view of a young delivery worker with spiky bleached blond hair (accent color) under a backwards black cap, a small earring and a black uniform with reflective stripes going down stairs; IMPORTANT: his head and both hands are left as large completely blank white areas with no lines at all, as if cut out of the picture.
 ```
 
 > 꼭 보여야 할 것: 생략: 하얀 여백
@@ -1410,7 +1417,7 @@ Scene: Back view of a young delivery worker with spiky bleached blond hair (acce
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + gold (#c9961a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: At night on a dim stairwell: a young delivery worker with spiky bleached blond hair (accent color) under a backwards black cap, a small earring and a black uniform with reflective stripes holds up a smartphone close to the viewer; its black screen shows only one big empty battery icon, clearly readable. He bites his lip in frustration.
+Scene: At night, running down a dim stairwell two steps at a time: a young delivery worker with spiky bleached blond hair (accent color) under a backwards black cap, a small earring and a black uniform with reflective stripes glances down at the dead smartphone in his own hand, biting his lip; seen from over his shoulder, the black screen shows one big empty battery icon, clearly readable. He is NOT showing the phone to anyone.
 ```
 
 > 꼭 보여야 할 것: (진실) 꺼진 휴대폰의 큰 빈 배터리 아이콘
@@ -1427,7 +1434,7 @@ Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game scr
 
 Palette: 8 grey levels from black to white, and one accent color blue (#3b8fd0). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
-Scene: a gentle man in his early 30s with glasses and a light shirt sitting at a black upright piano in a cozy living room at night, both hands lifted clearly above the keys and not touching them, his head turned toward the curtained glass door to the balcony; behind the thin curtain, the small shadow of a child.
+Scene: a gentle man in his early 30s with glasses and a light shirt sitting at a black upright piano in a cozy living room at night, both hands lifted clearly above the keys and not touching them, his head turned toward the curtained glass door to the balcony; through the thin curtain, far outside beyond the white emergency partition board on the NEIGHBOR's balcony, the small shadow of a child climbing.
 
 Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
@@ -1502,7 +1509,7 @@ Scene: From inside the room through the open glass door, on a 5th-floor apartmen
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + pink (#e0679a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: a 9-year-old girl with brown twin tails tied with ribbons, a small music-note hairpin, a t-shirt with a piano-key pattern and a denim overall skirt crying under a blanket, holding her music-note hairpin tightly.
+Scene: a 9-year-old girl with brown twin tails tied with ribbons, a small music-note hairpin, a t-shirt with a piano-key pattern and a denim overall skirt crying under a blanket at night, eyes open and full of tears, sobbing, holding her music-note hairpin tightly against her chest.
 ```
 
 > 꼭 보여야 할 것: (진실) 머리핀을 쥔 손
@@ -1565,7 +1572,7 @@ Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game scr
 
 Palette: 8 grey levels from black to white, and one accent color olive green (#6b8a5a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
-Scene: a young delivery worker with spiky bleached blond hair (light grey) under a backwards black cap, a small earring and a black uniform with reflective stripes bursting out of a stairwell into the entrance hall, shouting with a terrified face, both hands empty. Leave empty space at the top center for a speech bubble.
+Scene: At night: a young delivery worker with spiky bleached blond hair (light grey) under a backwards black cap, a small earring and a black uniform with reflective stripes bursting out of a stairwell into the dim entrance hall, shouting with a terrified face, both hands empty. Through the glass entrance door, a pitch-dark night street; no daylight anywhere. Leave empty space at the top center for a speech bubble.
 
 Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
@@ -1594,7 +1601,7 @@ Scene: At night: a young delivery worker with spiky bleached blond hair (light g
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + olive green (#6b8a5a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: a young delivery worker with spiky bleached blond hair (light grey) under a backwards black cap, a small earring and a black uniform with reflective stripes running out of a stairwell, face clearly visible, scared and about to cry, shouting.
+Scene: At night: a young delivery worker with spiky bleached blond hair (light grey) under a backwards black cap, a small earring and a black uniform with reflective stripes running out of a stairwell, face clearly visible, scared and about to cry, shouting. Through the glass entrance door, a pitch-dark night street lit by one streetlamp; no daylight.
 ```
 
 > 꼭 보여야 할 것: (진실) 겁먹은 얼굴

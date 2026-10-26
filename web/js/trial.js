@@ -260,7 +260,7 @@ async function trialRound(wid, R) {
       const [a, k] = hit;
       sfx('objection');
       hideText();
-      if (W.gentle) { flash(); await banner('이걸 봐 줘.', '', 1400, 'objection'); }
+      if (W.gentle) { await banner('이걸 봐 줘.', '', 1400, 'gentle'); }
       else { await FX.cutin('rei', a.shout || '그건 틀렸어!'); quake(); flash(); }
       if (a.rebut) {
         // 반박하는 동안은 증언 패널을 걷어 내고 레이를 앞에 세운다

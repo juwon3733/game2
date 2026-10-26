@@ -149,7 +149,7 @@ async function sceneOffice2() {
   bg('office');
   await say('', '8월 26일 아침. 잔상과 사무실. 전기포트가 끓는 소리.');
   show('koharu', 'happy', 'right');
-  await say('koharu', '선배, 커피요! 오늘은 단 거로 했어요. 카페 사장님이 그러는 게 맞대요.', 'happy');
+  await say('koharu', '선배, 커피요! 오늘은 단 걸로 했어요. 카페 사장님이 선배는 그게 맞대요.', 'happy');
   show('rei', 'normal', 'left');
   await say('rei', '쓸데없는 걸 배워 왔네.', 'normal');
   await say('', '레이가 잔을 받는다. 다 마신다.');
@@ -166,13 +166,13 @@ async function sceneOffice2() {
   show('taiga', 'sad', 'right');
   await say('taiga', '택배요. 잔상과 앞으로.', 'sad');
   show('koharu', 'happy', 'right');
-  await say('koharu', '타이가 씨! 진짜 또 왔네요!', 'happy');
-  await say('taiga', '그때 고마웠다고. 그것뿐이에요.', 'sad');
+  await say('koharu', '타이가 씨! 진짜 오셨네요!', 'happy');
+  await say('taiga', '그때… 고마웠다고요. 그게 다예요.', 'sad');
   hide('taiga');
   hide('kurogane');
   show('towa', 'normal', 'center');
-  await say('towa', '이번엔 사람이 많아. 다들 서로 다른 데를 보고 있었어. 컷 하나 믿지 마.');
-  await say('towa', '그리고 보고서는 네가 직접 써. 누가, 언제, 무엇을. 남의 말 말고 네 눈으로 본 것만.');
+  await say('towa', '이번엔 사람이 많아. 다들 서로 다른 데를 보고 있었어. 컷 하나만 믿지 마.');
+  await say('towa', '그리고 보고서는 네가 직접 써. 남이 한 말 말고, 네가 본 것만.');
   await say('tip', '[[네임]]: 빈칸에 단어 조각을 넣어 보고서를 쓴다. 단어는 컷을 크게 보고 짚거나, 증언을 파고들어 모은다.');
   clearChars();
 }
@@ -223,7 +223,7 @@ async function sceneExplore2a() {
       },
       kura: async () => {
         show('kuramochi', 'normal', 'right');
-        await say('kuramochi', '…일 끝나면 이 일도 그만둬야 할지 몰라요. 할 말 없어요.', 'scared');
+        await say('kuramochi', '…이번 일 끝나면 여기서도 잘릴지 몰라요. 할 말 없어요.', 'scared');
       },
       stick: async () => {
         await say('', '무대 바닥에 부러진 드럼 스틱. 반쪽은 객석 쪽으로 튀어 나가 있다.');
@@ -264,7 +264,7 @@ async function scenePuzzle2a() {
   await say('koharu', '리허설 컷은 빠졌네요. 객석 첫 줄에서 누가… 위를 보고 있었는데.', 'worried');
   show('rei', 'serious', 'left');
   await say('rei', '(…캣워크 위에서 리그를 가리키던 장갑 낀 손.)', 'serious');
-  await say('rei', '…조명 기사부터 읽자.', 'serious');
+  await say('rei', '조명 기사를 만나 보자.', 'serious');
   clearChars();
 }
 
@@ -281,7 +281,7 @@ async function sceneKuramochi() {
   await runTrial('kuramochi');
   bg('booth');
   show('koharu', 'worried', 'right');
-  await say('koharu', '끈이 없어졌다… 누가 풀었다는 거잖아요. 그리고 쿠라모치 씨는 아직 뭘 숨기고 있어요.', 'worried');
+  await say('koharu', '끈이 없어졌다… 누가 풀었다는 거잖아요. 그리고 쿠라모치 씨, 아직 뭔가 숨기고 있어요.', 'worried');
   show('rei', 'serious', 'left');
   await say('rei', '무대 뒤로 가자. 리그가 거기 있어.', 'serious');
   clearChars();
@@ -334,12 +334,12 @@ async function sceneExplore2b() {
         if (shiori) {
           shiori = false;
           FX.ghost();
-          show('shiori', 'normal', 'center');
+          show('shiori', 'point', 'center');
           await say('', '의자 옆에 교복 차림의 여자아이가 서서, 재킷 안주머니를 가리킨다.');
           await say('shiori', '앙코르.');
           hide('shiori');
           EX.extras = [];
-          await say('', '——사라졌다.');
+          await say('', '레이가 눈을 깜빡이자, 의자 옆은 비어 있다.');
           show('rei', 'surprised', 'left');
           await say('rei', '(…지금, 말했어?)', 'surprised');
           hide('rei');
@@ -348,7 +348,7 @@ async function sceneExplore2b() {
         await gainItem('notebook');
         gainLine('L5');
         show('koharu', 'worried', 'right');
-        await say('koharu', '「앙코르 — 루루 솔로」… 스카우트를 불렀대요. 매니저님이.', 'worried');
+        await say('koharu', '「앙코르 — 루루 솔로」… 매니저님이 스카우트를 불렀나 봐요.', 'worried');
         await tick();
       },
       catstairs: async () => {
@@ -356,7 +356,7 @@ async function sceneExplore2b() {
       },
       monitor: async () => {
         await say('', '대기실 벽의 무대 감시 모니터. 지금은 꺼져 있다.');
-        await say('rei', '무대 감시 화면. 캣워크까지 다 찍혀.');
+        await say('rei', '캣워크까지 다 찍히네.');
       },
       tendo: async () => {
         if (metTendo) {
@@ -391,7 +391,7 @@ async function scenePin() {
   await runTrial('pin');
   bg('greenroom');
   show('rei', 'serious', 'left');
-  await say('rei', '모니터. 루루가 여기서 울고 있을 때, 캣워크에 누가 있어.', 'serious');
+  await say('rei', '모니터. 루루가 여기서 울고 있을 때, 캣워크에 누가 있었어.', 'serious');
   show('koharu', 'worried', 'right');
   await say('koharu', '모니터 속 그 사람, 손목에서 뭔가 반짝였어요.', 'worried');
   clearChars();
@@ -411,7 +411,7 @@ async function sceneRuru() {
   show('ruru', 'crying', 'left');
   await say('ruru', '그럼 누가. 누가 끈을 푼 건데.', 'crying');
   show('rei', 'serious', 'right');
-  await say('rei', '…그건 아직 안 읽혔어.', 'serious');
+  await say('rei', '그건 아직 몰라.', 'serious');
   clearChars();
 }
 
@@ -422,10 +422,7 @@ async function sceneAccuse2() {
   await say('kurogane', '(전화) 뒤집을 거면 오늘 밤 안에 보고서를 내라. 끈을 푼 사람이 누군지. 내가 그걸로 강력계를 막아 보지.');
   hide('kurogane');
   show('koharu', 'worried', 'right');
-  await say('koharu', '정리해 볼게요. 쿠라모치 씨는 점검표를 고쳐 썼고, 부스에서 캣워크가 정면으로 보이고, 개장 전 일은 끝까지 말을 안 했어요.', 'worried');
-  await say('koharu', '사장님은 장갑 낀 사람이 계단 쪽으로 가는 걸 봤다고 했고요….', 'worried');
-  show('towa', 'normal', 'left');
-  await say('towa', '정리는 네가 해. 남의 말 말고, 네가 본 컷으로.');
+  await say('koharu', '선배는 누구라고 생각해요? 저는… 솔직히 모르겠어요.', 'worried');
   FX.zoom('center');
   await sleep(400);
   FX.zoom(null);
@@ -440,13 +437,13 @@ async function sceneAccuse2() {
   if (r.ok) {
     G.stats.accuse = true;
     await say('kurogane', '(전화) …사장? 근거는 아직 잔상뿐이군.');
-    await say('kurogane', '(전화) 그래도 쿠라모치의 점검표 원본으로 사장실 압수수색 영장은 받아 뒀다. 내일 오후. 네 네임이 맞는지 거기서 확인해.');
+    await say('kurogane', '(전화) 그래도 쿠라모치의 점검표 원본으로 사장실 압수수색 영장은 받아 뒀다. 내일 오후. 네 보고서가 맞는지 거기서 확인해.');
   } else {
     G.stats.accuse = false;
     if (who === 'p_kuramochi') {
       G.flags.kuraTaken = true;
       await say('kurogane', '(전화) …조명 기사라. 점검표 서명에, 부스 위치에, 사장 목격담까지. 강력계도 좋아하겠군.');
-      await say('kurogane', '(전화) 루루 송치는 일단 멈췄다. 대신 쿠라모치 시노를 임의동행했다.');
+      await say('kurogane', '(전화) 루루 송치는 일단 멈췄다. 대신 쿠라모치 시노를 긴급체포했다.');
       clearChars();
       bg('booth');
       FX.pulse();
@@ -457,7 +454,7 @@ async function sceneAccuse2() {
       clearChars();
       bg('office');
     } else if (who === 'p_tendo') {
-      await say('kurogane', '(전화) 사장이라. …사람은 맞을지도 모르지. 근데 네 네임은 앞뒤가 안 맞는다. 이걸론 영장이 안 나와.');
+      await say('kurogane', '(전화) 사장이라. …사람은 맞을지도 모르지. 근데 네 보고서는 앞뒤가 안 맞는다. 이걸론 영장이 안 나와.');
       await say('kurogane', '(전화) 쿠라모치의 점검표 원본으로 사장실 압수수색 영장은 받아 뒀다. 내일 오후. 거기서 다시 맞춰 봐.');
     } else {
       await say('kurogane', '(전화) …그건 강력계가 쓴 보고서랑 다를 게 없군.');
@@ -476,7 +473,7 @@ async function sceneExplore2c() {
   await banner('텐도 프로모션', '8월 27일 오후 · 압수수색', 1500);
   show('tendo', 'smile', 'right');
   await say('tendo', '마음대로 뒤져요. 나올 것도 없으니까. 변호사님, 시간 좀 재 주세요.', 'smile');
-  await say('', '텐도가 금시계를 들여다본다. 크고 각진 금시계가 형광등에 번쩍인다.');
+  await say('', '텐도가 손목시계를 들여다본다. 크고 각진 금시계가 형광등에 번쩍인다.');
   clearChars();
   goal('사장실에서 물증을 찾아라. (0/3)');
   const req = ['trash', 'drawer', 'aoi'];
@@ -507,7 +504,7 @@ async function sceneExplore2c() {
         await say('aoi', '나가는 김에 이거 가져가세요. 렌탈 업자가 저한테 잘못 보낸 견적서예요.', 'normal');
         await gainItem('estimate');
         show('koharu', 'worried', 'right');
-        await say('koharu', '「안전 와이어 옵션 삭제」…. 승인 서명이 사장님이에요.', 'worried');
+        await say('koharu', '「안전 와이어 옵션 삭제」…. 승인 서명은 사장님 거예요.', 'worried');
         tick();
       },
       safe: async () => {
@@ -530,7 +527,7 @@ async function sceneExplore2c() {
 async function sceneTendo() {
   bg('tendo_office');
   show('tendo', 'smile', 'left');
-  await say('tendo', '잔상? 좋아요, 보여 줄게. 보여 주고 싶은 것만.', 'smile');
+  await say('tendo', '잔상? 좋아, 보여 줄게. 보여 주고 싶은 것만.', 'smile');
   await runTrial('tendo');
   // 보류 해제: 쿠라모치가 다시 동의한다
   bg('tendo_office');
@@ -572,7 +569,7 @@ async function sceneTendo() {
 async function scenePuzzle2b() {
   bg('crescent_stage');
   show('rei', 'serious', 'left');
-  await say('rei', '다 읽혔어. 리허설부터, 리그가 떨어질 때까지.', 'serious');
+  await say('rei', '리허설부터, 리그가 떨어질 때까지.', 'serious');
   clearChars();
   await runPuzzle('page2b');
 }
@@ -582,7 +579,7 @@ async function sceneConclusion2() {
   await banner('결론', '불 꺼진 크레센트', 1300);
   await say('', '객석등만 켜진 크레센트. 강력계 형사, 텐도와 변호사, 「크럼블」 셋, 쿠라모치. 맨 뒤에 쿠로가네.');
   show('kurogane', 'normal', 'center');
-  await say('kurogane', '정리해 봐라, 시노노메. 네 네임으로.');
+  await say('kurogane', '정리해 봐라, 시노노메.');
   hide('kurogane');
   hideText();
   await runName({ title: '8월 25일 — 리그가 떨어질 때까지', sub: '모든 빈칸이 맞아야 확정할 수 있다.', parts: NAME2_FINAL, threshold: 5 });
@@ -606,7 +603,7 @@ async function sceneConclusion2() {
   }
   show('kuramochi', 'resolute', 'right');
   FX.lines(600);
-  await say('kuramochi', '사장님이 끈을 주머니에 넣으면서, 부스 쪽을 보고 웃었어요. 그 얼굴, 아직도 꿈에 나와요.', 'resolute');
+  await say('kuramochi', '사장님이 끈을 주머니에 넣으면서, 부스 쪽을 보고 손가락을 입에 댔어요. 그 얼굴, 눈을 감아도 보여요.', 'resolute');
   hide('kuramochi');
   show('tendo', 'cornered', 'left');
   FX.zoom('left');
@@ -617,7 +614,7 @@ async function sceneConclusion2() {
   await say('ruru', '근데 나도 흔들었어. 그래서 더 헐거워졌을 수도 있잖아.', 'crying');
   show('rei', 'normal', 'right');
   await say('rei', '조금은 그랬을 수도 있어. 근데 끈이 있었으면 안 떨어졌어. 끈을 푼 사람이 있어.', 'normal');
-  await say('rei', '그리고 그 사람은 공연을 못 멈추니까, 대신 자기가 거기 서 있기로 한 거야.', 'normal');
+  await say('rei', '키리시마 씨는 공연을 못 멈추니까, 대신 윙에서 리그를 지켜보기로 한 거야.', 'normal');
   bgm('truth');
   hideText();
   const c = await choice(['"네 탓 아니야."', '"앙코르, 해 줄래?"', '(수첩의 앙코르 쪽을 펼쳐서 건넨다)'], '루루에게 뭐라고 할까?');
@@ -655,8 +652,8 @@ async function sceneEpilogue2() {
   show('asagiri', 'normal', 'center');
   await say('asagiri', '오늘은 무슨 일이 있었어?');
   show('rei', 'normal', 'left');
-  await say('rei', '말 대신 뛰어든 사람이 있었어요.');
-  await say('asagiri', '그래. …힘든 건 잊어도 돼.');
+  await say('rei', '라이브하우스요. 보컬은 풀려났어요.');
+  await say('asagiri', '그래. 오늘은 한 잔 더 줄게.');
   if (G.flags.kuraTaken) {
     show('koharu', 'worried', 'right');
     await say('koharu', G.flags.reiSorry2 ? '쿠라모치 씨, 크레센트로 돌아간대요. 선배가 사과한 거, 고마웠대요.' : '쿠라모치 씨, 크레센트로 돌아간대요. 끝까지 들어 줘서 고마웠대요.', 'normal');

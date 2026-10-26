@@ -24,6 +24,7 @@
 | `tools/check-assets.mjs` | 이미지 파일명·형식·크기 검사 |
 | `tools/export-prompts.mjs` | 프롬프트 파일 재생성 (`--check`로 동기화 검사) |
 | `tools/smoke.mjs`, `tools/playthrough.mjs` | 모든 장면 오류 검사 / 장마다 정답으로 끝까지 풀어 보기(네임 단어가 그 장에서 다 모이는지까지). 둘 다 CI에서 돈다 |
+| `tools/dither-cut.py` | GPT 컷을 게임 컷 규칙으로 변환(384×256, 회색 N단계 + 포인트 색, 순서 디더링, 4배). 1장 초기 컷과 맞출 땐 `--levels 4` |
 | `tools/compose/` | **배경음악·효과음 작곡** (numpy FM 신시사이저). `songs.py` 곡 악보, `sfx.py` 효과음, `python3 tools/compose/build.py [이름]` → `web/assets/audio/` |
 | `docs/` | 기획 문서 (01~10), `WORKFLOW.md`, **`14_next_quality.md` (지금 따르는 품질 올리기 계획, 11은 1장용)**, `12_story_plan.md`(전체 스토리), **`13_deduction_upgrade.md`(추리 보강: 단서 짚기·네임·시각표·겹쳐 보기·중간 지목)** |
 | `prototype/` | 초기 프로토타입 (참고용, 손대지 않음) |
@@ -49,17 +50,19 @@
 - **5장 「편집자」 구현됨** (장면 13개, 중간 지목: 렌을 지목하면 렌 심문이 어려워짐 `inkPenalty`). 새 규칙: 원본 복원(`runRestore`, 편집 컷 `edited/original`), 실시간 편집 대결(`W.editor` + `answers[k].changes`). 마지막에 아사기리=편집장. 새 표정: asagiri_cold ren_sad kurogane_sad towa_serious. GPT 묶음: `portrait-tanabe` + 위 새 표정, `cut-koharu cut-tanabe cut-sota cut-kurogane cut-ren cut-asagiri`, `bg`. 편집 컷(5Ae 5Be 5Ce 5Ee 5De, t_ren_*)은 이음매가 그림에 보여야 함.
 - 장마다 단어 조각은 새로 시작한다: 결론 네임에 쓰는 단어는 그 장 안에서 다 얻을 수 있어야 한다(자동 플레이로 확인).
 - **종장 「같은 하루」 구현됨** (장면 8개). 등대 도서관 화재의 밤을 레이(R1~R8)·시오리(S1~S8) 두 줄 시각표(`time6`)로 맞추고, 아사기리 심문 → 자기 심문(`self6`, 레이 자신의 편집된 기억) → 결론 네임 → 최종 선택. 엔딩 3개(`G.flags.ending`): 잊게 해 줘=`edit`, 기억할게=`truth`, 기억할게+여백 조건 5개(`MARGIN_FLAGS`, 1~5장 감정 선택 yohaku1 yohaku2 sketch3 rescueShown badgeBack, 장을 넘어 유지)=`margin`. GPT 묶음: `portrait-shiori` + rei_crying shiori_smile, `cut-rei cut-shiori cut-asagiri`(R S AF t_asg_* t_self_*), `bg`(lighthouse lighthouse_in lighthouse_dawn), `cg`(cg_margin cg_farewell).
-- 1장 이미지 들어감. **다시 받을 그림**: 컷 `H I B t_himari_2_truth t_ookubo_2 t_taiga_3_truth t_taiga_2`, 상반신 `taiga_sad`(볼 빨감 없이), 새 표정 `ookubo_sad`, 장발로 바뀐 `portrait-koharu komatsu akari`, 새 그림 `portrait-yukin`(유키로 변장한 나기), 표정 towa_real koharu_crying asagiri_sad, CG cg_encore cg_twins cg_carry cg_sota. 히마리 상반신의 음표 핀은 Claude가 지웠다(핀은 주먹에 숨김). 코마츠·아카리 상반신 아직 없음 (높이·머리핀·밤·단서 크기, t_taiga_2는 폭발이 아니라 "큰 소리"로. 프롬프트 고침). 남은 것: `ui cg`, 타이틀 원본 화질. GPT가 풀컬러로 주면 Claude가 384×256 → 회색 8 + 포인트 1 디더링 → 1536×1024로 변환해 넣는다.
+- 1장 이미지 들어감. **다시 받을 그림**: 컷 `H I B t_himari_2_truth t_ookubo_2 t_taiga_3_truth t_taiga_2`, 상반신 `taiga_sad`(볼 빨감 없이), 새 표정 `ookubo_sad`, 컷 `E t_ookubo_2_truth`(밤인데 낮), `t_himari_3_truth`(눈 감고 자는 얼굴 → 우는 얼굴), `B`(아이 그림자가 옆집 베란다에), 상반신 아사기리·쿠로가네(나이보다 너무 젊음), rei_serious·surprised(캔 커피 없이), 시오리 normal(가리키지 않는 자세, 가리키는 건 point), 장발로 바뀐 `portrait-koharu komatsu akari`, 새 그림 `portrait-yukin`(유키로 변장한 나기), 표정 towa_real koharu_crying asagiri_sad, CG cg_encore cg_twins cg_carry cg_sota. 히마리 상반신의 음표 핀은 Claude가 지웠다(핀은 주먹에 숨김). 코마츠·아카리 상반신 아직 없음 (높이·머리핀·밤·단서 크기, t_taiga_2는 폭발이 아니라 "큰 소리"로. 프롬프트 고침). 남은 것: `ui cg`, 타이틀 원본 화질. GPT가 풀컬러로 주면 Claude가 384×256 → 회색 8 + 포인트 1 디더링 → 1536×1024로 변환해 넣는다.
+- GPT 그림 검수에서 그림체가 기존과 다르면(색 단계·디더링) 그대로 넣지 말고 `tools/dither-cut.py`로 맞춘다. cut-gold(1장 타이가 컷 7장)는 이렇게 회색 4단계로 맞춰 넣었다.
 - 그림은 GPT 이미지를 적극적으로 쓴다. 코드로 직접 그린 그림·CSS 장식은 "AI 슬롭" 티가 나서 사용자가 싫어한다. 코드 그림은 이미지가 없을 때의 임시용.
 - 타이틀 키아트(`title/key.png`)도 GPT 이미지.
-- **걸어 다니는 탑뷰 탐색은 없앴다**(사용자 요청). 현장 조사는 장소 배경(`MAP_BG`) 위에 조사할 곳 목록을 띄워 고르는 방식. `MAPS[id].objects`의 label과 `explore(id, {on, required})`의 대사를 쓴다. rows·좌표는 남아 있지만 안 쓴다(유령 표시 위치 정도). 맵·걷는 캐릭터 그림은 받지 않는다.
+- **걸어 다니는 탑뷰 탐색은 없앴다**(사용자 요청). 현장 조사는 장소 배경(`MAP_BG`) 위에 조사할 곳 목록을 띄워 고르는 방식. 장소는 구역(`EX_AREAS`)으로 나뉘어 탭으로 오가고, 물건마다 [살펴보기](공짜, 잔상이 있는 물건이면 첫 묘사만)와 [읽기](집중력 1)가 있다. 잔상 있는 물건 = `required`. 빈 물건을 읽으면 집중력만 닳고, 바닥나면 코하루(5장은 토와)가 쉬게 해 줌(도움 +1). 집중력 = 잔상 수 + 2. `MAPS[id].objects`의 label과 `explore(id, {on, required})`의 대사를 쓴다. rows·좌표는 남아 있지만 안 쓴다(유령 표시 위치 정도). 맵·걷는 캐릭터 그림은 받지 않는다.
 - 상반신은 `style_version` 3: 원본 256×384 도트 4배, 배경 없이 양옆·위 여백. 지금 있는 16장(128×192)은 교체 대상.
 - **대사 규칙** (1장 플레이 리뷰에서 나온 것):
   - 조작 설명은 인물 대사가 아니라 `say('tip', …)`(도움말 대사창). 인물은 사건 얘기만 한다.
   - 조사는 `을(를)`·`이(가)`처럼 써도 된다. `josa()`가 화면에 낼 때 받침에 맞춰 고친다(대사·배너·토스트·목표·네임).
   - "X인 게 아니라 Y인 거야" 같은 주제 문장은 장마다 한 번만. 나머지는 장면으로 보여 준다. 대사를 "…"로 시작하는 건 레이의 짧은 말·히마리·쿠라모치 정도만.
   - `(전화)` 대사의 인물은 `show()`하지 않는다(대사창 얼굴로 나옴). 토와는 `remote`라 모니터 창으로 뜨고, 5장 창고처럼 실제로 왔을 때만 `show('towa', 'real', pos, { here: true })`. 창밖·길 건너 인물은 `{ far: true }`.
-  - 새 표정 그림이 없으면 `CHARACTERS[x].alt`의 비슷한 표정으로 대신 보인다(예: ookubo sad→flustered).
+  - 대사창 왼쪽 얼굴(`#tb-face`)은 `engine.js`의 `faceCrop`이 그림의 투명 배경에서 머리 위치를 찾아 자동으로 자른다.
+- 새 표정 그림이 없으면 `CHARACTERS[x].alt`의 비슷한 표정으로 대신 보인다(예: ookubo sad→flustered).
   - 날짜: 1장 8/24, 2장 8/26~27, 3장 8/28, 4장 8/29~8/30 새벽, 5장 8/30, 종장 8/31. 6년 전 레이는 16살.
 - 연출 효과는 `js/fx.js` (저해상도 캔버스 + 디더, 계단식 애니메이션): 디더 장면 전환, 배경별 분위기(먼지·무대 조명·연기·반짝이·유령), 반박 컷인, 충격(반전 프레임·집중선·의성어), 증언 컷 찢기, 잔상 파문, 심장 박동, 글리치, 가장자리부터 지우기, 화면 당기기, 표정 반응, 장 제목 카드(`FX.title`), 회상(`FX.memory`), 형광등 깜빡임, 증언 붕괴, CG 레터박스. 대사: `[[단어]]` 강조, `(전화)` 전화 목소리, `(…)` 속마음, 문장부호에서 쉼. 설정에 [화면 효과: 줄이기].
 - 소리는 Claude가 직접 작곡한다(PC-98식 FM 음원). 곡 15개(1장 title office explore trial tension truth epilogue, 2장 live encore tendo, 3장 madoka, 4장 fire, 5장 editor, 종장 final, 심문 막판 chase — 반박이 하나 남으면 자동), 효과음 19개, 환경음 5개(`tools/compose/ambience.py`: sea rain crowd fire hum — `engine.js`의 `BG_AMB`가 배경마다 자동으로 깐다). 장면별 곡은 `script_chN.js`의 `CHN_BGM`, 증인별 곡은 `WITNESSES[id].bgm`.
