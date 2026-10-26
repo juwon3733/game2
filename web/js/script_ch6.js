@@ -34,8 +34,7 @@ Object.assign(MAPS, {
     ],
   },
 });
-// 머리핀은 1층과 2층 사이 계단참이라 1층 쪽에 둔다. 명판·국화는 잔상이 없는 물건(겉모습만)
-EX_AREAS.lighthouse = [['2층 열람실', ['seat', 'lastpage', 'form', 'box']], ['1층', ['stairs', 'hairpin', 'lighter', 'plaque', 'gate']], ['곶 끝', ['bench', 'flowers']]];
+// 조사 구역은 explore.js EX_AREAS.lighthouse. 머리핀은 계단참이라 1층 쪽, 명판·국화는 잔상이 없는 물건
 
 const CH6_SCENES = [
   ['offer6', '제안 (8월 31일 아침)'],
@@ -245,6 +244,7 @@ async function sceneConclusion6() {
       const c = await pickCut(`질문. ${q.q}`, '대답이 되는 물증이나 컷을 고르자.', { cancel: false, only: q.choices, items: true });
       if (q.answer.includes(c)) { sfx('correct'); break; }
       sfx('wrong'); quake(); G.stats.wrong++;
+      await say('kurogane', '그걸로는 안 묶인다. 다시.', 'sad');
     }
   }
   show('kurogane', 'sad', 'center');
@@ -372,8 +372,8 @@ async function sceneEnding6() {
     if (end === 'truth') await say('tip', `여백 조건 ${marginCount()} / ${MARGIN_FLAGS.length}. 1~5장 끝의 감정 선택에서 말 대신 컷·물건을 건네는 [[세 번째 보기]]를 모두 고르면 다른 결말이 열린다.`);
   }
   await banner('같은 하루, 다른 칸', '— 끝 —', 3000);
+  await showRank('종장 「같은 하루」'); // 평가를 먼저, 크레딧으로 끝낸다
   await credits(G.flags.ending || 'truth');
-  await showRank('종장 「같은 하루」');
 }
 
 const CH6_FN = {
