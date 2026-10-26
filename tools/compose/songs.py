@@ -1,4 +1,4 @@
-"""1장 배경음악 7곡. 음표는 마디 단위 문자열로 쓴다.
+"""배경음악. 1장 7곡 + 2장 3곡(live encore tendo). 음표는 마디 단위 문자열로 쓴다.
 
 멜로디 표기: 'a:1.5 f:.5 e d' → 음이름(소문자), #/b 반음, ^ 옥타브 위, _ 아래, ':길이'(박, 기본 1), '-' 쉼표.
 화음 표기: [('Dm9', 4), ...] 마디 안에서 (화음, 박 수).
@@ -237,5 +237,95 @@ def epilogue():
     return tr
 
 
+# ---------- 2장: 밴드 「크럼블」의 곡 ----------
+
+import numpy as np  # noqa: E402
+from synth import fm, lowpass  # noqa: E402
+
+
+def dist_guitar(n, dur, vel):
+    """FM 피드백을 과하게 걸고 tanh로 찌그러뜨린 일렉 기타 (파워 코드용)"""
+    x = fm(n, dur, vel, ratio=1.0, index=2.6, idecay=1.2, a=0.002, d=0.4, s=0.75, r=0.08, fb=0.9, detune=0.002)
+    x += fm(n, dur, vel * 0.6, ratio=2.0, index=1.5, idecay=0.8, a=0.002, d=0.4, s=0.6, r=0.08, fb=0.5, detune=-0.003)
+    return lowpass(np.tanh(x * 5) * 0.32, 3200)
+
+
+def clean_guitar(n, dur, vel):
+    """어쿠스틱 느낌의 뜯는 기타"""
+    x = fm(n, dur, vel, ratio=3.0, index=1.2, idecay=0.12, a=0.001, d=0.9, s=0.0, r=0.4)
+    x += fm(n, dur, vel * 0.5, ratio=1.0, index=0.4, idecay=0.3, a=0.001, d=1.4, s=0.0, r=0.4)
+    return lowpass(x, 4200) * 0.8
+
+
+def voice(n, dur, vel):
+    """노래 대신 부드러운 리드 (비브라토)"""
+    return fm(n, dur, vel, ratio=1.0, index=0.9, idecay=1.0, a=0.04, d=0.3, s=0.8, r=0.25, vib=0.012)
+
+
+def harpsi(n, dur, vel):
+    """하프시코드 비슷한 날카로운 뜯는 소리"""
+    return fm(n, dur, vel, ratio=4.0, index=2.2, idecay=0.06, a=0.001, d=0.5, s=0.0, r=0.2) * 0.7
+
+
+SONG_A = ['e:.5 e:.5 g:.5 a:1.5 b:1', 'd^:1 b:1 a:1 g:1', 'e:.5 e:.5 g:.5 a:1.5 c^:1', 'b:3 -:1',
+          'e:.5 e:.5 g:.5 a:1.5 b:1', 'd^:1 e^:1 d^:1 b:1', 'c^:1.5 b:.5 a:1 g:1', 'a:3 -:1']
+SONG_B = ['g:1 a:1 b:2', 'c^:1 b:1 a:2', 'g:1 a:1 b:1 d^:1', 'e^:4', 'e^:1 d^:1 b:2', 'c^:1 b:1 a:1 g:1', 'f#:2 a:2', 'b:4']
+
+
+def live():
+    """「앙코르 없음」 — 사건 당일 밤의 3곡째. 기억 속에서 들리는 것처럼 먹먹하게."""
+    tr = Track(152, 16)
+    verse = ['Em', 'C', 'G', 'D', 'Em', 'C', 'Am', 'B']
+    chorus = ['C', 'D', 'G', 'Em', 'C', 'D', 'B', 'B']
+    prog = verse + chorus
+    tr.bus('gtr', -0.35, 0.42, 0.12); tr.bus('gtr2', 0.35, 0.36, 0.12); tr.bus('bass', 0, 0.75, 0.05)
+    tr.bus('dr', 0, 0.55, 0.12); tr.bus('vox', 0.05, 0.5, 0.35)
+    pc = [p.replace('m', '').replace('B', 'B') + '5' for p in prog]
+    block(tr, 'gtr', dist_guitar, pc, [(x / 2, 0.42) for x in range(8)], octave=3, vel=0.6)
+    block(tr, 'gtr2', dist_guitar, pc, [(0, 1.4), (1.5, 0.9), (2.5, 1.4)], octave=3, vel=0.55)
+    basses(tr, 'bass', pluck_bass, prog, [(x / 2, 0.4, 0) for x in range(8)], vel=0.8)
+    drums(tr, 'dr', {'kick': [0, 1.5, 2, 2.5], 'snare': [1, 3], 'hat': [(x / 2, 0.35 + 0.2 * (x % 2 == 0)) for x in range(8)]}, 16)
+    for b in (0, 8):
+        tr.drum('dr', 'cym', b * 4, 0.8)
+    melody(tr, 'vox', voice, 0, SONG_A, octave=5, vel=0.6)
+    melody(tr, 'vox', voice, 8, SONG_B, octave=5, vel=0.65)
+    # 먹먹하게: 전체 신호의 고음을 깎는다 (벽 너머, 기억 속)
+    for b in tr.buses.values():
+        b['sig'] = lowpass(b['sig'], 1500)
+    return tr
+
+
+def encore():
+    """빈 무대에서 기타 하나로 부르는 「앙코르 없음」"""
+    tr = Track(84, 16)
+    prog = ['Em', 'Cmaj7', 'G', 'D', 'Em', 'Cmaj7', 'Am7', 'B7sus4 B7', 'Cmaj7', 'D', 'G', 'Em7', 'Cmaj7', 'D', 'Bsus4', 'Em']
+    tr.bus('gtr', -0.2, 0.55, 0.45); tr.bus('vox', 0.1, 0.5, 0.55); tr.bus('pad', 0, 0.12, 0.6)
+    arp(tr, 'gtr', clean_guitar, prog, [0, 2, 1, 2, 4, 2, 1, 2], step=0.5, octave=3, vel=0.55)
+    block(tr, 'pad', pad, prog, [(0, 3.95)], octave=3, vel=0.35, top=3)
+    slow = lambda bars: [' '.join(f'{tok.split(":")[0]}:{float(tok.split(":")[1]) if ":" in tok else 1.0}' for tok in b.split()) for b in bars]
+    melody(tr, 'vox', voice, 0, slow(SONG_A), octave=5, vel=0.5, legato=0.98)
+    melody(tr, 'vox', voice, 8, slow(SONG_B), octave=5, vel=0.55, legato=0.98)
+    return tr
+
+
+def tendo():
+    """사장 텐도의 심문: 우아하고 차가운 탱고"""
+    tr = Track(112, 16)
+    prog = ['Dm', 'Dm', 'A7', 'A7', 'Gm', 'Dm', 'E7', 'A7', 'Dm', 'Dm', 'Bb', 'A7', 'Gm6', 'Dm', 'E7 A7', 'Dm']
+    tr.bus('hp', -0.3, 0.45, 0.3); tr.bus('str', 0.2, 0.4, 0.4); tr.bus('bass', 0, 0.75, 0.1); tr.bus('dr', 0, 0.45, 0.15)
+    tr.bus('lead', 0.1, 0.5, 0.35)
+    # 탱고 리듬: 1 . . 2(&) . 3 4
+    block(tr, 'hp', harpsi, prog, [(0, 0.4), (1.5, 0.3), (2.5, 0.3), (3, 0.3)], octave=4, vel=0.55)
+    basses(tr, 'bass', bass, prog, [(0, 0.8, 0), (1.5, 0.4, 7), (2.5, 0.4, 0), (3, 0.8, 0)], vel=0.8)
+    drums(tr, 'dr', {'kick': [0, (2.5, 0.6)], 'rim': [(1.5, 0.5), (3, 0.6)], 'shaker': [(x / 2, 0.25) for x in range(8)]}, 16)
+    melody(tr, 'str', strings, 0, ['a:3 bb:.5 a:.5', 'g#:1 a:1 f:2', 'e:3 f:.5 e:.5', 'd#:1 e:1 c#:2',
+                                    'd:3 e:.5 f:.5', 'a:2 f:1 d:1', 'g#:1.5 b:.5 d^:1 b:1', 'c#^:4'], octave=5, vel=0.6)
+    melody(tr, 'lead', flute, 8, ['d^:.5 e^:.5 f^:2 e^:.5 d^:.5', 'a:4', 'bb:.5 c^:.5 d^:2 c^:.5 bb:.5', 'a:2 c#^:2',
+                                   'bb:1 g:1 e:1 g:1', 'f:1 a:1 d^:2', 'g#:1 b:1 e^ c#^', 'd^:3 -'], octave=5, vel=0.55)
+    for b in (0, 8):
+        tr.drum('dr', 'timp', b * 4, 0.6)
+    return tr
+
+
 SONGS = {'title': title, 'office': office, 'explore': explore, 'trial': trial, 'tension': tension, 'truth': truth,
-         'epilogue': epilogue}
+         'epilogue': epilogue, 'live': live, 'encore': encore, 'tendo': tendo}

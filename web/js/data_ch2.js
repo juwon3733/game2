@@ -289,9 +289,10 @@ Object.assign(WITNESSES, {
     close: [['ruru', '…나가. 다 내 탓이야. 그걸로 됐잖아.', 'angry'], ['koharu', '(…처음부터 다시요, 선배.)', 'worried']],
   },
   tendo: {
-    char: 'tendo', bg: 'tendo_office', face: 'smile',
+    char: 'tendo', bg: 'tendo_office', face: 'smile', bgm: 'tendo',
     goal: '텐도의 증언에서 말과 그림이 어긋나는 곳을 찾아라.',
-    intro: [['towa', '이 사람 컷은 왜곡이 적어. 착각이 아니라 알고 하는 거짓말이야. 말이랑 그림이 어긋나는 데를 찾아. 그림 속을 직접 짚어야 할 수도 있어.']],
+    intro: [['towa', '이 사람 컷은 왜곡이 적어. 착각이 아니라 알고 하는 거짓말이야. 말이랑 그림이 어긋나는 데를 찾아. 그림 속을 직접 짚어야 할 수도 있어.'],
+      ['towa', '그리고 컷 한 장으로 안 깨지면 [[겹쳐 보기]]. 같은 순간을 다른 자리에서 본 컷을 하나 더 내.']],
     statements: [
       { text: '리허설 때 리그 문제? 아무도 나한테 말 안 했어.', cut: 't_tendo_1', dist: '생략',
         cutDesc: '크레센트 복도에서 웃는 텐도. 상대의 말풍선 자리가 하얀 여백.', truthCut: '2L',
@@ -327,8 +328,8 @@ Object.assign(WITNESSES, {
         changes: { 2: { text: '올라가 보니 루루가 리그를 만지고 있었어. 난 바로 내려왔어. 끈 같은 건 본 적도 없어.', cut: 't_tendo_3b', dist: '생략',
           cutDesc: '캣워크 계단 위에서 본 리그. 리그 옆 난간 자리가 하얀 여백.', truthCut: '2T',
           press: [['tendo', '끈? 처음 듣는 얘기야.', 'normal'], ['koharu', '(사장님 시계, 엄청 크네요….)', 'worried']] } } },
-      { statement: 2, cut: '2T', requires: [1], shout: '끈을 푼 건 당신이야!',
-        rebut: '헤이즈가 깔린 뒤예요. 루루는 그때 대기실에서 울고 있었고. 끈을 푼 손엔 이 시계가 있어요.',
+      { statement: 2, cut: '2T', with: '2K', requires: [1], shout: '끈을 푼 건 당신이야!',
+        rebut: '같은 순간이에요. 헤이즈가 깔린 캣워크, 대기실 모니터 속 그림자의 손목이 반짝여요. 루루는 그때 핀 품에서 울고 있었고. 끈을 푼 손엔 이 시계가 있어요.',
         success: [
           ['tendo', '…이런 시계는 흔해!', 'cornered'],
           ['tendo', '그리고 잔상? 그런 건 증거가 안 돼. 내 변호사가 웃겠네.', 'cornered'],

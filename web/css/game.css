@@ -716,3 +716,13 @@ body { word-break: keep-all; overflow-wrap: break-word; }
 .ft-panels img { position: absolute; left: 0; width: 100%; top: -8%; height: auto; image-rendering: pixelated; filter: grayscale(1) contrast(1.3) brightness(.9); animation: ft-face 2.4s steps(12) both; }
 @keyframes ft-face { from { transform: translateY(18px); } }
 .ft-panels img { width: auto; height: 240%; left: 50%; top: -40%; translate: -50% 0; }
+
+/* 겹쳐 보기 */
+.fx-overlay { position: absolute; inset: 0; z-index: 84; background: rgba(6,7,14,.82); animation: fadein .2s steps(3); }
+.fx-overlay.out { animation: fadeout .25s steps(3) forwards; }
+.fx-ov-head { position: absolute; top: 70px; left: 0; right: 0; text-align: center; font-size: 34px; color: var(--gold, #f2c14e); letter-spacing: 6px; }
+.fx-overlay .cutv { position: absolute; top: 150px; width: 560px; left: 50%; transition: transform .6s steps(6), opacity .6s steps(6); }
+.fx-ov-l { transform: translateX(-590px) rotate(-2deg); }
+.fx-ov-r { transform: translateX(30px) rotate(2deg); }
+.fx-overlay.merge .fx-ov-l { transform: translateX(-280px); }
+.fx-overlay.merge .fx-ov-r { transform: translateX(-280px); opacity: .55; mix-blend-mode: screen; }

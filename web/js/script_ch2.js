@@ -634,6 +634,7 @@ async function sceneConclusion2() {
 async function sceneEpilogue2() {
   if (G.flags.yohaku2) {
     bg('crescent_stage');
+    bgm('encore');
     FX.mood('dust');
     await say('', '불 꺼진 크레센트. 관객 없는 무대에서 루루가 기타 하나로 「앙코르 없음」을 부른다.');
     await say('', '핀과 아오이가 객석 첫 줄, 관계자석 옆에 앉아 있다.');
@@ -649,6 +650,7 @@ async function sceneEpilogue2() {
     clearChars();
   }
   bg('cafe');
+  bgm('epilogue');
   show('asagiri', 'normal', 'center');
   await say('asagiri', '오늘은 무슨 일이 있었어?');
   show('rei', 'normal', 'left');
@@ -697,7 +699,7 @@ const CH2_FN = {
 };
 
 const CH2_BGM = {
-  office2: 'office', explore2a: 'explore', puzzle2a: 'tension', kuramochi: 'trial', explore2b: 'explore', pin: 'trial', ruru: 'trial',
+  office2: 'office', explore2a: 'explore', puzzle2a: 'live', kuramochi: 'trial', explore2b: 'explore', pin: 'trial', ruru: 'trial',
   accuse2: 'tension', explore2c: 'explore', tendo: 'trial', puzzle2b: 'tension', conclusion2: 'trial', epilogue2: 'epilogue',
 };
 

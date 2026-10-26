@@ -5,6 +5,7 @@
 //  2장식: answers 배열. 한 증인에게 여러 번 반박하고, 반박할 때마다 증언이 바뀌거나 벗겨진다.
 //    answers[k] = { statement, cut | spot, line, requires: [k...], shout, rebut, success,
 //                   changes: { 증언번호: 새 증언 }, peel: [증언번호], gives, words, items, rewards, choice }
+//    with: 겹쳐 보기. 첫 컷이 맞으면 같은 순간을 다른 자리에서 본 컷·물증을 하나 더 내야 한다 (id 또는 배열)
 //    hold = { statement, lines }  모든 반박이 끝난 뒤 "지금은 못 깨는 증언"으로 남긴다(나중에 다른 심문에서 연다)
 
 function showLine(who, text, face) {
@@ -52,7 +53,7 @@ async function runTrial(id) {
   $('#stage').style.setProperty('--accent', OWNERS[W.char] ? OWNERS[W.char].color : CHARACTERS[W.char].accent);
   $('#stage').classList.add('in-trial');
   goal(W.goal);
-  bgm('trial');
+  bgm(W.bgm || 'trial');
   await banner('— 증언 —', `${CHARACTERS[W.char].name}의 기억이 컷으로 펼쳐진다`, 1500);
 
   if (!G.flags.trialTut) {
@@ -71,7 +72,7 @@ async function runTrial(id) {
     const R = roundOf(Object.assign({}, W, W.round2, { peel: W.round2.peel || [], answers: undefined }));
     hideText();
     show(W.char, CHARACTERS[W.char].faces[0], 'left');
-    bgm('trial');
+    bgm(W.bgm || 'trial');
     await banner('— 증언 추가 —', `${CHARACTERS[W.char].name}이(가) 말을 바꾼다`, 1300);
     await trialRound(id, R);
   }
@@ -191,7 +192,15 @@ async function trialRound(wid, R) {
       await say('rei', '(…이 증언, 수상하긴 한데. 지금은 다른 데부터 깨야 해.)', 'serious');
       continue;
     }
-    const ok = hit && (!hit[0].line || G.fills[cutId] === hit[0].line);
+    let ok = hit && (!hit[0].line || G.fills[cutId] === hit[0].line);
+    // 겹쳐 보기: 한 장으로는 약하다. 같은 순간의 다른 시점을 겹친다
+    let weak = false;
+    if (ok && hit[0].with) {
+      const second = await pickCut('겹쳐 보기', `「${cutInfo(cutId).title}」에 겹칠 컷·물증을 하나 더 고르자. 같은 순간을 다른 자리에서 본 것.`, { items: true });
+      if (!second) continue;
+      if ([].concat(hit[0].with).includes(second)) await FX.overlay(cutId, second);
+      else { ok = false; weak = true; }
+    }
     if (ok) {
       const [a, k] = hit;
       sfx('objection');
@@ -230,7 +239,7 @@ async function trialRound(wid, R) {
       for (const it of a.items || []) await gainItem(it);
       for (const c of a.rewards || []) await gainCut(c);
       Object.entries(a.changes || {}).forEach(([i, ns]) => { st.stmts[i] = ns; st.peeled.delete(Number(i)); });
-      if (st.done.size < R.answers.length) { bgm('trial'); show(W.char, W.face || CHARACTERS[W.char].faces[0], 'left'); }
+      if (st.done.size < R.answers.length) { bgm(W.bgm || 'trial'); show(W.char, W.face || CHARACTERS[W.char].faces[0], 'left'); }
       continue;
     }
 
@@ -242,7 +251,9 @@ async function trialRound(wid, R) {
     const img = onStage[W.char];
     if (img) { img.classList.remove('shake'); void img.offsetWidth; img.classList.add('shake'); }
     const extra = [];
-    if (hit && !ok) {
+    if (weak) {
+      extra.push(['koharu', '(그 컷 하나로는 안 돼요. 같은 순간을 다른 자리에서 본 걸 겹쳐야 해요.)', 'worried']);
+    } else if (hit && !ok) {
       extra.push(['koharu', '(그 컷은 맞는 것 같은데… 말풍선 대사가 이상해요.)', 'worried']);
       G.lines.push(G.fills[cutId]); // 다시 고를 수 있게 대사 조각을 돌려준다
       delete G.fills[cutId];
@@ -254,7 +265,7 @@ async function trialRound(wid, R) {
       await sayAll(W.close || []);
       reset();
       await banner('— 증언 다시 —', '처음부터 다시 듣자', 1200);
-      bgm('trial');
+      bgm(W.bgm || 'trial');
     }
   }
 

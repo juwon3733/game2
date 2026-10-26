@@ -24,6 +24,9 @@ const MUSIC = {
   tension:  { file: 'assets/audio/bgm_tension.mp3' },
   truth:    { file: 'assets/audio/bgm_truth.mp3' },
   epilogue: { file: 'assets/audio/bgm_epilogue.mp3' },
+  live:     { file: 'assets/audio/bgm_live.mp3' },     // 2장: 밴드의 곡 (기억 속처럼 먹먹하게)
+  encore:   { file: 'assets/audio/bgm_encore.mp3' },   // 2장: 기타 하나로 부르는 앙코르
+  tendo:    { file: 'assets/audio/bgm_tendo.mp3' },    // 2장: 사장 텐도의 심문
 };
 const SOUNDS = ['blip', 'next', 'select', 'cancel', 'cut', 'objection', 'wrong', 'correct', 'press', 'page', 'place', 'step',
   'chime', 'thud', 'door', 'ghost', 'phone', 'banner', 'save'];

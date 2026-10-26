@@ -350,6 +350,25 @@ const FX = (() => {
       FX.stamp('증언 붕괴');
       await sleep(G.skip ? 100 : 1100);
     },
+    // 겹쳐 보기: 두 컷이 양쪽에서 미끄러져 와 한 장으로 포개진다
+    async overlay(a, b) {
+      const o = document.createElement('div');
+      o.className = 'fx-overlay';
+      o.innerHTML = '<div class="fx-ov-head">겹쳐 보기</div>';
+      const l = cutView(a, { fills: G.fills, noSpots: true }), r = cutView(b, { fills: G.fills, noSpots: true });
+      l.classList.add('fx-ov-l'); r.classList.add('fx-ov-r');
+      o.append(l, r);
+      stage.appendChild(o);
+      sfx('page');
+      await sleep(G.skip ? 50 : 800);
+      o.classList.add('merge');
+      sfx('cut');
+      FX.lines(600);
+      await sleep(G.skip ? 50 : 1300);
+      o.classList.add('out');
+      await sleep(250);
+      o.remove();
+    },
     // 증인 쪽으로 화면을 당긴다 (pos: left/right/center), off면 원래대로
     zoom(pos) {
       stage.dataset.zoom = pos || '';
