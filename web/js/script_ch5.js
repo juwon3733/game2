@@ -80,10 +80,9 @@ async function sceneOffice5() {
   await say('rei', '(시끄러운 애 하나 없다고, 이 방이 이렇게 넓었나.)', 'normal');
   hide('rei');
   show('towa', 'serious', 'center');
-  await say('towa', '코하루 휴대폰, 새벽에 집을 나선 뒤로 연락이 안 돼.');
-  await say('towa', '근데 이상해. 코하루가 지나간 길의 잔상이… 하나같이 너무 깔끔해.');
-  await say('rei', '…….');
-  await say('kurogane', '(전화) 나는 직무 정지라 움직일 수가 없다. …시노노메. 그 애를 찾아라.');
+  await say('towa', '코하루 휴대폰, 아침엔 안 받더니 정오부터는 아예 꺼져 있어.');
+  await say('towa', '근데 이상해. 코하루가 지나간 길의 잔상이 하나같이 너무 깔끔해.');
+  await say('kurogane', '(전화) 직무 정지다. 형사로는 못 움직여. 시노노메, 그 애를 찾아라.');
   await say('kurogane', '(전화) 흰 코트를 조심해. 렌이라는 이름이다.');
   gainWord('p_ren');
   clearChars();
@@ -176,7 +175,7 @@ async function sceneAccuse5() {
   bg('office');
   await banner('8월 30일 오후 5시', '아무도 없는 잔상과', 1300);
   show('towa', 'serious', 'center');
-  await say('towa', '쿠로가네는 못 움직여. 강력계는 "편집국이 납치했다"는 그림을 믿을 거야. 그렇게 그려져 있으니까.');
+  await say('towa', '쿠로가네는 정지 중이라 공식으로는 못 움직여. 강력계는 "편집국이 납치했다"는 그림을 믿을 거야. 그렇게 그려져 있으니까.');
   await say('towa', '네가 보고서를 써. 코하루를 거기 데려간 게 누군지.');
   clearChars();
   hideText();
@@ -236,14 +235,23 @@ async function sceneWarehouse5() {
   await say('koharu', '어, 어떻게 알았어요? 저 걱정 마시라고 문자도 보냈는데….', 'worried');
   show('ren', 'smile', 'left');
   await say('ren', '늦었네, 시노노메. 차가 식었어.', 'smile');
-  await say('koharu', '선배, 렌 씨는 나쁜 사람 아니에요. 오빠 얘기를 해 줬어요. 근데 그다음은 선배가 직접 들어야 한대요.', 'worried');
+  await say('', '렌이 코트 주머니에서 하늘색 케이스의 휴대폰을 꺼내 테이블에 내려놓는다. 꺼진 화면.');
+  await say('ren', '그 문자, 안 갔어. 정오에 내가 받아서 꺼 뒀거든. 편집국이 위치를 읽으니까.', 'normal');
+  await say('koharu', '에엑?! 그럼 선배는 하루 종일….', 'worried');
+  show('rei', 'serious', 'center');
+  await say('rei', '방은.', 'serious');
+  await say('ren', '그것도 나야. 고친 컷만 두면 너는 방부터 볼 테니까, 방도 그림에 맞춰 놨어. 새벽에 그 아이가 나간 뒤에. 열쇠는 우편함 밑에 있더라.', 'smile');
+  await say('koharu', '제 책상 뒤집은 게 렌 씨였어요?!', 'worried');
+  await say('rei', '(손잡이만 부서지고 문틀은 멀쩡했던 이유.)', 'serious');
+  hide('rei');
+  await say('koharu', '그, 그래도 렌 씨는 나쁜 사람 아니에요. 오후 내내 방파제에서 오빠 얘기를 해 줬어요. 근데 그다음은 선배가 직접 들어야 한대요.', 'worried');
   await say('koharu', '오빠는 순경이었어요. 맨날 막대사탕을 물고 다녔어요. 담배 끊는다고.', 'normal');
   await say('koharu', '그날도 주머니에 사탕이 두 개 있었대요. 하나는 저 주려고.', 'worried');
   await say('', '코하루가 그을린 경찰 배지를 레이의 손에 쥐여 준다.');
   await gainItem('badge');
   await gainCut('6Y2');
   await gainCut('6Y3');
-  await say('rei', '(계단 아래. 연기. 안아 올려지는 아이의 검지에… 잉크.)', 'serious');
+  await say('rei', '(계단 아래, 연기 속. 소타 순경은 거기서 누구를 업었을까.)', 'serious');
   clearChars();
 }
 
@@ -259,8 +267,8 @@ async function sceneRen() {
   gainWord('a_return');
   await say('ren', '난 밖에서 한쪽 눈을 잃었고. …그래서 네 부탁을 거절 못 했어.', 'sad');
   show('koharu', 'crying', 'right');
-  await say('koharu', '오빠가 업고 나온 아이가, 선배였어요?', 'crying');
-  await say('rei', '…….', 'serious');
+  await say('koharu', '오빠가 업고 나온 사람이, 선배였어요?', 'crying');
+  await say('', '레이는 대답 대신 자기 오른손을 내려다본다. 검지에 늘 지워지지 않던 잉크 자국.');
   clearChars();
 }
 
@@ -270,9 +278,10 @@ async function sceneKurogane5() {
   await say('', '창고 문이 열린다. 직무 정지 중인 쿠로가네가 서 있다.');
   show('kurogane', 'sad', 'right');
   await say('kurogane', '다 들었냐.', 'sad');
+  await say('kurogane', '형사로 온 거 아니다. 배지는 서에 두고 왔어. 토와가 여기라고 하더라.', 'sad');
   await say('', '쿠로가네가 손목시계를 풀어 레이에게 내민다. 8시 31분에 멈춘 시계.');
   await gainCut('6Y4');
-  await say('kurogane', '그날 현장에 너도 있었다. 소타한테서 널 받아 안은 게 나다. 그때 시계가 멈췄어.');
+  await say('kurogane', '그날 현장에 너도 있었다. 소타 등에서 널 받아 내린 게 나다. 그때 시계가 멈췄어.');
   await say('kurogane', '잔상과는… 언젠가 누가 그날을 제대로 읽어 낼 때까지 버티려고 만든 거다. 그리고 너를 곁에 두려고.', 'sad');
   await say('', '쿠로가네가 주머니에서 막대사탕을 꺼내다 말고 내려다본다.');
   await say('kurogane', '소타 녀석 버릇이었다. 담배 끊는다고. …그 녀석 대신 6년째 끊는 중이다.', 'sad');
@@ -305,7 +314,7 @@ async function sceneConclusion5() {
   await montage(G.lastSolution);
   show('rei', 'serious', 'left');
   await say('rei', '코하루는 혼자 걸어왔어요. 납치처럼 고친 건 렌이고요. 저를 여기 부르려고.', 'serious');
-  await say('rei', '그리고 6년 전 그 밤, 계단 아래 연기 속에 있던 아이는 저였어요.', 'serious');
+  await say('rei', '그리고 6년 전 그 밤, 계단 아래 연기 속에 쓰러져 있던 고등학생은 저였어요.', 'serious');
   hide('rei');
   bgm('truth');
   show('koharu', 'crying', 'right');

@@ -317,7 +317,7 @@ async function sceneEpilogue() {
   await say('', '아사기리는 말없이 레이 앞에 단 커피를 놓는다.');
   await say('koharu', '어, 주문도 안 했는데요?', 'normal');
   await say('asagiri', '레이는 늘 이거야. 쓴 것만 마실 것 같은 얼굴로 단 걸 마시거든.');
-  await say('rei', '…쓸데없는 소리.'); 
+  await say('rei', '쓸데없는 소리.');
   if (cafe) cgEnd();
   await say('asagiri', '오늘은 무슨 일이 있었어?');
   await say('rei', '맨션 추락 사건이요. 옆집 아이는 무사해요.');
@@ -325,7 +325,7 @@ async function sceneEpilogue() {
   // 여백 컷: 히마리에게 말 대신 「끌어당김」 컷을 보여 줬을 때만
   if (G.flags.yohaku1) {
     await say('', '코트 주머니에 뭔가 걸린다. 사에키 씨 집에서 무심코 챙겨 온 악보의 마지막 장.');
-    await say('rei', '…마지막 장이 하얗네.', 'normal');
+    await say('rei', '마지막 장이 하얗네.', 'normal');
     await gainCut('Y1');
     FX.ghost();
     FX.memory(true);
