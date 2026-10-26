@@ -1,6 +1,6 @@
 # GPT 그림 요청 (10/26 리뷰 반영 후)
 
-전체 284장 중 없는 그림 205장 + 다시 받을 그림 33장. 아래 글을 GPT(이미지 에이전트)에게 그대로 보낸다.
+전체 284장 중 없는 그림 205장 + 다시 받을 그림 37장. 아래 글을 GPT(이미지 에이전트)에게 그대로 보낸다.
 
 ```
 AGENTS.md대로 이미지 만들어서 PR 올려줘. 작업 전에 최신 main의 web/assets/prompts.json을 다시 읽어.
@@ -10,6 +10,7 @@ AGENTS.md대로 이미지 만들어서 PR 올려줘. 작업 전에 최신 main�
 - portrait-rei: rei_serious rei_surprised (캔 커피 없이) + 없는 rei_crying
 - portrait-taiga: taiga_sad (볼 빨감 없이)
 - portrait-kirishima: kirishima_normal (손목시계 없이)
+- portrait-tendo: 전부 (52세로, 지금 그림은 너무 젊음)
 - portrait-kurogane: kurogane_normal (47세로) + 없는 kurogane_sad
 - portrait-asagiri: asagiri_normal (61세로) + 없는 asagiri_cold asagiri_sad
 - portrait-shiori: shiori_normal (가리키지 않는 자세) + 없는 shiori_point shiori_smile
