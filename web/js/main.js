@@ -22,7 +22,7 @@ function marginMark(flag) {
 
 // 이름이 밝혀지는 인물: 장면 선택으로 중간부터 들어가도 그 시점의 이름으로 보이게
 function revealNames(ch, id) {
-  CHARACTERS.ren.name = ch >= 4 || id === 'epilogue3' ? '렌' : '???';
+  CHARACTERS.ren.name = ch >= 4 ? '렌' : '???'; // 3장 에필로그는 토와가 이름을 알려 주는 대사에서 바뀐다
   CHARACTERS.shiori.name = ch >= 6 ? '시오리' : '???';
 }
 
