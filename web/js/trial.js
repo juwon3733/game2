@@ -56,10 +56,12 @@ function wrongReaction(W, st, here, cutId, spotId) {
   const polite = (W.statements || []).some((x) => /요[.?!…」]*$/.test(x.text || ''));
   const pool = WRONG_POOL[polite ? 'polite' : 'casual'];
   const owner = cutId && CUTS[cutId] ? CUTS[cutId].owner : null;
-  const kind = spotId ? 'spot' : !CUTS[cutId] ? 'item' : owner === W.char || owner === W.char2 ? 'own' : 'other';
+  // 아직 누구 시점인지 가려진 컷(OWNERS.mask)이면 "내 기억"이라고도, 이름으로도 받아치지 않는다
+  const o = owner && OWNERS[owner], masked = !!(o && o.mask && !G.flags[o.mask]);
+  const kind = spotId ? 'spot' : !CUTS[cutId] ? 'item' : !masked && (owner === W.char || owner === W.char2) ? 'own' : 'other';
   const list = pool[kind];
   let line = list[st.wrongN % list.length];
-  const name = owner && CHARACTERS[owner] ? CHARACTERS[owner].name : '';
+  const name = owner && CHARACTERS[owner] && !masked ? CHARACTERS[owner].name : '';
   if (kind === 'other' && !name) line = list[1];
   line = line.replace('{name}', name);
   const who = W.char2 && st.R && st.R.statements[st.idx] && st.R.statements[st.idx].char ? st.R.statements[st.idx].char : W.char;
