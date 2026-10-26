@@ -70,7 +70,7 @@ function roundOf(R) {
   if (R.answers) return R;
   return Object.assign({}, R, {
     answers: [{ statement: R.answer.statement, cut: R.answer.cut, line: R.answer.line, shout: R.shout, rebut: R.rebut,
-      success: R.success, peel: R.peel, gives: R.gives, cg: R.cg }],
+      success: R.success, peel: R.peel, gives: R.gives, cg: R.cg, page: R.page, pageCap: R.pageCap }],
   });
 }
 
@@ -182,7 +182,12 @@ async function trialRound(wid, R) {
     FX.mood(s.dist === '미화' && !st.peeled.has(st.idx) ? 'glitter' : null);
     showLine(s.char || W.char, s.text, s.face);
     $('#actions').classList.add('trial');
+    // 추리 메모: 수상한 증언에 표시를 해 두면 수첩 「메모」에 모인다
+    G.marks = G.marks || [];
+    const markKey = `${wid}:${st.idx}`;
+    const marked = G.marks.some((m) => m.key === markKey);
     const act = await actions([
+      { id: 'mark', label: marked ? '표시 ✓' : '표시', cls: 'small' + (marked ? ' on' : '') },
       { id: 'prev', label: '◀ 이전', cls: 'small', disabled: st.idx === 0 },
       { id: 'press', label: '파고들기', cls: 'press' },
       { id: 'obj', label: W.gentle ? '컷 보여주기' : '반박!', cls: 'objection' },
@@ -190,6 +195,12 @@ async function trialRound(wid, R) {
       ...(st.ink === 1 && G.koharuLeft > 0 ? [{ id: 'koharu', label: `코하루 도움 (${G.koharuLeft})`, cls: 'koharu' }] : []),
     ]);
 
+    if (act === 'mark') {
+      if (marked) G.marks = G.marks.filter((m) => m.key !== markKey);
+      else G.marks.push({ key: markKey, who: CHARACTERS[s.char || W.char].name, text: s.text, cut: s.cut });
+      sfx('place', { vol: 0.6 });
+      continue;
+    }
     if (act === 'prev') { st.idx--; continue; }
     if (act === 'next') { st.idx++; continue; }
     if (act === 'press') {
@@ -242,18 +253,20 @@ async function trialRound(wid, R) {
 
     // 맞는 답 찾기
     const here = R.answers.map((a, k) => [a, k]).filter(([a, k]) => !st.done.has(k) && (a.statement === 'any' || a.statement === st.idx));
-    const hit = here.find(([a]) => (spotId ? a.spot === spotId : a.cut === cutId));
+    // 정답은 여러 개일 수 있다: cut·spot은 배열 가능. 겹쳐 보기(with)는 순서 상관없이 cut∪with 중 서로 다른 두 장
+    const firsts = (a) => [].concat(a.cut || [], a.with || []);
+    const hit = here.find(([a]) => (spotId ? [].concat(a.spot || []).includes(spotId) : (a.with ? firsts(a) : [].concat(a.cut || [])).includes(cutId)));
     if (hit && !ready(hit[1])) {
       await say('rei', '(…이 증언, 수상하긴 한데. 지금은 다른 데부터 깨야 해.)', 'serious');
       continue;
     }
-    let ok = hit && (!hit[0].line || G.fills[cutId] === hit[0].line);
+    let ok = hit && (!hit[0].line || !(CUTS[cutId] && CUTS[cutId].bubble) || G.fills[cutId] === hit[0].line);
     // 겹쳐 보기: 한 장으로는 약하다. 같은 순간의 다른 시점을 겹친다
     let weak = false;
     if (ok && hit[0].with) {
       const second = await pickCut('겹쳐 보기', `「${cutInfo(cutId).title}」에 겹칠 컷·물증을 하나 더 고르자. 같은 순간을 다른 자리에서 본 것.`, { items: true });
       if (!second) continue;
-      if ([].concat(hit[0].with).includes(second)) await FX.overlay(cutId, second);
+      if (second !== cutId && firsts(hit[0]).includes(second)) await FX.overlay(cutId, second);
       else { ok = false; weak = true; }
     }
     if (ok) {
@@ -273,13 +286,15 @@ async function trialRound(wid, R) {
       st.done.add(k);
       const peel = a.peel || [st.idx];
       // 지금 보이는 증언 컷이 벗겨지면 찢어져 떨어진다
-      if (peel.includes(st.idx) && !st.peeled.has(st.idx)) FX.tear($('#tr-panel .cutv'));
+      if (peel.includes(st.idx) && !st.peeled.has(st.idx)) FX.tear($('#tr-panel .cutv'), s.dist);
       peel.forEach((i) => st.peeled.add(i));
       FX.mood(null);
+      tension(0);
       bgm('truth');
       sfx('page');
       renderTrial(W, st);
       const shown = a.cg && (await cg(a.cg));
+      if (!shown && a.page) await mangaPage(a.page, a.pageCap);
       await sayAll(a.success || []);
       if (shown) cgEnd();
       // 반박 뒤 증인이 반격하면 맞는 말로 다시 받아친다
@@ -323,6 +338,7 @@ async function trialRound(wid, R) {
     }
     sfx('wrong'); quake(); flash('rgba(190,30,40,.45)');
     if (st.ink === 1) FX.pulse();
+    tension(st.ink === 1 ? 2 : st.ink < maxInk ? 1 : 0);
     renderTrial(W, st);
     const img = onStage[W.char];
     if (img) { img.classList.remove('shake'); void img.offsetWidth; img.classList.add('shake'); }
@@ -333,18 +349,20 @@ async function trialRound(wid, R) {
       extra.push(['koharu', '(그 컷은 맞는 것 같은데… 말풍선 대사가 이상해요.)', 'worried']);
       G.lines.push(G.fills[cutId]); // 다시 고를 수 있게 대사 조각을 돌려준다
       delete G.fills[cutId];
-    } else if (!spotId && R.answers.some((a, k) => !st.done.has(k) && a.cut === cutId)) {
+    } else if (!spotId && R.answers.some((a, k) => !st.done.has(k) && [].concat(a.cut || []).includes(cutId))) {
       extra.push(['koharu', '(그 컷은 맞는 것 같은데… 다른 증언에 들이밀어야 할 것 같아요.)', 'worried']);
     }
     await sayAll([...wrongReaction(W, st, here, cutId, spotId), ...extra]);
     if (st.ink === 0) {
       await sayAll(W.close || []);
       reset();
+      tension(0);
       await banner('— 증언 다시 —', '처음부터 다시 듣자', 1200);
       bgm(W.bgm || 'trial');
     }
   }
 
+  tension(0);
   // 지금 가진 것으로는 못 깨는 증언을 보류로 남긴다
   if (R.hold) {
     st.held = R.hold.statement;

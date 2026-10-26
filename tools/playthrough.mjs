@@ -63,7 +63,7 @@ for (const ch of chs) {
       };
       const oPick = pickCut;
       pickCut = async (title, sub, o = {}) => {
-        if (window.__R && window.__A) return title === '겹쳐 보기' ? [].concat(window.__A.with)[0] : window.__A.cut;
+        if (window.__R && window.__A) return title === '겹쳐 보기' ? [].concat(window.__A.with)[0] : [].concat(window.__A.cut)[0];
         if (o.only) { const Q = [CONCLUSION, CONCLUSION2, CONCLUSION3, CONCLUSION4, CONCLUSION6].flat().find((q) => title.includes(q.q)); const ans = Q ? Q.answer : []; const all = [...G.cuts, ...G.items]; const c = o.only.find((id) => ans.includes(id) && all.includes(id)); if (c) return c; console.error('NO ANSWER OWNED for ' + title); }
         return oPick(title, sub, o);
       };
@@ -73,7 +73,7 @@ for (const ch of chs) {
         for (const P of Object.values(PUZZLES)) if (P.bubbles[cid]) { if (!G.lines.includes(P.bubbles[cid])) console.error('LINE NOT OWNED ' + P.bubbles[cid]); return P.bubbles[cid]; }
         return oLine(cid);
       };
-      pickSpot = async (cid, spots, title) => (/이음매/.test(title || '') ? spots.find((x) => x.restore).id : window.__A ? window.__A.spot : null);
+      pickSpot = async (cid, spots, title) => (/이음매/.test(title || '') ? spots.find((x) => x.restore).id : window.__A ? [].concat(window.__A.spot)[0] : null);
       choice = async (opts, prompt) => {
         const A = window.__A;
         if (A && A.choice && prompt === A.choice.prompt) return A.choice.answer;

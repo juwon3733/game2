@@ -148,7 +148,7 @@ const WITNESSES = {
           cutDesc: '(오오쿠보가 고쳐 본 기억) 겁먹은 얼굴로 외치며 뛰쳐나오는 타이가.',
           press: [['ookubo', '택배 기사가 5층에서 볼일이 뭐가 있어. 수상하잖아!', 'flustered'], ['koharu', '(택배 기사니까… 택배 아닐까요, 선배.)', 'worried']] },
       ],
-      answer: { statement: 0, cut: 'A' },
+      answer: { statement: 0, cut: ['A', 'D'] },
       shout: '그건 알 수 있어!',
       rebut: '배달하고 있었어요. 상자를 들고 초인종을 눌렀어요. 문 너머에선 피아노 소리가 났고요.',
       success: [
@@ -159,7 +159,7 @@ const WITNESSES = {
     },
     rewards: ['E'],
     wrong: [['ookubo', '그게 뭐? 그거랑 이거랑 무슨 상관이야!', 'flustered']],
-    close: [['ookubo', '에잇, 됐어! 나 바빠! 다음에 와!', 'flustered'], ['koharu', '(…처음부터 다시 들어 봐요, 선배.)', 'worried']],
+    close: [['ookubo', '에잇, 됐어! 나 바빠! 다음에 와!', 'flustered'], ['koharu', '(아저씨 삐졌어요… 야구 끝나면 다시 와요, 선배.)', 'worried']],
   },
   taiga: {
     char: 'taiga', bg: 'interrogate', cg: 'cg_taiga_run',
@@ -195,12 +195,12 @@ const WITNESSES = {
     peel: [2],
     rewards: ['F'],
     wrong: [['taiga', '그래서요?', 'angry']],
-    close: [['taiga', '나가 주세요.', 'angry'], ['koharu', '(…처음부터 다시요, 선배.)', 'worried']],
+    close: [['taiga', '나가 주세요.', 'angry'], ['koharu', '(문 닫혔어요. 숨 고르고 다시 해요, 선배.)', 'worried']],
   },
   himari: {
-    char: 'himari', bg: 'himari_door', cg: 'cg_rescue',
+    char: 'himari', bg: 'himari_door', cg: 'cg_rescue', page: ['G', 'H', 'C', 'I'], pageCap: '그날 밤, 5층 베란다.',
     intro: [['tip', '이번에는 [반박!] 대신 [컷 보여주기]. 진실이 담긴 컷 하나를 골라 보여 준다.']],
-    goal: '히마리에게 그날 밤의 진실을 보여 줘라.',
+    goal: '그날 밤 선생님이 히마리에게 무엇을 했는지, 그 순간의 컷을 보여 줘라.',
     gentle: true,
     statements: [
       { text: '계속 숙제했어요.', cut: 't_himari_1', dist: '크레용',

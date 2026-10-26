@@ -71,7 +71,7 @@ button { font-family: inherit; }
   color: #fff; font-size: 24px; border: 4px solid var(--ink);
 }
 #tb-name:empty { display: none; }
-#tb-text { font-size: 27px; line-height: 1.55; white-space: pre-wrap; }
+#tb-text { font-size: calc(27px * var(--tb-scale, 1)); line-height: 1.55; white-space: pre-wrap; }
 #tb-next { position: absolute; right: 22px; bottom: 12px; font-size: 20px; animation: blink 1s steps(2) infinite; }
 @keyframes blink { 50% { opacity: 0; } }
 
@@ -899,3 +899,72 @@ body { word-break: keep-all; overflow-wrap: normal; }
 .pz-tray .cutv { min-width: 0; }
 .montage .mt-cut { height: auto !important; }
 .montage .mt-cut .cutv-cap { display: none; }
+
+/* 수첩 「사건」 · 지난 이야기 */
+.case-box { color: var(--txt, #eee); }
+.case-ch { color: var(--accent); font-size: 15px; }
+.case-box h3 { margin: 4px 0 8px; font-size: 24px; }
+.case-sum { font-size: 18px; line-height: 1.6; color: var(--sub, #bbc); margin: 0 0 10px; }
+.case-h { margin: 14px 0 6px; font-size: 15px; color: var(--sub, #aab); letter-spacing: .1em; }
+.case-fact { font-size: 18px; line-height: 1.5; padding: 4px 0; }
+.case-fact.unk { color: #889; }
+.case-fact.next { color: var(--accent); }
+#modal.case .md-box { background: #12142a; color: var(--txt); }
+#modal.note .case-box { color: inherit; }
+#modal.note .case-sum, #modal.note .case-h { color: #666; }
+
+/* 만화 페이지 컷신 */
+.manga { position: absolute; inset: 0; z-index: 46; background: rgba(6,7,12,.92); display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; }
+.mg-page { width: 980px; height: 600px; background: #f4f1ea; padding: 14px; display: grid; gap: 12px; box-shadow: 0 20px 60px rgba(0,0,0,.7); transform: rotate(-.6deg); }
+.mg-page.mg-3 { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1.2fr; }
+.mg-page.mg-3 .mg-last { grid-column: 1 / -1; }
+.mg-page.mg-4 { grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1.3fr; }
+.mg-page.mg-4 .mg-last { grid-column: 1 / -1; }
+.mg-page.mg-2 { grid-template-columns: 1fr 1.3fr; }
+.mg-cell { aspect-ratio: auto !important; width: auto !important; height: auto !important; min-height: 0; min-width: 0; overflow: hidden; animation: mg-in .3s steps(3); }
+.mg-cell .cutv-body { min-height: 0; }
+.mg-cell .cutv-img { object-fit: cover; }
+.mg-cell .cutv-zoom { display: none; }
+.mg-last { box-shadow: 0 0 0 4px #111; }
+.mg-cap { margin-top: 18px; font-size: 26px; color: #f4f1ea; letter-spacing: .08em; }
+@keyframes mg-in { 0% { clip-path: inset(0 100% 0 0); } 100% { clip-path: inset(0 0 0 0); } }
+.manga.mt-out { animation: mt-out .4s steps(4) forwards; }
+
+/* 증언 붕괴 변형 */
+.fx-break-melt { animation: fx-melt 1s steps(10) both; }
+@keyframes fx-melt { 0% { filter: none; transform: none; } 40% { filter: blur(2px) saturate(1.6) hue-rotate(20deg); } 100% { filter: blur(6px) saturate(2) hue-rotate(60deg); transform: translateY(60px) scaleY(1.25); opacity: 0; } }
+.fx-break-split { animation: fx-split .9s steps(6) both; }
+@keyframes fx-split { 0% { transform: none; } 30% { transform: translateX(-14px); filter: drop-shadow(10px 0 0 #e0405a) drop-shadow(-10px 0 0 #3b8fd0); clip-path: inset(0 0 52% 0); } 60% { transform: translateX(18px); clip-path: inset(38% 0 0 0); } 100% { transform: translateX(-30px); opacity: 0; clip-path: inset(48% 0 46% 0); } }
+.fx-break-fade { animation: fx-fade 1s steps(8) both; }
+@keyframes fx-fade { 0% { filter: none; } 50% { filter: brightness(1.8) contrast(.5); } 100% { filter: brightness(3) contrast(.2); opacity: 0; clip-path: inset(0 0 0 100%); } }
+
+/* 다음 장 예고 */
+.manga.preview { gap: 14px; }
+.pv-head { font-size: 22px; letter-spacing: .2em; color: #b9b3a6; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.pv-head b { font-size: 34px; letter-spacing: .06em; color: #fff; }
+.pv-cut { width: 540px !important; height: auto !important; aspect-ratio: 3 / 2; transform: rotate(-1deg); box-shadow: 0 0 0 6px #f4f1ea, 0 12px 40px rgba(0,0,0,.6); }
+
+/* 흔들림 끄기 */
+.no-shake #stage.quake > *, .no-shake #stage.quake-big > *, .no-shake .char.shake, .no-shake #textbox.jolt { animation: none !important; }
+/* 첫 로딩 */
+#loading { position: fixed; inset: 0; z-index: 999; background: #0b0c12; color: #cfc8b8; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; font-size: 20px; letter-spacing: .15em; transition: opacity .4s; }
+#loading i { width: 220px; height: 6px; background: #2a2c38; position: relative; overflow: hidden; }
+#loading i::after { content: ''; position: absolute; inset: 0; width: 40%; background: #c9961a; animation: ld 1s steps(8) infinite; }
+@keyframes ld { from { transform: translateX(-100%); } to { transform: translateX(250%); } }
+#loading.out { opacity: 0; pointer-events: none; }
+/* 손가락으로 누르기: 작은 버튼을 키운다 */
+@media (pointer: coarse) {
+  .hud-btn.small { padding: 14px 16px; font-size: 20px; }
+  .act-btn.small { padding: 16px 22px; font-size: 22px; }
+  .md-cancel, .set-seg button, .ex-row button { min-height: 56px; }
+  .set-grid input[type=range] { height: 40px; }
+}
+
+/* 기록 */
+.rec-list { display: flex; flex-direction: column; gap: 8px; }
+.rec-row { color: var(--ink); display: grid; grid-template-columns: 1fr 64px 120px 120px; align-items: center; gap: 10px; font-size: 22px; padding: 10px 14px; background: #fff; border: 3px solid var(--ink); }
+.rec-row.locked { opacity: .45; }
+.rec-rank { font-size: 32px; text-align: center; color: #c9961a; }
+.rec-row i { font-style: normal; font-size: 17px; text-align: center; padding: 4px; border: 2px dashed #aaa; color: #999; }
+.rec-row i.on { border: 2px solid var(--ink); background: #f2c14e; color: var(--ink); }
+.rec-foot { display: flex; justify-content: space-between; font-size: 20px; margin-top: 12px; }

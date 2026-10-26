@@ -151,7 +151,7 @@ Object.assign(WITNESSES, {
       { text: '그러고 한참 뒤, 9시 20분쯤엔 별무늬 숄 걸친 아가씨가 뒷골목에서 뛰어나왔지.', cut: 't_tofu_2',
         cutDesc: '두부집 시계 9시 20분 무렵. 반짝이는 숄 자락이 골목으로 사라진다.',
         press: [['tofu', '반짝반짝한 숄이었어. 점 보는 아가씨들이 그런 걸 두르잖아.', 'normal']], words: ['th_shawl', 'pl_alley'] },
-      { text: '그날 가게 본 건 언니 쪽이야. 오른쪽 리본. 쌍둥이라도 난 알아.', cut: 't_tofu_3',
+      { text: '그날 가게 본 건 오른쪽 리본 단 아가씨였어. 쌍둥이 중 누군지는 몰라도 리본은 똑똑히 봤어.', cut: 't_tofu_3',
         cutDesc: '오른쪽 리본을 단 점원이 웃으며 손을 흔든다.',
         press: [['tofu', '언니가 유키, 동생이 나기. 리본이 언니는 오른쪽, 동생은 왼쪽.', 'normal'], ['tofu', '동생은 지난주에 발목 삐었다던데. 그래서 요새 언니만 나오나 봐.', 'normal']],
         words: ['p_nagi', 'th_bandage'] },
@@ -182,12 +182,12 @@ Object.assign(WITNESSES, {
       { text: '정산하고, 봉투는 금고에 넣었어요.', cut: 't_yukin_2', dist: '미화',
         cutDesc: '반짝이는 금고에 봉투를 넣는 손. 너무 깔끔하다.',
         press: [['yukin', '넣었어요. 넣었다니까요.', 'crying']] },
-      { text: '그 뒤론 바로 집에 갔어요. 점장님이 쓰러진 것도 몰랐어요.', cut: 't_yukin_3', dist: '생략',
+      { text: '점장님을 발견하고… 그다음 10분은 잘 기억이 안 나요.', cut: 't_yukin_3', dist: '생략',
         cutDesc: '가게 문을 나서는 뒷모습. 그 앞 10분이 하얀 여백.', truthCut: '3G',
         press: [['yukin', '몰랐어요.', 'crying']] },
     ],
     answers: [
-      { statement: 0, spot: 'ankle', shout: '당신은 유키 씨가 아니야!',
+      { statement: 0, spot: 'ankle', cut: ['3E', 'ledger'], shout: '당신은 유키 씨가 아니야!',
         rebut: '학원에 있던 유키 씨 발목엔 반창고가 없었어요. 왼손잡이인 유키 씨와 달리 장부는 오른손 글씨였고요. 당신은 나기 씨죠.',
         success: [
           ['yukin', '…….', 'crying'],
@@ -209,7 +209,7 @@ Object.assign(WITNESSES, {
     ] },
     koharu: [['koharu', '(선배, 할머니가 그랬잖아요. 동생은 지난주에 발목을…)', 'worried']],
     wrong: [['yukin', '무슨 말인지 모르겠어요.', 'normal']],
-    close: [['yukin', '그만해 주세요.', 'crying'], ['koharu', '(…처음부터 다시요, 선배.)', 'worried']],
+    close: [['yukin', '그만해 주세요.', 'crying'], ['koharu', '(울려 버렸어요… 천천히 다시 가요.)', 'worried']],
   },
   nagi: {
     char: 'nagi', bg: 'tokiwa_shop', face: 'scared',
@@ -224,7 +224,7 @@ Object.assign(WITNESSES, {
         press: [['nagi', '계단이 가팔라서… 늘 위험하다고 하셨어요.', 'scared']] },
     ],
     answers: [
-      { statement: 0, cut: '3D', with: '3H', shout: '바로가 아니야!',
+      { statement: 0, cut: ['3D', '3G'], with: '3H', shout: '바로가 아니야!',
         rebut: '발견은 9시 15분이에요. 그런데 9시 20분에도 당신은 휴대폰을 쥔 채 서 있었어요. 점장님 눈에 남아 있어요. 신고는 9시 25분이고요.',
         success: [
           ['nagi', '…….', 'crying'],
@@ -232,8 +232,8 @@ Object.assign(WITNESSES, {
           ['nagi', '언니 학원 일도, 점장님한테 거짓말한 것도 다 들키고….', 'crying'],
           ['nagi', '10분 동안 아무것도 못 했어요. 점장님이 저를 보고 계셨는데.', 'crying'],
         ],
-        peel: [0], words: ['t_10min', 'a_hesitate'], cg: 'cg_twins' },
-      { statement: 1, cut: '3C', shout: '점장님은 누군가를 쫓고 있었어!',
+        peel: [0], words: ['t_10min', 'a_hesitate'], cg: 'cg_twins', page: ['3G', '3D', '3H'], pageCap: '그 10분.' },
+      { statement: 1, cut: ['3C', '3J'], shout: '점장님은 누군가를 쫓고 있었어!',
         rebut: '점장님이 계단 아래에서 올려다본 컷이에요. 위에서 별무늬 숄을 두른 사람이 봉투를 낚아채고 있어요.',
         success: [
           ['nagi', '별무늬 숄.', 'scared'],
@@ -261,7 +261,7 @@ Object.assign(WITNESSES, {
         press: [['madoka', '손님 이름요? 손님 비밀은 말 못 해요.', 'normal']] },
     ],
     answers: [
-      { statement: 0, spot: 'seam', shout: '이 컷, 누가 고쳤어!',
+      { statement: 0, spot: 'seam', cut: 'tone', shout: '이 컷, 누가 고쳤어!',
         rebut: '봉투를 쥔 손 둘레만 스크린톤 점 간격이 달라요. 나중에 오려 붙인 거예요.',
         success: [
           ['madoka', '무슨 소리예요. 그건 제가 본 미래예요.', 'normal'],
@@ -272,7 +272,7 @@ Object.assign(WITNESSES, {
         rebut: '창고 불은 계단 아래에서 비춰요. 다른 그림자는 다 위로 늘어지는데, 미는 손 그림자만 아래로 떨어져요. 이 손도 붙인 거예요.',
         success: [['madoka', '…….', 'cornered']],
         words: ['a_push3'] },
-      { statement: 2, cut: '3C', with: '3J', requires: [1], shout: '부스엔 없었어!',
+      { statement: 2, cut: '3C', with: ['3J', 'sequin'], requires: [1], shout: '부스엔 없었어!',
         rebut: '9시 10분, 점장님 눈에 별무늬 숄이 남아 있어요. 2분 뒤엔 두부집 할머니가 뒷골목에서 뛰어나오는 숄을 봤고요. 그 시각 당신은 부스가 아니라 양과점 계단에 있었어요.',
         success: [
           ['madoka', '…….', 'cornered'],

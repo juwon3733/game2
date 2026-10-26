@@ -139,7 +139,7 @@ Object.assign(WITNESSES, {
         rebut: '할머니 창에 남은 그대로예요. 헬멧 쓴 남자 둘이고, 헬멧엔 하쿠요 로고가 있어요.',
         success: [['okamoto', '그래, 헬멧이었지. 무라세네 인부들 헬멧.', 'normal'], ['okamoto', '그 밤엔 다 집채만 해 보였어.', 'normal']],
         peel: [0], words: ['p_murase', 'p_okamoto', 't_2245'] },
-      { statement: 1, cut: '4F', shout: '그 아이는 불을 지르지 않았어요!',
+      { statement: 1, cut: ['4F', '4D'], shout: '그 아이는 불을 지르지 않았어요!',
         rebut: '아이가 골목 모퉁이에 있던 건 할머니 탁상시계로 10시 45분이에요. 불이 처음 보인 건 11시고요. 할머니가 본 불길은 아이가 떠난 뒤의 거예요.',
         success: [['okamoto', '그럼 그 애는 불 나기 전에 갔단 말이야?', 'normal'], ['okamoto', '아이고. 내가 그 애한테 몹쓸 소리를 했네.', 'normal']] },
     ],
@@ -157,7 +157,7 @@ Object.assign(WITNESSES, {
         cutDesc: '목욕탕을 나서는 뒷모습. 문 닫히는 소리.',
         press: [['hayaka', '가게 팔자고 했어요. 할아버지 혼자 고생하는 거 싫어서. 근데 그게 싸움이 됐어요.', 'normal']] },
       { text: '……', cut: 't_hayaka_2', dist: '삭제',
-        cutDesc: '가위로 오려 낸 듯 칸이 통째로 비어 있다. 가장자리에 하얀 장갑 자국.',
+        cutDesc: '가위로 오려 낸 듯 칸이 통째로 비어 있다. 귀퉁이에 골목 모퉁이 담벼락 한 조각이 남았다.',
         press: [['hayaka', '거기, 아무것도 없어요. 지웠으니까.', 'normal']] },
       { text: '……', cut: 't_hayaka_3', dist: '삭제',
         cutDesc: '오려 낸 빈 칸. 귀퉁이에 손전등 빛 같은 노란 자국이 조금 남았다.',
@@ -207,7 +207,7 @@ Object.assign(WITNESSES, {
         press: [['murase', '노후 시설은 위험하다고 몇 번이나 말씀드렸는데요.', 'smile']] },
     ],
     answers: [
-      { statement: 1, cut: '4C', shout: '사무소에 없었어!',
+      { statement: 1, cut: ['4C', '4D'], shout: '사무소에 없었어!',
         rebut: '10시 40분, 보일러실 뒷문을 열쇠로 연 사람이 있어요. 현장사무소 열쇠함에 남은 당신의 잔상이에요.',
         success: [['murase', '…….', 'normal'], ['murase', '점검차 들렀을 수도 있죠. 기억이 안 나네요.', 'smile']],
         peel: [1], words: ['th_key', 'pl_office4'] },
@@ -215,7 +215,7 @@ Object.assign(WITNESSES, {
         rebut: '그을음 아래 전선이 공구로 잘려 서로 이어 붙여져 있어요. 낡아서는 이렇게 안 돼요.',
         success: [['murase', '…….', 'cornered']],
         choice: { prompt: '누가 착각했고, 누가 거짓말을 했나?', options: ['오카모토가 거짓말, 무라세가 착각', '오카모토가 착각, 무라세가 거짓말', '둘 다 거짓말'], answer: 1,
-          success: [['rei', '할머니는 무서워서 크게 기억했을 뿐이에요. 당신은 알면서 자기 자리를 지웠고요.', 'serious'],
+          success: [['rei', '할머니는 무서워서 크게 기억했을 뿐이에요. 무라세 씨는 알면서 자기 자리를 지웠고요.', 'serious'],
             ['murase', '위에서 시킨 겁니다. 「9월 전에 비워라」. 니시무라 상무가.', 'cornered'],
             ['murase', '영감은 축제에 간 줄 알았어요. 케이코 씨도 그렇게 알고 망을 봤고.', 'cornered']],
           wrong: [['towa', '아니야. 다시 봐. 누가 자기 컷을 지웠는지.']] },
@@ -223,7 +223,7 @@ Object.assign(WITNESSES, {
     ],
     koharu: [['koharu', '(선배, 현장사무소 열쇠함… 거기서 읽은 컷이 있었죠.)', 'worried']],
     wrong: [['murase', '그게 저랑 무슨 상관이죠?', 'smile']],
-    close: [['murase', '오늘은 바쁩니다. 변호사 통해 주시죠.', 'normal'], ['koharu', '(…처음부터 다시요, 선배.)', 'worried']],
+    close: [['murase', '오늘은 바쁩니다. 변호사 통해 주시죠.', 'normal'], ['koharu', '(빠져나가려고 해요. 처음부터 다시 몰아붙여요.)', 'worried']],
   },
   keiko: {
     char: 'keiko', bg: 'hospital', face: 'normal',
@@ -237,14 +237,14 @@ Object.assign(WITNESSES, {
         press: [['keiko', '손은 요리하다 데었어요.', 'normal'], ['koharu', '(두 손에 붕대를 감고 계세요….)', 'worried']] },
     ],
     answers: [
-      { statement: 0, cut: '4B', shout: '울타리 앞에 있었어요!',
+      { statement: 0, cut: ['4B', '4E', '4F'], shout: '울타리 앞에 있었어요!',
         rebut: '10시 30분, 울타리 앞. 하쿠요 장갑이 건넨 손전등을 받은 건 케이코 씨예요.',
         success: [
           ['keiko', '…….', 'crying'],
           ['keiko', '망만 보면 빚을 줄여 준다고 했어요. 아버지는 축제에 가셨다고. 빈 가게라고.', 'crying'],
         ],
         peel: [0] },
-      { statement: 1, cut: '4H', with: '4I', requires: [0], shout: '당신은 불 속에 있었어요!', cg: 'cg_carry',
+      { statement: 1, cut: ['4H', '4G'], with: '4I', requires: [0], shout: '당신은 불 속에 있었어요!', cg: 'cg_carry', page: ['4G', '4H', '4I'], pageCap: '불 속으로.',
         rebut: '할아버지 눈에 남은 건 그을린 목덜미와 그 머리끈이에요. 5분 뒤 오카모토 할머니는 노인을 업고 나오는 여자를 봤고요. 아버지를 업고 나온 건 케이코 씨예요.',
         success: [
           ['keiko', '안에서 기침 소리가 났어요. 아버지 기침.', 'crying'],
@@ -270,8 +270,8 @@ const NAME4_FINAL = [
   { cat: 'person', a: 'p_hayaka' }, '는 ', { cat: 'place', a: 'pl_fence' }, '에서 엄마를 보고 도망쳤고, 다음 날 그 밤을 ', { cat: 'act', a: 'a_erase' }, '.',
 ];
 const CONCLUSION4 = [
-  { q: '불은 누전이 아니었다. 그 물증은?', answer: ['panel'], choices: ['panel', 'record', 'receipt', '4F', '4L'] },
-  { q: '누가, 왜 서둘러 이 땅을 비우려 했나? (물증으로)', answer: ['schedule4'], choices: ['schedule4', 'receipt', 'record', '4J', 'panel'] },
+  { q: '불이 사람 손으로 났다는 걸 보여 주는 물증은?', answer: ['panel'], choices: ['panel', 'record', 'receipt', '4F', '4L'] },
+  { q: '이 땅을 9월 전에 비우라고 지시한 사람의 이름이 적힌 물증은?', answer: ['schedule4'], choices: ['schedule4', 'receipt', 'record', '4J', 'panel'] },
 ];
 
 Object.assign(PROFILES, {

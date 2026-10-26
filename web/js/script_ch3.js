@@ -114,7 +114,13 @@ async function sceneOffice3() {
   show('koharu', 'worried', 'right');
   await say('koharu', '선배, 어제 크레센트 앞에서 누구 보셨어요? 계속 길 건너만 보던데.', 'worried');
   show('rei', 'normal', 'left');
-  await say('rei', '아무도.', 'normal');
+  hideText();
+  const c0 = await choice(['"아무도."', '"…교복 입은 애가 있었어."'], '코하루에게');
+  if (c0 === 1) {
+    G.flags.bond = (G.flags.bond || 0) + 1;
+    await say('rei', '교복 입은 애가 있었어. 길 건너에. 눈 깜빡이니까 없었고.', 'normal');
+    await say('koharu', '…저는 못 봤어요. 근데 선배가 봤으면 있던 거예요.', 'worried');
+  } else await say('rei', '아무도.', 'normal');
   await say('', '레이의 오른손 검지가 또 욱신거린다. 펜을 쥐어 본 기억은 없는데.');
   clearChars();
   show('kurogane', 'normal', 'center');

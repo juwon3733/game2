@@ -280,9 +280,21 @@ const FX = (() => {
       await sleep(180);
       c.remove();
     },
-    // 증언 컷이 찢어져 떨어진다
-    tear(el) {
+    // 증언 컷이 무너진다. 왜곡 종류마다 다르게: 미화=번져 녹음, 편집=어긋나 깨짐, 생략·삭제=하얗게 지워짐, 나머지=찢어짐
+    tear(el, dist) {
       if (!el) return;
+      const kind = { 미화: 'melt', 과장: 'melt', 편집: 'split', 삭제: 'fade', 생략: 'fade', 흐림: 'fade' }[dist];
+      if (kind && !reduce()) {
+        const r = el.getBoundingClientRect(), s = stage.getBoundingClientRect(), k = s.height / 720;
+        const p = el.cloneNode(true);
+        p.classList.add('fx-tear', 'fx-break-' + kind);
+        Object.assign(p.style, { left: (r.left - s.left) / k + 'px', top: (r.top - s.top) / k + 'px', width: r.width / k + 'px', height: r.height / k + 'px' });
+        stage.appendChild(p);
+        setTimeout(() => p.remove(), 1000);
+        if (kind === 'split') FX.glitch(400);
+        sfx(kind === 'fade' ? 'cancel' : 'page');
+        return;
+      }
       const r = el.getBoundingClientRect(), s = stage.getBoundingClientRect(), k = s.height / 720;
       ['a', 'b'].forEach((side) => {
         const p = el.cloneNode(true);

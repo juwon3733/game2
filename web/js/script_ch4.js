@@ -109,6 +109,10 @@ async function sceneOffice4() {
   await say('koharu', '과장님, 이 상자 뭐예요?', 'normal');
   show('kurogane', 'normal', 'center');
   await say('kurogane', '손대지 마라. 아직 열 사람이 없다.');
+  hideText();
+  const c0 = await choice(['"과장님 말 들어."', '"…나중에 같이 열어 보자."'], '코하루에게');
+  if (c0 === 1) { G.flags.bond = (G.flags.bond || 0) + 1; await say('koharu', '…네. 약속이에요, 선배.', 'happy'); }
+  else await say('koharu', '네에….', 'worried');
   hide('koharu');
   await say('', '쿠로가네가 신문 한 장을 책상에 내려놓는다. 「재개발 지구 목욕탕 화재, 주인 중상」.');
   show('kurogane', 'normal', 'center');
@@ -160,7 +164,7 @@ async function sceneExplore4a() {
         await gainItem('panel');
         gainWord('th_panel'); gainWord('a_tamper');
         show('rei', 'serious', 'left');
-        await say('rei', '(…낡아서 녹은 게 아니야. 잘린 자리가 너무 깔끔해.)', 'serious');
+        await say('rei', '(…잘린 자리가 너무 깔끔해. 공구 자국이야.)', 'serious');
         tick();
       },
       okamotowin: async () => {

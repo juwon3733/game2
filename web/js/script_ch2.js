@@ -153,6 +153,11 @@ async function sceneOffice2() {
   show('rei', 'normal', 'left');
   await say('rei', '쓸데없는 걸 배워 왔네.', 'normal');
   await say('', '레이가 잔을 받는다. 다 마신다.');
+  await say('koharu', '근데 선배, 카페 사장님이랑은 언제부터 알았어요?', 'normal');
+  hideText();
+  const c0 = await choice(['"…6년."', '"몰라도 돼."'], '코하루에게');
+  if (c0 === 0) { G.flags.bond = (G.flags.bond || 0) + 1; await say('koharu', '6년이요? 그럼 저보다 선배를 훨씬 잘 아시겠네. …분발해야겠다.', 'happy'); }
+  else await say('koharu', '네, 네. 몰라도 되는 거 하나 추가요.', 'normal');
   clearChars();
   show('kurogane', 'normal', 'center');
   await say('kurogane', '역 앞 라이브하우스 「크레센트」. 어젯밤 공연 중에 조명 리그가 떨어져 매니저가 죽었다.');

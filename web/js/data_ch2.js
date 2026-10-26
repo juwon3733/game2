@@ -205,7 +205,7 @@ Object.assign(WITNESSES, {
     ] },
     koharu: [['koharu', '(선배, 첫 페이지에서 뺐던 리허설 컷… 거기 누가 있었죠?)', 'worried']],
     wrong: [['kuramochi', '…그게 무슨 상관이에요.', 'normal']],
-    close: [['kuramochi', '…일해야 해요. 나가 주세요.', 'scared'], ['koharu', '(…처음부터 다시 들어 봐요, 선배.)', 'worried']],
+    close: [['kuramochi', '…일해야 해요. 나가 주세요.', 'scared'], ['koharu', '(겁먹으셨어요. 조금 있다 다시 말 걸어 봐요.)', 'worried']],
   },
   pin: {
     char: 'pin', bg: 'greenroom', face: 'normal',
@@ -257,7 +257,7 @@ Object.assign(WITNESSES, {
         press: [['ruru', '윙에 왜 있었는지 몰라. 원래 객석 뒤에서 보는 사람인데.', 'normal']] },
     ],
     answers: [
-      { statement: 2, cut: '2G', shout: '네 손으로는 못 떨어뜨려!',
+      { statement: 2, cut: ['2G', '2F', '2H', 'checklist'], shout: '네 손으로는 못 떨어뜨려!',
         rebut: '네가 올라가기 전에 그 사람이 리그를 난간에 묶어 뒀어. 리그는 리허설 때부터 헐거웠고, 끈이 그걸 붙잡고 있었어.',
         success: [
           ['ruru', '묶어… 뒀다고?', 'normal'],
@@ -265,7 +265,7 @@ Object.assign(WITNESSES, {
           ['ruru', '그럼 그 사람, 거기서 그걸 묶고 있었던 거야? 내가 흔든 건…', 'crying'],
         ],
         peel: [1], words: ['a_tie', 'pl_catwalk'] },
-      { statement: 3, cut: '2N', line: 'L6', shout: '우연이 아니야!',
+      { statement: 3, cut: ['2N', '2I'], line: 'L6', shout: '우연이 아니야!', page: ['2I', '2N', '2E'], pageCap: '공연 내내, 윙에서.',
         rebut: '그 사람은 공연 내내 윙에서 리그를 보고 있었어. 흔들리자마자 「지금」이라고 하고 뛰어나왔어.',
         success: [
           ['ruru', '…….', 'crying'],
@@ -273,7 +273,7 @@ Object.assign(WITNESSES, {
           ['ruru', '이런 얼굴, 한 번도 안 보여 줬잖아.', 'crying'],
         ],
         peel: [3], words: ['pl_wing', 'a_push', 'p_kirishima'] },
-      { statement: 0, cut: 'notebook', shout: '그 사람은 너를 버린 게 아니야!',
+      { statement: 0, cut: ['notebook', 'scouts'], shout: '그 사람은 너를 버린 게 아니야!',
         rebut: '공연 날 객석에 다른 레코드사 사람을 불러 놨어. 수첩에 적혀 있어. 앙코르는 네 솔로였어.',
         success: [
           ['', '새까만 낙서가 물에 씻기듯 흘러내린다. 스튜디오 앞, 종이를 내미는 키리시마.'],
@@ -285,7 +285,7 @@ Object.assign(WITNESSES, {
     ],
     koharu: [['koharu', '(선배, 루루 씨가 올라가기 전 캣워크… 형광등 아래 컷이 있었죠.)', 'worried']],
     wrong: [['ruru', '그래서 뭐. 내가 했다니까.', 'angry']],
-    close: [['ruru', '나가. 다 내 탓이야. 그걸로 됐잖아.', 'angry'], ['koharu', '(…처음부터 다시요, 선배.)', 'worried']],
+    close: [['ruru', '나가. 다 내 탓이야. 그걸로 됐잖아.', 'angry'], ['koharu', '(저 고집… 처음부터 다시 부딪쳐 봐요.)', 'worried']],
   },
   tendo: {
     char: 'tendo', bg: 'tendo_office', face: 'smile', bgm: 'tendo',
@@ -317,7 +317,7 @@ Object.assign(WITNESSES, {
           wrong: [['tendo', '증거 있어? 없잖아.', 'smile']],
         },
         peel: [0], words: ['p_tendo'] },
-      { statement: 1, spot: 'rail', shout: '객석에선 이 그림이 안 나와!',
+      { statement: 1, spot: ['rail', 'rig'], shout: '객석에선 이 그림이 안 나와!',
         rebut: '앞쪽에 계단 난간이 걸쳐 있어요. 리그가 눈높이고. 이건 객석이 아니라 캣워크 계단 중간에서 본 그림이에요.',
         success: [
           ['tendo', '…….', 'angry'],
@@ -327,7 +327,7 @@ Object.assign(WITNESSES, {
         changes: { 2: { text: '올라가 보니 루루가 리그를 만지고 있었어. 난 바로 내려왔어. 끈 같은 건 본 적도 없어.', cut: 't_tendo_3b', dist: '생략',
           cutDesc: '캣워크 계단 위에서 본 리그. 리그 옆 난간 자리가 하얀 여백.', truthCut: '2T',
           press: [['tendo', '끈? 처음 듣는 얘기야.', 'normal'], ['koharu', '(사장님 시계, 엄청 크네요….)', 'worried']] } } },
-      { statement: 2, cut: '2T', with: '2K', requires: [1], shout: '끈을 푼 건 당신이야!',
+      { statement: 2, cut: ['2T', 'strap'], with: '2K', requires: [1], shout: '끈을 푼 건 당신이야!',
         rebut: '같은 순간이에요. 헤이즈가 깔린 캣워크, 대기실 모니터 속 그림자의 손목이 반짝여요. 루루는 그때 핀 품에서 울고 있었고. 끈을 푼 손엔 이 시계가 있어요.',
         success: [
           ['tendo', '이런 시계는 흔해!', 'cornered'],
@@ -337,7 +337,7 @@ Object.assign(WITNESSES, {
     ],
     koharu: [['koharu', '(선배, 저 사람 손목… 다른 컷에서도 본 것 같아요.)', 'worried']],
     wrong: [['tendo', '그래서? 그게 우리 회사랑 무슨 상관이지?', 'smile']],
-    close: [['tendo', '변호사 불러. 오늘은 여기까지.', 'angry'], ['koharu', '(…처음부터 다시 들어 봐요, 선배.)', 'worried']],
+    close: [['tendo', '변호사 불러. 오늘은 여기까지.', 'angry'], ['koharu', '(변호사 오기 전에 한 번 더요, 선배.)', 'worried']],
   },
   // 보류 해제: 쿠라모치 증언 3을 다시 연다
   kuramochi2: {
@@ -349,7 +349,7 @@ Object.assign(WITNESSES, {
         press: [['kuramochi', '…말하면, 저도 공범이라고 했어요.', 'scared']] },
     ],
     answers: [
-      { statement: 0, cut: '2T', shout: '당신은 봤어!',
+      { statement: 0, cut: ['2T', '2K', 'strap'], shout: '당신은 봤어!',
         rebut: '헤이즈가 깔린 캣워크. 부스 유리 정면이에요. 끈을 풀던 손, 쿠라모치 씨 자리에선 다 보였어요.',
         success: [
           ['', '하얀 여백이 벗겨진다. 띠를 재킷 주머니에 넣으며, 부스를 향해 손가락을 입에 대는 텐도.'],

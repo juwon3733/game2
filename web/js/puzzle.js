@@ -221,7 +221,8 @@ function runPuzzle(id) {
         if (st.hints >= diff().hints) { msg = '토와: 힌트는 여기까지. 나머지는 직접 읽어.'; return render(); }
         st.hints++;
         G.stats.hints++;
-        if (st.hints === 1) msg = '토와: ' + P.hint;
+        // 방금 틀린 자리가 있으면 그 자리의 "무엇이" 거꾸로인지 알려 준다. 없으면 페이지 힌트
+        if (st.hints === 1) msg = '토와: ' + (st.lastFull ? st.lastFull + ' 그걸 기준으로 다시 봐.' : P.hint);
         else {
           const i = P.solution.findIndex((c, k) => !sameSet(st.slots[k], group(k)));
           if (i < 0) msg = '토와: 순서는 다 맞아. 말풍선을 확인해 봐.';
@@ -281,6 +282,7 @@ function runPuzzle(id) {
           return render();
         }
         st.bad = { pairs, decoys, sims };
+        st.lastFull = msgs.find((m) => /「.*?」/.test(m)) || null;
         // 어느 칸 사이인지만 말하고, 무엇이 거꾸로인지는 말하지 않는다
         const shown = fb === 'tag' ? msgs : msgs.map((m) => m.replace(/은 「.*?」이\(가\) 거꾸로야\./, ' 사이가 이상해.')
           .replace(/의 두 컷은 「.*?」이\(가\) 달라\./, '의 두 컷은 같은 순간이 아니야.').replace(/ 말풍선 대사가 이상해\./, ' 말풍선이 이상해.'));

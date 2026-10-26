@@ -19,6 +19,8 @@ jobs:
         run: node tools/export-prompts.mjs --check
       - name: 파일명 · 형식 · 크기 검사
         run: node tools/check-assets.mjs
+      - name: 대사 점검 (AI 티·반복·조사)
+        run: node tools/lint-text.mjs
 
   smoke:
     runs-on: ubuntu-latest

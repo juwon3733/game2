@@ -324,6 +324,7 @@ async function sceneEnding6() {
       await say('', '9월 1일 아침. 잔상과 사무실 문에 「해체」 종이는 다시 붙지 않았다.');
       await say('koharu', '선배, 오늘 커피 담당 저예요. 단 거죠?', 'happy');
       await say('rei', '응. 단 거.', 'normal');
+      if ((G.flags.bond || 0) >= 3) await say('koharu', '6년 치 따라잡으려면 아직 멀었네요. 내일도 제가 할게요.', 'happy');
       clearChars();
     }
     hideText();

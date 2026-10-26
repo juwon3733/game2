@@ -172,7 +172,7 @@ Object.assign(WITNESSES, {
         press: [['ren', '다들 그렇게 기억하잖아. 너도.', 'normal']] },
     ],
     answers: [
-      { statement: 0, spot: 'wrist', shout: '거기 붙였어!',
+      { statement: 0, spot: 'wrist', cut: '5D', shout: '거기 붙였어!',
         rebut: '손목 둘레만 선 굵기가 달라. 끌고 가는 손은 나중에 붙인 거야.',
         success: [['ren', '역시 눈은 좋네.', 'smile']],
         editLines: [['ren', '그럼 이렇게 고치지.', 'smile']],
@@ -197,7 +197,7 @@ Object.assign(WITNESSES, {
           ['ren', '…….', 'sad'],
           ['ren', '6년 전 네 하루를 지운 건 나야.', 'sad'],
           ['ren', '네가 부탁했어. 병원에서. 「다 잊게 해 줘」라고.', 'sad'],
-        ], words: ['p_rei', 'a_rescue'], cg: 'cg_sota' },
+        ], words: ['p_rei', 'a_rescue'], cg: 'cg_sota', page: ['6Y2', '6Y3', '6Y4'], pageCap: '6년 전, 계단 아래.' },
     ],
     rewards: ['5F', '6Y5', '6Y6'],
     koharu: [['koharu', '(선배, 오빠 배지에서 읽은 컷… 아이를 안아 올리는 거.)', 'worried']],
@@ -210,7 +210,7 @@ Object.assign(WITNESSES, {
     intro: [['towa', '레이. 이 컷, 이음매가 거의 없어. 근데 거의, 야.']],
     statements: [
       { text: '힘든 건 잊어도 돼.', cut: 't_asagiri_1',
-        cutDesc: '카운터 너머로 단 커피를 내미는 손. 6년 동안 매번 같은 각도, 같은 김.',
+        cutDesc: '카운터 너머로 단 커피를 내미는 손. 6년 동안 매번 같은 각도, 같은 김. 약지의 하얀 자국만 해마다 조금씩 옅다.',
         spots: [{ id: 'cup', label: '커피잔', x: 0.4, y: 0.5, w: 0.2, h: 0.25 }, { id: 'ring', label: '약지의 하얀 자국', x: 0.55, y: 0.4, w: 0.12, h: 0.12 }, { id: 'steam', label: '김', x: 0.4, y: 0.25, w: 0.2, h: 0.2 }],
         press: [['asagiri', '레이한테는 늘 이 말을 하고 싶었어.', 'normal']] },
     ],

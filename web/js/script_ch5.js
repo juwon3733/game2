@@ -218,6 +218,7 @@ async function sceneHarbor5() {
   await say('', '방파제 끝에서 항구 등대 불이 켜진다. 6년 전 그 밤에도 저 불은 돌고 있었을 것이다.');
   await say('rei', '(코하루는 왜 혼자 갔을까. 나한테 말하면 말릴 줄 알았겠지.)', 'serious');
   await say('rei', '(말렸겠지. 나라면.)', 'normal');
+  if ((G.flags.bond || 0) >= 2) await say('rei', '(…같이 열어 보자고 했던 상자. 혼자 열었구나.)', 'serious');
   clearChars();
 }
 

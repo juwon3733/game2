@@ -5,7 +5,7 @@ function loadJSON(k) { try { return JSON.parse(localStorage.getItem(k)) || null;
 function saveJSON(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* 저장 불가(사생활 모드 등) */ } }
 
 // textSpeed: 0 느림 ~ 3 즉시, autoWait: 자동 진행 대기 배율
-const SETTINGS = Object.assign({ textSpeed: 1, autoWait: 1, bgm: 0.55, sfx: 0.8, fxReduce: 0 }, loadJSON('gaha-settings') || {});
+const SETTINGS = Object.assign({ textSpeed: 1, autoWait: 1, bgm: 0.55, sfx: 0.8, fxReduce: 0, textSize: 1, shake: 0 }, loadJSON('gaha-settings') || {});
 
 // 추리 규칙 (난이도 선택 없음. 이 게임의 기본 난이도)
 //  - 컷 아래 설명 없음: 그림 속 단서를 직접 읽는다 (크게 보기에서만 설명)
@@ -13,7 +13,12 @@ const SETTINGS = Object.assign({ textSpeed: 1, autoWait: 1, bgm: 0.55, sfx: 0.8,
 //  - 토와 힌트 2번, 코하루 도움 1번, 증인의 마음 3칸, 결론은 가장 정확한 컷만 정답
 const RULES = { caption: false, zoomDesc: true, feedback: 'pair', hints: 2, koharu: 1, ink: 3, strict: true };
 const diff = () => RULES;
-function saveSettings() { saveJSON('gaha-settings', SETTINGS); applyVolumes(); }
+function saveSettings() { saveJSON('gaha-settings', SETTINGS); applyVolumes(); applyLook(); }
+// 글자 크기·흔들림은 화면에 바로 반영한다
+function applyLook() {
+  document.documentElement.style.setProperty('--tb-scale', [0.88, 1, 1.14][SETTINGS.textSize] ?? 1);
+  document.body && document.body.classList.toggle('no-shake', SETTINGS.shake === 1);
+}
 
 // 곡 파일은 tools/compose/build.py가 반복 길이에 딱 맞게 렌더링한다(끝이 처음으로 자연스럽게 이어짐).
 const MUSIC = {
@@ -45,10 +50,22 @@ function audioCtx() {
   const C = window.AudioContext || window.webkitAudioContext;
   if (!C) return null;
   AU.ctx = new C();
-  AU.bgm = AU.ctx.createGain(); AU.bgm.connect(AU.ctx.destination);
+  AU.bgm = AU.ctx.createGain();
+  // 심문 긴장: 곡에 저역 통과 필터를 걸어 마음이 줄수록 먹먹하게
+  AU.lp = AU.ctx.createBiquadFilter(); AU.lp.type = 'lowpass'; AU.lp.frequency.value = 20000;
+  AU.bgm.connect(AU.lp); AU.lp.connect(AU.ctx.destination);
   AU.sfx = AU.ctx.createGain(); AU.sfx.connect(AU.ctx.destination);
   applyVolumes();
   return AU.ctx;
+}
+
+// 긴장 단계 0(평소)~2(마지막 한 번). 곡이 먹먹해지고 조금 느려진다
+function tension(level = 0) {
+  if (!AU.ctx || !AU.lp) return;
+  const t = AU.ctx.currentTime, f = [20000, 2400, 900][level] || 20000;
+  AU.lp.frequency.cancelScheduledValues(t);
+  AU.lp.frequency.setTargetAtTime(f, t, 0.5);
+  if (AU.cur && AU.cur.src.playbackRate) AU.cur.src.playbackRate.setTargetAtTime([1, 0.97, 0.94][level] || 1, t, 0.8);
 }
 
 function applyVolumes() {

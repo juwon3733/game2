@@ -30,8 +30,23 @@ const CH1_STATE = {
 // ---------- 장면 ----------
 
 async function sceneOffice() {
-  await FX.title('CHAPTER 1', '낙하', '8월 24일 밤 · 츠키미나토 구시가', [['taiga', 'angry'], ['himari', 'normal']]);
+  // 콜드 오픈: 추락 직전. 아직 아무것도 모르는 채로 그 밤을 잠깐 본다
+  bg('night');
+  FX.memory(true);
+  bgm(null);
+  await say('', '8월 23일 밤 9시 24분. 구시가 하나미즈키 맨션 5층.');
+  sfx('ghost', { vol: 0.5 });
+  await flashCut('G', 1500);
+  await say('', '베란다 쪽에서 아이가 숨을 들이켜는 소리.');
+  await flashCut('C', 1300);
+  hideText();
+  FX.impact('쿵'); quake();
+  await sleep(G.skip ? 100 : 900);
+  FX.memory(false);
+  await fade(true, 500);
+  await FX.title('CHAPTER 1', '낙하', '8월 24일 · 츠키미나토 구시가', [['taiga', 'angry'], ['himari', 'normal']]);
   bg('office');
+  fade(false, 500);
   await say('', '츠키미나토 경찰서 별관 맨 끝 창고. 압수품 상자 사이에 소파 하나와 전기포트. 「잔상과」의 사무실이다.');
   show('rei', 'normal', 'left');
   await say('rei', '…….');

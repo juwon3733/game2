@@ -95,6 +95,8 @@ function openGallery() {
       body.innerHTML = `<div class="gal-list">${Object.keys(MUSIC).map((id) => (g.bgm.includes(id)
         ? `<button data-id="${id}">♪ ${MUSIC_NAME[id] || id}</button>` : '<div class="locked">♪ ？？？</div>')).join('')}</div>`;
       body.querySelectorAll('button[data-id]').forEach((b) => (b.onclick = () => { bgm(b.dataset.id); body.querySelectorAll('button').forEach((x) => x.classList.toggle('on', x === b)); }));
+    } else if (t === 'rec') {
+      body.innerHTML = recordsHTML();
     } else {
       const all = Object.keys(CUTS).filter((id) => !CUTS[id].blank);
       body.innerHTML = `<div class="md-sub">모은 컷 ${all.filter((id) => g.cuts.includes(id)).length} / ${all.length}</div><div class="gal-cuts"></div>`;
@@ -103,13 +105,41 @@ function openGallery() {
     }
   };
   const m = openModal(`<div class="md-title">갤러리</div>
-    <div class="gal-tabs"><button data-t="cg">이벤트 CG</button><button data-t="bgm">음악</button><button data-t="cuts">컷</button></div>
+    <div class="gal-tabs"><button data-t="cg">이벤트 CG</button><button data-t="bgm">음악</button><button data-t="cuts">컷</button><button data-t="rec">기록</button></div>
     <div class="gal-body"></div>
     <div class="md-sub">엔딩 ${g.endings.length} / 3</div>
     <button class="md-cancel">닫기</button>`, 'gallery');
   m.querySelectorAll('.gal-tabs button').forEach((b) => (b.onclick = () => tab(b.dataset.t)));
   m.querySelector('.md-cancel').onclick = () => { closeModal(); bgm('title'); };
   tab('cg');
+}
+
+// ---------- 기록 ----------
+// 장마다 가장 좋은 원고 평가와 노힌트 클리어, 여백 조건(1~5장 감정 선택)을 남긴다
+const RECORD_KEY = 'gaha-records';
+const RANKS = 'SABCD';
+function saveRecord(ch, r) {
+  if (!ch) return;
+  const rec = loadJSON(RECORD_KEY) || {};
+  const o = rec[ch] || {};
+  if (!o.best || RANKS.indexOf(r.rank) < RANKS.indexOf(o.best)) o.best = r.rank;
+  if (!r.hints && !r.help) o.noHint = true;
+  if (!r.wrong) o.clean = true;
+  rec[ch] = o;
+  rec.margin = [...new Set([...(rec.margin || []), ...MARGIN_FLAGS.filter((f) => G.flags[f])])];
+  saveJSON(RECORD_KEY, rec);
+}
+function recordsHTML() {
+  const rec = loadJSON(RECORD_KEY) || {};
+  const rows = Object.keys(CHAPTERS).map((ch) => {
+    const o = rec[ch] || {};
+    const name = ch === '6' ? '종장' : ch + '장';
+    return `<div class="rec-row${o.best ? '' : ' locked'}"><span>${name} 「${CHAPTERS[ch].title}」</span><b class="rec-rank">${o.best || '—'}</b>
+      <i class="${o.noHint ? 'on' : ''}">힌트 없이</i><i class="${o.clean ? 'on' : ''}">틀림 없이</i></div>`;
+  }).join('');
+  const m = (rec.margin || []).length;
+  return `<div class="rec-list">${rows}</div>
+    <div class="rec-foot"><span>여백 조건 ${m} / ${MARGIN_FLAGS.length}</span></div>`;
 }
 
 // ---------- 저장 슬롯 ----------
@@ -146,4 +176,132 @@ function openSlots(mode) { // 'save' | 'load'
     }
   }));
   m.querySelector('.md-cancel').onclick = closeModal;
+}
+
+// ---------- 사건 개요 (수첩 「사건」 탭 · 이어하기 때 「지난 이야기」) ----------
+// facts: [그 장면이 끝나면 알게 되는 것]
+const CASES = {
+  1: { title: '하나미즈키 맨션 추락 사건', summary: '피아노 강사 사에키 미츠루가 5층 베란다에서 떨어져 의식불명. 경비원은 택배 기사 타이가가 도망치는 걸 봤다고 한다.',
+    facts: [['puzzle1', '쿵 소리가 났을 때 타이가는 5층 문 앞에 있었다.'], ['ookubo', '경비원은 야구 중계 소리와 순서를 헷갈렸다. 타이가는 "구급차!"라고 외쳤다.'],
+      ['taiga', '타이가는 휴대폰이 꺼져 길 건너 편의점에서 신고를 부탁했다.'], ['himari', '옆집 히마리가 날아간 머리핀을 주우려고 난간에 올라갔다.'],
+      ['puzzle2', '사에키 씨는 칸막이 너머로 히마리를 끌어당기다가 떨어졌다.']] },
+  2: { title: '크레센트 조명 리그 낙하 사건', summary: '라이브 공연 중 조명 리그가 떨어져 매니저 키리시마가 숨졌다. 보컬 루루는 "내 탓"이라고 자백했다.',
+    facts: [['puzzle2a', '리그는 리허설 때부터 헐거웠다.'], ['kuramochi', '매니저가 끈으로 리그를 난간에 묶어 뒀는데, 그 끈이 개장 전에 사라졌다.'],
+      ['ruru', '루루가 흔든 건 사실이지만, 끈이 있었다면 떨어지지 않았다. 키리시마는 루루를 밀어내고 대신 깔렸다.'],
+      ['explore2c', '사장실 휴지통에 주황색 끈. 안전 와이어를 뺀 견적서에 사장 서명.'], ['tendo', '개장 직전 끈을 푼 사람은 텐도 사장.']] },
+  3: { title: '토키와 양과점 점장 추락 사건', summary: '마감 뒤 점장이 창고 계단 아래에서 쓰러진 채 발견됐다. 매상 42만 엔 봉투가 없어졌고, 마감 담당 「유키」가 의심받는다.',
+    facts: [['puzzle3a', '점장이 쓰러지고 신고까지 10분이 비었다.'], ['tofu', '두부집 시계는 10분 빨랐다. 숄을 두른 여자가 뒷골목에서 뛰어나왔다.'],
+      ['academy3', '진짜 유키는 그날 밤 미술 학원에 있었다.'], ['yukin', '마감을 한 「유키」는 쌍둥이 동생 나기였다.'],
+      ['nagi', '점장은 봉투를 낚아챈 별무늬 숄의 사람을 쫓다가 넘어졌다.'], ['madoka', '미래 컷은 오려 붙인 가짜. 봉투를 가져간 건 마도카.']] },
+  4: { title: '사쿠라유 화재', summary: '재개발 지구의 목욕탕이 불탔다. 주인 겐조는 중상. 손녀 하야카는 그 밤의 기억을 지웠다.',
+    facts: [['explore4a', '배전반 전선이 공구로 잘려 이어 붙여져 있었다.'], ['okamoto', '하야카는 불이 나기 전에 골목을 떠났다.'],
+      ['hayaka', '하야카는 엄마가 망을 보는 걸 보고, 엄마를 지키려고 기억을 지웠다.'], ['cross4', '현장소장 무라세가 보일러실 열쇠로 들어가 배전반을 조작했다. 상무 니시무라의 지시.'],
+      ['keiko', '케이코는 망을 봤지만, 불이 나자 아버지를 업고 나왔다.']] },
+  5: { title: '코하루 실종', summary: '코하루가 사라졌다. 그가 지나간 길에 남은 잔상은 전부 "끌려가는" 그림이다.',
+    facts: [['restore5', '잔상은 편집된 것이었다. 코하루는 제 발로 폐창고에 갔다.'], ['warehouse5', '코하루는 렌에게서 오빠 소타 이야기를 들었다.'],
+      ['ren', '6년 전 레이의 기억을 지운 건 렌. 그날 레이는 등대 도서관에 있었다.'], ['kurogane5', '소타 순경이 레이를 업고 나왔고 쿠로가네가 받아 안았다. 토와는 전 편집국 사람.'],
+      ['epilogue5', '편집국을 만든 건 아사기리.']] },
+  6: { title: '6년 전, 등대 도서관 화재', summary: '6년 전 8월 31일 곶 끝 등대 도서관이 불탔다. 시오리와 소타 순경이 나오지 못했다.',
+    facts: [['explore6', '1층 서고 잿더미에서 녹은 은색 라이터가 나왔다.'], ['asagiri6', '아사기리도 12년 전 하쿠요의 불로 가족을 잃었다.'],
+      ['self6', '레이는 뛰쳐나간 뒤 연기를 보고 되돌아갔다.'], ['shiori6', '시오리는 범인의 얼굴을 그린 원고를 가지러 다시 들어갔다.'], ['puzzle6', '불을 지른 건 니시무라.']] },
+};
+function caseState() {
+  const ch = G.ch || 1, C = CASES[ch], S = CHAPTERS[ch];
+  if (!C || !S) return null;
+  const idx = (id) => S.scenes.findIndex(([s]) => s === id);
+  const now = idx(G.scene);
+  const known = C.facts.filter(([s]) => idx(s) >= 0 && idx(s) < now).map(([, t]) => t);
+  return { C, ch, known, unknown: C.facts.length - known.length };
+}
+function casePage() {
+  const s = caseState();
+  if (!s) return '';
+  const goalText = ($('#goal').textContent || '').replace(/^목표\s*/, '');
+  return `<div class="case-box"><div class="case-ch">${s.ch === 6 ? '종장' : s.ch + '장'} · ${CHAPTERS[s.ch].title}</div><h3>${s.C.title}</h3><p class="case-sum">${s.C.summary}</p>
+    <div class="case-h">밝혀진 것</div>${s.known.map((t) => `<div class="case-fact">✓ ${t}</div>`).join('') || '<div class="md-empty">아직 없다.</div>'}
+    ${s.unknown ? `<div class="case-h">아직 모르는 것</div><div class="case-fact unk">? ${s.unknown}가지</div>` : ''}
+    ${goalText ? `<div class="case-h">지금 할 일</div><div class="case-fact next">▶ ${goalText}</div>` : ''}</div>`;
+}
+// 이어하기로 돌아오면 지난 이야기를 짧게
+async function previously() {
+  const s = caseState();
+  if (!s) return;
+  const last = s.known.slice(-3);
+  const m = openModal(`<div class="md-title">지난 이야기</div><div class="case-box"><h3>${s.C.title}</h3><p class="case-sum">${s.C.summary}</p>
+    ${last.map((t) => `<div class="case-fact">✓ ${t}</div>`).join('')}</div><button class="md-ok">이어서</button>`, 'case');
+  await new Promise((r) => { m.querySelector('.md-ok').onclick = () => { closeModal(); r(); }; });
+}
+
+// 컷 한 장을 화면 가운데 잠깐 띄운다 (콜드 오픈·예고)
+async function flashCut(id, ms = 1600) {
+  const wrap = document.createElement('div');
+  wrap.className = 'montage flash';
+  const v = cutView(id, { noSpots: true });
+  v.classList.add('mt-cut');
+  v.style.setProperty('--tilt', '-1deg');
+  wrap.appendChild(v);
+  $('#stage').appendChild(wrap);
+  await sleep(G.skip ? 150 : ms);
+  wrap.classList.add('mt-out');
+  await sleep(400);
+  wrap.remove();
+}
+
+// ---------- 만화 페이지 ----------
+// 결정적 순간을 만화 한 페이지처럼: 칸이 하나씩 열리고, 마지막 칸은 크게.
+async function mangaPage(ids, caption = '') {
+  ids = (ids || []).filter((id) => CUTS[id]);
+  if (!ids.length) return;
+  hideText();
+  const wrap = document.createElement('div');
+  wrap.className = 'manga';
+  wrap.innerHTML = `<div class="mg-page mg-${ids.length}"></div>${caption ? `<div class="mg-cap">${caption}</div>` : ''}`;
+  $('#stage').appendChild(wrap);
+  const page = wrap.querySelector('.mg-page');
+  for (let i = 0; i < ids.length; i++) {
+    const v = cutView(ids[i], { fills: G.fills, noSpots: true });
+    v.classList.add('mg-cell');
+    if (i === ids.length - 1) v.classList.add('mg-last');
+    page.appendChild(v);
+    sfx('page', { rate: 0.9 + i * 0.05, vol: 0.6 });
+    if (i === ids.length - 1) { FX.lines(500, '#ffffff'); }
+    await sleep(G.skip ? 120 : i === ids.length - 1 ? 1600 : 900);
+  }
+  await waitClick(wrap);
+  wrap.classList.add('mt-out');
+  await sleep(400);
+  wrap.remove();
+}
+function waitClick(el) {
+  if (G.skip) return sleep(200);
+  return new Promise((r) => { el.onclick = () => r(); setTimeout(r, 6000); });
+}
+
+// ---------- 다음 장 예고 ----------
+// 장을 끝내고 다음 장으로 넘어가기 전에 컷 한 장 + 한 줄. 정답이 새지 않는 컷만 쓴다
+const PREVIEWS = {
+  2: { cut: '2E', line: '앙코르 박수 속에서 무대 위 조명이 떨어졌다.' },
+  3: { cut: '3A', line: '셔터가 내려간 가게 앞. 그 시각에 있던 건 언니였을까, 동생이었을까.' },
+  4: { cut: '4F', line: '불이 난 밤의 기억을 누군가 지워 달라고 했다.' },
+  5: { cut: '5Ae', line: '같은 방인데, 컷 속 물건 자리가 하나씩 다르다.' },
+  6: { cut: 'R5', line: '6년 전 8월 31일. 등대 도서관.' },
+};
+async function nextPreview(n) {
+  const p = PREVIEWS[n];
+  if (!p || G.skip) return;
+  hideText();
+  const wrap = document.createElement('div');
+  wrap.className = 'manga preview';
+  wrap.innerHTML = `<div class="pv-head">NEXT — CHAPTER ${n}<b>「${CHAPTERS[n].title}」</b></div>`;
+  const v = cutView(p.cut, { noSpots: true });
+  v.classList.add('pv-cut');
+  wrap.appendChild(v);
+  wrap.insertAdjacentHTML('beforeend', `<div class="mg-cap">${josa(p.line)}</div>`);
+  $('#stage').appendChild(wrap);
+  sfx('page');
+  await sleep(700);
+  await waitClick(wrap);
+  wrap.classList.add('mt-out');
+  await sleep(400);
+  wrap.remove();
 }

@@ -579,8 +579,10 @@ $('#btn-note').onclick = (e) => {
   sfx('page', { vol: 0.6 });
   const met = Object.keys(PROFILES).filter((k) => (G.flags.met || []).includes(k));
   const m = openModal(`<div class="md-title">사건 수첩</div>
-    <div class="nb-tabs"><button data-tab="cuts" class="on">컷 ${G.cuts.length}</button><button data-tab="items">물증 ${G.items.length}</button><button data-tab="lines">대사 조각 ${G.lines.length}</button><button data-tab="words">단어 ${G.words.length}</button><button data-tab="people">인물 ${met.length}</button></div>
-    <div class="nb-page" data-page="cuts"><div class="md-grid"></div></div>
+    <div class="nb-tabs"><button data-tab="case" class="on">사건</button><button data-tab="cuts">컷 ${G.cuts.length}</button><button data-tab="memo">메모 ${(G.marks || []).length}</button><button data-tab="items">물증 ${G.items.length}</button><button data-tab="lines">대사 조각 ${G.lines.length}</button><button data-tab="words">단어 ${G.words.length}</button><button data-tab="people">인물 ${met.length}</button></div>
+    <div class="nb-page" data-page="case"><div class="nb-case"></div></div>
+    <div class="nb-page hidden" data-page="cuts"><div class="md-grid"></div></div>
+    <div class="nb-page hidden" data-page="memo"><div class="nb-memo"></div></div>
     <div class="nb-page hidden" data-page="items"><div class="md-grid nb-items"></div></div>
     <div class="nb-page hidden" data-page="words"><div class="nb-words"></div></div>
     <div class="nb-page hidden" data-page="lines"><div class="md-lines"></div></div>
@@ -598,6 +600,8 @@ $('#btn-note').onclick = (e) => {
   Object.entries(G.fills).forEach(([cut, id]) => lines.insertAdjacentHTML('beforeend', `<div class="line-btn static used"><b>"${LINES[id].text}"</b><small>「${CUTS[cut].title}」 말풍선에 넣음</small></div>`));
   if (!lines.children.length) lines.innerHTML = '<div class="md-empty">아직 대사 조각이 없다. 증언을 [파고들어] 모아 보자.</div>';
   m.querySelector('.nb-people').innerHTML = met.map((k) => `<div class="nb-person"><img src="${ASSET.portrait(k, CHARACTERS[k].faces[0])}" alt=""><div><b style="color:${CHARACTERS[k].accent}">${CHARACTERS[k].name}</b><p>${PROFILES[k]}</p></div></div>`).join('') || '<div class="md-empty">아직 만난 사람이 없다.</div>';
+  m.querySelector('.nb-case').innerHTML = typeof casePage === 'function' ? casePage() : '';
+  m.querySelector('.nb-memo').innerHTML = (G.marks || []).map((k) => `<div class="line-btn static"><b>${k.who}</b> 「${k.text}」</div>`).join('') || '<div class="md-empty">아직 표시한 증언이 없다. 심문 중에 수상한 증언에서 [표시]를 눌러 두자.</div>';
   m.querySelectorAll('.nb-tabs button').forEach((b) => (b.onclick = () => {
     m.querySelectorAll('.nb-tabs button').forEach((x) => x.classList.toggle('on', x === b));
     m.querySelectorAll('.nb-page').forEach((p) => p.classList.toggle('hidden', p.dataset.page !== b.dataset.tab));
@@ -637,6 +641,8 @@ function openSettings() {
       <label>자동 진행 간격</label><input type="range" min="0.5" max="2" step="0.1" data-key="autoWait" value="${SETTINGS.autoWait}">
       <label>배경음악</label>${range('bgm')}
       <label>효과음</label>${range('sfx')}
+      <label>글자 크기</label>${seg('textSize', ['작게', '보통', '크게'])}
+      <label>화면 흔들림</label>${seg('shake', ['켜기', '끄기'])}
       <label>화면 효과</label>${seg('fxReduce', ['보통', '줄이기 (번쩍임·반전 끔)'])}
     </div>
     <div class="set-help">대사 넘기기: 클릭 · Space · Enter　|　Ctrl 누르고 있기: 빨리 넘기기　|　휠 위로: 대사 기록</div>

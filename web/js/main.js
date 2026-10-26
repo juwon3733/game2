@@ -25,7 +25,7 @@ function loadSave() {
 }
 function saveProgress(ch, scene) {
   saveJSON(SAVE_KEY, { ch, scene, cuts: G.cuts, lines: G.lines, fills: G.fills, items: G.items, words: G.words,
-    koharuLeft: G.koharuLeft, flags: G.flags, stats: G.stats, at: Date.now() });
+    koharuLeft: G.koharuLeft, flags: G.flags, stats: G.stats, marks: G.marks || [], at: Date.now() });
 }
 
 // 장 시작 상태: 저장이 있으면 그것, 없으면 그 장면의 기본 소지품
@@ -39,6 +39,7 @@ function loadState(ch, scene, saved) {
   G.koharuLeft = saved ? saved.koharuLeft : diff().koharu;
   G.stats = Object.assign({ wrong: 0, hints: 0, help: 0, accuse: null }, saved ? saved.stats : {});
   G.flags = Object.assign({}, saved ? saved.flags : {});
+  G.marks = saved && saved.marks ? saved.marks.slice() : [];
 }
 
 async function playFrom(scene, saved) {
@@ -49,11 +50,14 @@ async function playFrom(scene, saved) {
   LOG.length = 0;
   // 장면 선택으로 중간부터 시작하면 앞 장면에서 만난 인물을 수첩에 미리 넣는다
   if (!saved) G.flags.met = CHAPTERS[ch].scenes.slice(0, start).flatMap(([id]) => (CHAPTERS[ch].cast || {})[id] || []);
+  let recap = !!saved;
   for (;;) {
     const C = CHAPTERS[ch];
     for (let i = start; i < C.scenes.length; i++) {
       const id = C.scenes[i][0];
+      G.ch = ch; G.scene = id;
       saveProgress(ch, id);
+      if (recap) { recap = false; await previously(); }
       await fade(true, 400);
       clearChars(); hideText(); goal(''); FX.zoom(null); FX.mood(null); FX.memory(false);
       bgm((C.bgm || {})[id]);
@@ -64,7 +68,8 @@ async function playFrom(scene, saved) {
     try { localStorage.setItem(`gaha-ch${ch}-clear`, '1'); } catch { /* 저장 불가 */ }
     // 다음 장이 있으면 이어서. 장이 바뀌면 소지품은 새로, 튜토리얼 표시 등은 유지
     if (!CHAPTERS[ch + 1]) break;
-    const keep = { trialTut: G.flags.trialTut, puzzleTut: G.flags.puzzleTut, simTut: G.flags.simTut, discardTut: G.flags.discardTut, timeTut: G.flags.timeTut, exploreTut: G.flags.exploreTut, met: G.flags.met };
+    await nextPreview(ch + 1);
+    const keep = { trialTut: G.flags.trialTut, puzzleTut: G.flags.puzzleTut, simTut: G.flags.simTut, discardTut: G.flags.discardTut, timeTut: G.flags.timeTut, exploreTut: G.flags.exploreTut, bond: G.flags.bond, met: G.flags.met };
     MARGIN_FLAGS.forEach((f) => { if (G.flags[f]) keep[f] = true; }); // 여백 엔딩 조건은 장을 넘어 이어진다
     ch += 1; start = 0;
     const first = CHAPTERS[ch].scenes[0][0];
@@ -89,6 +94,7 @@ function manuscriptRank() {
 
 async function showRank(chTitle) {
   const r = manuscriptRank();
+  saveRecord(G.ch, r);
   sfx('correct');
   FX.lines(800, r.rank === 'S' ? '#f2c14e' : '#ffffff');
   const m = openModal(`<div class="rank-box"><div class="rank-head">원고 평가 · ${chTitle}</div>
@@ -161,4 +167,16 @@ $('#btn-save').onclick = (e) => { e.stopPropagation(); openSlots('save'); };
 
 hud(true);
 const jump = location.hash.slice(1);
-if (findScene(jump)) playFrom(jump); else titleScreen();
+// 첫 로딩: 글꼴과 타이틀 그림만 먼저 받고 시작한다(나머지는 쓰일 때 받는다). 3초 넘으면 그냥 시작
+applyLook();
+(async () => {
+  const ld = document.createElement('div');
+  ld.id = 'loading';
+  ld.innerHTML = '불러오는 중<i></i>';
+  document.body.appendChild(ld);
+  const img = (src) => new Promise((r) => { const i = new Image(); i.onload = i.onerror = r; i.src = src; });
+  await Promise.race([Promise.all([document.fonts ? document.fonts.ready : null, img('assets/title/key.png')]), sleep(3000)]);
+  ld.classList.add('out');
+  setTimeout(() => ld.remove(), 500);
+  if (findScene(jump)) playFrom(jump); else titleScreen();
+})();
