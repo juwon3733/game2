@@ -152,6 +152,7 @@ async function sceneExplore6() {
       },
       plaque: async () => {
         await say('', '1층 벽의 그을린 기증자 명판. 「바위산 화재로 떠난 남편과 딸을 기억하며 — 그림책 200권」. 날짜는 12년 전. 기증자 이름 칸만 까맣게 타 읽을 수 없다.');
+        await say('rei', '(시립 도서관 그림책에 찍혀 있던 도장. 같은 날짜야.)', 'serious');
       },
       flowers: async () => {
         await say('', '철망 앞에 시든 국화 한 다발. 리본도 쪽지도 없다.');

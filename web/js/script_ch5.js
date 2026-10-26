@@ -78,6 +78,7 @@ async function sceneOffice5() {
   await say('', '모니터 모서리에 포스트잇. 「내일 아침 커피 담당 = 나!」 날짜는 어제.');
   show('rei', 'normal', 'left');
   await say('rei', '(…조용하네.)', 'normal');
+  await say('', '선반 맨 위, 「6년 전 / 등대」 상자의 뚜껑이 비뚤게 덮여 있다.');
   hide('rei');
   show('towa', 'serious', 'center');
   await say('towa', '코하루 휴대폰, 아침엔 안 받더니 한낮부터는 아예 꺼져 있어.');
@@ -85,6 +86,8 @@ async function sceneOffice5() {
   await say('kurogane', '(전화) 직무 정지다. 형사로는 못 움직여. 시노노메, 그 애를 찾아라.');
   await say('kurogane', '(전화) 흰 코트를 조심해. 렌이라는 이름이다.');
   gainWord('p_ren');
+  await say('rei', '과장님. 선반 위 그 상자, 누가 열었어요.', 'normal');
+  await say('kurogane', '(전화) ……그 상자 얘긴 전화로 하지 마라. 서에서도 하지 말고.');
   clearChars();
 }
 
@@ -127,6 +130,8 @@ async function sceneRoute5() {
   await say('', '책상에 펼쳐져 있는 6년 전 9월 1일 자 지역 신문. 「등대 도서관 화재 — 여고생 1명·순경 1명 사망, 고등학생 1명 구조」.');
   show('rei', 'serious', 'left');
   await say('rei', '(이 기사. 한 번도 끝까지 읽은 적이 없어.)', 'serious');
+  await say('', '열람실 구석 그림책 서가. 책등이 바랜 그림책마다 같은 도장이 찍혀 있다. 「기증 — 바위산 화재로 떠난 두 사람을 기억하며 · 카페 여백」. 날짜는 12년 전.');
+  await say('rei', '(사장님은 이런 얘기를 한 번도 한 적이 없어.)', 'normal');
   hide('rei');
   await gainCut('5Be');
   bg('busstop');
