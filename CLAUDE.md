@@ -44,7 +44,7 @@
 - 배경: 풀컬러 도트, 늦여름 항구도시 밤 분위기 (7장 완료, 그대로 유지).
 - **2장 「앙코르 없음」 구현됨** (장면 13개, 중간 지목: 쿠라모치를 지목하면 연행됨). 그림은 전부 임시. GPT에 맡길 묶음: `portrait-ruru pin aoi kuramochi tendo kirishima`, `bg`(새 6장), `cut-pin cut-ruru cut-aoi cut-kuramochi cut-kirishima cut-tendo`, `map`(crescent backstage tendooffice). 맵 그림이 오면 `script_ch2.js`의 rows·물건 위치를 맞추고, 컷이 오면 `data_ch2.js`의 spots 좌표를 그림에 맞춘다.
 - **3장 「둘 중 하나」 구현됨** (장면 16개, 중간 지목: 유키를 지목하면 데려가지고 진짜 유키가 학원을 포기하겠다고 함). 새 규칙: 시각표(`time3`), 파기 칸(`page3c`), 돋보기(가짜 미래 컷 이음매 짚기), 변장 인물(`CHARACTERS.yukin.as='yuki'`). 그림 전부 임시. GPT 묶음: `portrait-yuki nagi madoka tofu ren`, `bg`(새 6장), `cut-twin cut-hasegawa cut-tofu cut-madoka`, `map`(tokiwa arcade). 미래 컷 F2·F3은 이음매(스크린톤 점 간격, 그림자 방향)가 그림에 꼭 보여야 함.
-- 1장 이미지 들어감. **다시 받을 컷**: `H I B t_himari_2_truth t_ookubo_2 t_taiga_3_truth` (높이·머리핀·밤·단서 크기, 프롬프트 고침). 남은 것: `ui cg`, 타이틀 원본 화질. GPT가 풀컬러로 주면 Claude가 384×256 → 회색 8 + 포인트 1 디더링 → 1536×1024로 변환해 넣는다.
+- 1장 이미지 들어감. **다시 받을 컷**: `H I B t_himari_2_truth t_ookubo_2 t_taiga_3_truth t_taiga_2` (높이·머리핀·밤·단서 크기, t_taiga_2는 폭발이 아니라 "큰 소리"로. 프롬프트 고침). 남은 것: `ui cg`, 타이틀 원본 화질. GPT가 풀컬러로 주면 Claude가 384×256 → 회색 8 + 포인트 1 디더링 → 1536×1024로 변환해 넣는다.
 - 그림은 GPT 이미지를 적극적으로 쓴다. 코드로 직접 그린 그림·CSS 장식은 "AI 슬롭" 티가 나서 사용자가 싫어한다. 코드 그림은 이미지가 없을 때의 임시용.
 - 탐색 맵(`maps/`), 걷는 캐릭터 시트(`sprites/`), 타이틀 키아트(`title/key.png`)도 GPT 이미지. 맵 그림이 들어오면 Claude가 그림을 보고 `explore.js`의 충돌 칸(`rows`)과 물건 위치를 맞춘다.
 - 상반신은 `style_version` 3: 원본 256×384 도트 4배, 배경 없이 양옆·위 여백. 지금 있는 16장(128×192)은 교체 대상.

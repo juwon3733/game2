@@ -40,7 +40,7 @@ function runPuzzle(id) {
           <div class="pz-tray"><h3>컷 묶음 (${st.tray.length})</h3></div>
         </div>
         <div class="pz-bar">
-          <div class="pz-say">${msg}</div>
+          <div class="pz-say">${sayBar(msg)}</div>
           <button class="act-btn small" data-a="reset">모두 빼기</button>
           <button class="act-btn small press" data-a="hint">토와 힌트</button>
           <button class="act-btn objection" data-a="check">${done ? '다음 ▶' : '이 순서로 확정'}</button>

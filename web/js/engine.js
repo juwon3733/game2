@@ -218,6 +218,9 @@ async function say(who, text, face) {
   if (phone) text = text.replace(/^\(전화\)\s*/, '');
   tb.classList.toggle('phone', phone);
   tb.classList.toggle('thought', !phone && /^\(.*\)$/.test(text));
+  // 화면에 상반신이 없거나 퍼즐·네임 화면 위라면 얼굴을 대사창에
+  const over = !$('#puzzle').classList.contains('hidden') || document.querySelector('.name-screen') || (typeof EX !== 'undefined' && EX);
+  setFace(who && CHARACTERS[who] && (!onStage[who] || over) ? who : null, face);
   const ch = who && CHARACTERS[who];
   LOG.push({ name: ch ? ch.name : '', color: ch ? ch.accent : '', text: plain(text) });
   // 짧은 외침은 대사창이 들썩인다
@@ -228,6 +231,35 @@ async function say(who, text, face) {
   $('#tb-next').classList.remove('hidden');
   await waitAdvance(text.length);
   $('#tb-next').classList.add('hidden');
+}
+
+// ---------- 말하는 사람 얼굴 ----------
+// 상반신이 화면에 없을 때(퍼즐·탐색·전화) 대사창 왼쪽에 얼굴을 잘라 보여 준다
+const FACE_POS = { towa: '50% 46%' };
+function faceStyle(who, face) {
+  const f = face || (onStage[who] && onStage[who].dataset.face) || CHARACTERS[who].faces[0];
+  return `background-image:url(${ASSET.portrait(who, f)});background-position:${FACE_POS[who] || '50% 19%'}`;
+}
+const faceOk = {};
+function setFace(who, face) {
+  const tb = $('#textbox'), el = $('#tb-face');
+  if (!who) { tb.classList.remove('has-face'); return; }
+  const f = face || CHARACTERS[who].faces[0], src = ASSET.portrait(who, f);
+  el.setAttribute('style', faceStyle(who, f));
+  if (faceOk[src] === false) { tb.classList.remove('has-face'); return; }
+  tb.classList.add('has-face');
+  if (faceOk[src] === undefined) {
+    const probe = new Image();
+    probe.onload = () => { faceOk[src] = true; };
+    probe.onerror = () => { faceOk[src] = false; if (el.style.backgroundImage.includes(src)) tb.classList.remove('has-face'); };
+    probe.src = src;
+  }
+}
+// 퍼즐 화면 아래 안내줄: "토와: …" 앞에 얼굴을 붙인다
+const SAY_WHO = { '토와': 'towa', '레이': 'rei', '코하루': 'koharu' };
+function sayBar(msg) {
+  const who = SAY_WHO[(msg.match(/^(\S+?):/) || [])[1]];
+  return who ? `<span class="pz-face" style="${faceStyle(who)}"></span>${msg}` : msg;
 }
 
 async function sayAll(lines) {

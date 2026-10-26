@@ -766,3 +766,16 @@ body { word-break: keep-all; overflow-wrap: break-word; }
   #rotate::before { content: '⟳'; display: block; font-size: 56px; color: var(--gold, #f2c14e); margin-bottom: 12px; }
   #rotate { flex-direction: column; }
 }
+
+/* 말하는 사람 얼굴 (상반신이 화면에 없을 때) */
+#tb-face { display: none; position: absolute; left: 18px; top: 50%; transform: translateY(-50%); width: 128px; height: 128px;
+  background-color: rgba(255,255,255,.06); background-repeat: no-repeat; background-size: 205% auto; image-rendering: pixelated;
+  border: 3px solid var(--name-accent, rgba(255,255,255,.4)); border-radius: 6px; }
+#textbox.has-face #tb-face { display: block; animation: fadein .15s steps(2); }
+#textbox.has-face #tb-text { padding-left: 150px; }
+#textbox.has-face #tb-name { left: 170px; }
+.pz-face { display: inline-block; vertical-align: middle; width: 56px; height: 56px; margin: -6px 12px -6px 0; border-radius: 4px;
+  background-repeat: no-repeat; background-size: 205% auto; image-rendering: pixelated; border: 2px solid rgba(255,255,255,.4); background-color: rgba(255,255,255,.06); }
+#tb-face { width: 104px; height: 104px; left: 16px; }
+#textbox.has-face #tb-text { padding-left: 122px; }
+#textbox.has-face #tb-name { left: 140px; }

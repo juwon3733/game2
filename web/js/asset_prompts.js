@@ -102,7 +102,7 @@ const CUT_PROMPTS = {
   t_ookubo_2_truth: ['{taiga} running out of a stairwell, face clearly visible, scared and about to cry, shouting.', '(진실) 겁먹은 얼굴'],
   t_ookubo_3: ['A dull impact on a flowerbed in front of an apartment building at night, seen from far away: a puff of dust and crushed flowers. No person is visible.', '화단의 충격'],
   t_taiga_1: ['First-person view of a hand pressing an apartment doorbell at night, music notes coming through the door.', '초인종, 음표'],
-  t_taiga_2: ['An enormous impact effect filling the entire panel, the apartment hallway tiny underneath (an exaggerated memory).', '과장: 화면을 뒤덮는 충격'],
+  t_taiga_2: ['An exaggerated memory of a SOUND, not an explosion: {taiga} in a 5th-floor apartment corridor at night covers his ears with both hands, drawn small, while the whole panel vibrates with huge concentric sound-wave rings and giant jagged empty sound-effect balloon shapes (no letters) coming from beyond the balcony. No fire, no smoke, no debris, no rocks, no blast, no flash.', '과장: 거대한 소리(음파·효과음 모양). 폭발·불·파편 없음'],
   t_taiga_3: ['Back view of {taiga} going down stairs, with his face and hands left completely blank white as if erased.', '생략: 하얀 여백'],
   t_taiga_3_truth: ['At night on a dim stairwell: {taiga} holds up a smartphone close to the viewer; its black screen shows only one big empty battery icon, clearly readable. He bites his lip in frustration.', '(진실) 꺼진 휴대폰의 큰 빈 배터리 아이콘'],
   t_himari_1: ['Child\'s crayon drawing of a little girl doing homework at a desk.', '크레용 그림체'],

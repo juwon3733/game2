@@ -965,10 +965,10 @@ Scene: First-person view of a hand pressing an apartment doorbell at night, musi
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + gold (#c9961a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: An enormous impact effect filling the entire panel, the apartment hallway tiny underneath (an exaggerated memory).
+Scene: An exaggerated memory of a SOUND, not an explosion: a young delivery worker with spiky bleached blond hair (accent color) under a backwards black cap, a small earring and a black uniform with reflective stripes in a 5th-floor apartment corridor at night covers his ears with both hands, drawn small, while the whole panel vibrates with huge concentric sound-wave rings and giant jagged empty sound-effect balloon shapes (no letters) coming from beyond the balcony. No fire, no smoke, no debris, no rocks, no blast, no flash.
 ```
 
-> 꼭 보여야 할 것: 과장: 화면을 뒤덮는 충격
+> 꼭 보여야 할 것: 과장: 거대한 소리(음파·효과음 모양). 폭발·불·파편 없음
 
 **`t_taiga_3.png`
 ```

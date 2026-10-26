@@ -235,10 +235,10 @@ const WITNESSES = {
 
 // choices: 그 질문에서 보여 줄 후보 컷 (정답 + 헷갈릴 만한 것)
 const CONCLUSION = [
-// strict: 보통·어려움에서 받는 정답 (더 정확한 컷만)
-  { q: '사에키 씨는 왜 베란다 난간에 몸을 내밀었나?', answer: ['C', 'H', 'I'], strict: ['I'], choices: ['B', 'G', 'H', 'I', 'C'] },
+// answer: 질문에 맞는 컷은 전부 정답으로 받는다 (한 장만 고집하지 않는다)
+  { q: '사에키 씨는 떨어지기 직전, 난간 너머로 무엇을 하고 있었나?', answer: ['C', 'I'], choices: ['B', 'G', 'H', 'I', 'C'] },
   { q: '반도 타이가는 사건 순간 어디에 있었나?', answer: ['D'], choices: ['A', 'E', 'D', 'F'] },
-  { q: '반도 타이가는 왜 건물을 뛰쳐나갔나?', answer: ['F', 'E'], strict: ['F'], choices: ['D', 'A', 'F', 'E'] },
+  { q: '반도 타이가는 왜 건물 밖으로 뛰쳐나갔나?', answer: ['F', 'E'], choices: ['D', 'A', 'F', 'E'] },
   { q: '사에키 씨가 떨어진 순간, 히마리는 어디에 있었나?', answer: ['I'], choices: ['G', 'H', 'C', 'I'] },
 ];
 

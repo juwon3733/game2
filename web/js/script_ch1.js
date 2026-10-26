@@ -256,7 +256,7 @@ async function sceneConclusion() {
     for (;;) {
       hideText();
       const c = await pickCut(`질문 ${i + 1}. ${q.q}`, '대답이 되는 컷을 고르자.', { cancel: false, only: q.choices });
-      if ((diff().strict && q.strict ? q.strict : q.answer).includes(c)) { sfx('correct'); break; }
+      if (q.answer.includes(c)) { sfx('correct'); break; }
       sfx('wrong'); quake();
       G.stats.wrong++;
       await say('kurogane', '…그 컷으론 설명이 안 되지. 다시.');
