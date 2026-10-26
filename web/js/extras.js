@@ -52,8 +52,8 @@ async function credits(ending) {
   remember('endings', ending);
   const g = gallery();
   const cast = ['rei', 'koharu', 'kurogane', 'towa', 'asagiri', 'shiori',
-    'taiga', 'himari', 'ookubo', 'ruru', 'pin', 'aoi', 'kuramochi', 'tendo', 'kirishima',
-    'yuki', 'nagi', 'madoka', 'tofu', 'ren', 'hayaka', 'keiko', 'okamoto', 'murase', 'tanabe']
+    'taiga', 'himari', 'ookubo', 'mitsuru', 'komatsu', 'akari', 'ruru', 'pin', 'aoi', 'kuramochi', 'tendo', 'kirishima',
+    'yuki', 'nagi', 'madoka', 'tofu', 'ren', 'hayaka', 'keiko', 'genzo', 'okamoto', 'murase', 'nishimura', 'tanabe', 'sota']
     .filter((id) => CHARACTERS[id]).map((id) => (id === 'shiori' ? '시오리' : CHARACTERS[id].name));
   const box = document.createElement('div');
   box.className = 'credits';
@@ -280,7 +280,7 @@ function waitClick(el) {
 // ---------- 다음 장 예고 ----------
 // 장을 끝내고 다음 장으로 넘어가기 전에 컷 한 장 + 한 줄. 정답이 새지 않는 컷만 쓴다
 const PREVIEWS = {
-  2: { cut: '2E', line: '앙코르 박수 속에서 무대 위 조명이 떨어졌다.' },
+  2: { cut: '2A', line: '앙코르 박수 속에서 무대 위 조명이 떨어졌다.' },
   3: { cut: '3A', line: '셔터가 내려간 가게 앞. 그 시각에 있던 건 언니였을까, 동생이었을까.' },
   4: { cut: '4F', line: '불이 난 밤의 기억을 누군가 지워 달라고 했다.' },
   5: { cut: '5Ae', line: '같은 방인데, 컷 속 물건 자리가 하나씩 다르다.' },
