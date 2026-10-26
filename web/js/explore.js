@@ -213,6 +213,7 @@ const MAPS = {
 // ---------- 탐색 상태 ----------
 
 let EX = null; // 진행 중인 탐색
+const TOUCH = matchMedia('(pointer: coarse)').matches;
 
 function exploreActive() { return !!EX && !EX.paused; }
 
@@ -587,6 +588,7 @@ function draw(now) {
     }
   }
   // 조작 안내
+  if (TOUCH) return; // 터치 화면엔 키보드 안내가 필요 없다
   ctx.font = '18px Galmuri11, sans-serif';
   ctx.fillStyle = 'rgba(255,255,255,.75)';
   ctx.fillText('이동: 방향키/WASD 또는 바닥 클릭   ·   조사: Space/Enter 또는 물건 클릭', 20, 708);

@@ -746,3 +746,23 @@ body { word-break: keep-all; overflow-wrap: break-word; }
 .pz-tray .cutv.picked { box-shadow: 0 0 0 5px var(--gold, #f2c14e); transform: translateX(-6px); }
 .tl-paper.reading .tl-cell { opacity: .25; }
 .tl-paper.reading .tl-cell.lit { opacity: 1; }
+
+/* ---------- 모바일 ---------- */
+/* 조작 패드는 게임 화면(#stage) 밖, 실제 화면 구석에 손가락 크기로 */
+#viewport > #pad { position: fixed; left: 0; right: 0; bottom: 0; top: auto; z-index: 100; display: flex; justify-content: space-between; align-items: flex-end;
+  padding: 0 max(14px, env(safe-area-inset-right)) max(14px, env(safe-area-inset-bottom)) max(14px, env(safe-area-inset-left)); pointer-events: none; grid-template-columns: none; grid-template-rows: none; gap: 0; }
+#viewport > #pad.hidden { display: none; }
+#viewport > #pad .pad-dir { display: grid; grid-template-columns: repeat(3, 52px); grid-template-rows: repeat(2, 52px); gap: 4px; pointer-events: auto; }
+#viewport > #pad .pad-dir button { font-size: 20px; color: #fff; background: rgba(20,22,36,.55); border: 2px solid rgba(255,255,255,.5); border-radius: 8px; touch-action: none; user-select: none; -webkit-user-select: none; }
+#viewport > #pad .pad-dir button:active { background: rgba(242,193,78,.6); }
+#viewport > #pad #pad-a { position: static; pointer-events: auto; width: 76px; height: 76px; border-radius: 50%; font-size: 18px; background: rgba(242,193,78,.85); border: 2px solid #1d1d22; touch-action: none; }
+/* 컷 끌기: 브라우저가 스크롤로 가로채지 않게 */
+#puzzle .cutv { touch-action: none; }
+/* 세로 화면에선 글씨가 너무 작아진다: 가로로 돌리라고 안내 */
+#rotate { display: none; }
+@media (orientation: portrait) and (pointer: coarse) {
+  #rotate { display: flex; position: fixed; inset: 0; z-index: 200; align-items: center; justify-content: center; text-align: center; padding: 24px;
+    background: #0b0d1a; color: #f7f3ea; font-size: 20px; line-height: 1.6; }
+  #rotate::before { content: '⟳'; display: block; font-size: 56px; color: var(--gold, #f2c14e); margin-bottom: 12px; }
+  #rotate { flex-direction: column; }
+}

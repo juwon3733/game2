@@ -33,6 +33,7 @@ function runPuzzle(id) {
     let done = false;
 
     const render = () => {
+      document.querySelectorAll('.pz-ghost').forEach((g) => g.remove()); // 남은 끌기 그림자
       root.innerHTML = `
         <div class="pz-main">
           <div class="pz-paper" style="grid-template-columns: repeat(${cols}, 1fr)"></div>
@@ -149,8 +150,16 @@ function runPuzzle(id) {
       st.bad = null;
       render();
     };
+    // 터치에서 브라우저가 끌기를 가로채면(pointercancel) 떠 있는 컷 그림자를 치운다
+    const onCancel = () => {
+      if (!drag) return;
+      if (drag.ghost) drag.ghost.remove();
+      drag = null;
+      render();
+    };
     addEventListener('pointermove', onMove);
     addEventListener('pointerup', onUp);
+    addEventListener('pointercancel', onCancel);
 
     root.onclick = async (e) => {
       if (G.busyModal || dragged) return;
@@ -189,7 +198,7 @@ function runPuzzle(id) {
     const onAction = async (a) => {
       if (a === 'check' && done) {
         root.classList.add('hidden'); root.onclick = null; root.onpointerdown = null; goal('');
-        removeEventListener('pointermove', onMove); removeEventListener('pointerup', onUp);
+        removeEventListener('pointermove', onMove); removeEventListener('pointerup', onUp); removeEventListener('pointercancel', onCancel);
         return resolve({ tries: st.tries, hints: st.hints });
       }
       if (done) return;

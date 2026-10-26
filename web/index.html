@@ -10,16 +10,18 @@
 </head>
 <body>
 <div id="viewport">
+  <!-- 터치 화면용 조작: 게임 화면 배율과 상관없이 손가락 크기로 화면 구석에 -->
+  <div id="pad" class="hidden">
+    <div class="pad-dir"><button data-dir="up">▲</button><button data-dir="left">◀</button><button data-dir="down">▼</button><button data-dir="right">▶</button></div>
+    <button id="pad-a">조사</button>
+  </div>
+  <div id="rotate">화면을 가로로 돌려 주세요</div>
   <div id="stage">
     <img id="bg" alt="">
     <div id="chars"></div>
     <img id="cg" alt="">
 
     <canvas id="explore" width="1280" height="720" class="hidden"></canvas>
-    <div id="pad" class="hidden">
-      <button data-dir="up">▲</button><button data-dir="left">◀</button><button data-dir="down">▼</button><button data-dir="right">▶</button>
-      <button id="pad-a">조사</button>
-    </div>
 
     <div id="trial" class="hidden">
       <div class="tr-gauge"><span class="tr-label">증인의 마음</span><span id="tr-ink"></span></div>
