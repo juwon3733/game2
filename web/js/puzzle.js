@@ -307,11 +307,12 @@ function runPuzzle(id) {
         const cids = st.slots[Number(s.dataset.slot)];
         const loud = cids.find((c) => PAGE_SFX[c]);
         const hit = cids.find((c) => PAGE_IMPACT[c]);
-        if (hit) FX.impact(PAGE_IMPACT[hit]);
+        if (hit) FX.impact(PAGE_IMPACT[hit], '#fff', s);
         else sfx(PAGE_SFX[loud] || 'page', { vol: loud ? 1 : 0.5 });
         await sleep(cids.length > 1 ? 1200 : 900);
       }
       sfx('correct');
+      document.querySelectorAll('.fx-stamp').forEach((x) => x.remove()); // 앞 칸 의성어가 남지 않게
       FX.stamp('완성!');
       await sleep(G.skip ? 100 : 1000); // 도장·흔들림이 끝난 뒤에 [다음]
       paper.classList.remove('reading');

@@ -251,17 +251,22 @@ const FX = (() => {
       once(stage, 'fx-mono', 650);
     },
     // 큰 충격: 반전 프레임 + 집중선 + 의성어 도장
-    async impact(text, color = '#fff') {
+    async impact(text, color = '#fff', at = null) {
       sfx('thud');
       if (!reduce()) { once(stage, 'fx-invert', 120); FX.lines(700, color); }
       once(stage, 'quake-big', 520);
-      if (text) FX.stamp(text);
+      if (text) FX.stamp(text, '', at);
       await sleep(G.skip ? 100 : 650);
     },
-    stamp(text, cls = '') {
+    // at: 그 요소 위에 찍는다(퍼즐 칸 등). 없으면 화면 가운데
+    stamp(text, cls = '', at = null) {
       const s = document.createElement('div');
       s.className = 'fx-stamp ' + cls;
       s.textContent = text;
+      if (at) {
+        const r = at.getBoundingClientRect(), b = stage.getBoundingClientRect(), k = b.width / 1280;
+        Object.assign(s.style, { left: (r.left + r.width / 2 - b.left) / k + 'px', top: (r.top + r.height / 2 - b.top) / k + 'px', fontSize: '84px' });
+      }
       stage.appendChild(s);
       setTimeout(() => s.remove(), 1100);
     },

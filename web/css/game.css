@@ -1080,3 +1080,4 @@ body { word-break: keep-all; overflow-wrap: normal; }
 
 /* 긴 창(갤러리·저장·수첩)은 안쪽이 스크롤돼도 [닫기]가 늘 보이게 */
 #modal.gallery .md-cancel, #modal.slots .md-cancel, #modal.note .md-cancel { position: sticky; bottom: 0; z-index: 2; }
+.montage .mt-cut { aspect-ratio: auto; } /* 카드 아래 흰 띠 없이 그림 높이만큼 */
