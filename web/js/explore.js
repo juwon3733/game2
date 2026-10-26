@@ -54,7 +54,7 @@ const EX_AREAS = {
   crescent: [['무대', ['setlist', 'drum', 'mic', 'stick', 'outline', 'cue']], ['객석', ['frontseat', 'jacket', 'reception']], ['조명 부스', ['console', 'kura']]],
   backstage: [['캣워크', ['catstairs', 'railing', 'clamp']], ['윙·복도', ['radio', 'fist', 'rigev', 'tendo']], ['대기실', ['jacketk', 'monitor']]],
   tendooffice: [['사장 책상', ['desk', 'drawer', 'trash', 'tendo']], ['응접 공간', ['safe', 'poster', 'sofa', 'aoi']]],
-  tokiwa: [['1층 매장', ['sign', 'showcase', 'register', 'phone', 'shift', 'roster']], ['안쪽 사무실', ['ledger', 'stairsfoot']], ['2층 창고', ['boxes', 'safe', 'backdoor']]],
+  tokiwa: [['1층 매장', ['sign', 'showcase', 'register', 'phone', 'shift', 'roster']], ['안쪽 사무실', ['ledger', 'stairsfoot', 'restroom']], ['2층 창고', ['boxes', 'safe', 'backdoor']]],
   arcade: [['점술 부스', ['booth', 'drawer', 'trash']], ['두부집', ['tofushop', 'tofuclock']], ['뒷골목', ['alley', 'tokiwaback']]],
   sakurayu: [['탈의실·탕', ['poster', 'counter', 'bath']], ['보일러실', ['panel', 'boiler', 'chimney']], ['바깥', ['fence', 'murase', 'okamotowin']]],
   lighthouse: [['2층 열람실', ['seat', 'lastpage', 'form', 'box', 'hairpin']], ['1층', ['stairs', 'lighter', 'gate']], ['곶 끝', ['bench']]],
