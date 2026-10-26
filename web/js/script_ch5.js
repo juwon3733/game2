@@ -2,7 +2,6 @@
 
 Object.assign(MAPS, {
   koharuroom: {
-    img: optionalImg(ASSET.map('koharuroom')),
     label: '코하루의 자취방',
     hallWallRow: -1,
     rows: [

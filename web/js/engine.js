@@ -270,7 +270,7 @@ function hideText() { $('#textbox').classList.add('hidden'); focusChar(null); }
 
 // 클릭/키로 대사 넘기기
 $('#stage').addEventListener('click', (e) => {
-  if (e.target.closest('button, #modal, #choices, #puzzle, #actions, .tr-panel, #pad, .title-screen')) return;
+  if (e.target.closest('button, #modal, #choices, #puzzle, #actions, .tr-panel, #explore, .title-screen')) return;
   if (e.target.closest('#explore') && exploreActive()) return;
   if (G.auto || G.skip) return setMode(null);
   tryAdvance();

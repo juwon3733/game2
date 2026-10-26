@@ -92,7 +92,7 @@ const colorLimit = (a) => (a.kind === 'cut' && !/crayon/i.test(a.prompt) ? 12
 
 const norm = (s) => s.toLowerCase().replace(/\s*\(\d+\)/g, '').replace(/[\s-]+/g, '_').replace(/\.(png|jpe?g|webp)$/, '');
 
-for (const folder of ['portraits', 'bg', 'cuts', 'maps', 'sprites', 'title', 'ui', 'cg']) {
+for (const folder of ['portraits', 'bg', 'cuts', 'title', 'ui', 'cg']) {
   const dir = path.join(assetDir, folder);
   const files = fs.existsSync(dir) ? fs.readdirSync(dir).filter((f) => !f.startsWith('.')) : [];
   for (const f of files) {
@@ -139,8 +139,6 @@ out.push('|---|---|');
 out.push(`| 캐릭터 상반신 | ${byKind('portrait')} |`);
 out.push(`| 배경 | ${byKind('bg')} |`);
 out.push(`| 컷 | ${byKind('cut')} |`);
-out.push(`| 탐색 맵 | ${byKind('map')} |`);
-out.push(`| 걷는 캐릭터 | ${byKind('sprite')} |`);
 out.push(`| 타이틀 | ${byKind('title')} |`);
 out.push(`| UI 스킨 | ${byKind('ui')} |`);
 out.push(`| 이벤트 CG | ${byKind('cg')} |`);

@@ -70,13 +70,6 @@ function requiredAssets() {
     });
   }
   const W = WORLD_PROMPTS, px2 = PROMPT_STYLE.pixel;
-  for (const [k, p] of Object.entries(W).filter(([k]) => k.startsWith('map_'))) {
-    const id = k.slice(4);
-    list.push({ kind: 'map', group: '탐색 맵', id, label: (W.mapLabels || {})[id] || id, path: `maps/${id}.png`, spec: SPEC.map, prompt: `${px2}\n\n${p}` });
-  }
-  for (const [who, desc] of Object.entries(W.sprites)) {
-    list.push({ kind: 'sprite', group: '걷는 캐릭터', id: `walk_${who}`, label: CHARACTERS[who].name === '???' ? '시오리' : CHARACTERS[who].name, path: `sprites/${who}.png`, spec: SPEC.sprite, prompt: `${px2}\n\n${PROMPT_STYLE.character}\n\n${W.sprite.replace('{char}', desc)}` });
-  }
   list.push({ kind: 'title', group: '타이틀', id: 'title_key', label: '타이틀 키아트', path: 'title/key.png', spec: SPEC.title,
     prompt: `${PROMPT_STYLE.keyart}\n\n${PROMPT_STYLE.character}\n\n${W.title_key.replace('{rei}', W.sprites.rei.replace(/^an? /, 'an ')).replace('{koharu}', W.sprites.koharu)}` });
   for (const [id, u] of Object.entries(UI_PROMPTS)) {

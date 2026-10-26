@@ -95,13 +95,7 @@ for (const [id, title, test] of cutGroups) {
     }),
   });
 }
-// 탐색 맵·걷는 캐릭터·타이틀
-batches.push({ id: 'map', title: '탐색 맵', note: '칸 배치를 최대한 지킨다. 조금 어긋나도 Claude가 충돌 칸을 그림에 맞춘다.', items: list.filter((a) => a.kind === 'map').map((a) => item(a, null)) });
-batches.push({
-  id: 'sprite', title: '걷는 캐릭터 (탐색용)',
-  note: '한 대화에서 레이 → 코하루 → 시오리 순서로 만든다. 칸 크기와 발 높이를 셋이 똑같이 맞춘다. 상반신 이미지를 기준으로 첨부하면 좋다.',
-  items: list.filter((a) => a.kind === 'sprite').map((a, i) => item(a, i === 0 ? null : `같은 스프라이트 시트 규칙(192x384, 64x96 칸 3열×4행, 같은 픽셀 크기와 발 높이)으로 다음 캐릭터를 그려줘. 투명 배경.\n\nCharacter: ${(a.prompt.match(/Character: (.*)$/) || [])[1]}`)),
-});
+// 타이틀
 batches.push({ id: 'ui', title: 'UI 스킨', note: '한 대화에서 차례로 만들어 스타일을 맞춘다. 크기는 정확히 지키고, 9-slice 틀은 모서리 밖 가장자리가 똑같이 반복되게.', items: list.filter((a) => a.kind === 'ui').map((a, i) => item(a, i === 0 ? null : `같은 UI 스타일(크림색 원고지, 검은 잉크 테두리, 금색 포인트, 3배 도트)로 다음 요소를 만들어줘. 글자 없이, 투명 배경.\n\n${UI_PROMPTS_TEXT[a.id]}`)) });
 batches.push({ id: 'cg', title: '이벤트 CG', note: '상반신 이미지를 기준으로 첨부해 같은 얼굴로 그린다. 배경 7장과 같은 도트 스타일.', items: list.filter((a) => a.kind === 'cg').map((a) => item(a, null)) });
 batches.push({ id: 'title', title: '타이틀 키아트', note: '상반신 이미지를 기준으로 첨부해 같은 얼굴로 그린다.', items: list.filter((a) => a.kind === 'title').map((a) => item(a, null)) });

@@ -1540,212 +1540,7 @@ Scene: A dull impact on a flowerbed in front of an apartment building at night, 
 
 > 꼭 보여야 할 것: 화단의 충격
 
-## 대화 35 — 탐색 맵 (10장)
-
-칸 배치를 최대한 지킨다. 조금 어긋나도 Claude가 충돌 칸을 그림에 맞춘다.
-
-**`mansion5f.png`
-```
-이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
-
-Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
-
-Top-down 3/4 view pixel art game map, like a high-quality modern Japanese RPG made in RPG Maker but with richer detail. Native resolution exactly 416x208 pixels on a 16-pixel tile grid (26 tiles wide, 13 tiles tall), upscaled exactly 3x with nearest-neighbor to 1248x624. Night, warm indoor lamp light and cool moonlight. No characters, no text.
-
-Layout by tile rows, top to bottom:
-- Rows 0-3: the 5th floor outdoor corridor of an old Japanese apartment building. Row 1 is the corridor's back wall with ceiling lamps, a fire extinguisher box and electric meter boxes. Rows 2-3 are the concrete corridor floor. A staircase going down at the far left (column 1).
-- Row 4: thick wall between corridor and apartments. Column 9 is the open front door of Saeki's apartment (stone entrance floor, door swung open). Column 18 is the closed door of the neighbor's apartment with a small nameplate and a pink sticker.
-- Rows 5-9, columns 1-17: inside Saeki's apartment, one wide living room with warm wooden floor and cream wallpaper on the top wall (row 5). A black upright piano with its lid open and sheet music at columns 2-3, row 7. A green two-seat sofa with a pink cushion at columns 12-13, row 6. A low wooden table with sheet music, notebooks and a mug on a rug at columns 8-9, row 8. A wall calendar on the top wall at column 5. A pair of men's shoes and a pair of small white children's indoor shoes just inside the door at column 10, row 6. A bookshelf at column 1, row 6, a potted plant at column 17, row 6, a small TV stand at columns 14-15, row 9.
-- Columns 19-25, rows 5-10: the neighbor's apartment, not accessible, shown as plain dark roof.
-- Row 10: the apartment's back wall with a glass sliding door to the balcony at columns 7-9 (the middle one open), an outdoor air-conditioner unit and hanging laundry on the outside.
-- Row 11: a narrow concrete balcony running the whole width. A terracotta plant pot with soil spilled around it and tiny child footprints at column 16. A white emergency partition board standing across the balcony at column 17, with a small gap underneath. The neighbor's balcony continues on the right from column 18, with a pink flower pot at column 18 and warm light from the neighbor's window.
-- Row 12: the balcony's metal railing; through the bars, far below, the lights of a harbor town at night.
-Full color, limited palette of about 48 colors, clean dark outlines, soft dithered shadows, no anti-aliasing.
-```
-
-**`crescent.png`
-```
-이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
-
-Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
-
-Top-down 3/4 view pixel art game map, like a high-quality modern Japanese RPG made in RPG Maker but with richer detail. Native resolution exactly 416x208 pixels on a 16-pixel tile grid (26 tiles wide, 13 tiles tall), upscaled exactly 3x with nearest-neighbor to 1248x624. A small basement live house, dim blue house lights, police tape. No characters, no text.
-
-Layout by tile rows, top to bottom:
-- Row 1: the black back wall of the stage with amps and a cue sheet taped at column 21.
-- Rows 2-4: a low wooden stage. A drum kit on a riser at columns 11-13 of row 2. A fallen microphone stand on an "X" of tape at column 12, row 4. A broken drumstick at column 8, row 4. A rectangle of tape outline on the floor at columns 15-16, row 3. A setlist taped to the floor at column 4, row 3.
-- Row 5: the front edge of the stage, with short steps down in the middle (columns 11-14).
-- Rows 6-9: the standing audience floor (dark concrete). A short row of folding chairs ("first row") at columns 4-9 of row 6. A white jacket lying on the floor at column 18, row 8.
-- Row 10: a back wall with an opening at columns 18-20.
-- Row 11: left part (columns 1-17) is the entrance lobby with a reception desk at columns 3-4; right part (columns 18-24) is a small raised lighting booth with a console at columns 22-23.
-Full color, limited palette of about 48 colors, clean dark outlines, soft dithered shadows, no anti-aliasing.
-```
-
-**`backstage.png`
-```
-이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
-
-Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
-
-Top-down 3/4 view pixel art game map, like a high-quality modern Japanese RPG made in RPG Maker but with richer detail. Native resolution exactly 416x208 pixels on a 16-pixel tile grid (26 tiles wide, 13 tiles tall), upscaled exactly 3x with nearest-neighbor to 1248x624. Backstage of a small live house, black walls, cables, road cases. No characters, no text.
-
-Layout by tile rows, top to bottom:
-- Columns 1-10, rows 2-6: the stage wing. Row 2 is a narrow metal catwalk; row 3 is its railing (with a scraped strap mark at columns 5-6 and a half clamp at column 9, row 2); column 1, row 3 is a steep steel staircase connecting the catwalk and the wing floor. Rows 4-6 are the wing floor with black curtains; a radio transceiver on the floor at column 6, row 5.
-- Column 11, rows 1-6: a solid wall.
-- Columns 12-24, rows 2-6: a dressing room with a long mirror on the top wall, a CRT monitor on the wall at columns 20-21, a chair with a black suit jacket at columns 15-16, row 4.
-- Row 7: a wall with doors at column 5 and column 18; a dented fist mark on the wall at column 8.
-- Rows 8-9: a narrow corridor across the whole width.
-- Row 10: a wall with a door at column 17.
-- Row 11: columns 15-24 is an evidence storage area with a bent lighting truss covered in plastic at columns 18-20; columns 1-13 are dark and inaccessible.
-Full color, limited palette of about 48 colors, clean dark outlines, soft dithered shadows, no anti-aliasing.
-```
-
-**`tendooffice.png`
-```
-이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
-
-Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
-
-Top-down 3/4 view pixel art game map, like a high-quality modern Japanese RPG made in RPG Maker but with richer detail. Native resolution exactly 416x208 pixels on a 16-pixel tile grid (26 tiles wide, 13 tiles tall), upscaled exactly 3x with nearest-neighbor to 1248x624. A luxurious talent agency president office in the afternoon, warm sunlight through blinds. No characters, no text.
-
-Layout by tile rows, top to bottom:
-- Row 1: the top wall with framed band posters at columns 5-6 and windows with blinds.
-- Rows 2-10: carpeted office floor. A big wooden desk at columns 10-13, row 3, with a drawer side facing down (column 11, row 4). A waste basket at column 15, row 3. A safe with document folders on top at columns 21-22, row 2. A leather sofa set at columns 3-5, row 5, with a low table.
-- Row 11: the bottom wall with the door at column 12.
-Full color, limited palette of about 48 colors, clean dark outlines, soft dithered shadows, no anti-aliasing.
-```
-
-**`tokiwa.png`
-```
-이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
-
-Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
-
-Top-down 3/4 view pixel art game map, like a high-quality modern Japanese RPG made in RPG Maker but with richer detail. Native resolution exactly 416x208 pixels on a 16-pixel tile grid (26 tiles wide, 13 tiles tall), upscaled exactly 3x with nearest-neighbor to 1248x624. An old Japanese Western-style pastry shop at night, warm dim lamps. No characters, no text.
-
-Layout by tile rows, top to bottom:
-- Columns 1-12, rows 1-9: the shop floor (warm wooden floor). Row 1 is the back wall with a weekly shift chart at column 3 and a staff memo board at column 6. A cake showcase at columns 2-5 of row 3. A register counter at columns 8-9 of row 3 and a shop telephone at column 10. A small office desk at columns 3-4 of row 8. Column 12, row 5 is the foot of a steep staircase.
-- Column 13: a wall, with the staircase opening at row 5.
-- Columns 14-24, rows 2-6: the second-floor storage room (concrete floor): stacked cake boxes at columns 17-19 of row 2, an old safe with its door open at column 23 of row 2, a back door at column 24 of row 6.
-- Row 10: the shop front wall with the entrance at column 6. Row 11, columns 1-12: the arcade street outside with a half-closed shutter.
-- Columns 14-24, rows 7-11: dark roof, not accessible.
-Full color, limited palette of about 48 colors, clean dark outlines, soft dithered shadows, no anti-aliasing.
-```
-
-**`arcade.png`
-```
-이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
-
-Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
-
-Top-down 3/4 view pixel art game map, like a high-quality modern Japanese RPG made in RPG Maker but with richer detail. Native resolution exactly 416x208 pixels on a 16-pixel tile grid (26 tiles wide, 13 tiles tall), upscaled exactly 3x with nearest-neighbor to 1248x624. A covered old shopping arcade at night, paper lanterns, most shutters down. No characters, no text.
-
-Layout by tile rows, top to bottom:
-- Row 1: shop fronts. A tofu shop at columns 19-20 with a wall clock at column 21.
-- Rows 2-4: the arcade street (tiled floor). A tiny tarot booth with a curtain and star lights at columns 4-6 of row 2, its small table at column 7, a trash can at column 3 of row 4.
-- Row 5: shop walls with a narrow back alley opening at columns 13-15.
-- Columns 13-15, rows 6-10: the narrow back alley with a drain at column 14, row 10. Row 11, columns 13-15: the back door of a pastry shop.
-- Everything else in rows 6-11 is dark rooftops, not accessible.
-Full color, limited palette of about 48 colors, clean dark outlines, soft dithered shadows, no anti-aliasing.
-```
-
-**`sakurayu.png`
-```
-이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
-
-Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
-
-Top-down 3/4 view pixel art game map, like a high-quality modern Japanese RPG made in RPG Maker but with richer detail. Native resolution exactly 416x208 pixels on a 16-pixel tile grid (26 tiles wide, 13 tiles tall), upscaled exactly 3x with nearest-neighbor to 1248x624. A burned old Japanese public bathhouse at dusk, soot, police tape. No characters, no text.
-
-Layout by tile rows, top to bottom:
-- Columns 1-15, rows 1-5: the burned bathhouse interior (charred wooden floor). Row 1 is the back wall with a flyer at column 3. A front counter at columns 4-5 of row 3. An empty bath tub at columns 10-12, rows 3-4.
-- Column 16: a wall with a doorway at row 4.
-- Columns 17-24, rows 1-5: the boiler room (concrete): an electrical panel on the wall at column 21 of row 2, a big boiler at columns 18-19 of row 4.
-- Row 6: the building's outer wall with the bathhouse entrance at column 8 and the boiler room back door at column 20.
-- Rows 7-8: a back street. Row 9: a wooden fence with a gap at columns 15-18. Rows 10-11, columns 15-18: a path to the house across the street; everything else in rows 10-11 is dark.
-Full color, limited palette of about 48 colors, clean dark outlines, soft dithered shadows, no anti-aliasing.
-```
-
-**`siteoffice.png`
-```
-이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
-
-Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
-
-Top-down 3/4 view pixel art game map, like a high-quality modern Japanese RPG made in RPG Maker but with richer detail. Native resolution exactly 416x208 pixels on a 16-pixel tile grid (26 tiles wide, 13 tiles tall), upscaled exactly 3x with nearest-neighbor to 1248x624. A construction site container office in the morning. No characters, no text.
-
-Layout by tile rows, top to bottom:
-- Row 1: the back wall with a key cabinet at column 3, a helmet rack at columns 6-7, a whiteboard schedule at columns 17-19, a window at columns 22-23.
-- Rows 2-9: office floor (linoleum). The site manager's desk at columns 11-13 of row 3. A few other desks and filing cabinets along the walls.
-- Row 10: the front wall with the door at column 11. Row 11: gravel yard outside.
-Full color, limited palette of about 48 colors, clean dark outlines, soft dithered shadows, no anti-aliasing.
-```
-
-**`koharuroom.png`
-```
-이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
-
-Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
-
-Top-down 3/4 view pixel art game map, like a high-quality modern Japanese RPG made in RPG Maker but with richer detail. Native resolution exactly 416x208 pixels on a 16-pixel tile grid (26 tiles wide, 13 tiles tall), upscaled exactly 3x with nearest-neighbor to 1248x624. A small one-room apartment in the morning, cute stickers, a harbor view window. No characters, no text.
-
-Layout by tile rows, top to bottom:
-- Columns 1-6 and 20-24 in every row: dark, not accessible.
-- Row 1, columns 7-19: the back wall with a framed photo at column 12.
-- Rows 2-9, columns 7-19: the room (wooden floor). A desk with open drawers at columns 8-9 of row 2. A laptop on a low table at column 16 of row 3. A neatly made bed at columns 16-17, rows 7-8. A sticker notebook on the floor at column 9, row 6.
-- Row 10: the front wall with the door at column 12. Row 11, columns 7-19: the outdoor corridor.
-Full color, limited palette of about 48 colors, clean dark outlines, soft dithered shadows, no anti-aliasing.
-```
-
-**`lighthouse.png`
-```
-이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
-
-Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
-
-Top-down 3/4 view pixel art game map, like a high-quality modern Japanese RPG made in RPG Maker but with richer detail. Native resolution exactly 416x208 pixels on a 16-pixel tile grid (26 tiles wide, 13 tiles tall), upscaled exactly 3x with nearest-neighbor to 1248x624. The ruins of a lighthouse-shaped library on a cape at dusk, burned wood, moonlight. No characters, no text.
-
-Layout by tile rows, top to bottom:
-- Columns 1-13, rows 1-4: the burned upper floor reading room (charred wooden floor): a reading table at columns 3-4 of row 2, a bookshelf with a metal box at columns 11-12 of row 2, scattered manuscript pages at column 6 of row 3, a burnt form at column 10 of row 3, a small glint on the stair landing at column 7 of row 4.
-- Row 5, columns 1-13: a wall with a staircase opening at column 7.
-- Columns 1-13, rows 6-9: the burned ground floor book stacks, ash on the floor at column 4 of row 7.
-- Column 14: the outer wall with the library door at row 8.
-- Columns 15-24, rows 1-9: the grassy cape outside, with a bench facing the sea at columns 21-22 of row 4. Row 10: a cliff railing. Row 11: the sea.
-Full color, limited palette of about 48 colors, clean dark outlines, soft dithered shadows, no anti-aliasing.
-```
-
-## 대화 36 — 걷는 캐릭터 (탐색용) (3장)
-
-한 대화에서 레이 → 코하루 → 시오리 순서로 만든다. 칸 크기와 발 높이를 셋이 똑같이 맞춘다. 상반신 이미지를 기준으로 첨부하면 좋다.
-
-**`rei.png`
-```
-이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
-
-Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
-
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Keep it as crisp low-resolution pixel art, not a smooth illustration.
-
-Top-down RPG walking sprite sheet in pixel art, for the same game as the character portraits. Transparent background. The sheet is exactly 192x384: a grid of 3 columns by 4 rows, each cell 64x96, every cell the same size with the character centered and feet at the same height near the bottom of the cell. Native pixel size 2x2 (each cell is 32x48 pixels upscaled 2x with nearest-neighbor). Columns: standing, left foot forward, right foot forward. Rows from top: facing down (toward the viewer), facing left, facing right, facing up (back view). Cute chibi proportions about 2.5 heads tall, but keep the face, hair and outfit recognizable as the portrait design. Clean dark outline, limited palette of about 24 colors, no anti-aliasing, no text, no grid lines.
-
-Character: an androgynous 22-year-old investigator, messy short black hair with one ahoge and a small lavender hair clip, sleepy violet-grey eyes, oversized grey hoodie under a long beige trench coat.
-```
-
-**`koharu.png`
-```
-같은 스프라이트 시트 규칙(192x384, 64x96 칸 3열×4행, 같은 픽셀 크기와 발 높이)으로 다음 캐릭터를 그려줘. 투명 배경.
-
-Character: a cheerful 20-year-old rookie detective girl, orange-brown side ponytail with a sky-blue scrunchie, navy suit jacket over a white shirt with a sky-blue ribbon tie, navy pants, white sneakers.
-```
-
-**`shiori.png`
-```
-같은 스프라이트 시트 규칙(192x384, 64x96 칸 3열×4행, 같은 픽셀 크기와 발 높이)으로 다음 캐릭터를 그려줘. 투명 배경.
-
-Character: a pale 16-year-old girl ghost, long straight black hair with blunt bangs, old navy sailor school uniform with a white ribbon, barefoot, slightly translucent.
-```
-
-## 대화 37 — UI 스킨 (9장)
+## 대화 35 — UI 스킨 (9장)
 
 한 대화에서 차례로 만들어 스타일을 맞춘다. 크기는 정확히 지키고, 9-slice 틀은 모서리 밖 가장자리가 똑같이 반복되게.
 
@@ -1816,7 +1611,7 @@ A horizontal strip of 8 icons, each exactly 96x96 (32x32 native), evenly spaced 
 A wide cut-in banner background, 1536x512, for the moment the hero rebuts a witness: explosive black and red manga speed lines radiating from the left, white screentone burst, torn paper edges at top and bottom. Leave the middle empty and calm for text that will be overlaid by the game. No characters, no text.
 ```
 
-## 대화 38 — 이벤트 CG (7장)
+## 대화 36 — 이벤트 CG (7장)
 
 상반신 이미지를 기준으로 첨부해 같은 얼굴로 그린다. 배경 7장과 같은 도트 스타일.
 
@@ -1897,7 +1692,7 @@ Character design in the style of modern Japanese anime mobile gacha games (subcu
 Event illustration (CG) for a key story moment, horizontal 1536x1024, full color, same faces as the character portraits. At the tip of the cape at sunrise, translucent Shiori in her old sailor uniform smiles and waves as she scatters into light, Rei and Koharu standing hand in hand watching, the ruined lighthouse library behind.
 ```
 
-## 대화 39 — 타이틀 키아트 (1장)
+## 대화 37 — 타이틀 키아트 (1장)
 
 상반신 이미지를 기준으로 첨부해 같은 얼굴로 그린다.
 
@@ -1912,7 +1707,7 @@ Character design in the style of modern Japanese anime mobile gacha games (subcu
 Key visual illustration for the title screen of a mystery visual novel. Late-summer harbor town at night, seen from a sloped street with old apartment buildings, warm window lights and the sea with harbor lights in the distance. On the right half: an androgynous 22-year-old investigator, messy short black hair with one ahoge and a small lavender hair clip, sleepy violet-grey eyes, oversized grey hoodie under a long beige trench coat. standing in front, looking back over the shoulder at the viewer with a calm sleepy expression, and a cheerful 20-year-old rookie detective girl, orange-brown side ponytail with a sky-blue scrunchie, navy suit jacket over a white shirt with a sky-blue ribbon tie, navy pants, white sneakers. slightly behind, smiling. Several translucent black-and-white manga panels float in the air around them like scattered memories, each showing a faint scene from the same night. The left 40% of the image is calm, darker night sky and street with no important details, reserved for the title text. No text, no letters, no logo.
 ```
 
-## 대화 40 — 컷 · 핀 시점 (5장)
+## 대화 38 — 컷 · 핀 시점 (5장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -1967,7 +1762,7 @@ Scene: A sparkling memory: a 19-year-old girl vocalist with shoulder-length blue
 
 > 꼭 보여야 할 것: 미화: 벽까지 덮은 반짝이
 
-## 대화 41 — 컷 · 루루 시점 (8장)
+## 대화 39 — 컷 · 루루 시점 (8장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2049,7 +1844,7 @@ Scene: a man in a plain black suit with neat short black hair bursting out of th
 
 > 꼭 보여야 할 것: (진실) 손을 뻗는 키리시마의 다급한 얼굴
 
-## 대화 42 — 컷 · 아오이 시점 (2장)
+## 대화 40 — 컷 · 아오이 시점 (2장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2077,7 +1872,7 @@ Scene: The moment of the fall, seen from the drum riser: no light pattern anymor
 
 > 꼭 보여야 할 것: 무늬 없음, 밀려 넘어지는 루루, 정장의 등, 떨어지는 리그
 
-## 대화 43 — 컷 · 쿠라모치 시점 (6장)
+## 대화 41 — 컷 · 쿠라모치 시점 (6장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2141,7 +1936,7 @@ Scene: From the lighting booth through the glass: the stage below is visible, bu
 
 > 꼭 보여야 할 것: 생략: 캣워크 자리가 통째로 하얀 여백
 
-## 대화 44 — 컷 · 키리시마 시점 (5장)
+## 대화 42 — 컷 · 키리시마 시점 (5장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2196,7 +1991,7 @@ Scene: First-person view bursting out of the stage wing onto the stage: grid pat
 
 > 꼭 보여야 할 것: 격자 무늬, 점프하는 루루, 기우는 리그, 뻗은 손, 위쪽 빈 공간
 
-## 대화 45 — 컷 · 텐도 시점 (5장)
+## 대화 43 — 컷 · 텐도 시점 (5장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2251,7 +2046,7 @@ Scene: Seen from the top of a steel staircase: the lighting rig in front; the ra
 
 > 꼭 보여야 할 것: 생략: 리그 옆 난간 자리 하얀 여백
 
-## 대화 46 — 컷 · 스즈네 시점 (12장)
+## 대화 44 — 컷 · 스즈네 시점 (12장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2369,7 +2164,7 @@ Scene: An empty steep wooden staircase in a pastry shop at night, the second flo
 
 > 꼭 보여야 할 것: 아무도 없는 계단
 
-## 대화 47 — 컷 · 하세가와 시점 (2장)
+## 대화 45 — 컷 · 하세가와 시점 (2장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2397,7 +2192,7 @@ Scene: Blurry first-person view from the floor at the foot of a staircase: a 19-
 
 > 꼭 보여야 할 것: 흐릿한 시야, 휴대폰을 쥔 점원, 벽시계 9:20, 반창고(포인트 색)
 
-## 대화 48 — 컷 · 두부집 할머니 시점 (4장)
+## 대화 46 — 컷 · 두부집 할머니 시점 (4장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2443,7 +2238,7 @@ Scene: A girl with the ribbon on her RIGHT side waves cheerfully from a pastry s
 
 > 꼭 보여야 할 것: 오른쪽 리본 점원이 손을 흔듦
 
-## 대화 49 — 컷 · 마도카 시점 (4장)
+## 대화 47 — 컷 · 마도카 시점 (4장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2489,7 +2284,7 @@ Scene: Inside a tarot booth: tarot cards on a purple cloth, a customer's hands a
 
 > 꼭 보여야 할 것: 부스의 타로 카드와 손님의 손
 
-## 대화 50 — 컷 · 하야카 시점 (7장)
+## 대화 48 — 컷 · 하야카 시점 (7장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2562,7 +2357,7 @@ Scene: An unnaturally white room with an empty speech bubble logo; a girl's hand
 
 > 꼭 보여야 할 것: 하얀 방, 서명하는 손
 
-## 대화 51 — 컷 · 케이코 시점 (6장)
+## 대화 49 — 컷 · 케이코 시점 (6장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2626,7 +2421,7 @@ Scene: A panel completely blurred as if covered by thick smoke; shapes cannot be
 
 > 꼭 보여야 할 것: 흐림: 연기처럼 흐린 컷
 
-## 대화 52 — 컷 · 무라세 시점 (4장)
+## 대화 50 — 컷 · 무라세 시점 (4장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2672,7 +2467,7 @@ Scene: A sooty electrical panel with suspiciously neat wiring.
 
 > 꼭 보여야 할 것: 그을린 배전반
 
-## 대화 53 — 컷 · 오카모토 시점 (8장)
+## 대화 51 — 컷 · 오카모토 시점 (8장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2754,7 +2549,7 @@ Scene: Sparks bursting from a small boiler room window at night.
 
 > 꼭 보여야 할 것: 보일러실 창의 불꽃
 
-## 대화 54 — 컷 · 겐조 시점 (1장)
+## 대화 52 — 컷 · 겐조 시점 (1장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2773,7 +2568,7 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 
 > 꼭 보여야 할 것: 흐린 시야, 업어 준 사람의 그을린 목덜미와 머리끈(포인트 색), 불타는 들보
 
-## 대화 55 — 컷 · 코하루 시점 (8장)
+## 대화 53 — 컷 · 코하루 시점 (8장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2855,7 +2650,7 @@ Scene: Dusk at the harbor: first-person view walking alone toward an abandoned w
 
 > 꼭 보여야 할 것: 혼자 걸어가는 시점, 문 앞의 흰 코트(포인트 색)
 
-## 대화 56 — 컷 · 타나베 시점 (3장)
+## 대화 54 — 컷 · 타나베 시점 (3장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2892,7 +2687,7 @@ Scene: A girl crying on a bus stop bench; her face area is unnaturally smooth li
 
 > 꼭 보여야 할 것: 편집: 매끈하게 붙인 우는 얼굴
 
-## 대화 57 — 컷 · 렌 시점 (6장)
+## 대화 55 — 컷 · 렌 시점 (6장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2956,7 +2751,7 @@ Scene: A child running away alone between burning bookshelves, back view.
 
 > 꼭 보여야 할 것: 편집: 불타는 서가 사이로 달아나는 아이
 
-## 대화 58 — 컷 · 소타 시점 (4장)
+## 대화 56 — 컷 · 소타 시점 (4장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -3002,7 +2797,7 @@ Scene: First-person view turning back into the smoke and fire of a library; from
 
 > 꼭 보여야 할 것: 다시 연기 속으로, 위층의 목소리(포인트 색)
 
-## 대화 59 — 컷 · 쿠로가네 시점 (1장)
+## 대화 57 — 컷 · 쿠로가네 시점 (1장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -3021,7 +2816,7 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 
 > 꼭 보여야 할 것: 아이를 받아 안음, 8:31에 멈춘 손목시계(포인트 색)
 
-## 대화 60 — 컷 · 레이 시점 (10장)
+## 대화 58 — 컷 · 레이 시점 (10장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -3121,7 +2916,7 @@ Scene: A child standing alone in front of a burning lighthouse library, nobody e
 
 > 꼭 보여야 할 것: 불타는 도서관 앞에 혼자 선 아이
 
-## 대화 61 — 컷 · 시오리 시점 (8장)
+## 대화 59 — 컷 · 시오리 시점 (8장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -3203,7 +2998,7 @@ Scene: First-person view turning back up a smoky staircase toward the upper floo
 
 > 꼭 보여야 할 것: 다시 2층으로, 뒤따르는 순경(포인트 색)
 
-## 대화 62 — 컷 · 아사기리 시점 (4장)
+## 대화 60 — 컷 · 아사기리 시점 (4장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 

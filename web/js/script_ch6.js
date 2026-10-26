@@ -2,7 +2,6 @@
 
 Object.assign(MAPS, {
   lighthouse: {
-    img: optionalImg(ASSET.map('lighthouse')),
     label: '곶 끝, 등대 도서관 터',
     hallWallRow: -1,
     rows: [

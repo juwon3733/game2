@@ -3,7 +3,6 @@
 // ---------- 탐색 맵 (그림이 오기 전엔 코드 타일) ----------
 Object.assign(MAPS, {
   tokiwa: {
-    img: optionalImg(ASSET.map('tokiwa')),
     label: '토키와 양과점 1층·2층',
     hallWallRow: -1,
     rows: [
@@ -36,7 +35,6 @@ Object.assign(MAPS, {
     ],
   },
   arcade: {
-    img: optionalImg(ASSET.map('arcade')),
     label: '츠키미나토 아케이드',
     hallWallRow: -1,
     rows: [

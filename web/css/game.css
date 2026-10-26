@@ -229,15 +229,16 @@ button { font-family: inherit; }
 .bubble.empty > span { color: #999; min-width: 60px; text-align: center; }
 
 /* ---------- 탐색 ---------- */
-#explore { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 5; image-rendering: var(--pix-canvas, auto); cursor: pointer; }
-#pad { position: absolute; left: 30px; bottom: 30px; z-index: 22; display: grid; grid-template-columns: repeat(3, 70px); grid-template-rows: repeat(2, 70px); gap: 6px; }
-#pad button { font-size: 26px; background: rgba(247,243,234,.85); border: 3px solid var(--ink); }
-#pad [data-dir="up"] { grid-column: 2; grid-row: 1; }
-#pad [data-dir="left"] { grid-column: 1; grid-row: 2; }
-#pad [data-dir="down"] { grid-column: 2; grid-row: 2; }
-#pad [data-dir="right"] { grid-column: 3; grid-row: 2; }
-#pad-a { position: fixed; } /* 아래에서 다시 배치 */
-#pad #pad-a { position: absolute; left: 1060px; top: 0; width: 120px; height: 120px; border-radius: 50%; background: var(--gold); font-size: 26px; }
+#explore { position: absolute; right: 40px; top: 90px; z-index: 15; width: 420px; }
+.ex-head { display: inline-block; background: var(--ink); color: #fff; font-size: 22px; padding: 6px 16px; }
+.ex-list { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; max-height: 560px; overflow-y: auto; }
+.ex-btn { text-align: left; padding: 12px 18px; font-size: 22px; cursor: pointer; background: var(--paper); border: 4px solid var(--ink); box-shadow: 0 6px 22px rgba(0,0,0,.35); }
+.ex-btn:hover { background: #fff; transform: translateX(-6px); }
+.ex-btn.seen { opacity: .6; }
+.ex-btn.seen::after { content: ' ✓'; }
+.ex-btn.haunt { animation: haunt 2.4s steps(4) infinite; }
+.ex-btn.haunt::after { content: ' …누군가 있다'; color: #8a7fb8; font-size: 18px; }
+@keyframes haunt { 0%, 100% { box-shadow: 0 6px 22px rgba(0,0,0,.35); } 50% { box-shadow: 0 0 0 4px #b8aee0, 0 6px 22px rgba(0,0,0,.35); } }
 
 /* ---------- 심문 ---------- */
 #trial { position: absolute; inset: 0; z-index: 10; pointer-events: none; }
@@ -749,14 +750,8 @@ body { word-break: keep-all; overflow-wrap: break-word; }
 
 /* ---------- 모바일 ---------- */
 /* 조작 패드는 게임 화면(#stage) 밖, 실제 화면 구석에 손가락 크기로 */
-#viewport > #pad { position: fixed; left: 0; right: 0; bottom: 0; top: auto; z-index: 100; display: flex; justify-content: space-between; align-items: flex-end;
-  padding: 0 max(14px, env(safe-area-inset-right)) max(14px, env(safe-area-inset-bottom)) max(14px, env(safe-area-inset-left)); pointer-events: none; grid-template-columns: none; grid-template-rows: none; gap: 0; }
-#viewport > #pad.hidden { display: none; }
-#viewport > #pad .pad-dir { display: grid; grid-template-columns: repeat(3, 52px); grid-template-rows: repeat(2, 52px); gap: 4px; pointer-events: auto; }
-#viewport > #pad .pad-dir button { font-size: 20px; color: #fff; background: rgba(20,22,36,.55); border: 2px solid rgba(255,255,255,.5); border-radius: 8px; touch-action: none; user-select: none; -webkit-user-select: none; }
-#viewport > #pad .pad-dir button:active { background: rgba(242,193,78,.6); }
-#viewport > #pad #pad-a { position: static; pointer-events: auto; width: 76px; height: 76px; border-radius: 50%; font-size: 18px; background: rgba(242,193,78,.85); border: 2px solid #1d1d22; touch-action: none; }
-/* 컷 끌기: 브라우저가 스크롤로 가로채지 않게 */
+#viewport >   padding: 0 max(14px, env(safe-area-inset-right)) max(14px, env(safe-area-inset-bottom)) max(14px, env(safe-area-inset-left)); pointer-events: none; grid-template-columns: none; grid-template-rows: none; gap: 0; }
+#viewport > #viewport > #viewport > #viewport > #viewport > /* 컷 끌기: 브라우저가 스크롤로 가로채지 않게 */
 #puzzle .cutv { touch-action: none; }
 /* 세로 화면에선 글씨가 너무 작아진다: 가로로 돌리라고 안내 */
 #rotate { display: none; }

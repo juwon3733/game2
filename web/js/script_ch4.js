@@ -2,7 +2,6 @@
 
 Object.assign(MAPS, {
   sakurayu: {
-    img: optionalImg(ASSET.map('sakurayu')),
     label: '불탄 목욕탕 사쿠라유',
     hallWallRow: -1,
     rows: [
@@ -33,7 +32,6 @@ Object.assign(MAPS, {
     ],
   },
   siteoffice: {
-    img: optionalImg(ASSET.map('siteoffice')),
     label: '하쿠요 하청 현장사무소',
     hallWallRow: -1,
     rows: [

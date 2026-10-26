@@ -4,7 +4,6 @@
 // 그림(maps/*.png)이 들어오기 전엔 코드 타일로 그린다. 그림이 들어오면 Claude가 rows와 물건 위치를 맞춘다.
 Object.assign(MAPS, {
   crescent: {
-    img: optionalImg(ASSET.map('crescent')),
     label: '크레센트 무대·객석',
     hallWallRow: -1,
     rows: [
@@ -37,7 +36,6 @@ Object.assign(MAPS, {
     ],
   },
   backstage: {
-    img: optionalImg(ASSET.map('backstage')),
     label: '크레센트 무대 뒤',
     hallWallRow: -1,
     rows: [
@@ -68,7 +66,6 @@ Object.assign(MAPS, {
     ],
   },
   tendooffice: {
-    img: optionalImg(ASSET.map('tendooffice')),
     label: '텐도 프로모션 사장실',
     hallWallRow: -1,
     rows: [

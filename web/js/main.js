@@ -135,7 +135,7 @@ function titleScreen() {
       <ol>${chs.map((ch) => `<li class="ts-ch">${ch}장 「${CHAPTERS[ch].title}」</li>` + CHAPTERS[ch].scenes.map(([id, label], i) =>
         `<li><button data-scene="${id}"><b>${String(i + 1).padStart(2, '0')}</b>${label}</button></li>`).join('')).join('')}</ol>
     </div>
-    <div class="ts-hint">대사 넘기기 클릭 · Space　　탐색 방향키 · WASD · 클릭</div>`;
+    <div class="ts-hint">대사 넘기기 클릭 · Space</div>`;
   $('#stage').appendChild(t);
   // 키아트(GPT 이미지)가 있으면 배경과 캐릭터를 그걸로 바꾼다
   const key = new Image();
