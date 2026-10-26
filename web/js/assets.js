@@ -81,7 +81,7 @@ function bgPlaceholder(id) {
     <rect width="1280" height="720" fill="url(#t)"/>
     <rect x="80" y="140" width="260" height="200" fill="#fff" opacity=".08"/>
     <rect x="940" y="120" width="240" height="300" fill="#fff" opacity=".06"/>
-    <text x="640" y="80" font-size="30" text-anchor="middle" fill="#fff" opacity=".7" font-family="sans-serif">${b.label} (임시 배경)</text>
+    <text x="1264" y="708" font-size="18" text-anchor="end" fill="#fff" opacity=".45" font-family="sans-serif">${b.label} (임시 배경)</text>
   </svg>`;
   return svgUrl(svg);
 }
