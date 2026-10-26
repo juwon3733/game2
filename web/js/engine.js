@@ -179,7 +179,7 @@ const VOICE = { rei: 0.82, koharu: 1.22, kurogane: 0.68, towa: 1.4, asagiri: 0.9
 const BG_AMB = { night: 'sea', office: 'hum', guardroom: 'hum', interrogate: 'hum', hospital: 'hum', himari_door: 'hum',
   crescent_out: 'crowd', crescent_stage: 'crowd', backstage: 'hum', booth: 'hum', greenroom: 'hum',
   arcade: 'crowd', arcade_exit: 'crowd', storage: 'hum', sakurayu: 'sea', sakurayu_boiler: 'fire', site_office: 'hum', clinic: 'hum', station_chief: 'hum',
-  koharu_room: 'rain', busstop: 'rain', warehouse: 'sea', warehouse_in: 'sea', library: 'hum', lighthouse: 'sea', lighthouse_in: 'fire', lighthouse_dawn: 'sea' };
+  koharu_room: 'rain', busstop: 'rain', warehouse: 'sea', warehouse_in: 'sea', pier: 'sea', library: 'hum', lighthouse: 'sea', lighthouse_in: 'fire', lighthouse_dawn: 'sea' };
 
 // [[단어]]는 강조색. 문장부호에서 잠깐 쉰다.
 const PAUSE = { '…': 7, '.': 4, '?': 5, '!': 5, ',': 3, '—': 4 };
