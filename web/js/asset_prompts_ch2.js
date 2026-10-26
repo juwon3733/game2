@@ -2,8 +2,8 @@
 // 고친 뒤엔 node tools/export-prompts.mjs 로 prompts.json / PROMPTS 문서를 다시 만든다.
 
 Object.assign(CHARACTER_SHEETS, {
-  ruru: 'Character reference sheet of a stunning 19-year-old indie rock vocalist and guitarist girl with a sharp tongue. Large vivid vermilion-orange eyes with sharp highlights, long platinum-white hair with a straight fringe and one thin braid, a small black ribbon choker, an oversized white stage jacket with silver buttons over a black tank top, black shorts and torn tights, a guitar pick necklace. On stage a perfect idol smile, off stage a cool glare. Vermilion and white accents.',
-  pin: 'Character reference sheet of a sweet, fluffy 18-year-old bassist girl. Big round lavender eyes, pastel pink wavy hair in two buns with star clips, lots of glitter makeup and a heart sticker under one eye, oversized lilac hoodie with a cartoon bunny, pleated skirt, platform sneakers, a bass case covered in stickers. Lavender and pink accents.',
+  ruru: 'Character reference sheet of a stunning 19-year-old indie rock vocalist and guitarist girl with a sharp tongue. Large vivid amber-orange eyes with sharp star-shaped highlights, shoulder-length sky-blue to cobalt hair with blunt bangs and two small braided loops tied low at each side with tiny blue flower clips, a black newsboy cap tilted to one side with a plaid blue ribbon bow and a small round white bird-shaped plush mascot sitting on its brim, a black ribbon choker, an oversized white stage jacket with silver buttons over a black tank top, a blue plaid pleated skirt, black tights with white frilly ankle socks, a guitar pick necklace, a vintage stage microphone in one hand. On stage a perfect idol smile, off stage a cool glare. Blue, white and amber accents.',
+  pin: 'Character reference sheet of a sweet, dreamy 18-year-old bassist girl. Big soft rose-pink eyes, short fluffy silver-white bob hair with pastel coral-pink tips on the inner layer, a crossed silver hairpin on the bangs, a black beret with two small white plum-blossom flowers and a thin ribbon, a long black coat with white double-line trim and very wide sleeves embroidered with white plum blossoms, a white blouse with a big bow tie and a pink gem brooch, a black belt, white shorts, a black lace-up garter on one thigh, a bass case covered in stickers. Black, white and rose-pink accents.',
   aoi: 'Character reference sheet of a cool 21-year-old drummer girl and band leader. Short navy-black hair with an undercut, calm sharp cobalt-blue eyes, silver ear cuffs, black tank top under an open cobalt work shirt, cargo pants, drumsticks in her back pocket, taped fingers. Cobalt blue and black accents.',
   kuramochi: 'Character reference sheet of a quiet 28-year-old live-house lighting technician woman. Short brown bob with a neat side part, tired honest amber eyes, a headset with microphone around her neck, black crew T-shirt with a small crescent moon logo, a tool belt, thick black work gloves always on her hands. Amber and black accents.',
   tendo: 'Character reference sheet of an elegant, intimidating 52-year-old talent agency president woman. Dark hair in a tight elegant updo, sharp smiling eyes with long lashes, deep wine-magenta tailored suit with a brooch, pearl earrings, and a very large square gold wristwatch on her left wrist that is always visible. Smiles politely but the eyes do not smile. Magenta and gold accents.',
@@ -14,10 +14,10 @@ Object.assign(FACE_PROMPTS, {
   ruru_normal: 'expression: cool, bored glare, arms crossed',
   ruru_angry: 'expression: sharp angry glare, teeth showing, defensive',
   ruru_crying: 'expression: crying with clenched teeth, tears streaming, trying not to break',
-  ruru_smile: 'expression: perfect stage idol smile, one hand waving',
-  pin_normal: 'expression: nervous, hugging her sleeves',
+  ruru_smile: 'expression: perfect stage idol smile, mouth open, holding the microphone, one hand waving',
+  pin_normal: 'expression: nervous, hiding her hands in her wide flower sleeves',
   pin_happy: 'expression: bright fluffy smile, peace sign',
-  pin_crying: 'expression: sobbing, glitter makeup running',
+  pin_crying: 'expression: sobbing, beret slipping, flower sleeves pressed to her eyes',
   aoi_normal: 'expression: calm and cool, spinning a drumstick',
   aoi_serious: 'expression: serious, frowning, holding a folded document',
   kuramochi_normal: 'expression: guarded, looking away, gloved hand on her headset',
@@ -41,9 +41,9 @@ Object.assign(BG_PROMPTS, {
 });
 
 Object.assign(CUT_CHARS, {
-  ruru: 'a 19-year-old girl vocalist with long platinum-white hair, a thin braid and a black ribbon choker',
+  ruru: 'a 19-year-old girl vocalist with shoulder-length blue hair in two small braided loops and a black cap with a small white bird mascot',
   ruru_jacket: 'a white oversized stage jacket',
-  pin: 'an 18-year-old girl bassist with pastel hair in two buns and an oversized bunny hoodie',
+  pin: 'an 18-year-old girl bassist with a short silver-white bob with pink tips, a black beret with white flowers and a long black coat with wide sleeves',
   aoi: 'a short-haired girl drummer',
   kuramochi: 'a woman lighting technician with a short bob, a headset and thick black work gloves',
   tendo: 'a woman in her fifties with a tight updo and a tailored suit',

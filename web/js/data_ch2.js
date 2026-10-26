@@ -2,8 +2,8 @@
 // 기획: docs/12_story_plan.md §4, docs/13_deduction_upgrade.md §3-3
 
 Object.assign(CHARACTERS, {
-  ruru:      { name: '루루',     hair: '#f2efe6', outfit: '#f7f7f2', accent: '#e4572e', faces: ['normal', 'angry', 'crying', 'smile'] },
-  pin:       { name: '핀',       hair: '#e8b4d8', outfit: '#c9b6ea', accent: '#a07ad8', faces: ['normal', 'happy', 'crying'] },
+  ruru:      { name: '루루',     hair: '#4a7fd8', outfit: '#f7f7f2', accent: '#e4572e', faces: ['normal', 'angry', 'crying', 'smile'] },
+  pin:       { name: '핀',       hair: '#eceaf2', outfit: '#26232e', accent: '#a07ad8', faces: ['normal', 'happy', 'crying'] },
   aoi:       { name: '아오이',   hair: '#1f2a44', outfit: '#2c3442', accent: '#3a78c9', faces: ['normal', 'serious'] },
   kuramochi: { name: '쿠라모치', hair: '#3a2e26', outfit: '#3d3d3a', accent: '#d9a21b', faces: ['normal', 'scared', 'resolute'] },
   tendo:     { name: '텐도',     hair: '#2a1a22', outfit: '#5a1f3a', accent: '#b0306a', faces: ['smile', 'normal', 'angry', 'cornered'] },
@@ -383,8 +383,8 @@ const NAME2_FINAL = [
 ];
 
 Object.assign(PROFILES, {
-  ruru: '밴드 「크럼블」의 보컬·기타 아마네 루루(19). 무대에선 완벽한 미소, 무대 밖에선 독설. 스스로 "내 탓"이라고 한다.',
-  pin: '「크럼블」의 베이스 모모세 핀(18). 솜사탕 말투. 루루를 동경한다.',
+  ruru: '밴드 「크럼블」의 보컬·기타 아마네 루루(19). 무대에선 완벽한 미소, 무대 밖에선 독설. 파란 머리에 새 인형이 앉은 모자. 스스로 "내 탓"이라고 한다.',
+  pin: '「크럼블」의 베이스 모모세 핀(18). 솜사탕 말투. 끝만 분홍인 흰 단발, 꽃 베레모. 루루를 동경한다.',
   aoi: '「크럼블」의 드럼이자 리더 사카키 아오이(21). 짧은 머리, 쿨함.',
   kuramochi: '라이브하우스 「크레센트」의 조명 기사 쿠라모치 시노(28). 점검표에 「이상 없음」이라고 서명했다.',
   tendo: '소속사 「텐도 프로모션」 사장 텐도 마키(52). 사건 뒤 "루루가 리그를 만지는 걸 봤다"고 진술했다.',

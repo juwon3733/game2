@@ -56,6 +56,7 @@
 - 소리는 Claude가 직접 작곡한다(PC-98식 FM 음원). 곡 14개(1장 title office explore trial tension truth epilogue, 2장 live encore tendo, 3장 madoka, 4장 fire, 5장 editor, 종장 final), 효과음 19개. 장면별 곡은 `script_chN.js`의 `CHN_BGM`, 증인별 곡은 `WITNESSES[id].bgm`.
 - 심문 `answers[k].with`: 겹쳐 보기(같은 순간의 다른 시점 컷을 하나 더 내야 깨짐). 2장 텐도 반박 3(2T+2K). 
 - 추리 난이도는 고르는 게 아니라 **게임 기본이 어렵게** (사용자 요청). `audio.js`의 `RULES`: 컷 설명 없이 그림으로 풀기, 퍼즐 오답은 어느 칸 사이인지만, 힌트 2·코하루 1, 결론은 가장 정확한 컷만. 컷 단서는 그림에 크게 들어가야 한다.
+- 2장 루루(파란 머리·새 인형 모자·마이크)와 핀(끝만 분홍인 흰 단발·꽃 베레모·검은 코트)은 사용자가 준 참고 그림을 바탕으로, 그대로 베끼지 않게 바꾼 디자인. 루루의 흰 무대 재킷은 단서라 유지.
 - 여성 캐릭터 비중을 높인다(사용자 요청). 장별 여성 인물은 `docs/12_story_plan.md` §0-1.
 - 미정: 레이 성별(현재 중성적), 배경 국가(현재 일본풍). `docs/09_open_questions.md`.
 

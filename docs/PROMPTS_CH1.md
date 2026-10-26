@@ -390,7 +390,7 @@ Character design in the style of modern Japanese anime mobile gacha games (subcu
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
-Character reference sheet of a stunning 19-year-old indie rock vocalist and guitarist girl with a sharp tongue. Large vivid vermilion-orange eyes with sharp highlights, long platinum-white hair with a straight fringe and one thin braid, a small black ribbon choker, an oversized white stage jacket with silver buttons over a black tank top, black shorts and torn tights, a guitar pick necklace. On stage a perfect idol smile, off stage a cool glare. Vermilion and white accents.
+Character reference sheet of a stunning 19-year-old indie rock vocalist and guitarist girl with a sharp tongue. Large vivid amber-orange eyes with sharp star-shaped highlights, shoulder-length sky-blue to cobalt hair with blunt bangs and two small braided loops tied low at each side with tiny blue flower clips, a black newsboy cap tilted to one side with a plaid blue ribbon bow and a small round white bird-shaped plush mascot sitting on its brim, a black ribbon choker, an oversized white stage jacket with silver buttons over a black tank top, a blue plaid pleated skirt, black tights with white frilly ankle socks, a guitar pick necklace, a vintage stage microphone in one hand. On stage a perfect idol smile, off stage a cool glare. Blue, white and amber accents.
 ```
 
 **`ruru_normal.png`
@@ -420,7 +420,7 @@ Expression: crying with clenched teeth, tears streaming, trying not to break.
 ```
 같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
 
-Expression: perfect stage idol smile, one hand waving.
+Expression: perfect stage idol smile, mouth open, holding the microphone, one hand waving.
 ```
 
 ## 대화 13 — 핀 상반신 (3장)
@@ -437,7 +437,7 @@ Character design in the style of modern Japanese anime mobile gacha games (subcu
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
-Character reference sheet of a sweet, fluffy 18-year-old bassist girl. Big round lavender eyes, pastel pink wavy hair in two buns with star clips, lots of glitter makeup and a heart sticker under one eye, oversized lilac hoodie with a cartoon bunny, pleated skirt, platform sneakers, a bass case covered in stickers. Lavender and pink accents.
+Character reference sheet of a sweet, dreamy 18-year-old bassist girl. Big soft rose-pink eyes, short fluffy silver-white bob hair with pastel coral-pink tips on the inner layer, a crossed silver hairpin on the bangs, a black beret with two small white plum-blossom flowers and a thin ribbon, a long black coat with white double-line trim and very wide sleeves embroidered with white plum blossoms, a white blouse with a big bow tie and a pink gem brooch, a black belt, white shorts, a black lace-up garter on one thigh, a bass case covered in stickers. Black, white and rose-pink accents.
 ```
 
 **`pin_normal.png`
@@ -446,7 +446,7 @@ Character reference sheet of a sweet, fluffy 18-year-old bassist girl. Big round
 
 Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
 
-Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: nervous, hugging her sleeves.
+Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: nervous, hiding her hands in her wide flower sleeves.
 ```
 
 **`pin_happy.png`
@@ -460,7 +460,7 @@ Expression: bright fluffy smile, peace sign.
 ```
 같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
 
-Expression: sobbing, glitter makeup running.
+Expression: sobbing, beret slipping, flower sleeves pressed to her eyes.
 ```
 
 ## 대화 14 — 아오이 상반신 (2장)
@@ -1924,7 +1924,7 @@ Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game scr
 
 Palette: 8 grey levels from black to white, and one accent color lavender purple (#a07ad8). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
-Scene: First song of a live show, seen from the bassist's position at stage left: the back of a 19-year-old girl vocalist with long platinum-white hair, a thin braid and a black ribbon choker wearing a white oversized stage jacket (accent color) at the center microphone, a packed audience of silhouetted heads beyond her. Star shapes projected on the stage floor. Above: a lighting rig (a metal truss with four stage lights and one pattern projector) hanging above the center of the stage, next to a metal catwalk railing about one meter away; the gap between the rig and the catwalk railing is clearly empty, nothing tied there.
+Scene: First song of a live show, seen from the bassist's position at stage left: the back of a 19-year-old girl vocalist with shoulder-length blue hair in two small braided loops and a black cap with a small white bird mascot wearing a white oversized stage jacket (accent color) at the center microphone, a packed audience of silhouetted heads beyond her. Star shapes projected on the stage floor. Above: a lighting rig (a metal truss with four stage lights and one pattern projector) hanging above the center of the stage, next to a metal catwalk railing about one meter away; the gap between the rig and the catwalk railing is clearly empty, nothing tied there.
 
 Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
@@ -1935,7 +1935,7 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + lavender purple (#a07ad8) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A cramped dressing room: an 18-year-old girl bassist with pastel hair in two buns and an oversized bunny hoodie hugging a 19-year-old girl vocalist with long platinum-white hair, a thin braid and a black ribbon choker, who is crying. On the wall, a small monitor shows the stage covered in haze with blue standby light, and on the catwalk in the monitor a tiny dark human silhouette; at the silhouette's wrist one small bright glint (accent color).
+Scene: A cramped dressing room: an 18-year-old girl bassist with a short silver-white bob with pink tips, a black beret with white flowers and a long black coat with wide sleeves hugging a 19-year-old girl vocalist with shoulder-length blue hair in two small braided loops and a black cap with a small white bird mascot, who is crying. On the wall, a small monitor shows the stage covered in haze with blue standby light, and on the catwalk in the monitor a tiny dark human silhouette; at the silhouette's wrist one small bright glint (accent color).
 ```
 
 > 꼭 보여야 할 것: 벽 모니터 속 헤이즈와 캣워크 위 작은 그림자, 손목의 작은 반짝임(포인트 색)
@@ -1944,7 +1944,7 @@ Scene: A cramped dressing room: an 18-year-old girl bassist with pastel hair in 
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + lavender purple (#a07ad8) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A sparkling, flattering memory: a 19-year-old girl vocalist with long platinum-white hair, a thin braid and a black ribbon choker shining with glitter and flowers, looking cool and noble; the man she argues with is only a blurry grey silhouette.
+Scene: A sparkling, flattering memory: a 19-year-old girl vocalist with shoulder-length blue hair in two small braided loops and a black cap with a small white bird mascot shining with glitter and flowers, looking cool and noble; the man she argues with is only a blurry grey silhouette.
 ```
 
 > 꼭 보여야 할 것: 미화: 반짝이, 흐린 상대
@@ -1953,7 +1953,7 @@ Scene: A sparkling, flattering memory: a 19-year-old girl vocalist with long pla
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + lavender purple (#a07ad8) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A sparkling memory: an 18-year-old girl bassist with pastel hair in two buns and an oversized bunny hoodie and a 19-year-old girl vocalist with long platinum-white hair, a thin braid and a black ribbon choker sitting side by side in front of a dressing room mirror, smiling, everything covered in glitter and hearts.
+Scene: A sparkling memory: an 18-year-old girl bassist with a short silver-white bob with pink tips, a black beret with white flowers and a long black coat with wide sleeves and a 19-year-old girl vocalist with shoulder-length blue hair in two small braided loops and a black cap with a small white bird mascot sitting side by side in front of a dressing room mirror, smiling, everything covered in glitter and hearts.
 ```
 
 > 꼭 보여야 할 것: 미화: 거울 앞 두 사람
@@ -1962,7 +1962,7 @@ Scene: A sparkling memory: an 18-year-old girl bassist with pastel hair in two b
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + lavender purple (#a07ad8) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A sparkling memory: a 19-year-old girl vocalist with long platinum-white hair, a thin braid and a black ribbon choker doing an 18-year-old girl bassist with pastel hair in two buns and an oversized bunny hoodie's makeup, laughing; flowers and glitter cover the whole panel, including the wall behind them.
+Scene: A sparkling memory: a 19-year-old girl vocalist with shoulder-length blue hair in two small braided loops and a black cap with a small white bird mascot doing an 18-year-old girl bassist with a short silver-white bob with pink tips, a black beret with white flowers and a long black coat with wide sleeves's makeup, laughing; flowers and glitter cover the whole panel, including the wall behind them.
 ```
 
 > 꼭 보여야 할 것: 미화: 벽까지 덮은 반짝이
@@ -1990,7 +1990,7 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + vermilion orange (#e4572e) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Under fluorescent work lights on the catwalk: a 19-year-old girl vocalist with long platinum-white hair, a thin braid and a black ribbon choker grabs a clamp of the lighting rig with both hands, her side face gritting her teeth, angry and tearful. Right next to the clamp, a big tight knot of strap tying the rig to the railing, clearly visible. Leave empty space at the top right for a speech bubble.
+Scene: Under fluorescent work lights on the catwalk: a 19-year-old girl vocalist with shoulder-length blue hair in two small braided loops and a black cap with a small white bird mascot grabs a clamp of the lighting rig with both hands, her side face gritting her teeth, angry and tearful. Right next to the clamp, a big tight knot of strap tying the rig to the railing, clearly visible. Leave empty space at the top right for a speech bubble.
 ```
 
 > 꼭 보여야 할 것: 클램프를 붙잡은 손, 클램프 옆 큰 매듭, 작업등, 오른쪽 위 빈 공간
@@ -1999,7 +1999,7 @@ Scene: Under fluorescent work lights on the catwalk: a 19-year-old girl vocalist
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + vermilion orange (#e4572e) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: At night in front of a rehearsal studio on a city street: a man in a plain black suit with neat short black hair holds out a sheet of paper to a 19-year-old girl vocalist with long platinum-white hair, a thin braid and a black ribbon choker in casual clothes. The paper shows a record label logo (accent color). Ruru looks hurt.
+Scene: At night in front of a rehearsal studio on a city street: a man in a plain black suit with neat short black hair holds out a sheet of paper to a 19-year-old girl vocalist with shoulder-length blue hair in two small braided loops and a black cap with a small white bird mascot in casual clothes. The paper shows a record label logo (accent color). Ruru looks hurt.
 ```
 
 > 꼭 보여야 할 것: 밤거리, 사복 루루, 종이의 레코드사 로고(포인트 색)
@@ -2008,7 +2008,7 @@ Scene: At night in front of a rehearsal studio on a city street: a man in a plai
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + vermilion orange (#e4572e) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Back view of a man in a plain black suit with neat short black hair turning away on a dark street. In front of him, a 19-year-old girl vocalist with long platinum-white hair, a thin braid and a black ribbon choker, but her face is scribbled over completely black with crude pen scribbles (self-hatred).
+Scene: Back view of a man in a plain black suit with neat short black hair turning away on a dark street. In front of him, a 19-year-old girl vocalist with shoulder-length blue hair in two small braided loops and a black cap with a small white bird mascot, but her face is scribbled over completely black with crude pen scribbles (self-hatred).
 ```
 
 > 꼭 보여야 할 것: 낙서: 루루 자신의 얼굴이 새까만 낙서
@@ -2061,7 +2061,7 @@ Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game scr
 
 Palette: 8 grey levels from black to white, and one accent color cobalt blue (#3a78c9). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
-Scene: Seen from behind the drum kit (cymbals in the foreground with the drummer's hands, accent color on the drumsticks): the stage floor is covered with wavy stripe patterns of light. a 19-year-old girl vocalist with long platinum-white hair, a thin braid and a black ribbon choker without her jacket, in a black tank top, sings. Above her, a lighting rig (a metal truss with four stage lights and one pattern projector) hanging above the center of the stage, next to a metal catwalk railing about one meter away, perfectly still.
+Scene: Seen from behind the drum kit (cymbals in the foreground with the drummer's hands, accent color on the drumsticks): the stage floor is covered with wavy stripe patterns of light. a 19-year-old girl vocalist with shoulder-length blue hair in two small braided loops and a black cap with a small white bird mascot without her jacket, in a black tank top, sings. Above her, a lighting rig (a metal truss with four stage lights and one pattern projector) hanging above the center of the stage, next to a metal catwalk railing about one meter away, perfectly still.
 
 Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
@@ -2072,7 +2072,7 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + cobalt blue (#3a78c9) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: The moment of the fall, seen from the drum riser: no light pattern anymore, the stage suddenly dark. a 19-year-old girl vocalist with long platinum-white hair, a thin braid and a black ribbon choker pushed sideways and falling down, and in her place the back of a man in a black suit, with the lighting rig crashing down onto him. Dust and broken light.
+Scene: The moment of the fall, seen from the drum riser: no light pattern anymore, the stage suddenly dark. a 19-year-old girl vocalist with shoulder-length blue hair in two small braided loops and a black cap with a small white bird mascot pushed sideways and falling down, and in her place the back of a man in a black suit, with the lighting rig crashing down onto him. Dust and broken light.
 ```
 
 > 꼭 보여야 할 것: 무늬 없음, 밀려 넘어지는 루루, 정장의 등, 떨어지는 리그
@@ -2153,7 +2153,7 @@ Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game scr
 
 Palette: 8 grey levels from black to white, and one accent color teal green (#3aa58a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
-Scene: Afternoon rehearsal, seen from the first row of an empty audience floor looking up at the stage: a 19-year-old girl vocalist with long platinum-white hair, a thin braid and a black ribbon choker in a grey hoodie doing a mic check. Above, on the metal catwalk, a woman lighting technician with a short bob, a headset and thick black work gloves points at a clamp of the lighting rig. In the foreground, on the viewer's knee, a clipboard checklist (accent color). Empty seats beside.
+Scene: Afternoon rehearsal, seen from the first row of an empty audience floor looking up at the stage: a 19-year-old girl vocalist with shoulder-length blue hair in two small braided loops and a black cap with a small white bird mascot in a grey hoodie doing a mic check. Above, on the metal catwalk, a woman lighting technician with a short bob, a headset and thick black work gloves points at a clamp of the lighting rig. In the foreground, on the viewer's knee, a clipboard checklist (accent color). Empty seats beside.
 
 Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
@@ -2173,7 +2173,7 @@ Scene: Under harsh white fluorescent work lights with every seat of the audience
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + teal green (#3aa58a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Peeking from the wing between dark curtains at the stage: wavy stripe light patterns on the floor, a 19-year-old girl vocalist with long platinum-white hair, a thin braid and a black ribbon choker without her jacket singing. Above, the lighting rig and the catwalk railing next to it: the railing is bare, no strap, no knot. In the foreground, a hand in a black suit sleeve holding a radio transceiver (accent color).
+Scene: Peeking from the wing between dark curtains at the stage: wavy stripe light patterns on the floor, a 19-year-old girl vocalist with shoulder-length blue hair in two small braided loops and a black cap with a small white bird mascot without her jacket singing. Above, the lighting rig and the catwalk railing next to it: the railing is bare, no strap, no knot. In the foreground, a hand in a black suit sleeve holding a radio transceiver (accent color).
 ```
 
 > 꼭 보여야 할 것: 물결 무늬, 재킷 없는 루루, 매듭 없는 난간, 손의 무전기(포인트 색)
@@ -2191,7 +2191,7 @@ Scene: A backstage corridor during rehearsal (music notes coming from the stage 
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + teal green (#3aa58a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: First-person view bursting out of the stage wing onto the stage: grid patterns of light on the floor, a 19-year-old girl vocalist with long platinum-white hair, a thin braid and a black ribbon choker mid-jump at the center, and above her the lighting rig tilting and about to fall. The viewer's own hand in a black suit sleeve reaches out toward her (accent color on the radio in the other hand). Leave empty space at the top center for a speech bubble.
+Scene: First-person view bursting out of the stage wing onto the stage: grid patterns of light on the floor, a 19-year-old girl vocalist with shoulder-length blue hair in two small braided loops and a black cap with a small white bird mascot mid-jump at the center, and above her the lighting rig tilting and about to fall. The viewer's own hand in a black suit sleeve reaches out toward her (accent color on the radio in the other hand). Leave empty space at the top center for a speech bubble.
 ```
 
 > 꼭 보여야 할 것: 격자 무늬, 점프하는 루루, 기우는 리그, 뻗은 손, 위쪽 빈 공간
@@ -2228,7 +2228,7 @@ Scene: A backstage corridor: a woman in her fifties with a tight updo and a tail
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + magenta (#b0306a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: An exaggerated memory: a gigantic a 19-year-old girl vocalist with long platinum-white hair, a thin braid and a black ribbon choker shaking the lighting rig on the catwalk. The rig is at eye level, and in the lower left foreground the diagonal steel handrail of a staircase cuts across the panel, clearly visible.
+Scene: An exaggerated memory: a gigantic a 19-year-old girl vocalist with shoulder-length blue hair in two small braided loops and a black cap with a small white bird mascot shaking the lighting rig on the catwalk. The rig is at eye level, and in the lower left foreground the diagonal steel handrail of a staircase cuts across the panel, clearly visible.
 ```
 
 > 꼭 보여야 할 것: 과장: 거대한 루루, 앞쪽의 비스듬한 계단 난간, 눈높이의 리그
