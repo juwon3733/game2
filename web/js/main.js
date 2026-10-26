@@ -141,9 +141,7 @@ function titleScreen() {
     <img class="ts-char ts-koharu" src="${ASSET.portrait('koharu', 'happy')}" alt="">
     <img class="ts-char ts-rei" src="${ASSET.portrait('rei', 'normal')}" alt="">
     <div class="ts-logo">
-      <div class="ts-chapter">CHAPTER ${save ? save.ch : 1} · ${CHAPTERS[save ? save.ch : 1].title}</div>
       <h1><span>같은 하루,</span><span class="ts-l2">다른 칸</span></h1>
-      <div class="ts-tag">같은 밤, 서로 다르게 기억된 장면들</div>
     </div>
     <nav class="ts-menu">
       ${save ? `<button id="t-cont" class="ts-btn primary">이어하기<small>${sceneLabel(save.scene)}</small></button>` : ''}
