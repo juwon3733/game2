@@ -34,7 +34,7 @@ async function sceneOffice() {
   bg('night');
   FX.memory(true);
   bgm(null);
-  await say('', '8월 23일 밤 9시 24분. 구시가 하나미즈키 맨션 5층.');
+  await say('', '8월 23일 밤 9시 23분. 구시가 하나미즈키 맨션 5층.');
   sfx('ghost', { vol: 0.5 });
   await flashCut('G', 1500);
   await say('', '베란다 쪽에서 아이가 숨을 들이켜는 소리.');
@@ -148,6 +148,9 @@ async function scenePuzzle1() {
   await runPuzzle('page1');
   bg('night');
   show('koharu', 'worried', 'right');
+  await say('koharu', '선배, 컷 속 그 작은 발은요? 아이가 있었던 거잖아요.', 'worried');
+  show('rei', 'serious', 'left');
+  await say('rei', '아이는 어디 안 가. 지금 잡혀 있는 건 택배 기사야. 송치되기 전에 경비원 말부터 확인해.', 'serious');
   await say('koharu', '경비실이면 1층 현관 옆이죠? 제가 먼저 내려가 있을게요!', 'normal');
   clearChars();
 }
@@ -159,7 +162,7 @@ async function sceneOokubo() {
   await say('ookubo', '아이고, 형사님들! 내가 다 봤다니까. 그 양키 놈이 범인이야!');
   show('koharu', 'normal', 'right');
   await say('koharu', '그날 밤 기억을 저희한테 보여 주실 수 있을까요?');
-  await say('ookubo', '컷? 뭔진 모르겠지만 얼마든지! 난 거짓말 안 해.');
+  await say('ookubo', '기억? 뭔 소린지 모르겠지만 얼마든지! 난 거짓말 안 해.');
   hide('koharu');
   await runTrial('ookubo');
 }
