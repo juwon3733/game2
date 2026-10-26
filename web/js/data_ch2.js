@@ -166,7 +166,7 @@ Object.assign(WITNESSES, {
       { text: '리허설 점검 때 리그는 이상 없었어요. 점검표에도 그렇게 썼고요.', cut: 't_kuramochi_1', dist: '생략',
         cutDesc: '점검표에 「이상 없음」이라고 서명하는 손. 리그 칸만 하얀 여백으로 비어 있다.',
         truthDesc: '점검표 리그 칸의 큰 동그라미. 그 위에 덧쓴 「이상 없음」.',
-        press: [['kuramochi', '…서명은 제가 했어요. 제 이름이니까요.', 'normal'], ['koharu', '(이상 없음이라고 쓴 칸만 하얗네요.)', 'worried']] },
+        press: [['kuramochi', '…서명은 제가 했어요. 제 이름이니까요.', 'normal']] },
       { text: '공연 중엔 콘솔만 봤어요. 리그가 흔들리는 건 못 봤어요.', cut: 't_kuramochi_2',
         cutDesc: '버튼과 페이더만 보이는 조명 콘솔 클로즈업.',
         press: [['kuramochi', '3곡째는 스트로브가 많아서 바빴어요.', 'normal']] },
@@ -186,7 +186,7 @@ Object.assign(WITNESSES, {
         peel: [0], gives: 'L4', items: ['checklist'], words: ['th_checklist', 't_rehearsal', 'p_kuramochi'],
         changes: { 1: { text: '알고는 있었어요. 그래도 공연 중엔 정말 갑자기였어요.', cut: 't_kuramochi_2',
           cutDesc: '버튼과 페이더만 보이는 조명 콘솔 클로즈업.',
-          press: [['kuramochi', '정말이에요. 아무 신호도 없이.', 'scared'], ['koharu', '(…신호? 무슨 신호를 기다렸던 것 같은 말투예요.)', 'worried']] } } },
+          press: [['kuramochi', '정말이에요. 아무 신호도 없이.', 'scared']] } } },
       { statement: 1, cut: '2D', requires: [0], shout: '갑자기가 아니야!',
         rebut: '이건 쿠라모치 씨 자리에 남은 잔상이에요. 무전기를 쥐고 리그를 보고 있었어요. 뭔가를 기다리면서.',
         success: [
@@ -220,7 +220,7 @@ Object.assign(WITNESSES, {
         press: [['pin', '진짜예요. 루루는 높은 데 싫어해요.', 'normal']] },
       { text: '개장 준비 땐 루루가 웃으면서 제 화장을 해 줬어요.', cut: 't_pin_3', dist: '미화',
         cutDesc: '꽃과 반짝이가 화면을 덮는다. 벽 쪽도 반짝이에 가려졌다.', truthCut: '2K',
-        press: [['pin', '루루 손이 엄청 차가웠어요. 긴장해서 그런 거예요.', 'normal'], ['koharu', '(벽에 뭐가 있는데 반짝이에 가려졌어요.)', 'worried']] },
+        press: [['pin', '루루 손이 엄청 차가웠어요. 긴장해서 그런 거예요.', 'normal']] },
     ],
     answers: [
       { statement: 1, cut: '2H', shout: '루루는 올라갔어!',
@@ -300,7 +300,7 @@ Object.assign(WITNESSES, {
         cutDesc: '거대하게 그려진 루루가 리그를 흔든다. 화면 앞쪽에 비스듬한 철제 계단 난간이 걸쳐 있다.',
         spots: [{ id: 'rail', label: '앞쪽에 걸친 철제 난간', x: 0, y: 0.55, w: 0.45, h: 0.45 },
           { id: 'ruru', label: '거대한 루루', x: 0.4, y: 0.1, w: 0.4, h: 0.6 }, { id: 'rig', label: '리그', x: 0.3, y: 0, w: 0.6, h: 0.18 }],
-        press: [['tendo', '객석 한가운데서. 경찰한테도 그대로 말했어.', 'smile'], ['koharu', '(…객석에서 올려다본 것치곤 리그가 눈높이에 있네요.)', 'worried']] },
+        press: [['tendo', '객석 한가운데서. 경찰한테도 그대로 말했어.', 'smile']] },
       { text: '난 그 뒤로 사무실에 있었어. 캣워크는 올라간 적도 없어.', cut: 't_tendo_3',
         cutDesc: '크레센트 사무실 의자에 앉아 서류를 보는 텐도.',
         press: [['tendo', '개장 전엔 할 일이 산더미야. 스카우트도 온다는데.', 'normal']] },
@@ -326,7 +326,7 @@ Object.assign(WITNESSES, {
         words: ['pl_catwalk'],
         changes: { 2: { text: '올라가 보니 루루가 리그를 만지고 있었어. 난 바로 내려왔어. 끈 같은 건 본 적도 없어.', cut: 't_tendo_3b', dist: '생략',
           cutDesc: '캣워크 계단 위에서 본 리그. 리그 옆 난간 자리가 하얀 여백.', truthCut: '2T',
-          press: [['tendo', '끈? 처음 듣는 얘기야.', 'normal'], ['koharu', '(사장님 시계, 엄청 크네요….)', 'worried']] } } },
+          press: [['tendo', '끈? 처음 듣는 얘기야.', 'normal']] } } },
       { statement: 2, cut: ['2T', 'strap'], with: '2K', requires: [1], shout: '끈을 푼 건 당신이야!',
         rebut: '같은 순간이에요. 헤이즈가 깔린 캣워크, 대기실 모니터 속 그림자의 손목이 반짝여요. 루루는 그때 핀 품에서 울고 있었고. 끈을 푼 손엔 이 시계가 있어요.',
         success: [
@@ -372,13 +372,13 @@ const CONCLUSION2 = [
 
 // 중간 보고와 결론의 네임
 const NAME2_MID = [
-  '개장 전, 리그를 붙잡던 ', { cat: 'thing', a: 'th_strap' }, '을(를) ', { cat: 'act', a: 'a_untie' }, ' 사람은 ', { cat: 'person', a: 'p_tendo' }, '.\n',
+  '개장 전, ', { cat: 'person', a: 'p_tendo' }, '이(가) 리그를 붙잡던 ', { cat: 'thing', a: 'th_strap' }, '을(를) ', { cat: 'act', a: 'a_untie' }, '.\n',
   '그건 ', { cat: 'time', a: 't_haze' }, '의 일이고, 그때 루루는 ', { cat: 'place', a: 'pl_greenroom' }, '에 있었다.',
 ];
 const NAME2_FINAL = [
-  '리그는 ', { cat: 'time', a: 't_rehearsal' }, ' 때부터 헐거웠다. ', { cat: 'person', a: 'p_kirishima' }, '은(는) ', { cat: 'thing', a: 'th_strap' }, '으로 리그를 난간에 ', { cat: 'act', a: 'a_tie' }, '.\n',
+  '리그는 ', { cat: 'time', a: 't_rehearsal' }, ' 때부터 헐거웠다. ', { cat: 'person', a: 'p_kirishima' }, '은(는) ', { cat: 'thing', a: 'th_strap' }, '(으)로 리그를 난간에 ', { cat: 'act', a: 'a_tie' }, '.\n',
   { cat: 'time', a: 't_haze' }, ', ', { cat: 'person', a: 'p_tendo' }, '이(가) 그것을 ', { cat: 'act', a: 'a_untie' }, '.\n',
-  '공연 중, 키리시마는 ', { cat: 'place', a: 'pl_wing' }, '에서 뛰어나와 ', { cat: 'person', a: 'p_ruru' }, '를 ', { cat: 'act', a: 'a_push' }, '.',
+  '공연 중, 키리시마는 ', { cat: 'place', a: 'pl_wing' }, '에서 뛰어나와 ', { cat: 'person', a: 'p_ruru' }, '을(를) ', { cat: 'act', a: 'a_push' }, '.',
 ];
 
 Object.assign(PROFILES, {

@@ -13,6 +13,18 @@ const sceneLabel = (id) => { const f = findScene(id); return f ? `${f.ch}장 · 
 
 // 여백 엔딩 조건: 장마다 하나씩 있는 감정 선택 (1장 히마리, 2장 루루, 3장 스케치북, 4장 하야카, 5장 배지)
 const MARGIN_FLAGS = ['yohaku1', 'yohaku2', 'sketch3', 'rescueShown', 'badgeBack'];
+// 여백 조건: 장 끝 감정 선택에서 말 대신 컷·물건을 건네는 보기(늘 세 번째)를 고르면 켜진다. 고른 순간 알려 준다
+function marginMark(flag) {
+  G.flags[flag] = true;
+  sfx('chime');
+  toast(`여백에 한 칸이 남았다 (${MARGIN_FLAGS.filter((f) => G.flags[f]).length} / ${MARGIN_FLAGS.length})`);
+}
+
+// 이름이 밝혀지는 인물: 장면 선택으로 중간부터 들어가도 그 시점의 이름으로 보이게
+function revealNames(ch, id) {
+  CHARACTERS.ren.name = ch >= 4 || id === 'epilogue3' ? '렌' : '???';
+  CHARACTERS.shiori.name = ch >= 6 ? '시오리' : '???';
+}
 
 // ---------- 저장 ----------
 // 장면이 시작될 때마다 자동 저장. 타이틀의 [이어하기]가 그 장면부터 다시 시작한다.
@@ -50,12 +62,15 @@ async function playFrom(scene, saved) {
   LOG.length = 0;
   // 장면 선택으로 중간부터 시작하면 앞 장면에서 만난 인물을 수첩에 미리 넣는다
   if (!saved) G.flags.met = CHAPTERS[ch].scenes.slice(0, start).flatMap(([id]) => (CHAPTERS[ch].cast || {})[id] || []);
+  // 장면 선택으로 들어가면 앞 장들에서 이미 고른 여백 조건(기록에 남은 것)을 이어받는다
+  if (!saved) ((loadJSON('gaha-records') || {}).margin || []).forEach((f) => { if (MARGIN_FLAGS.includes(f)) G.flags[f] = true; });
   let recap = !!saved;
   for (;;) {
     const C = CHAPTERS[ch];
     for (let i = start; i < C.scenes.length; i++) {
       const id = C.scenes[i][0];
       G.ch = ch; G.scene = id;
+      revealNames(ch, id);
       saveProgress(ch, id);
       if (recap) { recap = false; await previously(); }
       await fade(true, 400);

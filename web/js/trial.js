@@ -21,6 +21,8 @@ function showLine(who, text, face) {
   $('#tb-name').style.setProperty('--name-accent', CHARACTERS[who].accent);
   $('#tb-text').textContent = text;
   $('#tb-next').classList.add('hidden');
+  // 대사창 얼굴도 지금 말하는 사람으로 (안 바꾸면 앞사람 얼굴이 남는다)
+  setFace(who, face || (onStage[who] && onStage[who].dataset.face));
   focusChar(who);
 }
 
@@ -91,6 +93,9 @@ function renderTrial(W, st) {
 
 async function runTrial(id) {
   const W = WITNESSES[id];
+  // 앞 증인의 패널·도장이 남지 않게 비운다
+  $('#tr-panel').innerHTML = '';
+  document.querySelectorAll('.fx-stamp').forEach((e) => e.remove());
   bg(W.bg);
   clearChars();
   show(W.char, W.face || CHARACTERS[W.char].faces[0], 'left');
@@ -135,6 +140,7 @@ async function runTrial(id) {
   for (const c of W.rewards || []) await gainCut(c);
   if (W.outro) await sayAll(W.outro);
   $('#trial').classList.add('hidden');
+  $('#tr-panel').innerHTML = '';
   $('#actions').classList.remove('trial');
   $('#stage').classList.remove('in-trial');
   $('#stage').style.removeProperty('--accent');
@@ -192,7 +198,7 @@ async function trialRound(wid, R) {
       { id: 'press', label: '파고들기', cls: 'press' },
       { id: 'obj', label: W.gentle ? '컷 보여주기' : '반박!', cls: 'objection' },
       { id: 'next', label: '다음 ▶', cls: 'small', disabled: st.idx === st.stmts.length - 1 },
-      ...(st.ink === 1 && G.koharuLeft > 0 ? [{ id: 'koharu', label: `코하루 도움 (${G.koharuLeft})`, cls: 'koharu' }] : []),
+      ...(st.ink === 1 && G.koharuLeft > 0 && !W.noKoharu ? [{ id: 'koharu', label: `코하루 도움 (${G.koharuLeft})`, cls: 'koharu' }] : []),
     ]);
 
     if (act === 'mark') {
@@ -278,9 +284,11 @@ async function trialRound(wid, R) {
       if (a.rebut) {
         // 반박하는 동안은 증언 패널을 걷어 내고 레이를 앞에 세운다
         $('#stage').classList.add('rebutting');
-        show('rei', 'serious', 'right');
+        // 증인이 레이 자신이면(자기 심문) 이미 서 있으니 세우거나 치우지 않는다
+        const reiUp = !!onStage.rei;
+        if (!reiUp) show('rei', 'serious', 'right');
         await say('rei', a.rebut, 'serious');
-        hide('rei');
+        if (!reiUp) hide('rei');
         $('#stage').classList.remove('rebutting');
       }
       st.done.add(k);

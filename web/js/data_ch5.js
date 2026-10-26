@@ -114,7 +114,7 @@ Object.assign(PUZZLES, {
     cuts: ['5A', '5B', '5C', '5E', '5Ae', '5Be', '5Ce', '5Ee'],
     solution: ['5A', '5B', '5C', '5E'],
     decoys: ['5Ae', '5Be', '5Ce', '5Ee'],
-    decoyMsg: '번 컷은 편집된 컷이야. 원고에는 원본만 써.',
+    decoyMsg: '편집된 컷이 원고에 섞여 있어. 원고에는 원본만 써.',
     bubbles: {},
     hint: '편집된 컷엔 이음매가 있어. 그리고 같은 장면의 원본이 꼭 하나 있어.',
     rei: '정류장에서도, 경비실 앞에서도 혼자야. 웃고 있어.',
@@ -125,7 +125,7 @@ Object.assign(PUZZLES, {
     cuts: ['5A', '5B', '5C', '5E', '5D', '5F', '6Y1', '6Y2', '6Y3', '6Y4', '6Y5', '6Y6', '5Ce', '5De'],
     solution: ['5A', '5B', '5C', '5E', '5D', '5F', '6Y1', '6Y2', '6Y3', '6Y4', '6Y5', '6Y6'],
     decoys: ['5Ce', '5De'],
-    decoyMsg: '번 컷은 편집된 컷이야. 원고에는 원본만 써.',
+    decoyMsg: '편집된 컷이 원고에 섞여 있어. 원고에는 원본만 써.',
     pageBreak: 6,
     bubbles: {},
     hint: '6년 전 쪽은 손목시계 둘. 순경의 시계와, 멈춘 시계.',
@@ -134,7 +134,7 @@ Object.assign(PUZZLES, {
 });
 
 Object.assign(WITNESSES, {
-  tanabe: {
+  tanabe: { noKoharu: true, // 코하루 실종 중
     char: 'tanabe', bg: 'busstop', face: 'normal',
     goal: '경비원의 기억도 고쳐져 있다. 원본으로 깨라.',
     statements: [
@@ -204,7 +204,7 @@ Object.assign(WITNESSES, {
     wrong: [['ren', '틀렸어. 다시 고쳐 줄까?', 'smile']],
     close: [['ren', '오늘은 여기까지. 지쳤잖아.', 'normal'], ['koharu', '(선배, 다시 해요!)', 'worried']],
   },
-  asagiri5: {
+  asagiri5: { noKoharu: true, // 카페에 레이 혼자
     char: 'asagiri', bg: 'cafe_night', face: 'normal',
     goal: '6년 동안 똑같던 말. 그 이음매를 짚어라.',
     intro: [['towa', '레이. 이 컷, 이음매가 거의 없어. 근데 거의, 야.']],
@@ -229,11 +229,11 @@ Object.assign(WITNESSES, {
 });
 
 const NAME5_MID = [
-  '코하루를 폐창고로 데려간 사람은 ', { cat: 'person', a: 'p_koharu' }, '. ', { cat: 'place', a: 'pl_busstop' }, '에서 ', { cat: 'act', a: 'a_walk' }, '.',
+  '코하루를 폐창고로 데려간 건 ', { cat: 'person', a: 'p_koharu' }, '. ', { cat: 'place', a: 'pl_busstop' }, '에서 ', { cat: 'act', a: 'a_walk' }, '.',
 ];
 const NAME5_FINAL = [
-  '그날 코하루는 ', { cat: 'place', a: 'pl_busstop' }, '에서 폐창고까지 ', { cat: 'act', a: 'a_walk' }, '. 컷을 ', { cat: 'act', a: 'a_edit' }, ' 사람은 ', { cat: 'person', a: 'p_ren' }, '.\n',
-  '6년 전, ', { cat: 'person', a: 'p_sota' }, '는 불 속에서 ', { cat: 'person', a: 'p_rei' }, '를 ', { cat: 'act', a: 'a_rescue' }, '. 그리고 ', { cat: 'act', a: 'a_return' }, '.',
+  '그날 코하루는 ', { cat: 'place', a: 'pl_busstop' }, '에서 폐창고까지 ', { cat: 'act', a: 'a_walk' }, '. ', { cat: 'person', a: 'p_ren' }, '이(가) 컷을 ', { cat: 'act', a: 'a_edit' }, '.\n',
+  '6년 전, ', { cat: 'person', a: 'p_sota' }, '은(는) 불 속에서 ', { cat: 'person', a: 'p_rei' }, '을(를) ', { cat: 'act', a: 'a_rescue' }, '. 그리고 ', { cat: 'act', a: 'a_return' }, '.',
 ];
 
 Object.assign(PROFILES, {

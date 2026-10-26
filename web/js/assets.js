@@ -93,7 +93,9 @@ function cutInfo(id) {
   if (typeof ITEMS !== 'undefined' && ITEMS[id]) return { title: ITEMS[id].title, owner: '물증', color: '#4a4d5e', desc: ITEMS[id].desc, item: true };
   if (CUTS[id]) {
     const c = CUTS[id];
-    return { title: c.title, owner: OWNERS[c.owner].name, color: OWNERS[c.owner].color, desc: c.desc, sfx: c.sfx, bubble: c.bubble };
+    // OWNERS[x].mask = 플래그 이름: 그 플래그가 켜지기 전엔 누구 시점인지 가린다(정체가 드러나는 인물)
+    const o = OWNERS[c.owner], masked = o.mask && !(typeof G !== 'undefined' && G.flags && G.flags[o.mask]);
+    return { title: c.title, owner: masked ? '누군가의' : o.name, color: masked ? '#6a6a72' : o.color, desc: c.desc, sfx: c.sfx, bubble: c.bubble };
   }
   for (const w of Object.values(WITNESSES)) {
     const s = allStatements(w).find((st) => id === st.cut || id === st.cut + '_truth');

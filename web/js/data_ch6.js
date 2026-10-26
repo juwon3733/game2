@@ -137,6 +137,10 @@ Object.assign(WITNESSES, {
     rewards: ['R6', 'R7', 'R8'],
     koharu: [['koharu', '(선배, 시오리 씨 머리핀에서 읽은 컷… 계단 아래였어요.)', 'worried']],
     wrong: [['rei', '아니야. 그건 내가 아니야.', 'crying']],
+    wrongBy: {
+      '6Y3': [['rei', '소타 씨가 날 안아 올린 건 계단 아래였어. …그럼 나는 거기까지 어떻게 갔지?', 'crying']],
+      '6Y4': [['rei', '입구에서 쿠로가네 씨가 날 받았어. 그 전 칸이 비어 있어. 계단 아래에서 날 넘긴 사람.', 'crying']],
+    },
     close: [['koharu', '선배, 숨 쉬어요. 다시 해요.', 'worried']],
   },
 });

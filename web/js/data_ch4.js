@@ -234,7 +234,7 @@ Object.assign(WITNESSES, {
         press: [['keiko', '하쿠요 일은 그만뒀어요. 빚은… 남았지만.', 'normal']] },
       { text: '불이 났을 땐 이미 집에 있었어요. 아무것도 몰라요.', cut: 't_keiko_2', dist: '흐림',
         cutDesc: '연기처럼 뿌옇게 흐린 컷. 형체를 알아볼 수 없다.', truthCut: '4G',
-        press: [['keiko', '손은 요리하다 데었어요.', 'normal'], ['koharu', '(두 손에 붕대를 감고 계세요….)', 'worried']] },
+        press: [['keiko', '손은 요리하다 데었어요.', 'normal']] },
     ],
     answers: [
       { statement: 0, cut: ['4B', '4E', '4F'], shout: '울타리 앞에 있었어요!',
@@ -261,13 +261,13 @@ Object.assign(WITNESSES, {
 });
 
 const NAME4_MID = [
-  '그날 밤 사쿠라유의 ', { cat: 'thing', a: 'th_panel' }, '을(를) ', { cat: 'act', a: 'a_tamper' }, ' 불을 낸 사람은 ', { cat: 'person', a: 'p_murase' }, '.\n',
+  '그날 밤, ', { cat: 'person', a: 'p_murase' }, '이(가) 사쿠라유의 ', { cat: 'thing', a: 'th_panel' }, '을(를) ', { cat: 'act', a: 'a_tamper' }, ' 불을 냈다.\n',
   { cat: 'time', a: 't_2245' }, '쯤 ', { cat: 'place', a: 'pl_boiler' }, '에 들어갔다.',
 ];
 const NAME4_FINAL = [
-  { cat: 'person', a: 'p_murase' }, '가 ', { cat: 'thing', a: 'th_panel' }, '을 조작해 불을 냈다. ', { cat: 'person', a: 'p_keiko' }, '는 ', { cat: 'act', a: 'a_watch' }, '.\n',
+  { cat: 'person', a: 'p_murase' }, '이(가) ', { cat: 'thing', a: 'th_panel' }, '을(를) 조작해 불을 냈다. ', { cat: 'person', a: 'p_keiko' }, '은(는) ', { cat: 'act', a: 'a_watch' }, '.\n',
   '그리고 불 속에 뛰어들어 아버지를 ', { cat: 'act', a: 'a_rescue' }, '.\n',
-  { cat: 'person', a: 'p_hayaka' }, '는 ', { cat: 'place', a: 'pl_fence' }, '에서 엄마를 보고 도망쳤고, 다음 날 그 밤을 ', { cat: 'act', a: 'a_erase' }, '.',
+  { cat: 'person', a: 'p_hayaka' }, '은(는) ', { cat: 'place', a: 'pl_fence' }, '에서 엄마를 보고 도망쳤고, 다음 날 그 밤을 ', { cat: 'act', a: 'a_erase' }, '.',
 ];
 const CONCLUSION4 = [
   { q: '불이 사람 손으로 났다는 걸 보여 주는 물증은?', answer: ['panel'], choices: ['panel', 'record', 'receipt', '4F', '4L'] },

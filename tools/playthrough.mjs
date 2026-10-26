@@ -78,7 +78,7 @@ for (const ch of chs) {
         const A = window.__A;
         if (A && A.choice && prompt === A.choice.prompt) return A.choice.answer;
         if (prompt === '어떻게 반박할까?') return A && A.spot ? 1 : 0;
-        if (/루루에게/.test(prompt)) return 1;
+        if (/루루에게/.test(prompt)) return 2; // 여백 쪽 보기
         if (prompt === '최종 선택') { if (window.__mode === 'margin') MARGIN_FLAGS.forEach((f) => (G.flags[f] = true)); console.log('ENDING-CHOICE ' + window.__mode); return window.__mode === 'edit' ? 0 : 1; }
         return 0;
       };

@@ -456,7 +456,7 @@ async function sceneConclusion3() {
   if (c === 0) await say('nagi', '언니, 나 이제 내 이름으로 나갈게. 언니 하루도 재밌었지만.', 'crying');
   if (c === 1) await say('yuki', '네. 이번엔 숨기지 않고 다닐게요. 점장님한테도 말씀드릴게요.', 'crying');
   if (c === 2) {
-    G.flags.sketch3 = true;
+    marginMark('sketch3');
     await say('', '나기가 스케치북을 넘긴다. 승강장 그림 바로 앞 장, 계산대에 선 나기의 뒷모습. 「매일 고마워」.');
   }
   clearChars();

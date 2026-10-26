@@ -44,7 +44,7 @@ function runPuzzle(id) {
           <div class="pz-say">${sayBar(msg)}</div>
           ${done ? '' : `<button class="act-btn small" data-a="reset">모두 빼기</button>
           <button class="act-btn small press" data-a="hint">토와 힌트</button>`}
-          <button class="act-btn objection" data-a="check">${done ? '다음 ▶' : '이 순서로 확정'}</button>
+          <button class="act-btn objection" data-a="check"${st.reading ? ' disabled style="visibility:hidden"' : ''}>${done ? '다음 ▶' : '이 순서로 확정'}</button>
         </div>`;
       const paper = root.querySelector('.pz-paper');
       // 두 페이지 퍼즐: 구분선 줄은 얇게, 나머지 줄은 같은 높이로
@@ -204,6 +204,7 @@ function runPuzzle(id) {
     };
 
     const onAction = async (a) => {
+      if (st.reading) return; // 페이지가 다 읽힐 때까지 [다음]을 받지 않는다
       if (a === 'check' && done) {
         root.classList.add('hidden'); root.onclick = null; root.onpointerdown = null; goal('');
         removeEventListener('pointermove', onMove); removeEventListener('pointerup', onUp); removeEventListener('pointercancel', onCancel);
@@ -264,7 +265,8 @@ function runPuzzle(id) {
           const t = st.slots[i].flatMap((a1) => st.slots[i + 1].map((b1) => conflictTag(a1, b1))).find(Boolean);
           if (t) { pairs.push(i); msgs.push(`${i + 1}번 → ${i + 2}번은 「${TAG_NAME[t]}」이(가) 거꾸로야.`); }
         }
-        if (decoys.length) msgs.unshift(`${decoys[0] + 1}` + (P.decoyMsg || '번 컷은 이 페이지 범위 밖이야. 목표 문장을 다시 읽어 봐.'));
+        // 미끼 컷은 섞였다는 것만 알리고 어느 칸인지는 말하지 않는다
+        if (decoys.length) msgs.unshift(P.decoyMsg || '이 페이지와 상관없는 컷이 섞여 있어. 목표 문장을 다시 읽어 봐.');
         if (D >= 0 && !sameSet(st.slots[D], group(D))) { decoys.push(D); msgs.unshift('파기 칸이 이상해. 진짜 컷을 버렸거나, 가짜가 원고에 남았어.'); }
         if (badBubble) msgs.push(`「${CUTS[badBubble].title}」 말풍선 대사가 이상해.`);
         if (!msgs.length) {
@@ -281,7 +283,7 @@ function runPuzzle(id) {
           msg = `토와: 에러. 맞지 않는 곳이 ${wrong}군데.`;
           return render();
         }
-        st.bad = { pairs, decoys, sims };
+        st.bad = { pairs, decoys: decoys.filter((i) => i === D), sims };
         st.lastFull = msgs.find((m) => /「.*?」/.test(m)) || null;
         // 어느 칸 사이인지만 말하고, 무엇이 거꾸로인지는 말하지 않는다
         const shown = fb === 'tag' ? msgs : msgs.map((m) => m.replace(/은 「.*?」이\(가\) 거꾸로야\./, ' 사이가 이상해.')
@@ -293,6 +295,7 @@ function runPuzzle(id) {
 
     const playPage = async () => {
       msg = '…';
+      st.reading = true;
       render();
       const paper = root.querySelector('.pz-paper');
       paper.classList.add('reading');
@@ -310,7 +313,9 @@ function runPuzzle(id) {
       }
       sfx('correct');
       FX.stamp('완성!');
+      await sleep(G.skip ? 100 : 1000); // 도장·흔들림이 끝난 뒤에 [다음]
       paper.classList.remove('reading');
+      st.reading = false;
       msg = '레이: ' + P.rei;
       render();
     };

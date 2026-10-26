@@ -405,7 +405,7 @@ async function sceneConclusion4() {
   if (c === 0) await say('keiko', '응. 하나도 빼놓지 않고. 망을 본 것도.', 'resolute');
   if (c === 1) await say('hayaka', '네. 이번엔, 기억할게요.', 'crying');
   if (c === 2) {
-    G.flags.rescueShown = true;
+    marginMark('rescueShown');
     await say('', '하야카가 컷 속 연기로 뛰어드는 등을 오래 바라본다. 그리고 엄마의 붕대 감은 손을 잡는다.');
   }
   clearChars();

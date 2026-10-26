@@ -2,7 +2,7 @@
 // 만화 원고 전 단계인 "네임(콘티)"을 짜는 화면. 결론과 중간 지목에 쓴다.
 //
 // parts: 문자열과 빈칸 { cat, a } 의 배열. a는 정답 단어 id(배열이면 그중 아무거나).
-// threshold: 이만큼 맞으면 "N개 맞았다"고 알려 준다. 그보다 적으면 몇 개 맞았는지도 숨긴다.
+// threshold: (예전 값, 지금은 안 씀) 맞은 칸 수는 알려 주지 않는다.
 // report: true면 틀린 채로 "이대로 보고"할 수 있다(중간 지목). 결과 { ok, picks }.
 
 const WORD_CAT = { person: '사람', place: '장소', time: '때', thing: '물건', act: '행동', state: '상태', line: '말' };
@@ -61,7 +61,8 @@ function runName({ title, sub = '', parts, threshold = 3, report = false, report
       if (n === blanks.length) { sfx('correct'); FX.lines(500); FX.stamp('확정!'); await sleep(700); return finish({ ok: true, picks: Object.assign({}, picks) }); }
       G.stats.wrong++;
       sfx('wrong'); quake();
-      msg = n >= threshold ? `${blanks.length}칸 중 ${n}칸은 맞아. 나머지를 다시 생각해 봐.` : '아직 맞지 않아. 단서를 다시 보자.';
+      // 몇 칸이 맞았는지는 알려 주지 않는다(하나씩 바꿔 넣어 맞히는 걸 막는다)
+      msg = n >= blanks.length * 0.7 ? '큰 줄기는 맞는 것 같은데, 어딘가 어긋나 있어.' : '아직 그날 일과 맞지 않아. 단서를 다시 보자.';
       render();
     };
     root.onclick = (e) => { if (!e.target.closest('.name-pop, .name-blank')) root.querySelector('.name-pop')?.remove(); };

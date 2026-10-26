@@ -296,12 +296,12 @@ async function sceneConclusion() {
   hideText();
   const c = await choice(['"네 잘못 아니야."', '"선생님은 너를 지키고 싶었던 거야."', '(말없이 「끌어당김」 컷을 보여준다)'], '히마리에게 뭐라고 할까?');
   if (c === 0) await say('', '히마리가 엄마 품에 얼굴을 묻고 소리 내어 운다. 엄마가 등을 토닥인다.');
-  if (c === 1) {
-    G.flags.yohaku1 = true; // 여백 컷 조건
-    await say('himari', '…선생님이?', 'normal');
-    await say('', '히마리가 쥐고 있던 음표 머리핀을 천천히 다시 꽂는다.');
+  if (c === 1) await say('himari', '…선생님이?', 'normal');
+  if (c === 2) {
+    marginMark('yohaku1'); // 말 대신 컷을 건네면 여백 조건
+    await say('', '히마리가 컷 속, 자기를 끌어당기는 선생님의 팔을 오래 바라본다.');
+    await say('', '그리고 쥐고 있던 음표 머리핀을 천천히 다시 꽂는다.');
   }
-  if (c === 2) await say('', '히마리가 컷 속, 자기를 끌어당기는 선생님의 팔을 오래 바라본다.');
   await say('komatsu', '고맙습니다. 선생님 깨어나시면, 이 아이랑 같이 인사하러 갈게요.');
   clearChars();
 }

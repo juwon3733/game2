@@ -83,6 +83,7 @@ const REACT = { angry: 're-shake', flustered: 're-shake', crying: 're-sink', sad
 
 // opts.far: 멀리(창밖·길 건너) 서 있는 인물. 작고 흐리게.
 // 토와처럼 remote인 인물은 모니터 창으로 뜬다(opts.here면 실제로 그 자리에 있음).
+const FACE_USED = {}; // 그림이 없는 표정을 대신해 실제로 띄운 표정 (대사창 얼굴도 같이 쓴다)
 function show(char, face = CHARACTERS[char].faces[0], pos = 'center', opts = {}) {
   G.flags.met = G.flags.met || [];
   if (!G.flags.met.includes(char)) G.flags.met.push(char);
@@ -108,12 +109,16 @@ function show(char, face = CHARACTERS[char].faces[0], pos = 'center', opts = {})
     img.dataset.face = face;
     // 상반신 그림이 없으면 임시 그림 대신 아예 안 보인다(이름은 대사창에 나옴)
     // 새 표정 그림이 아직 없으면 비슷한 표정(alt)으로
+    // 그 표정 → 비슷한 표정(alt) → 기본 표정 → 있는 아무 표정 순서로 찾는다. 다 없을 때만 숨긴다
+    const C = CHARACTERS[char];
+    const tries = [...new Set([face, (C.alt || {})[face], ...C.faces].filter(Boolean))];
+    let k = 0;
     img.onerror = () => {
-      const alt = (CHARACTERS[char].alt || {})[face];
-      if (alt && !img.src.endsWith(`_${alt}.png`)) img.src = ASSET.portrait(char, alt);
+      if (img.dataset.face !== face) return; // 그새 다른 표정으로 바뀜
+      if (++k < tries.length) img.src = ASSET.portrait(char, tries[k]);
       else img.style.visibility = 'hidden';
     };
-    img.onload = () => { img.style.visibility = ''; };
+    img.onload = () => { img.style.visibility = ''; FACE_USED[char + ':' + face] = tries[k]; };
     img.src = ASSET.portrait(char, face);
   }
 }
@@ -334,14 +339,23 @@ const faceOk = {};
 function setFace(who, face) {
   const tb = $('#textbox'), el = $('#tb-face');
   if (!who) { tb.classList.remove('has-face'); return; }
-  const f = face || CHARACTERS[who].faces[0], src = ASSET.portrait(who, f);
+  let f = face || CHARACTERS[who].faces[0];
+  f = FACE_USED[who + ':' + f] || f;
+  // 그 표정 그림이 없다고 이미 알면 기본 표정부터 있는 것으로
+  if (faceOk[ASSET.portrait(who, f)] === false) f = CHARACTERS[who].faces.find((x) => faceOk[ASSET.portrait(who, x)] !== false) || f;
+  const src = ASSET.portrait(who, f);
   el.setAttribute('style', faceStyle(who, f));
   if (faceOk[src] === false) { tb.classList.remove('has-face'); return; }
   tb.classList.add('has-face');
   if (faceOk[src] === undefined) {
     const probe = new Image();
     probe.onload = () => { faceOk[src] = true; };
-    probe.onerror = () => { faceOk[src] = false; if (el.style.backgroundImage.includes(src)) tb.classList.remove('has-face'); };
+    probe.onerror = () => {
+      faceOk[src] = false;
+      if (!el.style.backgroundImage.includes(src)) return;
+      tb.classList.remove('has-face');
+      if (f !== CHARACTERS[who].faces[0]) setFace(who, CHARACTERS[who].faces[0]); // 기본 표정으로 다시
+    };
     probe.src = src;
   }
 }
@@ -469,10 +483,11 @@ function pickCut(title, sub, { cancel = true, only = null, items = false } = {})
   const ids = only ? only.filter((id) => all.includes(id)) : all;
   const m = openModal(`<div class="md-title">${title}</div><div class="md-sub">${sub || ''}</div><div class="md-grid${ids.length <= 5 ? ' few' : ''}"></div>${cancel ? '<button class="md-cancel">취소</button>' : ''}`, 'pick');
   const grid = m.querySelector('.md-grid');
-  // 컷 수에 맞춰 열을 늘려 한 화면(두 줄 안팎)에 다 들어오게
+  // 8장까지는 두 줄 안에 다 보이게, 그보다 많으면 5열로 두고 컷 목록만 위아래로 넘긴다(글자가 읽힐 크기 유지)
   const n = ids.length;
-  const cols = n <= 3 ? Math.max(n, 1) : n <= 6 ? 3 : n <= 8 ? 4 : n <= 10 ? 5 : n <= 12 ? 6 : 7;
-  grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+  const cols = n <= 3 ? Math.max(n, 1) : n <= 8 ? 4 : 5;
+  grid.style.gridTemplateColumns = n <= 3 ? `repeat(${cols}, 320px)` : `repeat(${cols}, minmax(0, 1fr))`;
+  grid.style.justifyContent = 'center';
   grid.classList.toggle('many', n > 8);
   return new Promise((resolve) => {
     ids.forEach((id) => {
@@ -486,7 +501,7 @@ function pickCut(title, sub, { cancel = true, only = null, items = false } = {})
   });
 }
 
-// 대사 조각 고르기. shape가 안 맞으면 고를 수 없다고 알려준다.
+// 대사 조각 고르기. 모양(외침/보통)은 힌트로만 보여 주고, 어느 조각이든 넣어 볼 수 있다.
 function pickLine(cutId) {
   const shape = CUTS[cutId].bubble;
   const m = openModal(`<div class="md-title">「${CUTS[cutId].title}」의 말풍선이 비어 있다.</div>
@@ -500,7 +515,6 @@ function pickLine(cutId) {
       b.className = 'line-btn';
       b.innerHTML = `<b>"${l.text}"</b><small>${l.shape === 'burst' ? '외침' : '보통'} · ${l.from}</small>`;
       b.onclick = () => {
-        if (l.shape !== shape) return toast('말풍선 모양이 안 맞아. 뾰족한 말풍선엔 외침만 들어가.');
         closeModal();
         resolve(id);
       };

@@ -314,7 +314,7 @@ async function sceneConclusion5() {
   const c = await choice(['"소타 씨한테, 고맙다고 전해 줘."', '"미안해. 나 때문에."', '(배지를 코하루의 손에 돌려준다)'], '코하루에게 뭐라고 할까?');
   if (c === 0) await say('koharu', '네. 오빠한테 전할게요. 선배 지금 잘 지낸다고.', 'crying');
   if (c === 1) { show('koharu', 'worried', 'right'); await say('koharu', '선배 탓 아니에요. 오빠가 그러기로 한 거예요. 그러니까 사과하지 마요.', 'worried'); }
-  if (c === 2) { G.flags.badgeBack = true; await say('', '코하루가 배지를 두 손으로 감싸 쥐었다가, 다시 레이의 손에 얹는다. "선배가 갖고 있어요. 오빠도 그게 좋을 거예요."'); }
+  if (c === 2) { marginMark('badgeBack'); await say('', '코하루가 배지를 두 손으로 감싸 쥐었다가, 다시 레이의 손에 얹는다. "선배가 갖고 있어요. 오빠도 그게 좋을 거예요."'); }
   clearChars();
 }
 

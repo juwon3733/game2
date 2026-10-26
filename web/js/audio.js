@@ -11,7 +11,7 @@ const SETTINGS = Object.assign({ textSpeed: 1, autoWait: 1, bgm: 0.55, sfx: 0.8,
 //  - 컷 아래 설명 없음: 그림 속 단서를 직접 읽는다 (크게 보기에서만 설명)
 //  - 퍼즐 오답: 어느 칸 사이가 이상한지만 알려 주고, 무엇이 거꾸로인지는 말하지 않는다
 //  - 토와 힌트 2번, 코하루 도움 1번, 증인의 마음 3칸, 결론은 가장 정확한 컷만 정답
-const RULES = { caption: false, zoomDesc: true, feedback: 'pair', hints: 2, koharu: 1, ink: 3, strict: true };
+const RULES = { caption: false, zoomDesc: false, feedback: 'pair', hints: 2, koharu: 1, ink: 3, strict: true };
 const diff = () => RULES;
 function saveSettings() { saveJSON('gaha-settings', SETTINGS); applyVolumes(); applyLook(); }
 // 글자 크기·흔들림은 화면에 바로 반영한다

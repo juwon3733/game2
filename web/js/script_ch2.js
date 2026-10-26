@@ -624,11 +624,12 @@ async function sceneConclusion2() {
   hideText();
   const c = await choice(['"네 탓 아니야."', '"앙코르, 해 줄래?"', '(수첩의 앙코르 쪽을 펼쳐서 건넨다)'], '루루에게 뭐라고 할까?');
   if (c === 0) await say('ruru', '알아. 그래도 내 탓이라고 생각하는 게 덜 아파.', 'crying');
-  if (c === 1) {
-    G.flags.yohaku2 = true;
-    await say('', '루루가 한참 아무 말도 하지 않다가, 고개를 끄덕인다.');
+  if (c === 1) await say('ruru', '…지금은 못 해. 무대만 보면 그게 떨어지는 게 보여.', 'crying');
+  if (c === 2) {
+    marginMark('yohaku2');
+    await say('', '루루가 키리시마의 글씨를 손가락으로 천천히 따라 쓴다. 「앙코르 — 루루 솔로」.');
+    await say('', '한참 아무 말도 하지 않다가, 고개를 끄덕인다.');
   }
-  if (c === 2) await say('', '루루가 키리시마의 글씨를 손가락으로 천천히 따라 쓴다. 「앙코르 — 루루 솔로」.');
   clearChars();
 }
 

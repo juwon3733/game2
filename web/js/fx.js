@@ -272,7 +272,9 @@ const FX = (() => {
       c.className = 'fx-cutin';
       c.style.setProperty('--c', (OWNERS[char] || CHARACTERS[char]).color || CHARACTERS[char].accent);
       const face = CHARACTERS[char].faces.includes('serious') ? 'serious' : CHARACTERS[char].faces[0];
-      c.innerHTML = `<div class="fx-band"><img src="${ASSET.portrait(char, face)}" alt="" onerror="this.remove()"><b>${text}</b></div>`;
+      // 문구가 길면 띠 밖으로 잘리지 않게 글자를 줄인다 (보이는 폭 약 740px)
+      const fs = Math.max(34, Math.min(76, Math.floor(740 / Math.max(1, [...text].length))));
+      c.innerHTML = `<div class="fx-band"><img src="${ASSET.portrait(char, face)}" alt="" onerror="this.remove()"><b style="font-size:${fs}px">${text}</b></div>`;
       stage.appendChild(c);
       FX.lines(900);
       await sleep(950);

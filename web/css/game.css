@@ -154,7 +154,8 @@ button { font-family: inherit; }
 .md-title { font-size: 32px; font-weight: bold; }
 .md-title.gain { color: #5a3ea8; }
 .md-sub { font-size: 21px; color: #555; margin: 6px 0 16px; }
-.md-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.md-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-height: 452px; overflow-y: auto; padding: 4px 8px 4px 4px; }
+#modal.pick .md-grid .cutv { min-width: 0; }
 .md-one { display: flex; justify-content: center; }
 .md-one .cutv { width: 440px; }
 .md-lines { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
@@ -799,8 +800,8 @@ body { word-break: keep-all; overflow-wrap: normal; }
 
 /* 컷 고르기: 많으면 작게 */
 .md-grid.many { gap: 10px; }
-.md-grid.many .cutv-cap { font-size: 12px; }
-.md-grid.many .cutv-head { font-size: 12px; }
+.md-grid.many .cutv-cap { font-size: 14px; }
+.md-grid.many .cutv-head { font-size: 14px; }
 
 /* 컷 묶음: 두 줄로 놓아 여러 장을 한눈에 비교 */
 .pz-tray { width: 430px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-content: start; }

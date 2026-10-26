@@ -44,7 +44,7 @@ const CH6_SCENES = [
   ['ending6', '엔딩'],
 ];
 
-const C6A = ['AF'];
+const C6A = ['AF', '6Y3', '6Y4']; // 5장에서 얻은 그날의 컷은 종장에도 가져온다
 const C6B = [...C6A, 'R1', 'S1', 'R2', 'S2', 'R3', 'S3', 'R4', 'R5', 'S4', 'S5', 'S6', 'S7'];
 const C6C = [...C6B, 'R6', 'R7', 'R8'];
 const C6D = [...C6C, 'S8'];

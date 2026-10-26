@@ -295,12 +295,12 @@ const CONCLUSION3 = [
 ];
 
 const NAME3_MID = [
-  '그날 밤, 점장에게서 ', { cat: 'thing', a: 'th_envelope' }, '를 ', { cat: 'act', a: 'a_take' }, ' 사람은 ', { cat: 'person', a: 'p_madoka' }, '.\n',
+  '그날 밤, ', { cat: 'person', a: 'p_madoka' }, '이(가) 점장에게서 ', { cat: 'thing', a: 'th_envelope' }, '을(를) ', { cat: 'act', a: 'a_take' }, '.\n',
   { cat: 'time', a: 't_2110' }, '쯤, ', { cat: 'place', a: 'pl_storage' }, '에서.',
 ];
 const NAME3_FINAL = [
-  '21시, 가게에서 마감을 한 건 ', { cat: 'person', a: 'p_nagi' }, '. ', { cat: 'person', a: 'p_yuki' }, '는 ', { cat: 'place', a: 'pl_academy' }, '에 있었다.\n',
-  { cat: 'time', a: 't_2110' }, ', ', { cat: 'person', a: 'p_madoka' }, '가 점장에게서 봉투를 ', { cat: 'act', a: 'a_take' }, '. 점장은 쫓다가 ', { cat: 'place', a: 'pl_storage' }, '에서 넘어졌다.\n',
+  '21시, 가게에서 마감을 한 건 ', { cat: 'person', a: 'p_nagi' }, '. ', { cat: 'person', a: 'p_yuki' }, '은(는) ', { cat: 'place', a: 'pl_academy' }, '에 있었다.\n',
+  { cat: 'time', a: 't_2110' }, ', ', { cat: 'person', a: 'p_madoka' }, '이(가) 점장에게서 봉투를 ', { cat: 'act', a: 'a_take' }, '. 점장은 쫓다가 ', { cat: 'place', a: 'pl_storage' }, '에서 넘어졌다.\n',
   '나기는 ', { cat: 'time', a: 't_10min' }, ' 동안 ', { cat: 'act', a: 'a_hesitate' }, '. 미래 컷 두 장은 누군가 ', { cat: 'act', a: 'a_edit' }, '.',
 ];
 
