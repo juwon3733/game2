@@ -49,7 +49,6 @@ async function sceneOffice() {
   fade(false, 500);
   await say('', '츠키미나토 경찰서 별관 맨 끝 창고. 압수품 상자 사이에 소파 하나와 전기포트. 「잔상과」의 사무실이다.');
   show('rei', 'normal', 'left');
-  await say('rei', '…….');
   show('koharu', 'happy', 'right');
   await say('koharu', '오늘부터 잔상과에 배치된 히나타 코하루입니다! 선배! 잘 부탁드립니다!');
   await say('rei', '…시끄러워.');
@@ -108,9 +107,11 @@ async function sceneExplore1() {
         await found('B');
       },
       pot: async () => {
-        await say('', '베란다 화분. 흙이 쏟아져 있고… 작은 신발 자국이 찍혀 있다.');
+        await say('', '칸막이 옆 베란다 화분. 흙이 쏟아져 있고, 작은 운동화 자국이 찍혀 있다.');
         show('koharu', 'worried', 'right');
         await say('koharu', '어린애 발자국 같아요. 사에키 씨는 혼자 사는데…', 'worried');
+        await say('rei', '강력계 보고서엔 「레슨 학생 발자국」 한 줄.');
+        await say('koharu', '도망친 택배 기사가 먼저 나왔으니까, 거기서 더 안 본 거네요.', 'worried');
         await found('C');
       },
       partition: async () => {
@@ -147,9 +148,7 @@ async function scenePuzzle1() {
   await runPuzzle('page1');
   bg('night');
   show('koharu', 'worried', 'right');
-  await say('koharu', '쿵 소리가 났을 때 타이가 씨는 아직 문 앞에 있었네요. 그럼…', 'worried');
-  show('rei', 'serious', 'left');
-  await say('rei', '경비원 증언이랑 안 맞아. 경비원부터 읽자.', 'serious');
+  await say('koharu', '경비실이면 1층 현관 옆이죠? 제가 먼저 내려가 있을게요!', 'normal');
   clearChars();
 }
 
@@ -224,7 +223,7 @@ async function sceneExplore2() {
         await say('rei', '가 보자.', 'serious');
         EX.end();
       },
-      nbdoor: async () => { await say('rei', '…그 전에 베란다.'); },
+      nbdoor: async () => { await say('rei', '그 전에 베란다.'); },
       stairs: async () => { await say('rei', '…아직이야.'); },
     },
   });
@@ -261,10 +260,10 @@ async function sceneConclusion() {
   show('kurogane', 'normal', 'center');
   await say('kurogane', '강력계도, 피해자 가족도 와 있다. 정리해 봐라, 시노노메.');
   const replies = [
-    '칸막이 너머로 손을 뻗어서, 난간에 올라간 히마리를 끌어당기고 있었어요. 그 반동으로 떨어졌고요.',
+    '히마리가 칸막이 틈으로 사에키 씨 집 베란다에 건너와 난간에 올라서 있었어요. 사에키 씨는 난간 밖으로 몸을 내밀어 히마리를 안쪽으로 끌어당겼고, 그 반동으로 떨어졌어요.',
     '5층 문 앞. 쿵 소리가 났을 때 문 밖에 서 있었어요.',
     '휴대폰이 꺼져서. 신고하려고 길 건너 편의점까지 뛰었어요.',
-    '난간 안쪽, 베란다 바닥. 사에키 씨가 끌어당긴 덕분에.',
+    '사에키 씨 집 베란다 바닥, 난간 안쪽이요. 끌어당겨진 덕분에.',
   ];
   for (let i = 0; i < CONCLUSION.length; i++) {
     const q = CONCLUSION[i];
@@ -323,7 +322,7 @@ async function sceneEpilogue() {
   await say('asagiri', '오늘은 무슨 일이 있었어?');
   await say('rei', '맨션 추락 사건이요. 옆집 아이는 무사해요.');
   await say('asagiri', '그래. …괜찮아. 힘든 건 잊어도 돼.');
-  // 여백 컷: 히마리에게 "선생님은 너를 지키고 싶었던 거야"라고 했을 때만
+  // 여백 컷: 히마리에게 말 대신 「끌어당김」 컷을 보여 줬을 때만
   if (G.flags.yohaku1) {
     await say('', '코트 주머니에 뭔가 걸린다. 사에키 씨 집에서 무심코 챙겨 온 악보의 마지막 장.');
     await say('rei', '…마지막 장이 하얗네.', 'normal');
@@ -333,7 +332,7 @@ async function sceneEpilogue() {
     await say('', '——도서관 바닥. 원고지를 잔뜩 펼쳐 놓은 두 아이.');
     await say('', '「마지막 칸은 비워 두자. 나중에 같이 그리게.」');
     FX.memory(false);
-    await say('rei', '…….', 'surprised');
+    await say('', '레이의 손이 잔 위에서 멈춘다.');
     await say('koharu', '선배? 커피 식어요.', 'normal');
   }
   clearChars();
