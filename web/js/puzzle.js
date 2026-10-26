@@ -276,6 +276,7 @@ function runPuzzle(id) {
         }
         sfx('wrong'); quake();
         G.stats.wrong++;
+        PLOG.mark(`퍼즐 ${id}`);
         const fb = diff().feedback;
         if (fb === 'count') {
           const wrong = P.solution.filter((c, i) => !sameSet(st.slots[i], group(i))).length + (badBubble ? 1 : 0);

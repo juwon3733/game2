@@ -316,7 +316,7 @@ async function trialRound(wid, R) {
           hideText();
           const c = await choice(a.choice.options, a.choice.prompt);
           if (c === a.choice.answer) { await sayAll(a.choice.success || []); break; }
-          G.stats.wrong++; st.ink = Math.max(1, st.ink - 1); sfx('wrong'); quake(); renderTrial(W, st);
+          G.stats.wrong++; PLOG.mark(`심문 ${wid} 증언${st.idx + 1}`); st.ink = Math.max(1, st.ink - 1); sfx('wrong'); quake(); renderTrial(W, st);
           await sayAll(a.choice.wrong || W.wrong);
         }
       }
@@ -338,6 +338,7 @@ async function trialRound(wid, R) {
 
     st.ink--;
     G.stats.wrong++;
+    PLOG.mark(`심문 ${wid} 증언${st.idx + 1}`);
     // 흐려지는 현장: 틀린 반박 3번마다 컷 하나가 흐려진다
     if (W.erode && ++st.wrongs % 3 === 0) {
       G.blurred = G.blurred || [];

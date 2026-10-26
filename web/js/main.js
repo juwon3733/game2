@@ -70,6 +70,7 @@ async function playFrom(scene, saved) {
     for (let i = start; i < C.scenes.length; i++) {
       const id = C.scenes[i][0];
       G.ch = ch; G.scene = id;
+      PLOG.start(ch, id);
       revealNames(ch, id);
       saveProgress(ch, id);
       if (recap) { recap = false; await previously(); }
@@ -80,6 +81,7 @@ async function playFrom(scene, saved) {
       setTimeout(() => fade(false, 600), 60);
       await run;
     }
+    PLOG.end(); // 장이 바뀌면 원고 평가 수치가 0부터 다시 시작하므로 그 전에 닫는다
     try { localStorage.setItem(`gaha-ch${ch}-clear`, '1'); } catch { /* 저장 불가 */ }
     // 다음 장이 있으면 이어서. 장이 바뀌면 소지품은 새로, 튜토리얼 표시 등은 유지
     if (!CHAPTERS[ch + 1]) break;
@@ -91,6 +93,7 @@ async function playFrom(scene, saved) {
     loadState(ch, first, null);
     Object.assign(G.flags, keep);
   }
+  PLOG.end();
   try { localStorage.removeItem(SAVE_KEY); localStorage.removeItem('gaha-ch1-save'); } catch { /* 저장 불가 */ }
   await fade(true, 800);
   titleScreen();

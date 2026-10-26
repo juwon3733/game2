@@ -963,7 +963,7 @@ body { word-break: keep-all; overflow-wrap: normal; }
 
 /* 기록 */
 .rec-list { display: flex; flex-direction: column; gap: 8px; }
-.rec-row { color: var(--ink); display: grid; grid-template-columns: 1fr 64px 120px 120px; align-items: center; gap: 10px; font-size: 22px; padding: 10px 14px; background: #fff; border: 3px solid var(--ink); }
+.rec-row { color: var(--ink); display: grid; grid-template-columns: 1fr 56px 170px 110px 110px; align-items: center; gap: 10px; font-size: 22px; padding: 10px 14px; background: #fff; border: 3px solid var(--ink); }
 .rec-row.locked { opacity: .45; }
 .rec-rank { font-size: 32px; text-align: center; color: #c9961a; }
 .rec-row i { font-style: normal; font-size: 17px; text-align: center; padding: 4px; border: 2px dashed #aaa; color: #999; }
@@ -1081,3 +1081,15 @@ body { word-break: keep-all; overflow-wrap: normal; }
 /* 긴 창(갤러리·저장·수첩)은 안쪽이 스크롤돼도 [닫기]가 늘 보이게 */
 #modal.gallery .md-cancel, #modal.slots .md-cancel, #modal.note .md-cancel { position: sticky; bottom: 0; z-index: 2; }
 .montage .mt-cut { aspect-ratio: auto; } /* 카드 아래 흰 띠 없이 그림 높이만큼 */
+
+/* 기록 탭: 플레이 시간 / 목표 시간 (원고 테마: 종이 위 먹 막대, 둥근 모서리·흐림 없음) */
+.rec-time { position: relative; font-size: 17px; text-align: center; padding: 4px 4px 9px; border: 2px solid var(--ink); background: #efeadf; }
+.rec-time b { font-size: 19px; }
+.rec-time em { position: absolute; left: 0; bottom: 0; height: 5px; background: var(--ink); }
+.rec-time.empty { border-style: dashed; border-color: #aaa; color: #999; }
+.rec-export { font: inherit; font-size: 18px; padding: 6px 14px; background: var(--paper, #efeadf); color: var(--ink); border: 3px solid var(--ink); box-shadow: 3px 3px 0 #000; cursor: pointer; }
+.set-log button { white-space: nowrap; }
+/* 갤러리: 탭 내용만 스크롤하고 [닫기]는 그 아래 제자리에 (내용을 가리지 않게) */
+#modal.gallery .md-box { display: flex; flex-direction: column; overflow: hidden; }
+#modal.gallery .gal-body { flex: 1; min-height: 0; overflow-y: auto; padding-right: 6px; }
+#modal.gallery .md-cancel { position: static; flex: none; align-self: flex-start; }

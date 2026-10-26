@@ -59,6 +59,7 @@ function runName({ title, sub = '', parts, threshold = 3, report = false, report
       if (blanks.some((i) => !picks[i])) { msg = '빈칸이 남아 있어.'; return render(); }
       if (blanks.every(right)) { sfx('correct'); FX.lines(500); FX.stamp('확정!'); await sleep(700); return finish({ ok: true, picks: Object.assign({}, picks) }); }
       G.stats.wrong++;
+      PLOG.mark(`네임 ${title}`);
       sfx('wrong'); quake();
       // 몇 칸이 맞았는지는 알려 주지 않는다(하나씩 바꿔 넣어 맞히는 걸 막는다)
       msg = '아직 그날 일과 맞지 않아. 단서를 다시 보자.';

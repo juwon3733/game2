@@ -131,15 +131,20 @@ function saveRecord(ch, r) {
 }
 function recordsHTML() {
   const rec = loadJSON(RECORD_KEY) || {};
+  const play = PLOG.byChapter();
   const rows = Object.keys(CHAPTERS).map((ch) => {
     const o = rec[ch] || {};
     const name = ch === '6' ? '종장' : ch + '장';
-    return `<div class="rec-row${o.best ? '' : ' locked'}"><span>${name} 「${CHAPTERS[ch].title}」</span><b class="rec-rank">${o.best || '—'}</b>
-      <i class="${o.noHint ? 'on' : ''}">힌트 없이</i><i class="${o.clean ? 'on' : ''}">틀림 없이</i></div>`;
+    // 플레이한 시간 / 목표 시간. 막대는 목표 대비 비율(넘으면 꽉 참)
+    const p = play[ch], goal = PLOG_TARGET[ch];
+    const pct = p && goal ? Math.min(100, Math.round((p.ms / 60000 / goal) * 100)) : 0;
+    const time = p ? `<span class="rec-time" title="오답 ${p.wrong} · 힌트 ${p.hints} · 도움 ${p.help}"><b>${fmtMin(p.ms)}</b> / ${goal}분<em style="width:${pct}%"></em></span>` : `<span class="rec-time empty">— / ${goal}분</span>`;
+    return `<div class="rec-row${o.best || p ? '' : ' locked'}"><span>${name} 「${CHAPTERS[ch].title}」</span><b class="rec-rank">${o.best || '—'}</b>
+      ${time}<i class="${o.noHint ? 'on' : ''}">힌트 없이</i><i class="${o.clean ? 'on' : ''}">틀림 없이</i></div>`;
   }).join('');
   const m = (rec.margin || []).length;
   return `<div class="rec-list">${rows}</div>
-    <div class="rec-foot"><span>여백 조건 ${m} / ${MARGIN_FLAGS.length}</span></div>`;
+    <div class="rec-foot"><span>여백 조건 ${m} / ${MARGIN_FLAGS.length}</span><button class="rec-export" onclick="event.stopPropagation(); exportPlaylog()">플레이 기록 내보내기</button></div>`;
 }
 
 // ---------- 저장 슬롯 ----------

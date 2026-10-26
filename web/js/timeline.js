@@ -119,6 +119,7 @@ function runTimeline(id) {
         const bad = wrongRows();
         if (!bad.length) { done = true; return playPage(); }
         G.stats.wrong++;
+        PLOG.mark(`시각표 ${id}`);
         sfx('wrong'); quake();
         st.bad = bad;
         msg = `토와: 에러. 「${P.rows[bad[0]].who}」 줄이 맞지 않아.` + (bad.length > 1 ? ' (다른 줄도.)' : '');

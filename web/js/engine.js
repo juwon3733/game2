@@ -663,10 +663,18 @@ function openSettings() {
       <label>글자 크기</label>${seg('textSize', ['작게', '보통', '크게'])}
       <label>화면 흔들림</label>${seg('shake', ['켜기', '끄기'])}
       <label>화면 효과</label>${seg('fxReduce', ['보통', '줄이기 (번쩍임·반전 끔)'])}
+      <label>플레이 기록</label><div class="set-seg set-log"><button data-log="export">플레이 기록 내보내기</button><button data-log="clear">기록 지우기</button></div>
     </div>
     <div class="set-help">대사 넘기기: 클릭 · Space · Enter　|　Ctrl 누르고 있기: 빨리 넘기기　|　휠 위로: 대사 기록</div>
     <button class="md-cancel">닫기</button>`, 'settings');
-  m.querySelectorAll('.set-seg button').forEach((b) => (b.onclick = () => {
+  // 플레이 기록: 내보내기 / 지우기(한 번 더 눌러야 지운다)
+  m.querySelectorAll('[data-log]').forEach((b) => (b.onclick = (e) => {
+    e.stopPropagation(); sfx('select');
+    if (b.dataset.log === 'export') return exportPlaylog();
+    if (b.dataset.armed) { PLOG.clear(); b.textContent = '지웠다'; delete b.dataset.armed; return; }
+    b.dataset.armed = '1'; b.textContent = '한 번 더 누르면 지운다';
+  }));
+  m.querySelectorAll('.set-seg:not(.set-log) button').forEach((b) => (b.onclick = () => {
     const seg = b.parentElement;
     SETTINGS[seg.dataset.key] = Number(b.dataset.v);
     seg.querySelectorAll('button').forEach((x) => x.classList.toggle('on', x === b));
