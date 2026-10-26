@@ -2605,7 +2605,7 @@ Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game scr
 
 Palette: 8 grey levels from black to white, and one accent color moss green (#7a9a3a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
-Scene: Looking down from a second-floor window at night: two men in yellow safety helmets with an abstract company logo walk in through the open back door of a bathhouse (accent color on the helmets). In the corner of the alley, a small figure of a schoolgirl. On the window sill, a table clock shows 10:45.
+Scene: Looking down from a second-floor window at night: two men in yellow safety helmets with an abstract company logo walk in through the open back door of a bathhouse (accent color on the helmets); the front one carries a tool bag, the second one's helmet has a white visitor sticker. In the corner of the alley, a small figure of a schoolgirl. On the window sill, a table clock shows 10:45.
 
 Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
@@ -2616,10 +2616,10 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + moss green (#7a9a3a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Night in front of a burning bathhouse: a woman carries an old man on her back out of the flames; no fire trucks yet. In the foreground, a hand holds a phone showing a call and 23:15 (accent color).
+Scene: Looking down from a second-floor window at night at the front of a burning bathhouse: someone carries an old man on their back out of the flames, face hidden by smoke, only hair tied back visible; no fire trucks yet. In the foreground, the viewer's own old hand on the window sill holds a phone showing a call screen and 23:15 (accent color).
 ```
 
-> 꼭 보여야 할 것: 노인을 업고 나오는 여자, 아직 소방차 없음, 휴대폰 23:15(포인트 색)
+> 꼭 보여야 할 것: 창에서 본 노인을 업고 나오는 사람(얼굴은 연기에 가림), 아직 소방차 없음, 창틀의 내 손과 휴대폰 23:15(포인트 색)
 
 **`4L.png`
 ```
@@ -2643,10 +2643,10 @@ Scene: An exaggerated, frightened memory: two gigantic shadowy figures as tall a
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + moss green (#7a9a3a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Back view of a schoolgirl running down a night alley, with flames drawn behind her.
+Scene: Back view of a small schoolgirl running into the open back door of a bathhouse at night, flames already drawn inside the doorway.
 ```
 
-> 꼭 보여야 할 것: 골목을 달리는 교복, 뒤로 불길
+> 꼭 보여야 할 것: 뒷문으로 뛰어드는 교복, 문틈 안 불길
 
 **`t_okamoto_3.png`
 ```

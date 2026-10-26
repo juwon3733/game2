@@ -328,7 +328,10 @@ async function sceneExplore4b() {
         await say('', '공정표 화이트보드. 지운 자국 위에 글씨가 비쳐 보인다.');
         await gainItem('schedule4'); tick();
       },
-      helmets: async () => { await say('', '헬멧 걸이. 하쿠요 로고가 찍힌 노란 헬멧 다섯 개. 두 개가 그을려 있다.'); },
+      helmets: async () => {
+        await say('', '헬멧 걸이. 하쿠요 로고가 찍힌 노란 헬멧 다섯 개. 두 개에 보일러실 그을음이 묻어 있다. 하나는 안쪽에 「무라세」, 하나는 흰 「방문자」 스티커.');
+        await say('rei', '(방문자용은 여럿이 돌려 써. 누가 썼는지는 남지 않아.)', 'serious');
+      },
       window: async () => { await say('', '창 너머 정면에 사쿠라유의 굴뚝. 그날 밤 이 창에서는 불이 다 보였을 것이다.'); },
     },
   });
@@ -345,6 +348,9 @@ async function sceneCross4() {
   await runTrial('cross4');
   reveal4('m4Key');
   clearChars();
+  await say('rei', '(「예전에도 이렇게 끝냈다」.)', 'serious');
+  await say('kurogane', '(전화) 상무 이름이 나왔다고. …무라세 진술 하나로는 못 건드린다. 불이 난 11시엔 상무가 축제 본부 귀빈석 사진에 찍혀 있어.');
+  await say('kurogane', '(전화) 그리고 「예전에도」라는 말. 그건 당분간 너만 알고 있어라.');
 }
 
 async function sceneHospital4() {
@@ -412,8 +418,11 @@ async function sceneConclusion4() {
     }
   }
   show('murase', 'cornered', 'left');
-  await say('murase', '저는 시키는 대로 했을 뿐입니다.', 'cornered');
+  await say('murase', '배전반은 제가 잘랐습니다. 그건 인정하죠. 나머지는 위에 물어보세요.', 'cornered');
   hide('murase');
+  show('kurogane', 'normal', 'center');
+  await say('kurogane', '무라세는 강력계가 데려간다. 상무는… 아직이다. 사진 한 장이 그 사람 편이야.');
+  hide('kurogane');
   bgm('truth');
   show('hayaka', 'crying', 'left');
   show('keiko', 'crying', 'right');
@@ -432,9 +441,10 @@ async function sceneConclusion4() {
 async function sceneEpilogue4() {
   bg('office');
   await say('', '그날 저녁. 잔상과 사무실.');
+  show('rei', 'normal', 'left');
   show('kurogane', 'normal', 'center');
-  await say('', '쿠로가네가 사쿠라유 소방 보고서를 넘기다 손을 멈춘다. 서랍에서 오래된 사본 한 장을 꺼내 나란히 놓는다.');
-  await gainItem('record');
+  await say('kurogane', '「예전에도 이렇게 끝냈다」. 그 말이 걸려서 말이다.');
+  await say('', '쿠로가네가 사쿠라유 소방 보고서 옆에, 서랍 깊숙이 있던 오래된 사본 한 장을 나란히 놓는다.');
   FX.zoom('center');
   await say('kurogane', '「원인: 보일러실 배전반 노후 누전」.');
   show('kurogane', 'sad', 'center');
@@ -442,17 +452,20 @@ async function sceneEpilogue4() {
   FX.zoom(null);
   FX.pulse();
   await say('kurogane', '6년 전 등대 도서관이랑 한 글자도 안 틀려.');
+  await say('kurogane', '시노노메, 이 사본은 네가 갖고 있어. 여기 두면 내일은 없을 거다. 상무 앞으로 영장 신청은 방금 올렸다.');
+  await gainItem('record');
   clearChars();
   bg('station_chief');
-  await say('', '그날 밤 9시. 경찰서 서장실.');
+  await say('', '그날 밤 9시. 경찰서 서장실. 레이는 문밖 복도에서 기다린다. 반쯤 열린 문틈으로 안이 보인다.');
   show('nishimura', 'normal', 'left');
   await say('', '서장 옆 소파에 검은 정장의 남자가 앉아 있다. 하쿠요 계열사 상무, 니시무라.');
   show('kurogane', 'normal', 'right');
-  await say('', '서장의 목소리가 낮다. 「잔상과는 오늘부로 해체. 쿠로가네 과장은 직무 정지.」');
+  await say('', '서장의 목소리가 낮다. 「영장 신청은 반려. 잔상과는 오늘부로 해체. 쿠로가네 과장은 직무 정지.」');
   await say('kurogane', '알겠습니다.');
   await say('nishimura', '잔상이라. 재미있는 걸 보는 분들이었죠.', 'normal');
-  await say('', '복도에서 그 얼굴을 본 순간, 레이의 오른손 검지가 욱신거린다. 이유는 모른다.');
   clearChars();
+  await say('', '문이 열리고 니시무라가 복도로 나온다. 레이 앞을 지나가며 은색 라이터를 한 번 튕긴다.');
+  await say('', '그 얼굴을 본 순간, 레이의 오른손 검지가 욱신거린다. 이유는 모른다.');
   bg('office');
   FX.mood('dust');
   await say('', '그날 밤. 아무도 없는 잔상과 사무실.');
