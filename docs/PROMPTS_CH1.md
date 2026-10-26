@@ -3037,10 +3037,10 @@ Scene: Very blurry first-person view of a teenager half-conscious at the foot of
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 +  (#6b5fa8) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Blurry first-person view of a teenager carried piggyback on an adult's back, moving away from a burning library door at night; through the open door, inside at the foot of the staircase, a girl's small silhouette climbs back up the stairs and a police officer's cap runs in after her (accent color on the girl's silhouette). No clock.
+Scene: Blurry first-person view of a teenager leaning with one arm over an adult man's shoulder, being walked away from a burning library door at night, looking back over the shoulder; through the open door, inside at the foot of the staircase, a girl's small silhouette climbs back up the stairs and a police officer's cap runs in after her (accent color on the girl's silhouette). No clock.
 ```
 
-> 꼭 보여야 할 것: 등에 업혀 멀어짐, 문 안 계단을 오르는 그림자와 순경 모자(포인트 색)
+> 꼭 보여야 할 것: 어깨에 기대 멀어짐, 뒤돌아본 문 안 계단을 오르는 그림자와 순경 모자(포인트 색)
 
 **`t_self_3.png`
 ```
@@ -3183,10 +3183,10 @@ Scene: A spotless official fire report document on a desk, perfectly neat.
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + coffee brown (#8a5a3a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: a 16-year-old with messy short black hair, an oversized hoodie and an ink stain on the right index finger lying in bed with a fever at night, a glass of water and cold medicine by the pillow, dark window; unnaturally calm, with a barely visible seam.
+Scene: A glossy resort development rendering pinned on a corkboard: a hotel standing on the tip of a cape where a lighthouse-shaped library should be, a red stamp in the corner reading land secured. Clean, corporate, no people.
 ```
 
-> 꼭 보여야 할 것: 편집: 감기로 누운 레이, 머리맡 물컵과 약
+> 꼭 보여야 할 것: 리조트 조감도: 곶 끝 호텔, 귀퉁이 「용지 확보 완료」 도장
 
 **`t_asg_3.png`
 ```

@@ -25,13 +25,17 @@ Object.assign(MAPS, {
       { id: 'form', x: 10, y: 3, label: '타다 만 응모 서류', walkable: true },
       { id: 'box', x: 11, y: 2, w: 2, solid: true, label: '2층 서가 아래 철제 상자' },
       { id: 'hairpin', x: 7, y: 4, label: '계단참의 작은 반짝임', walkable: true },
-      { id: 'stairs', x: 7, y: 5, label: '2층으로 오르는 계단', walkable: true },
+      { id: 'stairs', x: 7, y: 5, label: '나선 계단', walkable: true },
       { id: 'lighter', x: 4, y: 7, label: '1층 서고 바닥', walkable: true },
       { id: 'gate', x: 14, y: 8, label: '도서관 문' },
       { id: 'bench', x: 21, y: 4, w: 2, solid: true, label: '곶 끝 벤치' },
+      { id: 'plaque', x: 2, y: 8, label: '그을린 기증자 명판' },
+      { id: 'flowers', x: 18, y: 7, label: '철망 앞 국화 다발' },
     ],
   },
 });
+// 머리핀은 1층과 2층 사이 계단참이라 1층 쪽에 둔다. 명판·국화는 잔상이 없는 물건(겉모습만)
+EX_AREAS.lighthouse = [['2층 열람실', ['seat', 'lastpage', 'form', 'box']], ['1층', ['stairs', 'hairpin', 'lighter', 'plaque', 'gate']], ['곶 끝', ['bench', 'flowers']]];
 
 const CH6_SCENES = [
   ['offer6', '제안 (8월 31일 아침)'],
@@ -54,7 +58,7 @@ const W6C = [...W6B, 'th_lighter', 'a_runback', 'a_handover'];
 const I6 = ['lighter', 'manuscript', 'petition'];
 const CH6_STATE = {
   offer6: {}, explore6: { cuts: C6A, words: W6A },
-  asagiri6: { cuts: C6B, items: I6, words: W6B }, self6: { cuts: C6B, items: I6, words: [...W6B, 'th_lighter', 'a_runback'] },
+  asagiri6: { cuts: C6B, items: I6, words: W6B }, self6: { cuts: C6B, items: I6, words: [...W6B, 'th_lighter'] },
   shiori6: { cuts: C6C, items: I6, words: W6C }, puzzle6: { cuts: C6D, items: I6, words: W6C },
   conclusion6: { cuts: C6D, items: I6, words: W6C }, ending6: { cuts: C6D, items: I6, words: W6C },
 };
@@ -92,7 +96,7 @@ async function sceneExplore6() {
   show('kurogane', 'sad', 'center');
   await say('kurogane', '직무 정지지만, 오늘은 같이 간다.', 'sad');
   show('ren', 'normal', 'left');
-  await say('ren', '편집국도 여기만은 못 지웠어. 기억하는 사람이 너무 많아서.', 'normal');
+  await say('ren', '이 밤만은 편집장이 직접 붙들고 있었어. 나한텐 손도 못 대게 했지.', 'normal');
   show('towa', 'serious', 'right');
   await say('towa', '드론 띄웠어. …나도 같이 읽을게.');
   clearChars();
@@ -112,7 +116,7 @@ async function sceneExplore6() {
         await gainCut('R2'); await gainCut('S2'); tick();
       },
       stairs: async () => {
-        await say('', '2층에서 내려가는 계단. 레이의 발이 저절로 멈춘다.');
+        await say('', '1층에서 올려다본 나선 계단. 그날 레이가 뛰어 내려온 계단이다. 첫 단에서 발이 저절로 멈춘다.');
         await gainCut('R3'); tick();
       },
       lastpage: async () => {
@@ -134,6 +138,7 @@ async function sceneExplore6() {
       lighter: async () => {
         await say('', '1층 서고 바닥. 잿더미 속에서 녹아 붙은 은색 라이터.');
         await gainItem('lighter');
+        await say('kurogane', '「H」 각인. 하쿠요가 창립 기념으로 간부들한테만 돌린 거다. 감식은 배전반만 보고 하루 만에 「누전」으로 닫았지. 서고 잿더미는 아무도 안 뒤졌다.', 'sad');
         await gainCut('S4');
         await say('rei', '(이 얼굴. 서장실 소파에 앉아 있던 사람.)', 'serious');
         gainWord('p_nishi');
@@ -141,10 +146,17 @@ async function sceneExplore6() {
         tick();
       },
       box: async () => {
-        await say('', '2층 서가 아래 철제 상자. 뚜껑이 그을렸지만 열린다. 안에 가장자리가 탄 원고 다발. 마지막 장 뒷면에 연필 그림.');
+        await say('', '2층 서가 아래 철제 상자. 불은 2층 창가에서 멈췄고, 상자는 서가째 그을리기만 했다. 뚜껑이 열린다. 안에 가장자리가 탄 원고 다발. 마지막 장 뒷면에 연필 그림.');
         await gainItem('manuscript');
         gainWord('th_backpage'); gainWord('a_draw');
         await gainCut('S5'); tick();
+      },
+      plaque: async () => {
+        await say('', '1층 벽의 그을린 기증자 명판. 「바위산 화재로 떠난 남편과 딸을 기억하며 — 그림책 200권」. 날짜는 12년 전. 기증자 이름 칸만 까맣게 타 읽을 수 없다.');
+      },
+      flowers: async () => {
+        await say('', '철망 앞에 시든 국화 한 다발. 리본도 쪽지도 없다.');
+        await say('kurogane', '해마다 8월 31일이면 누가 두고 간다. 6년째 한 번도 거른 적이 없지.', 'sad');
       },
       hairpin: async () => {
         await say('', '계단참 틈에 낀 작은 반짝임. 책갈피 모양의 머리핀.');
@@ -205,6 +217,15 @@ async function scenePuzzle6() {
   hide('kurogane');
   await say('rei', '두 줄로 놓자. 내 밤이랑, 시오리의 밤.', 'serious');
   clearChars();
+  // 3장 시각표와 규칙이 달라서 종장용 도움말을 따로 띄운다
+  if (!G.flags.timeTut6) {
+    G.flags.timeTut6 = true; G.flags.timeTut = true;
+    await sayAll([
+      ['tip', '[[두 줄 시각표]]: 위는 레이, 아래는 시오리. 같은 높이가 같은 순간이다.'],
+      ['tip', '누구 줄인지는 컷 머리 색으로 정해진다. 시계가 보이는 칸은 몇 개뿐. 나머지는 앞뒤에 무슨 일이 있었는지로 놓는다. 16칸은 전부 찬다.'],
+    ]);
+    hideText();
+  }
   await runTimeline('time6');
 }
 
@@ -246,20 +267,20 @@ async function sceneConclusion6() {
 // 진실·여백 엔딩 공통 에필로그: 인물을 한 줄씩 나열하지 않고, 하루를 세 장면으로 묶는다
 async function epilogueMontage() {
   bgm('epilogue');
-  // 낮: 병원과 사쿠라유
+  // 낮: 병원
   bg('hospital');
-  await say('', '9월 첫 주. 레이와 코하루는 커피를 두 잔씩 사 들고 시내를 돈다. 첫 번째는 병원.');
-  await say('', '4층 휴게실에서 미츠루가 키보드로 한 소절을 치다 틀린다. 옆에 앉은 히마리가 음표 머리핀을 고쳐 꽂고, 같은 소절을 틀리지 않고 따라 친다.');
-  await say('', '사쿠라유는 가림막 안에서 다시 올라가는 중이다. 겐조가 휠체어에 앉아 하야카에게 보일러 닦는 법을 일러 주고, 붕대를 푼 케이코가 그 옆에서 벽돌을 나른다.');
+  await say('', '9월 첫 주. 코하루가 커피 두 잔을 들고 병원 4층 휴게실 문 앞에서 멈춘다.');
+  await say('', '안에서 키보드 소리. 한 소절이 틀리고, 작은 손이 같은 소절을 틀리지 않고 다시 친다. 레이는 문을 열지 않고 돌아선다.');
   // 저녁: 상점가
   bg('arcade');
-  await say('', '해가 질 무렵 상점가. 토키와 양과점 앞에서 앞치마 차림의 나기가 손을 흔들자, 화구 가방을 멘 유키가 길 건너에서 뛰어온다. 리본은 각자 제자리에.');
-  await say('', '비어 있던 점술 부스 자리엔 두부집 할머니의 화분이 놓였다. 옆 게시판의 크레센트 포스터에는 아마네 루루 데뷔 무대, 마지막 곡 「앙코르」. 귀퉁이에 쿠라모치의 글씨로 「핀 조명 하나」.');
-  // 밤: 사무실
+  await say('', '해 질 무렵 상점가. 양과점 셔터 앞에서 리본 색이 다른 두 사람이 한 장의 스케치북을 들여다본다. 크레센트 포스터 귀퉁이엔 연필 글씨 하나, 「핀 조명 하나」.');
+  await say('koharu', '선배, 다들 잘 지내요.', 'happy');
+  await say('rei', '응.', 'normal');
   await say('', '돌아오는 길, 카페 「여백」 문엔 손글씨 쪽지가 붙어 있다. 「잠시 휴업」.');
+  // 밤: 사무실
   bg('office');
-  await say('', '잔상과 사무실 문에 「해체」 종이는 다시 붙지 않았다. 소파에서 담요를 두른 토와가 뉴스를 본다. 법원 앞, 안대를 벗은 렌이 기자들 사이를 지나간다.');
-  await say('', '쿠로가네가 담요 한 장을 더 던져 준다. 걷어 올린 소매 아래로 손목시계 초침이 돌아간다.');
+  await say('', '잔상과 사무실 문에 「해체」 종이는 다시 붙지 않았다. 텔레비전에서 법원 앞 화면이 지나간다. 안대를 벗은 얼굴 하나.');
+  await say('', '쿠로가네가 담요를 던져 준다. 걷어 올린 소매 아래로 손목시계 초침이 돌아간다.');
   await say('towa', '…나 고양이 아니야.');
 }
 
@@ -293,7 +314,8 @@ async function sceneEnding6() {
     show('shiori', 'normal', 'right');
     await say('', '창가에 교복 차림의 여학생이 서 있다. 아무 말도 하지 않는다.');
     hide('shiori');
-    await say('', '코하루의 책상은 비어 있다. 그을린 배지 하나와 쪽지 한 장. 「선배, 잘 지내요.」');
+    await say('', '책상 위 신문 귀퉁이. 「하쿠요 상무 니시무라, 6년 전 등대 도서관 방화 혐의로 구속」. 레이는 낯선 이름을 한 번 훑고 신문을 접는다.');
+    await say('', '맞은편 책상은 비어 있다. 쪽지 한 장. 「선배, 잘 지내요.」');
     await say('', '레이는 쪽지를 두 번 읽고, 누구 글씨인지 끝내 떠올리지 못한다.');
     hideText();
     await banner('편집 엔딩', '「아무 일도 없었던 하루」', 2600);
@@ -332,9 +354,9 @@ async function sceneEnding6() {
     if (end === 'margin') {
       show('koharu', 'happy', 'right');
       show('rei', 'normal', 'left');
-      await say('koharu', '선배! 원고 다 됐어요? 마감 오늘이에요!', 'happy');
+      await say('koharu', '선배! 그 원고, 이번 신인 만화상에 내요. 접수 금요일까지래요!', 'happy');
       await say('rei', '글 칸에 이름 하나 더 써야 해.', 'normal');
-      await say('', '응모 서류의 「글」 칸. 레이가 천천히 쓴다. 「아이자와 시오리」.');
+      await say('', '새 응모 서류의 「글」 칸. 레이가 천천히 쓴다. 「아이자와 시오리」.');
       clearChars();
     }
     if (end === 'truth') {
