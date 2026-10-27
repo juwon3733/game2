@@ -10,6 +10,7 @@ const P = JSON.parse(fs.readFileSync(path.join(root, 'web/assets/prompts.json'),
 
 // 이미 있지만 다시 받을 그림: id → [이유, 첨부할 기준 이미지]
 const REDO = {
+  towa_serious: ['고양이 귀·헤드폰·모니터 테두리가 빨강 → towa_normal과 같은 초록, 표정만 진지하게', ['web/assets/portraits/towa_normal.png']],
   '3B': ['금발 다른 사람이 그려짐 → 1인칭, 두 손만 (사람·얼굴 없음)', []],
   '3H': ['붕대가 다른 사람 발목에 → 1인칭, 내려다본 자기 발목에 붕대, 다른 사람 없음', []],
   '3K': ['금발 직원·손님이 그려짐 → 빈 가게, 1인칭 오른손만', []],
@@ -39,7 +40,7 @@ const ORDER = [
   ['종장', ['lighthouse', 'lighthouse_in', 'lighthouse_dawn', 'cut-rei', 'cut-shiori', 'cut-asagiri', 'AF']],
   ['CG', ['cg']],
   ['UI', ['ui']],
-  ['얼굴·옷만 다른 다시 받기 (마지막)', ['2H', '2P', 't_ruru_1', 'rei_normal', 'yuki_normal']],
+  ['얼굴·옷만 다른 다시 받기 (마지막)', ['towa_serious', '2H', '2P', 't_ruru_1', 'rei_normal', 'yuki_normal']],
 ];
 
 const items = {}, byBatch = {};
