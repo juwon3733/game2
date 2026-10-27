@@ -1900,7 +1900,7 @@ Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game scr
 
 Palette: 8 grey levels from black to white, and one accent color vermilion orange (#e4572e). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
-Scene: During the MC between songs, plain bright white light floods the whole stage with no pattern: a white oversized stage jacket (accent color) flying through the air toward the audience, just thrown by a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker in a black tank top (a girl: long blue hair, black cap with a small white bird mascot — same design as her portrait). At the right edge, between the dark wing curtains, a black suit sleeve and hand waving "back, step back".
+Scene: During the MC between songs, plain bright white light floods the whole stage with no pattern: a white oversized stage jacket (accent color) flying through the air toward the audience, just thrown by a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker in a black tank top (a girl: long blue hair, black cap with a small white bird mascot — same design as her portrait). At the right edge, between the dark wing curtains, a black suit sleeve and hand waving "back, step back". The place is the same small basement live house as the other panels: a low black ceiling just above the lighting truss, a knee-high stage, about 150 capacity — NOT a big concert hall, no balcony seats.
 
 Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
@@ -1911,7 +1911,7 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + vermilion orange (#e4572e) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Under fluorescent work lights on the catwalk: a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker (in a grey hoodie over her stage clothes, cap on) grabs a clamp of the lighting rig with both hands, her side face gritting her teeth, angry and tearful. Right next to the clamp, a big tight knot of strap tying the rig to the railing, clearly visible. Leave empty space at the top right for a speech bubble.
+Scene: Under harsh white fluorescent work lights hanging from the low ceiling (clearly visible) on the catwalk: a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker (in a grey hoodie over her stage clothes, cap on; long straight sky-blue hair drawn as light grey, NOT short, NOT curly, NOT brown) grabs a clamp of the lighting rig with both hands, her side face gritting her teeth, angry and tearful. Right next to the clamp, a big tight knot of strap tying the rig to the railing, clearly visible. Leave empty space at the top right for a speech bubble.
 ```
 
 > 꼭 보여야 할 것: 클램프를 붙잡은 손, 클램프 옆 큰 매듭, 작업등, 오른쪽 위 빈 공간
@@ -1929,7 +1929,7 @@ Scene: At night in front of a rehearsal studio on a city street: a man in a plai
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + vermilion orange (#e4572e) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Back view of a man in a plain black suit with neat short black hair turning away on a dark street. In front of him, a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker, but her face is scribbled over completely black with crude pen scribbles (self-hatred).
+Scene: Back view of a man in a plain black suit with neat short black hair turning away on a dark street in front of a rehearsal studio. In front of him, a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker in an oversized hoodie (long straight hair with braided loops and the bird cap, NOT short curly hair), but her face is scribbled over completely black with crude pen scribbles (self-hatred).
 ```
 
 > 꼭 보여야 할 것: 낙서: 루루 자신의 얼굴이 새까만 낙서
@@ -1982,7 +1982,7 @@ Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game scr
 
 Palette: 8 grey levels from black to white, and one accent color cobalt blue (#3a78c9). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
-Scene: Seen from behind the drum kit (cymbals in the foreground with the drummer's hands, accent color on the drumsticks): the stage floor is covered with wavy stripe patterns of light. a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker without her jacket, in a black tank top, sings. Above her, a lighting rig (a metal truss with four stage lights and one pattern projector) hanging above the center of the stage, next to a metal catwalk railing about one meter away, perfectly still.
+Scene: Seen from behind the drum kit (cymbals in the foreground with the drummer's hands, accent color on the drumsticks): the stage floor is covered with wavy stripe patterns of light. a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker without her jacket, in a black tank top, sings. Above her, a lighting rig (a metal truss with four stage lights and one pattern projector) hanging above the center of the stage, next to a metal catwalk railing about one meter away, perfectly still. The place is the same small basement live house as the other panels: a low black ceiling just above the lighting truss, a knee-high stage, about 150 capacity — NOT a big concert hall, no balcony seats.
 
 Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
@@ -1993,7 +1993,7 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + cobalt blue (#3a78c9) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: The moment of the fall, seen from the drum riser: no light pattern anymore, the stage suddenly dark. a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker pushed sideways and falling down, and in her place the back of a man in a black suit, with the lighting rig crashing down onto him. Dust and broken light.
+Scene: The moment of the fall, seen from the drum riser: no light pattern anymore, the stage suddenly dark. a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker pushed sideways and falling down, and in her place the back of a man in a black suit, with the lighting rig crashing down onto him. Dust and broken light. The place is the same small basement live house as the other panels: a low black ceiling just above the lighting truss, a knee-high stage, about 150 capacity — NOT a big concert hall, no balcony seats.
 ```
 
 > 꼭 보여야 할 것: 무늬 없음, 밀려 넘어지는 루루, 정장의 등, 떨어지는 리그
@@ -2010,7 +2010,7 @@ Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game scr
 
 Palette: 8 grey levels from black to white, and one accent color amber (#d9a21b). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
-Scene: From inside the lighting booth through its glass window: the stage below covered in a grid pattern of light; above it a lighting rig (a metal truss with four stage lights and one pattern projector) hanging above the center of the stage, next to a metal catwalk railing about one meter away, its beams crooked and trembling with shake lines. In the foreground a gloved hand tightly gripping a radio transceiver (accent color).
+Scene: From inside the lighting booth through its glass window: the stage below covered in a grid pattern of light; above it a lighting rig (a metal truss with four stage lights and one pattern projector) hanging above the center of the stage, next to a metal catwalk railing about one meter away, its beams crooked and trembling with shake lines. In the foreground a gloved hand tightly gripping a radio transceiver (accent color). The place is the same small basement live house as the other panels: a low black ceiling just above the lighting truss, a knee-high stage, about 150 capacity — NOT a big concert hall, no balcony seats.
 
 Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
@@ -2021,7 +2021,7 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + amber (#d9a21b) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: From inside the lighting booth through the glass: on the hazy catwalk across the room, a woman in her fifties with a tight updo and a tailored suit stuffs a strap into her jacket pocket and looks straight at the viewer, putting a finger to her lips. Her a very large square wristwatch glints (accent color).
+Scene: From inside the lighting booth through the glass: on the hazy catwalk across the room, a glamorous woman about forty (smooth face, no wrinkles) with a tight dark updo and a tailored wine-colored suit stuffs a strap into her jacket pocket and looks straight at the viewer, putting a finger to her lips. Her a very large square wristwatch glints (accent color).
 ```
 
 > 꼭 보여야 할 것: 부스 유리 너머 캣워크, 끈을 주머니에 넣으며 손가락을 입에 대는 텐도, 시계(포인트 색)
@@ -2074,7 +2074,7 @@ Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game scr
 
 Palette: 8 grey levels from black to white, and one accent color teal green (#3aa58a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
-Scene: Afternoon rehearsal, seen from the first row of an empty audience floor looking up at the stage: a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker in a grey hoodie doing a mic check. Above, on the metal catwalk, a woman lighting technician with a long low ponytail, a headset and thick black work gloves points at a clamp of the lighting rig. In the foreground, on the viewer's knee, a clipboard checklist (accent color). Empty seats beside.
+Scene: Afternoon rehearsal, seen from the first row of an empty audience floor looking up at the stage: a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker in a grey hoodie doing a mic check. Above, on the metal catwalk, a woman lighting technician with a long low ponytail, a headset and thick black work gloves points at a clamp of the lighting rig. In the foreground, on the viewer's knee, a clipboard checklist (accent color) still blank: the rows are not filled in yet, no circle and no marks. Empty seats beside. The same small basement live house (low black ceiling, knee-high stage, about 150 capacity), house lights on, no stage lighting patterns.
 
 Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
@@ -2094,7 +2094,7 @@ Scene: Under harsh white fluorescent work lights with every seat of the audience
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + teal green (#3aa58a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Peeking from the wing between dark curtains at the stage: wavy stripe light patterns on the floor, a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker without her jacket singing. Above, the lighting rig and the catwalk railing next to it: the railing is bare, no strap, no knot. In the foreground, a hand in a black suit sleeve holding a radio transceiver (accent color).
+Scene: Peeking from the wing between dark curtains at the stage: wavy stripe light patterns on the floor, a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker without her jacket singing. Above, the lighting rig and the catwalk railing next to it: the railing is bare, no strap, no knot. In the foreground, a hand in a black suit sleeve holding a radio transceiver (accent color). The place is the same small basement live house as the other panels: a low black ceiling just above the lighting truss, a knee-high stage, about 150 capacity — NOT a big concert hall, no balcony seats.
 ```
 
 > 꼭 보여야 할 것: 물결 무늬, 재킷 없는 루루, 매듭 없는 난간, 손의 무전기(포인트 색)
@@ -2103,7 +2103,7 @@ Scene: Peeking from the wing between dark curtains at the stage: wavy stripe lig
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + teal green (#3aa58a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A backstage corridor during rehearsal (music notes coming from the stage side): a woman in her fifties with a tight updo and a tailored suit waving her hand dismissively, wearing a very large square wristwatch (big and clearly visible). In the foreground, a man's hand holds out a checklist with a big circle marked on it (accent color). Leave empty space at the top center for a speech bubble.
+Scene: A backstage corridor during rehearsal (music notes coming from the stage side): a glamorous woman about forty (smooth face, no wrinkles) with a tight dark updo and a tailored wine-colored suit waving her hand dismissively, wearing a very large square wristwatch (big and clearly visible). In the foreground, a man's hand holds out a checklist with a big circle marked on it (accent color). Leave empty space at the top center for a speech bubble.
 ```
 
 > 꼭 보여야 할 것: 손을 내젓는 텐도, 큰 사각 손목시계, 동그라미 친 점검표(포인트 색), 무대 쪽 음표, 위쪽 빈 공간
@@ -2112,7 +2112,7 @@ Scene: A backstage corridor during rehearsal (music notes coming from the stage 
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + teal green (#3aa58a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: First-person view bursting out of the stage wing onto the stage: grid patterns of light on the floor, a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker mid-jump at the center, and above her the lighting rig tilting and about to fall. The viewer's own hand in a black suit sleeve reaches out toward her (accent color on the radio in the other hand). Leave empty space at the top center for a speech bubble.
+Scene: First-person view bursting out of the stage wing onto the stage: grid patterns of light on the floor, a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker mid-jump at the center, and above her the lighting rig tilting and about to fall. The viewer's own hand in a black suit sleeve reaches out toward her (accent color on the radio in the other hand). Leave empty space at the top center for a speech bubble. The place is the same small basement live house as the other panels: a low black ceiling just above the lighting truss, a knee-high stage, about 150 capacity — NOT a big concert hall, no balcony seats.
 ```
 
 > 꼭 보여야 할 것: 격자 무늬, 점프하는 루루, 기우는 리그, 뻗은 손, 위쪽 빈 공간
@@ -2140,7 +2140,7 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + magenta (#b0306a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A backstage corridor: a woman in her fifties with a tight updo and a tailored suit smiling pleasantly. The speech bubble area of the person talking to her is a blank white hole, as if erased.
+Scene: A backstage corridor: a glamorous woman about forty (smooth face, no wrinkles) with a tight dark updo and a tailored wine-colored suit smiling pleasantly. The speech bubble area of the person talking to her is a blank white hole, as if erased.
 ```
 
 > 꼭 보여야 할 것: 생략: 상대 말풍선 자리 하얀 여백
@@ -2158,7 +2158,7 @@ Scene: An exaggerated memory: a gigantic a 19-year-old girl vocalist with the sa
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + magenta (#b0306a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: a woman in her fifties with a tight updo and a tailored suit sitting calmly in an office chair at a live house office, reading documents, a very large square wristwatch on her wrist.
+Scene: a glamorous woman about forty (smooth face, no wrinkles) with a tight dark updo and a tailored wine-colored suit sitting calmly in an office chair at a live house office, reading documents, a very large square wristwatch on her wrist.
 ```
 
 > 꼭 보여야 할 것: 사무실 의자의 텐도
