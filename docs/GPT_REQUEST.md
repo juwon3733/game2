@@ -7,12 +7,8 @@ AGENTS.md대로 이미지 만들어서 PR 올려줘. 작업 전에 최신 main�
 묶음마다 PR 하나(브랜치 assets/<묶음 id>), 아래 순서대로 진행해.
 
 1차 — 교체(이미 파일이 있지만 프롬프트가 바뀜, 덮어써):
-- portrait-rei: rei_serious rei_surprised (캔 커피 없이) + 없는 rei_crying
-- portrait-taiga: taiga_sad (볼 빨감 없이)
-- portrait-kirishima: kirishima_normal (손목시계 없이)
-- portrait-tendo: 전부 (52세로, 지금 그림은 너무 젊음)
-- portrait-kurogane: kurogane_normal (47세로) + 없는 kurogane_sad
-- portrait-asagiri: asagiri_normal (61세로) + 없는 asagiri_cold asagiri_sad
+- portrait-rei: rei_normal (새 rei_serious·surprised·crying과 같은 그림으로 — 보라색 X자 핀, 트렌치코트+후드, 크로스백. 캔 커피는 normal에서만 들고 있어도 됨)
+- portrait-asagiri: asagiri_cold (지금 그림은 웃는 얼굴. 차갑게 굳은 표정, 입꼬리 내려가고 눈은 가늘게, 커피잔 없이)
 - portrait-shiori: shiori_normal (가리키지 않는 자세) + 없는 shiori_point shiori_smile
 - cut-blue: B C
 - cut-pink: G H I t_himari_2_truth t_himari_3_truth
@@ -20,6 +16,7 @@ AGENTS.md대로 이미지 만들어서 PR 올려줘. 작업 전에 최신 main�
 - cut-gold: t_taiga_2 t_taiga_3_truth
 - cut-pin: 2A 2K
 - cut-ruru: 2H 2P + 없는 2B
+(10/27 받아 넣음: rei_serious rei_surprised rei_crying taiga_sad kirishima_normal tendo 4장 kurogane_normal kurogane_sad asagiri_normal asagiri_sad)
 
 2차 — 없는 상반신(그림이 없으면 인물이 화면에 안 나옴):
 portrait-towa portrait-aoi portrait-yuki portrait-nagi portrait-yukin portrait-madoka portrait-tofu portrait-ren portrait-hayaka portrait-keiko portrait-okamoto portrait-murase portrait-nishimura portrait-tanabe
