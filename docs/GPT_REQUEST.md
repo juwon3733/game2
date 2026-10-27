@@ -7,7 +7,7 @@ AGENTS.md대로 이미지 만들어서 PR 올려줘. 작업 전에 최신 main�
 묶음마다 PR 하나(브랜치 assets/<묶음 id>), 아래 순서대로 진행해. 없는 그림이 먼저고, 이미 있는 그림 고치기는 맨 마지막이야.
 
 1차 — 없는 상반신(그림이 없으면 인물이 화면에 안 나옴):
-portrait-madoka portrait-tofu portrait-hayaka portrait-keiko portrait-okamoto portrait-murase portrait-nishimura portrait-tanabe
+(다 받음)
 
 2차 — 2장: bg(crescent_out crescent_stage booth greenroom backstage tendo_office), cut-aoi cut-kuramochi cut-kirishima cut-tendo, cut-ruru의 2B
 
@@ -30,7 +30,7 @@ portrait-madoka portrait-tofu portrait-hayaka portrait-keiko portrait-okamoto po
 - portrait-rei: rei_normal (serious·surprised·crying과 같은 그림: 보라색 X자 핀, 트렌치코트+후드, 크로스백)
 - cut-pink: G H I t_himari_2_truth t_himari_3_truth / cut-olive: E t_ookubo_2 t_ookubo_2_truth / cut-gold: t_taiga_2 t_taiga_3_truth / cut-pin: 2A 2K / cut-ruru: 2H 2P
 
-(10/27 받아 넣음: towa ren aoi yuki nagi shiori 상반신, cut-blue B C)
+(10/27 받아 넣음: towa ren aoi yuki nagi shiori madoka tofu hayaka keiko okamoto murase nishimura tanabe 상반신, cut-blue B C)
 
 컷은 회색 8단계 + 포인트 색 1개, must_show 단서는 크게. 같은 인물은 상반신 설정화와 같은 얼굴·옷으로.
 ```
