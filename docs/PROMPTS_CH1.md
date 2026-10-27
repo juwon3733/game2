@@ -1753,7 +1753,7 @@ High-quality, highly detailed pixel-art style illustration at the full 1536x1024
 
 Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
-Event illustration (CG) for a key story moment, horizontal 1536x1024, full color, same faces as the character portraits. Six years ago, at night, at the foot of a smoky library staircase lit by fire: a young police officer in his twenties with a kind face and a shining police badge hoists a 16-year-old with messy short black hair, an oversized hoodie and an ink stain on the right index finger, a half-conscious teenager, onto his back; his police badge glints. Behind them, up the stairs, a faint figure of a 16-year-old girl with long straight black hair, blunt bangs, a bookmark hairpin and an old navy sailor uniform watches.
+Event illustration (CG) for a key story moment, horizontal 1536x1024, full color, same faces as the character portraits. Six years ago, at night, at the foot of a smoky library staircase lit by fire: a young police officer in his twenties with a kind face and a shining police badge hoists a 16-year-old with messy short black hair, an oversized hoodie and an ink stain on the right index finger, a half-conscious teenager, onto his back; his police badge glints. Right beside them, a 16-year-old girl with long straight black hair, blunt bangs, a bookmark hairpin and an old navy sailor uniform lets go of Rei's arm and looks back up the smoky stairs.
 ```
 
 **`cg_margin.png`
@@ -2988,10 +2988,10 @@ Scene: First-person view in thick smoke on a library staircase, the view tilting
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 +  (#6b5fa8) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Very blurry first-person view of a teenager half-conscious at the foot of a smoky staircase: a girl's hand that held the viewer's arm over her shoulder slips away, and a young police officer's shoulder takes the viewer's weight (accent color on the girl's sleeve). No clock.
+Scene: Very blurry first-person view of a teenager half-conscious at the foot of a smoky staircase: a girl's hand that held the viewer's arm over her shoulder slips away, and a young police officer's broad back lifts the viewer up (accent color on the girl's sleeve). No clock.
 ```
 
-> 꼭 보여야 할 것: 흐린 시야, 부축하던 손이 떨어지고 순경의 어깨가 받침(포인트 색)
+> 꼭 보여야 할 것: 흐린 시야, 부축하던 손이 떨어지고 순경의 등이 받아 올림(포인트 색)
 
 **`R8.png`
 ```
@@ -3006,10 +3006,10 @@ Scene: Blurry first-person view of a teenager leaning with one arm over an adult
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 +  (#6b5fa8) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Night, a rusty wire fence on the tip of a cape: a right hand lays a bouquet of white chrysanthemums at the foot of the fence (accent color on the flowers); a dark ink stain on the right index finger is clearly visible. The same hand and fence repeated as six faint overlapping layers, only the flower colors differ; in the last layer the hand lifts a phone.
+Scene: Night, a rusty wire fence on the tip of a cape: a right hand lays a bouquet of white chrysanthemums at the foot of the fence (accent color on the flowers); a dark ink stain on the right index finger is clearly visible. The same hand and fence repeated as five faint overlapping layers, only the flower colors differ; in the last layer the hand lifts a phone.
 ```
 
-> 꼭 보여야 할 것: 국화를 내려놓는 오른손, 검지의 잉크 자국(크게), 여섯 겹
+> 꼭 보여야 할 것: 국화를 내려놓는 오른손, 검지의 잉크 자국(크게), 다섯 겹, 마지막에 휴대폰
 
 **`t_self_3.png`
 ```
@@ -3115,7 +3115,7 @@ Scene: At the foot of a library staircase in smoke: a young police officer who j
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 +  (#c84a6a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: First-person view from the foot of a smoky staircase, looking back up toward the upper floor; behind, through the open front door, the silhouette of a police officer running back in (accent color on the officer's cap). No clock.
+Scene: First-person view from the foot of a smoky staircase, looking up toward the upper floor and stepping onto the first stair; behind, through the open front door, the silhouette of a police officer running back in (accent color on the officer's cap). No clock.
 ```
 
 > 꼭 보여야 할 것: 계단을 다시 올려다봄, 뒤에서 뛰어 들어오는 순경(포인트 색)

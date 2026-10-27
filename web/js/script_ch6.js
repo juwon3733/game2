@@ -406,6 +406,7 @@ async function sceneEnding6() {
     await banner(end === 'margin' ? '여백 엔딩' : '진실 엔딩', end === 'margin' ? '「다음 칸」' : '「같은 하루」', 2600);
     if (end === 'truth') await say('tip', `여백 조건 ${marginCount()} / ${MARGIN_FLAGS.length}. 1~5장 끝의 감정 선택에서 말 대신 컷·물건을 건네는 [[세 번째 보기]]를 모두 고르면 다른 결말이 열린다.`);
   }
+  hideText();
   await banner('같은 하루, 다른 칸', '— 끝 —', 3000);
   await showRank('종장 「같은 하루」'); // 평가를 먼저, 크레딧으로 끝낸다
   await credits(G.flags.ending || 'truth');

@@ -16,7 +16,7 @@ function runTimeline(id) {
   clearChars();
 
   return new Promise(async (resolve) => {
-    const MSG0 = '묶음에서 컷을 누르고, 들어갈 칸을 누른다. 칸의 컷을 누르면 빠진다. 컷이 없는 시각은 비워 둔다.';
+    const MSG0 = P.msg0 || '묶음에서 컷을 누르고, 들어갈 칸을 누른다. 칸의 컷을 누르면 빠진다. 컷이 없는 시각은 비워 둔다.';
     let msg = MSG0;
     let done = false;
 
