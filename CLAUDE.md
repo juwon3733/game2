@@ -24,6 +24,7 @@
 | `tools/check-assets.mjs` | 이미지 파일명·형식·크기 검사 |
 | `tools/export-prompts.mjs` | 프롬프트 파일 재생성 (`--check`로 동기화 검사) |
 | `tools/smoke.mjs`, `tools/playthrough.mjs` | 모든 장면 오류 검사 / 장마다 정답으로 끝까지 풀어 보기(네임 단어가 그 장에서 다 모이는지까지). 둘 다 CI에서 돈다 |
+| `tools/spot-overlay.mjs` | 컷 그림 위에 짚을 곳(spots) 상자를 그려 좌표 확인 |
 | `tools/dither-cut.py` | GPT 컷을 게임 컷 규칙으로 변환(384×256, 회색 N단계 + 포인트 색, 순서 디더링, 4배). 1장 초기 컷과 맞출 땐 `--levels 4` |
 | `tools/compose/` | **배경음악·효과음 작곡** (numpy FM 신시사이저). `songs.py` 곡 악보, `sfx.py` 효과음, `python3 tools/compose/build.py [이름]` → `web/assets/audio/` |
 | `docs/` | 기획 문서 (01~10), `WORKFLOW.md`, **`17_season_plan.md` (지금 따르는 계획: 6장 전체를 그림까지 완성)**, `15_quality_plan_noart.md`(끝남), `GPT_REQUEST.md`(GPT에 보낼 그림 요청 글), `14_next_quality.md`(이전 계획), `12_story_plan.md`(전체 스토리), **`13_deduction_upgrade.md`(추리 보강: 단서 짚기·네임·시각표·겹쳐 보기·중간 지목)** |
