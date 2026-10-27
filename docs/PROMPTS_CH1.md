@@ -2686,7 +2686,7 @@ Scene: Before dawn in a tidy small apartment, the window still pitch dark: under
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + bright orange (#f2a14a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A library newspaper room: a 20-year-old rookie detective girl with an orange-brown side ponytail and a sky-blue scrunchie reads an old newspaper while two men in black stand right behind her. IMPORTANT: edited picture: the two men are pasted in, their screentone dots are clearly larger (bean-sized vs rice-sized on a 20-year-old rookie detective girl with an orange-brown side ponytail and a sky-blue scrunchie), with a faint seam around them.
+Scene: A library newspaper room: a 20-year-old rookie detective girl with long orange-brown hair in a high ponytail tied with a sky-blue scrunchie, a navy blazer and a light blue tie reads an old newspaper while two men in black stand right behind her. IMPORTANT: edited picture: the two men are pasted in, their screentone dots are clearly larger (bean-sized vs rice-sized on a 20-year-old rookie detective girl with long orange-brown hair in a high ponytail tied with a sky-blue scrunchie, a navy blazer and a light blue tie), with a faint seam around them.
 ```
 
 > 꼭 보여야 할 것: 편집: 남자 둘의 스크린톤 점이 코하루보다 굵음, 이음매
@@ -2695,7 +2695,7 @@ Scene: A library newspaper room: a 20-year-old rookie detective girl with an ora
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + bright orange (#f2a14a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A library newspaper room, wall clock 9:00: close view of an old newspaper about a lighthouse library fire (headline: one schoolgirl and one police officer dead, one high school student rescued) with a photo of a young police officer (accent color on the photo), held by a 20-year-old rookie detective girl with an orange-brown side ponytail and a sky-blue scrunchie's hands.
+Scene: A library newspaper room, wall clock 9:00: close view of an old newspaper about a lighthouse library fire (headline: one schoolgirl and one police officer dead, one high school student rescued) with a photo of a young police officer (accent color on the photo), held by a 20-year-old rookie detective girl with long orange-brown hair in a high ponytail tied with a sky-blue scrunchie, a navy blazer and a light blue tie's hands.
 ```
 
 > 꼭 보여야 할 것: 오래된 신문의 순경 사진(포인트 색), 벽시계 9:00
@@ -2704,7 +2704,7 @@ Scene: A library newspaper room, wall clock 9:00: close view of an old newspaper
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + bright orange (#f2a14a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A bus stop in front of a glass headquarters: several white-gloved hands drag a 20-year-old rookie detective girl with an orange-brown side ponytail and a sky-blue scrunchie into a white van. IMPORTANT: edited picture: the gloved hands have unnaturally smooth clean lines unlike the rest, with a visible seam where they were pasted.
+Scene: A bus stop in front of a glass headquarters: several white-gloved hands drag a 20-year-old rookie detective girl with long orange-brown hair in a high ponytail tied with a sky-blue scrunchie, a navy blazer and a light blue tie into a white van. IMPORTANT: edited picture: the gloved hands have unnaturally smooth clean lines unlike the rest, with a visible seam where they were pasted.
 ```
 
 > 꼭 보여야 할 것: 편집: 매끈한 흰 장갑 손들, 이음매
@@ -2713,7 +2713,7 @@ Scene: A bus stop in front of a glass headquarters: several white-gloved hands d
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + bright orange (#f2a14a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A bus stop in front of a glass headquarters: a 20-year-old rookie detective girl with an orange-brown side ponytail and a sky-blue scrunchie sits on the bench smiling while typing on her phone; the screen shows a short sent message (accent color). A small star-shaped charm hangs from the bag on her lap. No clock.
+Scene: A bus stop in front of a glass headquarters: a 20-year-old rookie detective girl with long orange-brown hair in a high ponytail tied with a sky-blue scrunchie, a navy blazer and a light blue tie sits on the bench smiling while typing on her phone; the screen shows a short sent message (accent color). A small star-shaped charm hangs from the bag on her lap. No clock.
 ```
 
 > 꼭 보여야 할 것: 웃으며 문자 보내는 코하루, 휴대폰 화면(포인트 색), 가방의 별 모양 참
@@ -2722,7 +2722,7 @@ Scene: A bus stop in front of a glass headquarters: a 20-year-old rookie detecti
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + bright orange (#f2a14a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Inside an abandoned warehouse: a 20-year-old rookie detective girl with an orange-brown side ponytail and a sky-blue scrunchie tied to a chair, stacked crates nearby. IMPORTANT: edited picture: there is only one ceiling lamp, yet each of the four chair legs casts two shadows (eight leg shadows in total, in two directions), while the crates cast only one shadow each.
+Scene: Inside an abandoned warehouse: a 20-year-old rookie detective girl with long orange-brown hair in a high ponytail tied with a sky-blue scrunchie, a navy blazer and a light blue tie tied to a chair, stacked crates nearby. IMPORTANT: edited picture: there is only one ceiling lamp, yet each of the four chair legs casts two shadows (eight leg shadows in total, in two directions), while the crates cast only one shadow each.
 ```
 
 > 꼭 보여야 할 것: 편집: 전등 하나인데 의자 다리 그림자가 여덟 개
@@ -2731,7 +2731,7 @@ Scene: Inside an abandoned warehouse: a 20-year-old rookie detective girl with a
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + bright orange (#f2a14a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Dusk at the harbor: first-person view walking alone toward an abandoned warehouse, the viewer's long shadow stretching ahead; at the half-open shutter, a woman with long silver-white hair, an eyepatch and a long white coat waits (accent color on her coat). Orange sky. No clock.
+Scene: Dusk at the harbor: first-person view walking alone toward an abandoned warehouse, the viewer's long shadow stretching ahead; at the half-open shutter, a woman with long silver-white hair, a black eyepatch, white gloves and a long white coat waits (accent color on her coat). Orange sky. No clock.
 ```
 
 > 꼭 보여야 할 것: 혼자 걸어가는 시점, 긴 그림자, 셔터 앞의 흰 코트(포인트 색)
@@ -2748,7 +2748,7 @@ Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game scr
 
 Palette: 8 grey levels from black to white, and one accent color slate blue (#5a7a9a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
-Scene: View from a guard booth window at noon: a woman with long silver-white hair, an eyepatch and a long white coat drags a girl by the arm. The gate pillar, the girl and her bag cast short shadows. IMPORTANT: edited picture: the white-coated figure has no shadow at all.
+Scene: View from a guard booth window at noon: a woman with long silver-white hair, a black eyepatch, white gloves and a long white coat drags a girl by the arm. The gate pillar, the girl and her bag cast short shadows. IMPORTANT: edited picture: the white-coated figure has no shadow at all.
 
 Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
@@ -2759,7 +2759,7 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + slate blue (#5a7a9a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: View from a guard booth window at noon: a 20-year-old rookie detective girl with an orange-brown side ponytail and a sky-blue scrunchie stands alone and asks for directions, pointing toward the harbor (accent color), phone in her other hand; the charm loop on her bag is empty. The guard's wristwatch shows 12:10.
+Scene: View from a guard booth window at noon: among office workers streaming out for lunch, a 20-year-old rookie detective girl with long orange-brown hair in a high ponytail tied with a sky-blue scrunchie, a navy blazer and a light blue tie stands alone (nobody holding her) and calmly asks for directions with a clear, untroubled face (accent color on her), phone in one hand; the guard's own hand at the edge of the window points toward the harbor; the charm loop on her bag is empty. The guard's wristwatch shows 12:10.
 ```
 
 > 꼭 보여야 할 것: 혼자 길을 묻는 아가씨(포인트 색), 빈 가방 고리, 손목시계 12:10
@@ -2794,7 +2794,7 @@ Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game scr
 
 Palette: 8 grey levels from black to white, and one accent color ice blue (#6ac0d0). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
-Scene: Inside an abandoned warehouse: an old table with two teacups, one empty; across the table, a 20-year-old rookie detective girl with an orange-brown side ponytail and a sky-blue scrunchie holds out a scorched police badge with both hands, asking earnestly (accent color on the teacups). Purple evening sky through a gap in the shutter.
+Scene: Inside an abandoned warehouse: an old table with two teacups, one empty; across the table, a 20-year-old rookie detective girl with long orange-brown hair in a high ponytail tied with a sky-blue scrunchie, a navy blazer and a light blue tie holds out a scorched police badge with both hands, asking earnestly (accent color on the teacups). Purple evening sky through a gap in the shutter.
 
 Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
@@ -2814,7 +2814,7 @@ Scene: Outside a burning lighthouse library on a lawn at night: first-person vie
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + ice blue (#6ac0d0) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: a woman with long silver-white hair, an eyepatch and a long white coat pulls a 20-year-old rookie detective girl with an orange-brown side ponytail and a sky-blue scrunchie by the wrist into a warehouse through a half-open shutter, one ceiling lamp inside. The area around the wrist has noticeably thicker lines than the rest (a pasted seam).
+Scene: a woman with long silver-white hair, a black eyepatch, white gloves and a long white coat pulls a 20-year-old rookie detective girl with long orange-brown hair in a high ponytail tied with a sky-blue scrunchie, a navy blazer and a light blue tie by the wrist into a warehouse through a half-open shutter, one ceiling lamp inside. The area around the wrist has noticeably thicker lines than the rest (a pasted seam).
 ```
 
 > 꼭 보여야 할 것: 편집: 손목 둘레만 굵은 선
@@ -2823,7 +2823,7 @@ Scene: a woman with long silver-white hair, an eyepatch and a long white coat pu
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + ice blue (#6ac0d0) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: An afternoon breakwater: a woman with long silver-white hair, an eyepatch and a long white coat and a 20-year-old rookie detective girl with an orange-brown side ponytail and a sky-blue scrunchie sit side by side on tetrapods; a scorched police badge on a 20-year-old rookie detective girl with an orange-brown side ponytail and a sky-blue scrunchie's lap, seagulls, a low sun.
+Scene: An afternoon breakwater: a woman with long silver-white hair, a black eyepatch, white gloves and a long white coat and a 20-year-old rookie detective girl with long orange-brown hair in a high ponytail tied with a sky-blue scrunchie, a navy blazer and a light blue tie sit side by side on tetrapods; a scorched police badge on a 20-year-old rookie detective girl with long orange-brown hair in a high ponytail tied with a sky-blue scrunchie, a navy blazer and a light blue tie's lap, seagulls, a low sun.
 ```
 
 > 꼭 보여야 할 것: 방파제에 나란히 앉은 렌과 코하루, 무릎의 배지 (사실 증언)
@@ -2841,7 +2841,7 @@ Scene: A 16-year-old high school student sick in bed with fever; medicine packet
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + ice blue (#6ac0d0) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: a 20-year-old rookie detective girl with an orange-brown side ponytail and a sky-blue scrunchie behind iron bars inside a warehouse, gripping the bars; a padlock on the bar door, one ceiling lamp. The bars stand upright but their shadows on the floor are skewed in a wrong direction.
+Scene: a 20-year-old rookie detective girl with long orange-brown hair in a high ponytail tied with a sky-blue scrunchie, a navy blazer and a light blue tie behind iron bars inside a warehouse, gripping the bars; a padlock on the bar door, one ceiling lamp. The single lamp hangs straight above the bars, so their shadows should fall short and straight down, but the bar shadows on the floor stretch long and slanted to one side (a pasted seam).
 ```
 
 > 꼭 보여야 할 것: 편집: 창살 그림자가 어긋남

@@ -27,8 +27,8 @@ Object.assign(BG_PROMPTS, {
 });
 
 Object.assign(CUT_CHARS, {
-  koharu: 'a 20-year-old rookie detective girl with an orange-brown side ponytail and a sky-blue scrunchie',
-  ren: 'a woman with long silver-white hair, an eyepatch and a long white coat',
+  koharu: 'a 20-year-old rookie detective girl with long orange-brown hair in a high ponytail tied with a sky-blue scrunchie, a navy blazer and a light blue tie',
+  ren: 'a woman with long silver-white hair, a black eyepatch, white gloves and a long white coat',
   sota: 'a young police officer in uniform',
   child_rei: 'a 16-year-old high school student (a teenager, not a small child) with messy short black hair, a school uniform with an oversized hoodie over it, and an ink stain on the right index finger',
 });
@@ -41,7 +41,7 @@ Object.assign(CUT_PROMPTS, {
   '5Ce': ['A bus stop in front of a glass headquarters: several white-gloved hands drag {koharu} into a white van. IMPORTANT: edited picture: the gloved hands have unnaturally smooth clean lines unlike the rest, with a visible seam where they were pasted.', '편집: 매끈한 흰 장갑 손들, 이음매'],
   '5C': ['A bus stop in front of a glass headquarters: {koharu} sits on the bench smiling while typing on her phone; the screen shows a short sent message (accent color). A small star-shaped charm hangs from the bag on her lap. No clock.', '웃으며 문자 보내는 코하루, 휴대폰 화면(포인트 색), 가방의 별 모양 참'],
   '5Ee': ['View from a guard booth window at noon: {ren} drags a girl by the arm. The gate pillar, the girl and her bag cast short shadows. IMPORTANT: edited picture: the white-coated figure has no shadow at all.', '편집: 흰 코트만 그림자가 없음'],
-  '5E': ['View from a guard booth window at noon: {koharu} stands alone and asks for directions, pointing toward the harbor (accent color), phone in her other hand; the charm loop on her bag is empty. The guard\'s wristwatch shows 12:10.', '혼자 길을 묻는 아가씨(포인트 색), 빈 가방 고리, 손목시계 12:10'],
+  '5E': ['View from a guard booth window at noon: among office workers streaming out for lunch, {koharu} stands alone (nobody holding her) and calmly asks for directions with a clear, untroubled face (accent color on her), phone in one hand; the guard\'s own hand at the edge of the window points toward the harbor; the charm loop on her bag is empty. The guard\'s wristwatch shows 12:10.', '혼자 길을 묻는 아가씨(포인트 색), 빈 가방 고리, 손목시계 12:10'],
   '5De': ['Inside an abandoned warehouse: {koharu} tied to a chair, stacked crates nearby. IMPORTANT: edited picture: there is only one ceiling lamp, yet each of the four chair legs casts two shadows (eight leg shadows in total, in two directions), while the crates cast only one shadow each.', '편집: 전등 하나인데 의자 다리 그림자가 여덟 개'],
   '5D': ['Dusk at the harbor: first-person view walking alone toward an abandoned warehouse, the viewer\'s long shadow stretching ahead; at the half-open shutter, {ren} waits (accent color on her coat). Orange sky. No clock.', '혼자 걸어가는 시점, 긴 그림자, 셔터 앞의 흰 코트(포인트 색)'],
   '5F': ['Inside an abandoned warehouse: an old table with two teacups, one empty; across the table, {koharu} holds out a scorched police badge with both hands, asking earnestly (accent color on the teacups). Purple evening sky through a gap in the shutter.', '찻잔 둘, 하나는 빔(포인트 색), 배지를 내미는 코하루, 보랏빛 하늘'],
@@ -53,7 +53,7 @@ Object.assign(CUT_PROMPTS, {
   '6Y6': ['Outside a burning lighthouse library on a lawn at night: first-person view with one hand covering one eye; flames have swallowed every upper floor window (accent color on the flames); fire engine lights spill across the grass.', '한쪽 눈을 가린 손, 위층을 모두 삼킨 불길(포인트 색), 경광등 불빛'],
   t_tanabe_2: ['A girl crying on a bus stop bench, hugging her bag; a bus timetable beside the bench, a drink can rolled near her feet. Her face area is unnaturally smooth like a different drawing pasted in.', '편집: 매끈하게 붙인 우는 얼굴'],
   t_ren_1: ['{ren} pulls {koharu} by the wrist into a warehouse through a half-open shutter, one ceiling lamp inside. The area around the wrist has noticeably thicker lines than the rest (a pasted seam).', '편집: 손목 둘레만 굵은 선'],
-  t_ren_1b: ['{koharu} behind iron bars inside a warehouse, gripping the bars; a padlock on the bar door, one ceiling lamp. The bars stand upright but their shadows on the floor are skewed in a wrong direction.', '편집: 창살 그림자가 어긋남'],
+  t_ren_1b: ['{koharu} behind iron bars inside a warehouse, gripping the bars; a padlock on the bar door, one ceiling lamp. The single lamp hangs straight above the bars, so their shadows should fall short and straight down, but the bar shadows on the floor stretch long and slanted to one side (a pasted seam).', '편집: 창살 그림자가 어긋남'],
   t_ren_2: ['A 16-year-old high school student sick in bed with fever; medicine packets and a glass of water by the pillow, a school uniform hanging on the wall; a wall calendar where the date square has a different paper texture, as if a different date was pasted over it.', '편집: 달력 날짜 칸만 질감이 다름'],
   t_ren_2b: ['A 16-year-old in a school uniform running alone between burning bookshelves, back view.', '편집: 불타는 서가 사이로 달아나는 고등학생'],
   t_tanabe_0: ['View from a guard booth window at noon: office workers with ID lanyards stream out of the headquarters gate for lunch; the guard\'s wristwatch lies on the window frame.', '점심시간 정문 앞, 창틀의 손목시계 (사실 증언)'],

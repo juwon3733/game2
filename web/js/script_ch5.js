@@ -183,7 +183,7 @@ async function sceneAccuse5() {
   clearChars();
   hideText();
   const r = await runName({
-    title: '중간 보고 — 코하루를 데려간 사람', sub: '틀린 채로 보고하면 그 이름이 경찰에 퍼진다.',
+    title: '중간 보고 — 코하루는 왜 폐창고에 있었나', sub: '틀린 채로 보고하면 그 이름이 경찰에 퍼진다.',
     parts: NAME5_MID, threshold: 2, report: true, reportLabel: '이대로 보고한다',
   });
   const who = r.picks[1];
