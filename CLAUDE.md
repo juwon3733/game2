@@ -2,7 +2,7 @@
 
 애니풍 도트 스토리 + 퍼즐 + 추리/심문 게임 「같은 하루, 다른 칸」. 1장 웹 버전이 `web/`에 있고 GitHub Pages로 배포된다.
 
-- 게임: https://juwon3733.github.io/game2/
+- 게임: https://juwon3733.github.io/game2/ (Cloudflare Pages에도 같은 `web/`을 배포, `docs/DEPLOY.md`)
 - 에셋 현황: https://juwon3733.github.io/game2/assets.html
 
 ## 사용자
