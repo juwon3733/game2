@@ -5,6 +5,7 @@
 ```
 AGENTS.md대로 이미지 만들어서 PR 올려줘. 작업 전에 최신 main의 web/assets/prompts.json을 다시 읽어.
 묶음마다 PR 하나(브랜치 assets/<묶음 id>), 아래 순서대로 진행해. 없는 그림이 먼저고, 이미 있는 그림 고치기는 맨 마지막이야.
+**인물이 나오는 그림은 prompts.json의 `reference_images`(상반신 PNG)를 꼭 이미지로 첨부해서 같은 사람·나이에 맞는 비율로 그려(AGENTS.md 2장).**
 **멈추지 말고 끝까지 계속해.** 묶음 하나를 PR로 올리면 확인을 기다리지 말고 바로 다음 묶음으로 넘어가. 중간 보고도 필요 없어.
 - 시작할 때마다 최신 main을 받아서, 이미 main에 들어간 그림은 건너뛰어(web/assets에 같은 파일이 있으면 받은 것).
 - 대화가 끊기거나 새로 시작하면 이 글을 다시 읽고 남은 차례부터 이어서 해.
@@ -14,7 +15,7 @@ AGENTS.md대로 이미지 만들어서 PR 올려줘. 작업 전에 최신 main�
 0차 — 먼저! 이미 있는데 틀린 그림 다시 받기(공개판이 1장이라 1장부터. 지금 그림이 정답·글과 반대인 것들):
 - cut-pink: I t_himari_1_truth (I: 10/27 새 그림도 뺐음. 유리문 안 피아노 앞에 사람 그림자가 그대로 있고(미츠루는 베란다에 있어야 함), 미츠루가 난간 바깥에 있고, 주먹 속 머리핀이 안 보임. 방은 비우고, 미츠루는 난간 안쪽 바닥에 서서 상체만 내밀고, 분홍 머리핀을 주먹에 크게)
 - cut-blue: C (머리핀이 거의 안 보임. 웅크려 바깥 턱의 핀으로 손 뻗기)
-- cut-olive: E t_ookubo_2 t_ookubo_2_truth / cut-gold: t_taiga_2 t_taiga_3_truth (t_taiga_3_truth는 앉아 있음 → 뛰어 내려가며)
+- cut-gold: t_taiga_2 t_taiga_3_truth (t_taiga_2는 검은 짧은 머리 다른 남자라 게임에서 뺐음 → taiga_angry.png를 첨부해 같은 사람으로. t_taiga_3_truth는 앉아 있음 → 뛰어 내려가며)
 - portrait-rei: rei_normal (X자 핀으로, 다른 표정과 같은 그림)
 - portrait-yuki: yuki_normal (연필을 오른손에 쥠 → 왼손잡이라 왼손)
 - portrait-asagiri: asagiri_cold (웃지 말고 차갑게, 커피잔 없이)

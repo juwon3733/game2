@@ -17,7 +17,7 @@ const PROMPT_STYLE = {
   // 캐릭터(설정화·상반신)만 모바일 가챠게임풍 서브컬처 디자인. 배경과 컷 분위기는 그대로 둔다.
   character: 'Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.',
   // 컷 속 인물도 상반신과 같은 얼굴로 보이게
-  cutFaces: 'Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits.',
+  cutFaces: 'Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children.',
 };
 
 const SPEC = {
@@ -81,7 +81,7 @@ const BG_PROMPTS = {
 
 // 여러 컷에 나오는 인물은 같은 외형 문장으로 그려야 컷끼리 같은 사람으로 보인다.
 const CUT_CHARS = {
-  taiga: 'a young delivery worker with spiky bleached blond hair (taiga-accent) under a backwards black cap, a small earring and a black uniform with reflective stripes',
+  taiga: 'the SAME young man as his character portrait: a 21-year-old delivery worker with spiky bleached blond hair (taiga-accent; in panels whose accent color is not gold, draw the hair as very light grey, never dark) under a backwards black cap with a small star, a small silver ring earring, a black hooded delivery jacket with reflective stripes and a small cat patch on the sleeve, black wristbands, rolled sleeves',
   mitsuru: 'a gentle man in his early 30s with glasses and a light shirt',
   himari: 'a 9-year-old girl with brown twin tails tied with pink ribbons, a pink t-shirt with a piano-key pattern, a denim overall skirt (suspender skirt) and white sneakers (never barefoot, never a floral dress)',
   ookubo: 'a chubby old security guard with a grey mustache in an olive uniform and cap',

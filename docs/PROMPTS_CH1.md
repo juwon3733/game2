@@ -1328,10 +1328,12 @@ Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game scr
 
 Palette: 8 grey levels from black to white, and one accent color gold (#c9961a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
-Scene: a young delivery worker with spiky bleached blond hair (accent color) under a backwards black cap, a small earring and a black uniform with reflective stripes holding a cardboard box under his arm, pressing the doorbell of an apartment front door at night. Big music notes drifting out through the door gap.
+Scene: the SAME young man as his character portrait: a 21-year-old delivery worker with spiky bleached blond hair (taiga-accent; in panels whose accent color is not gold, draw the hair as very light grey, never dark) under a backwards black cap with a small star, a small silver ring earring, a black hooded delivery jacket with reflective stripes and a small cat patch on the sleeve, black wristbands, rolled sleeves holding a cardboard box under his arm, pressing the doorbell of an apartment front door at night. Big music notes drifting out through the door gap.
 
-Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/taiga_angry.png
 
 > 꼭 보여야 할 것: 옆구리에 낀 상자, 문틈의 음표(♪)
 
@@ -1339,8 +1341,10 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + gold (#c9961a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: a young delivery worker with spiky bleached blond hair (accent color) under a backwards black cap, a small earring and a black uniform with reflective stripes, startled at an apartment front door at night, turning back toward something off-panel. His cardboard box has just dropped to the floor at his feet. Simple speed lines from the side.
+Scene: the SAME young man as his character portrait: a 21-year-old delivery worker with spiky bleached blond hair (taiga-accent; in panels whose accent color is not gold, draw the hair as very light grey, never dark) under a backwards black cap with a small star, a small silver ring earring, a black hooded delivery jacket with reflective stripes and a small cat patch on the sleeve, black wristbands, rolled sleeves, startled at an apartment front door at night, turning back toward something off-panel. His cardboard box has just dropped to the floor at his feet. Simple speed lines from the side.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/taiga_angry.png
 
 > 꼭 보여야 할 것: 바닥에 떨어진 상자, 놀란 얼굴
 
@@ -1366,8 +1370,10 @@ Scene: First-person view of a hand pressing an apartment doorbell at night, musi
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + gold (#c9961a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: An exaggerated memory of a SOUND, not an explosion: a young delivery worker with spiky bleached blond hair (accent color) under a backwards black cap, a small earring and a black uniform with reflective stripes in a 5th-floor apartment corridor at night covers his ears with both hands, drawn small, while the whole panel vibrates with huge concentric sound-wave rings and giant jagged empty sound-effect balloon shapes (no letters) coming from beyond the balcony. No fire, no smoke, no debris, no rocks, no blast, no flash.
+Scene: An exaggerated memory of a SOUND, not an explosion: the SAME young man as his character portrait: a 21-year-old delivery worker with spiky bleached blond hair (taiga-accent; in panels whose accent color is not gold, draw the hair as very light grey, never dark) under a backwards black cap with a small star, a small silver ring earring, a black hooded delivery jacket with reflective stripes and a small cat patch on the sleeve, black wristbands, rolled sleeves in a 5th-floor apartment corridor at night covers his ears with both hands, drawn small, while the whole panel vibrates with huge concentric sound-wave rings and giant jagged empty sound-effect balloon shapes (no letters) coming from beyond the balcony. No fire, no smoke, no debris, no rocks, no blast, no flash.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/taiga_angry.png
 
 > 꼭 보여야 할 것: 과장: 거대한 소리(음파·효과음 모양). 폭발·불·파편 없음
 
@@ -1375,8 +1381,10 @@ Scene: An exaggerated memory of a SOUND, not an explosion: a young delivery work
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + gold (#c9961a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: At night, back view of a young delivery worker with spiky bleached blond hair (accent color) under a backwards black cap, a small earring and a black uniform with reflective stripes going down stairs; IMPORTANT: his head and both hands are left as large completely blank white areas with no lines at all, as if cut out of the picture.
+Scene: At night, back view of the SAME young man as his character portrait: a 21-year-old delivery worker with spiky bleached blond hair (taiga-accent; in panels whose accent color is not gold, draw the hair as very light grey, never dark) under a backwards black cap with a small star, a small silver ring earring, a black hooded delivery jacket with reflective stripes and a small cat patch on the sleeve, black wristbands, rolled sleeves going down stairs; IMPORTANT: his head and both hands are left as large completely blank white areas with no lines at all, as if cut out of the picture.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/taiga_angry.png
 
 > 꼭 보여야 할 것: 생략: 하얀 여백
 
@@ -1384,8 +1392,10 @@ Scene: At night, back view of a young delivery worker with spiky bleached blond 
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + gold (#c9961a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: At night, running down a dim stairwell two steps at a time: a young delivery worker with spiky bleached blond hair (accent color) under a backwards black cap, a small earring and a black uniform with reflective stripes glances down at the dead smartphone in his own hand, biting his lip; seen from over his shoulder, the black screen shows one big empty battery icon, clearly readable. He is NOT showing the phone to anyone.
+Scene: At night, running down a dim stairwell two steps at a time: the SAME young man as his character portrait: a 21-year-old delivery worker with spiky bleached blond hair (taiga-accent; in panels whose accent color is not gold, draw the hair as very light grey, never dark) under a backwards black cap with a small star, a small silver ring earring, a black hooded delivery jacket with reflective stripes and a small cat patch on the sleeve, black wristbands, rolled sleeves glances down at the dead smartphone in his own hand, biting his lip; seen from over his shoulder, the black screen shows one big empty battery icon, clearly readable. He is NOT showing the phone to anyone.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/taiga_angry.png
 
 > 꼭 보여야 할 것: (진실) 꺼진 휴대폰의 큰 빈 배터리 아이콘
 
@@ -1403,7 +1413,7 @@ Palette: 8 grey levels from black to white, and one accent color blue (#3b8fd0).
 
 Scene: a gentle man in his early 30s with glasses and a light shirt in a cozy living room at night, sitting on the bench of a black upright piano with the lid open and sheet music on the stand, but he has STOPPED playing (NOT playing, no fingers on the keys): both hands are off the keys, resting on his knees, and his whole upper body is twisted around to look back at the curtained glass door to the balcony. On the thin curtain, cast from HIS OWN balcony just outside the glass (not the neighbor's), the small shadow of a child climbing up near the railing beside the white emergency partition.
 
-Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 꼭 보여야 할 것: 건반에서 뗀 손(무릎 위), 돌아보는 몸, 업라이트 피아노, 바로 바깥 자기 집 베란다의 작은 그림자(커튼에 비침)
@@ -1431,8 +1441,10 @@ Palette: 8 grey levels from black to white, and one accent color pink (#e0679a).
 
 Scene: On her own 5th-floor apartment balcony at night, high above the ground; far below, the harbor town lights. a 9-year-old girl with brown twin tails tied with pink ribbons, a pink t-shirt with a piano-key pattern, a denim overall skirt (suspender skirt) and white sneakers (never barefoot, never a floral dress) stands on the balcony floor and reaches out with a startled face as a music-note hairpin (accent color) slips out of her hair and flies in the wind toward the white emergency partition board at the side of the balcony. The hairpin flies sideways toward the partition and the neighbor's balcony, low over the railing (NOT up into the sky).
 
-Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/himari_normal.png
 
 > 꼭 보여야 할 것: 날아가는 음표 머리핀(포인트 색), 바닥에 선 아이(멜빵 치마·운동화), 칸막이 쪽, 아래 항구 불빛
 
@@ -1443,6 +1455,8 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 Scene: NOT a ground-floor garden: this is a narrow concrete balcony on the 5th floor, high above the ground at night; far below, the harbor town lights and the dark sea make the height obvious. At the end of the balcony right beside the white emergency partition board, a 9-year-old girl with brown twin tails tied with pink ribbons, a pink t-shirt with a piano-key pattern, a denim overall skirt (suspender skirt) and white sneakers (never barefoot, never a floral dress) has used a flowerpot as a step and climbed up onto the top of the railing, crouching there and stretching one arm down toward the narrow outer ledge just outside the railing, where her music-note hairpin lies, drawn large and clearly in the accent color. Her own hair has NO hairpin. Behind her, the balcony glass door is closed; on its lit curtain, the silhouette of a man sitting at a piano. Nobody else on the balcony. This is the SAME balcony as in the earlier panel where the piano teacher reaches out: the piano teacher's own 5th-floor balcony (the child crawled over from next door through the gap under the white emergency partition board), with his lit glass door and curtain, an air-conditioner unit, and the white partition board at the far end.
 ```
 
+> 기준 이미지로 붙일 것: web/assets/portraits/himari_normal.png
+
 > 꼭 보여야 할 것: 화분을 디딤돌로 난간 위에 올라선 아이(멜빵 치마·운동화), 난간 바로 바깥 턱의 큰 머리핀(포인트 색, 머리엔 핀 없음), 칸막이, 닫힌 유리문 커튼의 피아노 앞 그림자, 아래 항구 야경(높이)
 
 **`I.png`
@@ -1451,6 +1465,8 @@ Scene: NOT a ground-floor garden: this is a narrow concrete balcony on the 5th f
 
 Scene: NOT a ground-floor garden: seen from the side on a narrow 5th-floor apartment balcony high above the ground at night; far below, the harbor town lights and the dark sea make the height obvious. Beside the white emergency partition board, an adult's arm (light shirt sleeve) hooks a 9-year-old girl with brown twin tails tied with pink ribbons, a pink t-shirt with a piano-key pattern, a denim overall skirt (suspender skirt) and white sneakers (never barefoot, never a floral dress) and pulls her back down from the railing onto the balcony floor; she clutches her music-note hairpin in her fist, drawn clearly in the accent color (her hair has no hairpin). The adult, on the same balcony, has leaned so far out over the railing that his upper body tilts dangerously outward. This is the SAME balcony as in the earlier panel where the piano teacher reaches out: the piano teacher's own 5th-floor balcony (the child crawled over from next door through the gap under the white emergency partition board), with his lit glass door and curtain, an air-conditioner unit, and the white partition board at the far end. The room behind the glass door is EMPTY: no one at the piano and no silhouette on the curtain (the teacher is the one on the balcony now). The teacher stands on the balcony floor INSIDE the railing, only his upper body bent far out over it. The pink music-note hairpin is clearly visible gripped in the child's fist.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/himari_normal.png
 
 > 꼭 보여야 할 것: 주먹에 쥔 머리핀(포인트 색), 아이를 끌어당기는 어른 팔, 바깥으로 기우는 어른, 칸막이, 아래 항구 야경(높이)
 
@@ -1461,6 +1477,8 @@ Scene: NOT a ground-floor garden: seen from the side on a narrow 5th-floor apart
 Scene: At night in her room on the 5th floor: a 9-year-old girl with brown twin tails tied with pink ribbons, a pink t-shirt with a piano-key pattern, a denim overall skirt (suspender skirt) and white sneakers (never barefoot, never a floral dress) at her desk, looking out the window instead of at her homework; through the window, far below, the harbor town lights (high up, NO streetlamp or garden at eye level).
 ```
 
+> 기준 이미지로 붙일 것: web/assets/portraits/himari_normal.png
+
 > 꼭 보여야 할 것: (진실) 창밖을 보는 아이
 
 **`t_himari_2_truth.png`
@@ -1470,6 +1488,8 @@ Scene: At night in her room on the 5th floor: a 9-year-old girl with brown twin 
 Scene: From inside the room through the open glass door, on a 5th-floor apartment balcony high above the ground at night; far below, the harbor town lights and the dark sea make the height obvious: a 9-year-old girl with brown twin tails tied with pink ribbons, a pink t-shirt with a piano-key pattern, a denim overall skirt (suspender skirt) and white sneakers (never barefoot, never a floral dress) stands at her own balcony railing right beside the white emergency partition board and stares past the partition at her music-note hairpin lying on the narrow outer ledge of the NEIGHBOR's balcony, drawn large in the accent color. Her own hair has no hairpin.
 ```
 
+> 기준 이미지로 붙일 것: web/assets/portraits/himari_normal.png
+
 > 꼭 보여야 할 것: (진실) 칸막이 너머 옆집 난간 바깥 턱의 큰 머리핀(포인트 색), 칸막이, 항구 야경(높이)
 
 **`t_himari_3_truth.png`
@@ -1478,6 +1498,8 @@ Scene: From inside the room through the open glass door, on a 5th-floor apartmen
 
 Scene: a 9-year-old girl with brown twin tails tied with pink ribbons, a pink t-shirt with a piano-key pattern, a denim overall skirt (suspender skirt) and white sneakers (never barefoot, never a floral dress) crying under a blanket at night, eyes open and full of tears, sobbing, holding her music-note hairpin tightly against her chest, the pink hairpin clearly visible between her fingers. NOT asleep.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/himari_normal.png
 
 > 꼭 보여야 할 것: (진실) 머리핀을 쥔 손
 
@@ -1495,7 +1517,7 @@ Palette: exception for this panel — it is a child's crayon memory, so use a fe
 
 Scene: An old small apartment kitchen twelve years ago: a child's crayon drawing of three people stuck on a fridge (accent color on the drawing); through the window, a hillside cut by construction cranes and a glow of fire.
 
-Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 꼭 보여야 할 것: 냉장고의 크레용 그림(포인트 색), 창밖 크레인과 불빛
@@ -1539,10 +1561,12 @@ Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game scr
 
 Palette: 8 grey levels from black to white, and one accent color olive green (#6b8a5a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
-Scene: At night: a young delivery worker with spiky bleached blond hair (light grey) under a backwards black cap, a small earring and a black uniform with reflective stripes bursting out of a stairwell into the dim entrance hall, shouting with a terrified face, both hands empty. Through the glass entrance door, a pitch-dark night street; no daylight anywhere. Leave empty space at the top center for a speech bubble.
+Scene: At night: the SAME young man as his character portrait: a 21-year-old delivery worker with spiky bleached blond hair (taiga-accent; in panels whose accent color is not gold, draw the hair as very light grey, never dark) under a backwards black cap with a small star, a small silver ring earring, a black hooded delivery jacket with reflective stripes and a small cat patch on the sleeve, black wristbands, rolled sleeves bursting out of a stairwell into the dim entrance hall, shouting with a terrified face, both hands empty. Through the glass entrance door, a pitch-dark night street; no daylight anywhere. Leave empty space at the top center for a speech bubble.
 
-Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/taiga_angry.png
 
 > 꼭 보여야 할 것: 빈 손, 외치는 입, 위쪽 가운데 빈 공간
 
@@ -1553,14 +1577,18 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 Scene: a chubby old security guard with a grey mustache in an olive uniform and cap proudly writing in a logbook at his desk, absurd sparkles and flowers around him (an exaggerated, self-flattering memory).
 ```
 
+> 기준 이미지로 붙일 것: web/assets/portraits/ookubo_normal.png
+
 > 꼭 보여야 할 것: 미화: 반짝이, 꽃
 
 **`t_ookubo_2.png`
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + olive green (#6b8a5a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: At night: a young delivery worker with spiky bleached blond hair (light grey) under a backwards black cap, a small earring and a black uniform with reflective stripes running out of a stairwell, same outfit and delivery backpack as always, but his face is scribbled over with a crude horned monster doodle like a child's pen scribble (a prejudiced memory). He is not wearing a guard uniform. Through the glass entrance door, a pitch-dark night street lit only by a single streetlamp; no daylight, no white sky, no utility poles.
+Scene: At night: the SAME young man as his character portrait: a 21-year-old delivery worker with spiky bleached blond hair (taiga-accent; in panels whose accent color is not gold, draw the hair as very light grey, never dark) under a backwards black cap with a small star, a small silver ring earring, a black hooded delivery jacket with reflective stripes and a small cat patch on the sleeve, black wristbands, rolled sleeves running out of a stairwell, same outfit and delivery backpack as always, but his face is scribbled over with a crude horned monster doodle like a child's pen scribble (a prejudiced memory). He is not wearing a guard uniform. Through the glass entrance door, a pitch-dark night street lit only by a single streetlamp; no daylight, no white sky, no utility poles.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/taiga_angry.png
 
 > 꼭 보여야 할 것: 낙서: 얼굴이 괴물 낙서, 밤
 
@@ -1568,8 +1596,10 @@ Scene: At night: a young delivery worker with spiky bleached blond hair (light g
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + olive green (#6b8a5a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: At night: a young delivery worker with spiky bleached blond hair (light grey) under a backwards black cap, a small earring and a black uniform with reflective stripes running out of a stairwell, face clearly visible, scared and about to cry, shouting. Through the glass entrance door, a pitch-dark night street lit by one streetlamp; no daylight.
+Scene: At night: the SAME young man as his character portrait: a 21-year-old delivery worker with spiky bleached blond hair (taiga-accent; in panels whose accent color is not gold, draw the hair as very light grey, never dark) under a backwards black cap with a small star, a small silver ring earring, a black hooded delivery jacket with reflective stripes and a small cat patch on the sleeve, black wristbands, rolled sleeves running out of a stairwell, face clearly visible, scared and about to cry, shouting. Through the glass entrance door, a pitch-dark night street lit by one streetlamp; no daylight.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/taiga_angry.png
 
 > 꼭 보여야 할 것: (진실) 겁먹은 얼굴
 
@@ -1807,8 +1837,10 @@ Palette: 8 grey levels from black to white, and one accent color lavender purple
 
 Scene: First song of a live show in a small basement live house (about 150 capacity, low black ceiling close above the lights, a low stage only knee-high — not a big concert hall), seen from the bassist's position at stage left: the back of a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker wearing a white oversized stage jacket (accent color) at the center microphone, a modest crowd of silhouetted heads beyond her with gaps between them, the back wall and the lighting booth window close behind them. Star shapes projected on the stage floor. Above: a lighting rig (a metal truss with four stage lights and one pattern projector) hanging above the center of the stage, next to a metal catwalk railing about one meter away; the gap between the rig and the catwalk railing is clearly empty, nothing tied there.
 
-Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/ruru_normal.png
 
 > 꼭 보여야 할 것: 작은 지하 공연장(낮은 천장, 듬성듬성한 관객), 흰 재킷(포인트 색), 바닥의 별 무늬, 리그와 난간 사이가 비어 있음
 
@@ -1819,6 +1851,8 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 Scene: A cramped dressing room: an 18-year-old girl bassist with long silver-white hair with pink tips, a black beret with white flowers and a long black coat with wide sleeves hugging a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker, who is crying, in the lower left. In the upper right, a wall monitor drawn large (about a third of the panel): it shows the stage covered in haze with blue standby light, and on the catwalk a dark human silhouette bent over the lighting rig with both hands at the railing. At the silhouette's left wrist, a big bright square glint with a four-point sparkle (accent color — the only colored thing in the panel), clearly readable even at small size.
 ```
 
+> 기준 이미지로 붙일 것: web/assets/portraits/pin_normal.png, web/assets/portraits/ruru_normal.png
+
 > 꼭 보여야 할 것: 크게 그린 벽 모니터, 헤이즈와 캣워크 위 그림자, 손목의 큰 사각 반짝임(포인트 색, 작게 봐도 보이게)
 
 **`t_pin_1.png`
@@ -1827,6 +1861,8 @@ Scene: A cramped dressing room: an 18-year-old girl bassist with long silver-whi
 
 Scene: A sparkling, flattering memory: a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker shining with glitter and flowers, looking cool and noble; the man she argues with is only a blurry grey silhouette.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/ruru_normal.png
 
 > 꼭 보여야 할 것: 미화: 반짝이, 흐린 상대
 
@@ -1837,6 +1873,8 @@ Scene: A sparkling, flattering memory: a 19-year-old girl vocalist with the same
 Scene: A sparkling memory: an 18-year-old girl bassist with long silver-white hair with pink tips, a black beret with white flowers and a long black coat with wide sleeves and a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker sitting side by side in front of a dressing room mirror, smiling, everything covered in glitter and hearts.
 ```
 
+> 기준 이미지로 붙일 것: web/assets/portraits/pin_normal.png, web/assets/portraits/ruru_normal.png
+
 > 꼭 보여야 할 것: 미화: 거울 앞 두 사람
 
 **`t_pin_3.png`
@@ -1845,6 +1883,8 @@ Scene: A sparkling memory: an 18-year-old girl bassist with long silver-white ha
 
 Scene: A sparkling memory: a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker doing an 18-year-old girl bassist with long silver-white hair with pink tips, a black beret with white flowers and a long black coat with wide sleeves's makeup, laughing; flowers and glitter cover the whole panel, including the wall behind them.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/ruru_normal.png, web/assets/portraits/pin_normal.png
 
 > 꼭 보여야 할 것: 미화: 벽까지 덮은 반짝이
 
@@ -1862,8 +1902,10 @@ Palette: 8 grey levels from black to white, and one accent color vermilion orang
 
 Scene: During the MC between songs, plain bright white light floods the whole stage with no pattern: a white oversized stage jacket (accent color) flying through the air toward the audience, just thrown by a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker in a black tank top (a girl: long blue hair, black cap with a small white bird mascot — same design as her portrait). At the right edge, between the dark wing curtains, a black suit sleeve and hand waving "back, step back". The place is the same small basement live house as the other panels: a low black ceiling just above the lighting truss, a knee-high stage, about 150 capacity — NOT a big concert hall, no balcony seats.
 
-Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/ruru_normal.png
 
 > 꼭 보여야 할 것: 공중의 재킷(포인트 색), 무늬 없는 흰빛, 윙 커튼 틈의 검은 소매 손짓
 
@@ -1874,6 +1916,8 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 Scene: Under harsh white fluorescent work lights hanging from the low ceiling (clearly visible) on the catwalk: a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker (in a grey hoodie over her stage clothes, cap on; long straight sky-blue hair drawn as light grey, NOT short, NOT curly, NOT brown) grabs a clamp of the lighting rig with both hands, her side face gritting her teeth, angry and tearful. Right next to the clamp, a big tight knot of strap tying the rig to the railing, clearly visible. Leave empty space at the top right for a speech bubble.
 ```
 
+> 기준 이미지로 붙일 것: web/assets/portraits/ruru_normal.png
+
 > 꼭 보여야 할 것: 클램프를 붙잡은 손, 클램프 옆 큰 매듭, 작업등, 오른쪽 위 빈 공간
 
 **`2P.png`
@@ -1883,6 +1927,8 @@ Scene: Under harsh white fluorescent work lights hanging from the low ceiling (c
 Scene: At night in front of a rehearsal studio on a city street: a man in a plain black suit with neat short black hair holds out a sheet of paper to a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker in casual clothes (an oversized hoodie, the same long hair with braided loops and the same bird cap). The paper shows a record label logo (accent color). Ruru looks hurt.
 ```
 
+> 기준 이미지로 붙일 것: web/assets/portraits/kirishima_normal.png, web/assets/portraits/ruru_normal.png
+
 > 꼭 보여야 할 것: 밤거리, 사복 루루, 종이의 레코드사 로고(포인트 색)
 
 **`t_ruru_1.png`
@@ -1891,6 +1937,8 @@ Scene: At night in front of a rehearsal studio on a city street: a man in a plai
 
 Scene: Back view of a man in a plain black suit with neat short black hair turning away on a dark street in front of a rehearsal studio. In front of him, a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker in an oversized hoodie (long straight hair with braided loops and the bird cap, NOT short curly hair), but her face is scribbled over completely black with crude pen scribbles (self-hatred).
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/kirishima_normal.png, web/assets/portraits/ruru_normal.png
 
 > 꼭 보여야 할 것: 낙서: 루루 자신의 얼굴이 새까만 낙서
 
@@ -1928,6 +1976,8 @@ Scene: A blurry memory: the back of a man in a black suit standing on the stage;
 Scene: a man in a plain black suit with neat short black hair bursting out of the dark wing, reaching his hand toward the viewer with a desperate face never seen before, grid light patterns behind him.
 ```
 
+> 기준 이미지로 붙일 것: web/assets/portraits/kirishima_normal.png
+
 > 꼭 보여야 할 것: (진실) 손을 뻗는 키리시마의 다급한 얼굴
 
 ## 대화 40 — 컷 · 아오이 시점 (2장)
@@ -1944,8 +1994,10 @@ Palette: 8 grey levels from black to white, and one accent color cobalt blue (#3
 
 Scene: Seen from behind the drum kit (cymbals in the foreground with the drummer's hands, accent color on the drumsticks): the stage floor is covered with wavy stripe patterns of light. a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker without her jacket, in a black tank top, sings. Above her, a lighting rig (a metal truss with four stage lights and one pattern projector) hanging above the center of the stage, next to a metal catwalk railing about one meter away, perfectly still. The place is the same small basement live house as the other panels: a low black ceiling just above the lighting truss, a knee-high stage, about 150 capacity — NOT a big concert hall, no balcony seats.
 
-Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/ruru_normal.png
 
 > 꼭 보여야 할 것: 물결 줄무늬, 재킷 없는 루루, 정지한 리그
 
@@ -1955,6 +2007,8 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 
 Scene: The moment of the fall, seen from the drum riser: no light pattern anymore, the stage suddenly dark. a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker pushed sideways and falling down, and in her place the back of a man in a black suit, with the lighting rig crashing down onto him. Dust and broken light. The place is the same small basement live house as the other panels: a low black ceiling just above the lighting truss, a knee-high stage, about 150 capacity — NOT a big concert hall, no balcony seats.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/ruru_normal.png
 
 > 꼭 보여야 할 것: 무늬 없음, 밀려 넘어지는 루루, 정장의 등, 떨어지는 리그
 
@@ -1972,7 +2026,7 @@ Palette: 8 grey levels from black to white, and one accent color amber (#d9a21b)
 
 Scene: From inside the lighting booth through its glass window: the stage below covered in a grid pattern of light; above it a lighting rig (a metal truss with four stage lights and one pattern projector) hanging above the center of the stage, next to a metal catwalk railing about one meter away, its beams crooked and trembling with shake lines. In the foreground a gloved hand tightly gripping a radio transceiver (accent color). The place is the same small basement live house as the other panels: a low black ceiling just above the lighting truss, a knee-high stage, about 150 capacity — NOT a big concert hall, no balcony seats.
 
-Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 꼭 보여야 할 것: 격자 무늬, 비뚤어진 빔과 떨림 선, 무전기를 쥔 장갑 손(포인트 색)
@@ -1983,6 +2037,8 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 
 Scene: From inside the lighting booth through the glass: on the hazy catwalk across the room, a glamorous woman about forty (smooth face, no wrinkles) with a tight dark updo and a tailored wine-colored suit stuffs a strap into her jacket pocket and looks straight at the viewer, putting a finger to her lips. Her a very large square wristwatch glints (accent color).
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/tendo_smile.png
 
 > 꼭 보여야 할 것: 부스 유리 너머 캣워크, 끈을 주머니에 넣으며 손가락을 입에 대는 텐도, 시계(포인트 색)
 
@@ -2036,8 +2092,10 @@ Palette: 8 grey levels from black to white, and one accent color teal green (#3a
 
 Scene: Afternoon rehearsal, seen from the first row of an empty audience floor looking up at the stage: a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker in a grey hoodie doing a mic check. Above, on the metal catwalk, a woman lighting technician with a long low ponytail, a headset and thick black work gloves points at a clamp of the lighting rig. In the foreground, on the viewer's knee, a clipboard checklist (accent color) still blank: the rows are not filled in yet, no circle and no marks. Empty seats beside. The same small basement live house (low black ceiling, knee-high stage, about 150 capacity), house lights on, no stage lighting patterns.
 
-Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/ruru_normal.png, web/assets/portraits/kuramochi_normal.png
 
 > 꼭 보여야 할 것: 텅 빈 객석, 후드 차림 루루, 캣워크 위에서 클램프를 가리키는 장갑 손, 무릎 위 점검표(포인트 색)
 
@@ -2057,6 +2115,8 @@ Scene: Under harsh white fluorescent work lights with every seat of the audience
 Scene: Peeking from the wing between dark curtains at the stage: wavy stripe light patterns on the floor, a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker without her jacket singing. Above, the lighting rig and the catwalk railing next to it: the railing is bare, no strap, no knot. In the foreground, a hand in a black suit sleeve holding a radio transceiver (accent color). The place is the same small basement live house as the other panels: a low black ceiling just above the lighting truss, a knee-high stage, about 150 capacity — NOT a big concert hall, no balcony seats.
 ```
 
+> 기준 이미지로 붙일 것: web/assets/portraits/ruru_normal.png
+
 > 꼭 보여야 할 것: 물결 무늬, 재킷 없는 루루, 매듭 없는 난간, 손의 무전기(포인트 색)
 
 **`2L.png`
@@ -2066,6 +2126,8 @@ Scene: Peeking from the wing between dark curtains at the stage: wavy stripe lig
 Scene: A backstage corridor during rehearsal (music notes coming from the stage side): a glamorous woman about forty (smooth face, no wrinkles) with a tight dark updo and a tailored wine-colored suit waving her hand dismissively, wearing a very large square wristwatch (big and clearly visible). In the foreground, a man's hand holds out a checklist with a big circle marked on it (accent color). Leave empty space at the top center for a speech bubble.
 ```
 
+> 기준 이미지로 붙일 것: web/assets/portraits/tendo_smile.png
+
 > 꼭 보여야 할 것: 손을 내젓는 텐도, 큰 사각 손목시계, 동그라미 친 점검표(포인트 색), 무대 쪽 음표, 위쪽 빈 공간
 
 **`2N.png`
@@ -2074,6 +2136,8 @@ Scene: A backstage corridor during rehearsal (music notes coming from the stage 
 
 Scene: First-person view bursting out of the stage wing onto the stage: grid patterns of light on the floor, a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker mid-jump at the center, and above her the lighting rig tilting and about to fall. The viewer's own hand in a black suit sleeve reaches out toward her (accent color on the radio in the other hand). Leave empty space at the top center for a speech bubble. The place is the same small basement live house as the other panels: a low black ceiling just above the lighting truss, a knee-high stage, about 150 capacity — NOT a big concert hall, no balcony seats.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/ruru_normal.png
 
 > 꼭 보여야 할 것: 격자 무늬, 점프하는 루루, 기우는 리그, 뻗은 손, 위쪽 빈 공간
 
@@ -2091,7 +2155,7 @@ Palette: 8 grey levels from black to white, and one accent color magenta (#b0306
 
 Scene: Close-up on the catwalk: two hands untying the ratchet strap from the lighting rig, a very large square wristwatch (accent color) on the left wrist. Far below, the stage is covered in thick haze lit by blue standby lights.
 
-Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 꼭 보여야 할 것: 끈을 푸는 두 손, 큰 사각 손목시계(포인트 색), 아래 무대의 헤이즈와 대기 조명
@@ -2103,6 +2167,8 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 Scene: A backstage corridor: a glamorous woman about forty (smooth face, no wrinkles) with a tight dark updo and a tailored wine-colored suit smiling pleasantly. The speech bubble area of the person talking to her is a blank white hole, as if erased.
 ```
 
+> 기준 이미지로 붙일 것: web/assets/portraits/tendo_smile.png
+
 > 꼭 보여야 할 것: 생략: 상대 말풍선 자리 하얀 여백
 
 **`t_tendo_2.png`
@@ -2112,6 +2178,8 @@ Scene: A backstage corridor: a glamorous woman about forty (smooth face, no wrin
 Scene: An exaggerated memory: a gigantic a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker shaking the lighting rig on the catwalk. The rig is at eye level, and in the lower left foreground the diagonal steel handrail of a staircase cuts across the panel, clearly visible.
 ```
 
+> 기준 이미지로 붙일 것: web/assets/portraits/ruru_normal.png
+
 > 꼭 보여야 할 것: 과장: 거대한 루루, 앞쪽의 비스듬한 계단 난간, 눈높이의 리그
 
 **`t_tendo_3.png`
@@ -2120,6 +2188,8 @@ Scene: An exaggerated memory: a gigantic a 19-year-old girl vocalist with the sa
 
 Scene: a glamorous woman about forty (smooth face, no wrinkles) with a tight dark updo and a tailored wine-colored suit sitting calmly in an office chair at a live house office, reading documents, a very large square wristwatch on her wrist.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/tendo_smile.png
 
 > 꼭 보여야 할 것: 사무실 의자의 텐도
 
@@ -2146,8 +2216,10 @@ Palette: 8 grey levels from black to white, and one accent color teal (#38a3a5).
 
 Scene: A pastry shop front at night: a 19-year-old girl with long dark navy hair and a ribbon, wearing a pastry shop apron with the ribbon on her RIGHT side pulls down the shop shutter by its handle; a "closed" sign at her feet. A round wall clock inside clearly shows 8:50. At the bottom of the panel, her ankle wrapped in a big white bandage above her sneaker (accent color), clearly visible.
 
-Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/yuki_normal.png, web/assets/portraits/nagi_normal.png
 
 > 꼭 보여야 할 것: 오른쪽 리본, 벽시계 8:50, 발목의 큰 붕대(포인트 색)
 
@@ -2166,6 +2238,8 @@ Scene: At the register counter at night, the shop shutter already down behind: c
 
 Scene: At night at the foot of a steep wooden staircase in a pastry shop: a man lies on the floor with his glasses fallen beside him; a 19-year-old girl with long dark navy hair and a ribbon, wearing a pastry shop apron stands frozen, hands over her mouth. The top of the staircase is pitch dark (the upstairs bulb is out); light comes only from the shop below. A wall clock clearly shows 9:15. Her ankle with a white bandage (accent color) is visible.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/yuki_normal.png, web/assets/portraits/nagi_normal.png
 
 > 꼭 보여야 할 것: 쓰러진 남자와 안경, 깜깜한 계단 위, 벽시계 9:15, 발목 붕대(포인트 색)
 
@@ -2211,6 +2285,8 @@ Scene: A night train platform: a girl with an art portfolio bag looks at a smart
 
 Scene: A pastry shop at night: a 19-year-old girl with long dark navy hair and a ribbon, wearing a pastry shop apron with the ribbon on her RIGHT side stands in front of the half-closed shutter, one hand on the shutter handle, a ballpoint pen in her apron pocket, a "closed" sign beside her feet. At the very bottom of the panel, her ankle with a white bandage is visible (accent color), as if she did not notice it was in the picture. A wall clock in the corner.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/yuki_normal.png, web/assets/portraits/nagi_normal.png
 
 > 꼭 보여야 할 것: 오른쪽 리본, 화면 아래 붕대 발목(포인트 색), 셔터 손잡이, 벽시계
 
@@ -2264,8 +2340,10 @@ Palette: 8 grey levels from black to white, and one accent color burnt orange (#
 
 Scene: First-person view from the MIDDLE of a steep wooden staircase, looking UP at night. At the top, in the dark doorway of the second-floor storage room (its bulb is out), a woman wrapped in a black shawl covered with star sequins snatches a thick cash envelope (accent color) and turns away; the star sequins on the shawl glitter. The only light comes from the shop BELOW, so her shadow stretches upward onto the ceiling. In the lower part of the panel, the viewer's own empty hand reaches upward, the wrist watch clearly showing 9:10.
 
-Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/madoka_smile.png
 
 > 꼭 보여야 할 것: 계단 중간에서 올려다봄, 어두운 2층 문간의 별무늬 숄, 봉투(포인트 색), 위로 뻗은 빈손과 손목시계 9:10, 아래에서 비친 불빛
 
@@ -2275,6 +2353,8 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 
 Scene: Blurry first-person view from the floor at the foot of a staircase: a 19-year-old girl with long dark navy hair and a ribbon, wearing a pastry shop apron stands frozen holding a smartphone in both hands, trembling, not calling: the phone screen is black and her fingers are not touching it. Behind her the top of the staircase is pitch dark. No clock visible. Her bandaged ankle (accent color) is near the viewer.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/yuki_normal.png, web/assets/portraits/nagi_normal.png
 
 > 꼭 보여야 할 것: 흐릿한 시야, 휴대폰을 쥔 점원, 깜깜한 계단 위, 붕대(포인트 색), 시계 없음
 
@@ -2292,8 +2372,10 @@ Palette: 8 grey levels from black to white, and one accent color khaki green (#8
 
 Scene: View over a tofu shop counter into a night shopping arcade: a woman wrapped in a black shawl covered with star sequins runs out of a narrow back alley, the star sequins on the shawl glittering (accent color). On the tofu shop wall, a clock clearly shows 9:22.
 
-Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/madoka_smile.png, web/assets/portraits/tofu_normal.png
 
 > 꼭 보여야 할 것: 뒷골목에서 뛰어나오는 별무늬 숄(포인트 색), 두부집 시계 9:22
 
@@ -2304,6 +2386,8 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 Scene: Inside a tofu shop at night: the wall clock clearly shows 9:00; across the arcade, a shutter coming down with a rattling sound effect drawn as lines.
 ```
 
+> 기준 이미지로 붙일 것: web/assets/portraits/tofu_normal.png
+
 > 꼭 보여야 할 것: 두부집 벽시계 9:00, 건너편 셔터
 
 **`t_tofu_2.png`
@@ -2312,6 +2396,8 @@ Scene: Inside a tofu shop at night: the wall clock clearly shows 9:00; across th
 
 Scene: A night shopping arcade seen from a tofu shop: a glittering shawl edge disappears into a narrow alley (accent color on the sparkle). The tofu shop clock shows 9:20.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/tofu_normal.png
 
 > 꼭 보여야 할 것: 골목으로 사라지는 반짝이는 숄 자락, 시계 9:20
 
@@ -2338,8 +2424,10 @@ Palette: 8 grey levels from black to white, and one accent color violet (#7d4fd1
 
 Scene: Drawn like a tarot-card vision with a thin ornate border, but it is a real memory: view looking DOWN a steep staircase from its dark top. At the bottom, in the bright shop, a 19-year-old girl with long dark navy hair and a ribbon, wearing a pastry shop apron with the ribbon on her RIGHT side holds out a cash envelope, and a man's hand reaches in to take it. A banister post at the edge of the panel. No clock visible. Accent color on the envelope.
 
-Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/yuki_normal.png, web/assets/portraits/nagi_normal.png
 
 > 꼭 보여야 할 것: 타로 테두리, 어두운 계단 위에서 내려다봄, 봉투를 건네는 오른쪽 리본 점원과 받는 남자 손(포인트 색)
 
@@ -2384,7 +2472,7 @@ Palette: 8 grey levels from black to white, and one accent color rose red (#e85d
 
 Scene: Inside an old bathhouse at night (the window behind is pitch dark), the brightly lit front counter: an old man in a bathhouse happi coat shouts angrily across the counter, purchase documents on the counter (accent color), a few pairs of customers' sandals on the shoe shelf. No clock.
 
-Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 꼭 보여야 할 것: 불 켜진 카운터, 소리치는 할아버지, 매입 서류(포인트 색), 신발장의 손님 신발
@@ -2395,6 +2483,8 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 
 Scene: At night from a dark alley corner: a tired woman in a grey work jacket with her hair tied back stands alone at a fence holding a flashlight (accent color), looking left and right down the alley; behind her, the boiler room back door is half open with nobody outside it, and inside the small boiler room window two headlamp lights are moving. No clock.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/keiko_normal.png
 
 > 꼭 보여야 할 것: 울타리 앞 손전등(포인트 색)을 든 엄마, 반쯤 열린 뒷문(문 밖엔 아무도 없음), 보일러실 창 안의 헤드랜턴 불빛 두 개
 
@@ -2457,7 +2547,7 @@ Palette: 8 grey levels from black to white, and one accent color warm orange (#d
 
 Scene: At night behind a bathhouse fence; all the bathhouse windows are dark: first-person view of the viewer's own hands receiving a flashlight (accent color) from a gloved hand with an abstract company logo on the glove. Far away, festival lanterns; a clock tower shows 10:30.
 
-Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 꼭 보여야 할 것: 건네받는 손전등(포인트 색), 장갑의 로고, 꺼진 목욕탕 창, 시계탑 10:30, 축제 등불
@@ -2521,7 +2611,7 @@ Palette: 8 grey levels from black to white, and one accent color dark red (#a03a
 
 Scene: First-person view at night: a hand turning a key (accent color) in the back door of a boiler room; beside it, the work boots of another person standing close; a tool bag on the ground; far off by the fence, a tiny flashlight glow. No clock or watch visible.
 
-Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 꼭 보여야 할 것: 열쇠(포인트 색), 옆 사람의 작업화, 공구 가방, 멀리 손전등 불빛
@@ -2567,7 +2657,7 @@ Palette: 8 grey levels from black to white, and one accent color moss green (#7a
 
 Scene: Looking down from a second-floor window at night: two men in yellow safety helmets with an abstract company logo walk in through the open back door of a bathhouse (accent color on the helmets); the front one carries a tool bag, the second one's helmet has a white visitor sticker. In the corner of the alley, a small figure of a schoolgirl. On the window sill, a table clock shows 10:45.
 
-Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 꼭 보여야 할 것: 헬멧 둘(포인트 색), 열린 뒷문, 골목 모퉁이 교복 차림, 탁상시계 10:45
@@ -2649,7 +2739,7 @@ Palette: 8 grey levels from black to white, and one accent color steel blue (#5a
 
 Scene: Blurry first-person view through smoke, being carried on someone's back: a sooty nape and an orange hair tie (accent color) right in front; above, a burning ceiling beam.
 
-Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 꼭 보여야 할 것: 흐린 시야, 업어 준 사람의 그을린 목덜미와 머리끈(포인트 색), 불타는 들보
@@ -2668,7 +2758,7 @@ Palette: 8 grey levels from black to white, and one accent color bright orange (
 
 Scene: A small apartment that looks ransacked before dawn: a broken door off its hinges, an overturned desk, pulled-out drawers, papers everywhere, a streetlight through the window on the left. IMPORTANT: it is an edited picture: the desk's shadow falls to the right, but the door's shadow falls to the left, toward the light, and the edge of the pasted door area shows a faint seam line (accent color on the scattered papers).
 
-Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 꼭 보여야 할 것: 편집: 어질러진 방, 문 그림자 방향이 반대, 이음매
@@ -2689,6 +2779,8 @@ Scene: Before dawn in a tidy small apartment, the window still pitch dark: under
 Scene: A library newspaper room: a 20-year-old rookie detective girl with long orange-brown hair in a high ponytail tied with a sky-blue scrunchie, a navy blazer and a light blue tie reads an old newspaper while two men in black stand right behind her. IMPORTANT: edited picture: the two men are pasted in, their screentone dots are clearly larger (bean-sized vs rice-sized on a 20-year-old rookie detective girl with long orange-brown hair in a high ponytail tied with a sky-blue scrunchie, a navy blazer and a light blue tie), with a faint seam around them.
 ```
 
+> 기준 이미지로 붙일 것: web/assets/portraits/koharu_normal.png
+
 > 꼭 보여야 할 것: 편집: 남자 둘의 스크린톤 점이 코하루보다 굵음, 이음매
 
 **`5B.png`
@@ -2697,6 +2789,8 @@ Scene: A library newspaper room: a 20-year-old rookie detective girl with long o
 
 Scene: A library newspaper room, wall clock 9:00: close view of an old newspaper about a lighthouse library fire (headline: one schoolgirl and one police officer dead, one high school student rescued) with a photo of a young police officer (accent color on the photo), held by a 20-year-old rookie detective girl with long orange-brown hair in a high ponytail tied with a sky-blue scrunchie, a navy blazer and a light blue tie's hands.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/koharu_normal.png
 
 > 꼭 보여야 할 것: 오래된 신문의 순경 사진(포인트 색), 벽시계 9:00
 
@@ -2707,6 +2801,8 @@ Scene: A library newspaper room, wall clock 9:00: close view of an old newspaper
 Scene: A bus stop in front of a glass headquarters: several white-gloved hands drag a 20-year-old rookie detective girl with long orange-brown hair in a high ponytail tied with a sky-blue scrunchie, a navy blazer and a light blue tie into a white van. IMPORTANT: edited picture: the gloved hands have unnaturally smooth clean lines unlike the rest, with a visible seam where they were pasted.
 ```
 
+> 기준 이미지로 붙일 것: web/assets/portraits/koharu_normal.png
+
 > 꼭 보여야 할 것: 편집: 매끈한 흰 장갑 손들, 이음매
 
 **`5C.png`
@@ -2715,6 +2811,8 @@ Scene: A bus stop in front of a glass headquarters: several white-gloved hands d
 
 Scene: A bus stop in front of a glass headquarters: a 20-year-old rookie detective girl with long orange-brown hair in a high ponytail tied with a sky-blue scrunchie, a navy blazer and a light blue tie sits on the bench smiling while typing on her phone; the screen shows a short sent message (accent color). A small star-shaped charm hangs from the bag on her lap. No clock.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/koharu_normal.png
 
 > 꼭 보여야 할 것: 웃으며 문자 보내는 코하루, 휴대폰 화면(포인트 색), 가방의 별 모양 참
 
@@ -2725,6 +2823,8 @@ Scene: A bus stop in front of a glass headquarters: a 20-year-old rookie detecti
 Scene: Inside an abandoned warehouse: a 20-year-old rookie detective girl with long orange-brown hair in a high ponytail tied with a sky-blue scrunchie, a navy blazer and a light blue tie tied to a chair, stacked crates nearby. IMPORTANT: edited picture: there is only one ceiling lamp, yet each of the four chair legs casts two shadows (eight leg shadows in total, in two directions), while the crates cast only one shadow each.
 ```
 
+> 기준 이미지로 붙일 것: web/assets/portraits/koharu_normal.png
+
 > 꼭 보여야 할 것: 편집: 전등 하나인데 의자 다리 그림자가 여덟 개
 
 **`5D.png`
@@ -2733,6 +2833,8 @@ Scene: Inside an abandoned warehouse: a 20-year-old rookie detective girl with l
 
 Scene: Dusk at the harbor: first-person view walking alone toward an abandoned warehouse, the viewer's long shadow stretching ahead; at the half-open shutter, a woman with long silver-white hair, a black eyepatch, white gloves and a long white coat waits (accent color on her coat). Orange sky. No clock.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/ren_smile.png
 
 > 꼭 보여야 할 것: 혼자 걸어가는 시점, 긴 그림자, 셔터 앞의 흰 코트(포인트 색)
 
@@ -2750,8 +2852,10 @@ Palette: 8 grey levels from black to white, and one accent color slate blue (#5a
 
 Scene: View from a guard booth window at noon: a woman with long silver-white hair, a black eyepatch, white gloves and a long white coat drags a girl by the arm. The gate pillar, the girl and her bag cast short shadows. IMPORTANT: edited picture: the white-coated figure has no shadow at all.
 
-Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/ren_smile.png
 
 > 꼭 보여야 할 것: 편집: 흰 코트만 그림자가 없음
 
@@ -2761,6 +2865,8 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 
 Scene: View from a guard booth window at noon: among office workers streaming out for lunch, a 20-year-old rookie detective girl with long orange-brown hair in a high ponytail tied with a sky-blue scrunchie, a navy blazer and a light blue tie stands alone (nobody holding her) and calmly asks for directions with a clear, untroubled face (accent color on her), phone in one hand; the guard's own hand at the edge of the window points toward the harbor; the charm loop on her bag is empty. The guard's wristwatch shows 12:10.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/koharu_normal.png
 
 > 꼭 보여야 할 것: 혼자 길을 묻는 아가씨(포인트 색), 빈 가방 고리, 손목시계 12:10
 
@@ -2796,8 +2902,10 @@ Palette: 8 grey levels from black to white, and one accent color ice blue (#6ac0
 
 Scene: Inside an abandoned warehouse: an old table with two teacups, one empty; across the table, a 20-year-old rookie detective girl with long orange-brown hair in a high ponytail tied with a sky-blue scrunchie, a navy blazer and a light blue tie holds out a scorched police badge with both hands, asking earnestly (accent color on the teacups). Purple evening sky through a gap in the shutter.
 
-Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/koharu_normal.png
 
 > 꼭 보여야 할 것: 찻잔 둘, 하나는 빔(포인트 색), 배지를 내미는 코하루, 보랏빛 하늘
 
@@ -2817,6 +2925,8 @@ Scene: Outside a burning lighthouse library on a lawn at night: first-person vie
 Scene: a woman with long silver-white hair, a black eyepatch, white gloves and a long white coat pulls a 20-year-old rookie detective girl with long orange-brown hair in a high ponytail tied with a sky-blue scrunchie, a navy blazer and a light blue tie by the wrist into a warehouse through a half-open shutter, one ceiling lamp inside. The area around the wrist has noticeably thicker lines than the rest (a pasted seam).
 ```
 
+> 기준 이미지로 붙일 것: web/assets/portraits/ren_smile.png, web/assets/portraits/koharu_normal.png
+
 > 꼭 보여야 할 것: 편집: 손목 둘레만 굵은 선
 
 **`t_ren_3.png`
@@ -2825,6 +2935,8 @@ Scene: a woman with long silver-white hair, a black eyepatch, white gloves and a
 
 Scene: An afternoon breakwater: a woman with long silver-white hair, a black eyepatch, white gloves and a long white coat and a 20-year-old rookie detective girl with long orange-brown hair in a high ponytail tied with a sky-blue scrunchie, a navy blazer and a light blue tie sit side by side on tetrapods; a scorched police badge on a 20-year-old rookie detective girl with long orange-brown hair in a high ponytail tied with a sky-blue scrunchie, a navy blazer and a light blue tie's lap, seagulls, a low sun.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/ren_smile.png, web/assets/portraits/koharu_normal.png
 
 > 꼭 보여야 할 것: 방파제에 나란히 앉은 렌과 코하루, 무릎의 배지 (사실 증언)
 
@@ -2843,6 +2955,8 @@ Scene: A 16-year-old high school student sick in bed with fever; medicine packet
 
 Scene: a 20-year-old rookie detective girl with long orange-brown hair in a high ponytail tied with a sky-blue scrunchie, a navy blazer and a light blue tie behind iron bars inside a warehouse, gripping the bars; a padlock on the bar door, one ceiling lamp. The single lamp hangs straight above the bars, so their shadows should fall short and straight down, but the bar shadows on the floor stretch long and slanted to one side (a pasted seam).
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/koharu_normal.png
 
 > 꼭 보여야 할 것: 편집: 창살 그림자가 어긋남
 
@@ -2869,7 +2983,7 @@ Palette: 8 grey levels from black to white, and one accent color navy blue (#3a5
 
 Scene: Six years ago at night: first-person view from a bicycle on a cape road, looking up at a lighthouse-shaped library with smoke from one ground-floor window. A wristwatch shows 8:20 (accent color).
 
-Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 꼭 보여야 할 것: 6년 전, 1층 창의 연기, 손목시계 8:20(포인트 색)
@@ -2889,6 +3003,8 @@ Scene: First-person view kicking open the library front door into low smoke betw
 
 Scene: First-person view in smoke at the foot of a spiral staircase deep inside the library, far from the front door; the top of the stairs glows red. Hands pull up a 16-year-old high school student (a teenager, not a small child) with messy short black hair, a school uniform with an oversized hoodie over it, and an ink stain on the right index finger, collapsed on the first step, onto the viewer's back; the ink stain on the teenager's right index finger is clearly visible (accent color).
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/rei_normal.png
 
 > 꼭 보여야 할 것: 정문에서 먼 계단 아래, 고등학생을 업음, 오른손 검지 잉크 얼룩(포인트 색)
 
@@ -2915,8 +3031,10 @@ Palette: 8 grey levels from black to white, and one accent color strawberry pink
 
 Scene: Outside the library front door at night: first-person view helping a half-conscious a 16-year-old high school student (a teenager, not a small child) with messy short black hair, a school uniform with an oversized hoodie over it, and an ink stain on the right index finger down from a young police officer in uniform's back and holding them up by the shoulder; on the viewer's wrist, a watch stopped at 8:31 (accent color).
 
-Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/rei_normal.png
 
 > 꼭 보여야 할 것: 순경 등에서 고등학생을 받아 부축, 8:31에 멈춘 손목시계(포인트 색)
 
@@ -2934,8 +3052,10 @@ Palette: 8 grey levels from black to white, and one accent color  (#6b5fa8). Bla
 
 Scene: First-person view at a library reading table by a round window at night: the viewer's right hand inks a manga page with a pen (accent color on the pen); across the table, a 16-year-old girl with long straight black hair, blunt bangs, a bookmark hairpin and an old navy sailor uniform reads a manuscript aloud. A wall clock by the window shows 7:30.
 
-Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/shiori_normal.png
 
 > 꼭 보여야 할 것: 펜을 쥔 오른손(포인트 색), 맞은편에서 읽어 주는 시오리, 벽시계 7:30
 
@@ -3027,6 +3147,8 @@ Scene: Two manga panels joined: a 16-year-old running down stairs, and immediate
 Scene: a 16-year-old with messy short black hair, an oversized hoodie and an ink stain on the right index finger standing alone in front of a burning lighthouse library at night, nobody else in sight.
 ```
 
+> 기준 이미지로 붙일 것: web/assets/portraits/rei_normal.png
+
 > 꼭 보여야 할 것: 불타는 도서관 앞에 혼자 선 레이
 
 **`t_self_5.png`
@@ -3052,8 +3174,10 @@ Palette: 8 grey levels from black to white, and one accent color  (#c84a6a). Bla
 
 Scene: First-person view reading a manuscript aloud at a library table at night; across the table, a 16-year-old with messy short black hair, an oversized hoodie and an ink stain on the right index finger draws, the pen tip moving (accent color on the manuscript). No clock.
 
-Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/rei_normal.png
 
 > 꼭 보여야 할 것: 읽어 주는 원고(포인트 색), 맞은편에서 그리는 레이
 
@@ -3063,6 +3187,8 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 
 Scene: Back view of a 16-year-old with messy short black hair, an oversized hoodie and an ink stain on the right index finger turning away, holding a contest application form with a struck-out field (accent color on the form). No clock.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/rei_normal.png
 
 > 꼭 보여야 할 것: 돌아선 레이의 등, 그어진 응모 서류(포인트 색)
 
@@ -3082,6 +3208,8 @@ Scene: A lonely library reading table at night, the chair across pushed back: th
 Scene: Looking down from a library stair landing into a dark ground-floor book stack: a pile of newspapers on the floor, an open back door at the far end, and the flame of a silver lighter (accent color) lighting up the side of the face of a man in a black suit with slicked-back hair. The face must be large and clear. No clock.
 ```
 
+> 기준 이미지로 붙일 것: web/assets/portraits/nishimura_normal.png
+
 > 꼭 보여야 할 것: 라이터 불빛(포인트 색)에 비친 남자의 옆얼굴, 신문지 더미, 열린 뒷문
 
 **`S5.png`
@@ -3100,6 +3228,8 @@ Scene: First-person view at a library reading table: hurriedly sketching a man's
 Scene: First-person view in smoke on a staircase: pulling the arm of a 16-year-old with messy short black hair, an oversized hoodie and an ink stain on the right index finger, collapsed on the steps, over the viewer's shoulder to lift them up (accent color on the viewer's sleeve). No clock.
 ```
 
+> 기준 이미지로 붙일 것: web/assets/portraits/rei_normal.png
+
 > 꼭 보여야 할 것: 쓰러진 레이를 부축해 일으킴(포인트 색)
 
 **`S7.png`
@@ -3108,6 +3238,8 @@ Scene: First-person view in smoke on a staircase: pulling the arm of a 16-year-o
 
 Scene: At the foot of a library staircase in smoke: a young police officer who just ran in takes a 16-year-old with messy short black hair, an oversized hoodie and an ink stain on the right index finger, half-conscious, onto his back; the viewer's hands let go (accent color on the badge). The officer's wristwatch shows 8:28.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/rei_normal.png
 
 > 꼭 보여야 할 것: 순경이 레이를 업음, 배지(포인트 색), 손목시계 8:28
 
@@ -3134,7 +3266,7 @@ Palette: 8 grey levels from black to white, and one accent color coffee brown (#
 
 Scene: A small cafe at night after closing, chairs on the tables, one warm lamp over the counter: a teenager with messy short black hair and an oversized hoodie stands at the counter, head bowed, wet chrysanthemum petals on the sleeve (accent color on the lamp light). Faint overlapping layers show the same figure slightly taller each time.
 
-Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 꼭 보여야 할 것: 문 닫은 카페, 고개 숙인 레이, 소매의 국화 꽃잎, 해마다 겹친 모습
@@ -3145,6 +3277,8 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 
 Scene: A rainy night at a small retro cafe door: a 16-year-old high school student (a teenager, not a small child) with messy short black hair, a school uniform with an oversized hoodie over it, and an ink stain on the right index finger stands soaked in a school uniform with a bandage on the forehead; one warm lamp behind the counter.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/rei_normal.png
 
 > 꼭 보여야 할 것: 비 오는 밤 카페 문가의 젖은 고등학생 레이 (사실 증언)
 

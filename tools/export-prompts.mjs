@@ -35,6 +35,7 @@ const item = (a, followup) => ({
   height: a.spec.h,
   transparent: a.kind === 'portrait' || a.kind === 'sprite' || a.kind === 'ui',
   must_show: a.must || null,
+  reference_images: a.refs && a.refs.length ? a.refs : undefined, // 이 그림들을 이미지 입력으로 꼭 붙인다(같은 얼굴·옷)
   prompt: a.prompt,                 // 단독으로 쓸 때의 전체 프롬프트
   followup_prompt: followup || null, // 같은 묶음에서 앞 그림에 이어 쓸 때의 짧은 프롬프트
 });
@@ -148,6 +149,7 @@ batches.forEach((b, n) => {
   if (b.reference_sheet_prompt) block('설정화 (저장 안 해도 됨)', b.reference_sheet_prompt);
   b.items.forEach((it, i) => {
     block(it.file.split('/').pop(), (b.reference_sheet_prompt || i > 0) && it.followup_prompt ? it.followup_prompt : it.prompt);
+    if (it.reference_images) md.push(`> 기준 이미지로 붙일 것: ${it.reference_images.join(', ')}`, '');
     if (it.must_show) md.push(`> 꼭 보여야 할 것: ${it.must_show}`, '');
   });
 });
