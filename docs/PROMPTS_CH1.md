@@ -2214,7 +2214,7 @@ Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game scr
 
 Palette: 8 grey levels from black to white, and one accent color teal (#38a3a5). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
-Scene: A pastry shop front at night: a 19-year-old girl with long dark navy hair and a ribbon, wearing a pastry shop apron with the ribbon on her RIGHT side pulls down the shop shutter by its handle; a "closed" sign at her feet. A round wall clock inside clearly shows 8:50. At the bottom of the panel, her ankle wrapped in a big white bandage above her sneaker (accent color), clearly visible.
+Scene: A pastry shop front at night: a 19-year-old girl with long dark navy hair, big teal eyes and a cream ribbon, wearing a cream puff-sleeve blouse and a pastry shop apron with a small cake emblem with the ribbon on her RIGHT side pulls down the shop shutter by its handle; a "closed" sign at her feet. A round wall clock inside clearly shows 8:50. At the bottom of the panel, her ankle wrapped in a big white bandage above her sneaker (accent color), clearly visible.
 
 Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
@@ -2227,8 +2227,10 @@ Every person in the panel is drawn ON-MODEL from their attached character portra
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + teal (#38a3a5) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: At the register counter at night, the shop shutter already down behind: close view of a hand writing in a ledger with a pen held in the RIGHT hand while the left hand holds down a stack of bills. A thick cash envelope (accent color) on the counter. No clock or time display visible.
+Scene: At the register counter at night, the shop shutter already down behind: first-person view looking down at the counter: the viewer's own hands in cream puff sleeves (a pastry shop girl's own point of view) — a pen held in the RIGHT hand writes in a ledger while the left hand holds down a stack of bills. A thick cash envelope (accent color) on the counter. No clock or time display visible. NO person, face or body in the panel, only the two hands.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/nagi_normal.png
 
 > 꼭 보여야 할 것: 내려간 셔터, 오른손으로 쥔 펜, 매상 봉투(포인트 색), 시계 없음
 
@@ -2236,7 +2238,7 @@ Scene: At the register counter at night, the shop shutter already down behind: c
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + teal (#38a3a5) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: At night at the foot of a steep wooden staircase in a pastry shop: a man lies on the floor with his glasses fallen beside him; a 19-year-old girl with long dark navy hair and a ribbon, wearing a pastry shop apron stands frozen, hands over her mouth. The top of the staircase is pitch dark (the upstairs bulb is out); light comes only from the shop below. A wall clock clearly shows 9:15. Her ankle with a white bandage (accent color) is visible.
+Scene: At night at the foot of a steep wooden staircase in a pastry shop: a man lies on the floor with his glasses fallen beside him; a 19-year-old girl with long dark navy hair, big teal eyes and a cream ribbon, wearing a cream puff-sleeve blouse and a pastry shop apron with a small cake emblem stands frozen, hands over her mouth. The top of the staircase is pitch dark (the upstairs bulb is out); light comes only from the shop below. A wall clock clearly shows 9:15. Her ankle with a white bandage (accent color) is visible.
 ```
 
 > 기준 이미지로 붙일 것: web/assets/portraits/yuki_normal.png, web/assets/portraits/nagi_normal.png
@@ -2247,8 +2249,10 @@ Scene: At night at the foot of a steep wooden staircase in a pastry shop: a man 
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + teal (#38a3a5) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Close-up of a trembling hand holding a smartphone; the screen shows a call to 119 in progress. No clock or time visible. Behind the hand, the leg of the register counter and a bandaged ankle (accent color).
+Scene: First-person view at night inside the pastry shop: the viewer's own hands in cream puff sleeves (a pastry shop girl's own point of view) — one trembling hand holds a smartphone; the screen shows a call to 119 in progress. Looking down past the phone: the leg of the register counter and the viewer's OWN feet, her own ankle wrapped in a big white bandage above her sneaker (accent color). No clock or time visible. NO other people in the panel.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/nagi_normal.png
 
 > 꼭 보여야 할 것: 휴대폰 화면 119 통화, 붕대 발목(포인트 색), 시계 없음
 
@@ -2256,8 +2260,10 @@ Scene: Close-up of a trembling hand holding a smartphone; the screen shows a cal
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + teal (#38a3a5) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Daytime in a pastry shop: a RIGHT hand pins a weekly shift chart on the wall (accent color on the chart). Bright sunlight through the window makes the cake showcase shine. No clock visible.
+Scene: Daytime in an empty pastry shop, first-person view: the viewer's own hands in cream puff sleeves (a pastry shop girl's own point of view) — her RIGHT hand pins a weekly shift chart on the wall (accent color on the chart). Bright sunlight through the window makes the cake showcase shine. No clock visible. NO people in the panel, only the one hand and sleeve.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/nagi_normal.png
 
 > 꼭 보여야 할 것: 낮, 근무표(포인트 색), 오른손, 햇빛
 
@@ -2265,8 +2271,10 @@ Scene: Daytime in a pastry shop: a RIGHT hand pins a weekly shift chart on the w
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + teal (#38a3a5) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: At night in an art prep school studio: a girl at an easel draws a plaster bust with charcoal held in her LEFT hand (accent color on the charcoal). A wall clock clearly shows 9:00. Under the easel, her bare ankles in sandals, no bandage.
+Scene: At night in an art prep school studio: a 19-year-old girl with long dark navy hair, big teal eyes and a cream ribbon on her RIGHT side (the same face as the twin portraits), in a paint-stained smock, sits at an easel and draws a plaster bust with charcoal held in her LEFT hand (accent color on the charcoal). A wall clock clearly shows 9:00. Under the easel, her bare ankles in sandals, no bandage.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/yuki_normal.png
 
 > 꼭 보여야 할 것: 왼손 목탄(포인트 색), 벽시계 9:00, 샌들 신은 맨 발목
 
@@ -2283,7 +2291,7 @@ Scene: A night train platform: a girl with an art portfolio bag looks at a smart
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + teal (#38a3a5) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A pastry shop at night: a 19-year-old girl with long dark navy hair and a ribbon, wearing a pastry shop apron with the ribbon on her RIGHT side stands in front of the half-closed shutter, one hand on the shutter handle, a ballpoint pen in her apron pocket, a "closed" sign beside her feet. At the very bottom of the panel, her ankle with a white bandage is visible (accent color), as if she did not notice it was in the picture. A wall clock in the corner.
+Scene: A pastry shop at night: a 19-year-old girl with long dark navy hair, big teal eyes and a cream ribbon, wearing a cream puff-sleeve blouse and a pastry shop apron with a small cake emblem with the ribbon on her RIGHT side stands in front of the half-closed shutter, one hand on the shutter handle, a ballpoint pen in her apron pocket, a "closed" sign beside her feet. At the very bottom of the panel, her ankle with a white bandage is visible (accent color), as if she did not notice it was in the picture. A wall clock in the corner.
 ```
 
 > 기준 이미지로 붙일 것: web/assets/portraits/yuki_normal.png, web/assets/portraits/nagi_normal.png
@@ -2294,8 +2302,10 @@ Scene: A pastry shop at night: a 19-year-old girl with long dark navy hair and a
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + teal (#38a3a5) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A flattering, sparkling memory: a hand neatly placing a cash envelope into a shining safe, with sparkles and flowers around it (accent color on the envelope).
+Scene: A flattering, sparkling memory, first-person view: the viewer's own hands in cream puff sleeves (a pastry shop girl's own point of view) — her hand neatly places a cash envelope into a shining open safe, with sparkles and flowers around it (accent color on the envelope). NO people, no faces in the panel.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/nagi_normal.png
 
 > 꼭 보여야 할 것: 미화: 반짝이는 금고와 봉투
 
@@ -2303,8 +2313,10 @@ Scene: A flattering, sparkling memory: a hand neatly placing a cash envelope int
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + teal (#38a3a5) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A hand pressing 1-1-9 on a smartphone at night in a pastry shop; the left half of the panel, where whatever came before would be, is left completely blank white, as if erased.
+Scene: First-person view at night in an empty pastry shop: the viewer's own hands in cream puff sleeves (a pastry shop girl's own point of view) — one hand presses 1-1-9 on a smartphone. NO other people anywhere in the panel. The left half of the panel, where whatever came before would be, is left completely blank white, as if erased.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/nagi_normal.png
 
 > 꼭 보여야 할 것: 생략: 119를 누르는 손, 왼쪽 절반이 하얀 여백
 
@@ -2338,7 +2350,7 @@ Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game scr
 
 Palette: 8 grey levels from black to white, and one accent color burnt orange (#c4703a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
-Scene: First-person view from the MIDDLE of a steep wooden staircase, looking UP at night. At the top, in the dark doorway of the second-floor storage room (its bulb is out), a woman wrapped in a black shawl covered with star sequins snatches a thick cash envelope (accent color) and turns away; the star sequins on the shawl glitter. The only light comes from the shop BELOW, so her shadow stretches upward onto the ceiling. In the lower part of the panel, the viewer's own empty hand reaches upward, the wrist watch clearly showing 9:10.
+Scene: First-person view from the MIDDLE of a steep wooden staircase, looking UP at night. At the top, in the dark doorway of the second-floor storage room (its bulb is out), a woman with long wavy purple hair wrapped in a black shawl covered with star sequins snatches a thick cash envelope (accent color) and turns away; the star sequins on the shawl glitter. The only light comes from the shop BELOW, so her shadow stretches upward onto the ceiling. In the lower part of the panel, the viewer's own empty hand reaches upward, the wrist watch clearly showing 9:10.
 
 Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
@@ -2351,7 +2363,7 @@ Every person in the panel is drawn ON-MODEL from their attached character portra
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + burnt orange (#c4703a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Blurry first-person view from the floor at the foot of a staircase: a 19-year-old girl with long dark navy hair and a ribbon, wearing a pastry shop apron stands frozen holding a smartphone in both hands, trembling, not calling: the phone screen is black and her fingers are not touching it. Behind her the top of the staircase is pitch dark. No clock visible. Her bandaged ankle (accent color) is near the viewer.
+Scene: Blurry first-person view from the floor at the foot of a staircase: a 19-year-old girl with long dark navy hair, big teal eyes and a cream ribbon, wearing a cream puff-sleeve blouse and a pastry shop apron with a small cake emblem with the ribbon on her RIGHT side stands frozen holding a smartphone in both hands, trembling, not calling: the phone screen is black and her fingers are not touching it. Behind her the top of the staircase is pitch dark. No clock visible. In the foreground, close to the viewer, HER OWN ankle (the girl's, not the viewer's) wrapped in a big white bandage above her sneaker (accent color). The viewer is a fallen man; none of his body is visible. Her apron skirt is long and modest.
 ```
 
 > 기준 이미지로 붙일 것: web/assets/portraits/yuki_normal.png, web/assets/portraits/nagi_normal.png
@@ -2370,12 +2382,12 @@ Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game scr
 
 Palette: 8 grey levels from black to white, and one accent color khaki green (#8f9a4a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
-Scene: View over a tofu shop counter into a night shopping arcade: a woman wrapped in a black shawl covered with star sequins runs out of a narrow back alley, the star sequins on the shawl glittering (accent color). On the tofu shop wall, a clock clearly shows 9:22.
+Scene: First-person view from behind a tofu shop counter (the tofu shop woman herself is NOT in the panel; only tubs of tofu in water in the foreground) into a night shopping arcade: a woman with long wavy purple hair wrapped in a black shawl covered with star sequins runs out of a narrow back alley, the star sequins on the shawl glittering (accent color). On the tofu shop wall, a clock clearly shows 9:22.
 
 Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
-> 기준 이미지로 붙일 것: web/assets/portraits/madoka_smile.png, web/assets/portraits/tofu_normal.png
+> 기준 이미지로 붙일 것: web/assets/portraits/madoka_smile.png
 
 > 꼭 보여야 할 것: 뒷골목에서 뛰어나오는 별무늬 숄(포인트 색), 두부집 시계 9:22
 
@@ -2383,10 +2395,8 @@ Every person in the panel is drawn ON-MODEL from their attached character portra
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + khaki green (#8f9a4a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Inside a tofu shop at night: the wall clock clearly shows 9:00; across the arcade, a shutter coming down with a rattling sound effect drawn as lines.
+Scene: First-person view from inside a tofu shop at night, over the tofu tubs: the wall clock clearly shows 9:00; across the arcade, a shutter coming down with a rattling sound effect drawn as lines. NO people in the panel.
 ```
-
-> 기준 이미지로 붙일 것: web/assets/portraits/tofu_normal.png
 
 > 꼭 보여야 할 것: 두부집 벽시계 9:00, 건너편 셔터
 
@@ -2394,10 +2404,8 @@ Scene: Inside a tofu shop at night: the wall clock clearly shows 9:00; across th
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + khaki green (#8f9a4a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A night shopping arcade seen from a tofu shop: a glittering shawl edge disappears into a narrow alley (accent color on the sparkle). The tofu shop clock shows 9:20.
+Scene: A night shopping arcade seen from a tofu shop: only the hem of a black shawl with glittering star sequins disappears into a narrow alley (accent color on the sparkle); the person wearing it is already out of sight. The tofu shop clock shows 9:20. NO people visible.
 ```
-
-> 기준 이미지로 붙일 것: web/assets/portraits/tofu_normal.png
 
 > 꼭 보여야 할 것: 골목으로 사라지는 반짝이는 숄 자락, 시계 9:20
 
@@ -2405,8 +2413,10 @@ Scene: A night shopping arcade seen from a tofu shop: a glittering shawl edge di
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + khaki green (#8f9a4a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A girl with the ribbon on her RIGHT side waves cheerfully from a pastry shop doorway in the evening.
+Scene: a 19-year-old girl with long dark navy hair, big teal eyes and a cream ribbon, wearing a cream puff-sleeve blouse and a pastry shop apron with a small cake emblem with the cream ribbon on her RIGHT side waves cheerfully from a pastry shop doorway in the evening, seen from across the arcade.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/yuki_normal.png, web/assets/portraits/nagi_normal.png
 
 > 꼭 보여야 할 것: 오른쪽 리본 점원이 손을 흔듦
 
@@ -2422,7 +2432,7 @@ Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game scr
 
 Palette: 8 grey levels from black to white, and one accent color violet (#7d4fd1). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
-Scene: Drawn like a tarot-card vision with a thin ornate border, but it is a real memory: view looking DOWN a steep staircase from its dark top. At the bottom, in the bright shop, a 19-year-old girl with long dark navy hair and a ribbon, wearing a pastry shop apron with the ribbon on her RIGHT side holds out a cash envelope, and a man's hand reaches in to take it. A banister post at the edge of the panel. No clock visible. Accent color on the envelope.
+Scene: Drawn like a tarot-card vision with a thin ornate border, but it is a real memory: view looking DOWN a steep staircase from its dark top. At the bottom, in the bright shop, a 19-year-old girl with long dark navy hair, big teal eyes and a cream ribbon, wearing a cream puff-sleeve blouse and a pastry shop apron with a small cake emblem with the ribbon on her RIGHT side holds out a cash envelope, and a man's hand reaches in to take it. A banister post at the edge of the panel. No clock visible. Accent color on the envelope.
 
 Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
@@ -2444,7 +2454,7 @@ Scene: Drawn like a tarot-card vision with a thin ornate border: first-person vi
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + violet (#7d4fd1) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Drawn like a tarot-card vision with a thin ornate border: at the top of a staircase, a hand in an apron sleeve pushes the shoulder of a man climbing up. The only light comes from the shop at the bottom of the stairs, so the banister and the man cast shadows that stretch UPWARD on the wall, EXCEPT the pushing hand's shadow which clearly falls DOWNWARD. Accent color on the hand.
+Scene: Drawn like a tarot-card vision with a thin ornate border: seen from below on the staircase: at the TOP, only a hand and forearm in a cream puff sleeve (no face, no body) reaches out of the dark doorway and pushes the shoulder of a man who is climbing UP toward it (the man seen from behind, below the hand). The only light comes from the shop at the bottom of the stairs, so the banister and the man cast shadows that stretch UPWARD on the wall, EXCEPT the pushing hand's shadow which clearly falls DOWNWARD. Accent color on the hand.
 ```
 
 > 꼭 보여야 할 것: 타로 테두리, 미는 손(포인트 색), 아래에서 비친 불빛, 손 그림자만 반대 방향
@@ -2453,7 +2463,7 @@ Scene: Drawn like a tarot-card vision with a thin ornate border: at the top of a
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + violet (#7d4fd1) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Inside a tarot booth: tarot cards on a purple cloth, a customer's hands across the table, star fairy lights (accent color on the cards).
+Scene: Inside a tarot booth, first-person view of the fortune teller: her own hands with purple rings lay tarot cards on a purple cloth; across the table only a customer's hands are visible (no faces), star fairy lights (accent color on the cards).
 ```
 
 > 꼭 보여야 할 것: 부스의 타로 카드와 손님의 손

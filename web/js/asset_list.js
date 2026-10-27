@@ -42,9 +42,9 @@ function requiredAssets() {
       .replace('{color}', `${COLOR_NAME[color] || ''} (${color})`);
     // 컷에 나오는 인물의 상반신 그림 = 기준 이미지. GPT는 이걸 이미지로 붙여 같은 사람으로 그린다
     // {자리} 이름과, 장면 글에 이름이 그대로 나온 인물을 모은다. 별칭은 실제 인물로
-    const ALIAS = { young_rei: 'rei', child_rei: 'rei', nishi: 'nishimura', twin: ['yuki', 'nagi'] };
+    const ALIAS = { young_rei: 'rei', child_rei: 'rei', nishi: 'nishimura', twin: ['yuki', 'nagi'], twin_hands: 'nagi' };
     const keys = [...raw.matchAll(/\{(\w+)\}/g)].map((m) => m[1])
-      .concat(typeof CHARACTERS === 'undefined' ? [] : Object.keys(CHARACTERS).filter((k) => new RegExp(`\\b${k}\\b`, 'i').test(raw.replace(/\{\w+\}/g, ''))));
+      .concat(typeof CHARACTERS === 'undefined' ? [] : Object.keys(CHARACTERS).filter((k) => new RegExp(`\\b${k}\\b(?! (shop|tubs|in\\b))`, 'i').test(raw.replace(/\{\w+\}/g, ''))));
     const refs = [...new Set(keys.flatMap((k) => [].concat(ALIAS[k] || k)))]
       .filter((k) => typeof CHARACTERS !== 'undefined' && CHARACTERS[k] && CHARACTERS[k].faces)
       .map((k) => `web/assets/portraits/${k}_${CHARACTERS[k].faces[0]}.png`);
