@@ -26,7 +26,7 @@ AGENTS.md대로 이미지 만들어서 PR 올려줘. 작업 전에 최신 main�
 
 1차 — 2장: bg(crescent_out crescent_stage booth greenroom backstage tendo_office), cut-aoi cut-kuramochi cut-kirishima cut-tendo
 
-2차 — 3장: bg(tokiwa_shop storage arcade booth3 academy arcade_exit), cut-twin cut-hasegawa cut-tofu cut-madoka
+2차 — 3장: bg의 storage (10/27 받은 건 천장 전구가 켜져 있어서 뺌. 3장 그림자 단서가 「전구가 나가서 아래층 불빛만」이라 전구는 꺼져 있어야 함. 금고 열림, 뒷문 철계단), cut-twin cut-hasegawa cut-tofu cut-madoka
 
 3차 — 4장: bg(sakurayu sakurayu_boiler okamoto_house site_office clinic), cut-hayaka cut-keiko cut-murase cut-okamoto cut-genzo
 
@@ -40,7 +40,7 @@ AGENTS.md대로 이미지 만들어서 PR 올려줘. 작업 전에 최신 main�
 
 8차 — 낮은 우선순위: cut-aoi 2C(트러스·발코니가 대형 공연장처럼), cut-pin t_pin_1~3(기억 속 루루 머리), portrait-murase(50세로)
 
-(10/27 받아 넣음: 2장 컷 2B 2D 2F 2G 2I 2L 2M 2T t_kuramochi_1·1_truth·2·3 t_tendo_1·2·3·3b, cut-pink G H t_himari_2_truth t_himari_3_truth, towa ren aoi yuki nagi shiori madoka tofu hayaka keiko okamoto murase nishimura tanabe 상반신, cut-blue B C)
+(10/27 받아 넣음: 3장 배경 tokiwa_shop arcade booth3 academy arcade_exit, 2장 컷 2B 2D 2F 2G 2I 2L 2M 2T t_kuramochi_1·1_truth·2·3 t_tendo_1·2·3·3b, cut-pink G H t_himari_2_truth t_himari_3_truth, towa ren aoi yuki nagi shiori madoka tofu hayaka keiko okamoto murase nishimura tanabe 상반신, cut-blue B C)
 
 컷은 회색 8단계 + 포인트 색 1개, must_show 단서는 크게. 같은 인물은 상반신 설정화와 같은 얼굴·옷으로.
 ```

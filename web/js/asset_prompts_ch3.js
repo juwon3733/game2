@@ -32,7 +32,7 @@ Object.assign(FACE_PROMPTS, {
 
 Object.assign(BG_PROMPTS, {
   tokiwa_shop: 'An old retro Japanese Western-style pastry shop at night after closing: empty cake showcase, a small register counter, a round wall clock, warm dim lights, a steep wooden staircase at the back going up to a storage room, police tape at the door.',
-  storage: 'A cramped second-floor storage room of a pastry shop at night: stacked cake boxes, a small old safe with its door open, a back door to an outside iron staircase, a steep staircase going down. The single bare bulb is burnt out; the only light is the warm glow rising from the shop downstairs.',
+  storage: 'A cramped second-floor storage room of a pastry shop at night: stacked cake boxes, a small old safe with its door open, a back door to an outside iron staircase, a steep staircase going down. The single bare bulb hanging from the ceiling is clearly DARK and dead (burnt-out filament, NOT glowing, no light around it); the room is dim and lit ONLY by warm light coming up the staircase from the shop downstairs, so shadows point upward. The small safe stands wide open and empty. A back door stands open onto an outside iron staircase.',
   arcade: 'A covered old shopping arcade (shotengai) at night, most shutters down, a tofu shop with a wall clock, a tiny tarot booth with a curtain and star decorations, paper lanterns, a narrow back alley between shops.',
   booth3: 'Inside a tiny tarot fortune telling booth: a round table with a purple cloth and tarot cards, a crystal ball, star-shaped fairy lights, heavy curtains.',
   academy: 'An art prep school studio in the evening: rows of easels, plaster busts, charcoal drawings pinned on the walls, big dark windows with the station lights outside, fluorescent lights.',

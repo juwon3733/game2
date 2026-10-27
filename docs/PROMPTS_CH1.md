@@ -1173,7 +1173,7 @@ An old retro Japanese Western-style pastry shop at night after closing: empty ca
 ```
 같은 도트 스타일, 같은 픽셀 크기와 팔레트로 다음 배경을 그려줘. 사람 없이, 가로 1536x1024.
 
-A cramped second-floor storage room of a pastry shop at night: stacked cake boxes, a small old safe with its door open, a back door to an outside iron staircase, a steep staircase going down. The single bare bulb is burnt out; the only light is the warm glow rising from the shop downstairs. Keep the lower third simple because characters will stand in front.
+A cramped second-floor storage room of a pastry shop at night: stacked cake boxes, a small old safe with its door open, a back door to an outside iron staircase, a steep staircase going down. The single bare bulb hanging from the ceiling is clearly DARK and dead (burnt-out filament, NOT glowing, no light around it); the room is dim and lit ONLY by warm light coming up the staircase from the shop downstairs, so shadows point upward. The small safe stands wide open and empty. A back door stands open onto an outside iron staircase. Keep the lower third simple because characters will stand in front.
 ```
 
 **`arcade.png`
