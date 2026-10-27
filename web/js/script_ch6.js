@@ -31,10 +31,11 @@ Object.assign(MAPS, {
       { id: 'bench', x: 21, y: 4, w: 2, solid: true, label: '곶 끝 벤치' },
       { id: 'plaque', x: 2, y: 8, label: '그을린 기증자 명판' },
       { id: 'flowers', x: 18, y: 7, label: '철망 앞 국화 다발' },
+      { id: 'fence', x: 16, y: 6, label: '철망의 자물쇠' },
     ],
   },
 });
-// 조사 구역은 explore.js EX_AREAS.lighthouse. 머리핀은 계단참이라 1층 쪽, 명판·국화는 잔상이 없는 물건
+// 조사 구역은 explore.js EX_AREAS.lighthouse. 머리핀은 계단참이라 1층 쪽, 명판·자물쇠는 잔상이 없는 물건
 
 const CH6_SCENES = [
   ['offer6', '제안 (8월 31일 아침)'],
@@ -48,8 +49,8 @@ const CH6_SCENES = [
 ];
 
 const C6A = ['AF', '6Y3', '6Y4']; // 5장에서 얻은 그날의 컷은 종장에도 가져온다
-const C6B = [...C6A, 'R1', 'S1', 'R2', 'S2', 'R3', 'S3', 'R4', 'R5', 'S4', 'S5', 'S6', 'S7'];
-const C6C = [...C6B, 'R6', 'R7', 'R8'];
+const C6B = [...C6A, 'R1', 'S1', 'R2', 'S2', 'R3', 'S3', 'R4', 'R5', 'S4', 'S5', 'S6', 'S7', 'RF'];
+const C6C = [...C6B, 'R6', 'R7', 'R8', 'AC'];
 const C6D = [...C6C, 'S8'];
 const W6A = ['p_shiori', 'p_kurogane', 'pl_lighthouse', 'a_runaway'];
 const W6B = [...W6A, 'pl_bench', 'p_nishi', 'th_backpage', 'a_draw'];
@@ -99,10 +100,10 @@ async function sceneExplore6() {
   show('towa', 'serious', 'right');
   await say('towa', '드론 띄웠어. …나도 같이 읽을게.');
   clearChars();
-  const req = ['seat', 'lastpage', 'form', 'box', 'hairpin', 'stairs', 'lighter', 'gate', 'bench'];
+  const req = ['seat', 'lastpage', 'form', 'box', 'hairpin', 'stairs', 'lighter', 'gate', 'bench', 'flowers'];
   let got = 0;
-  const tick = () => { got++; goal(`그날 밤의 잔상을 모아라. (${got}/9)`); if (got === 9) EX.end(); };
-  goal('그날 밤의 잔상을 모아라. (0/9)');
+  const tick = () => { got++; goal(`그날 밤의 잔상을 모아라. (${got}/${req.length})`); if (got === req.length) EX.end(); };
+  goal(`그날 밤의 잔상을 모아라. (0/${req.length})`);
   await explore('lighthouse', {
     start: [16, 9], required: req,
     on: {
@@ -139,7 +140,7 @@ async function sceneExplore6() {
         await gainItem('lighter');
         await say('kurogane', '「H」 각인. 하쿠요가 창립 기념으로 간부들한테만 돌린 거다. 감식은 배전반만 보고 하루 만에 「누전」으로 닫았지. 서고 잿더미는 아무도 안 뒤졌다.', 'sad');
         await gainCut('S4');
-        await say('rei', '(이 얼굴. 서장실 소파에 앉아 있던 사람.)', 'serious');
+        await say('rei', '(이 얼굴. 서장실에서 나오던 사람.)', 'serious');
         gainWord('p_nishi');
         await say('kurogane', '니시무라. 그때는 하쿠요 용지 담당이었다. 이 곶을 사겠다고 매일 드나들었지.', 'sad');
         tick();
@@ -155,8 +156,13 @@ async function sceneExplore6() {
         await say('rei', '(시립 도서관 그림책에 찍혀 있던 도장. 같은 날짜야.)', 'serious');
       },
       flowers: async () => {
-        await say('', '철망 앞에 시든 국화 한 다발. 리본도 쪽지도 없다.');
-        await say('kurogane', '해마다 8월 31일이면 누가 두고 간다. 6년째 한 번도 거른 적이 없지.', 'sad');
+        await say('', '철망 앞에 시든 국화 한 다발. 작년 것이다. 리본도 쪽지도 없다.');
+        await say('kurogane', '해마다 8월 31일 밤이면 누가 두고 간다. 다섯 해째 한 번도 거른 적이 없지.', 'sad');
+        await say('', '시든 꽃대를 쥐자, 손바닥에 낯익은 감각이 남는다.');
+        await gainCut('RF'); tick();
+      },
+      fence: async () => {
+        await say('', '철망 문에 녹슨 자물쇠. 열쇠 구멍까지 녹이 슬어 몇 년은 아무도 연 적이 없다.');
       },
       hairpin: async () => {
         await say('', '계단참 틈에 낀 작은 반짝임. 책갈피 모양의 머리핀.');
@@ -197,11 +203,15 @@ async function sceneShiori6() {
   show('rei', 'crying', 'left');
   await say('rei', '미안. 그 칸, 내가 그었어. 네 이름.', 'crying');
   await say('shiori', '알아. 그래도 돌아왔잖아. 연기 속으로.', 'smile');
-  await say('shiori', '마지막 한 칸은 내가 줄게. 내가 왜 다시 들어갔는지.', 'normal');
+  await say('shiori', '마지막 한 칸은 머리핀에 남아 있어. 읽어 봐.', 'normal');
   await gainCut('S8');
-  await say('shiori', '순경 아저씨가 너를 업고 나가면서, 바로 따라 나오라고 했어.', 'normal');
-  await say('shiori', '근데 계단 아래에서 그 장이 생각났어. 상자에 넣어 두긴 했는데, 불 꺼지고 누가 열어 볼지 몰라서. 내 손으로 건네고 싶었어.', 'normal');
-  await say('rei', '그래서 밖으로 안 나오고, 계단을 다시 올라갔구나.', 'crying');
+  await say('', '계단 아래에서 위층을 올려다보는 시점. 등 뒤로 순경이 뛰어 들어오는 발소리.');
+  await say('rei', '상자에 넣어 둔 그 장. 불 꺼지고 누가 열어 볼지 몰라서, 네 손으로 건네고 싶었구나.', 'crying');
+  await say('shiori', '응.', 'smile');
+  await say('rei', '…시오리. 너, 처음부터 내가 본 것만 가리켰지. 칸막이도, 스케치북도, 부두도.', 'serious');
+  await say('shiori', '나는 네가 지운 칸이니까. 네가 본 것밖에 몰라.', 'smile');
+  await say('shiori', '그래서 하나 남은 건 나도 못 가리켜. 아직 아무도 안 그린 칸.', 'normal');
+  await say('', '시오리의 손가락이 열람석 위 원고의 마지막 장을 가리킨다. 백지.');
   FX.mood(null);
   hide('shiori');
   clearChars();
@@ -254,14 +264,21 @@ async function sceneConclusion6() {
   show('ren', 'normal', 'right');
   await say('ren', '증언할게. 법정에서. 안대도 벗고.', 'normal');
   hide('ren');
-  show('asagiri', 'normal', 'right');
+  show('asagiri', 'sad', 'right');
   bgm(null, 2);
-  await say('asagiri', '그래도 물을게, 레이.', 'normal');
-  await say('asagiri', '다시 잊게 해 줄까? 아프지 않게. 시오리도, 소타 순경도, 오늘도.', 'normal');
+  await say('', '밤이 깊었다. 철망 앞, 아사기리가 국화 한 다발을 들고 서 있다.');
+  await say('asagiri', '올해 것. 네가 꽃집에 안 들러서, 내가 사 왔어.', 'sad');
+  await say('asagiri', '여섯 번, 같은 대답이었지. 그래도 일곱 번째로 물을게.', 'sad');
+  await say('asagiri', '다시 지워 줄까?', 'sad');
   hideText();
-  const c = await choice(['"…잊게 해 줘."', '"아니. 기억할게."'], '최종 선택');
+  const c = await choice(['"…다시 지워 주세요."', '"아니요. 올해는 제가 둘게요. 꽃도, 그날도."'], '최종 선택');
   if (c === 0) G.flags.ending = 'edit';
-  else G.flags.ending = marginCount() >= MARGIN_FLAGS.length ? 'margin' : 'truth';
+  else {
+    G.flags.ending = marginCount() >= MARGIN_FLAGS.length ? 'margin' : 'truth';
+    await say('asagiri', '…그래.', 'sad');
+    await say('', '아사기리가 국화 다발을 내민다. 레이가 받는다. 젖은 꽃잎에서 6년 치 같은 냄새가 난다.');
+    await say('asagiri', '쓴 커피, 생각보다 마실 만해. 내일 아침엔 그걸로 마셔.', 'sad');
+  }
   clearChars();
 }
 
@@ -298,8 +315,8 @@ async function sceneEnding6() {
   const end = G.flags.ending || 'truth';
   if (end === 'edit') {
     bg('lighthouse');
-    show('asagiri', 'normal', 'center');
-    await say('asagiri', '그래. 이번엔 아프지 않게.', 'normal');
+    show('asagiri', 'sad', 'center');
+    await say('asagiri', '그래. 일곱 번째네.', 'sad');
     show('koharu', 'crying', 'right');
     await say('koharu', '선배, 그날을 지우면 오빠가 선배를 업고 나온 것도 같이 없어져요.', 'crying');
     await say('koharu', '오빠가 마지막으로 한 일이에요. 그걸 선배가 모르는 채로 옆에 있는 건, 저 못 하겠어요.', 'crying');
@@ -311,13 +328,13 @@ async function sceneEnding6() {
     clearChars();
     bg('office');
     await fade(false, 900);
-    await say('', '9월 1일 아침. 잔상과 사무실 소파에서 레이가 눈을 뜬다.');
+    await say('', '9월 1일 아침. 잔상과 사무실 소파에서 레이가 눈을 뜬다. 책상 위에 단 커피가 김을 올린다.');
     show('shiori', 'normal', 'right');
     await say('', '창가에 교복 차림의 여학생이 서 있다. 아무 말도 하지 않는다.');
     hide('shiori');
     await say('', '책상 위 신문 귀퉁이. 「하쿠요 상무 니시무라, 6년 전 등대 도서관 방화 혐의로 구속」. 레이는 낯선 이름을 한 번 훑고 신문을 접는다.');
     await say('', '맞은편 책상은 비어 있다. 쪽지 한 장. 「선배, 잘 지내요.」');
-    await say('', '레이는 쪽지를 두 번 읽고, 누구 글씨인지 끝내 떠올리지 못한다.');
+    await say('', '레이는 쪽지를 두 번 읽고, 누구 글씨인지 끝내 떠올리지 못한다. 커피는 달다. 늘 그랬듯이.');
     hideText();
     await banner('편집 엔딩', '「아무 일도 없었던 하루」', 2600);
   } else {
@@ -325,6 +342,17 @@ async function sceneEnding6() {
     bgm('truth');
     await say('', '새벽. 곶 끝. 하쿠요 본사에 수색 영장이 집행되고, 니시무라가 연행되었다는 소식이 라디오로 흘러나온다.');
     await say('', '날이 밝자, 아사기리가 스스로 경찰서를 찾아갔다는 소식도 들린다.');
+    show('rei', 'normal', 'left');
+    await say('', '철망 앞. 레이가 국화를 내려놓는다. 처음으로, 다음 날에도 기억할 채로.');
+    show('koharu', 'normal', 'right');
+    await say('', '코하루의 가방에서 수첩이 떨어져 펼쳐진다. 첫 장, 8월 24일. 둥근 글씨.');
+    await say('', '「오빠가 업고 나온 사람. 시노노메 레이. 잔상과.」');
+    await say('koharu', '…아. 그거, 첫날 쓴 거예요.', 'worried');
+    await say('rei', '처음부터 알았어?', 'serious');
+    await say('koharu', '오빠 사건 기록에 이름이 있었어요. 보면 원망할 줄 알았는데, 선배가 커피 캔 들고 졸고 있더라고요.', 'normal');
+    await say('koharu', '그래서 그냥 옆에 있기로 했어요. 선배가 기억해 낼 때까지는 제 얘기가 아니니까.', 'happy');
+    await say('rei', '…고마워.', 'normal');
+    clearChars();
     if (end === 'margin') {
       show('rei', 'serious', 'left');
       await say('', '최종 페이지 끝에, 칸이 하나 더 남아 있다. 아무것도 그려지지 않은 칸.');
@@ -364,7 +392,8 @@ async function sceneEnding6() {
       show('koharu', 'happy', 'right');
       show('rei', 'normal', 'left');
       await say('koharu', '선배, 내일 커피 담당 저예요. 단 거죠?', 'happy');
-      await say('rei', '응. 단 거.', 'normal');
+      await say('rei', '아니. 쓴 거.', 'normal');
+      await say('koharu', '…진짜요? 네!', 'happy');
       if ((G.flags.bond || 0) >= 3) await say('koharu', '6년 치 따라잡으려면 아직 멀었네요. 모레도 제가 할게요.', 'happy');
       clearChars();
     }

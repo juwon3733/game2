@@ -114,6 +114,10 @@ async function sceneOffice4() {
   show('kurogane', 'normal', 'center');
   await say('kurogane', '손대지 마라. 아직 열 사람이 없다.');
   await say('', '상자 옆구리엔 압수품 번호표가 없다. 다른 상자엔 전부 붙어 있는데.');
+  await say('', '레이가 자기 책상 서랍을 연다. 안쪽에 고무줄로 묶인 꽃집 영수증 다섯 장. 국화 한 다발씩, 날짜는 전부 8월 31일.');
+  show('rei', 'serious', 'left');
+  await say('rei', '(…산 기억이 없어.)', 'serious');
+  hide('rei');
   hideText();
   const c0 = await choice(['"과장님 말 들어."', '"…나중에 같이 열어 보자."'], '코하루에게');
   if (c0 === 1) { G.flags.bond = (G.flags.bond || 0) + 1; await say('koharu', '네. 약속이에요, 선배.', 'happy'); }

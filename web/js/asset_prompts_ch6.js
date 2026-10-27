@@ -40,6 +40,9 @@ Object.assign(CUT_PROMPTS, {
   t_asg_3: ['A cafe counter at night, spotless; the wall behind is completely empty.', '아무것도 걸리지 않은 벽'],
   t_self_3: ['Two manga panels joined: a 16-year-old running down stairs, and immediately next to it, a girl\'s hand falling away; a very thin seam line between the two panels.', '편집: 뛰쳐나감과 떨어지는 손이 붙은 이음매'],
   t_self_4: ['{young_rei} standing alone in front of a burning lighthouse library at night, nobody else in sight.', '불타는 도서관 앞에 혼자 선 레이'],
+  t_self_5: ['Six August wall calendars overlapped like stacked panels: on every one, the box for the 31st is blank white as if cut out, while the other days have small handwritten notes. No people.', '여섯 장 겹친 8월 달력, 31일 칸만 하얗게 빔'],
+  RF: ['Night, a rusty wire fence on the tip of a cape: a right hand lays a bouquet of white chrysanthemums at the foot of the fence (accent color on the flowers); a dark ink stain on the right index finger is clearly visible. The same hand and fence repeated as six faint overlapping layers, only the flower colors differ; in the last layer the hand lifts a phone.', '국화를 내려놓는 오른손, 검지의 잉크 자국(크게), 여섯 겹'],
+  AC: ['A small cafe at night after closing, chairs on the tables, one warm lamp over the counter: a teenager with messy short black hair and an oversized hoodie stands at the counter, head bowed, wet chrysanthemum petals on the sleeve (accent color on the lamp light). Faint overlapping layers show the same figure slightly taller each time.', '문 닫은 카페, 고개 숙인 레이, 소매의 국화 꽃잎, 해마다 겹친 모습'],
 });
 
 Object.assign(CG_CHARS, {

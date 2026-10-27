@@ -17,7 +17,7 @@ portrait-yukin portrait-madoka portrait-tofu portrait-hayaka portrait-keiko port
 
 5차 — 5장: bg(station_chief koharu_room library busstop warehouse pier warehouse_in cafe_night), cut-koharu cut-tanabe cut-ren cut-sota cut-kurogane
 
-6차 — 종장: bg(lighthouse lighthouse_in lighthouse_dawn), cut-rei cut-shiori cut-asagiri, cut-crayon의 AF
+6차 — 종장: bg(lighthouse lighthouse_in lighthouse_dawn), cut-rei(새 컷 RF t_self_5 포함) cut-shiori cut-asagiri(새 컷 AC 포함), cut-crayon의 AF
 
 7차 — CG: cg (11장 전부)
 

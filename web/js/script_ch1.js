@@ -323,6 +323,7 @@ async function sceneEpilogue() {
   await say('asagiri', '레이는 늘 이거야. 쓴 것만 마실 것 같은 얼굴로 단 걸 마시거든.');
   await say('rei', '쓸데없는 소리.');
   if (cafe) cgEnd();
+  await say('', '카운터 끝 유리병에 흰 국화 한 송이. 레이는 그쪽으로 눈을 두지 않는다.');
   await say('asagiri', '오늘은 무슨 일이 있었어?');
   await say('rei', '맨션 추락 사건이요. 옆집 아이는 무사해요.');
   await say('asagiri', '그래. …괜찮아. 힘든 건 잊어도 돼.');

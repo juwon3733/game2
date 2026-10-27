@@ -57,7 +57,7 @@ const EX_AREAS = {
   tokiwa: [['1층 매장', ['sign', 'showcase', 'register', 'phone', 'shift', 'roster']], ['안쪽 사무실', ['ledger', 'stairsfoot', 'restroom']], ['2층 창고', ['boxes', 'safe', 'backdoor']]],
   arcade: [['점술 부스', ['booth', 'drawer', 'trash']], ['두부집', ['tofushop', 'tofuclock']], ['뒷골목', ['alley', 'tokiwaback']]],
   sakurayu: [['탈의실·탕', ['poster', 'counter', 'bath']], ['보일러실', ['panel', 'boiler', 'chimney']], ['바깥', ['fence', 'murase', 'okamotowin']]],
-  lighthouse: [['2층 열람실', ['seat', 'lastpage', 'form', 'box']], ['1층', ['stairs', 'hairpin', 'lighter', 'plaque', 'gate']], ['곶 끝', ['bench', 'flowers']]],
+  lighthouse: [['2층 열람실', ['seat', 'lastpage', 'form', 'box']], ['1층', ['stairs', 'hairpin', 'lighter', 'plaque', 'gate']], ['곶 끝', ['bench', 'flowers', 'fence']]],
 };
 
 // ---------- 조사 상태 ----------

@@ -10,7 +10,7 @@
     "skip_existing": "이미 저장소에 있는 file은 다시 만들지 않는다 (교체 요청이 있을 때만).",
     "validate": "node tools/check-assets.mjs 가 통과해야 한다."
   },
-  "total": 284,
+  "total": 287,
   "batches": [
     {
       "id": "portrait-rei",
@@ -3412,6 +3412,17 @@
           "followup_prompt": "같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 +  (#6b5fa8) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.\n\nScene: Blurry first-person view of a teenager leaning with one arm over an adult man's shoulder, being walked away from a burning library door at night, looking back over the shoulder; through the open door, inside at the foot of the staircase, a girl's small silhouette climbs back up the stairs and a police officer's cap runs in after her (accent color on the girl's silhouette). No clock."
         },
         {
+          "id": "RF",
+          "file": "web/assets/cuts/RF.png",
+          "kind": "cut",
+          "width": 1536,
+          "height": 1024,
+          "transparent": false,
+          "must_show": "국화를 내려놓는 오른손, 검지의 잉크 자국(크게), 여섯 겹",
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.\n\nPalette: 8 grey levels from black to white, and one accent color  (#6b5fa8). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.\n\nScene: Night, a rusty wire fence on the tip of a cape: a right hand lays a bouquet of white chrysanthemums at the foot of the fence (accent color on the flowers); a dark ink stain on the right index finger is clearly visible. The same hand and fence repeated as six faint overlapping layers, only the flower colors differ; in the last layer the hand lifts a phone.\n\nAny person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.",
+          "followup_prompt": "같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 +  (#6b5fa8) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.\n\nScene: Night, a rusty wire fence on the tip of a cape: a right hand lays a bouquet of white chrysanthemums at the foot of the fence (accent color on the flowers); a dark ink stain on the right index finger is clearly visible. The same hand and fence repeated as six faint overlapping layers, only the flower colors differ; in the last layer the hand lifts a phone."
+        },
+        {
           "id": "t_self_3",
           "file": "web/assets/cuts/t_self_3.png",
           "kind": "cut",
@@ -3432,6 +3443,17 @@
           "must_show": "불타는 도서관 앞에 혼자 선 레이",
           "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.\n\nPalette: 8 grey levels from black to white, and one accent color  (#6b5fa8). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.\n\nScene: a 16-year-old with messy short black hair, an oversized hoodie and an ink stain on the right index finger standing alone in front of a burning lighthouse library at night, nobody else in sight.\n\nAny person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.",
           "followup_prompt": "같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 +  (#6b5fa8) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.\n\nScene: a 16-year-old with messy short black hair, an oversized hoodie and an ink stain on the right index finger standing alone in front of a burning lighthouse library at night, nobody else in sight."
+        },
+        {
+          "id": "t_self_5",
+          "file": "web/assets/cuts/t_self_5.png",
+          "kind": "cut",
+          "width": 1536,
+          "height": 1024,
+          "transparent": false,
+          "must_show": "여섯 장 겹친 8월 달력, 31일 칸만 하얗게 빔",
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.\n\nPalette: 8 grey levels from black to white, and one accent color  (#6b5fa8). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.\n\nScene: Six August wall calendars overlapped like stacked panels: on every one, the box for the 31st is blank white as if cut out, while the other days have small handwritten notes. No people.\n\nAny person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.",
+          "followup_prompt": "같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 +  (#6b5fa8) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.\n\nScene: Six August wall calendars overlapped like stacked panels: on every one, the box for the 31st is blank white as if cut out, while the other days have small handwritten notes. No people."
         }
       ]
     },
@@ -3536,6 +3558,17 @@
       "note": "같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.",
       "items": [
         {
+          "id": "AC",
+          "file": "web/assets/cuts/AC.png",
+          "kind": "cut",
+          "width": 1536,
+          "height": 1024,
+          "transparent": false,
+          "must_show": "문 닫은 카페, 고개 숙인 레이, 소매의 국화 꽃잎, 해마다 겹친 모습",
+          "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.\n\nPalette: 8 grey levels from black to white, and one accent color coffee brown (#8a5a3a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.\n\nScene: A small cafe at night after closing, chairs on the tables, one warm lamp over the counter: a teenager with messy short black hair and an oversized hoodie stands at the counter, head bowed, wet chrysanthemum petals on the sleeve (accent color on the lamp light). Faint overlapping layers show the same figure slightly taller each time.\n\nAny person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.",
+          "followup_prompt": null
+        },
+        {
           "id": "t_asagiri_0",
           "file": "web/assets/cuts/t_asagiri_0.png",
           "kind": "cut",
@@ -3544,7 +3577,7 @@
           "transparent": false,
           "must_show": "비 오는 밤 카페 문가의 젖은 고등학생 레이 (사실 증언)",
           "prompt": "이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.\n\nAuthentic low-resolution pixel art, like a PC-98 era Japanese adventure game screenshot. Native resolution about 320x213 pixels, upscaled with nearest-neighbor to 1536x1024 so every pixel is a clearly visible square block. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and checkerboard dithering.\n\nPalette: 8 grey levels from black to white, and one accent color coffee brown (#8a5a3a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.\n\nScene: A rainy night at a small retro cafe door: a 16-year-old high school student (a teenager, not a small child) with messy short black hair, a school uniform with an oversized hoodie over it, and an ink stain on the right index finger stands soaked in a school uniform with a bandage on the forehead; one warm lamp behind the counter.\n\nAny person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.",
-          "followup_prompt": null
+          "followup_prompt": "같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + coffee brown (#8a5a3a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.\n\nScene: A rainy night at a small retro cafe door: a 16-year-old high school student (a teenager, not a small child) with messy short black hair, a school uniform with an oversized hoodie over it, and an ink stain on the right index finger stands soaked in a school uniform with a bandage on the forehead; one warm lamp behind the counter."
         },
         {
           "id": "t_asagiri_1",

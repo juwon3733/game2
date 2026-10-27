@@ -2960,7 +2960,7 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 
 > 꼭 보여야 할 것: 순경 등에서 고등학생을 받아 부축, 8:31에 멈춘 손목시계(포인트 색)
 
-## 대화 59 — 컷 · 레이 시점 (10장)
+## 대화 59 — 컷 · 레이 시점 (12장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -3042,6 +3042,15 @@ Scene: Blurry first-person view of a teenager leaning with one arm over an adult
 
 > 꼭 보여야 할 것: 어깨에 기대 멀어짐, 뒤돌아본 문 안 계단을 오르는 그림자와 순경 모자(포인트 색)
 
+**`RF.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 +  (#6b5fa8) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: Night, a rusty wire fence on the tip of a cape: a right hand lays a bouquet of white chrysanthemums at the foot of the fence (accent color on the flowers); a dark ink stain on the right index finger is clearly visible. The same hand and fence repeated as six faint overlapping layers, only the flower colors differ; in the last layer the hand lifts a phone.
+```
+
+> 꼭 보여야 할 것: 국화를 내려놓는 오른손, 검지의 잉크 자국(크게), 여섯 겹
+
 **`t_self_3.png`
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 +  (#6b5fa8) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
@@ -3059,6 +3068,15 @@ Scene: a 16-year-old with messy short black hair, an oversized hoodie and an ink
 ```
 
 > 꼭 보여야 할 것: 불타는 도서관 앞에 혼자 선 레이
+
+**`t_self_5.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 +  (#6b5fa8) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: Six August wall calendars overlapped like stacked panels: on every one, the box for the 31st is blank white as if cut out, while the other days have small handwritten notes. No people.
+```
+
+> 꼭 보여야 할 것: 여섯 장 겹친 8월 달력, 31일 칸만 하얗게 빔
 
 ## 대화 60 — 컷 · 시오리 시점 (8장)
 
@@ -3142,11 +3160,11 @@ Scene: First-person view from the foot of a smoky staircase, looking back up tow
 
 > 꼭 보여야 할 것: 계단을 다시 올려다봄, 뒤에서 뛰어 들어오는 순경(포인트 색)
 
-## 대화 61 — 컷 · 아사기리 시점 (5장)
+## 대화 61 — 컷 · 아사기리 시점 (6장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
-**`t_asagiri_0.png`
+**`AC.png`
 ```
 이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
 
@@ -3154,9 +3172,18 @@ Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game scr
 
 Palette: 8 grey levels from black to white, and one accent color coffee brown (#8a5a3a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
-Scene: A rainy night at a small retro cafe door: a 16-year-old high school student (a teenager, not a small child) with messy short black hair, a school uniform with an oversized hoodie over it, and an ink stain on the right index finger stands soaked in a school uniform with a bandage on the forehead; one warm lamp behind the counter.
+Scene: A small cafe at night after closing, chairs on the tables, one warm lamp over the counter: a teenager with messy short black hair and an oversized hoodie stands at the counter, head bowed, wet chrysanthemum petals on the sleeve (accent color on the lamp light). Faint overlapping layers show the same figure slightly taller each time.
 
 Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+```
+
+> 꼭 보여야 할 것: 문 닫은 카페, 고개 숙인 레이, 소매의 국화 꽃잎, 해마다 겹친 모습
+
+**`t_asagiri_0.png`
+```
+같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + coffee brown (#8a5a3a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
+
+Scene: A rainy night at a small retro cafe door: a 16-year-old high school student (a teenager, not a small child) with messy short black hair, a school uniform with an oversized hoodie over it, and an ink stain on the right index finger stands soaked in a school uniform with a bandage on the forehead; one warm lamp behind the counter.
 ```
 
 > 꼭 보여야 할 것: 비 오는 밤 카페 문가의 젖은 고등학생 레이 (사실 증언)

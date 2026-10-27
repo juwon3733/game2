@@ -268,8 +268,9 @@ async function sceneRen() {
   await say('ren', '소타는 시오리를 데리러 [[다시 들어갔고]], 둘 다 나오지 못했어.', 'sad');
   gainWord('a_return');
   await say('ren', '난 밖에서 한쪽 눈을 잃었고. …그래서 네 부탁을 거절 못 했어.', 'sad');
+  await say('ren', '근데 그다음 해부터 손본 건 내가 아니야. 왜 해마다였는지는 편집장한테 들어.', 'sad');
   show('koharu', 'crying', 'right');
-  await say('koharu', '오빠가 업고 나온 사람이, 선배였어요?', 'crying');
+  await say('koharu', '…역시. 오빠가 업고 나온 사람, 선배였구나.', 'crying');
   await say('', '레이는 대답 대신 자기 오른손을 내려다본다. 검지에 늘 지워지지 않던 잉크 자국.');
   clearChars();
 }
