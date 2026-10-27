@@ -7,7 +7,7 @@ AGENTS.md대로 이미지 만들어서 PR 올려줘. 작업 전에 최신 main�
 묶음마다 PR 하나(브랜치 assets/<묶음 id>), 아래 순서대로 진행해. 없는 그림이 먼저고, 이미 있는 그림 고치기는 맨 마지막이야.
 
 1차 — 없는 상반신(그림이 없으면 인물이 화면에 안 나옴):
-portrait-yukin portrait-madoka portrait-tofu portrait-hayaka portrait-keiko portrait-okamoto portrait-murase portrait-nishimura portrait-tanabe
+portrait-madoka portrait-tofu portrait-hayaka portrait-keiko portrait-okamoto portrait-murase portrait-nishimura portrait-tanabe
 
 2차 — 2장: bg(crescent_out crescent_stage booth greenroom backstage tendo_office), cut-aoi cut-kuramochi cut-kirishima cut-tendo, cut-ruru의 2B
 
