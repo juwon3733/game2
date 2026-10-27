@@ -12,7 +12,7 @@ AGENTS.md대로 이미지 만들어서 PR 올려줘. 작업 전에 최신 main�
 - 8차까지 다 끝나면 "끝"이라고만 말해.
 
 0차 — 먼저! 이미 있는데 틀린 그림 다시 받기(공개판이 1장이라 1장부터. 지금 그림이 정답·글과 반대인 것들):
-- cut-pink: G H I t_himari_1_truth t_himari_2_truth t_himari_3_truth (H·I는 1층 정원·난간 바깥으로 그려져 정답과 반대. C 컷과 같은 5층 베란다로)
+- cut-pink: I t_himari_1_truth (I: 10/27 새 그림도 뺐음. 유리문 안 피아노 앞에 사람 그림자가 그대로 있고(미츠루는 베란다에 있어야 함), 미츠루가 난간 바깥에 있고, 주먹 속 머리핀이 안 보임. 방은 비우고, 미츠루는 난간 안쪽 바닥에 서서 상체만 내밀고, 분홍 머리핀을 주먹에 크게)
 - cut-blue: C (머리핀이 거의 안 보임. 웅크려 바깥 턱의 핀으로 손 뻗기)
 - cut-olive: E t_ookubo_2 t_ookubo_2_truth / cut-gold: t_taiga_2 t_taiga_3_truth (t_taiga_3_truth는 앉아 있음 → 뛰어 내려가며)
 - portrait-rei: rei_normal (X자 핀으로, 다른 표정과 같은 그림)
@@ -38,7 +38,7 @@ AGENTS.md대로 이미지 만들어서 PR 올려줘. 작업 전에 최신 main�
 
 8차 — 낮은 우선순위: cut-aoi 2C(트러스·발코니가 대형 공연장처럼), cut-pin t_pin_1~3(기억 속 루루 머리), portrait-murase(50세로)
 
-(10/27 받아 넣음: towa ren aoi yuki nagi shiori madoka tofu hayaka keiko okamoto murase nishimura tanabe 상반신, cut-blue B C)
+(10/27 받아 넣음: cut-pink G H t_himari_2_truth t_himari_3_truth, towa ren aoi yuki nagi shiori madoka tofu hayaka keiko okamoto murase nishimura tanabe 상반신, cut-blue B C)
 
 컷은 회색 8단계 + 포인트 색 1개, must_show 단서는 크게. 같은 인물은 상반신 설정화와 같은 얼굴·옷으로.
 ```
