@@ -1,0 +1,67 @@
+<!doctype html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../web/fonts/galmuri.css">
+<style>
+  :root { --paper: #efeadf; --ink: #141418; }
+  * { box-sizing: border-box; margin: 0; }
+  body { width: 1600px; height: 900px; background: var(--paper); font-family: Galmuri11, monospace; color: var(--ink); overflow: hidden;
+    background-image: radial-gradient(var(--ink) 1px, transparent 1.2px); background-size: 8px 8px; background-color: var(--paper); }
+  .page { position: absolute; inset: 28px; display: flex; flex-direction: column; gap: 18px; }
+  header { display: flex; align-items: flex-end; justify-content: space-between; }
+  .title { display: flex; gap: 0; }
+  .title span { font: 700 40px Galmuri11; padding: 8px 18px; border: 4px solid var(--ink); }
+  .title span:first-child { background: var(--ink); color: var(--paper); }
+  .title span:last-child { background: var(--paper); border-left: 0; box-shadow: 6px 6px 0 var(--ink); }
+  .sub { font: 700 26px Galmuri11; background: var(--paper); border: 4px solid var(--ink); padding: 8px 16px; box-shadow: 6px 6px 0 var(--ink); }
+  .row { flex: 1; display: grid; gap: 18px; grid-template-columns: var(--cols); min-height: 0; }
+  .panel { position: relative; border: 5px solid var(--ink); background: var(--paper); box-shadow: 8px 8px 0 var(--ink); overflow: hidden; }
+  .panel::before { content: ''; position: absolute; inset: 0; opacity: .35;
+    background-image: radial-gradient(var(--c) 2px, transparent 2.4px); background-size: 10px 10px; }
+  .panel img { position: absolute; left: 50%; bottom: 0; height: 104%; transform: translateX(-50%); image-rendering: pixelated; }
+  .panel.towa img { height: 78%; bottom: 120px; }
+  .cap { position: absolute; left: 14px; right: 14px; bottom: 14px; background: var(--paper); border: 4px solid var(--ink); box-shadow: 5px 5px 0 var(--ink); padding: 10px 14px 12px; }
+  .cap b { display: inline-block; font: 700 30px Galmuri11; padding: 0 10px 2px; background: var(--c); color: #fff; border: 3px solid var(--ink); margin-bottom: 6px; text-shadow: 2px 2px 0 var(--ink); }
+  .cap em { font: 400 18px Galmuri11; font-style: normal; margin-left: 8px; }
+  .cap p { font: 400 19px/1.45 Galmuri11; word-break: keep-all; }
+  .quote { word-break: keep-all; }
+  .quote { position: absolute; top: 16px; left: 16px; right: 16px; font: 700 20px/1.4 Galmuri11; background: var(--paper); border: 4px solid var(--ink); padding: 8px 12px; box-shadow: 5px 5px 0 var(--ink); }
+  footer { display: flex; justify-content: space-between; font: 700 20px Galmuri11; }
+  footer span { background: var(--paper); border: 3px solid var(--ink); padding: 4px 12px; }
+</style>
+<body>
+<div class="page" id="page"></div>
+<script>
+const P = '../web/assets/portraits/';
+const SETS = {
+  team: {
+    sub: '잔상과 사람들', cols: '1.25fr 1fr 1fr 1fr',
+    people: [
+      ['rei_serious', '레이', '잔상과 수사관', '#6b5fa8', '감정이 남은 물건을 만지면, 그 순간이 만화 컷 한 장으로 보인다.', '컷에는 시간이 안 적혀 있어. 순서는 우리가 맞춰야 해.'],
+      ['koharu_happy', '코하루', '신입 형사', '#f2a14a', '오늘 잔상과에 배치됐다. 밝고, 사람 말을 잘 들어 준다.', '선배! 잘 부탁드립니다!'],
+      ['towa_normal', '토와', '원격 분석', '#6fdc6f', '모니터 너머에서 분석을 돕는 해커. 고양이 아님.', '고양이 아니야. 토와야.', 'towa'],
+      ['kurogane_normal', '쿠로가네', '잔상과 과장', '#e07a9a', '늘 막대사탕을 물고 있다. 사건을 잔상과로 가져온다.', '자, 일이다.'],
+    ],
+  },
+  ch1: {
+    sub: '1장 「낙하」 — 그날 밤의 사람들', cols: '1fr 1fr 1fr',
+    people: [
+      ['taiga_angry', '타이가', '택배 기사', '#c9961a', '쿵 소리 직후 건물을 뛰쳐나갔다. 강력계는 그를 범인으로 본다.', '도망쳤다니까요. 그게 다예요.'],
+      ['ookubo_normal', '오오쿠보', '맨션 경비원', '#6b8a5a', '야구 중계를 좋아한다. "도망치는 걸 봤다"는 첫 증인.', '그놈이 나가고, 쿵. 확실해!'],
+      ['himari_normal', '히마리', '옆집 아홉 살', '#e0679a', '사에키 선생에게 피아노를 배운다. 그날 밤, 엄마는 야근이었다.', '…아무것도 몰라요.'],
+    ],
+  },
+};
+const S = SETS[location.hash.slice(1) || 'team'];
+document.getElementById('page').innerHTML = `
+  <header><div class="title"><span>같은 하루,</span><span>다른 칸</span></div><div class="sub">${S.sub}</div></header>
+  <div class="row" style="--cols:${S.cols}">
+    ${S.people.map(([img, name, role, c, desc, q, cls]) => `
+      <div class="panel ${cls || ''}" style="--c:${c}">
+        <img src="${P + img}.png" alt="">
+        <div class="quote">「${q}」</div>
+        <div class="cap"><b>${name}</b><em>${role}</em><p>${desc}</p></div>
+      </div>`).join('')}
+  </div>
+  <footer><span>도트 추리 어드벤처 · 1장 체험판</span><span>game2.2dasteria.workers.dev</span></footer>`;
+</script>
+</body>
