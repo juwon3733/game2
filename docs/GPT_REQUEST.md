@@ -8,6 +8,7 @@ AGENTS.md대로 이미지 만들어서 PR 올려줘. 작업 전에 최신 main�
 
 1차 — 교체(이미 파일이 있지만 프롬프트가 바뀜, 덮어써):
 - portrait-rei: rei_normal (새 rei_serious·surprised·crying과 같은 그림으로 — 보라색 X자 핀, 트렌치코트+후드, 크로스백. 캔 커피는 normal에서만 들고 있어도 됨)
+- portrait-tendo: 전부 (42세 미인으로. 10/27에 받은 건 너무 늙어서 뺌)
 - portrait-asagiri: asagiri_cold (지금 그림은 웃는 얼굴. 차갑게 굳은 표정, 입꼬리 내려가고 눈은 가늘게, 커피잔 없이)
 - portrait-shiori: shiori_normal (가리키지 않는 자세) + 없는 shiori_point shiori_smile
 - cut-blue: B C
@@ -16,7 +17,7 @@ AGENTS.md대로 이미지 만들어서 PR 올려줘. 작업 전에 최신 main�
 - cut-gold: t_taiga_2 t_taiga_3_truth
 - cut-pin: 2A 2K
 - cut-ruru: 2H 2P + 없는 2B
-(10/27 받아 넣음: rei_serious rei_surprised rei_crying taiga_sad kirishima_normal tendo 4장 kurogane_normal kurogane_sad asagiri_normal asagiri_sad)
+(10/27 받아 넣음: rei_serious rei_surprised rei_crying taiga_sad kirishima_normal kurogane_normal kurogane_sad asagiri_normal asagiri_sad)
 
 2차 — 없는 상반신(그림이 없으면 인물이 화면에 안 나옴):
 portrait-towa portrait-aoi portrait-yuki portrait-nagi portrait-yukin portrait-madoka portrait-tofu portrait-ren portrait-hayaka portrait-keiko portrait-okamoto portrait-murase portrait-nishimura portrait-tanabe

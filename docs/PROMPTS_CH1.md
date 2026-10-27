@@ -585,7 +585,7 @@ Character design in the style of modern Japanese anime mobile gacha games (subcu
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
-Character reference sheet of an elegant, intimidating 52-year-old talent agency president woman, clearly in her fifties (fine wrinkles at the eyes and mouth, a mature face — not a young woman). Dark hair in a tight elegant updo, sharp smiling eyes with long lashes, deep wine-magenta tailored suit with a brooch, pearl earrings, and a very large square gold wristwatch on her left wrist that is always visible. Smiles politely but the eyes do not smile. Magenta and gold accents.
+Character reference sheet of a glamorous, intimidating 42-year-old talent agency president woman, a beautiful mature woman who looks late thirties: smooth skin with no wrinkles, sharp elegant features, attractive gacha-style adult beauty (not a young girl, not an old woman). Dark hair in a tight elegant updo, sharp smiling eyes with long lashes, deep wine-magenta tailored suit with a brooch, pearl earrings, and a very large square gold wristwatch on her left wrist that is always visible. Smiles politely but the eyes do not smile. Magenta and gold accents.
 ```
 
 **`tendo_smile.png`
