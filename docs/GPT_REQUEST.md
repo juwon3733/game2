@@ -38,7 +38,7 @@ AGENTS.md대로 이미지 만들어서 PR 올려줘. 작업 전에 최신 main�
 
 7차 — UI(원고 테마): ui
 
-8차 — 낮은 우선순위: cut-aoi 2C(트러스·발코니가 대형 공연장처럼), cut-pin t_pin_1~3(기억 속 루루 머리), portrait-murase(50세로)
+8차 — 낮은 우선순위: cut-pin t_pin_1~3(기억 속 루루 머리), portrait-murase(50세로)
 
 (10/27 받아 넣음: 3장 배경 tokiwa_shop arcade booth3 academy arcade_exit, 2장 컷 2B 2D 2F 2G 2I 2L 2M 2T t_kuramochi_1·1_truth·2·3 t_tendo_1·2·3·3b, cut-pink G H t_himari_2_truth t_himari_3_truth, towa ren aoi yuki nagi shiori madoka tofu hayaka keiko okamoto murase nishimura tanabe 상반신, cut-blue B C)
 
