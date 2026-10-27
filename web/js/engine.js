@@ -65,18 +65,19 @@ function bg(id) {
   if (curBg === id) return;
   if (typeof amb === 'function') amb(BG_AMB[id] || null);
   const img = $('#bg');
-  // 이전 배경을 위에 겹쳐 두고 서서히 지운다
-  if (curBg) {
+  // 이전 배경을 위에 겹쳐 두고 서서히 지운다. 장면 전환으로 화면이 검게 덮여 있을 땐 바로 바꾼다(늦게 바뀌어 보이지 않게)
+  const covered = FX.covered && FX.covered();
+  if (curBg && !covered) {
     const old = img.cloneNode();
     old.removeAttribute('id');
     old.className = 'bg-old';
     img.after(old);
-    setTimeout(() => old.remove(), 800);
-    bgUntil = performance.now() + 700;
+    setTimeout(() => old.remove(), 400);
+    bgUntil = performance.now() + 300;
   }
   curBg = id;
   FX.bg(id);
-  img.classList.remove('settle'); void img.offsetWidth; img.classList.add('settle');
+  img.classList.remove('settle'); if (!covered) { void img.offsetWidth; img.classList.add('settle'); }
   loadImg(img, ASSET.bg(id), () => bgPlaceholder(id));
 }
 
@@ -383,6 +384,9 @@ async function sayAll(lines) {
 }
 
 function hideText() { $('#textbox').classList.add('hidden'); focusChar(null); }
+
+// 그림을 끌어 옮기는 브라우저 기본 동작을 막는다(퍼즐 끌어 놓기는 포인터 이벤트라 영향 없음)
+$('#stage').addEventListener('dragstart', (e) => e.preventDefault());
 
 // 클릭/키로 대사 넘기기
 $('#stage').addEventListener('click', (e) => {

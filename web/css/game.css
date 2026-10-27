@@ -29,7 +29,7 @@ button { font-family: inherit; }
 @keyframes flash { 0% { opacity: .9; } 100% { opacity: 0; } }
 #stage.quake > :not(#fade):not(#flash) { animation: quake .38s linear; }
 @keyframes quake { 0%,100% { translate: 0 0; } 20% { translate: -14px 6px; } 40% { translate: 12px -8px; } 60% { translate: -8px 4px; } 80% { translate: 6px -2px; } }
-.bg-old { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; image-rendering: var(--pix, auto); animation: fadeout .7s forwards; pointer-events: none; }
+.bg-old { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; image-rendering: var(--pix, auto); animation: fadeout .35s forwards; pointer-events: none; }
 @keyframes fadeout { to { opacity: 0; } }
 .cutv.flying { box-shadow: 0 0 0 4px var(--gold); }
 
@@ -1113,3 +1113,8 @@ body { word-break: keep-all; overflow-wrap: normal; }
 #puzzle.tl-wide .tl-time { font-size: 17px; letter-spacing: 0; }
 /* 갤러리: 탭 내용이 길면(기록 6장, 음악) 안쪽만 스크롤해서 「엔딩」 줄·[닫기]와 겹치지 않게 */
 #modal.gallery .gal-body { max-height: 430px; overflow-y: auto; padding-right: 4px; }
+
+/* 누르고 끌어도 글자가 파랗게 선택되거나 그림이 끌려 나오지 않게 (입력칸은 예외) */
+#stage, #stage * { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+#stage img { -webkit-user-drag: none; user-drag: none; }
+#stage input, #stage textarea { -webkit-user-select: text; user-select: text; }

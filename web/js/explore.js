@@ -217,7 +217,7 @@ async function interact(o, mode = 'read') {
     // 잔상이 없는 물건을 읽었다
     EX.focus--;
     sfx('wrong', { vol: 0.5 });
-    FX.glitch(200);
+    quake(); // 화면을 찢는 글리치 대신 가볍게 흔든다(잘린 화면이 남아 보이던 문제)
     await say('rei', `(${o.label}… 아무 감정도 남아 있지 않아.)`, 'normal');
     EX.empty.add(o.id);
   } else {

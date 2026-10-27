@@ -227,6 +227,7 @@ const FX = (() => {
     // 장면에서 잠깐 분위기를 덮어쓴다 (null이면 원래대로)
     mood(m) { override = m; refill(); },
     // 디더 장면 전환
+    covered() { return fadeLevel >= 16; }, // 화면이 검게 덮여 있으면 배경을 바로 바꿔도 된다
     fade(on, ms = 450, color = '#000') {
       fadeColor = color;
       const from = fadeLevel, to = on ? 16 : 0;
@@ -326,7 +327,7 @@ const FX = (() => {
       setTimeout(() => { if (override === 'ghost') { override = null; refill(); } }, ms);
     },
     // 화면이 깨진다 (접속 끊김)
-    glitch(ms = 700) { if (!reduce()) once(stage, 'fx-glitch', ms); },
+    glitch(ms = 700) { if (!reduce()) once(stage, 'fx-glitch', Math.max(ms, 700)); }, // 애니메이션(0.7초)이 끝나기 전에 떼면 잘린 화면이 남는다
     // 가장자리부터 하얗게 지워진다
     erase(ms = 1800, color = '#ffffff') {
       wipe = { start: performance.now(), ms, color };
