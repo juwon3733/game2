@@ -38,7 +38,7 @@ Object.assign(CUT_PROMPTS, {
   t_asg_1: ['A spotless official fire report document on a desk, perfectly neat.', '말끔한 소방 보고서'],
   t_asg_2: ['A glossy resort development rendering pinned on a corkboard: a hotel standing on the tip of a cape where a lighthouse-shaped library should be, a red stamp in the corner reading land secured. Clean, corporate, no people.', '리조트 조감도: 곶 끝 호텔, 귀퉁이 「용지 확보 완료」 도장'],
   t_asg_3: ['A cafe counter at night, spotless; the wall behind is completely empty.', '아무것도 걸리지 않은 벽'],
-  t_self_3: ['Two manga panels joined: a 16-year-old running down stairs, and immediately next to it, a girl\'s hand falling away; a very thin seam line between the two panels.', '편집: 뛰쳐나감과 떨어지는 손이 붙은 이음매'],
+  t_self_3: ['Two manga panels joined: {young_rei} running down stairs, and immediately next to it, a girl\'s hand falling away; a very thin seam line between the two panels.', '편집: 뛰쳐나감과 떨어지는 손이 붙은 이음매'],
   t_self_4: ['{young_rei} standing alone in front of a burning lighthouse library at night, nobody else in sight.', '불타는 도서관 앞에 혼자 선 레이'],
   t_self_5: ['Six August wall calendars overlapped like stacked panels: on every one, the box for the 31st is blank white as if cut out, while the other days have small handwritten notes. No people.', '여섯 장 겹친 8월 달력, 31일 칸만 하얗게 빔'],
   RF: ['Night, a rusty wire fence on the tip of a cape: a right hand lays a bouquet of white chrysanthemums at the foot of the fence (accent color on the flowers); a dark ink stain on the right index finger is clearly visible. The same hand and fence repeated as five faint overlapping layers, only the flower colors differ; in the last layer the hand lifts a phone.', '국화를 내려놓는 오른손, 검지의 잉크 자국(크게), 다섯 겹, 마지막에 휴대폰'],

@@ -24,7 +24,7 @@
 | 7 | `4A` | cuts/4A.png | 새로 | — | 불 켜진 카운터, 소리치는 할아버지, 매입 서류(포인트 색), 신발장의 손님 신발 |
 | 8 | `4E` | cuts/4E.png | 새로 | portraits/keiko_normal.png | 울타리 앞 손전등(포인트 색)을 든 엄마, 반쯤 열린 뒷문(문 밖엔 아무도 없음), 보일러실 창 안의 헤드랜턴 불빛 두 개 |
 | 9 | `4K` | cuts/4K.png | 새로 | — | 창 없는 하얀 방, 흰 장갑, 빈 말풍선 로고(포인트 색), 벽시계 9시 |
-| 10 | `t_hayaka_1` | cuts/t_hayaka_1.png | 새로 | — | 목욕탕을 나서는 뒷모습 |
+| 10 | `t_hayaka_1` | cuts/t_hayaka_1.png | 새로 | portraits/hayaka_normal.png | 목욕탕을 나서는 뒷모습 |
 | 11 | `t_hayaka_2` | cuts/t_hayaka_2.png | 새로 | — | 삭제: 오려 낸 빈 칸, 가장자리의 흰 장갑 자국, 귀퉁이의 담벼락 조각 |
 | 12 | `t_hayaka_3` | cuts/t_hayaka_3.png | 새로 | — | 삭제: 오려 낸 빈 칸, 귀퉁이의 손전등 빛 자국 |
 | 13 | `t_hayaka_4` | cuts/t_hayaka_4.png | 새로 | — | 하얀 방, 서명하는 손 |
@@ -32,17 +32,17 @@
 | 15 | `4F` | cuts/4F.png | 새로 | — | 보일러실 창의 불꽃(포인트 색), 굴뚝 위 연기 |
 | 16 | `4G` | cuts/4G.png | 새로 | — | 연기 속으로 젖히는 포렴, 기침 소리 모양(포인트 색) |
 | 17 | `4M` | cuts/4M.png | 새로 | — | 붕대 감은 손(포인트 색), 막 밝아 오는 새벽 창 |
-| 18 | `t_keiko_1` | cuts/t_keiko_1.png | 새로 | — | 부엌에 혼자 앉은 여자, 컵 하나와 꺼진 휴대폰, 패치 뗀 작업복 |
+| 18 | `t_keiko_1` | cuts/t_keiko_1.png | 새로 | portraits/keiko_normal.png | 부엌에 혼자 앉은 여자, 컵 하나와 꺼진 휴대폰, 패치 뗀 작업복 |
 | 19 | `t_keiko_2` | cuts/t_keiko_2.png | 새로 | — | 흐림: 연기처럼 흐린 컷 |
 | 20 | `4C` | cuts/4C.png | 새로 | — | 열쇠(포인트 색), 옆 사람의 작업화, 공구 가방, 멀리 손전등 불빛 |
 | 21 | `4J` | cuts/4J.png | 새로 | — | 창밖 불길과 소방차 불빛, 귀에 댄 휴대폰, 달력의 동그라미(포인트 색) |
 | 22 | `t_cross_2` | cuts/t_cross_2.png | 새로 | — | 생략: 의자 자리 하얀 여백 |
 | 23 | `t_cross_4` | cuts/t_cross_4.png | 새로 | — | 그을린 배전반 |
-| 24 | `4D` | cuts/4D.png | 새로 | — | 헬멧 둘(포인트 색), 열린 뒷문, 골목 모퉁이 교복 차림, 탁상시계 10:45 |
+| 24 | `4D` | cuts/4D.png | 새로 | portraits/hayaka_normal.png | 헬멧 둘(포인트 색), 열린 뒷문, 골목 모퉁이 교복 차림, 탁상시계 10:45 |
 | 25 | `4I` | cuts/4I.png | 새로 | — | 창에서 본 노인을 업고 나오는 사람(얼굴은 연기에 가림), 아직 소방차 없음, 창틀의 내 손과 휴대폰 23:15(포인트 색) |
 | 26 | `4L` | cuts/4L.png | 새로 | — | 노을 지는 창, 반대 모임, 맨 앞자리 의자(포인트 색) |
 | 27 | `t_okamoto_1` | cuts/t_okamoto_1.png | 새로 | — | 과장: 집채만 한 그림자 둘 |
-| 28 | `t_okamoto_2` | cuts/t_okamoto_2.png | 새로 | — | 헬멧 둘 사이에 끼어 뒷문으로 들어가는 교복 |
+| 28 | `t_okamoto_2` | cuts/t_okamoto_2.png | 새로 | portraits/hayaka_normal.png | 헬멧 둘 사이에 끼어 뒷문으로 들어가는 교복 |
 | 29 | `t_okamoto_3` | cuts/t_okamoto_3.png | 새로 | — | 휴대폰, 붉은 창 |
 | 30 | `t_cross_1` | cuts/t_cross_1.png | 새로 | — | 창에서 본 헬멧 둘 |
 | 31 | `t_cross_3` | cuts/t_cross_3.png | 새로 | — | 보일러실 창의 불꽃 |
@@ -71,14 +71,14 @@
 | 49 | `5Ee` | cuts/5Ee.png | 새로 | portraits/ren_smile.png | 편집: 흰 코트만 그림자가 없음 |
 | 50 | `5E` | cuts/5E.png | 새로 | portraits/koharu_normal.png | 혼자 길을 묻는 아가씨(포인트 색), 빈 가방 고리, 손목시계 12:10 |
 | 51 | `t_tanabe_0` | cuts/t_tanabe_0.png | 새로 | — | 점심시간 정문 앞, 창틀의 손목시계 (사실 증언) |
-| 52 | `t_tanabe_2` | cuts/t_tanabe_2.png | 새로 | — | 편집: 매끈하게 붙인 우는 얼굴 |
+| 52 | `t_tanabe_2` | cuts/t_tanabe_2.png | 새로 | portraits/koharu_normal.png | 편집: 매끈하게 붙인 우는 얼굴 |
 | 53 | `5F` | cuts/5F.png | 새로 | portraits/koharu_normal.png | 찻잔 둘, 하나는 빔(포인트 색), 배지를 내미는 코하루, 보랏빛 하늘 |
 | 54 | `6Y6` | cuts/6Y6.png | 새로 | — | 한쪽 눈을 가린 손, 위층을 모두 삼킨 불길(포인트 색), 경광등 불빛 |
 | 55 | `t_ren_1` | cuts/t_ren_1.png | 새로 | portraits/ren_smile.png<br>portraits/koharu_normal.png | 편집: 손목 둘레만 굵은 선 |
 | 56 | `t_ren_3` | cuts/t_ren_3.png | 새로 | portraits/ren_smile.png<br>portraits/koharu_normal.png | 방파제에 나란히 앉은 렌과 코하루, 무릎의 배지 (사실 증언) |
-| 57 | `t_ren_2` | cuts/t_ren_2.png | 새로 | — | 편집: 달력 날짜 칸만 질감이 다름 |
+| 57 | `t_ren_2` | cuts/t_ren_2.png | 새로 | portraits/rei_normal.png | 편집: 달력 날짜 칸만 질감이 다름 |
 | 58 | `t_ren_1b` | cuts/t_ren_1b.png | 새로 | portraits/koharu_normal.png | 편집: 창살 그림자가 어긋남 |
-| 59 | `t_ren_2b` | cuts/t_ren_2b.png | 새로 | — | 편집: 불타는 서가 사이로 달아나는 고등학생 |
+| 59 | `t_ren_2b` | cuts/t_ren_2b.png | 새로 | portraits/rei_normal.png | 편집: 불타는 서가 사이로 달아나는 고등학생 |
 | 60 | `6Y1` | cuts/6Y1.png | 새로 | — | 6년 전, 1층 창의 연기, 손목시계 8:20(포인트 색) |
 | 61 | `6Y2` | cuts/6Y2.png | 새로 | — | 연기 속 서가, 문(포인트 색), 문 옆 「비상구 공사 중」 안내판, 안쪽 깊숙이 계단 |
 | 62 | `6Y3` | cuts/6Y3.png | 새로 | portraits/rei_normal.png | 정문에서 먼 계단 아래, 고등학생을 업음, 오른손 검지 잉크 얼룩(포인트 색) |
@@ -101,7 +101,7 @@
 | 74 | `R7` | cuts/R7.png | 새로 | — | 흐린 시야, 부축하던 손이 떨어지고 순경의 등이 받아 올림(포인트 색) |
 | 75 | `R8` | cuts/R8.png | 새로 | — | 어깨에 기대 멀어짐, 뒤돌아본 문 안 계단을 오르는 그림자와 순경 모자(포인트 색) |
 | 76 | `RF` | cuts/RF.png | 새로 | — | 국화를 내려놓는 오른손, 검지의 잉크 자국(크게), 다섯 겹, 마지막에 휴대폰 |
-| 77 | `t_self_3` | cuts/t_self_3.png | 새로 | — | 편집: 뛰쳐나감과 떨어지는 손이 붙은 이음매 |
+| 77 | `t_self_3` | cuts/t_self_3.png | 새로 | portraits/rei_normal.png | 편집: 뛰쳐나감과 떨어지는 손이 붙은 이음매 |
 | 78 | `t_self_4` | cuts/t_self_4.png | 새로 | portraits/rei_normal.png | 불타는 도서관 앞에 혼자 선 레이 |
 | 79 | `t_self_5` | cuts/t_self_5.png | 새로 | — | 여섯 장 겹친 8월 달력, 31일 칸만 하얗게 빔 |
 | 80 | `S1` | cuts/S1.png | 새로 | portraits/rei_normal.png | 읽어 주는 원고(포인트 색), 맞은편에서 그리는 레이 |

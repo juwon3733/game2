@@ -1330,7 +1330,7 @@ Palette: 8 grey levels from black to white, and one accent color gold (#c9961a).
 
 Scene: the SAME young man as his character portrait: a 21-year-old delivery worker with spiky bleached blond hair (taiga-accent; in panels whose accent color is not gold, draw the hair as very light grey, never dark) under a backwards black cap with a small star, a small silver ring earring, a black hooded delivery jacket with reflective stripes and a small cat patch on the sleeve, black wristbands, rolled sleeves holding a cardboard box under his arm, pressing the doorbell of an apartment front door at night. Big music notes drifting out through the door gap.
 
-Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Draw ONLY the people this scene describes; never add an extra person, and never swap a named character for a different-looking one. In a first-person view, only the viewer's own hands (or feet) may appear. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 기준 이미지로 붙일 것: web/assets/portraits/taiga_angry.png
@@ -1413,7 +1413,7 @@ Palette: 8 grey levels from black to white, and one accent color blue (#3b8fd0).
 
 Scene: a gentle man in his early 30s with glasses and a light shirt in a cozy living room at night, sitting on the bench of a black upright piano with the lid open and sheet music on the stand, but he has STOPPED playing (NOT playing, no fingers on the keys): both hands are off the keys, resting on his knees, and his whole upper body is twisted around to look back at the curtained glass door to the balcony. On the thin curtain, cast from HIS OWN balcony just outside the glass (not the neighbor's), the small shadow of a child climbing up near the railing beside the white emergency partition.
 
-Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Draw ONLY the people this scene describes; never add an extra person, and never swap a named character for a different-looking one. In a first-person view, only the viewer's own hands (or feet) may appear. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 꼭 보여야 할 것: 건반에서 뗀 손(무릎 위), 돌아보는 몸, 업라이트 피아노, 바로 바깥 자기 집 베란다의 작은 그림자(커튼에 비침)
@@ -1441,7 +1441,7 @@ Palette: 8 grey levels from black to white, and one accent color pink (#e0679a).
 
 Scene: On her own 5th-floor apartment balcony at night, high above the ground; far below, the harbor town lights. a 9-year-old girl with brown twin tails tied with pink ribbons, a pink t-shirt with a piano-key pattern, a denim overall skirt (suspender skirt) and white sneakers (never barefoot, never a floral dress) stands on the balcony floor and reaches out with a startled face as a music-note hairpin (accent color) slips out of her hair and flies in the wind toward the white emergency partition board at the side of the balcony. The hairpin flies sideways toward the partition and the neighbor's balcony, low over the railing (NOT up into the sky).
 
-Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Draw ONLY the people this scene describes; never add an extra person, and never swap a named character for a different-looking one. In a first-person view, only the viewer's own hands (or feet) may appear. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 기준 이미지로 붙일 것: web/assets/portraits/himari_normal.png
@@ -1517,7 +1517,7 @@ Palette: exception for this panel — it is a child's crayon memory, so use a fe
 
 Scene: An old small apartment kitchen twelve years ago: a child's crayon drawing of three people stuck on a fridge (accent color on the drawing); through the window, a hillside cut by construction cranes and a glow of fire.
 
-Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Draw ONLY the people this scene describes; never add an extra person, and never swap a named character for a different-looking one. In a first-person view, only the viewer's own hands (or feet) may appear. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 꼭 보여야 할 것: 냉장고의 크레용 그림(포인트 색), 창밖 크레인과 불빛
@@ -1563,7 +1563,7 @@ Palette: 8 grey levels from black to white, and one accent color olive green (#6
 
 Scene: At night: the SAME young man as his character portrait: a 21-year-old delivery worker with spiky bleached blond hair (taiga-accent; in panels whose accent color is not gold, draw the hair as very light grey, never dark) under a backwards black cap with a small star, a small silver ring earring, a black hooded delivery jacket with reflective stripes and a small cat patch on the sleeve, black wristbands, rolled sleeves bursting out of a stairwell into the dim entrance hall, shouting with a terrified face, both hands empty. Through the glass entrance door, a pitch-dark night street; no daylight anywhere. Leave empty space at the top center for a speech bubble.
 
-Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Draw ONLY the people this scene describes; never add an extra person, and never swap a named character for a different-looking one. In a first-person view, only the viewer's own hands (or feet) may appear. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 기준 이미지로 붙일 것: web/assets/portraits/taiga_angry.png
@@ -1837,7 +1837,7 @@ Palette: 8 grey levels from black to white, and one accent color lavender purple
 
 Scene: First song of a live show in the mid-size live hall (about 800 capacity, main floor plus a balcony, a high ceiling with a big lighting truss and a metal catwalk, a raised stage), seen from the bassist's position at stage left: the back of a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker wearing a white oversized stage jacket (accent color) at the center microphone, a modest crowd of silhouetted heads beyond her with gaps between them, the back wall and the lighting booth window close behind them. Star shapes projected on the stage floor. Above: a lighting rig (a metal truss with four stage lights and one pattern projector) hanging above the center of the stage, next to a metal catwalk railing about one meter away; the gap between the rig and the catwalk railing is clearly empty, nothing tied there.
 
-Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Draw ONLY the people this scene describes; never add an extra person, and never swap a named character for a different-looking one. In a first-person view, only the viewer's own hands (or feet) may appear. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 기준 이미지로 붙일 것: web/assets/portraits/ruru_normal.png
@@ -1902,7 +1902,7 @@ Palette: 8 grey levels from black to white, and one accent color vermilion orang
 
 Scene: During the MC between songs, plain bright white light floods the whole stage with no pattern: a white oversized stage jacket (accent color) flying through the air toward the audience, just thrown by a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker in a black tank top (a girl: long blue hair, black cap with a small white bird mascot — same design as her portrait). At the right edge, between the dark wing curtains, a black suit sleeve and hand waving "back, step back". The place is the same mid-size live hall as the other panels: a high black ceiling with a big lighting truss and a metal catwalk, a raised stage, a main floor plus a balcony, about 800 capacity.
 
-Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Draw ONLY the people this scene describes; never add an extra person, and never swap a named character for a different-looking one. In a first-person view, only the viewer's own hands (or feet) may appear. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 기준 이미지로 붙일 것: web/assets/portraits/ruru_normal.png
@@ -1994,7 +1994,7 @@ Palette: 8 grey levels from black to white, and one accent color cobalt blue (#3
 
 Scene: Seen from behind the drum kit (cymbals in the foreground with the drummer's hands, accent color on the drumsticks): the stage floor is covered with wavy stripe patterns of light. a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker without her jacket, in a black tank top, sings. Above her, a lighting rig (a metal truss with four stage lights and one pattern projector) hanging above the center of the stage, next to a metal catwalk railing about one meter away, perfectly still. The place is the same mid-size live hall as the other panels: a high black ceiling with a big lighting truss and a metal catwalk, a raised stage, a main floor plus a balcony, about 800 capacity.
 
-Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Draw ONLY the people this scene describes; never add an extra person, and never swap a named character for a different-looking one. In a first-person view, only the viewer's own hands (or feet) may appear. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 기준 이미지로 붙일 것: web/assets/portraits/ruru_normal.png
@@ -2026,7 +2026,7 @@ Palette: 8 grey levels from black to white, and one accent color amber (#d9a21b)
 
 Scene: From inside the lighting booth through its glass window: the stage below covered in a grid pattern of light; above it a lighting rig (a metal truss with four stage lights and one pattern projector) hanging above the center of the stage, next to a metal catwalk railing about one meter away, its beams crooked and trembling with shake lines. In the foreground a gloved hand tightly gripping a radio transceiver (accent color). The place is the same mid-size live hall as the other panels: a high black ceiling with a big lighting truss and a metal catwalk, a raised stage, a main floor plus a balcony, about 800 capacity.
 
-Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Draw ONLY the people this scene describes; never add an extra person, and never swap a named character for a different-looking one. In a first-person view, only the viewer's own hands (or feet) may appear. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 꼭 보여야 할 것: 격자 무늬, 비뚤어진 빔과 떨림 선, 무전기를 쥔 장갑 손(포인트 색)
@@ -2092,7 +2092,7 @@ Palette: 8 grey levels from black to white, and one accent color teal green (#3a
 
 Scene: Afternoon rehearsal, seen from the first row of an empty audience floor looking up at the stage: a 19-year-old girl vocalist with the same design as her portrait: waist-length straight hair with blunt bangs and two small braided loops at each side (sky-blue in color art, so a light-to-mid grey tone in a grey panel, never black, never short), a black newsboy cap tilted to one side with a small round white bird plush on its brim, a black ribbon choker in a grey hoodie doing a mic check. Above, on the metal catwalk, a woman lighting technician with a long low ponytail, a headset and thick black work gloves points at a clamp of the lighting rig. In the foreground, on the viewer's knee, a clipboard checklist (accent color) still blank: the rows are not filled in yet, no circle and no marks. Empty seats beside. The same small basement live house (low black ceiling, knee-high stage, about 150 capacity), house lights on, no stage lighting patterns.
 
-Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Draw ONLY the people this scene describes; never add an extra person, and never swap a named character for a different-looking one. In a first-person view, only the viewer's own hands (or feet) may appear. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 기준 이미지로 붙일 것: web/assets/portraits/ruru_normal.png, web/assets/portraits/kuramochi_normal.png
@@ -2155,7 +2155,7 @@ Palette: 8 grey levels from black to white, and one accent color magenta (#b0306
 
 Scene: Close-up on the catwalk: two hands untying the ratchet strap from the lighting rig, a very large square wristwatch (accent color) on the left wrist. Far below, the stage is covered in thick haze lit by blue standby lights.
 
-Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Draw ONLY the people this scene describes; never add an extra person, and never swap a named character for a different-looking one. In a first-person view, only the viewer's own hands (or feet) may appear. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 꼭 보여야 할 것: 끈을 푸는 두 손, 큰 사각 손목시계(포인트 색), 아래 무대의 헤이즈와 대기 조명
@@ -2216,7 +2216,7 @@ Palette: 8 grey levels from black to white, and one accent color teal (#38a3a5).
 
 Scene: A pastry shop front at night: a 19-year-old girl with long dark navy hair, big teal eyes and a cream ribbon, wearing a cream puff-sleeve blouse and a pastry shop apron with a small cake emblem with the ribbon on her RIGHT side pulls down the shop shutter by its handle; a "closed" sign at her feet. A round wall clock inside clearly shows 8:50. At the bottom of the panel, her ankle wrapped in a big white bandage above her sneaker (accent color), clearly visible.
 
-Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Draw ONLY the people this scene describes; never add an extra person, and never swap a named character for a different-looking one. In a first-person view, only the viewer's own hands (or feet) may appear. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 기준 이미지로 붙일 것: web/assets/portraits/yuki_normal.png, web/assets/portraits/nagi_normal.png
@@ -2352,7 +2352,7 @@ Palette: 8 grey levels from black to white, and one accent color burnt orange (#
 
 Scene: First-person view from the MIDDLE of a steep wooden staircase, looking UP at night. At the top, in the dark doorway of the second-floor storage room (its bulb is out), a woman with long wavy purple hair wrapped in a black shawl covered with star sequins snatches a thick cash envelope (accent color) and turns away; the star sequins on the shawl glitter. The only light comes from the shop BELOW, so her shadow stretches upward onto the ceiling. In the lower part of the panel, the viewer's own empty hand reaches upward, the wrist watch clearly showing 9:10.
 
-Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Draw ONLY the people this scene describes; never add an extra person, and never swap a named character for a different-looking one. In a first-person view, only the viewer's own hands (or feet) may appear. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 기준 이미지로 붙일 것: web/assets/portraits/madoka_smile.png
@@ -2384,7 +2384,7 @@ Palette: 8 grey levels from black to white, and one accent color khaki green (#8
 
 Scene: First-person view from behind a tofu shop counter (the tofu shop woman herself is NOT in the panel; only tubs of tofu in water in the foreground) into a night shopping arcade: a woman with long wavy purple hair wrapped in a black shawl covered with star sequins runs out of a narrow back alley, the star sequins on the shawl glittering (accent color). On the tofu shop wall, a clock clearly shows 9:22.
 
-Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Draw ONLY the people this scene describes; never add an extra person, and never swap a named character for a different-looking one. In a first-person view, only the viewer's own hands (or feet) may appear. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 기준 이미지로 붙일 것: web/assets/portraits/madoka_smile.png
@@ -2434,7 +2434,7 @@ Palette: 8 grey levels from black to white, and one accent color violet (#7d4fd1
 
 Scene: Drawn like a tarot-card vision with a thin ornate border, but it is a real memory: view looking DOWN a steep staircase from its dark top. At the bottom, in the bright shop, a 19-year-old girl with long dark navy hair, big teal eyes and a cream ribbon, wearing a cream puff-sleeve blouse and a pastry shop apron with a small cake emblem with the ribbon on her RIGHT side holds out a cash envelope, and a man's hand reaches in to take it. A banister post at the edge of the panel. No clock visible. Accent color on the envelope.
 
-Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Draw ONLY the people this scene describes; never add an extra person, and never swap a named character for a different-looking one. In a first-person view, only the viewer's own hands (or feet) may appear. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 기준 이미지로 붙일 것: web/assets/portraits/yuki_normal.png, web/assets/portraits/nagi_normal.png
@@ -2480,9 +2480,9 @@ Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game scr
 
 Palette: 8 grey levels from black to white, and one accent color rose red (#e85d75). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
-Scene: Inside an old bathhouse at night (the window behind is pitch dark), the brightly lit front counter: an old man in a bathhouse happi coat shouts angrily across the counter, purchase documents on the counter (accent color), a few pairs of customers' sandals on the shoe shelf. No clock.
+Scene: Inside an old bathhouse at night (the window behind is pitch dark), the brightly lit front counter: an old man in his seventies with short white hair and a white stubble beard, in a bathhouse happi coat shouts angrily across the counter, purchase documents on the counter (accent color), a few pairs of customers' sandals on the shoe shelf. No clock.
 
-Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Draw ONLY the people this scene describes; never add an extra person, and never swap a named character for a different-looking one. In a first-person view, only the viewer's own hands (or feet) may appear. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 꼭 보여야 할 것: 불 켜진 카운터, 소리치는 할아버지, 매입 서류(포인트 색), 신발장의 손님 신발
@@ -2491,7 +2491,7 @@ Every person in the panel is drawn ON-MODEL from their attached character portra
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + rose red (#e85d75) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: At night from a dark alley corner: a tired woman in a grey work jacket with her hair tied back stands alone at a fence holding a flashlight (accent color), looking left and right down the alley; behind her, the boiler room back door is half open with nobody outside it, and inside the small boiler room window two headlamp lights are moving. No clock.
+Scene: At night from a dark alley corner: a tired 44-year-old woman with long brown hair tied back with an orange hair tie, a grey work jacket over a white top stands alone at a fence holding a flashlight (accent color), looking left and right down the alley; behind her, the boiler room back door is half open with nobody outside it, and inside the small boiler room window two headlamp lights are moving. No clock.
 ```
 
 > 기준 이미지로 붙일 것: web/assets/portraits/keiko_normal.png
@@ -2511,8 +2511,10 @@ Scene: An unnaturally white windowless counseling room: across a white table, a 
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + rose red (#e85d75) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Back view of a schoolgirl walking out of an old bathhouse at night, the door closing behind her.
+Scene: Back view of a 17-year-old girl in a navy sailor school uniform with a low side braid walking out of an old bathhouse at night, the door closing behind her.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/hayaka_normal.png
 
 > 꼭 보여야 할 것: 목욕탕을 나서는 뒷모습
 
@@ -2538,7 +2540,7 @@ Scene: A manga panel neatly cut out: empty white inside, with a tiny yellow stai
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + rose red (#e85d75) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: An unnaturally white room with an empty speech bubble logo; a girl's hand signs a document.
+Scene: An unnaturally white room with an empty speech bubble logo; first-person view: the viewer's own hand in a navy sailor uniform sleeve signs a document. No other people.
 ```
 
 > 꼭 보여야 할 것: 하얀 방, 서명하는 손
@@ -2557,7 +2559,7 @@ Palette: 8 grey levels from black to white, and one accent color warm orange (#d
 
 Scene: At night behind a bathhouse fence; all the bathhouse windows are dark: first-person view of the viewer's own hands receiving a flashlight (accent color) from a gloved hand with an abstract company logo on the glove. Far away, festival lanterns; a clock tower shows 10:30.
 
-Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Draw ONLY the people this scene describes; never add an extra person, and never swap a named character for a different-looking one. In a first-person view, only the viewer's own hands (or feet) may appear. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 꼭 보여야 할 것: 건네받는 손전등(포인트 색), 장갑의 로고, 꺼진 목욕탕 창, 시계탑 10:30, 축제 등불
@@ -2584,7 +2586,7 @@ Scene: First-person view pushing through a bathhouse changing-room curtain into 
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + warm orange (#d4883a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A hospital room at dawn: bandaged hands hold an old man's hand on the bed (accent color on the bandages). The window is just getting light. No clock.
+Scene: A hospital room at dawn, first-person view: the viewer's own bandaged hands hold the hand of an old man in his seventies with short white hair and a white stubble beard, in a bathhouse happi coat lying in the bed (accent color on the bandages). The window is just getting light. No clock.
 ```
 
 > 꼭 보여야 할 것: 붕대 감은 손(포인트 색), 막 밝아 오는 새벽 창
@@ -2593,8 +2595,10 @@ Scene: A hospital room at dawn: bandaged hands hold an old man's hand on the bed
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + warm orange (#d4883a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A tidy kitchen at night, a woman sitting alone at the table with a single cup and a dark phone; a grey work jacket with its company patch torn off hangs on the chair.
+Scene: A tidy kitchen at night, a tired 44-year-old woman with long brown hair tied back with an orange hair tie, a grey work jacket over a white top sitting alone at the table with a single cup and a dark phone; a grey work jacket with its company patch torn off hangs on the chair.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/keiko_normal.png
 
 > 꼭 보여야 할 것: 부엌에 혼자 앉은 여자, 컵 하나와 꺼진 휴대폰, 패치 뗀 작업복
 
@@ -2621,7 +2625,7 @@ Palette: 8 grey levels from black to white, and one accent color dark red (#a03a
 
 Scene: First-person view at night: a hand turning a key (accent color) in the back door of a boiler room; beside it, the work boots of another person standing close; a tool bag on the ground; far off by the fence, a tiny flashlight glow. No clock or watch visible.
 
-Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Draw ONLY the people this scene describes; never add an extra person, and never swap a named character for a different-looking one. In a first-person view, only the viewer's own hands (or feet) may appear. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 꼭 보여야 할 것: 열쇠(포인트 색), 옆 사람의 작업화, 공구 가방, 멀리 손전등 불빛
@@ -2630,7 +2634,7 @@ Every person in the panel is drawn ON-MODEL from their attached character portra
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + dark red (#a03a3a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Inside a construction site office at night: through the window, a bathhouse burning with fire truck lights in front of it; a man's hand holds a phone to his ear. On the wall calendar, a red circle (accent color) around the end of the month. No clock.
+Scene: Inside a construction site office at night: through the window, a bathhouse burning with fire truck lights in front of it; first-person view: the viewer's own hand holds a phone to his ear, no other people. On the wall calendar, a red circle (accent color) around the end of the month. No clock.
 ```
 
 > 꼭 보여야 할 것: 창밖 불길과 소방차 불빛, 귀에 댄 휴대폰, 달력의 동그라미(포인트 색)
@@ -2665,10 +2669,12 @@ Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game scr
 
 Palette: 8 grey levels from black to white, and one accent color moss green (#7a9a3a). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
-Scene: Looking down from a second-floor window at night: two men in yellow safety helmets with an abstract company logo walk in through the open back door of a bathhouse (accent color on the helmets); the front one carries a tool bag, the second one's helmet has a white visitor sticker. In the corner of the alley, a small figure of a schoolgirl. On the window sill, a table clock shows 10:45.
+Scene: Looking down from a second-floor window at night: two men in yellow safety helmets with an abstract company logo walk in through the open back door of a bathhouse (accent color on the helmets); the front one carries a tool bag, the second one's helmet has a white visitor sticker. In the corner of the alley, small in the distance, a 17-year-old girl in a navy sailor school uniform with a low side braid. On the window sill, a table clock shows 10:45.
 
-Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Draw ONLY the people this scene describes; never add an extra person, and never swap a named character for a different-looking one. In a first-person view, only the viewer's own hands (or feet) may appear. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/hayaka_normal.png
 
 > 꼭 보여야 할 것: 헬멧 둘(포인트 색), 열린 뒷문, 골목 모퉁이 교복 차림, 탁상시계 10:45
 
@@ -2676,7 +2682,7 @@ Every person in the panel is drawn ON-MODEL from their attached character portra
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + moss green (#7a9a3a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Looking down from a second-floor window at night at the front of a burning bathhouse: someone carries an old man on their back out of the flames, face hidden by smoke, only hair tied back visible; no fire trucks yet. In the foreground, the viewer's own old hand on the window sill holds a phone showing a call screen and 23:15 (accent color).
+Scene: Looking down from a second-floor window at night at the front of a burning bathhouse: someone carries an old man in his seventies with short white hair and a white stubble beard, in a bathhouse happi coat on their back out of the flames, face hidden by smoke, only hair tied back visible; no fire trucks yet. In the foreground, the viewer's own old hand on the window sill holds a phone showing a call screen and 23:15 (accent color).
 ```
 
 > 꼭 보여야 할 것: 창에서 본 노인을 업고 나오는 사람(얼굴은 연기에 가림), 아직 소방차 없음, 창틀의 내 손과 휴대폰 23:15(포인트 색)
@@ -2703,8 +2709,10 @@ Scene: An exaggerated, frightened memory: two gigantic shadowy figures as tall a
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + moss green (#7a9a3a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: At night, back view of a small schoolgirl squeezed between two men in safety helmets, all three walking into the open back door of a bathhouse together.
+Scene: At night, back view of a 17-year-old girl in a navy sailor school uniform with a low side braid, looking small, squeezed between two men in safety helmets, all three walking into the open back door of a bathhouse together.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/hayaka_normal.png
 
 > 꼭 보여야 할 것: 헬멧 둘 사이에 끼어 뒷문으로 들어가는 교복
 
@@ -2712,7 +2720,7 @@ Scene: At night, back view of a small schoolgirl squeezed between two men in saf
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + moss green (#7a9a3a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A hand holding a phone to an ear; the window behind is red with firelight.
+Scene: First-person view of an old woman: her own wrinkled hand holds a phone to her ear; the window in front is red with firelight. No other people.
 ```
 
 > 꼭 보여야 할 것: 휴대폰, 붉은 창
@@ -2749,7 +2757,7 @@ Palette: 8 grey levels from black to white, and one accent color steel blue (#5a
 
 Scene: Blurry first-person view through smoke, being carried on someone's back: a sooty nape and an orange hair tie (accent color) right in front; above, a burning ceiling beam.
 
-Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Draw ONLY the people this scene describes; never add an extra person, and never swap a named character for a different-looking one. In a first-person view, only the viewer's own hands (or feet) may appear. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 꼭 보여야 할 것: 흐린 시야, 업어 준 사람의 그을린 목덜미와 머리끈(포인트 색), 불타는 들보
@@ -2768,7 +2776,7 @@ Palette: 8 grey levels from black to white, and one accent color bright orange (
 
 Scene: A small apartment that looks ransacked before dawn: a broken door off its hinges, an overturned desk, pulled-out drawers, papers everywhere, a streetlight through the window on the left. IMPORTANT: it is an edited picture: the desk's shadow falls to the right, but the door's shadow falls to the left, toward the light, and the edge of the pasted door area shows a faint seam line (accent color on the scattered papers).
 
-Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Draw ONLY the people this scene describes; never add an extra person, and never swap a named character for a different-looking one. In a first-person view, only the viewer's own hands (or feet) may appear. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 꼭 보여야 할 것: 편집: 어질러진 방, 문 그림자 방향이 반대, 이음매
@@ -2862,7 +2870,7 @@ Palette: 8 grey levels from black to white, and one accent color slate blue (#5a
 
 Scene: View from a guard booth window at noon: a woman with long silver-white hair, a black eyepatch, white gloves and a long white coat drags a girl by the arm. The gate pillar, the girl and her bag cast short shadows. IMPORTANT: edited picture: the white-coated figure has no shadow at all.
 
-Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Draw ONLY the people this scene describes; never add an extra person, and never swap a named character for a different-looking one. In a first-person view, only the viewer's own hands (or feet) may appear. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 기준 이미지로 붙일 것: web/assets/portraits/ren_smile.png
@@ -2893,8 +2901,10 @@ Scene: View from a guard booth window at noon: office workers with ID lanyards s
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + slate blue (#5a7a9a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A girl crying on a bus stop bench, hugging her bag; a bus timetable beside the bench, a drink can rolled near her feet. Her face area is unnaturally smooth like a different drawing pasted in.
+Scene: a 20-year-old rookie detective girl with long orange-brown hair in a high ponytail tied with a sky-blue scrunchie, a navy blazer and a light blue tie crying on a bus stop bench, hugging her bag; a bus timetable beside the bench, a drink can rolled near her feet. Her face area is unnaturally smooth like a different drawing pasted in.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/koharu_normal.png
 
 > 꼭 보여야 할 것: 편집: 매끈하게 붙인 우는 얼굴
 
@@ -2912,7 +2922,7 @@ Palette: 8 grey levels from black to white, and one accent color ice blue (#6ac0
 
 Scene: Inside an abandoned warehouse: an old table with two teacups, one empty; across the table, a 20-year-old rookie detective girl with long orange-brown hair in a high ponytail tied with a sky-blue scrunchie, a navy blazer and a light blue tie holds out a scorched police badge with both hands, asking earnestly (accent color on the teacups). Purple evening sky through a gap in the shutter.
 
-Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Draw ONLY the people this scene describes; never add an extra person, and never swap a named character for a different-looking one. In a first-person view, only the viewer's own hands (or feet) may appear. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 기준 이미지로 붙일 것: web/assets/portraits/koharu_normal.png
@@ -2954,8 +2964,10 @@ Scene: An afternoon breakwater: a woman with long silver-white hair, a black eye
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + ice blue (#6ac0d0) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A 16-year-old high school student sick in bed with fever; medicine packets and a glass of water by the pillow, a school uniform hanging on the wall; a wall calendar where the date square has a different paper texture, as if a different date was pasted over it.
+Scene: a 16-year-old high school student (a teenager, not a small child) with messy short black hair, a school uniform with an oversized hoodie over it, and an ink stain on the right index finger sick in bed with fever; medicine packets and a glass of water by the pillow, a school uniform hanging on the wall; a wall calendar where the date square has a different paper texture, as if a different date was pasted over it.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/rei_normal.png
 
 > 꼭 보여야 할 것: 편집: 달력 날짜 칸만 질감이 다름
 
@@ -2974,8 +2986,10 @@ Scene: a 20-year-old rookie detective girl with long orange-brown hair in a high
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + ice blue (#6ac0d0) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A 16-year-old in a school uniform running alone between burning bookshelves, back view.
+Scene: a 16-year-old high school student (a teenager, not a small child) with messy short black hair, a school uniform with an oversized hoodie over it, and an ink stain on the right index finger running alone between burning bookshelves, back view.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/rei_normal.png
 
 > 꼭 보여야 할 것: 편집: 불타는 서가 사이로 달아나는 고등학생
 
@@ -2993,7 +3007,7 @@ Palette: 8 grey levels from black to white, and one accent color navy blue (#3a5
 
 Scene: Six years ago at night: first-person view from a bicycle on a cape road, looking up at a lighthouse-shaped library with smoke from one ground-floor window. A wristwatch shows 8:20 (accent color).
 
-Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Draw ONLY the people this scene describes; never add an extra person, and never swap a named character for a different-looking one. In a first-person view, only the viewer's own hands (or feet) may appear. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 꼭 보여야 할 것: 6년 전, 1층 창의 연기, 손목시계 8:20(포인트 색)
@@ -3041,7 +3055,7 @@ Palette: 8 grey levels from black to white, and one accent color strawberry pink
 
 Scene: Outside the library front door at night: first-person view helping a half-conscious a 16-year-old high school student (a teenager, not a small child) with messy short black hair, a school uniform with an oversized hoodie over it, and an ink stain on the right index finger down from a young police officer in uniform's back and holding them up by the shoulder; on the viewer's wrist, a watch stopped at 8:31 (accent color).
 
-Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Draw ONLY the people this scene describes; never add an extra person, and never swap a named character for a different-looking one. In a first-person view, only the viewer's own hands (or feet) may appear. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 기준 이미지로 붙일 것: web/assets/portraits/rei_normal.png
@@ -3062,7 +3076,7 @@ Palette: 8 grey levels from black to white, and one accent color  (#6b5fa8). Bla
 
 Scene: First-person view at a library reading table by a round window at night: the viewer's right hand inks a manga page with a pen (accent color on the pen); across the table, a 16-year-old girl with long straight black hair, blunt bangs, a bookmark hairpin and an old navy sailor uniform reads a manuscript aloud. A wall clock by the window shows 7:30.
 
-Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Draw ONLY the people this scene describes; never add an extra person, and never swap a named character for a different-looking one. In a first-person view, only the viewer's own hands (or feet) may appear. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 기준 이미지로 붙일 것: web/assets/portraits/shiori_normal.png
@@ -3145,8 +3159,10 @@ Scene: Night, a rusty wire fence on the tip of a cape: a right hand lays a bouqu
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 +  (#6b5fa8) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Two manga panels joined: a 16-year-old running down stairs, and immediately next to it, a girl's hand falling away; a very thin seam line between the two panels.
+Scene: Two manga panels joined: a 16-year-old with messy short black hair, an oversized hoodie and an ink stain on the right index finger running down stairs, and immediately next to it, a girl's hand falling away; a very thin seam line between the two panels.
 ```
+
+> 기준 이미지로 붙일 것: web/assets/portraits/rei_normal.png
 
 > 꼭 보여야 할 것: 편집: 뛰쳐나감과 떨어지는 손이 붙은 이음매
 
@@ -3184,7 +3200,7 @@ Palette: 8 grey levels from black to white, and one accent color  (#c84a6a). Bla
 
 Scene: First-person view reading a manuscript aloud at a library table at night; across the table, a 16-year-old with messy short black hair, an oversized hoodie and an ink stain on the right index finger draws, the pen tip moving (accent color on the manuscript). No clock.
 
-Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Draw ONLY the people this scene describes; never add an extra person, and never swap a named character for a different-looking one. In a first-person view, only the viewer's own hands (or feet) may appear. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 기준 이미지로 붙일 것: web/assets/portraits/rei_normal.png
@@ -3276,7 +3292,7 @@ Palette: 8 grey levels from black to white, and one accent color coffee brown (#
 
 Scene: A small cafe at night after closing, chairs on the tables, one warm lamp over the counter: a teenager with messy short black hair and an oversized hoodie stands at the counter, head bowed, wet chrysanthemum petals on the sleeve (accent color on the lamp light). Faint overlapping layers show the same figure slightly taller each time.
 
-Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
+Every person in the panel is drawn ON-MODEL from their attached character portrait reference image: the same face, hairstyle, outfit and accessories, in the same anime gacha-game art style. Use realistic proportions for their age: adults and teenagers have long legs and a normal head-to-body ratio (about 1:7 for adults); NOT chibi, NOT super-deformed, NOT baby-faced, NOT younger than their age. Only real children (like a 9-year-old girl) look like children. Draw ONLY the people this scene describes; never add an extra person, and never swap a named character for a different-looking one. In a first-person view, only the viewer's own hands (or feet) may appear. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
 
 > 꼭 보여야 할 것: 문 닫은 카페, 고개 숙인 레이, 소매의 국화 꽃잎, 해마다 겹친 모습
