@@ -22,7 +22,7 @@ AGENTS.md대로 이미지 만들어서 PR 올려줘. 작업 전에 최신 main�
 - cut-pin: 2A 2K (공연장은 이제 800석 중형 라이브홀로 설정 바꿈(다른 2장 컷들에 맞춤). 2A 리그와 난간 사이 빈 곳이 크게 보이게 / 2K 그림자 손목 금빛 반짝임 크게)
 - cut-kirishima: 2N (루루가 흰 재킷을 입고 있음. 이 순간엔 이미 던져서 검은 탱크톱만이어야 함 — 재킷 유무가 순서 단서)
 - cut-ruru: 2H 2P t_ruru_1 (루루가 다른 사람처럼 보임 → 긴 파란 생머리·후드, 2H 형광 작업등)
-- portrait-tendo 전부 (42세 미인), portrait-aoi 전부 (언더컷 짧은 머리), portrait-yukin 전부 (리본 오른쪽)
+- portrait-tendo 전부 (42세 미인), portrait-yukin 전부 (리본 오른쪽)
 
 1차 — 2장: bg(crescent_out crescent_stage booth greenroom backstage tendo_office), cut-aoi cut-kuramochi cut-kirishima cut-tendo
 

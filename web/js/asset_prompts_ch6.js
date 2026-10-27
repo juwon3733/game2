@@ -48,7 +48,7 @@ Object.assign(CUT_PROMPTS, {
 Object.assign(CG_CHARS, {
   ruru: 'a 19-year-old girl vocalist with long blue hair with two small braided loops, a black cap with a small white bird mascot and an oversized white stage jacket',
   pin: 'an 18-year-old girl bassist with long silver-white hair with pink tips, a black beret with white flowers and a long black coat',
-  aoi: 'a 21-year-old girl drummer with short navy-black undercut hair and an open cobalt work shirt',
+  aoi: 'a 21-year-old girl drummer with a long navy-black ponytail and an open cobalt work shirt',
   yuki: 'a 19-year-old girl with long navy hair and a cream ribbon on the RIGHT side, charcoal on her left hand',
   nagi: 'her identical twin sister with long navy hair and a cream ribbon on the LEFT side, a pastry shop apron',
   keiko: 'a 44-year-old woman in a grey work jacket with her hair tied back with an orange hair tie',

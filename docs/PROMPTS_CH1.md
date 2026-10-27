@@ -512,7 +512,7 @@ Character design in the style of modern Japanese anime mobile gacha games (subcu
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
-Character reference sheet of a cool 21-year-old drummer girl and band leader. Short navy-black hair with a shaved undercut on the sides (short cropped, NOT long, no ponytail), calm sharp cobalt-blue eyes, silver ear cuffs, a black crop tank top under an open cobalt work shirt, low-slung cargo pants, drumsticks in her back pocket, taped fingers. Cobalt blue and black accents.
+Character reference sheet of a cool 21-year-old drummer girl and band leader. Long navy-black hair in a high ponytail, calm sharp cobalt-blue eyes, silver ear cuffs, a black crop tank top under an open cobalt work shirt, low-slung cargo pants, drumsticks in her back pocket, taped fingers. Cobalt blue and black accents.
 ```
 
 **`aoi_normal.png`
@@ -1750,7 +1750,7 @@ High-quality, highly detailed pixel-art style illustration at the full 1536x1024
 
 Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
 
-Event illustration (CG) for a key story moment, horizontal 1536x1024, full color, same faces as the character portraits. An empty small live house at night with the house lights off: on the stage, lit by a single white spotlight, a 19-year-old girl vocalist with long blue hair with two small braided loops, a black cap with a small white bird mascot and an oversized white stage jacket sits on an amp and sings alone with an acoustic guitar; in the empty first row of the audience floor, an 18-year-old girl bassist with long silver-white hair with pink tips, a black beret with white flowers and a long black coat and a 21-year-old girl drummer with short navy-black undercut hair and an open cobalt work shirt sit side by side listening, an empty folding chair with a black suit jacket draped over it beside them.
+Event illustration (CG) for a key story moment, horizontal 1536x1024, full color, same faces as the character portraits. An empty small live house at night with the house lights off: on the stage, lit by a single white spotlight, a 19-year-old girl vocalist with long blue hair with two small braided loops, a black cap with a small white bird mascot and an oversized white stage jacket sits on an amp and sings alone with an acoustic guitar; in the empty first row of the audience floor, an 18-year-old girl bassist with long silver-white hair with pink tips, a black beret with white flowers and a long black coat and a 21-year-old girl drummer with a long navy-black ponytail and an open cobalt work shirt sit side by side listening, an empty folding chair with a black suit jacket draped over it beside them.
 ```
 
 **`cg_twins.png`
