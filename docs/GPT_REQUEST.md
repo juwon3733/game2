@@ -19,8 +19,9 @@ AGENTS.md대로 이미지 만들어서 PR 올려줘. 작업 전에 최신 main�
 - portrait-rei: rei_normal (X자 핀으로, 다른 표정과 같은 그림)
 - portrait-yuki: yuki_normal (연필을 오른손에 쥠 → 왼손잡이라 왼손)
 - portrait-asagiri: asagiri_cold (웃지 말고 차갑게, 커피잔 없이)
-- cut-pin: 2A 2K (2A 대형 공연장 → 지하 150석, 리그와 난간 사이 빈 곳이 보이게 / 2K 그림자 손목 금빛 반짝임 크게)
-- cut-ruru: 2H 2P t_ruru_1 + 없는 2B (루루가 다른 사람처럼 보임 → 긴 파란 생머리·후드, 2H 형광 작업등)
+- cut-pin: 2A 2K (공연장은 이제 800석 중형 라이브홀로 설정 바꿈(다른 2장 컷들에 맞춤). 2A 리그와 난간 사이 빈 곳이 크게 보이게 / 2K 그림자 손목 금빛 반짝임 크게)
+- cut-kirishima: 2N (루루가 흰 재킷을 입고 있음. 이 순간엔 이미 던져서 검은 탱크톱만이어야 함 — 재킷 유무가 순서 단서)
+- cut-ruru: 2H 2P t_ruru_1 (루루가 다른 사람처럼 보임 → 긴 파란 생머리·후드, 2H 형광 작업등)
 - portrait-tendo 전부 (42세 미인), portrait-aoi 전부 (언더컷 짧은 머리), portrait-yukin 전부 (리본 오른쪽)
 
 1차 — 2장: bg(crescent_out crescent_stage booth greenroom backstage tendo_office), cut-aoi cut-kuramochi cut-kirishima cut-tendo
@@ -39,7 +40,7 @@ AGENTS.md대로 이미지 만들어서 PR 올려줘. 작업 전에 최신 main�
 
 8차 — 낮은 우선순위: cut-aoi 2C(트러스·발코니가 대형 공연장처럼), cut-pin t_pin_1~3(기억 속 루루 머리), portrait-murase(50세로)
 
-(10/27 받아 넣음: cut-pink G H t_himari_2_truth t_himari_3_truth, towa ren aoi yuki nagi shiori madoka tofu hayaka keiko okamoto murase nishimura tanabe 상반신, cut-blue B C)
+(10/27 받아 넣음: 2장 컷 2B 2D 2F 2G 2I 2L 2M 2T t_kuramochi_1·1_truth·2·3 t_tendo_1·2·3·3b, cut-pink G H t_himari_2_truth t_himari_3_truth, towa ren aoi yuki nagi shiori madoka tofu hayaka keiko okamoto murase nishimura tanabe 상반신, cut-blue B C)
 
 컷은 회색 8단계 + 포인트 색 1개, must_show 단서는 크게. 같은 인물은 상반신 설정화와 같은 얼굴·옷으로.
 ```

@@ -184,8 +184,8 @@ async function sceneOffice2() {
 
 async function sceneExplore2a() {
   bg('crescent_out');
-  await banner('라이브하우스 「크레센트」', '8월 26일 저녁', 1500);
-  await say('', '역 앞 지하 1층. 출입 금지 테이프 너머로 객석 150석과 낮은 무대가 보인다.');
+  await banner('라이브홀 「크레센트」', '8월 26일 저녁', 1500);
+  await say('', '역 앞 라이브홀. 출입 금지 테이프 너머로 1층 객석과 2층 발코니, 높은 천장의 조명 트러스가 보인다. 800석.');
   const req = ['setlist', 'mic', 'drum', 'console', 'stick', 'frontseat'];
   const CUT = { setlist: '2A', mic: '2B', drum: '2C', console: '2D', stick: '2E', frontseat: '2F' };
   let got = 0;
@@ -528,7 +528,7 @@ async function sceneExplore2c() {
         show('tendo', 'smile', 'right');
         await say('tendo', '찾았어요? 아무것도 없죠?', 'smile');
       },
-      desk: async () => { await say('', '넓은 책상. 1주년 공연 매출표. 150석 중 61석 판매. 빨간 펜으로 「적자」.'); },
+      desk: async () => { await say('', '넓은 책상. 1주년 공연 매출표. 800석 중 312석 판매. 빨간 펜으로 「적자」.'); },
     },
   });
   goal('');
@@ -702,7 +702,7 @@ async function sceneEpilogue2() {
   show('rei', 'serious', 'left');
   await say('rei', '명함을 준 쪽이 와.', 'serious');
   clearChars();
-  await say('', '22:00. 지하로 내려가는 계단에도, 길에도, 아무도 오지 않는다.');
+  await say('', '22:00. 홀 앞 유리문에도, 길에도, 아무도 오지 않는다.');
   bg('crescent_stage');
   await say('', '22:10. 레이는 테이프를 넘어 무대로 내려가, 마이크 스탠드에 손을 댄다.');
   FX.ghost();
