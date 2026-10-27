@@ -11,6 +11,7 @@ function runTimeline(id) {
   const key = (r, t) => r + ':' + t;
   const root = $('#puzzle');
   root.classList.remove('hidden');
+  root.classList.toggle('tl-wide', T >= 6); // 칸이 많은 시각표는 묶음을 좁혀 칸을 넓힌다
   goal(P.goal);
   hideText();
   clearChars();
@@ -83,7 +84,7 @@ function runTimeline(id) {
 
     const onAction = async (a) => {
       if (a === 'check' && done) {
-        root.classList.add('hidden'); root.onclick = null; goal('');
+        root.classList.add('hidden'); root.classList.remove('tl-wide'); root.onclick = null; goal('');
         G.lastSolution = P.times.flatMap((_, t) => P.rows.map((row) => row.cells[t]).filter(Boolean)); // 결론 몽타주용
         return resolve({ tries: st.tries, hints: st.hints });
       }

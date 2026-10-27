@@ -22,6 +22,7 @@ function runPuzzle(id) {
   const sameSet = (a, b) => a.length === b.length && a.every((c) => b.includes(c));
   const firstFree = () => st.slots.findIndex((s, i) => !st.locked.has(i) && s.length < cap(i));
   const root = $('#puzzle');
+  root.classList.remove('tl-wide');
   root.classList.remove('hidden');
   goal(P.goal);
   hideText();

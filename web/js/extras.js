@@ -98,7 +98,9 @@ function openGallery() {
     } else if (t === 'rec') {
       body.innerHTML = recordsHTML();
     } else {
-      const all = Object.keys(CUTS).filter((id) => !CUTS[id].blank);
+      // 공개판(1장만)이면 열린 장에서 쓰는 컷만 센다 (뒤 장 컷 수가 드러나지 않게)
+      const open = new Set(Object.values(CHAPTERS).flatMap((C) => Object.values(C.state || {}).flatMap((x) => x.cuts || [])));
+      const all = Object.keys(CUTS).filter((id) => !CUTS[id].blank && (typeof DEV === 'undefined' || DEV || open.has(id) || g.cuts.includes(id)));
       body.innerHTML = `<div class="md-sub">모은 컷 ${all.filter((id) => g.cuts.includes(id)).length} / ${all.length}</div><div class="gal-cuts"></div>`;
       const grid = body.querySelector('.gal-cuts');
       all.filter((id) => g.cuts.includes(id)).forEach((id) => grid.appendChild(cutView(id, { noSpots: true })));
@@ -154,7 +156,7 @@ const slotKey = (i) => `gaha-slot-${i}`;
 function slotRow(i, s) {
   if (!s) return `<span class="sl-n">${i + 1}</span><span class="sl-empty">비어 있음</span>`;
   const d = new Date(s.at);
-  return `<span class="sl-n">${i + 1}</span><span class="sl-scene">${sceneLabel(s.scene)}</span><small>${d.getMonth() + 1}/${d.getDate()} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}</small>`;
+  return `<span class="sl-n">${i + 1}</span><span class="sl-scene">${sceneLabel(s.scene) || '체험판에서는 열 수 없는 장면'}</span><small>${d.getMonth() + 1}/${d.getDate()} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}</small>`;
 }
 function openSlots(mode) { // 'save' | 'load'
   if (G.busyModal && mode === 'save') return;
@@ -174,6 +176,7 @@ function openSlots(mode) { // 'save' | 'load'
     } else {
       const s = loadJSON(slotKey(i));
       if (!s) return;
+      if (!findScene(s.scene)) return toast('체험판에서는 1장만 열 수 있다.'); // 공개판에서 2장 이후 저장
       closeModal();
       document.querySelector('.title-screen')?.remove();
       hud(true);

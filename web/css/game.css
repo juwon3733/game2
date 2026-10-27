@@ -1096,3 +1096,20 @@ body { word-break: keep-all; overflow-wrap: normal; }
 /* 다음 장 예고: 그림 없는 컷의 설명 글은 단서를 미리 흘리므로 감춘다 */
 .preview .pv-cut .cutv-desc, .preview .pv-cut .cutv-sfx, .preview .pv-cut .cutv-dist { visibility: hidden; }
 .ts-menu > .ts-btn:last-child:nth-child(odd) { grid-column: span 2; } /* 메뉴 칸이 홀수면 마지막 칸을 넓혀 빈칸을 없앤다 */
+
+/* ---------- 전수 점검(10/27) 수정 ---------- */
+/* 대사창: 높이를 고정하지 않고 최소 높이만. 세 줄 넘는 대사는 위로 늘어난다(바닥 기준) */
+#textbox { height: auto; min-height: 112px; }
+#stage.in-trial #textbox { height: auto; min-height: 132px; }
+/* 설정의 글자 크기가 모든 대사창 규칙에 적용되게 */
+#tb-text { font-size: calc(24px * var(--tb-scale, 1)); }
+#textbox.tip #tb-text { font-size: calc(21px * var(--tb-scale, 1)); }
+/* 수첩 컷 탭: [닫기]가 두 번째 줄 컷을 덮지 않게 목록 높이를 줄인다 */
+#modal.note .md-grid { max-height: 400px; }
+#modal.note .md-cancel { position: static; }
+/* 칸이 많은 시각표(종장 16칸): 묶음을 한 줄로 좁혀 칸을 넓힌다 */
+#puzzle.tl-wide .pz-tray { width: 230px; grid-template-columns: minmax(0, 1fr); }
+#puzzle.tl-wide .tl-paper { padding: 12px; gap: 6px; }
+#puzzle.tl-wide .tl-time { font-size: 17px; letter-spacing: 0; }
+/* 갤러리: 탭 내용이 길면(기록 6장, 음악) 안쪽만 스크롤해서 「엔딩」 줄·[닫기]와 겹치지 않게 */
+#modal.gallery .gal-body { max-height: 430px; overflow-y: auto; padding-right: 4px; }
