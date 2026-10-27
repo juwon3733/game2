@@ -11,8 +11,10 @@ AGENTS.md대로 이미지 만들어서 PR 올려줘. 작업 전에 최신 main�
 - 한 장이 계속 잘 안 나오면 그 장만 PR 설명에 적어 두고 다음으로 넘어가.
 - 9차까지 다 끝나면 "끝"이라고만 말해.
 
-1차 — 없는 상반신(그림이 없으면 인물이 화면에 안 나옴):
-(다 받음)
+0차 — 먼저! 1장 다시 받기(공개판이 1장이라 제일 급함. 베란다 컷이 서로 안 맞음):
+- cut-pink: G H I t_himari_2_truth t_himari_3_truth (H·I는 지금 1층 정원처럼 나와 있음. C 컷과 같은 5층 베란다·칸막이·항구 야경으로)
+- cut-olive: E t_ookubo_2 t_ookubo_2_truth / cut-gold: t_taiga_2 t_taiga_3_truth
+- portrait-rei: rei_normal
 
 2차 — 2장: bg(crescent_out crescent_stage booth greenroom backstage tendo_office), cut-aoi cut-kuramochi cut-kirishima cut-tendo, cut-ruru의 2B
 
@@ -33,8 +35,7 @@ AGENTS.md대로 이미지 만들어서 PR 올려줘. 작업 전에 최신 main�
 - portrait-aoi 전부 (아오이를 언더컷 짧은 머리로 바꿈. 지금 그림은 긴 포니테일)
 - portrait-tendo 전부 (42세 미인, 주름 없이 30대 후반처럼)
 - portrait-asagiri: asagiri_cold (웃지 말고 차갑게 굳은 표정, 커피잔 없이)
-- portrait-rei: rei_normal (serious·surprised·crying과 같은 그림: 보라색 X자 핀, 트렌치코트+후드, 크로스백)
-- cut-pink: G H I t_himari_2_truth t_himari_3_truth / cut-olive: E t_ookubo_2 t_ookubo_2_truth / cut-gold: t_taiga_2 t_taiga_3_truth / cut-pin: 2A 2K / cut-ruru: 2H 2P
+- cut-pin: 2A 2K / cut-ruru: 2H 2P
 
 (10/27 받아 넣음: towa ren aoi yuki nagi shiori madoka tofu hayaka keiko okamoto murase nishimura tanabe 상반신, cut-blue B C)
 
