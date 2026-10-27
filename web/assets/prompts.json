@@ -2061,7 +2061,7 @@
           "width": 1536,
           "height": 1024,
           "transparent": false,
-          "must_show": "작은 지하 공연장(낮은 천장, 듬성듬성한 관객), 흰 재킷(포인트 색), 바닥의 별 무늬, 리그와 난간 사이가 비어 있음",
+          "must_show": "800석 라이브홀, 흰 재킷(포인트 색), 바닥의 별 무늬, 리그와 난간 사이가 비어 있음",
           "reference_images": [
             "web/assets/portraits/ruru_normal.png"
           ],

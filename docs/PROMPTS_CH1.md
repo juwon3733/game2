@@ -1842,7 +1842,7 @@ Every person in the panel is drawn ON-MODEL from their attached character portra
 
 > 기준 이미지로 붙일 것: web/assets/portraits/ruru_normal.png
 
-> 꼭 보여야 할 것: 작은 지하 공연장(낮은 천장, 듬성듬성한 관객), 흰 재킷(포인트 색), 바닥의 별 무늬, 리그와 난간 사이가 비어 있음
+> 꼭 보여야 할 것: 800석 라이브홀, 흰 재킷(포인트 색), 바닥의 별 무늬, 리그와 난간 사이가 비어 있음
 
 **`2K.png`
 ```
