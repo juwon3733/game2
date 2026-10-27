@@ -24,9 +24,9 @@
 [순서]
 0차 — 지금 게임에 들어가 있지만 틀린 그림(덮어쓰기). 공개판이 1장이라 1장부터:
 - cut-blue: C (아이가 난간 위에 꼿꼿이 서 있고 선생님과 몇 미터 떨어져 허공에 손을 뻗음, 난간이 휘어 있음, 머리핀이 안 보임 → 짧고 곧은 베란다, 아이는 한두 걸음 거리에서 난간 위에 웅크려 바깥 턱의 분홍 머리핀으로 손 뻗기, I 컷과 같은 배치)
-- portrait-rei: rei_normal (10/27 두 번째 것도 뺌: serious와 똑같이 손가락질하는 자세 → 졸린 반쯤 감은 눈, 캔 커피를 든 무심한 자세. X자 핀·옷은 맞음)
-- portrait-yuki: yuki_normal (10/27 두 번째 것도 뺌: 연필은 왼손으로 고쳐졌지만 앞치마가 초록 → yuki_smile·yuki_crying과 같은 갈색 멜빵 앞치마·청록 리본 블라우스. 초록/청록 앞치마는 나기 옷이라 쌍둥이가 헷갈림)
-- portrait-asagiri: asagiri_cold (웃는 얼굴 → 차갑게 굳은 표정, 커피잔 없이)
+- portrait-rei: rei_normal 한 장만, 설정화 없이 rei_serious.png 첨부 (10/27 두 번째 것도 뺌: serious와 똑같이 손가락질하는 자세 → 졸린 반쯤 감은 눈, 캔 커피를 든 무심한 자세. X자 핀·옷은 맞음)
+- portrait-yuki: yuki_normal 한 장만, 설정화 없이 yuki_smile.png 첨부 (10/27 두 번째 것도 뺌: 연필은 왼손으로 고쳐졌지만 앞치마가 초록 → yuki_smile·yuki_crying과 같은 갈색 멜빵 앞치마·청록 리본 블라우스. 초록/청록 앞치마는 나기 옷이라 쌍둥이가 헷갈림)
+- portrait-asagiri: asagiri_cold 한 장만 (웃는 얼굴 → 차갑게 굳은 표정, 커피잔 없이). 설정화는 만들지 말고 asagiri_normal.png를 첨부해서 같은 얼굴로
 - portrait-tendo 전부 (너무 늙음 → 42세, 주름 없이 30대 후반처럼)
 - portrait-yukin 전부 (리본이 왼쪽 → 오른쪽. 유키로 변장한 나기)
 - cut-kirishima: 2N (루루가 재킷을 입음 → 재킷 없이 검은 탱크톱)
