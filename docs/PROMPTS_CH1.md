@@ -2454,10 +2454,10 @@ Scene: Drawn like a tarot-card vision with a thin ornate border: first-person vi
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + violet (#7d4fd1) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Drawn like a tarot-card vision with a thin ornate border: seen from below on the staircase: at the TOP, only a hand and forearm in a cream puff sleeve (no face, no body) reaches out of the dark doorway and pushes the shoulder of a man who is climbing UP toward it (the man seen from behind, below the hand). The only light comes from the shop at the bottom of the stairs, so the banister and the man cast shadows that stretch UPWARD on the wall, EXCEPT the pushing hand's shadow which clearly falls DOWNWARD. Accent color on the hand.
+Scene: Drawn like a tarot-card vision with a thin ornate border, seen from below on the staircase: at the TOP, only a hand and forearm in a cream puff sleeve (no face, no body) reaches out of the dark doorway and pushes the shoulder of a man who is climbing UP toward it (the man seen from behind, below the hand). The only light comes from the shop at the bottom of the stairs, so the banister and the man cast long shadows that stretch UPWARD on the wall toward the ceiling. THE KEY DETAIL: on the wall directly BELOW the pushing hand there is one small, clearly hand-shaped dark shadow (fingers and cuff readable) pointing DOWN toward the stairs, the only shadow in the panel that goes the wrong way. Make that hand shadow large and obvious. Accent color on the hand.
 ```
 
-> 꼭 보여야 할 것: 타로 테두리, 미는 손(포인트 색), 아래에서 비친 불빛, 손 그림자만 반대 방향
+> 꼭 보여야 할 것: 타로 테두리, 미는 손(포인트 색), 아래에서 비친 불빛, 손 바로 아래 벽에 아래로 떨어진 손 모양 그림자(다른 그림자는 위로)
 
 **`t_madoka_3.png`
 ```
