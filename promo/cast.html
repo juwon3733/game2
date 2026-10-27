@@ -25,6 +25,20 @@
   .cap p { font: 400 19px/1.45 Galmuri11; word-break: keep-all; }
   .quote { word-break: keep-all; }
   .quote { position: absolute; top: 16px; left: 16px; right: 16px; font: 700 20px/1.4 Galmuri11; background: var(--paper); border: 4px solid var(--ink); padding: 8px 12px; box-shadow: 5px 5px 0 var(--ink); }
+  .row.grid6 { grid-template-rows: 1fr 1fr; }
+  .grid6 .panel img { left: auto; right: -6%; transform: none; top: -4%; bottom: auto; height: 190%; }
+  .grid6 .quote { right: 44%; font-size: 18px; }
+  .grid6 .cap { right: 40%; padding: 8px 12px 10px; }
+  .grid6 .cap b { font-size: 26px; }
+  .grid6 .cap p { font-size: 17px; }
+  .quote:empty { display: none; }
+  .narrow { gap: 14px; }
+  .narrow .panel img { height: 92%; }
+  .narrow .quote { font-size: 17px; padding: 6px 8px; left: 10px; right: 10px; top: 10px; }
+  .narrow .cap { left: 10px; right: 10px; bottom: 10px; padding: 8px 10px 10px; }
+  .narrow .cap b { font-size: 24px; }
+  .narrow .cap em { display: block; margin: 0 0 4px; font-size: 16px; }
+  .narrow .cap p { font-size: 16px; }
   footer { display: flex; justify-content: space-between; font: 700 20px Galmuri11; }
   footer span { background: var(--paper); border: 3px solid var(--ink); padding: 4px 12px; }
 </style>
@@ -50,15 +64,61 @@ const SETS = {
       ['himari_normal', '히마리', '옆집 아홉 살', '#e0679a', '사에키 선생에게 피아노를 배운다. 그날 밤, 엄마는 야근이었다.', '…아무것도 몰라요.'],
     ],
   },
+  ch2: {
+    sub: '2장 「앙코르 없음」', cols: 'repeat(6, 1fr)', narrow: true,
+    people: [
+      ['ruru_angry', '루루', '「크럼블」 보컬', '#e4572e', '무대에선 완벽한 미소, 무대 밖에선 독설. 스스로 "내 탓"이라고 한다.', '또 형사? 다 말했잖아. 내가 한 거야.'],
+      ['pin_normal', '핀', '「크럼블」 베이스', '#a07ad8', '솜사탕 말투. 루루를 동경한다.', '루루는 아무것도 안 했어요.'],
+      ['aoi_normal', '아오이', '「크럼블」 드럼·리더', '#3a78c9', '차분한 말투로 밴드를 붙잡고 있다.', '그날 앙코르는 없다고 했어요.'],
+      ['kuramochi_normal', '쿠라모치', '공연장 조명 기사', '#d9a21b', '점검표에 「이상 없음」이라고 서명했다.', '저는 할 말 없어요.'],
+      ['tendo_smile', '텐도', '소속사 사장', '#b0306a', '"루루가 리그를 만지는 걸 봤다"고 진술했다.', '협조할게요, 뭐든지.'],
+      ['kirishima_normal', '키리시마', '「크럼블」 매니저', '#3aa58a', '공연 중 떨어진 조명 리그에 깔려 숨졌다.', ''],
+    ],
+  },
+  ch3: {
+    sub: '3장 「둘 중 하나」', cols: '1fr 1fr 1fr 1fr',
+    people: [
+      ['yuki_normal', '유키', '양과점 점원 · 언니', '#38a3a5', '쌍둥이 언니. 오른쪽 리본. 근무표상 그날 밤 마감 담당.', '그날 밤엔 가게에서 마감했어요.'],
+      ['nagi_normal', '나기', '쌍둥이 동생', '#38a3a5', '왼쪽 리본. 그날은 쉬는 날이었다고 한다.', ''],
+      ['madoka_smile', '마도카', '아케이드 점술가', '#7d4fd1', '"미래 컷"이 보인다며 수사에 협조한다. 양과점 단골.', '저는 앞일이 보여요.'],
+      ['tofu_normal', '두부집 할머니', '건너편 두부집', '#8f9a4a', '아케이드 사람들은 「아케이드의 시계」라고 부른다.', '나는 다 봤어.'],
+    ],
+  },
+  ch4: {
+    sub: '4장 「지워 드립니다」', cols: '1fr 1fr 1fr 1fr',
+    people: [
+      ['hayaka_normal', '하야카', '열일곱 살', '#e85d75', '불이 난 다음 날 아침, 「기억 상담소」에서 그 밤의 기억을 지웠다.', '저, 아무것도 기억 안 나요.'],
+      ['keiko_normal', '케이코', '하야카의 엄마', '#d4883a', '불탄 목욕탕 「사쿠라유」 주인 겐조의 딸.', '저도 오늘 알았어요.'],
+      ['okamoto_angry', '오카모토', '재개발 반대 모임 대표', '#7a9a3a', '사쿠라유 건너편 집 2층에서 그날 밤을 봤다.', '하쿠요 놈들이야. 내가 다 봤어!'],
+      ['murase_smile', '무라세', '하청 현장소장', '#a03a3a', '정중하고, 설명이 매끄럽다.', '노후 배전반 누전입니다.'],
+    ],
+  },
+  ch5: {
+    sub: '5장 「편집자」', cols: '1fr 1fr 1fr 1fr',
+    people: [
+      ['koharu_worried', '코하루', '사라진 신입', '#f2a14a', '책상에 남은 건 말라 버린 머그컵과 포스트잇 한 장.', '내일 아침 커피 담당 = 나!'],
+      ['ren_smile', '렌', '흰 코트', '#8a8aa8', '은발에 안대. 레이를 6년 전부터 안다.', '또 만났네, 시노노메.'],
+      ['tanabe_normal', '타나베', '본사 정문 경비원', '#5a7a9a', '코하루를 마지막으로 본 사람.', '흰 코트가 끌고 갔어요.'],
+      ['towa_normal', '토와', '원격 분석', '#6fdc6f', '코하루가 지나간 길의 잔상을 쫓는다.', '잔상이 하나같이 너무 깔끔해.', 'towa'],
+    ],
+  },
+  ch6: {
+    sub: '종장 「같은 하루」', cols: '1fr 1fr 1fr',
+    people: [
+      ['shiori_normal', '시오리', '교복 차림의 여자아이', '#9a8f6a', '레이에게만 보이는 것 같다.', '이제 그날을 읽을 차례야.'],
+      ['rei_normal', '레이', '잔상과 수사관', '#6b5fa8', '쓴 것만 마실 것 같은 얼굴로 단 커피를 마신다.', ''],
+      ['asagiri_normal', '아사기리', '카페 「여백」 주인', '#8a5a3a', '구시가 언덕의 작은 카페. 레이는 단골이다.', '힘든 건 잊어도 돼.'],
+    ],
+  },
 };
 const S = SETS[location.hash.slice(1) || 'team'];
 document.getElementById('page').innerHTML = `
   <header><div class="title"><span>같은 하루,</span><span>다른 칸</span></div><div class="sub">${S.sub}</div></header>
-  <div class="row" style="--cols:${S.cols}">
+  <div class="row ${S.grid6 ? 'grid6' : ''} ${S.narrow ? 'narrow' : ''}" style="--cols:${S.cols}">
     ${S.people.map(([img, name, role, c, desc, q, cls]) => `
       <div class="panel ${cls || ''}" style="--c:${c}">
         <img src="${P + img}.png" alt="">
-        <div class="quote">「${q}」</div>
+        <div class="quote">${q ? '「' + q + '」' : ''}</div>
         <div class="cap"><b>${name}</b><em>${role}</em><p>${desc}</p></div>
       </div>`).join('')}
   </div>
