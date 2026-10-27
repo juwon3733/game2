@@ -203,7 +203,7 @@ Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transpa
 ```
 같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
 
-Expression: calm but cold, the gentle smile gone, eyes looking down at the viewer, holding a coffee cup.
+Expression: cold and hard, NOT smiling at all (mouth a flat straight line, corners turned down), narrowed eyes looking down at the viewer, both hands empty with arms folded, NO coffee cup.
 ```
 
 **`asagiri_sad.png`

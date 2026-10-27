@@ -7,7 +7,7 @@ Object.assign(CHARACTER_SHEETS, {
 Object.assign(FACE_PROMPTS, {
   tanabe_normal: 'expression: polite, hand on his cap',
   tanabe_confused: 'expression: confused, holding his head as if it aches',
-  asagiri_cold: 'expression: calm but cold, the gentle smile gone, eyes looking down at the viewer, holding a coffee cup',
+  asagiri_cold: 'expression: cold and hard, NOT smiling at all (mouth a flat straight line, corners turned down), narrowed eyes looking down at the viewer, both hands empty with arms folded, NO coffee cup',
   ren_sad: 'expression: sad, looking away, one white-gloved hand on her eyepatch',
   kurogane_sad: 'expression: sad and tired, no lollipop, holding an old stopped wristwatch',
   towa_serious: 'expression: serious chibi inside a monitor frame, headphone LEDs red instead of green',
