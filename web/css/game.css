@@ -1095,3 +1095,4 @@ body { word-break: keep-all; overflow-wrap: normal; }
 #modal.gallery .md-cancel { position: static; flex: none; align-self: flex-start; }
 /* 다음 장 예고: 그림 없는 컷의 설명 글은 단서를 미리 흘리므로 감춘다 */
 .preview .pv-cut .cutv-desc, .preview .pv-cut .cutv-sfx, .preview .pv-cut .cutv-dist { visibility: hidden; }
+.ts-menu > .ts-btn:last-child:nth-child(odd) { grid-column: span 2; } /* 메뉴 칸이 홀수면 마지막 칸을 넓혀 빈칸을 없앤다 */

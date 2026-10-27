@@ -1,5 +1,12 @@
 // 게임 진행: 장(CHAPTERS) 이어서 하기, 자동 저장, 타이틀. 장마다 script_chN.js가 CHAPTERS[N]을 채운다.
 
+// ---------- 공개판 ----------
+// 배포 주소에서는 1장만 보인다(체험판). 내 컴퓨터(localhost)나 주소 끝 ?dev 로 열면 전 장이 열린다.
+// #장면id 로 바로 들어가기도 개발판에서만 된다.
+const DEV = /^(localhost|127\.|0\.0\.0\.0|\[::1\])/.test(location.hostname) || new URLSearchParams(location.search).has('dev');
+const PUBLIC_CHAPTERS = 1;
+if (!DEV) Object.keys(CHAPTERS).forEach((k) => { if (Number(k) > PUBLIC_CHAPTERS) delete CHAPTERS[k]; });
+
 // ---------- 장면 찾기 ----------
 
 function findScene(id) {
@@ -94,6 +101,7 @@ async function playFrom(scene, saved) {
     Object.assign(G.flags, keep);
   }
   PLOG.end();
+  if (!DEV) await banner('체험판은 여기까지', '2장 「앙코르 없음」은 준비 중이에요', 2800);
   try { localStorage.removeItem(SAVE_KEY); localStorage.removeItem('gaha-ch1-save'); } catch { /* 저장 불가 */ }
   await fade(true, 800);
   titleScreen();
@@ -134,8 +142,7 @@ function titleScreen() {
   goal('');
   hud(false);
   bgm('title');
-  const save = loadSave();
-  const chs = Object.keys(CHAPTERS).map(Number);
+  const save = (() => { const v = loadSave(); return v && findScene(v.scene) ? v : null; })(); // 공개판에선 1장 밖 저장은 없는 셈
   const t = document.createElement('div');
   t.className = 'title-screen';
   t.innerHTML = `
@@ -150,14 +157,8 @@ function titleScreen() {
       ${save ? `<button id="t-cont" class="ts-btn primary">이어하기<small>${sceneLabel(save.scene)}</small></button>` : ''}
       <button id="t-start" class="ts-btn${save ? '' : ' primary'}">처음부터</button>
       <button id="t-load" class="ts-btn">불러오기</button>
-      <button id="t-select" class="ts-btn">장면 선택</button>
       <button id="t-gallery" class="ts-btn small">갤러리</button>
     </nav>
-    <div class="ts-scenes hidden">
-      <div class="ts-scenes-head">장면 선택 <button class="ts-close" aria-label="닫기">✕</button></div>
-      <ol>${chs.map((ch) => `<li class="ts-ch">${ch}장 「${CHAPTERS[ch].title}」</li>` + CHAPTERS[ch].scenes.map(([id, label], i) =>
-        `<li><button data-scene="${id}"><b>${String(i + 1).padStart(2, '0')}</b>${label}</button></li>`).join('')).join('')}</ol>
-    </div>
     <div class="ts-hint">대사 넘기기 클릭 · Space</div>`;
   $('#stage').appendChild(t);
   // 키아트(GPT 이미지)가 있으면 배경과 캐릭터를 그걸로 바꾼다
@@ -169,14 +170,10 @@ function titleScreen() {
     t.classList.add('leaving');
     setTimeout(() => { t.remove(); hud(true); playFrom(scene, saved); }, 450);
   };
-  const list = t.querySelector('.ts-scenes');
   t.querySelector('#t-start').onclick = () => go(CHAPTERS[1].scenes[0][0]);
   if (save) t.querySelector('#t-cont').onclick = () => go(save.scene, save);
-  t.querySelector('#t-select').onclick = () => list.classList.remove('hidden');
   t.querySelector('#t-load').onclick = () => { sfx('select'); openSlots('load'); };
   t.querySelector('#t-gallery').onclick = () => { sfx('select'); openGallery(); };
-  t.querySelector('.ts-close').onclick = () => list.classList.add('hidden');
-  list.querySelectorAll('[data-scene]').forEach((b) => (b.onclick = () => go(b.dataset.scene)));
 }
 
 $('#btn-save').onclick = (e) => { e.stopPropagation(); openSlots('save'); };
@@ -194,5 +191,5 @@ applyLook();
   await Promise.race([Promise.all([document.fonts ? document.fonts.ready : null, img('assets/title/key.png')]), sleep(3000)]);
   ld.classList.add('out');
   setTimeout(() => ld.remove(), 500);
-  if (findScene(jump)) playFrom(jump); else titleScreen();
+  if (DEV && findScene(jump)) playFrom(jump); else titleScreen();
 })();

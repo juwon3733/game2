@@ -144,7 +144,7 @@ function recordsHTML() {
   }).join('');
   const m = (rec.margin || []).length;
   return `<div class="rec-list">${rows}</div>
-    <div class="rec-foot"><span>여백 조건 ${m} / ${MARGIN_FLAGS.length}</span><button class="rec-export" onclick="event.stopPropagation(); exportPlaylog()">플레이 기록 내보내기</button></div>`;
+    <div class="rec-foot"><span>${CHAPTERS[6] ? `여백 조건 ${m} / ${MARGIN_FLAGS.length}` : ''}</span><button class="rec-export" onclick="event.stopPropagation(); exportPlaylog()">플레이 기록 내보내기</button></div>`;
 }
 
 // ---------- 저장 슬롯 ----------

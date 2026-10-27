@@ -97,4 +97,6 @@
 npx serve web          # 또는 python3 -m http.server -d web 8124
 ```
 
-주소 뒤에 `#ookubo`처럼 장면 id를 붙이면 그 장면부터 시작한다 (1장 `office explore1 puzzle1 ookubo taiga explore2 himari puzzle2 conclusion epilogue`, 2장 `office2 explore2a puzzle2a kuramochi explore2b pin ruru accuse2 explore2c tendo puzzle2b conclusion2 epilogue2`, 3장 `office3 … epilogue3`, 4장 `office4 explore4a puzzle4a okamoto hayaka1 accuse4 hayaka explore4b cross4 hospital4 keiko puzzle4b conclusion4 epilogue4`, 5장 `office5 explore5a route5 restore5 tanabe puzzle5a accuse5 warehouse5 ren kurogane5 puzzle5b conclusion5 epilogue5`, 종장 `offer6 explore6 asagiri6 self6 shiori6 puzzle6 conclusion6 ending6`). 타이틀 화면의 장면 선택도 같다.
+**공개판은 1장만**: 배포 주소에서는 1장만 보이고 장면 선택 메뉴는 없다(`main.js`의 `DEV`·`PUBLIC_CHAPTERS`). localhost나 주소 끝 `?dev`로 열면 전 장이 열리고 장면 id 바로 가기도 된다.
+
+개발판에서 주소 뒤에 `#ookubo`처럼 장면 id를 붙이면 그 장면부터 시작한다 (1장 `office explore1 puzzle1 ookubo taiga explore2 himari puzzle2 conclusion epilogue`, 2장 `office2 explore2a puzzle2a kuramochi explore2b pin ruru accuse2 explore2c tendo puzzle2b conclusion2 epilogue2`, 3장 `office3 … epilogue3`, 4장 `office4 explore4a puzzle4a okamoto hayaka1 accuse4 hayaka explore4b cross4 hospital4 keiko puzzle4b conclusion4 epilogue4`, 5장 `office5 explore5a route5 restore5 tanabe puzzle5a accuse5 warehouse5 ren kurogane5 puzzle5b conclusion5 epilogue5`, 종장 `offer6 explore6 asagiri6 self6 shiori6 puzzle6 conclusion6 ending6`).
