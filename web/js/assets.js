@@ -1,3 +1,6 @@
+// 그림이 정답과 반대로 그려져 있어 다시 받을 때까지 쓰지 않는 컷(설명 글 카드로 대신 보인다). 새 그림을 넣으면 여기서 뺀다.
+const STALE_CUTS = ['H', 'I'];
+
 // 이미지 경로와 임시 그림.
 // assets/ 폴더에 정해진 이름으로 PNG를 넣으면 자동으로 그 이미지를 쓴다. 없으면 임시 그림.
 
@@ -5,7 +8,7 @@ const ASSET = {
   // as: 다른 인물의 그림을 빌려 쓴다 (변장한 쌍둥이 등)
   portrait: (char, face) => `assets/portraits/${(CHARACTERS[char] && CHARACTERS[char].as) || char}_${face}.png`,
   bg: (id) => `assets/bg/${id}.png`,
-  cut: (id) => `assets/cuts/${id}.png`,
+  cut: (id) => (STALE_CUTS.includes(id) ? `assets/cuts/_stale_${id}.png` : `assets/cuts/${id}.png`),
   map: (id) => `assets/maps/${id}.png`,
   sprite: (who) => `assets/sprites/${who}.png`,
   title: () => 'assets/title/key.png',
