@@ -265,7 +265,7 @@ async function sceneConclusion6() {
   await say('ren', '증언할게. 법정에서. 안대도 벗고.', 'normal');
   hide('ren');
   show('asagiri', 'sad', 'right');
-  bgm(null, 2);
+  bgm('chrysanthemum', 2);
   await say('', '밤이 깊었다. 철망 앞, 아사기리가 국화 한 다발을 들고 서 있다.');
   await say('asagiri', '올해 것. 네가 꽃집에 안 들러서, 내가 사 왔어.', 'sad');
   await say('asagiri', '여섯 번, 같은 대답이었지. 그래도 일곱 번째로 물을게.', 'sad');
@@ -315,6 +315,7 @@ async function sceneEnding6() {
   const end = G.flags.ending || 'truth';
   if (end === 'edit') {
     bg('lighthouse');
+    bgm('chrysanthemum');
     show('asagiri', 'sad', 'center');
     await say('asagiri', '그래. 일곱 번째네.', 'sad');
     show('koharu', 'crying', 'right');
@@ -339,7 +340,7 @@ async function sceneEnding6() {
     await banner('편집 엔딩', '「아무 일도 없었던 하루」', 2600);
   } else {
     bg('lighthouse_dawn');
-    bgm('truth');
+    bgm('dawn');
     await say('', '새벽. 곶 끝. 하쿠요 본사에 수색 영장이 집행되고, 니시무라가 연행되었다는 소식이 라디오로 흘러나온다.');
     await say('', '날이 밝자, 아사기리가 스스로 경찰서를 찾아갔다는 소식도 들린다.');
     show('rei', 'normal', 'left');

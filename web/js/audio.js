@@ -37,6 +37,8 @@ const MUSIC = {
   editor:   { file: 'assets/audio/bgm_editor.mp3' },   // 5장: 편집국
   final:    { file: 'assets/audio/bgm_final.mp3' },    // 종장: 등대
   chase:    { file: 'assets/audio/bgm_chase.mp3' },    // 심문 막판: 반박이 이어질 때
+  chrysanthemum: { file: 'assets/audio/bgm_chrysanthemum.mp3' }, // 종장: 철망 앞 국화, 일곱 번째 질문
+  dawn:     { file: 'assets/audio/bgm_dawn.mp3' },     // 종장: 새벽 곶 끝 (진실·여백 엔딩)
 };
 // 배경 아래에 아주 작게 까는 환경음 (tools/compose/ambience.py)
 const AMBIENCE = { sea: 'assets/audio/amb_sea.mp3', rain: 'assets/audio/amb_rain.mp3', crowd: 'assets/audio/amb_crowd.mp3', fire: 'assets/audio/amb_fire.mp3', hum: 'assets/audio/amb_hum.mp3' };

@@ -1,4 +1,4 @@
-"""배경음악. 1장 7곡 + 2장 3곡(live encore tendo). 음표는 마디 단위 문자열로 쓴다.
+"""배경음악. 1장 7곡 + 2장 3곡(live encore tendo) + 3~5장·종장·추격 곡 + 종장 반전(chrysanthemum dawn). 음표는 마디 단위 문자열로 쓴다.
 
 멜로디 표기: 'a:1.5 f:.5 e d' → 음이름(소문자), #/b 반음, ^ 옥타브 위, _ 아래, ':길이'(박, 기본 1), '-' 쉼표.
 화음 표기: [('Dm9', 4), ...] 마디 안에서 (화음, 박 수).
@@ -423,5 +423,46 @@ def chase():
     return tr
 
 
+# ---------- 종장 반전: 국화 ----------
+
+def chrysanthemum():
+    """종장: 철망 앞 국화, 문 닫은 「여백」, 일곱 번째 질문. 타이틀 멜로디를 오르골처럼 느리게, 한 박씩 비워 가며"""
+    tr = Track(60, 16)
+    prog = ['Dm9', 'Bbmaj7', 'Gm7', 'A7sus4', 'Dm9', 'Bbmaj7', 'Gm7', 'Asus4 A',
+            'Bbmaj7', 'Fmaj7/A', 'Gm7', 'Dm9', 'Bbmaj7', 'Gm7', 'A7sus4', 'Dm9']
+    tr.bus('box', 0.2, 0.42, 0.55); tr.bus('pad', 0.0, 0.2, 0.7); tr.bus('ep', -0.3, 0.32, 0.5); tr.bus('bass', 0, 0.38, 0.25)
+    block(tr, 'pad', pad, prog, [(0, 3.95)], octave=3, vel=0.38, top=3)
+    basses(tr, 'bass', bass, prog, [(0, 3.8, 0)], vel=0.45)
+    arp(tr, 'ep', epiano, prog, [0, 2, 4, 2], step=1, octave=4, vel=0.26)
+    # 앞 8마디: 타이틀 첫 소절. 뒤 8마디: 같은 소절이 자꾸 끊긴다(지워진 칸)
+    melody(tr, 'box', glock, 0, ['a:1.5 f:.5 e d', 'f:1.5 d:.5 c d', 'bb a g f', 'e:3 -',
+                                 'a:1.5 f:.5 e d', 'f:1.5 d:.5 c d', 'bb a g e', 'e:3 -'], octave=6, vel=0.55, legato=0.6)
+    melody(tr, 'box', glock, 8, ['d^:1.5 c^:.5 a -', 'c^:1.5 a:.5 f -', 'bb a g -', 'a:2 - -',
+                                 'a:1.5 f:.5 e -', 'f e d -', 'c#:2 e:2', 'd:4'], octave=6, vel=0.5, legato=0.6)
+    return tr
+
+
+# ---------- 종장 새벽: 진실·여백 엔딩 ----------
+
+def dawn():
+    """종장 새벽 곶 끝. 국화의 소절을 장조로 마저 끝까지 부른다. 끊기지 않는 같은 멜로디"""
+    tr = Track(76, 16)
+    prog = ['Fmaj7', 'C/E', 'Dm7', 'Bbmaj7', 'Fmaj7', 'C/E', 'Gm7', 'C7sus4 C7',
+            'Bbmaj7', 'C', 'Am7', 'Dm7', 'Bbmaj7', 'C7sus4', 'Fmaj7', 'Fmaj7']
+    tr.bus('ep', -0.25, 0.45, 0.4); tr.bus('str', 0.15, 0.3, 0.6); tr.bus('bass', 0, 0.5, 0.2)
+    tr.bus('fl', 0.05, 0.5, 0.45); tr.bus('box', 0.3, 0.32, 0.55); tr.bus('harp', -0.2, 0.3, 0.4); tr.bus('dr', 0.1, 0.28, 0.2)
+    arp(tr, 'ep', epiano, prog, [0, 2, 4, 1, 3, 2, 4, 1], step=0.5, octave=4, vel=0.38)
+    block(tr, 'str', strings, prog, [(0, 3.95)], octave=3, vel=0.4, top=3)
+    basses(tr, 'bass', bass, prog, [(0, 2.5, 0), (2.5, 1.4, 7)], vel=0.58)
+    arp(tr, 'harp', harp, prog[8:], [0, 1, 2, 3, 2, 1], step=0.5, octave=5, vel=0.22, start_bar=8)
+    melody(tr, 'box', glock, 0, ['a:1.5 f:.5 e d', 'e:2 c:2', 'f:1.5 a:.5 c^ d^', 'd^:4'], octave=6, vel=0.4, legato=0.7)
+    melody(tr, 'fl', flute, 4, ['a:1.5 f:.5 e d', 'e g c^:2', 'bb:1.5 a:.5 g e', 'f:2 a c^',
+                                'd^:2 c^ bb', 'c^:2 e^:2', 'e^:1.5 d^:.5 c^ a', 'd^:3 f^',
+                                'f^:2 e^ d^', 'e^:2 g^ e^', 'f^:3 -', '-:4'], octave=5, vel=0.55)
+    drums(tr, 'dr', {'shaker': [0.5, 1.5, 2.5, 3.5], 'rim': [(3, 0.3)]}, 8, start_bar=8, vel=0.4)
+    return tr
+
+
 SONGS = {'title': title, 'office': office, 'explore': explore, 'trial': trial, 'tension': tension, 'truth': truth,
-         'epilogue': epilogue, 'live': live, 'encore': encore, 'tendo': tendo, 'madoka': madoka, 'fire': fire, 'editor': editor, 'final': final, 'chase': chase}
+         'epilogue': epilogue, 'live': live, 'encore': encore, 'tendo': tendo, 'madoka': madoka, 'fire': fire, 'editor': editor, 'final': final, 'chase': chase,
+         'chrysanthemum': chrysanthemum, 'dawn': dawn}

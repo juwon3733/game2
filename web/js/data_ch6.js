@@ -160,7 +160,7 @@ Object.assign(WITNESSES, {
         success: [
           ['rei', '시오리가, 나를 살렸어.', 'crying'],
         ], words: ['a_handover'] },
-      { statement: 4, cut: 'RF', requires: [1], shout: '물은 사람이 있었어!', page: ['RF', 'AC'], pageCap: '「다시 지워 주세요.」',
+      { statement: 4, cut: 'RF', requires: [1], shout: '물은 사람이 있었어!', bgm: 'chrysanthemum', page: ['RF', 'AC'], pageCap: '「다시 지워 주세요.」',
         rebut: '철망 앞 국화. 해마다 거른 적 없다던 그 꽃, 이 손이야. 검지에 잉크 자국. 해마다 그날 밤 여기 와서 다 떠올렸어. 그리고 「여백」에 전화를 걸었어. 아사기리 씨는 해마다 물었고, 나는 해마다 같은 대답을 했어.',
         success: [
           ['', '계단 아래에 아사기리가 서 있다. 언제부터인지, 국화 냄새가 난다.'],

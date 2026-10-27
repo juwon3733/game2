@@ -4,7 +4,7 @@
 //  1장식: answer 하나 + rebut/success (+ round2)
 //  2장식: answers 배열. 한 증인에게 여러 번 반박하고, 반박할 때마다 증언이 바뀌거나 벗겨진다.
 //    answers[k] = { statement, cut | spot, line, requires: [k...], shout, rebut, success,
-//                   changes: { 증언번호: 새 증언 }, peel: [증언번호], gives, words, items, rewards, choice }
+//                   changes: { 증언번호: 새 증언 }, peel: [증언번호], gives, words, items, rewards, choice, bgm(깨진 뒤 곡, 기본 truth) }
 //    with: 겹쳐 보기. 첫 컷이 맞으면 같은 일을 다른 쪽에서 받쳐 주는 컷·물증을 하나 더 내야 한다 (id 또는 배열)
 //    hold = { statement, lines }
 //  4·5장:
@@ -303,7 +303,7 @@ async function trialRound(wid, R) {
       peel.forEach((i) => st.peeled.add(i));
       FX.mood(null);
       tension(0);
-      bgm('truth');
+      bgm(a.bgm || 'truth');
       sfx('page');
       renderTrial(W, st);
       const shown = a.cg && (await cg(a.cg));

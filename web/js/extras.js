@@ -77,7 +77,7 @@ async function credits(ending) {
 // ---------- 갤러리 화면 ----------
 const MUSIC_NAME = { title: '같은 하루, 다른 칸', office: '잔상과', explore: '현장', trial: '심문', tension: '컷 정리', truth: '진짜 순서',
   epilogue: '여백', live: '크럼블', encore: '앙코르 없음', tendo: '사장실', madoka: '별무늬 숄', fire: '사쿠라유', editor: '편집국',
-  final: '등대', chase: '몰아붙이기' };
+  final: '등대', chase: '몰아붙이기', chrysanthemum: '국화', dawn: '다음 칸' };
 // 게임에 나오는 CG 순서 (프롬프트는 게임에 안 실리므로 따로 둔다)
 const CG_LIST = ['cg_shiori', 'cg_taiga_run', 'cg_rescue', 'cg_page', 'cg_cafe', 'cg_encore', 'cg_twins', 'cg_carry', 'cg_sota', 'cg_margin', 'cg_farewell'];
 function openGallery() {

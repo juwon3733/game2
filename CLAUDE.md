@@ -67,7 +67,7 @@
 - 새 표정 그림이 없으면 `CHARACTERS[x].alt`의 비슷한 표정으로 대신 보인다(예: ookubo sad→flustered).
   - 날짜: 1장 8/24, 2장 8/26~27, 3장 8/28, 4장 8/29~8/30 새벽, 5장 8/30, 종장 8/31. 6년 전 레이는 16살.
 - 연출 효과는 `js/fx.js` (저해상도 캔버스 + 디더, 계단식 애니메이션): 디더 장면 전환, 배경별 분위기(먼지·무대 조명·연기·반짝이·유령), 반박 컷인, 충격(반전 프레임·집중선·의성어), 증언 컷 찢기, 잔상 파문, 심장 박동, 글리치, 가장자리부터 지우기, 화면 당기기, 표정 반응, 장 제목 카드(`FX.title`), 회상(`FX.memory`), 형광등 깜빡임, 증언 붕괴, CG 레터박스. 대사: `[[단어]]` 강조, `(전화)` 전화 목소리, `(…)` 속마음, 문장부호에서 쉼. 설정에 [화면 효과: 줄이기].
-- 소리는 Claude가 직접 작곡한다(PC-98식 FM 음원). 곡 15개(1장 title office explore trial tension truth epilogue, 2장 live encore tendo, 3장 madoka, 4장 fire, 5장 editor, 종장 final, 심문 막판 chase — 반박이 하나 남으면 자동), 효과음 19개, 환경음 5개(`tools/compose/ambience.py`: sea rain crowd fire hum — `engine.js`의 `BG_AMB`가 배경마다 자동으로 깐다). 장면별 곡은 `script_chN.js`의 `CHN_BGM`, 증인별 곡은 `WITNESSES[id].bgm`.
+- 소리는 Claude가 직접 작곡한다(PC-98식 FM 음원). 곡 17개(1장 title office explore trial tension truth epilogue, 2장 live encore tendo, 3장 madoka, 4장 fire, 5장 editor, 종장 final chrysanthemum(국화·일곱 번째 질문·편집 엔딩) dawn(진실·여백 새벽), 심문 막판 chase — 반박이 하나 남으면 자동. 결정적 반박의 곡은 `answers[k].bgm`), 효과음 19개, 환경음 5개(`tools/compose/ambience.py`: sea rain crowd fire hum — `engine.js`의 `BG_AMB`가 배경마다 자동으로 깐다). 장면별 곡은 `script_chN.js`의 `CHN_BGM`, 증인별 곡은 `WITNESSES[id].bgm`.
 - 심문 `answers[k].with`: 겹쳐 보기(같은 순간의 다른 시점 컷을 하나 더 내야 깨짐). 2장 텐도 반박 3(2T+2K). 
 - 추리 난이도는 고르는 게 아니라 **게임 기본이 어렵게** (사용자 요청). `audio.js`의 `RULES`: 컷 설명 없이 그림으로 풀기, 퍼즐 오답은 어느 칸 사이인지만, 힌트 2·코하루 1, 결론은 가장 정확한 컷만. 컷 단서는 그림에 크게 들어가야 한다.
 - 2장 루루(파란 머리·새 인형 모자·마이크)와 핀(끝만 분홍인 흰 단발·꽃 베레모·검은 코트)은 사용자가 준 참고 그림을 바탕으로, 그대로 베끼지 않게 바꾼 디자인. 루루의 흰 무대 재킷은 단서라 유지.
