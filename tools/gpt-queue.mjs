@@ -10,11 +10,6 @@ const P = JSON.parse(fs.readFileSync(path.join(root, 'web/assets/prompts.json'),
 
 // 이미 있지만 다시 받을 그림: id → [이유, 첨부할 기준 이미지]
 const REDO = {
-  C: ['베란다가 휘고 아이가 멀리 꼿꼿이 서 있음 → 짧고 곧은 베란다, 한두 걸음 거리, 아이는 난간 위에 웅크려 바깥 턱의 분홍 핀으로 손 뻗기. 1장 I 컷과 같은 배치', ['web/assets/cuts/I.png']],
-  '2N': ['루루가 재킷을 입고 있음 → 재킷 없이 검은 탱크톱', ['web/assets/portraits/ruru_normal.png']],
-  '2K': ['모니터 속 그림자 손목의 금빛 반짝임이 너무 작음 → 크게', ['web/assets/cuts/2K.png']],
-  '2A': ['리그와 캣워크 난간 사이 빈 곳이 잘 안 보임 → 크게', ['web/assets/cuts/2A.png']],
-  asagiri_cold: ['웃고 잔을 듦 → 차갑게, 팔짱, 잔 없음', ['web/assets/portraits/asagiri_normal.png']],
   '2H': ['루루가 다른 사람 같음 → 상반신과 같은 긴 파란 머리·새 인형 모자, 후드, 형광 작업등', ['web/assets/portraits/ruru_normal.png']],
   '2P': ['루루가 다른 사람 같음 → 상반신과 같은 얼굴·머리', ['web/assets/portraits/ruru_normal.png']],
   t_ruru_1: ['루루가 다른 사람 같음 → 상반신과 같은 얼굴·머리', ['web/assets/portraits/ruru_normal.png']],
@@ -24,9 +19,7 @@ const REDO = {
 
 // 순서: 공개판 1장 → 이야기·추리에 걸리는 다시 받기 → 장 순서대로 없는 그림 → CG → UI → 얼굴만 다른 다시 받기
 const ORDER = [
-  ['1장 (공개판)', ['C']],
-  ['추리·이야기에 걸리는 다시 받기', ['2N', '2K', '2A', 'asagiri_cold']],
-  ['2장 배경', ['crescent_out', 'crescent_stage', 'booth', 'greenroom', 'backstage', 'tendo_office']],
+      ['2장 배경', ['crescent_out', 'crescent_stage', 'booth', 'greenroom', 'backstage', 'tendo_office']],
   ['3장', ['storage', 'cut-twin', 'cut-hasegawa', 'cut-tofu', 'cut-madoka']],
   ['4장', ['sakurayu', 'sakurayu_boiler', 'okamoto_house', 'site_office', 'clinic', 'cut-hayaka', 'cut-keiko', 'cut-murase', 'cut-okamoto', 'cut-genzo']],
   ['5장', ['station_chief', 'koharu_room', 'library', 'busstop', 'warehouse', 'pier', 'warehouse_in', 'cafe_night', 'cut-koharu', 'cut-tanabe', 'cut-ren', 'cut-sota', 'cut-kurogane']],
