@@ -307,32 +307,38 @@ function faceCrop(src) {
   FACE_CROP[src] = null;
   const img = new Image();
   img.onload = () => {
-    const w = 96, h = Math.round(img.height * w / img.width);
+    const w = 128, h = Math.round(img.height * w / img.width);
     const c = document.createElement('canvas'); c.width = w; c.height = h;
     const x = c.getContext('2d'); x.drawImage(img, 0, 0, w, h);
-    let d; try { d = x.getImageData(0, 0, w, h).data; } catch { return; }
+    faceOk[src] = true;
+    let d; try { d = x.getImageData(0, 0, w, h).data; } catch { FACE_CROP[src] = ''; return faceReady(src); }
     const op = (i, j) => d[(j * w + i) * 4 + 3] > 40;
     let top = -1;
-    for (let j = 0; j < h && top < 0; j++) { let n = 0; for (let i = 0; i < w; i++) if (op(i, j)) n++; if (n >= 3) top = j; }
-    if (top < 0 || top > h * 0.6) return; // 배경이 꽉 찬 그림이면 기본값
-    // 머리 높이쯤(위에서 그림 높이의 15%)까지 줄마다 불투명한 가로 폭의 가운데를 모은다
-    const band = Math.round(h * 0.15), xs = [], ws = [];
-    for (let j = top; j < Math.min(h, top + band); j++) {
-      let l = -1, r = -1;
-      for (let i = 0; i < w; i++) if (op(i, j)) { if (l < 0) l = i; r = i; }
-      if (l >= 0) { xs.push((l + r) / 2); ws.push(r - l); }
-    }
-    xs.sort((a, b) => a - b); ws.sort((a, b) => a - b);
-    const cx = xs[xs.length >> 1], side = Math.max(w * 0.28, Math.min(w * 0.6, ws[Math.floor(ws.length * 0.6)] * 0.95));
-    const cy = top + side * 0.7;
+    for (let j = 0; j < h && top < 0; j++) { let n = 0; for (let i = 0; i < w; i++) if (op(i, j)) n++; if (n >= 4) top = j; }
+    if (top < 0 || top > h * 0.6) { FACE_CROP[src] = ''; return faceReady(src); } // 배경이 꽉 찬 그림이면 기본값
+    // 정수리부터 그림 높이 10%의 불투명 픽셀 가로 평균 = 머리 가운데. 칸은 그림 너비의 절반, 정수리 조금 위~턱 아래까지
+    let sx = 0, sn = 0;
+    for (let j = top; j < top + h * 0.1; j++) for (let i = 0; i < w; i++) if (op(i, j)) { sx += i; sn++; }
+    const cx = sx / sn, side = w * 0.5;
+    const cy = top + side * 0.8;
     const bw = w / side, bh = h / side;
     const ox = Math.max(0, Math.min(bw - 1, (cx - side / 2) / side)), oy = Math.max(0, Math.min(bh - 1, (cy - side / 2) / side));
     FACE_CROP[src] = `background-size:${(bw * 100).toFixed(1)}% auto;background-position:${(ox / (bw - 1) * 100).toFixed(1)}% ${(oy / (bh - 1) * 100).toFixed(1)}%`;
-    document.querySelectorAll('#tb-face, .pz-face, .ex-face').forEach((el) => { if (el.style.backgroundImage.includes(src)) el.setAttribute('style', `background-image:url(${src});${FACE_CROP[src]}`); });
+    faceReady(src);
   };
+  img.onerror = () => { FACE_CROP[src] = ''; faceOk[src] = false; };
   img.src = src;
   return null;
 }
+// 자르기 계산이 끝나면 그 그림을 쓰는 얼굴 칸을 고치고, 대사창 얼굴은 그때 연다(잘리기 전 그림이 잠깐 보이지 않게)
+function faceReady(src) {
+  document.querySelectorAll('#tb-face, .pz-face, .ex-face').forEach((el) => {
+    if (!el.style.backgroundImage.includes(src)) return;
+    el.setAttribute('style', faceStyle2(src));
+    if (el.id === 'tb-face') $('#textbox').classList.add('has-face');
+  });
+}
+const faceStyle2 = (src) => `background-image:url(${src});${FACE_CROP[src] || 'background-position:50% 19%'}`;
 function faceStyle(who, face) {
   const f = face || (onStage[who] && onStage[who].dataset.face) || CHARACTERS[who].faces[0];
   const src = ASSET.portrait(who, f);
@@ -349,9 +355,10 @@ function setFace(who, face) {
   const src = ASSET.portrait(who, f);
   el.setAttribute('style', faceStyle(who, f));
   if (faceOk[src] === false) { tb.classList.remove('has-face'); return; }
-  // 그림이 실제로 있는 게 확인된 뒤에만 얼굴 칸을 연다 (없는 그림이면 빈 네모가 잠깐 뜬다)
-  if (faceOk[src]) tb.classList.add('has-face'); else tb.classList.remove('has-face');
-  if (faceOk[src] === undefined) {
+  // 그림이 있고 얼굴 자르기까지 끝난 뒤에만 얼굴 칸을 연다 (없는 그림이면 빈 네모, 계산 전이면 머리카락만 잠깐 보인다)
+  const ready = typeof FACE_CROP[src] === 'string';
+  if (faceOk[src] && ready) tb.classList.add('has-face'); else tb.classList.remove('has-face');
+  if (faceOk[src] === undefined && FACE_CROP[src] !== null) {
     const probe = new Image();
     probe.onload = () => { faceOk[src] = true; if (el.style.backgroundImage.includes(src)) tb.classList.add('has-face'); };
     probe.onerror = () => {
