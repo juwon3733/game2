@@ -470,7 +470,11 @@ async function sceneEpilogue4() {
   await say('nishimura', '잔상이라. 재미있는 걸 보는 분들이었죠.', 'normal');
   clearChars();
   await say('', '문이 열리고 니시무라가 복도로 나온다. 레이 앞을 지나가며 은색 라이터를 한 번 튕긴다.');
+  show('nishimura', 'normal', 'center');
+  FX.zoom('center');
   await say('', '그 얼굴을 본 순간, 레이의 오른손 검지가 욱신거린다. 이유는 모른다.');
+  FX.zoom(null);
+  hide('nishimura');
   bg('office');
   FX.mood('dust');
   await say('', '그날 밤. 아무도 없는 잔상과 사무실.');

@@ -1243,7 +1243,7 @@ An unnaturally clean white counseling room: white walls, a white sofa, a small w
 ```
 같은 도트 스타일, 같은 픽셀 크기와 팔레트로 다음 배경을 그려줘. 사람 없이, 가로 1536x1024.
 
-A police station chief's office: a heavy desk, a flag, a leather sofa, blinds with morning light, an oppressive atmosphere. Keep the lower third simple because characters will stand in front.
+A police station chief's office: a heavy desk, a flag, a leather sofa, closed blinds at night, a single desk lamp, an oppressive atmosphere. Keep the lower third simple because characters will stand in front.
 ```
 
 **`koharu_room.png`
@@ -2382,7 +2382,7 @@ Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game scr
 
 Palette: 8 grey levels from black to white, and one accent color rose red (#e85d75). Black-and-white manga panel feel with screentone made of dither patterns. No text, no speech bubbles.
 
-Scene: Inside an old bathhouse at night, the brightly lit front counter: an old man in a bathhouse happi coat shouts angrily across the counter, purchase documents on the counter (accent color), a few pairs of customers' sandals on the shoe shelf. No clock.
+Scene: Inside an old bathhouse at night (the window behind is pitch dark), the brightly lit front counter: an old man in a bathhouse happi coat shouts angrily across the counter, purchase documents on the counter (accent color), a few pairs of customers' sandals on the shoe shelf. No clock.
 
 Any person in the panel has the same cute anime gacha-game style face (large expressive eyes) as the character portraits. Keep the important objects big and readable even when the panel is shown small. Horizontal 1536x1024 PNG.
 ```
@@ -2393,25 +2393,25 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + rose red (#e85d75) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: At night from a dark alley corner: a tired woman in a grey work jacket with her hair tied back stands alone at a fence holding a flashlight (accent color), looking left and right down the alley; behind her, the boiler room back door is half open. No clock.
+Scene: At night from a dark alley corner: a tired woman in a grey work jacket with her hair tied back stands alone at a fence holding a flashlight (accent color), looking left and right down the alley; behind her, the boiler room back door is half open with nobody outside it, and inside the small boiler room window two headlamp lights are moving. No clock.
 ```
 
-> 꼭 보여야 할 것: 울타리 앞 손전등(포인트 색)을 든 엄마, 반쯤 열린 뒷문
+> 꼭 보여야 할 것: 울타리 앞 손전등(포인트 색)을 든 엄마, 반쯤 열린 뒷문(문 밖엔 아무도 없음), 보일러실 창 안의 헤드랜턴 불빛 두 개
 
 **`4K.png`
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + rose red (#e85d75) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: An unnaturally white windowless counseling room: across a white table, a white-gloved hand slides a document toward the viewer; on the wall, a logo of an empty speech bubble (accent color). No clock.
+Scene: An unnaturally white windowless counseling room: across a white table, a white-gloved hand slides a document toward the viewer; on the wall, a logo of an empty speech bubble (accent color) and a plain wall clock showing 9:00.
 ```
 
-> 꼭 보여야 할 것: 창 없는 하얀 방, 흰 장갑, 빈 말풍선 로고(포인트 색)
+> 꼭 보여야 할 것: 창 없는 하얀 방, 흰 장갑, 빈 말풍선 로고(포인트 색), 벽시계 9시
 
 **`t_hayaka_1.png`
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + rose red (#e85d75) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Back view of a schoolgirl leaving an old bathhouse at night, the door closing behind her.
+Scene: Back view of a schoolgirl walking out of an old bathhouse at night, the door closing behind her.
 ```
 
 > 꼭 보여야 할 것: 목욕탕을 나서는 뒷모습
@@ -2493,10 +2493,10 @@ Scene: A hospital room at dawn: bandaged hands hold an old man's hand on the bed
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + warm orange (#d4883a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A tidy kitchen at night, a woman sitting alone at the table with a single cup and a dark phone.
+Scene: A tidy kitchen at night, a woman sitting alone at the table with a single cup and a dark phone; a grey work jacket with its company patch torn off hangs on the chair.
 ```
 
-> 꼭 보여야 할 것: 부엌에 혼자 앉은 여자, 컵 하나와 꺼진 휴대폰
+> 꼭 보여야 할 것: 부엌에 혼자 앉은 여자, 컵 하나와 꺼진 휴대폰, 패치 뗀 작업복
 
 **`t_keiko_2.png`
 ```
@@ -2603,10 +2603,10 @@ Scene: An exaggerated, frightened memory: two gigantic shadowy figures as tall a
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + moss green (#7a9a3a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Back view of a small schoolgirl running into the open back door of a bathhouse at night, flames already drawn inside the doorway.
+Scene: At night, back view of a small schoolgirl squeezed between two men in safety helmets, all three walking into the open back door of a bathhouse together.
 ```
 
-> 꼭 보여야 할 것: 뒷문으로 뛰어드는 교복, 문틈 안 불길
+> 꼭 보여야 할 것: 헬멧 둘 사이에 끼어 뒷문으로 들어가는 교복
 
 **`t_okamoto_3.png`
 ```
