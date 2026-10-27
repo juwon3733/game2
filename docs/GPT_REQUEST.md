@@ -24,6 +24,7 @@ portrait-yukin portrait-madoka portrait-tofu portrait-hayaka portrait-keiko port
 8차 — UI(원고 테마): ui
 
 9차 — 이미 있는 그림 고치기(덮어써):
+- portrait-yukin 전부 (리본이 나기처럼 왼쪽에 있음. 유키로 변장한 거라 유키와 같은 오른쪽(보는 사람 기준 왼쪽)에 달아야 함)
 - portrait-tendo 전부 (42세 미인, 주름 없이 30대 후반처럼)
 - portrait-asagiri: asagiri_cold (웃지 말고 차갑게 굳은 표정, 커피잔 없이)
 - portrait-rei: rei_normal (serious·surprised·crying과 같은 그림: 보라색 X자 핀, 트렌치코트+후드, 크로스백)
