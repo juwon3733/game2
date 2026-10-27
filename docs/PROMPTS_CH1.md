@@ -1452,7 +1452,7 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + blue (#3b8fd0) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: At night on his OWN 5th-floor apartment balcony, high above the ground; far below, the harbor town lights and the dark sea make the height obvious. a gentle man in his early 30s with glasses and a light shirt has just rushed out through the wide-open glass door behind him, standing on his own balcony floor (NOT squeezing through any gap in the partition), and leans over the railing, reaching out desperately toward the far end of his balcony beside the white emergency partition board, where a child's small feet in white sneakers (NOT barefoot, no dress or floral skirt) and the hem of a denim overall skirt stand on top of the railing. Just below those feet, on the narrow outer ledge outside the railing, a tiny glint of a small hairpin (only a small sparkle, no toy or other object). The hairpin is NOT on the child's head. Leave empty space at the top center for a speech bubble.
+Scene: At night on his OWN 5th-floor apartment balcony, high above the ground; far below, the harbor town lights and the dark sea make the height obvious. a gentle man in his early 30s with glasses and a light shirt has just rushed out through the wide-open glass door behind him, standing on his own balcony floor (NOT squeezing through any gap in the partition), and leans over the railing, reaching out desperately toward the far end of his balcony beside the white emergency partition board, where a small girl in white sneakers (NOT barefoot, no dress or floral skirt) and a denim overall skirt crouches on top of the railing, one hand gripping it and the other stretched DOWN toward the narrow outer ledge just outside the railing, where a small music-note hairpin glints, drawn clearly visible in the accent color (a small but readable hairpin shape, not just a sparkle). The hairpin is NOT on the child's head. Leave empty space at the top center for a speech bubble.
 ```
 
 > 꼭 보여야 할 것: 열린 유리문, 칸막이 옆 난간으로 뻗은 팔, 난간 위 흰 운동화·멜빵 치마, 그 아래 바깥 턱의 반짝임, 아래 항구 야경(높이), 위쪽 가운데 빈 공간
@@ -1498,7 +1498,7 @@ Scene: NOT a ground-floor garden: seen from the side on a narrow 5th-floor apart
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + pink (#e0679a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: a 9-year-old girl with brown twin tails tied with pink ribbons, a pink t-shirt with a piano-key pattern, a denim overall skirt (suspender skirt) and white sneakers (never barefoot, never a floral dress) at her desk, looking out the window instead of at her homework.
+Scene: At night in her room on the 5th floor: a 9-year-old girl with brown twin tails tied with pink ribbons, a pink t-shirt with a piano-key pattern, a denim overall skirt (suspender skirt) and white sneakers (never barefoot, never a floral dress) at her desk, looking out the window instead of at her homework; through the window, far below, the harbor town lights (high up, NO streetlamp or garden at eye level).
 ```
 
 > 꼭 보여야 할 것: (진실) 창밖을 보는 아이
@@ -1516,7 +1516,7 @@ Scene: From inside the room through the open glass door, on a 5th-floor apartmen
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + pink (#e0679a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: a 9-year-old girl with brown twin tails tied with pink ribbons, a pink t-shirt with a piano-key pattern, a denim overall skirt (suspender skirt) and white sneakers (never barefoot, never a floral dress) crying under a blanket at night, eyes open and full of tears, sobbing, holding her music-note hairpin tightly against her chest.
+Scene: a 9-year-old girl with brown twin tails tied with pink ribbons, a pink t-shirt with a piano-key pattern, a denim overall skirt (suspender skirt) and white sneakers (never barefoot, never a floral dress) crying under a blanket at night, eyes open and full of tears, sobbing, holding her music-note hairpin tightly against her chest, the pink hairpin clearly visible between her fingers. NOT asleep.
 ```
 
 > 꼭 보여야 할 것: (진실) 머리핀을 쥔 손
