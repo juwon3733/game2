@@ -8,7 +8,8 @@ Object.assign(CHARACTERS, {
   yuki:    { name: '유키',     hair: '#2a2f3a', outfit: '#f2e6d0', accent: '#38a3a5', faces: ['normal', 'crying', 'smile'] },
   nagi:    { name: '나기',     hair: '#2a2f3a', outfit: '#f2e6d0', accent: '#38a3a5', faces: ['normal', 'scared', 'crying'] },
   // 유키 행세를 하는 나기: 유키의 그림을 빌려 쓴다
-  yukin:   { name: '유키',     hair: '#2a2f3a', outfit: '#f2e6d0', accent: '#38a3a5', faces: ['normal', 'crying', 'smile'] },
+  // yukin_*.png가 아직 없어 유키 그림을 빌린다. 유키 행세 그림(portrait-yukin)이 들어오면 as를 지운다
+  yukin:   { name: '유키',     hair: '#2a2f3a', outfit: '#f2e6d0', accent: '#38a3a5', faces: ['normal', 'crying', 'smile'], as: 'yuki' },
   madoka:  { name: '마도카',   hair: '#4a2a5a', outfit: '#2a1f3a', accent: '#7d4fd1', faces: ['smile', 'normal', 'cornered', 'crying'] },
   tofu:    { name: '두부집 할머니', hair: '#d8d4cc', outfit: '#6a7a8a', accent: '#8f9a4a', faces: ['normal', 'surprised'] },
   ren:     { name: '???',      hair: '#e8e8ee', outfit: '#f4f4f4', accent: '#c8c8d8', faces: ['smile', 'normal'] },
@@ -69,7 +70,7 @@ Object.assign(CUTS, {
           tags: { clock: '2110' },
           spots: [{ id: 'shawl', label: '별무늬 숄', x: 0.4, y: 0.15, w: 0.3, h: 0.35, word: 'th_shawl' }, { id: 'watch', label: '손목시계', x: 0.05, y: 0.7, w: 0.2, h: 0.25, word: 't_2110' }, { id: 'envelope', label: '봉투', x: 0.55, y: 0.35, w: 0.15, h: 0.15 }, { id: 'door', label: '2층 문간', x: 0.75, y: 0.05, w: 0.2, h: 0.4 }, { id: 'shadow', label: '천장의 그림자', x: 0.3, y: 0.0, w: 0.4, h: 0.12 }] },
   '3D': { owner: 'hasegawa', title: '바닥에서',
-          desc: '흐릿한 시야. 바닥에서 올려다본 앞치마 차림의 점원이 휴대폰을 두 손으로 쥐고 서 있다. 그 뒤로 깜깜한 계단 위쪽.',
+          desc: '흐릿한 시야. 바닥에서 올려다본 앞치마 차림의 점원이 휴대폰을 두 손으로 쥐고 서 있다. 휴대폰 화면은 까맣게 꺼져 있고, 손가락은 화면에 닿지 않았다. 그 뒤로 깜깜한 계단 위쪽.',
           tags: { clock: '2120' } },
   '3J': { owner: 'tofu', title: '뒷골목',
           desc: '두부집 진열대 너머 아케이드. 별무늬 숄을 두른 사람이 양과점 뒷골목에서 뛰어나온다. 진열대 위 두부 물통, 가게 시계 9시 22분.',
@@ -78,11 +79,11 @@ Object.assign(CUTS, {
         desc: '「미래 컷」. 어두운 계단 위에서 내려다본 1층. 계단 아래 밝은 매장에서 오른쪽 리본 점원이 봉투를 내밀고, 남자의 손이 그걸 받는다. 화면 가장자리에 난간 기둥.',
         tags: { clock: '2105' } },
   F2: { owner: 'madoka', title: '미래 컷 2',
-        desc: '「미래 컷」. 어두운 창고 문간에서 앞치마 소매의 손이 봉투를 움켜쥔다. 봉투 너머로 계단 아래 매장 불빛.',
+        desc: '「미래 컷」. 어두운 창고 문간에서 앞치마 소매의 손이 봉투를 움켜쥔다. 봉투 너머로 계단 아래 매장 불빛. 손과 소매 언저리만 스크린톤 점이 유난히 촘촘하다.',
         tags: { clock: '2110' },
         spots: [{ id: 'seam', label: '봉투를 쥔 손', x: 0.35, y: 0.4, w: 0.3, h: 0.3 }, { id: 'sleeve', label: '앞치마 소매', x: 0.15, y: 0.5, w: 0.2, h: 0.25 }, { id: 'bag', label: '봉투', x: 0.45, y: 0.5, w: 0.15, h: 0.15 }, { id: 'light', label: '계단 아래 불빛', x: 0.6, y: 0.75, w: 0.3, h: 0.2 }] },
   F3: { owner: 'madoka', title: '미래 컷 3',
-        desc: '「미래 컷」. 계단 위에서 앞치마 소매의 손이 올라오는 남자의 어깨를 민다. 아래쪽 매장 불빛. 벽에는 난간 그림자, 사람 그림자, 손 그림자가 겹쳐 있다. 길이가 제각각이다.',
+        desc: '「미래 컷」. 계단 위에서 앞치마 소매의 손이 올라오는 남자의 어깨를 민다. 아래쪽 매장 불빛. 벽에는 난간과 남자의 그림자가 천장 쪽으로 길게 늘어져 있고, 미는 손의 그림자는 짧게 바닥 쪽으로 떨어져 있다.',
         tags: { clock: '2110' },
         spots: [{ id: 'shadow', label: '벽의 그림자', x: 0.45, y: 0.15, w: 0.25, h: 0.2 }, { id: 'hand', label: '미는 손', x: 0.35, y: 0.35, w: 0.25, h: 0.3 }, { id: 'man', label: '남자의 어깨', x: 0.3, y: 0.55, w: 0.25, h: 0.25 }, { id: 'rail', label: '난간', x: 0.7, y: 0.1, w: 0.25, h: 0.35 }] },
 });
@@ -189,7 +190,7 @@ Object.assign(WITNESSES, {
         press: [['yukin', '바로요. 몇 번을 말해요.', 'crying']] },
     ],
     answers: [
-      { statement: 0, spot: 'ankle', cut: ['3E', '3F', '3A', '3G', '3H', 'ledger'], shout: '유키 씨가 아니에요!',
+      { statement: 0, spot: 'ankle', cut: ['3E', '3F', '3A', '3B', '3G', '3H', 'ledger', 'roster'], shout: '유키 씨가 아니에요!',
         rebut: '그 시각 학원에 있던 유키 씨 발목엔 붕대가 없었어요. 왼손잡이인 유키 씨와 달리 장부는 오른손 글씨였고요. 마감한 건 나기 씨죠.',
         success: [
           ['', '「유키」가 입술을 깨문다. 오른쪽 리본이 풀리고, 그걸 왼쪽에 다시 묶는다.'],
@@ -197,7 +198,7 @@ Object.assign(WITNESSES, {
           ['yukin', '언니는 미술 학원에 다녀요. 점장님한텐 비밀로. 언니가 그만두면 가게가 힘들어지니까… 제가 언니인 척하기로 했어요.', 'crying'],
         ],
         peel: [0], words: ['a_swap', 'p_nagi'] },
-      { statement: 1, cut: 'ledger', requires: [0], shout: '봉투는 금고에 없었어!',
+      { statement: 1, cut: ['ledger', 'F1'], requires: [0], shout: '봉투는 금고에 없었어!',
         rebut: '장부의 「금고 입금」 칸이 비어 있어요. 봉투는 금고에 들어가지 않았어요.',
         success: [
           ['yukin', '넣으려고 했어요. 근데 점장님이 사무실에서 나오셔서 「내가 넣을게, 너 발목 아프잖아」 하고…', 'crying'],
@@ -234,7 +235,7 @@ Object.assign(WITNESSES, {
           ['nagi', '10분 동안 아무것도 못 했어요. 점장님이 저를 보고 계셨는데.', 'crying'],
         ],
         peel: [0], words: ['t_10min', 'a_hesitate'], cg: 'cg_twins', page: ['3G', '3D', '3H'], pageCap: '그 10분.' },
-      { statement: 1, cut: ['3C', '3J'], shout: '혼자가 아니었어요!',
+      { statement: 1, cut: ['3C', '3J', 'F1'], shout: '혼자가 아니었어요!',
         rebut: '점장님이 계단을 오르다 올려다본 컷이에요. 2층 창고 문간에서 별무늬 숄을 두른 사람이 점장님 손에서 봉투를 낚아채고 있어요.',
         success: [
           ['nagi', '별무늬 숄.', 'scared'],
@@ -274,7 +275,7 @@ Object.assign(WITNESSES, {
         rebut: '그날 2층 전구는 나가 있었어요. 계단을 비춘 건 아래 매장 불빛뿐이니까 그림자는 전부 위로 늘어져야 해요. 이 손 그림자는 아래로 떨어져요. 이 손도 붙인 거예요.',
         success: [['', '마도카의 웃음이 굳는다. 카드를 섞던 손이 멈춘다.'], ['madoka', '그림자 같은 걸… 누가 봐요.', 'cornered']],
         words: ['a_push3'] },
-      { statement: 2, cut: '3C', with: ['3J', 'sequin'], requires: [1], shout: '부스엔 없었어!',
+      { statement: 2, cut: ['3C', 'F1'], with: ['3J', 'sequin'], requires: [1], shout: '부스엔 없었어!',
         rebut: '9시 10분, 점장님 눈에 별무늬 숄이 남아 있어요. 2분 뒤엔 두부집 할머니가 뒷골목에서 뛰어나오는 숄을 봤고요. 마도카 씨는 그 시각 부스에 없었어요. 양과점 창고 계단에 있었어요.',
         success: [
           ['madoka', '이번 달 말까지 갚아야 할 빚이 있었어요.', 'crying'],
@@ -290,6 +291,8 @@ Object.assign(WITNESSES, {
         peel: [2] },
     ],
     koharu: [['koharu', '(선배, 쓰레기통에서 나온 스크린톤… 이 컷 점 무늬랑 닮지 않았어요?)', 'worried']],
+    // 점장의 컷은 마지막 증언을 깨는 열쇠. 미래 컷 두 장을 먼저 무너뜨려야 통한다
+    wrongBy: { '3C': [['madoka', '점장님이 본 건 그림자뿐이잖아요. 제 카드엔 리본 아가씨 손이 또렷한데요?', 'smile'], ['rei', '(숄은 남아 있어. 그래도 먼저 이 미래 컷이 어디가 가짜인지 보여야 해.)', 'serious']] },
     wrong: [['madoka', '어머, 그건 카드가 말하는 거랑 다른데요?', 'smile']],
     close: [['madoka', '오늘은 운세가 별로네요. 다음에 오세요.', 'normal'], ['koharu', '(처음부터 다시 봐요, 선배.)', 'worried']],
   },

@@ -731,47 +731,7 @@ Expression: frightened, eyes darting, hands gripping her apron.
 Expression: crying, ribbon slightly undone.
 ```
 
-## 대화 20 — 유키 상반신 (3장)
-
-먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
-
-**`설정화 (저장 안 해도 됨)`
-```
-이미지를 만들어줘. 진짜 도트(픽셀아트)여야 해. 고해상도 일러스트처럼 그리지 마.
-
-Authentic low-resolution pixel art, like a PC-98 era Japanese adventure game. Anime-style character design. No anti-aliasing, no smooth gradients, no fine details smaller than one pixel. Shading only with flat colors and a little checkerboard dithering. Clean dark outlines. Late-summer Japanese harbor town mood, slightly melancholic and warm. No text, no letters, no watermark, no UI.
-
-Character design in the style of modern Japanese anime mobile gacha games (subculture style): large expressive eyes with bright highlights, small nose and mouth, attractive and cute face, slim stylish proportions, glossy hair with highlight strands, vivid but harmonious colors, fashionable outfit with small accessories, clear and appealing silhouette. Female characters mostly have long, flowing hair. Adult women (18 and over) have attractive, curvy-but-slim figures and slightly alluring gacha-style fashion (fitted clothes, bare shoulders or midriff, short skirts or shorts, thigh-high socks) — stylish and flirty, never explicit, no nudity, no underwear. Characters under 18 are drawn modestly and age-appropriately. Keep it as crisp low-resolution pixel art, not a smooth illustration.
-
-Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
-
-Character reference sheet of a 19-year-old girl pretending to be her identical twin sister: exactly the same face as the twins, big teal eyes, long glossy dark navy hair with a cream ribbon tied on the RIGHT side (copying her sister), cream blouse under a pastry shop apron with a small cake emblem, clean hands with no charcoal, no art bag, a slightly too-stiff polite smile. Teal and cream accents.
-```
-
-**`yukin_normal.png`
-```
-방금 설정화 캐릭터 그대로, 같은 도트 스타일과 같은 팔레트로 그려줘. 모바일 가챠게임 캐릭터처럼 예쁘고 매력적으로.
-
-Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
-
-Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: stiff polite customer-service smile, hands folded on her apron.
-```
-
-**`yukin_crying.png`
-```
-같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
-
-Expression: crying, hiding her face with her right hand.
-```
-
-**`yukin_smile.png`
-```
-같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
-
-Expression: forced bright smile, eyes not smiling.
-```
-
-## 대화 21 — 마도카 상반신 (4장)
+## 대화 20 — 마도카 상반신 (4장)
 
 먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
 
@@ -818,7 +778,7 @@ Expression: cornered, smile frozen, sweat on her temple, shawl slipping.
 Expression: crying, makeup running, holding the shawl tightly.
 ```
 
-## 대화 22 — 두부집 할머니 상반신 (2장)
+## 대화 21 — 두부집 할머니 상반신 (2장)
 
 먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
 
@@ -851,7 +811,7 @@ Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transpa
 Expression: surprised, glasses slipping down her nose.
 ```
 
-## 대화 23 — 시오리 상반신 (3장)
+## 대화 22 — 시오리 상반신 (3장)
 
 먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
 
@@ -891,7 +851,7 @@ Expression: cold, looking down at the viewer.
 Expression: sad, looking away, one white-gloved hand on her eyepatch.
 ```
 
-## 대화 24 — 하야카 상반신 (3장)
+## 대화 23 — 하야카 상반신 (3장)
 
 먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
 
@@ -931,7 +891,7 @@ Expression: crying silently, gripping her wristband.
 Expression: small fragile smile.
 ```
 
-## 대화 25 — 케이코 상반신 (3장)
+## 대화 24 — 케이코 상반신 (3장)
 
 먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
 
@@ -971,7 +931,7 @@ Expression: crying, head bowed.
 Expression: resolute, looking straight ahead, bandaged hands clenched.
 ```
 
-## 대화 26 — 오카모토 상반신 (2장)
+## 대화 25 — 오카모토 상반신 (2장)
 
 먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
 
@@ -1004,7 +964,7 @@ Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transpa
 Expression: calmer, adjusting her glasses.
 ```
 
-## 대화 27 — 무라세 상반신 (3장)
+## 대화 26 — 무라세 상반신 (3장)
 
 먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
 
@@ -1044,7 +1004,7 @@ Expression: businesslike, checking his clipboard.
 Expression: cornered, cold sweat, smile gone.
 ```
 
-## 대화 28 — 니시무라 상반신 (1장)
+## 대화 27 — 니시무라 상반신 (1장)
 
 먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
 
@@ -1070,7 +1030,7 @@ Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1
 Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: expressionless, flicking a silver lighter.
 ```
 
-## 대화 29 — 타나베 상반신 (2장)
+## 대화 28 — 타나베 상반신 (2장)
 
 먼저 설정화(reference sheet)를 만들어 기준으로 삼고, 같은 대화 안에서 표정을 이어 만든다. 설정화는 저장하지 않는다.
 
@@ -1103,7 +1063,7 @@ Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transpa
 Expression: confused, holding his head as if it aches.
 ```
 
-## 대화 30 — 배경 (35장)
+## 대화 29 — 배경 (35장)
 
 배경끼리 그림체를 맞추려고 한 대화에서 이어 만든다.
 
@@ -1213,7 +1173,7 @@ An old retro Japanese Western-style pastry shop at night after closing: empty ca
 ```
 같은 도트 스타일, 같은 픽셀 크기와 팔레트로 다음 배경을 그려줘. 사람 없이, 가로 1536x1024.
 
-A cramped second-floor storage room of a pastry shop: stacked cake boxes, a small old safe with its door open, a steep staircase going down, a single bare bulb. Keep the lower third simple because characters will stand in front.
+A cramped second-floor storage room of a pastry shop at night: stacked cake boxes, a small old safe with its door open, a back door to an outside iron staircase, a steep staircase going down. The single bare bulb is burnt out; the only light is the warm glow rising from the shop downstairs. Keep the lower third simple because characters will stand in front.
 ```
 
 **`arcade.png`
@@ -1234,7 +1194,7 @@ Inside a tiny tarot fortune telling booth: a round table with a purple cloth and
 ```
 같은 도트 스타일, 같은 픽셀 크기와 팔레트로 다음 배경을 그려줘. 사람 없이, 가로 1536x1024.
 
-An art prep school studio in the morning: rows of easels, plaster busts, charcoal drawings pinned on the walls, big windows with soft light. Keep the lower third simple because characters will stand in front.
+An art prep school studio in the evening: rows of easels, plaster busts, charcoal drawings pinned on the walls, big dark windows with the station lights outside, fluorescent lights. Keep the lower third simple because characters will stand in front.
 ```
 
 **`arcade_exit.png`
@@ -1356,7 +1316,7 @@ Inside the burned upper floor of a lighthouse-shaped library: charred bookshelve
 The tip of a cape at dawn: the ruined lighthouse library silhouetted against a pink and orange sky, calm sea, birds, a bench. Keep the lower third simple because characters will stand in front.
 ```
 
-## 대화 31 — 컷 · 타이가 시점 + 증언 (금색) (7장)
+## 대화 30 — 컷 · 타이가 시점 + 증언 (금색) (7장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -1429,7 +1389,7 @@ Scene: At night, running down a dim stairwell two steps at a time: a young deliv
 
 > 꼭 보여야 할 것: (진실) 꺼진 휴대폰의 큰 빈 배터리 아이콘
 
-## 대화 32 — 컷 · 미츠루 시점 (파랑) (2장)
+## 대화 31 — 컷 · 미츠루 시점 (파랑) (2장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -1457,7 +1417,7 @@ Scene: At night on his OWN 5th-floor apartment balcony, high above the ground; f
 
 > 꼭 보여야 할 것: 열린 유리문, 칸막이 옆 난간으로 뻗은 팔, 난간 위 흰 운동화·멜빵 치마, 그 아래 바깥 턱의 반짝임, 아래 항구 야경(높이), 위쪽 가운데 빈 공간
 
-## 대화 33 — 컷 · 히마리 시점 (분홍) (6장)
+## 대화 32 — 컷 · 히마리 시점 (분홍) (6장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -1521,7 +1481,7 @@ Scene: a 9-year-old girl with brown twin tails tied with pink ribbons, a pink t-
 
 > 꼭 보여야 할 것: (진실) 머리핀을 쥔 손
 
-## 대화 34 — 컷 · 히마리 크레용 기억 (예외: 크레용 색) (4장)
+## 대화 33 — 컷 · 히마리 크레용 기억 (예외: 크레용 색) (4장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -1567,7 +1527,7 @@ Scene: Child's crayon drawing of a blanket colored completely black, a tiny fist
 
 > 꼭 보여야 할 것: 크레용, 새까만 이불
 
-## 대화 35 — 컷 · 오오쿠보 증언 (올리브) (5장)
+## 대화 34 — 컷 · 오오쿠보 증언 (올리브) (5장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -1622,7 +1582,7 @@ Scene: A dull impact on a flowerbed in front of an apartment building at night, 
 
 > 꼭 보여야 할 것: 화단의 충격
 
-## 대화 36 — UI 스킨 (9장)
+## 대화 35 — UI 스킨 (9장)
 
 한 대화에서 차례로 만들어 스타일을 맞춘다. 크기는 정확히 지키고, 9-slice 틀은 모서리 밖 가장자리가 똑같이 반복되게.
 
@@ -1693,7 +1653,7 @@ A horizontal strip of 8 icons, each exactly 96x96 (32x32 native), evenly spaced 
 A wide cut-in banner background, 1536x512, for the moment the hero rebuts a witness: black and red manga speed lines radiating from the left on off-white paper, coarse screentone burst, torn paper edges at top and bottom. Leave the middle empty and calm for text that will be overlaid by the game. No characters, no text.
 ```
 
-## 대화 37 — 이벤트 CG (11장)
+## 대화 36 — 이벤트 CG (11장)
 
 상반신 이미지를 기준으로 첨부해 같은 얼굴로 그린다. 배경 7장과 같은 도트 스타일.
 
@@ -1818,7 +1778,7 @@ Character design in the style of modern Japanese anime mobile gacha games (subcu
 Event illustration (CG) for a key story moment, horizontal 1536x1024, full color, same faces as the character portraits. At the tip of the cape at sunrise, translucent Shiori in her old sailor uniform smiles and waves as she scatters into light, Rei and Koharu standing hand in hand watching, the ruined lighthouse library behind.
 ```
 
-## 대화 38 — 타이틀 키아트 (1장)
+## 대화 37 — 타이틀 키아트 (1장)
 
 상반신 이미지를 기준으로 첨부해 같은 얼굴로 그린다.
 
@@ -1833,7 +1793,7 @@ Character design in the style of modern Japanese anime mobile gacha games (subcu
 Key visual illustration for the title screen of a mystery visual novel. Late-summer harbor town at night, seen from a sloped street with old apartment buildings, warm window lights and the sea with harbor lights in the distance. On the right half: an androgynous 22-year-old investigator, messy short black hair with one ahoge and a small lavender hair clip, sleepy violet-grey eyes, oversized grey hoodie under a long beige trench coat. standing in front, looking back over the shoulder at the viewer with a calm sleepy expression, and a cheerful 20-year-old rookie detective girl, orange-brown side ponytail with a sky-blue scrunchie, navy suit jacket over a white shirt with a sky-blue ribbon tie, navy pants, white sneakers. slightly behind, smiling. Several translucent black-and-white manga panels float in the air around them like scattered memories, each showing a faint scene from the same night. The left 40% of the image is calm, darker night sky and street with no important details, reserved for the title text. No text, no letters, no logo.
 ```
 
-## 대화 39 — 컷 · 핀 시점 (5장)
+## 대화 38 — 컷 · 핀 시점 (5장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -1888,7 +1848,7 @@ Scene: A sparkling memory: a 19-year-old girl vocalist with the same design as h
 
 > 꼭 보여야 할 것: 미화: 벽까지 덮은 반짝이
 
-## 대화 40 — 컷 · 루루 시점 (8장)
+## 대화 39 — 컷 · 루루 시점 (8장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -1970,7 +1930,7 @@ Scene: a man in a plain black suit with neat short black hair bursting out of th
 
 > 꼭 보여야 할 것: (진실) 손을 뻗는 키리시마의 다급한 얼굴
 
-## 대화 41 — 컷 · 아오이 시점 (2장)
+## 대화 40 — 컷 · 아오이 시점 (2장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -1998,7 +1958,7 @@ Scene: The moment of the fall, seen from the drum riser: no light pattern anymor
 
 > 꼭 보여야 할 것: 무늬 없음, 밀려 넘어지는 루루, 정장의 등, 떨어지는 리그
 
-## 대화 42 — 컷 · 쿠라모치 시점 (6장)
+## 대화 41 — 컷 · 쿠라모치 시점 (6장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2062,7 +2022,7 @@ Scene: From the lighting booth through the glass: the stage below is visible, bu
 
 > 꼭 보여야 할 것: 생략: 캣워크 자리가 통째로 하얀 여백
 
-## 대화 43 — 컷 · 키리시마 시점 (5장)
+## 대화 42 — 컷 · 키리시마 시점 (5장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2117,7 +2077,7 @@ Scene: First-person view bursting out of the stage wing onto the stage: grid pat
 
 > 꼭 보여야 할 것: 격자 무늬, 점프하는 루루, 기우는 리그, 뻗은 손, 위쪽 빈 공간
 
-## 대화 44 — 컷 · 텐도 시점 (5장)
+## 대화 43 — 컷 · 텐도 시점 (5장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2172,7 +2132,7 @@ Scene: Seen from the top of a steel staircase: the lighting rig in front; the ra
 
 > 꼭 보여야 할 것: 생략: 리그 옆 난간 자리 하얀 여백
 
-## 대화 45 — 컷 · 스즈네 시점 (12장)
+## 대화 44 — 컷 · 스즈네 시점 (12장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2240,7 +2200,7 @@ Scene: At night in an art prep school studio: a girl at an easel draws a plaster
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + teal (#38a3a5) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: A night train platform: a girl with an art portfolio bag looks at a smartphone held in her LEFT hand; the screen shows a message (accent color). A big station clock shows 9:25.
+Scene: A night train platform: a girl with an art portfolio bag looks at a smartphone held in her LEFT hand; the screen shows an unsent message, the recipient name hidden under her thumb (accent color). A big station clock shows 9:25.
 ```
 
 > 꼭 보여야 할 것: 역 시계 9:25, 왼손의 휴대폰(포인트 색)
@@ -2267,10 +2227,10 @@ Scene: A flattering, sparkling memory: a hand neatly placing a cash envelope int
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + teal (#38a3a5) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Back view of a girl leaving a pastry shop at night; the left half of the panel is left completely blank white, as if erased.
+Scene: A hand pressing 1-1-9 on a smartphone at night in a pastry shop; the left half of the panel, where whatever came before would be, is left completely blank white, as if erased.
 ```
 
-> 꼭 보여야 할 것: 생략: 왼쪽 절반이 하얀 여백
+> 꼭 보여야 할 것: 생략: 119를 누르는 손, 왼쪽 절반이 하얀 여백
 
 **`t_nagi_1.png`
 ```
@@ -2290,7 +2250,7 @@ Scene: An empty steep wooden staircase in a pastry shop at night, nobody in sigh
 
 > 꼭 보여야 할 것: 아무도 없는 계단, 아래만 밝고 위는 깜깜함
 
-## 대화 46 — 컷 · 하세가와 시점 (2장)
+## 대화 45 — 컷 · 하세가와 시점 (2장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2313,12 +2273,12 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + burnt orange (#c4703a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Blurry first-person view from the floor at the foot of a staircase: a 19-year-old girl with long dark navy hair and a ribbon, wearing a pastry shop apron stands frozen holding a smartphone in both hands, trembling, not calling. Behind her the top of the staircase is pitch dark. No clock visible. Her bandaged ankle (accent color) is near the viewer.
+Scene: Blurry first-person view from the floor at the foot of a staircase: a 19-year-old girl with long dark navy hair and a ribbon, wearing a pastry shop apron stands frozen holding a smartphone in both hands, trembling, not calling: the phone screen is black and her fingers are not touching it. Behind her the top of the staircase is pitch dark. No clock visible. Her bandaged ankle (accent color) is near the viewer.
 ```
 
 > 꼭 보여야 할 것: 흐릿한 시야, 휴대폰을 쥔 점원, 깜깜한 계단 위, 붕대(포인트 색), 시계 없음
 
-## 대화 47 — 컷 · 두부집 할머니 시점 (4장)
+## 대화 46 — 컷 · 두부집 할머니 시점 (4장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2364,7 +2324,7 @@ Scene: A girl with the ribbon on her RIGHT side waves cheerfully from a pastry s
 
 > 꼭 보여야 할 것: 오른쪽 리본 점원이 손을 흔듦
 
-## 대화 48 — 컷 · 마도카 시점 (4장)
+## 대화 47 — 컷 · 마도카 시점 (4장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2410,7 +2370,7 @@ Scene: Inside a tarot booth: tarot cards on a purple cloth, a customer's hands a
 
 > 꼭 보여야 할 것: 부스의 타로 카드와 손님의 손
 
-## 대화 49 — 컷 · 하야카 시점 (7장)
+## 대화 48 — 컷 · 하야카 시점 (7장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2483,7 +2443,7 @@ Scene: An unnaturally white room with an empty speech bubble logo; a girl's hand
 
 > 꼭 보여야 할 것: 하얀 방, 서명하는 손
 
-## 대화 50 — 컷 · 케이코 시점 (6장)
+## 대화 49 — 컷 · 케이코 시점 (6장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2547,7 +2507,7 @@ Scene: A panel completely blurred as if covered by thick smoke; shapes cannot be
 
 > 꼭 보여야 할 것: 흐림: 연기처럼 흐린 컷
 
-## 대화 51 — 컷 · 무라세 시점 (4장)
+## 대화 50 — 컷 · 무라세 시점 (4장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2593,7 +2553,7 @@ Scene: A sooty electrical panel with suspiciously neat wiring.
 
 > 꼭 보여야 할 것: 그을린 배전반
 
-## 대화 52 — 컷 · 오카모토 시점 (8장)
+## 대화 51 — 컷 · 오카모토 시점 (8장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2675,7 +2635,7 @@ Scene: Sparks bursting from a small boiler room window at night.
 
 > 꼭 보여야 할 것: 보일러실 창의 불꽃
 
-## 대화 53 — 컷 · 겐조 시점 (1장)
+## 대화 52 — 컷 · 겐조 시점 (1장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2694,7 +2654,7 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 
 > 꼭 보여야 할 것: 흐린 시야, 업어 준 사람의 그을린 목덜미와 머리끈(포인트 색), 불타는 들보
 
-## 대화 54 — 컷 · 코하루 시점 (8장)
+## 대화 53 — 컷 · 코하루 시점 (8장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2776,7 +2736,7 @@ Scene: Dusk at the harbor: first-person view walking alone toward an abandoned w
 
 > 꼭 보여야 할 것: 혼자 걸어가는 시점, 긴 그림자, 셔터 앞의 흰 코트(포인트 색)
 
-## 대화 55 — 컷 · 타나베 시점 (4장)
+## 대화 54 — 컷 · 타나베 시점 (4장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2822,7 +2782,7 @@ Scene: A girl crying on a bus stop bench, hugging her bag; a bus timetable besid
 
 > 꼭 보여야 할 것: 편집: 매끈하게 붙인 우는 얼굴
 
-## 대화 56 — 컷 · 렌 시점 (7장)
+## 대화 55 — 컷 · 렌 시점 (7장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2895,7 +2855,7 @@ Scene: A 16-year-old in a school uniform running alone between burning bookshelv
 
 > 꼭 보여야 할 것: 편집: 불타는 서가 사이로 달아나는 고등학생
 
-## 대화 57 — 컷 · 소타 시점 (4장)
+## 대화 56 — 컷 · 소타 시점 (4장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2941,7 +2901,7 @@ Scene: First-person view with empty hands, turning back into the library; fire h
 
 > 꼭 보여야 할 것: 빈손으로 다시 연기 속으로, 입구 서가까지 번진 불, 위층의 목소리(포인트 색)
 
-## 대화 58 — 컷 · 쿠로가네 시점 (1장)
+## 대화 57 — 컷 · 쿠로가네 시점 (1장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -2960,7 +2920,7 @@ Any person in the panel has the same cute anime gacha-game style face (large exp
 
 > 꼭 보여야 할 것: 순경 등에서 고등학생을 받아 부축, 8:31에 멈춘 손목시계(포인트 색)
 
-## 대화 59 — 컷 · 레이 시점 (12장)
+## 대화 58 — 컷 · 레이 시점 (12장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -3078,7 +3038,7 @@ Scene: Six August wall calendars overlapped like stacked panels: on every one, t
 
 > 꼭 보여야 할 것: 여섯 장 겹친 8월 달력, 31일 칸만 하얗게 빔
 
-## 대화 60 — 컷 · 시오리 시점 (8장)
+## 대화 59 — 컷 · 시오리 시점 (8장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 
@@ -3160,7 +3120,7 @@ Scene: First-person view from the foot of a smoky staircase, looking back up tow
 
 > 꼭 보여야 할 것: 계단을 다시 올려다봄, 뒤에서 뛰어 들어오는 순경(포인트 색)
 
-## 대화 61 — 컷 · 아사기리 시점 (6장)
+## 대화 60 — 컷 · 아사기리 시점 (6장)
 
 같은 포인트 색 컷끼리 한 대화에서 만들어 팔레트를 맞춘다.
 

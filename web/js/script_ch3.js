@@ -233,7 +233,8 @@ async function sceneTofu() {
 async function sceneMadoka1() {
   bg('booth3');
   meet('madoka', 'left', 'smile');
-  await say('', '얇은 카디건 차림의 여자. 부스 간판에 「타로 · 미즈시마」.');
+  await say('', '별 스팽글이 박힌 검은 숄을 두른 여자. 부스 간판에 「타로 · 미즈시마」.');
+  await say('rei', '(별무늬 숄. 할머니 말로는 점 보는 사람들은 다 그런 걸 두른다고 했지. 숄만으로는 아무것도 아니야.)', 'serious');
   await say('madoka', '기다렸어요. 미즈시마 마도카예요. 저 모퉁이에서 타로를 봐요.', 'smile');
   gainWord('pl_booth3');
   await say('madoka', '저도 비슷한 걸 봐요. 다만 저는 [[앞일]]이 보여요. 카드를 섞으면 아직 안 일어난 일이 컷처럼 떠오르거든요.', 'smile');
