@@ -35,7 +35,7 @@ const ORDER = [
 const checks = (it) => {
   const sc = (it.prompt.match(/Scene: ([\s\S]*?)(Every person|Keep the important|Horizontal|$)/) || [, it.prompt])[1];
   const c = [];
-  if (/first-person/i.test(sc)) c.push('1인칭: 보는 사람은 손·발만, 적힌 사람 말고 추가 금지');
+  if (/first-person/i.test(sc)) c.push('1인칭: 보는 사람은 손·발만');
   else if (it.file.includes('/bg/') || /\bNO people|No people|nobody in sight|NO person|No other people/.test(sc)) c.push('사람 없음');
   for (const m of sc.matchAll(/\b(RIGHT|LEFT)\b/g)) { const side = m[1] === 'RIGHT' ? '오른' : '왼'; const k = `인물 자신의 ${side}쪽(정면이면 화면 ${side === '오른' ? '왼' : '오른'}쪽)`; if (!c.includes(k)) c.push(k); }
   for (const m of sc.matchAll(/(?:shows?|showing|reads?)\s+(?:a call screen and\s+)?(\d{1,2}:\d{2})/gi)) c.push(`시계 ${m[1]}`);
@@ -54,7 +54,7 @@ const seen = new Set();
 const md = ['# GPT 작업 순서표 (자동 생성: `node tools/gpt-queue.mjs`)', '',
   '위에서부터 **한 줄 = 한 장**씩 만든다. 프롬프트는 `web/assets/prompts.json`에서 같은 id의 `prompt`를 그대로 쓴다.',
   '- **설정화(reference sheet)는 만들지 않는다.** 모든 인물의 상반신이 이미 있다. 인물이 나오면 「첨부」 칸의 PNG를 이미지로 붙인다.',
-  '- **프롬프트에 없는 사람을 그리지 않는다.** 「first-person」·「NO people」이면 손(과 발목)만. 나오는 인물은 첨부 상반신과 같은 머리색·나이로.',
+  '- **프롬프트에 없는 인물을 그리지 않는다.** 바깥·공공장소라면 멀리 작은 얼굴 없는 행인은 괜찮다(단서 근처, 등장인물로 보일 사람, 「nobody·empty·No people」 장면은 안 됨). 배경(bg)은 사람 없음. 나오는 인물은 첨부 상반신과 같은 머리색·나이로.',
   '- 「다시」 줄은 그 이유를 고치는 게 목적이다. 고쳤는지 PR 설명에 한 줄로 적는다.',
   '- 「확인」 칸: 그 장에서 틀리기 쉬운 것. 그리기 전에 읽고, 다 그린 뒤 하나씩 맞는지 본다.',
   '- 묶음(장·종류)마다 PR 하나, 브랜치는 `assets/<첫 id>-<월일시분>`. 올리면 바로 다음 줄로.', ''];
