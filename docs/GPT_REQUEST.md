@@ -4,37 +4,32 @@
 
 ```
 AGENTS.md대로 이미지 만들어서 PR 올려줘. 작업 전에 최신 main의 web/assets/prompts.json을 다시 읽어.
-묶음마다 PR 하나(브랜치 assets/<묶음 id>), 아래 순서대로 진행해.
+묶음마다 PR 하나(브랜치 assets/<묶음 id>), 아래 순서대로 진행해. 없는 그림이 먼저고, 이미 있는 그림 고치기는 맨 마지막이야.
 
-1차 — 교체(이미 파일이 있지만 프롬프트가 바뀜, 덮어써):
-- portrait-rei: rei_normal (새 rei_serious·surprised·crying과 같은 그림으로 — 보라색 X자 핀, 트렌치코트+후드, 크로스백. 캔 커피는 normal에서만 들고 있어도 됨)
-- portrait-tendo: 전부 (42세 미인으로. 10/27에 받은 건 너무 늙어서 뺌)
-- portrait-asagiri: asagiri_cold (지금 그림은 웃는 얼굴. 차갑게 굳은 표정, 입꼬리 내려가고 눈은 가늘게, 커피잔 없이)
-- portrait-shiori: shiori_normal (가리키지 않는 자세) + 없는 shiori_point shiori_smile
-- cut-blue: B C
-- cut-pink: G H I t_himari_2_truth t_himari_3_truth
-- cut-olive: E t_ookubo_2 t_ookubo_2_truth
-- cut-gold: t_taiga_2 t_taiga_3_truth
-- cut-pin: 2A 2K
-- cut-ruru: 2H 2P + 없는 2B
-(10/27 받아 넣음: rei_serious rei_surprised rei_crying taiga_sad kirishima_normal kurogane_normal kurogane_sad asagiri_normal asagiri_sad)
+1차 — 없는 상반신(그림이 없으면 인물이 화면에 안 나옴):
+portrait-towa portrait-ren portrait-aoi portrait-yuki portrait-nagi portrait-yukin portrait-madoka portrait-tofu portrait-hayaka portrait-keiko portrait-okamoto portrait-murase portrait-nishimura portrait-tanabe
++ portrait-shiori의 shiori_point shiori_smile
 
-2차 — 없는 상반신(그림이 없으면 인물이 화면에 안 나옴):
-portrait-towa portrait-aoi portrait-yuki portrait-nagi portrait-yukin portrait-madoka portrait-tofu portrait-ren portrait-hayaka portrait-keiko portrait-okamoto portrait-murase portrait-nishimura portrait-tanabe
+2차 — 2장: bg(crescent_out crescent_stage booth greenroom backstage tendo_office), cut-aoi cut-kuramochi cut-kirishima cut-tendo, cut-ruru의 2B
 
-3차 — UI(원고 테마로 새로 씀): ui
+3차 — 3장: bg(tokiwa_shop storage arcade booth3 academy arcade_exit), cut-twin cut-hasegawa cut-tofu cut-madoka
 
-4차 — 2장 그림: bg(2장 것 crescent_out crescent_stage booth greenroom backstage tendo_office), cut-aoi cut-kuramochi cut-kirishima cut-tendo
+4차 — 4장: bg(sakurayu sakurayu_boiler okamoto_house site_office clinic), cut-hayaka cut-keiko cut-murase cut-okamoto cut-genzo
 
-5차 — 3장: bg(tokiwa_shop storage arcade booth3 academy arcade_exit), cut-twin cut-hasegawa cut-tofu cut-madoka
+5차 — 5장: bg(station_chief koharu_room library busstop warehouse pier warehouse_in cafe_night), cut-koharu cut-tanabe cut-ren cut-sota cut-kurogane
 
-6차 — 4장: bg(sakurayu sakurayu_boiler okamoto_house site_office clinic), cut-hayaka cut-keiko cut-murase cut-okamoto cut-genzo
+6차 — 종장: bg(lighthouse lighthouse_in lighthouse_dawn), cut-rei cut-shiori cut-asagiri, cut-crayon의 AF
 
-7차 — 5장: bg(station_chief koharu_room library busstop warehouse pier warehouse_in cafe_night), cut-koharu cut-tanabe cut-ren cut-sota cut-kurogane
+7차 — CG: cg (11장 전부)
 
-8차 — 종장: bg(lighthouse lighthouse_in lighthouse_dawn), cut-rei cut-shiori cut-asagiri, cut-crayon의 AF
+8차 — UI(원고 테마): ui
 
-9차 — CG: cg (11장 전부)
+9차 — 이미 있는 그림 고치기(덮어써):
+- portrait-tendo 전부 (42세 미인, 주름 없이 30대 후반처럼)
+- portrait-asagiri: asagiri_cold (웃지 말고 차갑게 굳은 표정, 커피잔 없이)
+- portrait-rei: rei_normal (serious·surprised·crying과 같은 그림: 보라색 X자 핀, 트렌치코트+후드, 크로스백)
+- portrait-shiori: shiori_normal (가리키지 않는 자세)
+- cut-blue: B C / cut-pink: G H I t_himari_2_truth t_himari_3_truth / cut-olive: E t_ookubo_2 t_ookubo_2_truth / cut-gold: t_taiga_2 t_taiga_3_truth / cut-pin: 2A 2K / cut-ruru: 2H 2P
 
 컷은 회색 8단계 + 포인트 색 1개, must_show 단서는 크게. 같은 인물은 상반신 설정화와 같은 얼굴·옷으로.
 ```
