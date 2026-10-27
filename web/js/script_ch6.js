@@ -96,7 +96,7 @@ async function sceneExplore6() {
   show('kurogane', 'sad', 'center');
   await say('kurogane', '직무 정지지만, 오늘은 같이 간다.', 'sad');
   show('ren', 'normal', 'left');
-  await say('ren', '이 밤만은 편집장이 직접 붙들고 있었어. 나한텐 손도 못 대게 했지.', 'normal');
+  await say('ren', '처음 한 번만 내 손이었어. 그 뒤로 이 밤은 편집장이 직접 붙들고 있었지. 나한텐 다시 손도 못 대게 했어.', 'normal');
   show('towa', 'serious', 'right');
   await say('towa', '드론 띄웠어. …나도 같이 읽을게.');
   clearChars();
@@ -157,9 +157,11 @@ async function sceneExplore6() {
       },
       flowers: async () => {
         await say('', '철망 앞에 시든 국화 한 다발. 작년 것이다. 리본도 쪽지도 없다.');
-        await say('kurogane', '해마다 8월 31일 밤이면 누가 두고 간다. 다섯 해째 한 번도 거른 적이 없지.', 'sad');
+        await say('kurogane', '나는 해마다 9월 1일 아침에 온다. 그때마다 꽃이 먼저 와 있더군. 다섯 해, 한 번도 안 거르고.', 'sad');
         await say('', '시든 꽃대를 쥐자, 손바닥에 낯익은 감각이 남는다.');
-        await gainCut('RF'); tick();
+        await gainCut('RF');
+        await say('rei', '(서랍 속 꽃집 영수증. 다섯 장. 날짜는 전부 8월 31일.)', 'serious');
+        tick();
       },
       fence: async () => {
         await say('', '철망 문에 녹슨 자물쇠. 열쇠 구멍까지 녹이 슬어 몇 년은 아무도 연 적이 없다.');
@@ -205,7 +207,6 @@ async function sceneShiori6() {
   await say('shiori', '알아. 그래도 돌아왔잖아. 연기 속으로.', 'smile');
   await say('shiori', '마지막 한 칸은 머리핀에 남아 있어. 읽어 봐.', 'normal');
   await gainCut('S8');
-  await say('', '계단 아래에서 위층을 올려다보는 시점. 등 뒤로 순경이 뛰어 들어오는 발소리.');
   await say('rei', '상자에 넣어 둔 그 장. 불 꺼지고 누가 열어 볼지 몰라서, 네 손으로 건네고 싶었구나.', 'crying');
   await say('shiori', '응.', 'smile');
   await say('rei', '…시오리. 너, 처음부터 내가 본 것만 가리켰지. 칸막이도, 스케치북도, 부두도.', 'serious');
@@ -277,7 +278,10 @@ async function sceneConclusion6() {
     G.flags.ending = marginCount() >= MARGIN_FLAGS.length ? 'margin' : 'truth';
     await say('asagiri', '…그래.', 'sad');
     await say('', '아사기리가 국화 다발을 내민다. 레이가 받는다. 젖은 꽃잎에서 6년 치 같은 냄새가 난다.');
-    await say('asagiri', '쓴 커피, 생각보다 마실 만해. 내일 아침엔 그걸로 마셔.', 'sad');
+    await say('rei', '아사기리 씨. 그 커피잔에서 읽은 크레용 그림, 얼굴까지 남아 있었어요.', 'normal');
+    await say('', '레이가 수첩에서 컷 한 장을 꺼내 내민다. 냉장고 위 세 사람. 아사기리가 한참 들여다보다가, 가장 작은 얼굴을 손가락으로 짚는다.');
+    await say('asagiri', '이렇게 웃었구나.', 'sad');
+    await say('asagiri', '내일 아침 커피는 네가 골라. 이제 내가 정할 일이 아니니까.', 'sad');
   }
   clearChars();
 }
@@ -350,7 +354,7 @@ async function sceneEnding6() {
     await say('', '「오빠가 업고 나온 사람. 시노노메 레이. 잔상과.」');
     await say('koharu', '…아. 그거, 첫날 쓴 거예요.', 'worried');
     await say('rei', '처음부터 알았어?', 'serious');
-    await say('koharu', '오빠 사건 기록에 이름이 있었어요. 보면 원망할 줄 알았는데, 선배가 커피 캔 들고 졸고 있더라고요.', 'normal');
+    await say('koharu', '오빠 마지막 무전 녹음이요. 「고등학생 한 명 업고 나갑니다, 이름은 시노노메.」 보고서엔 빠진 이름이었어요. 보면 원망할 줄 알았는데, 선배가 커피 캔 들고 졸고 있더라고요.', 'normal');
     await say('koharu', '그래서 그냥 옆에 있기로 했어요. 선배가 기억해 낼 때까지는 제 얘기가 아니니까.', 'happy');
     await say('rei', '…고마워.', 'normal');
     clearChars();
