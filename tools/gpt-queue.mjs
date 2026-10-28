@@ -10,6 +10,15 @@ const P = JSON.parse(fs.readFileSync(path.join(root, 'web/assets/prompts.json'),
 
 // 이미 있지만 다시 받을 그림: id → [이유, 첨부할 기준 이미지]
 const REDO = {
+  '5A': ['손만이 아니라 다른 여자 전신이 나옴 → 메모 쓰는 손과 소매만, 사람 없음', []],
+  '6Y5': ['말풍선 대신 파란 풍선이 나옴 → 위층 계단에서 내려오는 빈 말풍선 모양', []],
+  '6Y6': ['죽은 시오리·렌 등 사람이 화재 앞에 서 있음 → 사람 없음, 한쪽 눈을 가린 손만', []],
+  R2: ['금발 여자와 일본어 글자가 나옴 → 1인칭 손과 응모 서류만, 글자 없이', []],
+  R7: ['레이를 놓는 손이 금발 소녀 → 시오리(검은 장발, 책갈피 핀, 남색 세일러복) 소매와 손', ['web/assets/portraits/shiori_normal.png']],
+  S3: ['금발 여자가 앉아 있음 → 사람 없는 열람석, 원고 마지막 장이 백지', []],
+  AF: ['풀컬러에 가족 셋이 나옴 → 회색+포인트 1색, 사람 없이 냉장고의 크레용 그림만', []],
+  t_asg_1: ['군복 차림 여자가 나옴 → 사람 없이 책상 위 보고서만', []],
+  t_asg_3: ['손님과 바리스타가 나옴 → 사람 없는 카운터, 빈 벽', []],
   okamoto_normal: ['30대처럼 젊고 가슴이 보임 → 68세 할머니(주름, 작은 체구, 단정한 옷)', ['web/assets/portraits/okamoto_normal.png']],
   okamoto_angry: ['30대처럼 젊고 가슴이 보임 → 68세 할머니(주름, 작은 체구, 단정한 옷)', ['web/assets/portraits/okamoto_angry.png']],
   murase_normal: ['20대처럼 보임 → 50세(이마 주름, 관자놀이 흰머리)', ['web/assets/portraits/murase_normal.png']],
@@ -90,7 +99,7 @@ for (const [title, keys] of ORDER) {
       if (exists(it) && !redo) continue;
       seen.add(id);
       if (redo && exists(it)) { redoRows.push(rowOf(it, redo)); continue; }
-      rows.push(rowOf(it, null).replace('@NUM', ++n));
+      rows.push(rowOf(it, redo).replace('@NUM', ++n)); // 아직 없는 그림: 지난번 실패 이유가 있으면 같이 보인다
     }
   }
   if (rows.length) md.push(`## ${title}`, '', head, line, ...rows, '');
