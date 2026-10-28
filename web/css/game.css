@@ -1471,3 +1471,9 @@ body { word-break: keep-all; overflow-wrap: normal; }
     font-size: 16px; display: flex; align-items: center; justify-content: center; border: 3px solid var(--ink); box-shadow: none; }
   .tr-mind small { font-size: 14px; }
 }
+
+/* 심문 단추 줄이 있을 때: 대사창이 위로 늘어나 글과 단추가 겹치지 않게 (고정 높이라 두 줄이면 단추에 깔렸다) */
+#textbox:has(> #actions:not(.hidden)) { height: auto; min-height: 170px; }
+#textbox:has(> #actions:not(.hidden)) #tb-text { min-height: 2.6em; }
+/* 이름표가 첫 줄 글자를 가리지 않게 */
+#textbox:not(:has(#tb-name:empty)) { padding-top: 38px; }
