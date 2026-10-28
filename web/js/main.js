@@ -156,6 +156,7 @@ function titleScreen() {
     <nav class="ts-menu">
       ${save ? `<button id="t-cont" class="ts-btn primary">이어하기<small>${sceneLabel(save.scene)}</small></button>` : ''}
       <button id="t-start" class="ts-btn${save ? '' : ' primary'}">처음부터</button>
+      <button id="t-chapter" class="ts-btn">장 선택</button>
       <button id="t-load" class="ts-btn">불러오기</button>
       <button id="t-gallery" class="ts-btn small">갤러리</button>
       <button id="t-set" class="ts-btn small">설정</button>
@@ -174,6 +175,16 @@ function titleScreen() {
   t.querySelector('#t-start').onclick = () => go(CHAPTERS[1].scenes[0][0]);
   if (save) t.querySelector('#t-cont').onclick = () => go(save.scene, save);
   t.querySelector('#t-load').onclick = () => { sfx('select'); openSlots('load'); };
+  // 장 선택: 그 장 첫 장면부터. 여백 조건 같은 장 넘김 기록은 playFrom이 gaha-records에서 이어받는다
+  t.querySelector('#t-chapter').onclick = () => {
+    sfx('select');
+    const ns = Object.keys(CHAPTERS).map(Number).sort((a, b) => a - b);
+    const m = openModal(`<div class="md-title">장 선택</div><div class="md-sub">고른 장 처음부터 시작한다.</div>
+      <div class="slot-list">${ns.map((n) => `<button class="slot" data-n="${n}"><span class="sl-scene">${n === 6 ? '종장' : n + '장'} 「${CHAPTERS[n].title}」</span></button>`).join('')}</div>
+      <button class="md-cancel">닫기</button>`, 'slots');
+    m.querySelectorAll('.slot').forEach((b) => (b.onclick = () => { closeModal(); go(CHAPTERS[Number(b.dataset.n)].scenes[0][0]); }));
+    m.querySelector('.md-cancel').onclick = closeModal;
+  };
   t.querySelector('#t-gallery').onclick = () => { sfx('select'); openGallery(); };
   t.querySelector('#t-set').onclick = (e) => { e.stopPropagation(); sfx('select'); openSettings(); };
 }
