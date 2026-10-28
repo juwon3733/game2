@@ -20,8 +20,8 @@ js/
   fx.js          컷인, 흔들림, 숫자 튀기기
   audio.js       곡·효과음
   data/
-    characters.js  동료 20명 (성급, 키워드, 패시브, 듀오 반쪽, 색, 말투, 시작 덱)
-    cards.js       동료 카드 + 듀오 카드
+    characters.js  동료 20명 (성급, 키워드, 패시브, 색, 말투, 시작 덱)
+    cards.js       동료 카드 + 인연 듀오 카드 (듀오가 있는 짝 = 인연 목록)
     enemies.js     적·강적·보스 (체력, 행동 순환, 특수)
     relics.js      도구
     events.js      사건
