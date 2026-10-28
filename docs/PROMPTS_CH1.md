@@ -945,7 +945,7 @@ Character design in the style of modern Japanese anime mobile gacha games (subcu
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
-Character reference sheet of a fierce, energetic 68-year-old grandmother who leads a neighborhood protest. Short permed grey hair, sharp eyes behind thick glasses, a moss-green cardigan, a white headband with protest writing (no readable letters), a megaphone at her side. Moss green accents.
+Character reference sheet of a fierce, energetic 68-year-old grandmother who leads a neighborhood protest. She must clearly look 68: a wrinkled elderly face, crow's feet, sagging cheeks, a small slightly stooped elderly body, fully covered modest clothes (no cleavage). Short permed grey hair, sharp eyes behind thick glasses, a moss-green cardigan, a white headband with protest writing (no readable letters), a megaphone at her side. Moss green accents.
 ```
 
 **`okamoto_angry.png`
@@ -978,7 +978,7 @@ Character design in the style of modern Japanese anime mobile gacha games (subcu
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
-Character reference sheet of a polite but cold 50-year-old construction site manager. Neat short black hair with grey at the temples, thin smiling eyes that never smile, grey work jacket with a company patch (abstract logo), a yellow safety helmet under his arm, a clipboard. Dark red accent on his tie.
+Character reference sheet of a polite but cold 50-year-old construction site manager. He must clearly look 50: forehead wrinkles, nasolabial lines, a middle-aged face, not young. Neat short black hair with grey at the temples, thin smiling eyes that never smile, grey work jacket with a company patch (abstract logo), a yellow safety helmet under his arm, a clipboard. Dark red accent on his tie.
 ```
 
 **`murase_smile.png`
@@ -1044,7 +1044,7 @@ Character design in the style of modern Japanese anime mobile gacha games (subcu
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
-Character reference sheet of a kind, slightly confused 40-year-old security guard man. Short black hair, round face, a navy guard uniform with a cap and a whistle, a slightly puzzled expression. Slate blue accents.
+Character reference sheet of a kind, slightly confused 40-year-old security guard man. Short black hair, round face, the grey-blue uniform of a private security company (a company patch on the sleeve, NOT a police uniform: no police badge, no cap emblem, no whistle), a plain grey cap, a slightly puzzled expression. Slate blue accents.
 ```
 
 **`tanabe_normal.png`
