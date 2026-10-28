@@ -1137,9 +1137,10 @@ body { word-break: keep-all; overflow-wrap: normal; }
 @keyframes haunt { 0%, 100% { box-shadow: 4px 4px 0 #000; } 50% { box-shadow: 4px 4px 0 #000, 0 0 0 4px #8a7fb8; } }
 
 /* 컷 머리띠: 시점 이름·제목이 두 줄로 꺾이지 않게. 긴 제목은 말줄임 */
-.cutv-head { flex-wrap: nowrap; white-space: nowrap; overflow: hidden; }
-.cutv-head > span { flex: none; }
-.cutv-head > span + span { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.cutv { min-width: 0; } /* 머리띠 글자가 길어도 격자 칸을 밀어내지 않게 */
+.cutv-head { flex-wrap: nowrap; white-space: nowrap; overflow: hidden; min-width: 0; }
+.cutv-head > span { flex: 0 3 auto; min-width: 2.5em; overflow: hidden; text-overflow: ellipsis; }
+.cutv-head > span + span { flex: 0 1 auto; } /* 좁으면 시점 이름부터 줄이고 제목은 남긴다 */
 /* 돋보기 이모지 대신 글자 단추 */
 .cutv-head .cutv-zoom { flex: none; font-size: 0; padding: 1px 5px; background: var(--paper); border: 2px solid var(--ink); color: var(--ink); cursor: zoom-in; }
 .cutv-head .cutv-zoom::before { content: '크게'; font-size: 12px; line-height: 1.2; }
@@ -1154,8 +1155,9 @@ body { word-break: keep-all; overflow-wrap: normal; }
 
 /* 짚기·원본 복원: 그림이 창보다 커서 [취소]가 화면 밖으로 밀리던 것 */
 #modal.spot .md-box { display: flex; flex-direction: column; }
-.spot-wrap { flex: none; align-self: center; max-width: 100%; }
-.spot-wrap img { width: auto; max-width: 100%; max-height: 452px; margin: 0 auto; border: 3px solid var(--ink); }
+.spot-wrap { flex: none; align-self: center; max-width: 100%; line-height: 0; border: 3px solid var(--ink); }
+.spot-wrap:empty { display: none; }
+.spot-wrap img { width: auto; max-width: 100%; max-height: 400px; margin: 0 auto; }
 #modal.spot .md-cancel { align-self: flex-start; }
 
 /* 대사 조각 고르기: 다섯 줄이 [취소]까지 한 화면에 */
@@ -1240,4 +1242,30 @@ body { word-break: keep-all; overflow-wrap: normal; }
 @media (orientation: portrait) and (pointer: coarse) {
   #rotate { background: var(--ink) var(--tone-w); color: var(--paper); }
   #rotate::before { color: var(--paper); background: var(--ink); border: 3px solid var(--paper); box-shadow: 4px 4px 0 #000; padding: 4px 16px 10px; }
+}
+
+/* 크게 보기: 그림을 상자에 contain으로 넣으면 양옆 검은 띠까지 그림으로 쳐서 짚은 곳 좌표가 어긋난다.
+   그림 크기만큼만 상자를 잡아 클릭 좌표·표시 동그라미가 그림과 맞게 한다 */
+.zoom-img { width: fit-content; max-width: 100%; margin: 0 auto; line-height: 0; border: 3px solid var(--ink); }
+.zoom-box img { width: auto; max-width: 100%; max-height: 540px; object-fit: fill; }
+.zoom-head, .zoom-cap { line-height: normal; }
+.pv-cut .cutv-img { object-fit: cover; }
+
+/* 심문 단추 줄이 대사창 안에 있을 때: 두 줄 대사가 단추 밑으로 들어가지 않게 아래를 비워 둔다 */
+#textbox:has(> #actions:not(.hidden)) { padding-bottom: 58px; }
+
+/* 손가락 화면: 위의 원고 테마 규칙(15px 작은 단추)이 예전 손가락용 크기를 덮어써서 다시 키운다.
+   폰 가로 화면에서 무대가 0.5배쯤으로 줄어드니 무대 기준 50px 이상은 돼야 누르기 쉽다 */
+@media (pointer: coarse) {
+  #hud .hud-btn, #hud .hud-btn.small, #hud #btn-note { padding: 12px 16px; font-size: 20px; }
+  #goal { right: 560px; }
+  #textbox #actions .act-btn, #textbox #actions .act-btn.small { font-size: 21px; padding: 12px 18px; }
+  #textbox #actions .act-btn.objection { font-size: 22px; }
+  #textbox:has(> #actions:not(.hidden)) { padding-bottom: 76px; }
+  .cutv-head .cutv-zoom { padding: 4px 8px; }
+  .cutv-head .cutv-zoom::before { font-size: 15px; }
+  .ex-areas button { min-height: 52px; font-size: 19px; }
+  .nb-tabs button, .gal-tabs button { min-height: 52px; }
+  .name-blank { min-height: 48px; }
+  .name-pop button { padding: 10px 14px; font-size: 20px; }
 }
