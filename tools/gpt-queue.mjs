@@ -10,24 +10,6 @@ const P = JSON.parse(fs.readFileSync(path.join(root, 'web/assets/prompts.json'),
 
 // 이미 있지만 다시 받을 그림: id → [이유, 첨부할 기준 이미지]
 const REDO = {
-  '5A': ['손만이 아니라 다른 여자 전신이 나옴 → 메모 쓰는 손과 소매만, 사람 없음', []],
-  '6Y5': ['말풍선 대신 파란 풍선이 나옴 → 위층 계단에서 내려오는 빈 말풍선 모양', []],
-  '6Y6': ['죽은 시오리·렌 등 사람이 화재 앞에 서 있음 → 사람 없음, 한쪽 눈을 가린 손만', []],
-  R2: ['금발 여자와 일본어 글자가 나옴 → 1인칭 손과 응모 서류만, 글자 없이', []],
-  R7: ['레이를 놓는 손이 금발 소녀 → 시오리(검은 장발, 책갈피 핀, 남색 세일러복) 소매와 손', ['web/assets/portraits/shiori_normal.png']],
-  S3: ['금발 여자가 앉아 있음 → 사람 없는 열람석, 원고 마지막 장이 백지', []],
-  AF: ['풀컬러에 가족 셋이 나옴 → 회색+포인트 1색, 사람 없이 냉장고의 크레용 그림만', []],
-  t_asg_1: ['군복 차림 여자가 나옴 → 사람 없이 책상 위 보고서만', []],
-  t_asg_3: ['손님과 바리스타가 나옴 → 사람 없는 카운터, 빈 벽', []],
-  okamoto_normal: ['(지난번 거의 같은 그림이 왔음 — 기존 그림을 고쳐 그리지 말고 새로) 30대처럼 젊고 가슴이 보임 → 68세 할머니(주름, 작은 체구, 단정한 옷)', ['web/assets/portraits/okamoto_normal.png']],
-  okamoto_angry: ['(지난번 거의 같은 그림이 왔음 — 기존 그림을 고쳐 그리지 말고 새로) 30대처럼 젊고 가슴이 보임 → 68세 할머니(주름, 작은 체구, 단정한 옷)', ['web/assets/portraits/okamoto_angry.png']],
-  murase_normal: ['(지난번 거의 같은 그림이 왔음 — 기존 그림을 고쳐 그리지 말고 새로) 20대처럼 보임 → 50세(이마 주름, 관자놀이 흰머리)', ['web/assets/portraits/murase_normal.png']],
-  murase_smile: ['(지난번 거의 같은 그림이 왔음 — 기존 그림을 고쳐 그리지 말고 새로) 20대처럼 보임 → 50세(이마 주름, 관자놀이 흰머리)', ['web/assets/portraits/murase_smile.png']],
-  murase_cornered: ['(지난번 거의 같은 그림이 왔음 — 기존 그림을 고쳐 그리지 말고 새로) 20대처럼 보임 → 50세(이마 주름, 관자놀이 흰머리)', ['web/assets/portraits/murase_cornered.png']],
-  tanabe_normal: ['(지난번 거의 같은 그림이 왔음 — 기존 그림을 고쳐 그리지 말고 새로) 경찰 순경 복장(모자 휘장·호루라기) → 민간 경비업체 회청색 제복, 경찰 표시 없음', ['web/assets/portraits/tanabe_normal.png']],
-  tanabe_confused: ['(지난번 거의 같은 그림이 왔음 — 기존 그림을 고쳐 그리지 말고 새로) 경찰 순경 복장 → 민간 경비업체 제복', ['web/assets/portraits/tanabe_normal.png']],
-  towa_serious: ['(지난번 거의 같은 그림이 왔음 — 기존 그림을 고쳐 그리지 말고 새로) 고양이 귀·헤드폰·모니터 테두리가 빨강 → towa_normal과 같은 초록, 표정만 진지하게', ['web/assets/portraits/towa_normal.png']],
-  rei_normal: ['(지난번엔 가리키는 자세 — serious와 다르게) serious와 같은 손가락질 자세 → 졸린 반쯤 감은 눈, 캔 커피를 든 무심한 자세', ['web/assets/portraits/rei_serious.png']],
 };
 
 // 순서: 공개판 1장 → 이야기·추리에 걸리는 다시 받기 → 장 순서대로 없는 그림 → CG → UI → 얼굴만 다른 다시 받기
