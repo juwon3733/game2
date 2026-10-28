@@ -32,16 +32,16 @@ function showLine(who, text, face) {
 // 증언 자체는 맞게 짚었는데 내민 것만 틀렸으면 "아깝다" 쪽 반응. W.wrongBy[컷·짚을 곳 id]가 있으면 그게 먼저.
 const WRONG_POOL = {
   polite: {
-    own: ['그건 제 기억이잖아요. 그게 왜요?', '제가 본 걸 저한테 보여 줘서 뭐 하게요.'],
-    item: ['그 물건이 지금 이 얘기랑 무슨 상관이에요?', '그걸로 뭘 말하고 싶은 건데요?'],
-    other: ['{name} 씨가 본 거요? 그 얘긴 지금 안 했는데요.', '그건 다른 사람이 본 거잖아요.'],
-    spot: ['거기가 뭐요? 아무것도 없는데요.', '그림을 아무 데나 짚는다고 말이 바뀌진 않아요.'],
+    own: ['그건 제 기억이잖아요. 그게 왜요?', '제가 본 걸 왜 저한테 보여 줘요?'],
+    item: ['그게 지금 이 얘기랑 무슨 상관이에요?', '그건 또 뭔데요?'],
+    other: ['{name} 씨가 본 거요? 전 그 얘기 안 했는데요.', '그건 다른 사람이 본 거잖아요.'],
+    spot: ['거기가 왜요? 아무것도 없는데요.', '거기 뭐가 있다고 그래요.'],
   },
   casual: {
-    own: ['그건 내 기억이잖아. 그래서?', '내가 본 걸 나한테 보여 줘서 뭐 하게.'],
-    item: ['그 물건이 지금 얘기랑 무슨 상관인데.', '그걸로 뭘 말하고 싶은 거야?'],
-    other: ['{name}이(가) 본 거? 그 얘긴 지금 안 했잖아.', '그건 남이 본 거잖아.'],
-    spot: ['거기가 뭐. 아무것도 없잖아.', '아무 데나 짚는다고 말이 바뀌진 않아.'],
+    own: ['그건 내 기억이잖아. 그래서?', '내가 본 걸 왜 나한테 보여 줘.'],
+    item: ['그게 지금 무슨 상관인데.', '그건 또 뭐야?'],
+    other: ['{name}이(가) 본 거? 난 그 얘기 안 했어.', '그건 남이 본 거잖아.'],
+    spot: ['거기가 뭐. 아무것도 없잖아.', '거기 뭐가 있다고.'],
   },
 };
 // 벗겨진 뒤 보일 컷: 진실 컷(truthCut·truthDesc)이 따로 없으면 원래 컷을 그대로 둔다
@@ -112,14 +112,14 @@ async function runTrial(id) {
   goal(W.goal);
   bgm(W.bgm || 'trial');
   hideText();
-  await banner('— 증언 —', `${CHARACTERS[W.char].name}의 기억이 컷으로 펼쳐진다`, 1500);
+  await banner('— 증언 —', `${CHARACTERS[W.char].name}의 기억`, 1500);
 
   if (!G.flags.trialTut) {
     G.flags.trialTut = true;
     await sayAll([
       ['tip', '심문: 오른쪽은 증인의 기억 컷. 빨간 딱지가 붙은 컷은 감정 때문에 그림이 비틀려 있다.'],
       ['tip', '◀ ▶로 증언을 넘긴다. 수상하면 [파고들기]. 벌점 없이 새 단서나 대사 조각이 나온다.'],
-      ['tip', '틀린 증언에서 [반박!]을 누르고 그걸 깨뜨릴 컷을 고른다. 틀리면 오른쪽 위 「증인의 마음」 칸이 하나 줄고, 다 닳으면 처음부터.'],
+      ['tip', '틀린 증언에서 [반박!]을 누르고, 깨뜨릴 컷을 고른다. 틀리면 오른쪽 위 「증인의 마음」이 한 칸 준다. 다 닳으면 처음부터.'],
     ]);
   }
 
@@ -139,7 +139,7 @@ async function runTrial(id) {
   // 흐려진 컷은 토와가 복구한다 (대신 원고 평가가 떨어진다)
   if (G.blurred && G.blurred.length) {
     G.stats.help += G.blurred.length;
-    await say('towa', `흐려진 컷 ${G.blurred.length}장, 복구해 뒀어. …다음엔 그렇게 많이 틀리지 마. 현장이 지워지고 있어.`);
+    await say('towa', `흐려진 컷 ${G.blurred.length}장, 복구했어. …아무거나 내밀지 마. 현장이 지워져.`);
     G.blurred = [];
   }
   for (const c of W.rewards || []) await gainCut(c);
@@ -156,7 +156,7 @@ async function runTrial(id) {
 
 // 그림 속 한 곳 짚기. 증언 컷 그림이 있으면 그림 위를 누르고, 없으면 살펴볼 곳 목록에서 고른다.
 function pickSpot(cutId, spots, title) {
-  const m = openModal(`<div class="md-title">${title}</div><div class="md-sub">수상한 곳을 짚자.</div><div class="spot-wrap"></div><div class="spot-list"></div><button class="md-cancel">취소</button>`, 'spot');
+  const m = openModal(`<div class="md-title">${title}</div><div class="md-sub">수상한 곳을 짚는다.</div><div class="spot-wrap"></div><div class="spot-list"></div><button class="md-cancel">취소</button>`, 'spot');
   const wrap = m.querySelector('.spot-wrap'), list = m.querySelector('.spot-list');
   return new Promise((resolve) => {
     const choose = (id) => { sfx('select'); closeModal(); resolve(id); };
@@ -230,14 +230,14 @@ async function trialRound(wid, R) {
       st.hint = a && a.statement !== 'any' ? a.statement : -1;
       renderTrial(W, st);
       show('koharu', 'worried', 'right');
-      await sayAll((a && a.koharu) || W.koharu || [['koharu', '(선배, 표시한 증언이 수상해요.)', 'worried']]);
+      await sayAll((a && a.koharu) || W.koharu || [['koharu', '(선배, 제가 표시한 증언이요. 거기가 이상해요.)', 'worried']]);
       hide('koharu');
       continue;
     }
 
     // 보류할 증언: 지금 가진 것으로는 못 깬다. 벌점 없이 다른 증언으로 돌린다
     if (R.hold && st.idx === R.hold.statement && st.done.size < R.answers.length) {
-      await say('rei', '(…여기도 뭔가 비어 있어. 근데 지금은 다른 데부터 깨야 해.)', 'serious');
+      await say('rei', '(여기도 빈 데가 있어. 근데 이건 나중에.)', 'serious');
       continue;
     }
     // 반박: 이 증언에 걸린 답이 무엇으로 깨지는지 모르므로, 짚을 곳이 있는 증언이면 방법부터 고른다
@@ -253,7 +253,7 @@ async function trialRound(wid, R) {
       spotId = await pickSpot(st.peeled.has(st.idx) ? truthOf(s) : s.cut, s.spots, `증언: 「${s.text}」`);
       if (!spotId) continue;
     } else {
-      cutId = await pickCut(W.gentle ? '어떤 컷을 보여줄까?' : '이 증언을 깨뜨릴 컷·물증을 고르자', `증언: 「${s.text}」`, { items: true });
+      cutId = await pickCut(W.gentle ? '어떤 컷을 보여 줄까?' : '깨뜨릴 컷·물증', `증언: 「${s.text}」`, { items: true });
       if (!cutId) continue;
       if (CUTS[cutId] && CUTS[cutId].bubble && !G.fills[cutId]) {
         const lineId = await pickLine(cutId);
@@ -268,14 +268,14 @@ async function trialRound(wid, R) {
     const firsts = (a) => [].concat(a.cut || [], a.with || []);
     const hit = here.find(([a]) => (spotId ? [].concat(a.spot || []).includes(spotId) : (a.with ? firsts(a) : [].concat(a.cut || [])).includes(cutId)));
     if (hit && !ready(hit[1])) {
-      await say('rei', '(…이 증언, 수상하긴 한데. 지금은 다른 데부터 깨야 해.)', 'serious');
+      await say('rei', '(맞는 것 같은데… 아직 일러. 다른 데부터.)', 'serious');
       continue;
     }
     let ok = hit && (!hit[0].line || !(CUTS[cutId] && CUTS[cutId].bubble) || G.fills[cutId] === hit[0].line);
     // 겹쳐 보기: 한 장으로는 약하다. 같은 순간의 다른 시점을 겹친다
     let weak = false;
     if (ok && hit[0].with) {
-      const second = await pickCut('겹쳐 보기', `「${cutInfo(cutId).title}」에 겹칠 컷·물증을 하나 더 고르자. 같은 일을 다른 쪽에서 받쳐 주는 것.`, { items: true });
+      const second = await pickCut('겹쳐 보기', `「${cutInfo(cutId).title}」에 겹칠 것 하나 더. 같은 순간을 다른 자리에서 본 컷·물증.`, { items: true });
       if (!second) continue;
       if (second !== cutId && firsts(hit[0]).includes(second)) await FX.overlay(cutId, second);
       else { ok = false; weak = true; }
@@ -347,7 +347,7 @@ async function trialRound(wid, R) {
         const c = left[Math.floor(Math.random() * left.length)];
         G.blurred.push(c);
         FX.glitch(400);
-        toast(`현장이 지워지고 있다 — 「${cutInfo(c).title}」이(가) 흐려졌다`);
+        toast(`현장이 지워진다 — 「${cutInfo(c).title}」이(가) 흐려졌다`);
       }
     }
     sfx('wrong'); quake(); flash('rgba(190,30,40,.45)');
@@ -358,20 +358,20 @@ async function trialRound(wid, R) {
     if (img) { img.classList.remove('shake'); void img.offsetWidth; img.classList.add('shake'); }
     const extra = [];
     if (weak) {
-      extra.push(['koharu', '(그 컷 하나로는 안 돼요. 같은 일을 다른 쪽에서 보여 주는 걸 하나 더 겹쳐야 해요.)', 'worried']);
+      extra.push(['koharu', '(선배, 그것만으론 약해요. 같은 순간을 다른 데서 본 게 하나 더 있으면…)', 'worried']);
     } else if (hit && !ok) {
-      extra.push(['koharu', '(그 컷은 맞는 것 같은데… 말풍선 대사가 이상해요.)', 'worried']);
+      extra.push(['koharu', '(컷은 맞는 것 같아요. 근데 거기서 그 말은 안 했을 거예요.)', 'worried']);
       G.lines.push(G.fills[cutId]); // 다시 고를 수 있게 대사 조각을 돌려준다
       delete G.fills[cutId];
     } else if (!spotId && R.answers.some((a, k) => !st.done.has(k) && [].concat(a.cut || []).includes(cutId))) {
-      extra.push(['koharu', '(그 컷은 맞는 것 같은데… 다른 증언에 들이밀어야 할 것 같아요.)', 'worried']);
+      extra.push(['koharu', '(그 컷, 맞는 것 같은데요. 이 증언 말고 딴 데 아닐까요?)', 'worried']);
     }
     await sayAll([...wrongReaction(W, st, here, cutId, spotId), ...extra]);
     if (st.ink === 0) {
       await sayAll(W.close || []);
       reset();
       tension(0);
-      await banner('— 증언 다시 —', '처음부터 다시 듣자', 1200);
+      await banner('— 증언 다시 —', '처음부터', 1200);
       bgm(W.bgm || 'trial');
     }
   }
@@ -395,7 +395,7 @@ async function runRestore(ids, title = '원본 복원') {
     const c = CUTS[id];
     if (!c || G.cuts.includes(c.original)) continue;
     for (;;) {
-      const sid = await pickSpot(id, c.spots, `${title} — 「${c.title}」의 이음매를 짚어 긁어내자`);
+      const sid = await pickSpot(id, c.spots, `${title} — 「${c.title}」의 이음매를 찾는다`);
       const spot = c.spots.find((p) => p.id === sid);
       if (spot && spot.restore) {
         FX.glitch(300); sfx('page');

@@ -18,7 +18,7 @@ function runName({ title, sub = '', parts, threshold = 3, report = false, report
   $('#stage').appendChild(root);
   G.busyModal = true;
   setMode(null);
-  let msg = '빈칸을 눌러 단어 조각을 넣자. 단어는 컷을 크게 보고 짚거나, 증언을 파고들어 모은다.';
+  let msg = '빈칸을 눌러 단어 조각을 넣는다. 단어는 컷 속을 짚거나 증언을 파고들면 나온다.';
 
   return new Promise((resolve) => {
     const finish = (r) => { root.remove(); G.busyModal = false; resolve(r); };
@@ -49,7 +49,7 @@ function runName({ title, sub = '', parts, threshold = 3, report = false, report
       const words = G.words.filter((w) => WORDS[w] && WORDS[w].cat === cat);
       const pop = document.createElement('div');
       pop.className = 'name-pop';
-      pop.innerHTML = `<div class="name-pop-head">${WORD_CAT[cat]}</div>${words.map((w) => `<button data-w="${w}">${WORDS[w].text}</button>`).join('') || '<div class="md-empty">이 종류의 단어가 아직 없다.</div>'}`;
+      pop.innerHTML = `<div class="name-pop-head">${WORD_CAT[cat]}</div>${words.map((w) => `<button data-w="${w}">${WORDS[w].text}</button>`).join('') || '<div class="md-empty">이 종류 단어는 아직 없다.</div>'}`;
       root.querySelector('.name-box').appendChild(pop);
       const r = btn.getBoundingClientRect(), box = root.querySelector('.name-box').getBoundingClientRect(), k = box.width / root.querySelector('.name-box').offsetWidth;
       Object.assign(pop.style, { left: (r.left - box.left) / k + 'px', top: (r.bottom - box.top) / k + 6 + 'px' });
@@ -62,7 +62,7 @@ function runName({ title, sub = '', parts, threshold = 3, report = false, report
       PLOG.mark(`네임 ${title}`);
       sfx('wrong'); quake();
       // 몇 칸이 맞았는지는 알려 주지 않는다(하나씩 바꿔 넣어 맞히는 걸 막는다)
-      msg = '아직 그날 일과 맞지 않아. 단서를 다시 보자.';
+      msg = '그날 일과 안 맞아. 단서를 다시 보자.';
       render();
     };
     root.onclick = (e) => { if (!e.target.closest('.name-pop, .name-blank')) root.querySelector('.name-pop')?.remove(); };

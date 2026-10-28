@@ -161,14 +161,14 @@ function slotRow(i, s) {
 function openSlots(mode) { // 'save' | 'load'
   if (G.busyModal && mode === 'save') return;
   const m = openModal(`<div class="md-title">${mode === 'save' ? '저장' : '불러오기'}</div>
-    <div class="md-sub">${mode === 'save' ? '지금 장면의 처음부터 다시 시작할 수 있게 저장한다.' : '저장한 장면의 처음부터 시작한다.'}</div>
+    <div class="md-sub">${mode === 'save' ? '지금 장면 처음으로 저장한다.' : '저장한 장면 처음부터 시작한다.'}</div>
     <div class="slot-list">${Array.from({ length: SLOTS }, (_, i) => `<button class="slot" data-i="${i}">${slotRow(i, loadJSON(slotKey(i)))}</button>`).join('')}</div>
     <button class="md-cancel">닫기</button>`, 'slots');
   m.querySelectorAll('.slot').forEach((b) => (b.onclick = () => {
     const i = Number(b.dataset.i);
     if (mode === 'save') {
       const cur = loadJSON(SAVE_KEY);
-      if (!cur) return toast('저장할 진행이 없다.');
+      if (!cur) return toast('저장할 게 없다.');
       saveJSON(slotKey(i), cur);
       sfx('save');
       b.innerHTML = slotRow(i, cur);
@@ -205,7 +205,7 @@ const CASES = {
     facts: [['explore4a', '배전반 전선이 공구로 잘려 이어 붙여져 있었다.'], ['okamoto', '하야카는 불이 나기 전에 골목을 떠났다.'],
       ['hayaka', '하야카는 엄마가 망을 보는 걸 보고, 엄마를 지키려고 기억을 지웠다.'], ['cross4', '현장소장 무라세가 보일러실 열쇠로 들어가 배전반을 조작했다. 상무 니시무라의 지시.'],
       ['keiko', '케이코는 망을 봤지만, 불이 나자 아버지를 업고 나왔다.']] },
-  5: { title: '코하루 실종', summary: '코하루가 사라졌다. 그가 지나간 길에 남은 잔상은 전부 "끌려가는" 그림이다.',
+  5: { title: '코하루 실종', summary: '코하루가 사라졌다. 코하루가 지나간 길에 남은 잔상은 전부 "끌려가는" 그림이다.',
     facts: [['restore5', '잔상은 편집된 것이었다. 코하루는 제 발로 폐창고에 갔다.'], ['warehouse5', '코하루는 렌에게서 오빠 소타 이야기를 들었다.'],
       ['ren', '6년 전 레이의 기억을 지운 건 렌. 그날 레이는 등대 도서관에 있었다.'], ['kurogane5', '소타 순경이 레이를 업고 나왔고 쿠로가네가 받아 내려 부축했다. 토와는 전 편집국 사람.'],
       ['epilogue5', '편집국을 만든 건 아사기리.']] },
@@ -291,7 +291,7 @@ const PREVIEWS = {
   2: { cut: '2A', line: '앙코르 박수 속에서 무대 위 조명이 떨어졌다.' },
   3: { cut: '3A', line: '셔터가 내려간 가게 앞. 그 시각에 있던 건 언니였을까, 동생이었을까.' },
   4: { cut: '4F', line: '불이 난 밤의 기억을 누군가 지워 달라고 했다.' },
-  5: { cut: '5Ae', line: '같은 방인데, 컷 속 물건 자리가 하나씩 다르다.' },
+  5: { cut: '5Ae', line: '같은 방인데, 물건 자리가 하나씩 다르다.' },
   6: { cut: 'R5', line: '6년 전 8월 31일. 등대 도서관.' },
 };
 async function nextPreview(n) {

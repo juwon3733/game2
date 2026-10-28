@@ -156,7 +156,7 @@ function renderExplore() {
 const EX_TALK = {
   mansion5f: [['koharu', '사에키 씨, 피아노 선생님이었대요. 문 앞에 아이들 그림 편지가 붙어 있었어요.', 'normal']],
   crescent: [['koharu', '저 여기 학생 때 와 본 적 있어요. 그땐 바닥이 엄청 끈적였는데.', 'happy']],
-  backstage: [['koharu', '대기실 냄새… 헤어스프레이랑 땀이랑 탄 전선 냄새요.', 'worried']],
+  backstage: [['koharu', '헤어스프레이 냄새에… 뭐 탄 냄새도 나요. 전선인가?', 'worried']],
   tendooffice: [['koharu', '사장실이 우리 사무실보다 열 배는 넓어요. 소파 가죽 봐요.', 'normal']],
   tokiwa: [['koharu', '여기 슈크림, 오빠가 자주 사 왔었어요. 뚜껑이 별 모양이에요.', 'normal']],
   arcade: [['koharu', '셔터 내려간 아케이드는 좀 무섭네요. 발소리가 울려요.', 'worried']],
@@ -176,7 +176,7 @@ async function buddyTalk(buddy) {
   if (EX.talked === 1 && EX_TALK[EX.mapId]) await sayAll(EX_TALK[EX.mapId]);
   else if (left.length) {
     const [name] = left.find(([, , i]) => i !== EX.area) || left[0];
-    await say(buddy, buddy === 'towa' ? `${name} 쪽. 아직 뭔가 남아 있어.` : `선배, ${name} 쪽은 아직 다 안 봤죠? 거기 뭔가 남아 있는 것 같아요.`, buddy === 'koharu' ? 'worried' : undefined);
+    await say(buddy, buddy === 'towa' ? `${name}. 아직 남았어.` : `선배, ${name} 쪽 아직 다 안 봤죠? 뭔가 더 있을 것 같아요.`, buddy === 'koharu' ? 'worried' : undefined);
   } else await say(buddy, buddy === 'towa' ? '여긴 다 읽었어.' : '여긴 다 본 것 같아요.', buddy === 'koharu' ? 'normal' : undefined);
   hideText(); clearChars();
   EX.paused = false;
@@ -218,12 +218,12 @@ async function interact(o, mode = 'read') {
     EX.focus--;
     sfx('wrong', { vol: 0.5 });
     quake(); // 화면을 찢는 글리치 대신 가볍게 흔든다(잘린 화면이 남아 보이던 문제)
-    await say('rei', `(${o.label}… 아무 감정도 남아 있지 않아.)`, 'normal');
+    await say('rei', `(${o.label}… 아무것도 안 남았어.)`, 'normal');
     EX.empty.add(o.id);
   } else {
     if (mode === 'read' && echo) { EX.focus--; FX.echo(); }
     if (h) await h(o);
-    else await say('rei', `(${o.label}. 별다른 건 없다.)`);
+    else await say('rei', `(${o.label}. 별거 없어.)`);
     if (mode === 'look') EX.looked.add(o.id);
     else EX.examined.add(o.id);
   }

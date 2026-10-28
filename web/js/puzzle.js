@@ -31,7 +31,7 @@ function runPuzzle(id) {
   return new Promise(async (resolve) => {
     const MSG0 = '컷을 칸으로 끌어다 놓거나 눌러서 넣는다. 칸끼리 끌면 자리가 바뀌고, 칸의 컷을 누르면 빠진다.';
     let msg = MSG0
-      + (P.solution.some(Array.isArray) ? ' 넓은 칸은 같은 순간의 두 컷이 나란히 들어가는 동시 칸이야.' : '');
+      + (P.solution.some(Array.isArray) ? ' 넓은 칸은 동시 칸. 같은 순간의 두 컷이 나란히 들어간다.' : '');
     let done = false;
 
     const render = () => {
@@ -186,7 +186,7 @@ function runPuzzle(id) {
       const t = e.target.closest('[data-tray]');
       if (t) {
         const i = firstFree();
-        if (i < 0) { msg = '토와: 칸이 꽉 찼어. 칸에 있는 컷을 눌러서 빼.'; return render(); }
+        if (i < 0) { msg = '토와: 칸이 꽉 찼어. 하나 빼.'; return render(); }
         put(i, t.dataset.tray);
         st.tray.splice(st.tray.indexOf(t.dataset.tray), 1);
         sfx('place');
@@ -227,7 +227,7 @@ function runPuzzle(id) {
         if (st.hints === 1) msg = '토와: ' + (st.lastFull ? st.lastFull + ' 그걸 기준으로 다시 봐.' : P.hint);
         else {
           const i = P.solution.findIndex((c, k) => !sameSet(st.slots[k], group(k)));
-          if (i < 0) msg = '토와: 순서는 다 맞아. 말풍선을 확인해 봐.';
+          if (i < 0) msg = '토와: 순서는 맞아. 말풍선 봐.';
           else {
             // 정답 컷을 다른 칸·묶음에서 빼 오고, 이 칸에 있던 컷은 묶음으로
             const want = group(i);
@@ -236,7 +236,7 @@ function runPuzzle(id) {
             st.tray = st.tray.filter((c) => !want.includes(c));
             st.slots[i] = want.slice();
             st.locked.add(i);
-            msg = `토와: …${i + 1}번 칸은 ${want.map((c) => `「${CUTS[c].title}」`).join('와 ')}. 확실해. 고정해 뒀어.`;
+            msg = `토와: …${i + 1}번 칸은 ${want.map((c) => `「${CUTS[c].title}」`).join('와 ')}. 고정해 뒀어.`;
           }
         }
         st.bad = null;
@@ -245,7 +245,7 @@ function runPuzzle(id) {
       if (a === 'check') {
         if (st.slots.some((s, i) => s.length < cap(i))) { msg = '토와: 아직 빈 칸이 있어.'; return render(); }
         const missing = Object.keys(P.bubbles).find((c) => placed().includes(c) && !G.fills[c]);
-        if (missing) { msg = `토와: 「${CUTS[missing].title}」 컷의 말풍선이 비어 있어. 말풍선을 눌러서 채워.`; return render(); }
+        if (missing) { msg = `토와: 「${CUTS[missing].title}」 말풍선이 비었어. 눌러서 채워.`; return render(); }
         st.tries++;
         const orderOk = P.solution.every((c, i) => sameSet(st.slots[i], group(i)));
         const badBubble = Object.keys(P.bubbles).find((c) => placed().includes(c) && G.fills[c] !== P.bubbles[c]);
@@ -267,13 +267,13 @@ function runPuzzle(id) {
           if (t) { pairs.push(i); msgs.push(`${i + 1}번 → ${i + 2}번은 「${TAG_NAME[t]}」이(가) 거꾸로야.`); }
         }
         // 미끼 컷은 섞였다는 것만 알리고 어느 칸인지는 말하지 않는다
-        if (decoys.length) msgs.unshift(P.decoyMsg || '이 페이지와 상관없는 컷이 섞여 있어. 목표 문장을 다시 읽어 봐.');
+        if (decoys.length) msgs.unshift(P.decoyMsg || '이 페이지랑 상관없는 컷이 섞였어. 목표를 다시 읽어.');
         if (D >= 0 && !sameSet(st.slots[D], group(D))) { decoys.push(D); msgs.unshift('파기 칸이 이상해. 진짜 컷을 버렸거나, 가짜가 원고에 남았어.'); }
         if (badBubble) msgs.push(`「${CUTS[badBubble].title}」 말풍선 대사가 이상해.`);
         if (!msgs.length) {
           const d = P.solution.findIndex((c, i) => !sameSet(st.slots[i], group(i)));
           pairs.push(Math.max(0, d - 1));
-          msgs.push(`${d + 1}번 칸 근처가 이상해. 앞뒤 컷을 비교해 봐.`);
+          msgs.push(`${d + 1}번 칸 근처가 이상해. 앞뒤를 비교해.`);
         }
         sfx('wrong'); quake();
         G.stats.wrong++;

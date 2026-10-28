@@ -159,7 +159,7 @@ function titleScreen() {
       <button id="t-load" class="ts-btn">불러오기</button>
       <button id="t-gallery" class="ts-btn small">갤러리</button>
     </nav>
-    <div class="ts-hint">대사 넘기기 클릭 · Space</div>`;
+    <div class="ts-hint">클릭 · Space로 넘기기</div>`;
   $('#stage').appendChild(t);
   // 키아트(GPT 이미지)가 있으면 배경과 캐릭터를 그걸로 바꾼다
   const key = new Image();

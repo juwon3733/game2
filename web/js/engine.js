@@ -521,10 +521,10 @@ function pickCut(title, sub, { cancel = true, only = null, items = false } = {})
 function pickLine(cutId) {
   const shape = CUTS[cutId].bubble;
   const m = openModal(`<div class="md-title">「${CUTS[cutId].title}」의 말풍선이 비어 있다.</div>
-    <div class="md-sub">이 컷에서 뭐라고 했을까? 대사 조각을 고르자. (뾰족한 말풍선 = 외침)</div><div class="md-lines"></div><button class="md-cancel">취소</button>`, 'pick');
+    <div class="md-sub">여기서 뭐라고 했을까. 뾰족한 말풍선은 외침.</div><div class="md-lines"></div><button class="md-cancel">취소</button>`, 'pick');
   const box = m.querySelector('.md-lines');
   return new Promise((resolve) => {
-    if (!G.lines.length) box.innerHTML = '<div class="md-empty">가진 대사 조각이 없다. 증언을 [파고들어] 모아 보자.</div>';
+    if (!G.lines.length) box.innerHTML = '<div class="md-empty">대사 조각이 없다. 증언을 [파고들면] 나온다.</div>';
     G.lines.forEach((id) => {
       const l = LINES[id];
       const b = document.createElement('button');
@@ -555,7 +555,7 @@ function gainCut(id) {
   FX.echo();
   sfx('cut');
   flash('rgba(255,255,255,.7)');
-  const m = openModal('<div class="md-title gain">잔상을 읽었다</div><div class="md-one"></div><div class="md-sub">수첩에 컷이 추가되었다.</div><button class="md-ok">확인</button>', 'gain');
+  const m = openModal('<div class="md-title gain">잔상을 읽었다</div><div class="md-one"></div><div class="md-sub">수첩에 넣었다.</div><button class="md-ok">확인</button>', 'gain');
   const card = cutView(id);
   m.querySelector('.md-one').appendChild(card);
   return new Promise((r) => {
@@ -581,7 +581,7 @@ function gainItem(id) {
   if (G.items.includes(id)) return Promise.resolve();
   G.items.push(id);
   sfx('place');
-  const m = openModal('<div class="md-title gain">물증을 손에 넣었다</div><div class="md-one"></div><div class="md-sub">수첩의 [물증] 탭에 들어갔다.</div><button class="md-ok">확인</button>', 'gain');
+  const m = openModal('<div class="md-title gain">물증</div><div class="md-one"></div><div class="md-sub">수첩 [물증]에 넣었다.</div><button class="md-ok">확인</button>', 'gain');
   m.querySelector('.md-one').appendChild(cutView(id));
   return new Promise((r) => { m.querySelector('.md-ok').onclick = () => { closeModal(); r(); }; });
 }
@@ -597,7 +597,7 @@ function gainLine(id) {
   if (G.lines.includes(id) || Object.values(G.fills).includes(id)) return;
   G.lines.push(id);
   sfx('correct', { vol: 0.6 });
-  toast(`대사 조각 「${LINES[id].text}」을(를) 얻었다.`);
+  toast(`대사 조각 「${LINES[id].text}」`);
 }
 
 // ---------- 수첩 ----------
@@ -624,14 +624,14 @@ $('#btn-note').onclick = (e) => {
   const ig = m.querySelector('.nb-items');
   G.items.forEach((id) => ig.appendChild(cutView(id)));
   if (!G.items.length) ig.innerHTML = '<div class="md-empty">아직 물증이 없다.</div>';
-  m.querySelector('.nb-words').innerHTML = G.words.map((w) => `<span class="word-chip cat-${WORDS[w].cat}">${WORDS[w].text}</span>`).join('') || '<div class="md-empty">아직 단어 조각이 없다. 컷을 크게 보고 수상한 곳을 짚거나, 증언을 파고들자.</div>';
+  m.querySelector('.nb-words').innerHTML = G.words.map((w) => `<span class="word-chip cat-${WORDS[w].cat}">${WORDS[w].text}</span>`).join('') || '<div class="md-empty">단어 조각이 없다. 컷 속을 짚거나 증언을 파고들면 나온다.</div>';
   const lines = m.querySelector('.md-lines');
   G.lines.forEach((id) => lines.insertAdjacentHTML('beforeend', `<div class="line-btn static"><b>"${LINES[id].text}"</b><small>${LINES[id].from}</small></div>`));
   Object.entries(G.fills).forEach(([cut, id]) => lines.insertAdjacentHTML('beforeend', `<div class="line-btn static used"><b>"${LINES[id].text}"</b><small>「${CUTS[cut].title}」 말풍선에 넣음</small></div>`));
-  if (!lines.children.length) lines.innerHTML = '<div class="md-empty">아직 대사 조각이 없다. 증언을 [파고들어] 모아 보자.</div>';
+  if (!lines.children.length) lines.innerHTML = '<div class="md-empty">대사 조각이 없다. 증언을 [파고들면] 나온다.</div>';
   m.querySelector('.nb-people').innerHTML = met.map((k) => `<div class="nb-person"><img src="${ASSET.portrait(k, CHARACTERS[k].faces[0])}" alt=""><div><b style="color:${CHARACTERS[k].accent}">${CHARACTERS[k].name}</b><p>${PROFILES[k]}</p></div></div>`).join('') || '<div class="md-empty">아직 만난 사람이 없다.</div>';
   m.querySelector('.nb-case').innerHTML = typeof casePage === 'function' ? casePage() : '';
-  m.querySelector('.nb-memo').innerHTML = (G.marks || []).map((k) => `<div class="line-btn static"><b>${k.who}</b> 「${k.text}」</div>`).join('') || '<div class="md-empty">아직 표시한 증언이 없다. 심문 중에 수상한 증언에서 [표시]를 눌러 두자.</div>';
+  m.querySelector('.nb-memo').innerHTML = (G.marks || []).map((k) => `<div class="line-btn static"><b>${k.who}</b> 「${k.text}」</div>`).join('') || '<div class="md-empty">표시한 증언이 없다. 심문 중에 [표시]를 누르면 여기 모인다.</div>';
   m.querySelectorAll('.nb-tabs button').forEach((b) => (b.onclick = () => {
     m.querySelectorAll('.nb-tabs button').forEach((x) => x.classList.toggle('on', x === b));
     m.querySelectorAll('.nb-page').forEach((p) => p.classList.toggle('hidden', p.dataset.page !== b.dataset.tab));
