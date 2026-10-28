@@ -15,11 +15,11 @@ Object.assign(FACE_PROMPTS, {
   keiko_normal: 'expression: tired, holding her bandaged hands together',
   keiko_crying: 'expression: crying, head bowed',
   keiko_resolute: 'expression: resolute, looking straight ahead, bandaged hands clenched',
-  okamoto_angry: 'expression: angry, pointing, mouth open shouting',
-  okamoto_normal: 'expression: calmer, adjusting her glasses',
-  murase_smile: 'expression: polite thin smile, bowing slightly',
-  murase_normal: 'expression: businesslike, checking his clipboard',
-  murase_cornered: 'expression: cornered, cold sweat, smile gone',
+  okamoto_angry: 'expression: angry, pointing, mouth open shouting. She clearly looks 68: wrinkled elderly face, crow\'s feet, sagging cheeks, small slightly stooped body, modest fully covered clothes (no cleavage, no low neckline). Same outfit and props as her current portrait.',
+  okamoto_normal: 'expression: calmer, adjusting her glasses. She clearly looks 68: wrinkled elderly face, crow\'s feet, sagging cheeks, small slightly stooped body, modest fully covered clothes (no cleavage, no low neckline). Same outfit and props as her current portrait.',
+  murase_smile: 'expression: polite thin smile, bowing slightly. He clearly looks 50: forehead wrinkles, nasolabial lines, grey at the temples, a middle-aged face, not young. Same outfit and props as his current portrait.',
+  murase_normal: 'expression: businesslike, checking his clipboard. He clearly looks 50: forehead wrinkles, nasolabial lines, grey at the temples, a middle-aged face, not young. Same outfit and props as his current portrait.',
+  murase_cornered: 'expression: cornered, cold sweat, smile gone. He clearly looks 50: forehead wrinkles, nasolabial lines, grey at the temples, a middle-aged face, not young. Same outfit and props as his current portrait.',
   nishimura_normal: 'expression: expressionless, flicking a silver lighter',
 });
 

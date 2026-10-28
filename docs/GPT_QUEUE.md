@@ -30,8 +30,8 @@
 
 | # | id | 파일 | 할 일 | 첨부 | 꼭 보여야 할 것 | 확인 |
 |---|---|---|---|---|---|---|
-| 10 | `okamoto_normal` | portraits/okamoto_normal.png | 다시: (지난번 거의 같은 그림이 왔음 — 기존 그림을 고쳐 그리지 말고 새로) 30대처럼 젊고 가슴이 보임 → 68세 할머니(주름, 작은 체구, 단정한 옷) | portraits/okamoto_normal.png |  |  |
-| 11 | `okamoto_angry` | portraits/okamoto_angry.png | 다시: (지난번 거의 같은 그림이 왔음 — 기존 그림을 고쳐 그리지 말고 새로) 30대처럼 젊고 가슴이 보임 → 68세 할머니(주름, 작은 체구, 단정한 옷) | portraits/okamoto_angry.png |  |  |
+| 10 | `okamoto_normal` | portraits/okamoto_normal.png | 다시: (지난번 거의 같은 그림이 왔음 — 기존 그림을 고쳐 그리지 말고 새로) 30대처럼 젊고 가슴이 보임 → 68세 할머니(주름, 작은 체구, 단정한 옷) | portraits/okamoto_normal.png |  | 노인은 주름진 노인 얼굴 |
+| 11 | `okamoto_angry` | portraits/okamoto_angry.png | 다시: (지난번 거의 같은 그림이 왔음 — 기존 그림을 고쳐 그리지 말고 새로) 30대처럼 젊고 가슴이 보임 → 68세 할머니(주름, 작은 체구, 단정한 옷) | portraits/okamoto_angry.png |  | 노인은 주름진 노인 얼굴 |
 | 12 | `murase_normal` | portraits/murase_normal.png | 다시: (지난번 거의 같은 그림이 왔음 — 기존 그림을 고쳐 그리지 말고 새로) 20대처럼 보임 → 50세(이마 주름, 관자놀이 흰머리) | portraits/murase_normal.png |  |  |
 | 13 | `murase_smile` | portraits/murase_smile.png | 다시: (지난번 거의 같은 그림이 왔음 — 기존 그림을 고쳐 그리지 말고 새로) 20대처럼 보임 → 50세(이마 주름, 관자놀이 흰머리) | portraits/murase_smile.png |  |  |
 | 14 | `murase_cornered` | portraits/murase_cornered.png | 다시: (지난번 거의 같은 그림이 왔음 — 기존 그림을 고쳐 그리지 말고 새로) 20대처럼 보임 → 50세(이마 주름, 관자놀이 흰머리) | portraits/murase_cornered.png |  |  |

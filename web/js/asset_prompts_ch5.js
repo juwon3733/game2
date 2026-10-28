@@ -5,12 +5,12 @@ Object.assign(CHARACTER_SHEETS, {
 });
 
 Object.assign(FACE_PROMPTS, {
-  tanabe_normal: 'expression: polite, hand on his cap',
-  tanabe_confused: 'expression: confused, holding his head as if it aches',
+  tanabe_normal: 'expression: polite, hand on his cap. He wears the grey-blue uniform of a private security company with a company patch on the sleeve, NOT a police uniform: no police badge, no cap emblem, no whistle, a plain grey cap.',
+  tanabe_confused: 'expression: confused, holding his head as if it aches. He wears the grey-blue uniform of a private security company with a company patch on the sleeve, NOT a police uniform: no police badge, no cap emblem, no whistle, a plain grey cap.',
   asagiri_cold: 'expression: cold and hard, NOT smiling at all (mouth a flat straight line, corners turned down), narrowed eyes looking down at the viewer, both hands empty with arms folded, NO coffee cup',
   ren_sad: 'expression: sad, looking away, one white-gloved hand on her eyepatch',
   kurogane_sad: 'expression: sad and tired, no lollipop, holding an old stopped wristwatch',
-  towa_serious: 'expression: serious chibi inside a monitor frame, headphone LEDs red instead of green',
+  towa_serious: 'expression: serious, narrowed eyes, mouth flat, chibi inside a monitor frame. Keep EXACTLY the same green colors as towa_normal: green cat-ear headphone LEDs, green monitor frame, green glow. No red anywhere.',
   towa_real: 'IMPORTANT: this one is NOT on a monitor. Towa in person for the first time: a small shy young woman (not chibi, normal proportions like the other characters) with the same long ash-blonde wavy hair and big green eyes, cat-ear headphones around her neck, wrapped in the same cream blanket like a cape, serious expression, no monitor frame',
   koharu_crying: 'expression: crying, tears streaming, still trying to smile',
   asagiri_sad: 'expression: quiet grief, eyes lowered, holding an old crayon drawing, the gentle smile gone',

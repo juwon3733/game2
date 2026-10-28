@@ -47,7 +47,7 @@ const CHARACTER_SHEETS = {
 
 // 표정 상반신: 캐릭터_표정
 const FACE_PROMPTS = {
-  rei_normal: 'expression: sleepy, indifferent, half-closed eyes',
+  rei_normal: 'expression: sleepy, indifferent, half-closed eyes; relaxed slouching pose holding a canned coffee in one hand, the other hand in the coat pocket. NOT pointing, no raised finger (that is rei_serious).',
   rei_serious: 'expression: eyes open, focused and sharp, NO can in hand, one hand slightly raised as if pointing out a contradiction',
   rei_surprised: 'expression: eyes wide, startled, NO can in hand, both hands lowered',
   koharu_normal: 'expression: friendly smile',

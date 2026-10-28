@@ -29,7 +29,7 @@ Character reference sheet of an androgynous 22-year-old investigator with a cool
 
 Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
 
-Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: sleepy, indifferent, half-closed eyes.
+Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: sleepy, indifferent, half-closed eyes; relaxed slouching pose holding a canned coffee in one hand, the other hand in the coat pocket. NOT pointing, no raised finger (that is rei_serious)..
 ```
 
 **`rei_serious.png`
@@ -163,7 +163,7 @@ Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transpa
 ```
 같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
 
-Expression: serious chibi inside a monitor frame, headphone LEDs red instead of green.
+Expression: serious, narrowed eyes, mouth flat, chibi inside a monitor frame. Keep EXACTLY the same green colors as towa_normal: green cat-ear headphone LEDs, green monitor frame, green glow. No red anywhere..
 ```
 
 **`towa_real.png`
@@ -954,14 +954,14 @@ Character reference sheet of a fierce, energetic 68-year-old grandmother who lea
 
 Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
 
-Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: angry, pointing, mouth open shouting.
+Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: angry, pointing, mouth open shouting. She clearly looks 68: wrinkled elderly face, crow's feet, sagging cheeks, small slightly stooped body, modest fully covered clothes (no cleavage, no low neckline). Same outfit and props as her current portrait..
 ```
 
 **`okamoto_normal.png`
 ```
 같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
 
-Expression: calmer, adjusting her glasses.
+Expression: calmer, adjusting her glasses. She clearly looks 68: wrinkled elderly face, crow's feet, sagging cheeks, small slightly stooped body, modest fully covered clothes (no cleavage, no low neckline). Same outfit and props as her current portrait..
 ```
 
 ## 대화 26 — 무라세 상반신 (3장)
@@ -987,21 +987,21 @@ Character reference sheet of a polite but cold 50-year-old construction site man
 
 Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
 
-Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: polite thin smile, bowing slightly.
+Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: polite thin smile, bowing slightly. He clearly looks 50: forehead wrinkles, nasolabial lines, grey at the temples, a middle-aged face, not young. Same outfit and props as his current portrait..
 ```
 
 **`murase_normal.png`
 ```
 같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
 
-Expression: businesslike, checking his clipboard.
+Expression: businesslike, checking his clipboard. He clearly looks 50: forehead wrinkles, nasolabial lines, grey at the temples, a middle-aged face, not young. Same outfit and props as his current portrait..
 ```
 
 **`murase_cornered.png`
 ```
 같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
 
-Expression: cornered, cold sweat, smile gone.
+Expression: cornered, cold sweat, smile gone. He clearly looks 50: forehead wrinkles, nasolabial lines, grey at the temples, a middle-aged face, not young. Same outfit and props as his current portrait..
 ```
 
 ## 대화 27 — 니시무라 상반신 (1장)
@@ -1053,14 +1053,14 @@ Character reference sheet of a kind, slightly confused 40-year-old security guar
 
 Native resolution 256x384 pixels, upscaled exactly 4x with nearest-neighbor to 1024x1536 so every pixel is a crisp square block. Fine, detailed pixel art like a high-quality modern pixel-art visual novel: clean 1-pixel outlines, detailed eyes and hair strands, careful shading. Full color, limited palette of about 40 colors. No anti-aliasing.
 
-Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: polite, hand on his cap.
+Waist-up portrait facing slightly to the side, vertical 1024x1536. Fully transparent background with nothing behind the character; clear empty margin on the left, right and top. Expression: polite, hand on his cap. He wears the grey-blue uniform of a private security company with a company patch on the sleeve, NOT a police uniform: no police badge, no cap emblem, no whistle, a plain grey cap..
 ```
 
 **`tanabe_confused.png`
 ```
 같은 캐릭터, 같은 구도, 같은 픽셀 크기로 표정만 바꿔줘. 투명 배경, 세로 1024x1536.
 
-Expression: confused, holding his head as if it aches.
+Expression: confused, holding his head as if it aches. He wears the grey-blue uniform of a private security company with a company patch on the sleeve, NOT a police uniform: no police badge, no cap emblem, no whistle, a plain grey cap..
 ```
 
 ## 대화 29 — 배경 (35장)
