@@ -156,7 +156,7 @@ const slotKey = (i) => `gaha-slot-${i}`;
 function slotRow(i, s) {
   if (!s) return `<span class="sl-n">${i + 1}</span><span class="sl-empty">비어 있음</span>`;
   const d = new Date(s.at);
-  return `<span class="sl-n">${i + 1}</span><span class="sl-scene">${sceneLabel(s.scene) || '체험판에서는 열 수 없는 장면'}</span><small>${d.getMonth() + 1}/${d.getDate()} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}</small>`;
+  return `<span class="sl-n">${i + 1}</span><span class="sl-scene">${sceneLabel(s.scene) || '열 수 없는 장면'}</span><small>${d.getMonth() + 1}/${d.getDate()} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}</small>`;
 }
 function openSlots(mode) { // 'save' | 'load'
   if (G.busyModal && mode === 'save') return;
@@ -176,7 +176,7 @@ function openSlots(mode) { // 'save' | 'load'
     } else {
       const s = loadJSON(slotKey(i));
       if (!s) return;
-      if (!findScene(s.scene)) return toast('체험판에서는 1장만 열 수 있다.'); // 공개판에서 2장 이후 저장
+      if (!findScene(s.scene)) return toast('이 판에서는 열 수 없는 장면이다.'); // 공개판에서 2장 이후 저장
       closeModal();
       document.querySelector('.title-screen')?.remove();
       hud(true);

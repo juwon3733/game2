@@ -1,10 +1,10 @@
 // 게임 진행: 장(CHAPTERS) 이어서 하기, 자동 저장, 타이틀. 장마다 script_chN.js가 CHAPTERS[N]을 채운다.
 
 // ---------- 공개판 ----------
-// 배포 주소에서는 1장만 보인다(체험판). 내 컴퓨터(localhost)나 주소 끝 ?dev 로 열면 전 장이 열린다.
+// 배포 주소에서 열리는 장 수. 6이면 종장까지 전부. 내 컴퓨터(localhost)나 주소 끝 ?dev 로 열면 장면 바로가기도 된다.
 // #장면id 로 바로 들어가기도 개발판에서만 된다.
 const DEV = /^(localhost|127\.|0\.0\.0\.0|\[::1\])/.test(location.hostname) || new URLSearchParams(location.search).has('dev');
-const PUBLIC_CHAPTERS = 1;
+const PUBLIC_CHAPTERS = 6;
 if (!DEV) Object.keys(CHAPTERS).forEach((k) => { if (Number(k) > PUBLIC_CHAPTERS) delete CHAPTERS[k]; });
 
 // ---------- 장면 찾기 ----------
@@ -101,7 +101,7 @@ async function playFrom(scene, saved) {
     Object.assign(G.flags, keep);
   }
   PLOG.end();
-  if (!DEV) await banner('체험판은 여기까지', '2장 「앙코르 없음」은 준비 중이에요', 2800);
+  if (!DEV && CHAPTERS[PUBLIC_CHAPTERS + 1] === undefined && PUBLIC_CHAPTERS < 6) await banner('체험판은 여기까지', `${PUBLIC_CHAPTERS + 1}장은 준비 중이에요`, 2800);
   try { localStorage.removeItem(SAVE_KEY); localStorage.removeItem('gaha-ch1-save'); } catch { /* 저장 불가 */ }
   await fade(true, 800);
   titleScreen();
