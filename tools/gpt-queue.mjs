@@ -10,15 +10,6 @@ const P = JSON.parse(fs.readFileSync(path.join(root, 'web/assets/prompts.json'),
 
 // 이미 있지만 다시 받을 그림: id → [이유, 첨부할 기준 이미지]
 const REDO = {
-  okamoto_normal: ['30대처럼 젊고 가슴이 보임 → 68세 할머니(주름, 작은 체구, 단정한 옷)', ['web/assets/portraits/okamoto_normal.png']],
-  okamoto_angry: ['30대처럼 젊고 가슴이 보임 → 68세 할머니(주름, 작은 체구, 단정한 옷)', ['web/assets/portraits/okamoto_angry.png']],
-  murase_normal: ['20대처럼 보임 → 50세(이마 주름, 관자놀이 흰머리)', ['web/assets/portraits/murase_normal.png']],
-  murase_smile: ['20대처럼 보임 → 50세(이마 주름, 관자놀이 흰머리)', ['web/assets/portraits/murase_smile.png']],
-  murase_cornered: ['20대처럼 보임 → 50세(이마 주름, 관자놀이 흰머리)', ['web/assets/portraits/murase_cornered.png']],
-  tanabe_normal: ['경찰 순경 복장(모자 휘장·호루라기) → 민간 경비업체 회청색 제복, 경찰 표시 없음', ['web/assets/portraits/tanabe_normal.png']],
-  tanabe_confused: ['경찰 순경 복장 → 민간 경비업체 제복', ['web/assets/portraits/tanabe_normal.png']],
-  '4J': ['소방차 경광등이 불길과 같은 색이라 안 보임 → 흰 연기 아래 소방차 차체·사다리를 크게', ['web/assets/cuts/4J.png']],
-  t_hayaka_4: ['상담소에 벚꽃 핀 창 → 창 없는 하얀 방, 벽에 빈 말풍선 로고', ['web/assets/cuts/4K.png']],
   F2: ['마감 뒤(21:10)인데 아래 매장에 손님들이 앉아 있음 → 빈 매장, 손 부분 스크린톤 이음매는 그대로', ['web/assets/cuts/F2.png']],
   '5Ee': ['끌려가는 아가씨가 코하루가 아님(검은 단발) → 코하루, 흰 코트만 그림자 없음', ['web/assets/portraits/koharu_normal.png']],
   '4D': ['헬멧 둘이 문에서 나오는 방향 → 등을 보이며 문 안으로 들어가는 중', ['web/assets/portraits/hayaka_normal.png']],
@@ -38,7 +29,6 @@ const ORDER = [
   ['3장', ['storage', 'cut-twin', 'cut-hasegawa', 'cut-tofu', 'cut-madoka']],
   ['4장', ['sakurayu', 'sakurayu_boiler', 'okamoto_house', 'site_office', 'clinic', 'cut-hayaka', 'cut-keiko', 'cut-murase', 'cut-okamoto', 'cut-genzo']],
   ['5장', ['station_chief', 'koharu_room', 'library', 'busstop', 'warehouse', 'pier', 'warehouse_in', 'cafe_night', 'cut-koharu', 'cut-tanabe', 'cut-ren', 'cut-sota', 'cut-kurogane']],
-  ['추리·인상에 걸리는 다시 받기 (4·5장)', ['4J', 't_hayaka_4', 'okamoto_normal', 'okamoto_angry', 'murase_normal', 'murase_smile', 'murase_cornered', 'tanabe_normal', 'tanabe_confused']],
   ['종장', ['lighthouse', 'lighthouse_in', 'lighthouse_dawn', 'cut-rei', 'cut-shiori', 'cut-asagiri', 'AF']],
   ['CG', ['cg']],
   ['UI', ['ui']],

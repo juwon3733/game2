@@ -1,7 +1,7 @@
 // 5장 「편집자」 이미지 프롬프트. asset_prompts.js의 표에 더한다.
 
 Object.assign(CHARACTER_SHEETS, {
-  tanabe: 'Character reference sheet of a kind, slightly confused 40-year-old security guard man. Short black hair, round face, the grey-blue uniform of a private security company (a company patch on the sleeve, NOT a police uniform: no police badge, no cap emblem, no whistle), a plain grey cap, a slightly puzzled expression. Slate blue accents.',
+  tanabe: 'Character reference sheet of a kind, slightly confused 40-year-old security guard man. Short black hair, round face, a navy guard uniform with a cap and a whistle, a slightly puzzled expression. Slate blue accents.',
 });
 
 Object.assign(FACE_PROMPTS, {
