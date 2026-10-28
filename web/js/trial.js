@@ -135,7 +135,9 @@ async function runTrial(id) {
     await trialRound(id, R);
   }
   FX.mood(null);
-  if (!W.gentle) await FX.breakdown(W.char);
+  // 보류로 끝난 심문은 무너지지 않았다(못 깬 증언이 남음)
+  const heldLast = (W.round2 || W).hold;
+  if (!W.gentle && !heldLast) await FX.breakdown(W.char);
   // 흐려진 컷은 토와가 복구한다 (대신 원고 평가가 떨어진다)
   if (G.blurred && G.blurred.length) {
     G.stats.help += G.blurred.length;
@@ -298,12 +300,15 @@ async function trialRound(wid, R) {
       }
       st.done.add(k);
       const peel = a.peel || [st.idx];
+      // 벗겨지는 게 다른 증언이면 그 증언으로 넘어가서 보여 준다(엉뚱한 컷 위에서 "벗겨진다"고 말하지 않게)
+      if (!peel.includes(st.idx) && !st.peeled.has(peel[0])) { st.idx = peel[0]; renderTrial(W, st); }
       // 지금 보이는 증언 컷이 벗겨지면 찢어져 떨어진다
       if (peel.includes(st.idx) && !st.peeled.has(st.idx)) FX.tear($('#tr-panel .cutv'), s.dist);
       peel.forEach((i) => st.peeled.add(i));
       FX.mood(null);
       tension(0);
-      bgm(a.bgm || 'truth');
+      // 곡은 결정적 반박(마지막·지정)에서만 바꾼다. 반박마다 곡이 오가면 산만하다
+      if (a.bgm || st.done.size === R.answers.length) bgm(a.bgm || 'truth');
       sfx('page');
       renderTrial(W, st);
       const shown = a.cg && (await cg(a.cg));

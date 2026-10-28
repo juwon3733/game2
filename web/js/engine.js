@@ -629,7 +629,7 @@ $('#btn-note').onclick = (e) => {
   G.lines.forEach((id) => lines.insertAdjacentHTML('beforeend', `<div class="line-btn static"><b>"${LINES[id].text}"</b><small>${LINES[id].from}</small></div>`));
   Object.entries(G.fills).forEach(([cut, id]) => lines.insertAdjacentHTML('beforeend', `<div class="line-btn static used"><b>"${LINES[id].text}"</b><small>「${CUTS[cut].title}」 말풍선에 넣음</small></div>`));
   if (!lines.children.length) lines.innerHTML = '<div class="md-empty">대사 조각이 없다. 증언을 [파고들면] 나온다.</div>';
-  m.querySelector('.nb-people').innerHTML = met.map((k) => `<div class="nb-person"><img src="${ASSET.portrait(k, CHARACTERS[k].faces[0])}" alt=""><div><b style="color:${CHARACTERS[k].accent}">${CHARACTERS[k].name}</b><p>${PROFILES[k]}</p></div></div>`).join('') || '<div class="md-empty">아직 만난 사람이 없다.</div>';
+  m.querySelector('.nb-people').innerHTML = met.map((k) => `<div class="nb-person"><img src="${ASSET.portrait(k, CHARACTERS[k].faces[0])}" alt=""><div><b style="border-bottom:3px solid ${CHARACTERS[k].accent}">${CHARACTERS[k].name}</b><p>${PROFILES[k]}</p></div></div>`).join('') || '<div class="md-empty">아직 만난 사람이 없다.</div>';
   m.querySelector('.nb-case').innerHTML = typeof casePage === 'function' ? casePage() : '';
   m.querySelector('.nb-memo').innerHTML = (G.marks || []).map((k) => `<div class="line-btn static"><b>${k.who}</b> 「${k.text}」</div>`).join('') || '<div class="md-empty">표시한 증언이 없다. 심문 중에 [표시]를 누르면 여기 모인다.</div>';
   m.querySelectorAll('.nb-tabs button').forEach((b) => (b.onclick = () => {

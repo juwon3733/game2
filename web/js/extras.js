@@ -300,7 +300,7 @@ async function nextPreview(n) {
   hideText();
   const wrap = document.createElement('div');
   wrap.className = 'manga preview';
-  wrap.innerHTML = `<div class="pv-head">NEXT — CHAPTER ${n}<b>「${CHAPTERS[n].title}」</b></div>`;
+  wrap.innerHTML = `<div class="pv-head">다음 장 — ${n === 6 ? '종장' : n + '장'}<b>「${CHAPTERS[n].title}」</b></div>`;
   const v = cutView(p.cut, { noSpots: true });
   v.classList.add('pv-cut');
   wrap.appendChild(v);

@@ -171,7 +171,7 @@ function cutView(id, opts = {}) {
     if (diff().caption) body.insertAdjacentHTML('afterend', `<div class="cutv-cap">${info.desc}</div>`);
     const z = document.createElement('button');
     z.className = 'cutv-zoom';
-    z.textContent = '🔍';
+    z.textContent = '크게';
     z.title = '크게 보기';
     z.onclick = (e) => { e.stopPropagation(); zoomCut(img.src, info, id); };
     el.querySelector('.cutv-head').appendChild(z); // 그림 위가 아니라 머리띠에 둬서 단서를 가리지 않게

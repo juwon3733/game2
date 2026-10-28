@@ -168,7 +168,7 @@ async function sceneOffice2() {
   await say('kurogane', '인정하는 얼굴이 아니었다.');
   await say('kurogane', '체포한 지 하루. 48시간 넘기면 검찰로 간다.');
   sfx('door');
-  show('taiga', 'sad', 'right');
+  hide('kurogane'); show('taiga', 'sad', 'center');
   await say('taiga', '택배요. 잔상과 앞으로.', 'sad');
   show('koharu', 'happy', 'right');
   await say('koharu', '타이가 씨! 와, 진짜 오셨다!', 'happy');
@@ -335,7 +335,7 @@ async function sceneExplore2b() {
         await gainCut('2N'); await tick();
       },
       jacketk: async () => {
-        if (shiori) {
+        if (shiori && !EX.lookMode) {
           shiori = false;
           FX.ghost();
           show('shiori', 'point', 'center');
@@ -490,7 +490,7 @@ async function sceneExplore2c() {
     start: [12, 10], required: req,
     on: {
       trash: async () => {
-        await say('', '책상 옆 휴지통. 구겨진 서류 밑에 주황색 래칫 끈이 둘둘 말려 있다.');
+        await say('', '책상 옆 휴지통. 구겨진 서류 밑에 래칫 끈이 둘둘 말려 있다.');
         await say('rei', '(쑤셔 넣은 손이 떨렸어.)');
         await gainCut('2T');
         await gainItem('strap');
@@ -668,7 +668,7 @@ async function sceneEpilogue2() {
     await say('rei', '(박수 소리….)', 'surprised');
     clearChars();
   }
-  bg('cafe');
+  bg('cafe_night');
   bgm('epilogue');
   show('asagiri', 'normal', 'center');
   await say('asagiri', '오늘은 어땠니?');
@@ -707,9 +707,10 @@ async function sceneEpilogue2() {
   await say('', '22:10. 레이는 테이프를 넘어 무대로 내려가, 마이크 스탠드에 손을 댄다.');
   FX.ghost();
   await say('', '흰 장갑 낀 손이 스탠드를 천천히 쓸어내린다. 언제 남은 건지 모를 만큼 얇은 잔상.');
+  await say('', '스탠드에 남아 있던 루루의 잔상이, 가장자리부터 하얗게 지워진다.');
   hideText();
   await FX.erase(2400);
-  await say('', '스탠드에 남아 있던 루루의 잔상이, 가장자리부터 하얗게 지워진다.');
+  FX.eraseEnd();
   await say('', '「한발 늦었네, 시노노메. 아니, 네가 한발 빨랐나.」');
   show('koharu', 'worried', 'right');
   await say('koharu', '선배? 저희 9시 반부터 계속 지켜봤잖아요. 아무도 안 들어갔어요.', 'worried');
@@ -718,7 +719,6 @@ async function sceneEpilogue2() {
   clearChars();
   hideText();
   await fade(true, 900);
-  FX.eraseEnd();
   await fade(false, 300);
   await banner('2장 「앙코르 없음」 끝', '', 2200);
   await showRank('2장 「앙코르 없음」');

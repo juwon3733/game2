@@ -10,6 +10,7 @@ const P = JSON.parse(fs.readFileSync(path.join(root, 'web/assets/prompts.json'),
 
 // 이미 있지만 다시 받을 그림: id → [이유, 첨부할 기준 이미지]
 const REDO = {
+  F2: ['마감 뒤(21:10)인데 아래 매장에 손님들이 앉아 있음 → 빈 매장, 손 부분 스크린톤 이음매는 그대로', ['web/assets/cuts/F2.png']],
   '5Ee': ['끌려가는 아가씨가 코하루가 아님(검은 단발) → 코하루, 흰 코트만 그림자 없음', ['web/assets/portraits/koharu_normal.png']],
   '4D': ['헬멧 둘이 문에서 나오는 방향 → 등을 보이며 문 안으로 들어가는 중', ['web/assets/portraits/hayaka_normal.png']],
   '4E': ['불 나기 전인데 케이코 손에 붕대 → 맨손', ['web/assets/portraits/keiko_normal.png']],

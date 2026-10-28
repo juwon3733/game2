@@ -202,7 +202,7 @@ async function sceneExplore2() {
     extras: [{ who: 'shiori', x: 16, y: 9, dir: 'right' }],
     on: {
       partition: async () => {
-        if (shiori) {
+        if (shiori && !EX.lookMode) {
           const art = await cg('cg_shiori');
           if (!art) show('shiori', 'point', 'center');
           FX.ghost();
@@ -310,7 +310,7 @@ async function sceneConclusion() {
 }
 
 async function sceneEpilogue() {
-  bg('cafe');
+  bg('cafe_night');
   await say('', '구시가 언덕의 작은 카페 「여백」.');
   show('asagiri', 'normal', 'center');
   await say('asagiri', '어서 와요. 처음 보는 얼굴이네. 레이 후배?');

@@ -504,6 +504,7 @@ async function sceneEpilogue3() {
   FX.zoom(null);
   await say('', '흰 코트가 대답 없이 돌아선다. 손에 흰 장갑.');
   hide('ren');
+  hide('rei'); show('rei', 'serious', 'left');
   await say('', '휴대폰 화면이 저절로 켜진다.');
   show('towa', 'normal', 'center');
   await say('towa', '렌.');

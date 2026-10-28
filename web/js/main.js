@@ -158,6 +158,7 @@ function titleScreen() {
       <button id="t-start" class="ts-btn${save ? '' : ' primary'}">처음부터</button>
       <button id="t-load" class="ts-btn">불러오기</button>
       <button id="t-gallery" class="ts-btn small">갤러리</button>
+      <button id="t-set" class="ts-btn small">설정</button>
     </nav>
     <div class="ts-hint">클릭 · Space로 넘기기</div>`;
   $('#stage').appendChild(t);
@@ -174,6 +175,7 @@ function titleScreen() {
   if (save) t.querySelector('#t-cont').onclick = () => go(save.scene, save);
   t.querySelector('#t-load').onclick = () => { sfx('select'); openSlots('load'); };
   t.querySelector('#t-gallery').onclick = () => { sfx('select'); openGallery(); };
+  t.querySelector('#t-set').onclick = (e) => { e.stopPropagation(); sfx('select'); openSettings(); };
 }
 
 $('#btn-save').onclick = (e) => { e.stopPropagation(); openSlots('save'); };

@@ -2445,7 +2445,7 @@ Every person in the panel is drawn ON-MODEL from their attached character portra
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + violet (#7d4fd1) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Drawn like a tarot-card vision with a thin ornate border: first-person view in the dark doorway at the top of a staircase; a hand in an apron sleeve grabs a cash envelope (accent color); the shop light glows at the bottom of the stairs. IMPORTANT: the hand and sleeve are a visibly pasted-on patch: its screentone dots are clearly denser and a different size than the rest of the panel, with a faint hand-shaped cut line around it.
+Scene: Drawn like a tarot-card vision with a thin ornate border: first-person view in the dark doorway at the top of a staircase; a hand in an apron sleeve grabs a cash envelope (accent color); the closed, empty shop light glows at the bottom of the stairs (the shop is closed for the night: NO customers, NO staff, nobody downstairs). IMPORTANT: the hand and sleeve are a visibly pasted-on patch: its screentone dots are clearly denser and a different size than the rest of the panel, with a faint hand-shaped cut line around it.
 ```
 
 > 꼭 보여야 할 것: 타로 테두리, 어두운 문간, 봉투를 쥔 앞치마 소매의 손(포인트 색), 손 부분만 스크린톤 점이 다르고 오린 선이 보임

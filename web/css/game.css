@@ -1141,9 +1141,8 @@ body { word-break: keep-all; overflow-wrap: normal; }
 .cutv-head { flex-wrap: nowrap; white-space: nowrap; overflow: hidden; min-width: 0; }
 .cutv-head > span { flex: 0 3 auto; min-width: 2.5em; overflow: hidden; text-overflow: ellipsis; }
 .cutv-head > span + span { flex: 0 1 auto; } /* 좁으면 시점 이름부터 줄이고 제목은 남긴다 */
-/* 돋보기 이모지 대신 글자 단추 */
-.cutv-head .cutv-zoom { flex: none; font-size: 0; padding: 1px 5px; background: var(--paper); border: 2px solid var(--ink); color: var(--ink); cursor: zoom-in; }
-.cutv-head .cutv-zoom::before { content: '크게'; font-size: 12px; line-height: 1.2; }
+/* 「크게」 글자 단추 */
+.cutv-head .cutv-zoom { flex: none; font-size: 12px; line-height: 1.2; padding: 1px 5px; background: var(--paper); border: 2px solid var(--ink); color: var(--ink); cursor: zoom-in; }
 .cutv-head .cutv-zoom:hover { background: var(--ink); color: var(--paper); border-color: var(--paper); }
 /* 컷 고르기(칸 많을 때): 임시 컷 글을 조금 작게 */
 .md-grid.many .cutv-desc { font-size: 15px; }
@@ -1235,7 +1234,7 @@ body { word-break: keep-all; overflow-wrap: normal; }
 /* 퍼즐·시각표 */
 .tl-who { border-left-color: var(--ink); }
 /* 퍼즐 위의 도움말 대사창은 아래 단추 줄([확정] 등)을 가리지 않게 그 위로 */
-#puzzle:not(.hidden) ~ #textbox { bottom: 112px; }
+#puzzle:not(.hidden) ~ #textbox { bottom: 150px; }
 .pz-paper { outline-color: #b6c4d6; }
 
 /* 세로 화면 안내: 원고 테마 */
@@ -1263,9 +1262,13 @@ body { word-break: keep-all; overflow-wrap: normal; }
   #textbox #actions .act-btn.objection { font-size: 22px; }
   #textbox:has(> #actions:not(.hidden)) { padding-bottom: 76px; }
   .cutv-head .cutv-zoom { padding: 4px 8px; }
-  .cutv-head .cutv-zoom::before { font-size: 15px; }
+  .cutv-head .cutv-zoom { font-size: 15px; }
+  .pz-tray .cutv-head .cutv-zoom { padding: 1px 5px; }
+  .pz-tray .cutv-head .cutv-zoom::before { font-size: 12px; }
   .ex-areas button { min-height: 52px; font-size: 19px; }
   .nb-tabs button, .gal-tabs button { min-height: 52px; }
   .name-blank { min-height: 48px; }
   .name-pop button { padding: 10px 14px; font-size: 20px; }
 }
+/* 설정 창도 타이틀(z 90) 위에 뜨게 (지금은 타이틀에서 여는 단추가 없지만, 생기면 바로 보이도록) */
+#modal.settings { z-index: 95; }

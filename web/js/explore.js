@@ -43,7 +43,7 @@ const MAPS = {
 
 // 장소별 배경
 const MAP_BG = {
-  mansion5f: 'night', crescent: 'crescent_stage', backstage: 'backstage', tendooffice: 'tendo_office',
+  mansion5f: 'himari_door', crescent: 'crescent_stage', backstage: 'backstage', tendooffice: 'tendo_office',
   tokiwa: 'tokiwa_shop', arcade: 'arcade', sakurayu: 'sakurayu', siteoffice: 'site_office',
   koharuroom: 'koharu_room', lighthouse: 'lighthouse_in',
 };
@@ -196,10 +196,11 @@ const LOOK_STOP = {};
 async function lookOnly(h, o) {
   const keep = { say, gainCut, gainItem, gainWord };
   let n = 0;
-  window.say = async (...a) => { if (n++) throw LOOK_STOP; await keep.say(...a); };
+  EX.lookMode = true; // 살펴보기 중엔 시오리 같은 한 번뿐인 연출을 건너뛴다(읽을 때 나오게)
+  window.say = async (...a) => { if (n++) throw LOOK_STOP; (EX.lookText = EX.lookText || {})[o.id] = a[1]; await keep.say(...a); };
   window.gainCut = window.gainItem = async () => { throw LOOK_STOP; };
   window.gainWord = () => {};
-  try { await h(o); } catch (e) { if (e !== LOOK_STOP) throw e; } finally { Object.assign(window, keep); }
+  try { await h(o); } catch (e) { if (e !== LOOK_STOP) throw e; } finally { Object.assign(window, keep); if (EX) EX.lookMode = false; }
   if (!n) await say('', `${o.label}.`);
 }
 
@@ -222,7 +223,11 @@ async function interact(o, mode = 'read') {
     EX.empty.add(o.id);
   } else {
     if (mode === 'read' && echo) { EX.focus--; FX.echo(); }
-    if (h) await h(o);
+    // 이미 살펴본 물건을 읽으면 살펴볼 때 본 첫 줄은 건너뛴다
+    const seen = mode === 'read' && echo && (EX.lookText || {})[o.id];
+    const keepSay = say;
+    if (seen) { let done = false; window.say = async (...a) => { if (!done && a[1] === seen) { done = true; return; } done = true; return keepSay(...a); }; }
+    if (h) { try { await h(o); } finally { if (seen) window.say = keepSay; } }
     else await say('rei', `(${o.label}. 별거 없어.)`);
     if (mode === 'look') EX.looked.add(o.id);
     else EX.examined.add(o.id);

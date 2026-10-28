@@ -200,7 +200,7 @@ const WITNESSES = {
     close: [['taiga', '나가 주세요.', 'angry'], ['koharu', '(문 닫혔어요. 숨 고르고 다시 해요, 선배.)', 'worried']],
   },
   himari: {
-    char: 'himari', bg: 'himari_door', cg: 'cg_rescue', page: ['G', 'H', 'C', 'I'], pageCap: '그날 밤, 5층 베란다.',
+    char: 'himari', bg: 'himari_door', bgm: 'epilogue', cg: 'cg_rescue', page: ['C', 'I'], pageCap: '그날 밤, 5층 베란다.',
     intro: [['tip', '이번에는 [반박!] 대신 [컷 보여주기]. 진실이 담긴 컷 하나를 골라 보여 준다.']],
     goal: '그날 밤 선생님이 히마리에게 한 일',
     gentle: true,
