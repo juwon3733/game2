@@ -751,9 +751,10 @@ body { word-break: keep-all; overflow-wrap: normal; }
 
 /* ---------- 모바일 ---------- */
 /* 조작 패드는 게임 화면(#stage) 밖, 실제 화면 구석에 손가락 크기로 */
-#viewport >   padding: 0 max(14px, env(safe-area-inset-right)) max(14px, env(safe-area-inset-bottom)) max(14px, env(safe-area-inset-left)); pointer-events: none; grid-template-columns: none; grid-template-rows: none; gap: 0; }
-#viewport > #viewport > #viewport > #viewport > #viewport > /* 컷 끌기: 브라우저가 스크롤로 가로채지 않게 */
+/* 컷 끌기: 브라우저가 스크롤로 가로채지 않게 (예전 #pad 규칙을 지울 때 선택자가 깨져 있던 것 복구) */
 #puzzle .cutv { touch-action: none; }
+/* 묶음 안의 컷은 세로로 밀면 묶음이 스크롤되고, 옆(원고 쪽)으로 끌면 컷이 끌린다 */
+#puzzle .pz-tray .cutv { touch-action: pan-y; }
 /* 세로 화면에선 글씨가 너무 작아진다: 가로로 돌리라고 안내 */
 #rotate { display: none; }
 @media (orientation: portrait) and (pointer: coarse) {
