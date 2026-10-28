@@ -1119,3 +1119,125 @@ body { word-break: keep-all; overflow-wrap: normal; }
 #stage, #stage * { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
 #stage img { -webkit-user-drag: none; user-drag: none; }
 #stage input, #stage textarea { -webkit-user-select: text; user-select: text; }
+
+/* ---------- 화면 점검(10/28): 원고 테마에서 빠진 곳 메우기 ---------- */
+/* 선택지 질문: 떠 있는 흰 글씨(흐린 그림자) 대신 먹 칸 */
+.ch-prompt { color: var(--paper); background: var(--ink); border: 3px solid var(--paper); box-shadow: 4px 4px 0 #000; text-shadow: none; padding: 6px 18px; font-size: 22px; margin-bottom: 4px; }
+#choices { background: rgba(0,0,0,.35); }
+
+/* 목표가 두 줄이 돼도 조사 목록·퍼즐 원고가 그 밑으로 */
+#explore { top: max(90px, calc(var(--goal-h, 44px) + 34px)); }
+#puzzle { padding-top: max(90px, calc(var(--goal-h, 44px) + 34px)); }
+.ex-list { max-height: calc(720px - max(90px, calc(var(--goal-h, 44px) + 34px)) - 110px); }
+
+/* 조사 목록: 소제목은 글자 길이만큼, 빈 물건·못 읽는 칸은 반투명 대신 바랜 종이 */
+.ex-group { align-self: flex-start; margin-top: 8px; }
+.ex-row.empty .ex-btn { opacity: 1; background: var(--paper-2); color: #8d887c; }
+.ex-read:disabled { opacity: 1; background: var(--paper-2); color: #8d887c; border-color: var(--ink); box-shadow: none; }
+@keyframes haunt { 0%, 100% { box-shadow: 4px 4px 0 #000; } 50% { box-shadow: 4px 4px 0 #000, 0 0 0 4px #8a7fb8; } }
+
+/* 컷 머리띠: 시점 이름·제목이 두 줄로 꺾이지 않게. 긴 제목은 말줄임 */
+.cutv-head { flex-wrap: nowrap; white-space: nowrap; overflow: hidden; }
+.cutv-head > span { flex: none; }
+.cutv-head > span + span { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+/* 돋보기 이모지 대신 글자 단추 */
+.cutv-head .cutv-zoom { flex: none; font-size: 0; padding: 1px 5px; background: var(--paper); border: 2px solid var(--ink); color: var(--ink); cursor: zoom-in; }
+.cutv-head .cutv-zoom::before { content: '크게'; font-size: 12px; line-height: 1.2; }
+.cutv-head .cutv-zoom:hover { background: var(--ink); color: var(--paper); border-color: var(--paper); }
+/* 컷 고르기(칸 많을 때): 임시 컷 글을 조금 작게 */
+.md-grid.many .cutv-desc { font-size: 15px; }
+
+/* 크게 보기: 닫기 단추를 다른 단추와 같은 모양으로, 그림과 띄워서 */
+.zoom-box { padding: 16px 18px 18px; }
+.zoom-box button { margin-top: 14px; font-size: 20px; padding: 8px 30px; background: var(--paper); color: var(--ink); border: 3px solid var(--ink); box-shadow: 4px 4px 0 #000; }
+.zoom-box button:hover { background: var(--ink); color: var(--paper); box-shadow: 4px 4px 0 var(--accent); }
+
+/* 짚기·원본 복원: 그림이 창보다 커서 [취소]가 화면 밖으로 밀리던 것 */
+#modal.spot .md-box { display: flex; flex-direction: column; }
+.spot-wrap { flex: none; align-self: center; max-width: 100%; }
+.spot-wrap img { width: auto; max-width: 100%; max-height: 452px; margin: 0 auto; border: 3px solid var(--ink); }
+#modal.spot .md-cancel { align-self: flex-start; }
+
+/* 대사 조각 고르기: 다섯 줄이 [취소]까지 한 화면에 */
+#modal .md-lines .line-btn { padding: 8px 14px; font-size: 20px; gap: 2px; }
+#modal .md-lines .line-btn small { font-size: 15px; }
+
+/* 수첩: 탭을 바꿔도 창 높이가 그대로(탭이 위아래로 뛰지 않게) */
+#modal.note .md-box { height: 620px; display: flex; flex-direction: column; }
+#modal.note .nb-page { flex: 1; min-height: 0; max-height: none; overflow-y: auto; }
+#modal.note .md-grid { max-height: none; }
+#modal.note .md-cancel { flex: none; align-self: flex-start; }
+.case-ch { color: var(--ink); background: var(--accent); display: inline-block; padding: 0 8px; }
+#modal.note .case-fact.unk { color: #77736a; }
+#modal.note .case-fact.next { color: var(--ink); border-left: 6px solid var(--accent); padding-left: 8px; }
+.nb-person img { image-rendering: pixelated; }
+
+/* 어두운 창(갤러리·저장·평가·사건): 흐린 회색 글씨를 읽히게, 고른 탭은 눌린 칸 */
+#modal.gallery .md-sub, #modal.slots .md-sub, #modal.case .md-sub, #modal.rank .md-sub { color: var(--sub); }
+.gal-tabs button.on { background: var(--paper); color: var(--ink); border-color: var(--ink); transform: translate(3px, 3px); box-shadow: 0 0 0 3px var(--accent); }
+.slot .sl-n { color: var(--ink); }
+.rec-row.locked { opacity: 1; background: var(--paper-2); color: #8d887c; }
+.rec-row.locked .rec-rank { color: #b6b1a4; }
+.gal-cg.locked { background: #1d1d22 var(--tone-w); border: 2px dashed #3a3a40; color: #6a6a72; }
+.gal-list .locked { border-color: #3a3a40; color: #6a6a72; }
+
+/* 대사 기록: 해설 줄의 가짜 기울임 대신 회색 */
+.log-row.narr span { font-style: normal; color: #6b675e; }
+
+/* 설정: 한 화면에 다 들어오게 줄이고, 둥근 기본 슬라이더 대신 각진 눈금 */
+#modal.settings .md-box { padding: 20px 30px 22px; }
+.set-grid { gap: 12px 20px; margin: 12px 0; font-size: 20px; }
+.set-seg button { padding: 7px 8px; font-size: 18px; }
+.set-help { font-size: 15px; line-height: 1.5; }
+.set-grid input[type=range] { -webkit-appearance: none; appearance: none; height: 24px; background: transparent; cursor: pointer; }
+.set-grid input[type=range]::-webkit-slider-runnable-track { height: 8px; background: var(--paper-2); border: 2px solid var(--ink); }
+.set-grid input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 16px; height: 24px; margin-top: -10px; background: var(--ink); border: 2px solid var(--paper); box-shadow: 2px 2px 0 #000; }
+.set-grid input[type=range]::-moz-range-track { height: 8px; background: var(--paper-2); border: 2px solid var(--ink); }
+.set-grid input[type=range]::-moz-range-thumb { width: 14px; height: 22px; background: var(--ink); border: 2px solid var(--paper); border-radius: 0; box-shadow: 2px 2px 0 #000; }
+
+/* 컷 획득: 보라색 제목·위아래 검은 띠 없이 */
+.md-title.gain { color: var(--ink); }
+#modal.gain .md-one .cutv { aspect-ratio: auto; }
+#modal.gain .md-one .cutv-body { aspect-ratio: 3 / 2; flex: none; }
+#modal.gain .md-one .cutv-img { object-fit: cover; }
+#modal.gain .md-sub { margin: 14px 0 0; }
+
+/* 심문: 증언 진행 칸·증인의 마음을 반투명 막대 대신 먹 띠 하나로 */
+.tr-dots { gap: 6px; background: var(--ink); border: 2px solid var(--paper); box-shadow: 4px 4px 0 #000; padding: 6px 8px; margin-top: 10px; }
+.tr-dot { flex: 1; width: auto; max-width: 56px; height: 8px; background: #3a3a40; }
+.tr-dot.on { background: var(--paper); }
+.tr-dot.broken { background: #77736a; }
+.tr-dot.hint { background: #3a3a40; outline: 2px solid var(--accent); }
+.tr-mind { flex: none; white-space: nowrap; border: none; padding: 0 0 0 10px; border-left: 2px solid #3a3a40; margin-left: auto; }
+.tr-mind small { display: inline; margin-left: 4px; }
+.ink-b { border-color: var(--paper); }
+/* 교차 심문: 두 번째 증인(오른쪽)이 증언 패널 뒤에 숨지 않게 왼쪽 반으로 당긴다 */
+#stage.in-trial .char[data-pos="left"] { left: 22%; }
+#stage.in-trial .char[data-pos="right"] { left: 48%; }
+
+/* 네임: 단어 고르는 창도 먹 칸(남색·흐린 그림자 없이), 빈칸은 반투명 대신 짙은 칸 */
+.name-pop { background: var(--ink); border: 3px solid var(--paper); box-shadow: 6px 6px 0 #000; }
+.name-pop-head { color: var(--sub); }
+.name-blank { background: #26262c; }
+.name-blank.set { background: #34343c; }
+.name-box { background-image: var(--tone-w); }
+
+/* 몽타주·만화 페이지·예고: 흐린 그림자 대신 오프셋 그림자 */
+.montage .mt-cut { box-shadow: 10px 10px 0 #000; }
+.mg-page { box-shadow: 12px 12px 0 #000; }
+.pv-cut { box-shadow: 0 0 0 6px #f4f1ea, 10px 10px 0 6px #000; }
+.preview .cutv-zoom { display: none; }
+.pz-ghost { box-shadow: 6px 6px 0 #000; }
+#banner.gentle .bn-main { text-shadow: 4px 4px 0 #000; }
+
+/* 퍼즐·시각표 */
+.tl-who { border-left-color: var(--ink); }
+/* 퍼즐 위의 도움말 대사창은 아래 단추 줄([확정] 등)을 가리지 않게 그 위로 */
+#puzzle:not(.hidden) ~ #textbox { bottom: 112px; }
+.pz-paper { outline-color: #b6c4d6; }
+
+/* 세로 화면 안내: 원고 테마 */
+@media (orientation: portrait) and (pointer: coarse) {
+  #rotate { background: var(--ink) var(--tone-w); color: var(--paper); }
+  #rotate::before { color: var(--paper); background: var(--ink); border: 3px solid var(--paper); box-shadow: 4px 4px 0 #000; padding: 4px 16px 10px; }
+}

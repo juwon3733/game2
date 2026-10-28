@@ -441,7 +441,7 @@ async function sceneAccuse2() {
     title: '중간 보고 — 끈을 푼 사람', sub: '틀린 채로 보고하면 그 사람이 연행된다. 확정하지 못하면 [이대로 보고한다].',
     parts: NAME2_MID, threshold: 3, report: true, reportLabel: '이대로 보고한다',
   });
-  const who = r.picks[5];
+  const who = r.picks[1]; // NAME_MID의 1번 칸이 사람
   G.flags.accused2 = who;
   if (r.ok) {
     G.stats.accuse = true;

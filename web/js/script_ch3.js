@@ -267,7 +267,7 @@ async function sceneAccuse3() {
     title: '중간 보고 — 봉투를 가져간 사람', sub: '틀린 채로 보고하면 강력계가 그 사람을 데려간다.',
     parts: NAME3_MID, threshold: 3, report: true, reportLabel: '이대로 보고한다',
   });
-  const who = r.picks[5];
+  const who = r.picks[1]; // NAME_MID의 1번 칸이 사람
   G.flags.accused3 = who;
   if (r.ok) {
     G.stats.accuse = true;
