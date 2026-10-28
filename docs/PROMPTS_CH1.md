@@ -3025,7 +3025,7 @@ Scene: First-person view kicking open the library front door into low smoke betw
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + navy blue (#3a5aa0) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: First-person view in smoke at the foot of a spiral staircase deep inside the library, far from the front door; the top of the stairs glows red. Hands pull up a 16-year-old high school student (a teenager, not a small child) with messy short black hair, a school uniform with an oversized hoodie over it, and an ink stain on the right index finger, collapsed on the first step, onto the viewer's back; the ink stain on the teenager's right index finger is clearly visible (accent color).
+Scene: First-person view in smoke at the foot of a spiral staircase deep inside the library, far from the front door; the top of the stairs glows red. The viewer (a police officer, never shown: no back, no body, no face of the viewer) reaches down with their own two gloved hands and grips the wrist of a 16-year-old high school student (a teenager, not a small child) with messy short black hair, a school uniform with an oversized hoodie over it, and an ink stain on the right index finger, who lies collapsed face-down on the first step; the teenager's right hand is in the foreground with a clear ink stain on the right index finger (accent color).
 ```
 
 > 기준 이미지로 붙일 것: web/assets/portraits/rei_normal.png
@@ -3036,7 +3036,7 @@ Scene: First-person view in smoke at the foot of a spiral staircase deep inside 
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + navy blue (#3a5aa0) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: First-person view with empty hands, turning back into the library; fire has now spread to the bookshelves just inside the door; from the floor above, a speech shape of a girl's voice (accent color).
+Scene: First-person view with empty hands, turning back into the library; fire has now spread to the bookshelves just inside the door; from the dark floor above, only an empty speech-bubble shape floats down the stairs (accent color), the voice of someone unseen; NO person is visible anywhere, the girl is NOT shown.
 ```
 
 > 꼭 보여야 할 것: 빈손으로 다시 연기 속으로, 입구 서가까지 번진 불, 위층의 목소리(포인트 색)
