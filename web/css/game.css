@@ -377,12 +377,14 @@ button { font-family: inherit; }
 #stage.skin-button_red .act-btn.objection { border-image: var(--ui-button_red) 12 fill / 12px stretch; color: #fff; }
 #stage.skin-panel .md-box { background: none; border: 36px solid transparent; border-image: var(--ui-panel) 36 fill / 36px stretch; box-shadow: none; padding: 0 6px; }
 #stage.skin-icons .hud-btn { position: relative; font-size: 0; width: 60px; height: 60px; padding: 0; }
-#stage.skin-icons .hud-btn::after { content: ''; position: absolute; inset: 4px; background: var(--ui-icons) no-repeat; background-size: 416px 52px; image-rendering: var(--pix, auto); }
-#stage.skin-icons #btn-note::after { background-position: 0 0; }
-#stage.skin-icons #btn-log::after { background-position: -52px 0; }
-#stage.skin-icons #btn-auto::after { background-position: -104px 0; }
-#stage.skin-icons #btn-skip::after { background-position: -156px 0; }
-#stage.skin-icons #btn-set::after { background-position: -208px 0; }
+#stage.skin-icons .hud-btn::after { content: ''; position: absolute; inset: 2px; background: var(--ui-icons) no-repeat; background-size: 800% 100%; image-rendering: var(--pix, auto); }
+#stage.skin-icons .hud-btn { border-width: 4px; }
+#stage.skin-icons #btn-note::after { background-position: 0.0% 0; }
+#stage.skin-icons #btn-log::after { background-position: 14.286% 0; }
+#stage.skin-icons #btn-auto::after { background-position: 28.571% 0; }
+#stage.skin-icons #btn-skip::after { background-position: 42.857% 0; }
+#stage.skin-icons #btn-set::after { background-position: 57.143% 0; }
+#stage.skin-icons #btn-save::after { background-position: 85.714% 0; }
 #stage.skin-objection #banner.objection { background: var(--ui-objection) center / cover no-repeat, #000; image-rendering: var(--pix, auto); }
 
 /* ---------- 결론 / 수첩 ---------- */
