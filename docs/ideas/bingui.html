@@ -1,0 +1,647 @@
+<title>빙의</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&family=IBM+Plex+Sans+KR:wght@400;700&display=swap">
+<style>
+/* 위: 전투 캔버스. 아래: 영혼 4칸 → 기술 → 기록. 밤의 들판 한 가지 모습(다크 단일 테마). */
+:root{
+  --bg:#0e0d18; --panel:#191726; --panel2:#221f33; --line:#322e4a; --ink:#eeebf6; --dim:#9c98b4;
+  --white:#f2f0f6; --rose:#ef5a6a; --shadow:#000;
+  --f-disp:"DotGothic16","IBM Plex Sans KR",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans KR",system-ui,sans-serif;
+  color-scheme:dark;
+}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body)}
+[hidden]{display:none!important}
+.wrap{max-width:560px;margin:0 auto;padding-block:16px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:12px}
+header h1{font-family:var(--f-disp);font-size:28px;margin:0;letter-spacing:.04em}
+header .sub{color:var(--dim);margin:2px 0 0;font-size:13px}
+canvas{display:block;width:100%;height:auto;aspect-ratio:256/200;image-rendering:pixelated;border:2px solid var(--line);background:#0b0a14}
+.chips{display:flex;gap:6px;flex-wrap:wrap;min-height:26px;align-items:center}
+.chip{font-size:12px;padding:2px 7px;border:1px solid var(--c,var(--line));color:var(--c,var(--dim));background:var(--panel)}
+.chip.fill{background:var(--c);color:#111;border-color:var(--c)}
+.prompt{margin:0;font-size:14px;color:var(--dim);min-height:1.4em}
+.prompt b{color:var(--ink)}
+.souls{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.soul{display:flex;flex-direction:column;align-items:stretch;gap:3px;padding:7px 6px 6px;text-align:left;min-width:0}
+.soul .n{font-weight:700;font-size:14px;color:var(--c);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.soul .e{font-size:11px;color:var(--dim)}
+.soul .rel{font-size:11px;min-height:1.3em}
+.soul .rel.good{color:#7fe0a0}.soul .rel.bad{color:#ff8a8a}
+.soul .sync{height:5px;background:#2a2638;position:relative}
+.soul .sync i{position:absolute;inset:0 auto 0 0;background:var(--c)}
+.soul.cur{border-color:var(--c);box-shadow:3px 3px 0 var(--c)}
+.skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.skill{text-align:left;padding:10px;display:flex;flex-direction:column;gap:3px;min-width:0}
+.skill .n{font-family:var(--f-disp);font-size:17px;color:var(--c)}
+.skill .d{font-size:12px;color:var(--dim);line-height:1.4}
+.skill .mix{font-size:12px;color:var(--white)}
+.log{font-size:13px;color:var(--dim);line-height:1.6;min-height:4.8em;border-left:2px solid var(--line);padding-left:10px}
+.log div:last-child{color:var(--ink)}
+.bar{display:flex;gap:8px}.bar button{flex:1}
+button{font:inherit;color:var(--ink);background:var(--panel);border:2px solid var(--line);padding:9px 12px;cursor:pointer;box-shadow:3px 3px 0 var(--shadow);touch-action:manipulation}
+button:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--shadow)}
+button:focus-visible{outline:2px solid var(--white);outline-offset:2px}
+button:disabled{opacity:.42;cursor:default;transform:none}
+button.primary{border-color:var(--white);color:var(--white)}
+.modal{position:fixed;inset:0;background:rgba(6,5,12,.82);display:grid;place-items:center;z-index:20;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));overflow:auto}
+.box{background:var(--panel);border:2px solid var(--white);box-shadow:5px 5px 0 var(--shadow);padding:18px;width:min(100%,420px);display:flex;flex-direction:column;gap:12px}
+.box h2{font-family:var(--f-disp);margin:0;font-size:24px}
+.box p{margin:0;color:var(--dim);font-size:14px;line-height:1.6}
+.box .list{display:grid;gap:6px}
+.box .item{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 10px;align-items:center;font-size:13px;padding:8px;border:1px solid var(--line);background:var(--panel2)}
+.box .item b{color:var(--c,var(--ink))}
+.box .item span{color:var(--dim)}
+.pick{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.pick button{padding:8px 4px;font-size:13px;color:var(--c)}
+.pick button[aria-pressed="true"]{border-color:var(--c);background:var(--panel2);box-shadow:3px 3px 0 var(--c)}
+.howto{border-top:2px solid var(--line);padding-top:10px}
+.howto h2{font-family:var(--f-disp);font-size:16px;margin:0 0 6px}
+.howto ol{margin:0;padding-left:20px;color:var(--dim);font-size:13px;line-height:1.7}
+.howto b{color:var(--ink)}
+@media (prefers-reduced-motion:reduce){button:active{transform:none}}
+</style>
+
+<main class="wrap">
+  <header>
+    <h1>빙의</h1>
+    <p class="sub">프로토타입 · 흰 그릇이 영혼의 색으로 물드는 턴제 전투 · 그림은 임시</p>
+  </header>
+  <canvas id="cv" width="256" height="200" aria-label="전투 화면"></canvas>
+  <div id="chips" class="chips"></div>
+  <p id="prompt" class="prompt"></p>
+  <div id="souls" class="souls"></div>
+  <div id="skills" class="skills"></div>
+  <div id="log" class="log" aria-live="polite"></div>
+  <div class="bar">
+    <button id="btnCodex" type="button">섞임 도감</button>
+    <button id="btnRestart" type="button">처음부터</button>
+  </div>
+  <section class="howto">
+    <h2>하는 법</h2>
+    <ol>
+      <li>매 턴 처음에 <b>영혼을 갈아입습니다</b>(공짜). 갈아입는 순간 그 영혼의 <b>등장 기술</b>이 저절로 나갑니다. 지금 입은 영혼을 다시 누르면 그대로 싸웁니다.</li>
+      <li><b>잔향</b>: 방금 벗은 영혼의 성질이 한 턴 남아, 이번 턴 기술과 섞입니다. 불을 벗고 얼음을 입으면 증기 폭발이 나는 식입니다. 찾아낸 섞임은 도감에 남습니다.</li>
+      <li><b>동조율</b>: 같은 영혼을 입고 있을수록 기술이 세집니다. 100%가 되면 몸을 빼앗겨 3턴 동안 폭주합니다(피해 2배, 조작 불가, 매 턴 자기도 다침).</li>
+      <li><b>사이</b>: 사이 나쁜 두 영혼을 이어 입으면 거부 반응으로 다칩니다. 사이 좋은 두 영혼은 잔향이 1.5배입니다. 사이 나쁜 짝도 세 번 이어 입으면 누그러집니다.</li>
+      <li>떠도는 영혼을 이기면 계약해서 동료가 됩니다. 약점 성질이나 섞임으로 끝내면 처음부터 깊게 이어집니다. 들고 다닐 수 있는 영혼은 넷입니다.</li>
+    </ol>
+  </section>
+</main>
+<div id="modal" class="modal" hidden></div>
+
+<script>
+(() => {
+'use strict';
+const EL = {
+  fire:{ n:'불', c:'#ef5a4a' }, ice:{ n:'얼음', c:'#7ac8f0' }, wind:{ n:'바람', c:'#5ad0b0' },
+  poison:{ n:'독', c:'#a2c64a' }, light:{ n:'빛', c:'#f0d060' }, earth:{ n:'대지', c:'#c8975e' },
+};
+const SOULS = {
+  hong:{ name:'홍련', el:'fire', hair:'#d8443a', hairD:'#8e2a24', eye:'#ffb040', out:'#5a1a20', outD:'#3a1014', weapon:'fan',
+    entry:{ name:'불꽃 부채', desc:'4 피해, 화상 2턴', dmg:4, burn:2 },
+    skills:[ { name:'연무', desc:'8 피해', dmg:8 }, { name:'홍련무', desc:'5 피해, 화상 3턴', dmg:5, burn:3 } ] },
+  isa:{ name:'이자벨', el:'ice', hair:'#a8dcf4', hairD:'#5a8cb0', eye:'#3a7ad0', out:'#2a3a6a', outD:'#1a2448', weapon:'rapier',
+    entry:{ name:'서리 장막', desc:'이번 턴 방어 6', guard:6 },
+    skills:[ { name:'빙검 찌르기', desc:'9 피해', dmg:9 }, { name:'동결', desc:'4 피해, 적을 얼려 한 번 쉬게 함', dmg:4, freeze:true } ] },
+  cat:{ name:'카트린', el:'wind', hair:'#8a5a34', hairD:'#5a3820', eye:'#40c0a0', out:'#2a5a5a', outD:'#1a3a3a', weapon:'cutlass',
+    entry:{ name:'돌풍', desc:'3 피해 2번', dmg:3, hits:2 },
+    skills:[ { name:'삼연참', desc:'4 피해 3번', dmg:4, hits:3 }, { name:'순풍', desc:'다음 공격을 피함, 3 피해', dmg:3, evade:true } ] },
+  luc:{ name:'루첼', el:'poison', hair:'#5a8a30', hairD:'#355a1a', eye:'#d0e040', out:'#3a3a2a', outD:'#24241a', weapon:'flask',
+    entry:{ name:'독 안개', desc:'독 2', poison:2 },
+    skills:[ { name:'독병', desc:'2 피해, 독 3', dmg:2, poison:3 }, { name:'부식', desc:'적의 독 ×3 피해(독은 남음)', corrode:3 } ] },
+  ame:{ name:'아멜리아', el:'light', hair:'#f2d878', hairD:'#b89a40', eye:'#5aa0e0', out:'#e8e2d0', outD:'#b8b09a', weapon:'spear',
+    entry:{ name:'축복', desc:'6 회복', heal:6 },
+    skills:[ { name:'성창', desc:'8 피해, 적이 화상·독이면 +4', dmg:8, smite:4 }, { name:'기도', desc:'12 회복', heal:12 } ] },
+  bar:{ name:'바르그', el:'earth', hair:'#e2e0dc', hairD:'#9a9894', eye:'#c08040', out:'#5a4630', outD:'#3a2c1e', weapon:'axe',
+    entry:{ name:'방패 들기', desc:'이번 턴 방어 8', guard:8 },
+    skills:[ { name:'도끼 내려치기', desc:'12 피해', dmg:12 }, { name:'반격 태세', desc:'방어 4, 받은 피해 ×1.5 반격', guard:4, counter:true } ] },
+};
+const COMBOS = {
+  'fire>ice':     { name:'증기 폭발', desc:'피해 +10', bonus:10 },
+  'wind>fire':    { name:'불바람', desc:'피해 +4, 화상 +3턴', bonus:4, burn:3 },
+  'poison>light': { name:'정화 반전', desc:'적의 독 ×2만큼 회복', healPoison:2 },
+  'ice>earth':    { name:'빙암', desc:'피해 +6, 적을 얼림', bonus:6, freeze:true },
+  'earth>wind':   { name:'모래 폭풍', desc:'적의 다음 공격 피해 절반', weaken:true },
+  'light>fire':   { name:'성화', desc:'피해 +8, 4 회복', bonus:8, heal:4 },
+  'poison>fire':  { name:'독 폭발', desc:'적의 독 ×4 피해, 독을 다 씀', detonate:4 },
+  'wind>poison':  { name:'독 바람', desc:'독 +4', poison:4 },
+};
+const REL = { 'hong|cat':'good', 'ame|bar':'good', 'isa|luc':'good', 'hong|isa':'bad', 'ame|luc':'bad', 'cat|bar':'bad' };
+const relKey = (a, b) => REL[a + '|' + b] ? a + '|' + b : b + '|' + a;
+const ENEMIES = [
+  { name:'들개 망령', kind:'dog', hp:34, weak:'light', intents:[['atk',6],['atk',6],['big',11]] },
+  { name:'떠도는 영혼 카트린', kind:'soul', soul:'cat', hp:55, weak:'earth', intents:[['multi',3,3],['atk',7],['guard',8],['big',12]] },
+  { name:'등불 도깨비', kind:'lantern', hp:48, weak:'ice', intents:[['burn',3],['atk',8],['guard',8],['big',13]] },
+  { name:'떠도는 영혼 루첼', kind:'soul', soul:'luc', hp:62, weak:'light', intents:[['poison',3],['atk',8],['poison',3],['big',14]] },
+  { name:'떠도는 영혼 바르그', kind:'soul', soul:'bar', hp:80, weak:'wind', intents:[['guard',10],['big',15],['atk',9],['atk',9]] },
+  { name:'무색의 왕', kind:'boss', hp:150, weak:null, intents:[['atk',10],['drain',8],['multi',4,3],['big',18]] },
+];
+const BOSS_P2 = [['steal',0],['multi',5,3],['big',20],['drain',10],['atk',12]];
+
+// 도트
+const K = '#16141c';
+const HERO_T = [
+  '.....kkkkkk.....','...kkhhhhhhkk...','..khhhhhhhhhhk..','.khhhhhhhhhhhhk.',
+  '.khhHhhhhhhHhhk.','.khhsssssssssk..','.khsseesseesshk.','.khssewssewsshk.',
+  '.khhssssssssshk.','.khhhsssssshhhk.','.khhkkossokkhhk.','.khkoooppoookhk.',
+  '.hhkoooppoookhh.','.hhksoooooosk hh'.replace(' ','h'),'.thkpoooooopkht.','.ttkoooppoooktt.',
+  '..tkOOOOOOOOkt..','...kOpOOOOpOk...','...kOOOOOOOOk...','....kssk.kssk...',
+  '....kssk.kssk...','....kook.kook...','....kkkk.kkkk...',
+];
+const DOG_T = [
+  '...........kk...','..........kggk..','k........kggegk.','gk.......kggggkk',
+  '.gkkkkkkkgggggk.','.kggggggggggk....','.kgggggggggk.....','.kgggggggggk.....',
+  '.kgk.kgk.kgk.....','.kgk.kgk.kgk.....','.kk..kk..kk......',
+];
+const LANTERN_T = [
+  '....kkkk....','...k....k...','..kkkkkkkk..','.kyyyyyyyyk.','.kyyeyyeyyk.',
+  '.kyyyyyyyyk.','.kyykkkkyyk.','.kyyyyyyyyk.','..kkkkkkkk..','....kyyk....','.....kk.....',
+];
+function sprite(rows, pal) {
+  const w = Math.max(...rows.map(r => r.length)), h = rows.length;
+  const c = document.createElement('canvas'); c.width = w; c.height = h;
+  const g = c.getContext('2d');
+  rows.forEach((r, y) => [...r].forEach((ch, x) => { if (pal[ch]) { g.fillStyle = pal[ch]; g.fillRect(x, y, 1, 1); } }));
+  return c;
+}
+function heroPal(id, rage) {
+  const S = id && SOULS[id];
+  return { k:K, h:'#eceaf2', H:'#c4c2d0', t:S ? S.hair : '#d6d4e0', s:'#f4e2d6', e:rage ? '#ff3040' : S ? S.eye : '#9a98a8', w:'#ffffff',
+    o:rage ? '#3a2232' : '#f2f0f6', p:S ? EL[S.el].c : '#d8d6e2', O:rage ? '#24141e' : '#c8c6d4' };
+}
+function soulPal(id) {
+  const S = SOULS[id];
+  return { k:K, h:S.hair, H:S.hairD, t:S.hairD, s:'#f4dccc', e:S.eye, w:'#fff', o:S.out, p:EL[S.el].c, O:S.outD };
+}
+const BOSS_PAL = p2 => ({ k:K, h:'#9a9aa8', H:'#6a6a78', t:'#4a4a58', s:'#d8d8e0', e:p2 ? '#ff3040' : '#ffffff', w:'#fff', o:'#3a3a48', p:'#d0d0dc', O:'#26262e' });
+const cache = new Map();
+function cached(key, make) { if (!cache.has(key)) cache.set(key, make()); return cache.get(key); }
+
+// 상태
+let G;
+function fresh() {
+  G = { owned:['hong','isa','ame'], equip:['hong','isa','ame'], sync:{ hong:0, isa:0, ame:0 },
+    hero:{ hp:70, max:70, burn:0, poison:0, guard:0, evade:false, counter:false },
+    cur:null, residue:null, residueGood:false, berserk:0, soft:{}, chain:{}, codex:new Set(G ? [...G.codex] : []),
+    stage:0, enemy:null, phase:'swap', busy:false, log:[], lastBlowDeep:false };
+}
+const wait = ms => new Promise(r => setTimeout(r, ms));
+function log(s) { G.log.push(s); if (G.log.length > 4) G.log.shift(); }
+function rel(a, b) { const k = relKey(a, b); if (G.soft[k]) return 'normal'; return REL[k] || 'normal'; }
+
+// 연출
+const cv = document.getElementById('cv'), ctx = cv.getContext('2d');
+ctx.imageSmoothingEnabled = false;
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let fx = [], shakeUntil = 0, cut = null, flashE = 0, flashH = 0;
+const HX = 34, HY = 68, EX = 168, EY = 68;
+function num(side, text, col) { fx.push({ x:side === 'e' ? EX + 28 + (Math.random() * 16 - 8) : HX + 24 + (Math.random() * 16 - 8), y:96, text, col, t0:performance.now() }); }
+function banner(text, col) { fx.push({ banner:true, text, col, t0:performance.now() }); }
+function shake(ms = 220) { shakeUntil = performance.now() + ms; }
+
+const bg = document.createElement('canvas'); bg.width = 256; bg.height = 200;
+(() => {
+  const g = bg.getContext('2d');
+  const bands = ['#0b0a16','#100e20','#15122a','#1a1632','#201a3a'];
+  for (let y = 0; y < 150; y++) {
+    const i = Math.min(4, Math.floor(y / 30)), f = (y % 30) / 30;
+    for (let x = 0; x < 256; x++) { const d = ((x + y) & 1) && f > .5 && i < 4; g.fillStyle = bands[d ? i + 1 : i]; g.fillRect(x, y, 1, 1); }
+  }
+  g.fillStyle = '#e8e4d0'; for (let y = -9; y <= 9; y++) for (let x = -9; x <= 9; x++) if (x * x + y * y <= 81) g.fillRect(206 + x, 28 + y, 1, 1);
+  g.fillStyle = '#1a1632'; for (let y = -9; y <= 9; y++) for (let x = -9; x <= 9; x++) if ((x - 4) ** 2 + (y + 2) ** 2 <= 60 && x * x + y * y <= 81) g.fillRect(206 + x, 28 + y, 1, 1);
+  for (let i = 0; i < 40; i++) { g.fillStyle = i % 3 ? '#4a4670' : '#a8a4d0'; g.fillRect((i * 97) % 256, (i * 53) % 90, 1, 1); }
+  g.fillStyle = '#141224'; g.fillRect(0, 146, 256, 54);
+  g.fillStyle = '#1c1a30'; for (let x = 0; x < 256; x += 2) g.fillRect(x, 146 + ((x * 7) % 3), 1, 2);
+  g.fillStyle = '#26223e'; for (let i = 0; i < 120; i++) g.fillRect((i * 37) % 256, 150 + (i * 13) % 48, 1, 1);
+})();
+
+function drawWeapon(id, x, y) {
+  const S = SOULS[id], c = EL[S.el].c;
+  const p = (px, py, w = 3, h = 3, col = c) => { ctx.fillStyle = col; ctx.fillRect(x + px, y + py, w, h); };
+  if (S.weapon === 'fan') { for (let k = 0; k < 5; k++) p(k * 3, -k * 2 - 6, 3, 9 + k); p(0, 4, 15, 2, '#ffd080'); }
+  if (S.weapon === 'rapier') { for (let k = 0; k < 14; k++) p(k * 2, -k * 2, 2, 2, '#d8f0ff'); p(-2, 0, 6, 3, c); }
+  if (S.weapon === 'cutlass') { for (let k = 0; k < 10; k++) p(k * 2, -k * 2 - (k > 6 ? k - 6 : 0), 3, 3, '#e0e8e8'); p(-2, 1, 6, 3, '#a07030'); }
+  if (S.weapon === 'flask') { p(0, -8, 9, 12, '#2a3a1a'); p(1, -7, 7, 10, c); p(3, -12, 3, 4, '#d0d0c0'); }
+  if (S.weapon === 'spear') { for (let k = 0; k < 24; k++) p(k, -k * 2 + 12, 2, 2, '#e8d8a0'); p(23, -38, 4, 6, '#ffffff'); }
+  if (S.weapon === 'axe') { for (let k = 0; k < 12; k++) p(k, -k * 2, 2, 2, '#7a5a3a'); p(9, -26, 10, 10, '#b8b8c0'); p(-12, -6, 10, 14, '#6a4a2a'); }
+}
+function drawEnemy(E, t) {
+  if (!E) return;
+  const dead = E.hp <= 0;
+  ctx.save();
+  if (dead) ctx.globalAlpha = .25;
+  let img, sc = 3, oy = 0;
+  if (E.kind === 'soul') { img = cached('s:' + E.soul, () => sprite(HERO_T, soulPal(E.soul))); ctx.globalAlpha *= .7 + Math.sin(t / 300) * .15; }
+  else if (E.kind === 'dog') { img = cached('dog', () => sprite(DOG_T, { k:K, g:'#8a86b0', e:'#ff5050' })); sc = 4; oy = 30; }
+  else if (E.kind === 'lantern') { img = cached('lan', () => sprite(LANTERN_T, { k:K, y:'#f0a040', e:'#2a1810' })); sc = 4; oy = 8 + Math.round(Math.sin(t / 400) * 3); }
+  else { img = cached('boss' + (E.p2 ? 2 : 1), () => sprite(HERO_T, BOSS_PAL(E.p2))); sc = 3; oy = -6; }
+  const w = img.width * sc, h = img.height * sc;
+  const x = EX + 28 - w / 2;
+  ctx.translate(x + w, EY + oy + (E.kind === 'soul' ? Math.round(Math.sin(t / 500) * 2) : 0)); ctx.scale(-1, 1);
+  ctx.drawImage(img, 0, 0, w, h);
+  if (E.kind === 'boss') { ctx.fillStyle = E.p2 ? '#ff3040' : '#d0d0dc'; [[3,0],[6,-3],[9,0],[12,-3],[15,0]].forEach(([a, b]) => ctx.fillRect(6 + a * 2, b - 6, 4, 8)); }
+  ctx.restore();
+  if (flashE > performance.now()) { ctx.save(); ctx.globalCompositeOperation = 'source-atop'; ctx.restore(); }
+  const st = [];
+  if (E.frozen) { ctx.fillStyle = 'rgba(122,200,240,.35)'; ctx.fillRect(EX + 4, EY + 10, 48, 62); }
+}
+function bar(x, y, w, v, max, col, label) {
+  ctx.fillStyle = '#000'; ctx.fillRect(x - 1, y - 1, w + 2, 7);
+  ctx.fillStyle = '#2a2034'; ctx.fillRect(x, y, w, 5);
+  ctx.fillStyle = col; ctx.fillRect(x, y, Math.round(w * Math.max(0, v) / max), 5);
+  text(label, x, y + 15, '#eeebf6', 9);
+}
+function text(s, x, y, col, size = 10, align = 'left') {
+  ctx.font = `${size}px "DotGothic16","IBM Plex Sans KR",sans-serif`; ctx.textAlign = align;
+  ctx.fillStyle = '#000'; ctx.fillText(s, x + 1, y + 1); ctx.fillStyle = col; ctx.fillText(s, x, y);
+}
+function draw(t) {
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  const sh = !reduceMotion && t < shakeUntil ? Math.round(Math.random() * 4 - 2) : 0;
+  ctx.setTransform(1, 0, 0, 1, sh, 0);
+  ctx.drawImage(bg, 0, 0);
+  if (!G) return;
+  const rage = G.berserk > 0;
+  // 영혼 상반신(뒤)
+  if (G.cur) {
+    const b = cached('s:' + G.cur, () => sprite(HERO_T, soulPal(G.cur)));
+    ctx.save(); ctx.globalAlpha = .28 + Math.sin(t / 600) * .05;
+    ctx.drawImage(b, 0, 0, 16, 14, HX - 22, HY - 46, 96, 84);
+    ctx.restore();
+  }
+  // 오라
+  if (G.cur) {
+    const c = rage ? '#ff3040' : EL[SOULS[G.cur].el].c; ctx.fillStyle = c;
+    for (let k = 0; k < 10; k++) { const a = t / 700 + k * .63, r = 30 + Math.sin(t / 300 + k) * 4; ctx.fillRect(Math.round(HX + 24 + Math.cos(a) * r), Math.round(HY + 40 + Math.sin(a) * r * .9), 2, 2); }
+  }
+  // 그릇(주인공)
+  ctx.fillStyle = 'rgba(0,0,0,.4)'; ctx.fillRect(HX + 8, HY + 69, 34, 4);
+  const hero = cached('h:' + (G.cur || '-') + (rage ? 'r' : ''), () => sprite(HERO_T, heroPal(G.cur, rage)));
+  const hit = flashH > t;
+  ctx.save(); if (hit && (Math.floor(t / 60) & 1)) ctx.globalAlpha = .4;
+  ctx.drawImage(hero, HX, HY, 48, 69);
+  ctx.restore();
+  if (G.cur) drawWeapon(G.cur, HX + 40, HY + 40);
+  // 적
+  if (G.enemy) {
+    ctx.fillStyle = 'rgba(0,0,0,.4)'; ctx.fillRect(EX + 12, HY + 69, 34, 4);
+    ctx.save(); if (flashE > t && (Math.floor(t / 60) & 1)) ctx.globalAlpha = .4; drawEnemy(G.enemy, t); ctx.restore();
+  }
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  // 체력
+  const H = G.hero;
+  bar(8, 6, 96, H.hp, H.max, '#ef5a6a', `그릇 ${H.hp}/${H.max}`);
+  if (G.enemy) {
+    const E = G.enemy;
+    bar(150, 6, 98, E.hp, E.max, '#b0a8e0', `${E.name}`);
+    text(`${Math.max(0, E.hp)}/${E.max}`, 248, 21, '#9c98b4', 9, 'right');
+    if (E.hp > 0) {
+      const it = intentText(E);
+      text(it, 248, 33, E.frozen ? '#7ac8f0' : '#ffd080', 10, 'right');
+    }
+  }
+  if (G.cur) text((rage ? '폭주 · ' : '빙의 · ') + SOULS[G.cur].name, 8, 34, rage ? '#ff5060' : EL[SOULS[G.cur].el].c, 10);
+  else text('빈 그릇', 8, 34, '#c4c2d0', 10);
+  // 숫자
+  fx = fx.filter(f => t - f.t0 < (f.banner ? 1300 : 900));
+  for (const f of fx) {
+    const p = (t - f.t0) / (f.banner ? 1300 : 900);
+    if (f.banner) {
+      const a = p < .15 ? p / .15 : p > .8 ? (1 - p) / .2 : 1;
+      ctx.globalAlpha = a; ctx.fillStyle = 'rgba(8,6,16,.75)'; ctx.fillRect(0, 84, 256, 26);
+      ctx.fillStyle = f.col; ctx.fillRect(0, 84, 256, 1); ctx.fillRect(0, 109, 256, 1);
+      text(f.text, 128, 102, f.col, 15, 'center'); ctx.globalAlpha = 1;
+    } else text(f.text, f.x, f.y - p * 26, f.col, 12, 'center');
+  }
+  // 변신 컷인
+  if (cut) {
+    const p = (t - cut.t0) / 760;
+    if (p >= 1) cut = null;
+    else {
+      const S = SOULS[cut.id], c = EL[S.el].c;
+      ctx.fillStyle = 'rgba(6,5,12,.85)'; ctx.fillRect(0, 0, 256, 200);
+      ctx.fillStyle = c; ctx.beginPath(); ctx.moveTo(0, 70); ctx.lineTo(256, 50); ctx.lineTo(256, 150); ctx.lineTo(0, 170); ctx.fill();
+      ctx.fillStyle = '#0e0d18'; ctx.beginPath(); ctx.moveTo(0, 76); ctx.lineTo(256, 56); ctx.lineTo(256, 144); ctx.lineTo(0, 164); ctx.fill();
+      const b = cached('s:' + cut.id, () => sprite(HERO_T, soulPal(cut.id)));
+      const sx = 120 + Math.max(0, 1 - p * 2.2) * 160;
+      ctx.drawImage(b, 0, 0, 16, 14, sx, 40, 128, 112);
+      const white = cached('h:-', () => sprite(HERO_T, heroPal(null)));
+      const col = cached('h:' + cut.id, () => sprite(HERO_T, heroPal(cut.id)));
+      ctx.drawImage(p < .55 ? white : col, 24, 64, 64, 92);
+      if (p > .45 && p < .62) { ctx.fillStyle = 'rgba(255,255,255,' + (1 - Math.abs(p - .53) * 10) + ')'; ctx.fillRect(0, 0, 256, 200); }
+      if (p > .5) { text('빙의', 236, 170, '#ffffff', 12, 'right'); text(S.name, 236, 190, c, 18, 'right'); }
+    }
+  }
+}
+function intentText(E) {
+  if (E.frozen) return '얼어붙음';
+  const it = E.intents[E.ii % E.intents.length];
+  return { atk:`공격 ${it[1]}`, big:`강타 ${it[1]}`, multi:`연타 ${it[1]}×${it[2]}`, guard:`방어 ${it[1]}`,
+    burn:`불붙이기 ${it[1]}`, poison:`독 뿌리기 ${it[1]}`, drain:`흡수 ${it[1]}`, steal:'색 빼앗기' }[it[0]];
+}
+function loop(t) { draw(t); requestAnimationFrame(loop); }
+
+// 전투
+function startBattle() {
+  const d = ENEMIES[G.stage];
+  G.enemy = { ...d, max:d.hp, intents:d.intents.slice(), ii:0, burn:0, poison:0, frozen:false, freezeCd:0, guard:0, weakened:false, p2:false };
+  G.cur = null; G.residue = null; G.residueGood = false; G.berserk = 0; G.chain = {};
+  Object.assign(G.hero, { burn:0, poison:0, guard:0, evade:false, counter:false });
+  G.phase = 'swap'; G.busy = false;
+  log(`${d.name}이(가) 나타났다.`);
+  ui();
+}
+function enemyTake(n, col = '#ffffff', note) {
+  const E = G.enemy;
+  let d = n;
+  if (E.guard > 0) { const b = Math.min(E.guard, d); E.guard -= b; d -= b; if (b) num('e', `막음 ${b}`, '#9c98b4'); }
+  if (d <= 0) return 0;
+  E.hp -= d; flashE = performance.now() + 240; shake(160);
+  num('e', (note ? note + ' ' : '') + d, col);
+  return d;
+}
+function heroDmg(n, why, col = '#ff8a8a') {
+  const H = G.hero; H.hp -= n; flashH = performance.now() + 300; shake(200);
+  num('h', `${why} ${n}`, col);
+}
+function heroHeal(n) { const H = G.hero; const v = Math.min(n, H.max - H.hp); H.hp += v; num('h', `+${v}`, '#7fe0a0'); }
+function tryFreeze() {
+  const E = G.enemy;
+  if (E.freezeCd > 0) { log('아직 얼음이 들지 않는다.'); return; }
+  E.frozen = true; num('e', '얼림', '#7ac8f0');
+}
+async function swapTo(id) {
+  if (G.busy || G.phase !== 'swap') return;
+  if (id === G.cur) { G.residue = null; G.residueGood = false; G.phase = 'act'; log(`${SOULS[id].name}을(를) 그대로 입고 싸운다.`); ui(); return; }
+  G.busy = true; ui();
+  const prev = G.cur;
+  G.residue = prev ? SOULS[prev].el : null; G.residueGood = false;
+  G.cur = id;
+  cut = { id, t0:performance.now() };
+  await wait(reduceMotion ? 200 : 760);
+  if (prev) {
+    const k = relKey(prev, id), r = rel(prev, id);
+    G.chain[k] = (G.chain[k] || 0) + 1;
+    if (r === 'bad') {
+      heroDmg(5, '거부 반응');
+      log(`${SOULS[prev].name}와(과) ${SOULS[id].name}이(가) 서로를 밀어낸다.`);
+      if (G.chain[k] >= 3) { G.soft[k] = true; log('두 영혼의 사이가 조금 누그러졌다.'); }
+    } else if (r === 'good') { G.residueGood = true; log(`${SOULS[prev].name}의 잔향이 ${SOULS[id].name}에게 힘을 보탠다.`); }
+  }
+  log(`${SOULS[id].name} 빙의. ${SOULS[id].entry.name}!`);
+  await doSkill(SOULS[id].entry, true);
+  if (await checkEnd()) return;
+  G.phase = 'act'; G.busy = false; ui();
+}
+async function doSkill(s, isEntry) {
+  const E = G.enemy, H = G.hero, id = G.cur, el = SOULS[id].el;
+  let combo = null, key = null;
+  if (!isEntry && G.residue) {
+    key = G.residue + '>' + el; combo = COMBOS[key] || null;
+    if (combo) {
+      const first = !G.codex.has(key); G.codex.add(key); saveCodex();
+      banner(`섞임 · ${combo.name}`, EL[el].c);
+      log(`${EL[G.residue].n}의 잔향이 ${EL[el].n}과(와) 섞였다. ${combo.name}!${first ? ' (도감에 새로 남았다)' : ''}`);
+      await wait(reduceMotion ? 100 : 500);
+    }
+    G.residue = null;
+  }
+  const gm = G.residueGood ? 1.5 : 1;
+  let mult = 1 + (G.sync[id] || 0) / 200;
+  if (G.berserk > 0) mult *= 2;
+  const weak = E.weak === el;
+  let deep = !!combo || weak;
+  if (s.dmg) {
+    const hits = s.hits || 1;
+    for (let h = 0; h < hits; h++) {
+      let d = s.dmg;
+      if (h === 0 && s.smite && (E.burn > 0 || E.poison > 0)) d += s.smite;
+      d = d * mult * (weak ? 1.5 : 1);
+      if (h === 0 && combo && combo.bonus) d += combo.bonus * gm;
+      enemyTake(Math.round(d), weak ? '#ffd080' : '#ffffff', weak && h === 0 ? '약점!' : '');
+      if (hits > 1) await wait(160);
+    }
+  }
+  if (s.corrode) enemyTake(Math.round(E.poison * s.corrode * mult), EL.poison.c, '부식');
+  if (s.burn) { E.burn += s.burn; num('e', `화상 ${E.burn}턴`, EL.fire.c); }
+  if (s.poison) { E.poison += s.poison; num('e', `독 ${E.poison}`, EL.poison.c); }
+  if (s.freeze) tryFreeze();
+  if (s.heal) heroHeal(Math.round(s.heal * (G.berserk > 0 ? 1 : mult)));
+  if (s.guard) H.guard += s.guard;
+  if (s.evade) H.evade = true;
+  if (s.counter) H.counter = true;
+  if (combo) {
+    if (combo.burn) E.burn += Math.round(combo.burn * gm);
+    if (combo.freeze) { E.freezeCd = 0; tryFreeze(); }
+    if (combo.weaken) { E.weakened = true; num('e', '흐려짐', EL.earth.c); }
+    if (combo.heal) heroHeal(Math.round(combo.heal * gm));
+    if (combo.healPoison) heroHeal(Math.round(E.poison * combo.healPoison * gm));
+    if (combo.poison) { E.poison += Math.round(combo.poison * gm); num('e', `독 ${E.poison}`, EL.poison.c); }
+    if (combo.detonate) { const d = Math.round(E.poison * combo.detonate * gm); E.poison = 0; enemyTake(d, EL.poison.c, '폭발'); }
+  }
+  G.lastBlowDeep = deep;
+  ui();
+  await wait(reduceMotion ? 150 : 420);
+}
+async function useSkill(i) {
+  if (G.busy || G.phase !== 'act') return;
+  G.busy = true; ui();
+  const s = SOULS[G.cur].skills[i];
+  log(`${s.name}!`);
+  await doSkill(s, false);
+  if (await checkEnd()) return;
+  afterAction();
+  await enemyTurn();
+  if (await checkEnd()) return;
+  await newTurn();
+}
+function afterAction() {
+  for (const id of G.equip) {
+    if (id === G.cur) G.sync[id] = Math.min(100, (G.sync[id] || 0) + 20);
+    else G.sync[id] = Math.max(0, (G.sync[id] || 0) - 10);
+  }
+  if (G.berserk === 0 && G.sync[G.cur] >= 100) { G.berserk = 3; log(`동조율 100%. ${SOULS[G.cur].name}에게 몸을 빼앗겼다!`); banner('폭주', '#ff3040'); }
+}
+async function enemyTurn() {
+  const E = G.enemy, H = G.hero;
+  await wait(reduceMotion ? 150 : 380);
+  if (E.burn > 0) { enemyTake(3, EL.fire.c, '화상'); E.burn--; await wait(250); }
+  if (E.poison > 0) { enemyTake(E.poison, EL.poison.c, '독'); E.poison--; await wait(250); }
+  if (E.hp <= 0) return;
+  E.guard = 0;
+  if (E.frozen) { E.frozen = false; E.freezeCd = 2; log(`${E.name}은(는) 얼어서 움직이지 못한다.`); H.guard = 0; H.counter = false; ui(); return; }
+  if (E.freezeCd > 0) E.freezeCd--;
+  const it = E.intents[E.ii % E.intents.length]; E.ii++;
+  const hit = n => {
+    if (H.evade) { H.evade = false; num('h', '피함', EL.wind.c); return; }
+    let d = n; if (E.weakened) d = Math.ceil(d / 2);
+    const b = Math.min(H.guard, d); H.guard -= b; d -= b;
+    if (b) num('h', `막음 ${b}`, '#c4c2d0');
+    if (d > 0) heroDmg(d, '');
+    if (H.counter && d + b > 0) enemyTake(Math.round((d + b) * 1.5), EL.earth.c, '반격');
+  };
+  const t = it[0];
+  if (t === 'atk' || t === 'big') { log(`${E.name}의 ${t === 'big' ? '강타' : '공격'}.`); hit(it[1]); }
+  else if (t === 'multi') { log(`${E.name}의 연타.`); for (let k = 0; k < it[2]; k++) { hit(it[1]); await wait(180); } }
+  else if (t === 'guard') { E.guard = it[1]; log(`${E.name}이(가) 몸을 웅크린다(방어 ${it[1]}).`); num('e', `방어 ${it[1]}`, '#9c98b4'); }
+  else if (t === 'burn') { hit(4); H.burn += it[1]; log(`불이 옮겨붙었다(화상 ${H.burn}턴).`); }
+  else if (t === 'poison') { H.poison += it[1]; log(`독 안개를 들이마셨다(독 ${H.poison}).`); num('h', `독 ${H.poison}`, EL.poison.c); }
+  else if (t === 'drain') { hit(it[1]); E.hp = Math.min(E.max, E.hp + it[1]); num('e', `+${it[1]}`, '#7fe0a0'); log(`${E.name}이(가) 색을 빨아들인다.`); }
+  else if (t === 'steal') { if (G.cur) G.sync[G.cur] = Math.max(0, G.sync[G.cur] - 30); H.guard = 0; G.residue = null; banner('색 빼앗기', '#d0d0dc'); log('무색의 왕이 그릇의 색을 빼앗았다. 동조율 -30.'); }
+  E.weakened = false; H.guard = 0; H.counter = false;
+  if (E.kind === 'boss' && !E.p2 && E.hp <= E.max / 2) { E.p2 = true; E.intents = BOSS_P2; E.ii = 0; banner('무색의 왕 · 두 번째 모습', '#ff3040'); log('왕관이 붉게 물든다.'); }
+  ui();
+  await wait(reduceMotion ? 120 : 300);
+}
+async function newTurn() {
+  const H = G.hero;
+  if (H.burn > 0) { heroDmg(3, '화상', EL.fire.c); H.burn--; await wait(250); }
+  if (H.poison > 0) { heroDmg(H.poison, '독', EL.poison.c); H.poison--; await wait(250); }
+  if (await checkEnd()) return;
+  if (G.berserk > 0) {
+    G.phase = 'berserk'; ui();
+    await wait(reduceMotion ? 150 : 500);
+    const sk = SOULS[G.cur].skills.reduce((a, b) => (b.dmg || 0) * (b.hits || 1) > (a.dmg || 0) * (a.hits || 1) ? b : a);
+    log(`폭주: ${sk.name}!`);
+    G.residue = null;
+    await doSkill(sk, false);
+    heroDmg(4, '폭주', '#ff3040');
+    G.berserk--;
+    if (G.berserk === 0) { G.sync[G.cur] = 30; log('몸을 되찾았다. 동조율 30%.'); }
+    if (await checkEnd()) return;
+    await enemyTurn();
+    if (await checkEnd()) return;
+    return newTurn();
+  }
+  G.phase = 'swap'; G.busy = false; ui();
+}
+async function checkEnd() {
+  if (G.hero.hp <= 0) { G.busy = true; ui(); await wait(500); showLose(); return true; }
+  if (G.enemy.hp <= 0) { G.busy = true; ui(); await wait(600); win(); return true; }
+  return false;
+}
+function win() {
+  const E = G.enemy;
+  let msg = `${E.name}을(를) 쓰러뜨렸다.`;
+  let contract = null;
+  if (E.kind === 'soul' && !G.owned.includes(E.soul)) {
+    contract = E.soul; G.owned.push(E.soul);
+    G.sync[E.soul] = G.lastBlowDeep ? 30 : 0;
+    if (G.equip.length < 4) G.equip.push(E.soul);
+  }
+  for (const id of G.owned) G.sync[id] = Math.max(0, (G.sync[id] || 0) - 20);
+  G.stage++;
+  if (G.stage >= ENEMIES.length) { showWin(); return; }
+  const heal = Math.min(15, G.hero.max - G.hero.hp); G.hero.hp += heal;
+  const S = contract && SOULS[contract];
+  modal(`<div class="box"><h2>${contract ? '계약' : '승리'}</h2><p>${msg}</p>` +
+    (contract ? `<p><b style="color:${EL[S.el].c}">${S.name}</b>(${EL[S.el].n})과(와) 계약했다. ${G.lastBlowDeep ? '약점이나 섞임으로 끝내서 처음부터 깊게 이어졌다(동조율 30%).' : '아직 서먹하다(동조율 0%).'}</p>` : '') +
+    `<p>그릇이 ${heal} 회복했다. 동조율은 조금씩 식었다.</p><button class="primary" id="mNext" type="button">다음으로</button></div>`);
+  document.getElementById('mNext').onclick = showPrep;
+}
+function showPrep() {
+  const d = ENEMIES[G.stage];
+  const sel = new Set(G.equip);
+  const render = () => {
+    modal(`<div class="box"><h2>준비</h2><p>다음 상대: <b>${d.name}</b>${d.weak ? ` · 약점 <b style="color:${EL[d.weak].c}">${EL[d.weak].n}</b>` : ' · 약점 없음'}</p>
+      <p>데려갈 영혼을 넷까지 고르세요. (${sel.size}/4)</p>
+      <div class="pick">${G.owned.map(id => { const S = SOULS[id]; return `<button type="button" data-id="${id}" aria-pressed="${sel.has(id)}" style="--c:${EL[S.el].c}">${S.name}<br><small>${EL[S.el].n} · ${G.sync[id] || 0}%</small></button>`; }).join('')}</div>
+      <button class="primary" id="mGo" type="button" ${sel.size ? '' : 'disabled'}>출발</button></div>`);
+    document.querySelectorAll('.pick button').forEach(b => b.onclick = () => {
+      const id = b.dataset.id;
+      if (sel.has(id)) sel.delete(id); else if (sel.size < 4) sel.add(id);
+      render();
+    });
+    document.getElementById('mGo').onclick = () => { G.equip = G.owned.filter(id => sel.has(id)); closeModal(); startBattle(); };
+  };
+  render();
+}
+function showWin() {
+  modal(`<div class="box"><h2>무색의 왕을 물리쳤다</h2><p>그릇은 다시 하얘졌지만, 손끝에 영혼들의 색이 조금씩 남았다.</p><p>찾아낸 섞임 ${G.codex.size} / ${Object.keys(COMBOS).length}</p><button class="primary" id="mAgain" type="button">처음부터 다시</button></div>`);
+  document.getElementById('mAgain').onclick = () => { closeModal(); restart(); };
+}
+function showLose() {
+  modal(`<div class="box"><h2>그릇이 깨졌다</h2><p>${G.stage + 1}번째 싸움, ${G.enemy.name}에게 졌다.</p><p>찾아낸 섞임은 도감에 남아 있다.</p><button class="primary" id="mAgain" type="button">처음부터 다시</button></div>`);
+  document.getElementById('mAgain').onclick = () => { closeModal(); restart(); };
+}
+function showCodex() {
+  const items = Object.entries(COMBOS).map(([k, c]) => {
+    const [a, b] = k.split('>');
+    return G.codex.has(k)
+      ? `<div class="item"><b style="--c:${EL[b].c}">${EL[a].n} → ${EL[b].n}</b><span>${c.name} · ${c.desc}</span></div>`
+      : `<div class="item"><b>??? → ???</b><span>아직 찾지 못한 섞임</span></div>`;
+  }).join('');
+  modal(`<div class="box"><h2>섞임 도감</h2><p>${G.codex.size} / ${Object.keys(COMBOS).length} 찾음. 앞이 벗은 영혼, 뒤가 새로 입은 영혼의 성질입니다.</p><div class="list">${items}</div><button class="primary" id="mClose" type="button">닫기</button></div>`);
+  document.getElementById('mClose').onclick = closeModal;
+}
+const $m = document.getElementById('modal');
+let lastFocus = null;
+function modal(html) { lastFocus = document.activeElement; $m.innerHTML = html; $m.hidden = false; const b = $m.querySelector('button.primary') || $m.querySelector('button'); b && b.focus(); }
+function closeModal() { $m.hidden = true; $m.innerHTML = ''; lastFocus && lastFocus.focus && lastFocus.focus(); }
+function saveCodex() { try { localStorage.setItem('bingui-codex', JSON.stringify([...G.codex])); } catch (e) {} }
+function loadCodex() { try { return JSON.parse(localStorage.getItem('bingui-codex') || '[]'); } catch (e) { return []; } }
+function restart() { fresh(); loadCodex().forEach(k => G.codex.add(k)); G.log = []; startBattle(); }
+
+// 화면 아래
+const $chips = document.getElementById('chips'), $prompt = document.getElementById('prompt'),
+  $souls = document.getElementById('souls'), $skills = document.getElementById('skills'), $log = document.getElementById('log');
+function ui() {
+  const H = G.hero, E = G.enemy;
+  const chips = [];
+  if (G.residue) chips.push(`<span class="chip fill" style="--c:${EL[G.residue].c}">잔향 · ${EL[G.residue].n}${G.residueGood ? ' ×1.5' : ''}</span>`);
+  if (G.berserk > 0) chips.push(`<span class="chip fill" style="--c:#ff3040">폭주 ${G.berserk}턴</span>`);
+  if (H.guard) chips.push(`<span class="chip">방어 ${H.guard}</span>`);
+  if (H.evade) chips.push(`<span class="chip" style="--c:${EL.wind.c}">회피</span>`);
+  if (H.counter) chips.push(`<span class="chip" style="--c:${EL.earth.c}">반격 태세</span>`);
+  if (H.burn) chips.push(`<span class="chip" style="--c:${EL.fire.c}">내 화상 ${H.burn}</span>`);
+  if (H.poison) chips.push(`<span class="chip" style="--c:${EL.poison.c}">내 독 ${H.poison}</span>`);
+  if (E && E.burn) chips.push(`<span class="chip" style="--c:${EL.fire.c}">적 화상 ${E.burn}</span>`);
+  if (E && E.poison) chips.push(`<span class="chip" style="--c:${EL.poison.c}">적 독 ${E.poison}</span>`);
+  if (E && E.weak) chips.push(`<span class="chip" style="--c:${EL[E.weak].c}">적 약점 ${EL[E.weak].n}</span>`);
+  $chips.innerHTML = chips.join('');
+
+  const canSwap = G.phase === 'swap' && !G.busy;
+  $prompt.innerHTML = G.phase === 'berserk' ? '<b>폭주 중</b> · 몸이 멋대로 움직입니다.'
+    : G.busy ? '…'
+    : G.phase === 'swap' ? (G.cur ? '<b>갈아입을 영혼</b>을 고르세요. 지금 입은 영혼을 누르면 그대로 싸웁니다.' : '<b>처음 입을 영혼</b>을 고르세요.')
+    : '<b>기술</b>을 고르세요.';
+  $souls.innerHTML = G.equip.map(id => {
+    const S = SOULS[id], c = EL[S.el].c, sy = G.sync[id] || 0;
+    let r = '';
+    if (G.cur && id !== G.cur) { const v = rel(G.cur, id); r = v === 'good' ? '<span class="rel good">사이 좋음</span>' : v === 'bad' ? '<span class="rel bad">사이 나쁨</span>' : '<span class="rel"></span>'; }
+    else r = `<span class="rel">${id === G.cur ? '입는 중' : ''}</span>`;
+    return `<button type="button" class="soul${id === G.cur ? ' cur' : ''}" data-id="${id}" style="--c:${c}" ${canSwap ? '' : 'disabled'}>
+      <span class="n">${S.name}</span><span class="e">${EL[S.el].n} · ${sy}%</span>${r}<span class="sync"><i style="width:${sy}%"></i></span></button>`;
+  }).join('');
+  $souls.querySelectorAll('.soul').forEach(b => b.onclick = () => swapTo(b.dataset.id));
+
+  if (G.cur) {
+    const S = SOULS[G.cur], c = EL[S.el].c, canAct = G.phase === 'act' && !G.busy;
+    const key = G.residue && G.residue + '>' + S.el;
+    const mixLine = key && COMBOS[key] ? (G.codex.has(key) ? `섞임: ${COMBOS[key].name}` : '무언가 섞일 것 같다…') : '';
+    $skills.innerHTML = S.skills.map((s, i) => `<button type="button" class="skill" data-i="${i}" style="--c:${c}" ${canAct ? '' : 'disabled'}>
+      <span class="n">${s.name}</span><span class="d">${s.desc}</span>${mixLine ? `<span class="mix">${mixLine}</span>` : ''}</button>`).join('');
+    $skills.querySelectorAll('.skill').forEach(b => b.onclick = () => useSkill(+b.dataset.i));
+  } else $skills.innerHTML = '';
+  $log.innerHTML = G.log.map(s => `<div>${josa(s)}</div>`).join('');
+}
+function josa(s) {
+  return s.replace(/([가-힣])(이\(가\)|을\(를\)|은\(는\)|와\(과\)|과\(와\))/g, (m, ch, p) => {
+    const has = (ch.charCodeAt(0) - 0xac00) % 28 > 0;
+    const t = { '이(가)':['이','가'], '을(를)':['을','를'], '은(는)':['은','는'], '와(과)':['과','와'], '과(와)':['과','와'] }[p];
+    return ch + (has ? t[0] : t[1]);
+  });
+}
+document.getElementById('btnCodex').onclick = showCodex;
+document.getElementById('btnRestart').onclick = () => {
+  const b = document.getElementById('btnRestart');
+  if (b.dataset.armed) { delete b.dataset.armed; b.textContent = '처음부터'; restart(); }
+  else { b.dataset.armed = '1'; b.textContent = '한 번 더 누르면 처음부터'; setTimeout(() => { if (b.dataset.armed) { delete b.dataset.armed; b.textContent = '처음부터'; } }, 2500); }
+};
+addEventListener('keydown', e => { if (e.key === 'Escape' && !$m.hidden && $m.querySelector('#mClose')) closeModal(); });
+
+restart();
+requestAnimationFrame(loop);
+})();
+</script>
