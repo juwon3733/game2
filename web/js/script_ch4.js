@@ -314,10 +314,10 @@ async function sceneExplore4b() {
   bg('site_office');
   await banner('하쿠요 하청 현장사무소', '8월 29일 저녁', 1400);
   await say('', '재개발 지구 끝, 컨테이너 한 동짜리 사무소.');
-  const req = ['keybox', 'desk', 'whiteboard'];
+  const req = ['keybox', 'desk', 'whiteboard', 'helmets'];
   let got = 0;
-  const tick = () => { got++; goal(`현장사무소 단서 (${got}/3)`); if (got === 3) EX.end(); };
-  goal('현장사무소 단서 (0/3)');
+  const tick = () => { got++; goal(`현장사무소 단서 (${got}/${req.length})`); if (got === req.length) EX.end(); };
+  goal(`현장사무소 단서 (0/${req.length})`);
   await explore('siteoffice', {
     start: [11, 9], required: req,
     on: {
@@ -336,6 +336,7 @@ async function sceneExplore4b() {
       helmets: async () => {
         await say('', '헬멧 걸이. 하쿠요 로고 찍힌 노란 헬멧이 다섯. 그중 둘에 보일러실 그을음이 묻었다. 하나는 안쪽에 「무라세」, 하나엔 흰 「방문자」 스티커.');
         await say('rei', '(방문자용은 아무나 돌려 써. 누가 썼는지 안 남지.)', 'serious');
+        tick();
       },
       window: async () => { await say('', '창 정면에 사쿠라유 굴뚝. 그날 밤엔 여기서 불이 훤히 보였겠다.'); },
     },

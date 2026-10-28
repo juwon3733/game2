@@ -301,7 +301,7 @@ async function trialRound(wid, R) {
       st.done.add(k);
       const peel = a.peel || [st.idx];
       // 벗겨지는 게 다른 증언이면 그 증언으로 넘어가서 보여 준다(엉뚱한 컷 위에서 "벗겨진다"고 말하지 않게)
-      if (!peel.includes(st.idx) && !st.peeled.has(peel[0])) { st.idx = peel[0]; renderTrial(W, st); }
+      if (peel.length && !peel.includes(st.idx) && !st.peeled.has(peel[0]) && st.stmts[peel[0]]) { st.idx = peel[0]; renderTrial(W, st); }
       // 지금 보이는 증언 컷이 벗겨지면 찢어져 떨어진다
       if (peel.includes(st.idx) && !st.peeled.has(st.idx)) FX.tear($('#tr-panel .cutv'), s.dist);
       peel.forEach((i) => st.peeled.add(i));

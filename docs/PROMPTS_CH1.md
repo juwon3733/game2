@@ -945,7 +945,7 @@ Character design in the style of modern Japanese anime mobile gacha games (subcu
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
-Character reference sheet of a fierce, energetic 68-year-old grandmother who leads a neighborhood protest. Short permed grey hair, sharp eyes behind thick glasses, a moss-green cardigan, a white headband with protest writing (no readable letters), a megaphone at her side. Moss green accents.
+Character reference sheet of a fierce, energetic 68-year-old grandmother who leads a neighborhood protest. She must clearly look 68: a wrinkled elderly face, crow's feet, sagging cheeks, a small slightly stooped elderly body, fully covered modest clothes (no cleavage). Short permed grey hair, sharp eyes behind thick glasses, a moss-green cardigan, a white headband with protest writing (no readable letters), a megaphone at her side. Moss green accents.
 ```
 
 **`okamoto_angry.png`
@@ -978,7 +978,7 @@ Character design in the style of modern Japanese anime mobile gacha games (subcu
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
-Character reference sheet of a polite but cold 50-year-old construction site manager. Neat short black hair with grey at the temples, thin smiling eyes that never smile, grey work jacket with a company patch (abstract logo), a yellow safety helmet under his arm, a clipboard. Dark red accent on his tie.
+Character reference sheet of a polite but cold 50-year-old construction site manager. He must clearly look 50: forehead wrinkles, nasolabial lines, a middle-aged face, not young. Neat short black hair with grey at the temples, thin smiling eyes that never smile, grey work jacket with a company patch (abstract logo), a yellow safety helmet under his arm, a clipboard. Dark red accent on his tie.
 ```
 
 **`murase_smile.png`
@@ -1044,7 +1044,7 @@ Character design in the style of modern Japanese anime mobile gacha games (subcu
 
 Native resolution about 320x213 pixels, upscaled with nearest-neighbor so every pixel is a clearly visible square block. Full color, limited palette of about 24 colors.
 
-Character reference sheet of a kind, slightly confused 40-year-old security guard man. Short black hair, round face, a navy guard uniform with a cap and a whistle, a slightly puzzled expression. Slate blue accents.
+Character reference sheet of a kind, slightly confused 40-year-old security guard man. Short black hair, round face, the grey-blue uniform of a private security company (a company patch on the sleeve, NOT a police uniform: no police badge, no cap emblem, no whistle), a plain grey cap, a slightly puzzled expression. Slate blue accents.
 ```
 
 **`tanabe_normal.png`
@@ -2540,7 +2540,7 @@ Scene: A manga panel neatly cut out: empty white inside, with one tiny round yel
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + rose red (#e85d75) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: An unnaturally white room with an empty speech bubble logo; first-person view: the viewer's own hand in a navy sailor uniform sleeve signs a document. No other people.
+Scene: An unnaturally white WINDOWLESS room (no windows, no plants, no trees, nothing outside), an empty speech bubble logo framed on the white wall; first-person view: the viewer's own hand in a navy sailor uniform sleeve signs a document. No other people.
 ```
 
 > 꼭 보여야 할 것: 하얀 방, 서명하는 손
@@ -2634,7 +2634,7 @@ Every person in the panel is drawn ON-MODEL from their attached character portra
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + dark red (#a03a3a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Inside a construction site office at night: through the window, a bathhouse burning with fire truck lights in front of it; first-person view: the viewer's own hand holds a phone to his ear, no other people. On the wall calendar, a red circle (accent color) around the end of the month. No clock.
+Scene: Inside a construction site office at night: through the window, a bathhouse burning; in front of it, under white smoke, two fire trucks are clearly drawn big and readable (truck bodies, ladders, hoses, firefighters tiny in the distance), so it is obvious the fire brigade has already arrived; first-person view: the viewer's own hand holds a phone to his ear, no other people. On the wall calendar, a red circle (accent color) around the end of the month. No clock.
 ```
 
 > 꼭 보여야 할 것: 창밖 불길과 소방차 불빛, 귀에 댄 휴대폰, 달력의 동그라미(포인트 색)
@@ -3025,7 +3025,7 @@ Scene: First-person view kicking open the library front door into low smoke betw
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + navy blue (#3a5aa0) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: First-person view in smoke at the foot of a spiral staircase deep inside the library, far from the front door; the top of the stairs glows red. The viewer (a police officer, never shown: no back, no body, no face of the viewer) reaches down with their own two gloved hands and grips the wrist of a 16-year-old high school student (a teenager, not a small child) with messy short black hair, a school uniform with an oversized hoodie over it, and an ink stain on the right index finger, who lies collapsed face-down on the first step; the teenager's right hand is in the foreground with a clear ink stain on the right index finger (accent color).
+Scene: First-person view in smoke at the foot of a spiral staircase deep inside the library, far from the front door; the top of the stairs glows red. The viewer (a police officer, never shown: no back, no body, no face of the viewer) reaches out with their own two gloved hands to take a 16-year-old high school student (a teenager, not a small child) with messy short black hair, a school uniform with an oversized hoodie over it, and an ink stain on the right index finger, who sits slumped on the first step; the teenager's arm is just slipping off the shoulder of someone who brought them down the stairs, of whom ONLY a navy sailor-uniform sleeve and a girl's hand are visible at the edge of the smoke (no face, no body); the teenager's right hand is in the foreground with a clear ink stain on the right index finger (accent color).
 ```
 
 > 기준 이미지로 붙일 것: web/assets/portraits/rei_normal.png
@@ -3150,10 +3150,10 @@ Scene: Blurry first-person view of a teenager leaning with one arm over an adult
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 +  (#6b5fa8) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Night, a rusty wire fence on the tip of a cape: a right hand lays a bouquet of white chrysanthemums at the foot of the fence (accent color on the flowers); a dark ink stain on the right index finger is clearly visible. The same hand and fence repeated as five faint overlapping layers, only the flower colors differ; in the last layer the hand lifts a phone.
+Scene: Night, a rusty wire fence on the tip of a cape: a right hand lays a bouquet of white chrysanthemums at the foot of the fence (accent color on the flowers); a dark ink stain on the right index finger is clearly visible. The same hand and fence repeated as five faint overlapping layers, only the flower colors differ; in the last layer the same person (seen from behind, only legs and the hand) walks away up a hill road toward the warm light of a small cafe.
 ```
 
-> 꼭 보여야 할 것: 국화를 내려놓는 오른손, 검지의 잉크 자국(크게), 다섯 겹, 마지막에 휴대폰
+> 꼭 보여야 할 것: 국화를 내려놓는 오른손, 검지의 잉크 자국(크게), 다섯 겹, 마지막엔 언덕 위 카페 쪽으로 걸어감
 
 **`t_self_3.png`
 ```

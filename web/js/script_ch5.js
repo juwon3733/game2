@@ -341,6 +341,7 @@ async function sceneEpilogue5() {
   hide('shiori');
   show('rei', 'surprised', 'left');
   await say('rei', '…시오리.', 'surprised');
+  CHARACTERS.shiori.name = '시오리';
   show('koharu', 'normal', 'right');
   await say('koharu', '선배? 누구랑 얘기해요?', 'worried');
   await say('rei', '내일, 같이 가 줄래. 등대.', 'serious');

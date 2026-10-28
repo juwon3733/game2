@@ -52,17 +52,18 @@ Object.assign(CUTS, {
           { id: 'papers', label: '바닥의 신문지 더미', x: 0.15, y: 0.7, w: 0.35, h: 0.25 },
           { id: 'door', label: '서고 끝 뒷문', x: 0.78, y: 0.2, w: 0.18, h: 0.5 },
         ] },
-  S5: { owner: 'shiori', title: '원고 뒷면', desc: '2층 열람석. 원고 마지막 장 뒷면에 연필로 남자의 얼굴을 그린다. 창밖이 뿌옇다. 원고 다발을 서가 아래 철제 상자에 밀어 넣는다.', tags: { clock6: '2020' } },
+  S5: { owner: 'shiori', title: '원고 뒷면', desc: '2층 열람석. 원고 마지막 장 뒷면에 연필로 남자의 얼굴을 그린다. 창밖이 뿌옇다. 원고를 열람석에 펼쳐 둔 채 계단 쪽으로 뛴다.', tags: { clock6: '2020' } },
   S6: { owner: 'shiori', title: '레이, 일어나', desc: '연기 낀 계단에 쓰러진 레이. 그 팔을 어깨에 걸고 일으킨다. "레이, 일어나."', tags: { clock6: '2025' } },
   S7: { owner: 'shiori', title: '얘 먼저', desc: '1층 계단 아래, 뛰어 들어온 순경이 레이를 등에 업는다. 순경의 손목시계 8시 28분. "얘 먼저 데려가요."', tags: { clock6: '2028' } },
   S8: { owner: 'shiori', title: '다시 안으로', desc: '1층 계단 아래. 연기 낀 계단을 올려다보며 첫 단에 발을 올리는 시점. 등 뒤 열린 문 쪽에서 누군가 뛰어 들어오는 발소리.', tags: { clock6: '2033' } },
   AF: { owner: 'asagiri', title: '크레용 그림', desc: '오래된 원룸. 냉장고에 붙은 크레용 그림, 세 사람과 「엄마」. 창밖에 깎인 산과 크레인. 그리고 불빛.', tags: {} },
-  RF: { owner: 'rei', title: '국화', desc: '녹슨 철망 앞에 국화 한 다발을 내려놓는 오른손. 검지에 지워지지 않는 잉크 자국. 같은 손, 같은 철망이 다섯 번 겹쳐 있다. 겹친 장면마다 국화 색만 다르고, 마지막엔 그 손이 휴대폰을 든다.', tags: {} },
+  RF: { owner: 'rei', title: '국화', desc: '녹슨 철망 앞에 국화 한 다발을 내려놓는 오른손. 검지에 지워지지 않는 잉크 자국. 같은 손, 같은 철망이 다섯 번 겹쳐 있다. 겹친 장면마다 국화 색만 다르고, 마지막엔 그 손의 주인이 언덕 위 불빛 쪽으로 걸어간다.', tags: {} },
   AC: { owner: 'asagiri', title: '문 닫은 뒤', desc: '문 닫은 카페 「여백」. 처음은 9월 비 오는 밤, 그다음부턴 해마다 8월 31일 밤. 젖은 국화 냄새. 카운터 앞에 선 레이가 고개를 숙인다. "다시 지워 주세요." 열여섯, 열일곱… 해마다 키만 조금씩 다른 같은 장면.', tags: {} },
   Y6: { owner: 'blank', title: '마지막 칸', blank: true, desc: '원고 마지막 장의 빈 칸.', tags: {} },
 });
 
 Object.assign(ITEMS, {
+  receipts:   { title: '꽃집 영수증 다섯 장', desc: '레이 책상 서랍에 고무줄로 묶여 있던 것. 국화 한 다발씩. 날짜는 전부 8월 31일, 시각은 밤 9시 전후. 꽃집은 구시가 언덕 아래.' },
   lighter:    { title: '녹은 라이터', desc: '1층 서고 바닥 잿더미에서 나온 녹은 은색 라이터. 「H」 각인. 하쿠요가 창립 기념으로 간부에게만 돌린 것과 같은 모양.' },
   manuscript: { title: '반쯤 탄 원고', desc: '시오리의 원고 마지막 장. 2층 서가 아래 철제 상자에 들어 있었다. 앞면은 백지, 뒷면에 연필로 그린 남자의 얼굴. 니시무라와 같은 얼굴.' },
   petition:   { title: '보존 서명 전단', desc: '「등대 도서관을 지켜 주세요」. 펜으로 그린 등대 아래 서명 1,240명. 그림 귀퉁이에 작은 사인 둘, 레이와 시오리. 그 위에 덧붙은 종이: 「하쿠요 개발 리조트 예정지 · 소송 중 · 출입 금지」.' },
@@ -161,8 +162,8 @@ Object.assign(WITNESSES, {
         success: [
           ['rei', '시오리가, 나를 살렸어.', 'crying'],
         ], words: ['a_handover'] },
-      { statement: 4, cut: 'RF', requires: [1], shout: '내가 부탁했어!', bgm: 'chrysanthemum', page: ['RF', 'AC'], pageCap: '「다시 지워 주세요.」', rewards: ['AC'],
-        rebut: '철망 앞 국화. 한 해도 안 거른 그 꽃, 이 손이야. 검지에 잉크 자국. 해마다 그날 밤 여기서 다 떠올렸고, 이 손으로 전화를 걸었어. 지워진 게 아니야. 내가 지워 달라고 한 거야.',
+      { statement: 4, cut: 'RF', with: 'receipts', requires: [1], shout: '내가 부탁했어!', bgm: 'chrysanthemum', page: ['RF', 'AC'], pageCap: '「다시 지워 주세요.」', rewards: ['AC'],
+        rebut: '철망 앞 국화. 한 해도 안 거른 그 꽃, 이 손이야. 검지에 잉크 자국. 영수증은 해마다 8월 31일 밤, 언덕 아래 꽃집. 꽃을 놓고 다 떠올리고, 그 길로 언덕 위 「여백」까지 걸어갔어. 지워진 게 아니야. 내가 지워 달라고 한 거야.',
         success: [
           ['', '계단 아래에 아사기리가 서 있다.'],
           ['asagiri', '해마다 문 닫은 뒤에 왔어. 국화 냄새를 묻히고.', 'sad'],
@@ -184,10 +185,8 @@ const NAME6_FINAL = [
   '6년 전 8월 31일, ', { cat: 'place', a: 'pl_lighthouse' }, '에 불을 지른 건 ', { cat: 'person', a: 'p_nishi' }, '. 시오리는 그 얼굴을 ', { cat: 'thing', a: 'th_backpage' }, '에 ', { cat: 'act', a: 'a_draw' }, '.\n',
   '연기를 본 레이는 ', { cat: 'place', a: 'pl_lighthouse' }, '(으)로 ', { cat: 'act', a: 'a_runback' }, '. 시오리는 쓰러진 레이를 ', { cat: 'act', a: 'a_handover' }, '.',
 ];
-const CONCLUSION6 = [
-  { q: '그날 불을 지른 사람을 가리키는 물증은?', answer: ['manuscript', 'lighter'], choices: ['manuscript', 'lighter', 'petition', 'R2', 'S3', 'AF'] },
-  { q: '니시무라가 도서관을 태워야 했던 이유는?', answer: ['petition'], choices: ['petition', 'lighter', 'manuscript', 'S4', 'R2'] },
-];
+// 결론 물증 질문은 없앴다: 라이터·전단은 아사기리 심문에서 이미 다 썼다(절정 뒤에 같은 걸 또 묻지 않는다)
+const CONCLUSION6 = [];
 
 Object.assign(PROFILES, {
   shiori: '아이자와 시오리. 레이에게 이야기를 읽어 주던 친구. 6년 전 8월 31일, 등대 도서관 화재로 세상을 떠났다.',

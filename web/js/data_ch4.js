@@ -220,7 +220,7 @@ Object.assign(WITNESSES, {
         press: [['murase', '낡은 시설은 위험하다고 그렇게 말씀드렸는데요.', 'smile']] },
     ],
     answers: [
-      { statement: 1, cut: ['4C', '4D'], shout: '사무소에 없었어!',
+      { statement: 1, cut: ['4C'], shout: '사무소에 없었어!',
         rebut: '할머니가 헬멧 둘을 본 10시 45분 직전에, 보일러실 뒷문을 열쇠로 연 손이 있어요. 그 잔상, 무라세 씨 열쇠함 빈 고리에서 읽었어요. 그 문 열쇠 사본을 받아 간 사람은 무라세 씨 하나고요.',
         success: [['murase', '점검차 들렀을 수도 있죠. 기억이 안 나네요.', 'smile']],
         peel: [1], words: ['th_key', 'pl_office4'] },

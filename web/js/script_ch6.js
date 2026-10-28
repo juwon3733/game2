@@ -79,7 +79,7 @@ async function sceneOffer6() {
   hide('asagiri');
   await say('', '아사기리가 나가고 커피잔만 남았다. 6년 동안 매일 레이 앞에 놓이던 잔.');
   show('rei', 'serious', 'left');
-  await say('rei', '(어젯밤엔 말만 들었지. 잔은 아직 안 읽었어.)', 'serious');
+  await say('rei', '(어젯밤엔 이 잔에서 고친 흔적만 봤어. 내민 사람 쪽은 안 읽었지.)', 'serious');
   await gainCut('AF');
   show('koharu', 'worried', 'right');
   await say('koharu', '선배, 대답 아직 안 했죠? 아, 다행이다.', 'worried');
@@ -160,7 +160,7 @@ async function sceneExplore6() {
         await say('kurogane', '난 해마다 9월 1일 아침에 온다. 꽃이 늘 먼저 와 있더군. 다섯 해 동안 한 번도 안 빠지고.', 'sad');
         await say('', '꽃대를 쥔다. 손바닥에 꼭 맞는다.');
         await gainCut('RF');
-        await say('rei', '(서랍 속 꽃집 영수증. 다섯 장. 날짜는 전부 8월 31일.)', 'serious');
+        await gainItem('receipts');
         tick();
       },
       fence: async () => {
@@ -207,8 +207,8 @@ async function sceneShiori6() {
   await say('shiori', '알아. 그래도 돌아왔잖아. 연기 속으로.', 'smile');
   await say('shiori', '머리핀. 한 칸 더 있어.', 'normal');
   await gainCut('S8');
-  await say('rei', '상자에 넣은 원고, 가지러 올라간 거야? 누가 열어 볼지 몰라서?', 'crying');
-  await say('shiori', '응.', 'smile');
+  await say('rei', '원고 뒷면에 그린 그 얼굴… 상자에 넣으러 올라간 거야?', 'crying');
+  await say('shiori', '응. 그 사람이 원고까지 태울 것 같아서.', 'normal');
   await say('rei', '시오리. 너 처음부터 내가 본 것만 가리켰지. 칸막이도, 스케치북도, 부두도.', 'serious');
   await say('shiori', '난 네가 지운 칸이잖아. 네가 본 것밖에 몰라.', 'smile');
   await say('', '시오리가 책상 위 원고의 마지막 장을 손끝으로 두드린다. 백지.');
@@ -260,7 +260,7 @@ async function sceneConclusion6() {
     }
   }
   show('kurogane', 'sad', 'center');
-  await say('kurogane', '영장 청구한다. 이번엔 서장 결재 안 기다린다.', 'sad');
+  await say('kurogane', '강력계에 넘긴다. 내 이름 말고 네 보고서로. 정지 중인 놈 말은 안 들어 줄 테니까.', 'sad');
   hide('kurogane');
   show('ren', 'normal', 'right');
   await say('ren', '증언할게. 법정에서, 안대 벗고.', 'normal');
@@ -337,7 +337,7 @@ async function sceneEnding6() {
     show('shiori', 'normal', 'right');
     await say('', '창가에 교복 입은 여자애가 서 있다. 아무 말도 없다.');
     hide('shiori');
-    await say('', '신문 귀퉁이. 「하쿠요 상무 니시무라, 6년 전 등대 도서관 방화 혐의로 구속」. 레이는 모르는 이름을 한 번 훑고 신문을 접는다.');
+    await say('', '신문 귀퉁이. 「하쿠요 상무 니시무라, 6년 전 등대 도서관 방화 혐의로 구속」. 레이는 그 이름에서 잠깐 멈춘다. 이번 주에 들은 것 같은데, 어디서였는지 모르겠다. 신문을 접는다.');
     await say('', '맞은편 책상은 비어 있다. 쪽지 한 장. 「선배, 잘 지내요.」');
     await say('', '둥근 글씨. 레이는 두 번 읽고 쪽지를 내려놓는다. 커피를 마신다. 달다.');
     hideText();
@@ -404,12 +404,13 @@ async function sceneEnding6() {
     }
     hideText();
     await banner(end === 'margin' ? '여백 엔딩' : '진실 엔딩', end === 'margin' ? '「다음 칸」' : '「같은 하루」', 2600);
-    if (end === 'truth') await say('tip', `여백 조건 ${marginCount()} / ${MARGIN_FLAGS.length}. 1~5장 끝의 감정 선택에서 말 대신 컷·물건을 건네는 [[세 번째 보기]]를 모두 고르면 다른 결말이 열린다.`);
   }
   hideText();
   await banner('같은 하루, 다른 칸', '— 끝 —', 3000);
   await showRank('종장 「같은 하루」'); // 평가를 먼저, 크레딧으로 끝낸다
   await credits(G.flags.ending || 'truth');
+  if (G.flags.ending === 'truth') await say('tip', `여백 조건 ${marginCount()} / ${MARGIN_FLAGS.length}. 1~5장 끝의 감정 선택에서 말 대신 컷·물건을 건네는 [[세 번째 보기]]를 모두 고르면 다른 결말이 열린다.`);
+  hideText();
 }
 
 const CH6_FN = {
