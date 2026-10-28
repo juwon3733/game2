@@ -38,11 +38,11 @@ const ORDER = [
   ['3장', ['storage', 'cut-twin', 'cut-hasegawa', 'cut-tofu', 'cut-madoka']],
   ['4장', ['sakurayu', 'sakurayu_boiler', 'okamoto_house', 'site_office', 'clinic', 'cut-hayaka', 'cut-keiko', 'cut-murase', 'cut-okamoto', 'cut-genzo']],
   ['5장', ['station_chief', 'koharu_room', 'library', 'busstop', 'warehouse', 'pier', 'warehouse_in', 'cafe_night', 'cut-koharu', 'cut-tanabe', 'cut-ren', 'cut-sota', 'cut-kurogane']],
-  ['추리·인상에 걸리는 다시 받기 (4·5장)', ['4J', 't_hayaka_4', 'okamoto_normal', 'okamoto_angry', 'murase_normal', 'murase_smile', 'murase_cornered', 'tanabe_normal', 'tanabe_confused']],
+
   ['종장', ['lighthouse', 'lighthouse_in', 'lighthouse_dawn', 'cut-rei', 'cut-shiori', 'cut-asagiri', 'AF']],
   ['CG', ['cg']],
   ['UI', ['ui']],
-  ['얼굴·옷만 다른 다시 받기 (마지막)', ['towa_serious', '2H', '2P', 't_ruru_1', 'rei_normal', 'yuki_normal']],
+
 ];
 
 // 그 장에서 틀리기 쉬운 것: 프롬프트 글에서 뽑아 「확인」 칸에 적는다 (GPT가 그릴 때마다 다시 보게)
@@ -69,10 +69,17 @@ const md = ['# GPT 작업 순서표 (자동 생성: `node tools/gpt-queue.mjs`)'
   '위에서부터 **한 줄 = 한 장**씩 만든다. 프롬프트는 `web/assets/prompts.json`에서 같은 id의 `prompt`를 그대로 쓴다.',
   '- **설정화(reference sheet)는 만들지 않는다.** 모든 인물의 상반신이 이미 있다. 인물이 나오면 「첨부」 칸의 PNG를 이미지로 붙인다.',
   '- **프롬프트에 없는 인물을 그리지 않는다.** 바깥·공공장소라면 멀리 작은 얼굴 없는 행인은 괜찮다(단서 근처, 등장인물로 보일 사람, 「nobody·empty·No people」 장면은 안 됨). 배경(bg)은 사람 없음. 나오는 인물은 첨부 상반신과 같은 머리색·나이로.',
-  '- 「다시」 줄은 그 이유를 고치는 게 목적이다. 고쳤는지 PR 설명에 한 줄로 적는다.',
+  '- **새 그림은 한 장당 한 번만** 만들고 다음 줄로. 빠진 게 있어도 올리고 PR 설명에 적는다. 맨 아래 「다시 받기」는 새 그림을 다 올린 뒤에 한다(이유를 고치는 게 목적, 최대 2번).',
   '- 「확인」 칸: 그 장에서 틀리기 쉬운 것. 그리기 전에 읽고, 다 그린 뒤 하나씩 맞는지 본다.',
   '- 묶음(장·종류)마다 PR 하나, 브랜치는 `assets/<첫 id>-<월일시분>`. 올리면 바로 다음 줄로.', ''];
 let n = 0;
+// 1차: 아직 없는 그림만 장 순서대로 다 뽑는다. 2차(맨 뒤): 이상한 그림 다시 받기를 한꺼번에.
+const redoRows = [];
+const head = '| # | id | 파일 | 할 일 | 첨부 | 꼭 보여야 할 것 | 확인 |', line = '|---|---|---|---|---|---|---|';
+const rowOf = (it, redo) => {
+  const refs = [...new Set([...(redo ? redo[1] : []), ...(it.reference_images || [])])];
+  return `| @NUM | \`${it.id}\` | ${it.file.replace('web/assets/', '')} | ${redo ? '다시: ' + redo[0] : '새로'} | ${refs.map((r) => r.replace('web/assets/', '')).join('<br>') || '—'} | ${it.must_show || ''} | ${checks(it)} |`;
+};
 for (const [title, keys] of ORDER) {
   const rows = [];
   for (const k of keys) {
@@ -82,12 +89,15 @@ for (const [title, keys] of ORDER) {
       const redo = REDO[id];
       if (exists(it) && !redo) continue;
       seen.add(id);
-      const refs = [...new Set([...(redo ? redo[1] : []), ...(it.reference_images || [])])];
-      rows.push(`| ${++n} | \`${id}\` | ${it.file.replace('web/assets/', '')} | ${redo ? '다시: ' + redo[0] : '새로'} | ${refs.map((r) => r.replace('web/assets/', '')).join('<br>') || '—'} | ${it.must_show || ''} | ${checks(it)} |`);
+      if (redo && exists(it)) { redoRows.push(rowOf(it, redo)); continue; }
+      rows.push(rowOf(it, null).replace('@NUM', ++n));
     }
   }
-  if (rows.length) md.push(`## ${title}`, '', '| # | id | 파일 | 할 일 | 첨부 | 꼭 보여야 할 것 | 확인 |', '|---|---|---|---|---|---|---|', ...rows, '');
+  if (rows.length) md.push(`## ${title}`, '', head, line, ...rows, '');
 }
+// REDO에 있지만 ORDER에 안 적힌 것도 다시 받기에 모은다
+for (const [id, redo] of Object.entries(REDO)) if (!seen.has(id) && items[id] && exists(items[id])) { seen.add(id); redoRows.push(rowOf(items[id], redo)); }
+if (redoRows.length) md.push('## 다시 받기 (새 그림을 다 뽑은 뒤 마지막에)', '', head, line, ...redoRows.map((r) => r.replace('@NUM', ++n)), '');
 // 순서표에 안 넣은 빠진 그림이 있으면 끝에 모은다
 const rest = Object.values(items).filter((it) => !seen.has(it.id) && !exists(it));
 if (rest.length) md.push('## 그 밖에 빠진 그림', '', rest.map((it) => `- \`${it.id}\` ${it.file}`).join('\n'), '');
