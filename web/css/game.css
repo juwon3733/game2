@@ -1302,6 +1302,13 @@ body { word-break: keep-all; overflow-wrap: normal; }
   #stage.in-trial #textbox #actions { left: 12px; right: 12px; justify-content: flex-end; }
   /* 설정 창의 키보드 안내는 손가락 화면에선 필요 없고 [닫기]와 겹쳤다 */
   #modal.settings .set-help { display: none; }
+  /* 슬라이더: 손가락으로 잡을 높이 */
+  .set-grid input[type=range] { height: 44px; }
+  /* 설정: 손가락용으로 커진 단추 때문에 창이 넘쳐 [닫기]가 단추 위에 떠 있었다. [닫기]를 제목 줄 오른쪽으로 */
+  #modal.settings .md-box { position: relative; padding: 14px 30px 16px; }
+  #modal.settings .md-cancel { position: absolute; top: 8px; right: 30px; bottom: auto; margin: 0; }
+  #modal.settings .md-title { padding-right: 160px; }
+  #modal.settings .set-grid { gap: 8px 20px; margin: 8px 0 0; }
 }
 
 @media (pointer: coarse) and (max-height: 540px) {
@@ -1376,11 +1383,11 @@ body { word-break: keep-all; overflow-wrap: normal; }
   /* 설정 */
   .set-grid { font-size: 23px; grid-template-columns: 230px 1fr; gap: 14px 20px; }
   .set-seg button { font-size: 22px; min-height: 64px; }
-  .set-grid input[type=range] { height: 52px; }
-  /* 설정: [닫기]를 제목 줄 오른쪽에 두어 창 안에 다 들어가게(스크롤·겹침 없이) */
-  #modal.settings .md-box { position: relative; }
-  #modal.settings .md-cancel { position: absolute; top: 18px; right: 30px; margin: 0; }
-  #modal.settings .set-grid { gap: 10px 20px; margin: 10px 0 0; }
+  .set-grid input[type=range] { height: 64px; }
+  #modal.settings .set-seg button { min-height: 60px; }
+  #modal.settings .set-grid input[type=range] { height: 52px; }
+  #modal.settings .set-grid { gap: 6px 20px; }
+  #modal.settings .md-cancel { top: 6px; min-height: 58px; }
   .set-grid input[type=range]::-webkit-slider-thumb { width: 30px; height: 44px; margin-top: -20px; }
   /* 갤러리 */
   .gal-tabs button { font-size: 23px; min-height: 64px; padding: 8px 22px; }
