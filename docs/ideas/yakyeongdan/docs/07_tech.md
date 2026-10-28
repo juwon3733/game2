@@ -27,7 +27,7 @@ js/
     events.js      사건
     moons.js       달
     talks.js       휴식 대화
-    unlocks.js     해금 목록과 가격
+    gacha.js       소환 확률·천장·픽업·별자리·교환소 가격
   asset_prompts.js 그림 프롬프트 원본
 assets/ (chars/ enemies/ bg/ cards/ ui/ cg/ audio/)
 fonts/  (Galmuri)
@@ -58,7 +58,8 @@ prototype/index.html  처음 프로토타입 (참고용, 손대지 않음)
 - 수치를 바꾸면 돌려서 한 동료·한 카드만 튀지 않는지 본다. CI에서 짧게(200판) 돌려 오류만 잡는다.
 
 ## 저장
-- 브라우저 localStorage. 판 진행(칸 이동마다 자동 저장), 해금·별 조각·도감·기록.
+- 브라우저 localStorage. 판 진행(칸 이동마다 자동 저장), 가진 동료·별자리·별 조각·별가루·천장 횟수·도감·기록.
+- 소환 결과는 저장된 시드로 굴려 새로고침으로 다시 뽑을 수 없게 한다.
 - 저장 데이터에 버전 번호. 규칙이 바뀌면 진행 중인 판은 버리고 해금은 유지.
 
 ## 검사 (CI)

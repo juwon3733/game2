@@ -5,6 +5,7 @@
 - 밤 시계: 지도 칸과 일부 카드가 시간을 쓴다
 - 연계·듀오: 세 동료의 카드가 섞이고, 번갈아 쓰면 두 사람만의 듀오 카드가 생긴다 (28쌍)
 - 달: 판마다 달 모양이 달라 카드 효과가 바뀐다
+- 별 소환: 판에서 모은 별 조각으로 동료·의상·카드 묶음을 뽑는다 (현금 없음)
 
 ## 문서
 | 파일 | 내용 |
@@ -13,7 +14,7 @@
 | [docs/02_rules.md](docs/02_rules.md) | 전투·밤 시계·연계/듀오·달·지도·보상·도구·사건 규칙과 수치 |
 | [docs/03_characters.md](docs/03_characters.md) | 동료 8명, 카드 전부, 듀오 28쌍, 휴식 대화 |
 | [docs/04_enemies.md](docs/04_enemies.md) | 막별 적·강적·보스 |
-| [docs/05_meta.md](docs/05_meta.md) | 별 조각, 해금, 도감, 난이도 「밤의 깊이」 |
+| [docs/05_meta.md](docs/05_meta.md) | 별 조각, 별 소환(가챠), 별자리, 교환소, 도감, 난이도 「밤의 깊이」 |
 | [docs/06_art_ui_sound.md](docs/06_art_ui_sound.md) | 그림 규칙·목록, 화면, 연출, 소리 |
 | [docs/07_tech.md](docs/07_tech.md) | 폴더 구조, 데이터 모양, 시뮬레이션, 저장, CI |
 | [docs/08_roadmap.md](docs/08_roadmap.md) | 만드는 순서, 밸런스 목표, 미정 사항 |
