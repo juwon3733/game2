@@ -85,7 +85,7 @@ Object.assign(CUTS, {
   F3: { owner: 'madoka', title: '미래 컷 3',
         desc: '「미래 컷」. 계단 위에서 앞치마 소매의 손이 올라오는 남자의 어깨를 민다. 아래쪽 매장 불빛. 벽에는 난간과 남자의 그림자가 천장 쪽으로 길게 늘어져 있고, 미는 손의 그림자는 짧게 바닥 쪽으로 떨어져 있다.',
         tags: { clock: '2110' },
-        spots: [{ id: 'shadow', label: '벽의 그림자', x: 0.45, y: 0.15, w: 0.25, h: 0.2 }, { id: 'hand', label: '미는 손', x: 0.35, y: 0.35, w: 0.25, h: 0.3 }, { id: 'man', label: '남자의 어깨', x: 0.3, y: 0.55, w: 0.25, h: 0.25 }, { id: 'rail', label: '난간', x: 0.7, y: 0.1, w: 0.25, h: 0.35 }] },
+        spots: [{ id: 'shadow', label: '벽의 그림자', x: 0.7, y: 0.1, w: 0.25, h: 0.36 }, { id: 'hand', label: '미는 손', x: 0.52, y: 0.06, w: 0.18, h: 0.18 }, { id: 'man', label: '남자의 어깨', x: 0.38, y: 0.12, w: 0.24, h: 0.52 }, { id: 'rail', label: '난간', x: 0.2, y: 0.3, w: 0.22, h: 0.55 }] },
 });
 
 Object.assign(ITEMS, {
@@ -257,7 +257,7 @@ Object.assign(WITNESSES, {
         spots: [{ id: 'seam', label: '봉투를 쥔 손', x: 0.16, y: 0.4, w: 0.14, h: 0.38 }, { id: 'sleeve', label: '앞치마 소매', x: 0.02, y: 0.64, w: 0.21, h: 0.34 }, { id: 'bag', label: '봉투', x: 0.26, y: 0.32, w: 0.13, h: 0.22 }, { id: 'light', label: '계단 아래 불빛', x: 0.43, y: 0.74, w: 0.4, h: 0.24 }],
         press: [['madoka', '미래는 바꿀 수 없어요. 카드가 그렇게 말하니까.', 'smile']] },
       { text: '계단에서 누가 점장님을 미는 것도 봤어요. 그건 리본 아가씨 손이에요.', cut: 'F3',
-        spots: [{ id: 'shadow', label: '벽의 그림자', x: 0.45, y: 0.15, w: 0.25, h: 0.2 }, { id: 'hand', label: '미는 손', x: 0.35, y: 0.35, w: 0.25, h: 0.3 }, { id: 'man', label: '남자의 어깨', x: 0.3, y: 0.55, w: 0.25, h: 0.25 }, { id: 'rail', label: '난간', x: 0.7, y: 0.1, w: 0.25, h: 0.35 }, { id: 'stairs', label: '계단', x: 0.1, y: 0.6, w: 0.3, h: 0.35 }],
+        spots: [{ id: 'shadow', label: '벽의 그림자', x: 0.7, y: 0.1, w: 0.25, h: 0.36 }, { id: 'hand', label: '미는 손', x: 0.52, y: 0.06, w: 0.18, h: 0.18 }, { id: 'man', label: '남자의 어깨', x: 0.38, y: 0.12, w: 0.24, h: 0.52 }, { id: 'rail', label: '난간', x: 0.2, y: 0.3, w: 0.22, h: 0.55 }, { id: 'stairs', label: '계단', x: 0.56, y: 0.55, w: 0.3, h: 0.42 }],
         press: [['madoka', '무섭죠? 저도 그래서 미리 말씀드린 거예요.', 'normal']] },
       { text: '그 시각엔 저, 부스에서 손님을 보고 있었어요. 9시부터 한 시간.', cut: 't_madoka_3',
         cutDesc: '점술 부스. 테이블 위 타로 카드, 맞은편 손님의 손.',

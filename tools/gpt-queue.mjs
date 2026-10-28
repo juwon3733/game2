@@ -10,8 +10,10 @@ const P = JSON.parse(fs.readFileSync(path.join(root, 'web/assets/prompts.json'),
 
 // 이미 있지만 다시 받을 그림: id → [이유, 첨부할 기준 이미지]
 const REDO = {
+  '4D': ['헬멧 둘이 문에서 나오는 방향 → 등을 보이며 문 안으로 들어가는 중', ['web/assets/portraits/hayaka_normal.png']],
+  '4E': ['불 나기 전인데 케이코 손에 붕대 → 맨손', ['web/assets/portraits/keiko_normal.png']],
+  '4K': ['상담원의 얼굴·몸이 보임 → 흰 장갑 손과 소매만, 얼굴은 화면 밖', []],
   towa_serious: ['고양이 귀·헤드폰·모니터 테두리가 빨강 → towa_normal과 같은 초록, 표정만 진지하게', ['web/assets/portraits/towa_normal.png']],
-  F3: ['손 그림자가 안 보임(2번째) → 손 바로 아래 벽에 손 모양 그림자 하나가 아래로, 크게. 다른 그림자는 모두 위로', []],
   '2H': ['루루가 다른 사람 같음 → 상반신과 같은 긴 파란 머리·새 인형 모자, 후드, 형광 작업등', ['web/assets/portraits/ruru_normal.png']],
   '2P': ['루루가 다른 사람 같음 → 상반신과 같은 얼굴·머리', ['web/assets/portraits/ruru_normal.png']],
   t_ruru_1: ['루루가 다른 사람 같음 → 상반신과 같은 얼굴·머리', ['web/assets/portraits/ruru_normal.png']],
