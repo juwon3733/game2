@@ -41,26 +41,26 @@ const CH6_SCENES = [
   ['offer6', '제안 (8월 31일 아침)'],
   ['explore6', '탐색: 등대 도서관 터'],
   ['asagiri6', '최종 심문 1: 아사기리'],
+  ['puzzle6', '두 줄 시각표'],
   ['self6', '최종 심문 2: 레이'],
   ['shiori6', '시오리'],
-  ['puzzle6', '두 줄 타임라인'],
   ['conclusion6', '결론: 같은 하루'],
   ['ending6', '엔딩'],
 ];
 
 const C6A = ['AF', '6Y3', '6Y4']; // 5장에서 얻은 그날의 컷은 종장에도 가져온다
 const C6B = [...C6A, 'R1', 'S1', 'R2', 'S2', 'R3', 'S3', 'R4', 'R5', 'S4', 'S5', 'S6', 'S7', 'RF'];
-const C6C = [...C6B, 'R6', 'R7', 'R8', 'AC'];
-const C6D = [...C6C, 'S8'];
+const C6C = [...C6B, 'R6', 'R7', 'S8', 'R8', 'AC']; // 자기 심문에서 채워지는 빈칸들
 const W6A = ['p_shiori', 'p_kurogane', 'pl_lighthouse', 'a_runaway'];
 const W6B = [...W6A, 'pl_bench', 'p_nishi', 'th_backpage', 'a_draw'];
-const W6C = [...W6B, 'th_lighter', 'a_runback', 'a_handover'];
+const W6P = [...W6B, 'th_lighter', 'a_runback'];
+const W6C = [...W6P, 'a_handover'];
 const I6 = ['lighter', 'manuscript', 'petition'];
 const CH6_STATE = {
   offer6: {}, explore6: { cuts: C6A, words: W6A },
-  asagiri6: { cuts: C6B, items: I6, words: W6B }, self6: { cuts: C6B, items: I6, words: [...W6B, 'th_lighter'] },
-  shiori6: { cuts: C6C, items: I6, words: W6C }, puzzle6: { cuts: C6D, items: I6, words: W6C },
-  conclusion6: { cuts: C6D, items: I6, words: W6C }, ending6: { cuts: C6D, items: I6, words: W6C },
+  asagiri6: { cuts: C6B, items: I6, words: W6B }, puzzle6: { cuts: C6B, items: I6, words: [...W6B, 'th_lighter'] },
+  self6: { cuts: C6B, items: I6, words: W6P }, shiori6: { cuts: C6C, items: I6, words: W6C },
+  conclusion6: { cuts: C6C, items: I6, words: W6C }, ending6: { cuts: C6C, items: I6, words: W6C },
 };
 
 const marginCount = () => MARGIN_FLAGS.filter((f) => G.flags[f]).length;
@@ -189,7 +189,7 @@ async function sceneSelf6() {
   bg('lighthouse_in');
   await say('', '불탄 2층. 레이가 그날 앉던 자리에 앉는다.');
   show('towa', 'serious', 'right');
-  await say('towa', '레이. 네 증언 띄운다. 네가 기억하는 순서대로.');
+  await say('towa', '레이. 네 증언 띄운다. 비어 있는 칸 앞에 세워서.');
   hide('towa');
   await runTrial('self6');
   clearChars();
@@ -205,12 +205,10 @@ async function sceneShiori6() {
   show('rei', 'crying', 'left');
   await say('rei', '미안. 네 이름, 내가 그었어.', 'crying');
   await say('shiori', '알아. 그래도 돌아왔잖아. 연기 속으로.', 'smile');
-  await say('shiori', '머리핀. 한 칸 더 있어.', 'normal');
-  await gainCut('S8');
-  await say('rei', '원고 뒷면에 그린 그 얼굴… 상자에 넣으러 올라간 거야?', 'crying');
-  await say('shiori', '응. 그 사람이 원고까지 태울 것 같아서.', 'normal');
-  await say('rei', '시오리. 너 처음부터 내가 본 것만 가리켰지. 칸막이도, 스케치북도, 부두도.', 'serious');
-  await say('shiori', '난 네가 지운 칸이잖아. 네가 본 것밖에 몰라.', 'smile');
+  await say('rei', '상자에 넣고 나서는? 계단은 어떻게 됐어.', 'crying');
+  await say('shiori', '몰라. 넌 거기 없었잖아.', 'normal');
+  await say('rei', '…너 처음부터 내가 본 것만 가리켰지. 칸막이도, 스케치북도, 부두도.', 'serious');
+  await say('shiori', '응. 난 네가 지운 칸이니까.', 'smile');
   await say('', '시오리가 책상 위 원고의 마지막 장을 손끝으로 두드린다. 백지.');
   await say('shiori', '이건 나도 몰라. 아직 아무도 안 그린 칸이야.', 'normal');
   FX.mood(null);
@@ -226,18 +224,26 @@ async function scenePuzzle6() {
   await say('kurogane', '네가 열 수 있을 때까지 두려고 했다. 코하루는 첫날부터 그 상자만 쳐다보더군.', 'sad');
   await say('rei', '열 수 있을 것 같아요. 이제.', 'serious');
   hide('kurogane');
-  await say('rei', '두 줄로 놓자. 위엔 나, 아래엔 시오리.', 'serious');
+  await say('rei', '어젯밤엔 소타 씨 쪽에서 읽었어요. 오늘은 두 줄로 놓을게요. 위엔 저, 아래엔 시오리.', 'serious');
   clearChars();
   // 3장 시각표와 규칙이 달라서 종장용 도움말을 따로 띄운다
   if (!G.flags.timeTut6) {
     G.flags.timeTut6 = true; G.flags.timeTut = true;
     await sayAll([
       ['tip', '[[두 줄 시각표]]: 위는 레이, 아래는 시오리. 같은 높이가 같은 순간이다.'],
-      ['tip', '누구 줄인지는 컷 머리 색으로 정해진다. 시계가 보이는 칸은 몇 개뿐. 나머지는 앞뒤에 무슨 일이 있었는지로 놓는다. 16칸은 전부 찬다.'],
+      ['tip', '누구 줄인지는 컷 머리 색으로 정해진다. 시각은 컷 속에 시계가 보이는 칸에만 적혀 있다. 나머지는 앞뒤에 무슨 일이 있었는지로 놓고, 컷이 없는 칸은 비워 둔다.'],
     ]);
     hideText();
   }
   await runTimeline('time6');
+  show('rei', 'serious', 'left');
+  await say('rei', '(8시 20분, 벤치에서 되돌아 뛴 칸. 내 줄은 거기서 끊겨.)', 'serious');
+  gainWord('a_runback');
+  await say('rei', '(그다음 두 칸엔 시오리 줄에만 내가 있어. 계단에 쓰러진 나, 순경 등에 업히는 나.)', 'serious');
+  await say('rei', '(그리고 시오리 줄은 8시 28분에서 끝나. 날 넘긴 뒤 시오리가 어디 있었는지, 아무 칸도 없어.)', 'serious');
+  show('towa', 'serious', 'right');
+  await say('towa', '비어 있는 데 넷. 네 머릿속에만 남은 칸이야.');
+  clearChars();
 }
 
 async function sceneConclusion6() {
@@ -248,6 +254,8 @@ async function sceneConclusion6() {
   hide('kurogane');
   hideText();
   await runName({ title: '그날 밤', sub: '빈칸이 전부 맞아야 확정된다.', parts: NAME6_FINAL, threshold: 4 });
+  // 시각표는 빈칸을 남긴 채 끝났다. 몽타주는 자기 심문으로 채운 16칸 전부를 시각 순서대로
+  G.lastSolution = ['R1', 'S1', 'R2', 'S2', 'R3', 'S3', 'R4', 'S4', 'R5', 'S5', 'R6', 'S6', 'R7', 'S7', 'R8', 'S8'];
   await montage(G.lastSolution);
   for (let i = 0; i < CONCLUSION6.length; i++) {
     const q = CONCLUSION6[i];

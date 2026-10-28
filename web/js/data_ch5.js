@@ -112,17 +112,6 @@ Object.assign(WORDS, {
 });
 
 Object.assign(PUZZLES, {
-  page5a: {
-    title: '페이지 1 — 코하루가 간 길',
-    goal: '새벽부터 오후까지 코하루가 지나간 길. 편집된 컷은 빼고.',
-    cuts: ['5A', '5B', '5C', '5E', '5Ae', '5Be', '5Ce', '5Ee'],
-    solution: ['5A', '5B', '5C', '5E'],
-    decoys: ['5Ae', '5Be', '5Ce', '5Ee'],
-    decoyMsg: '편집된 컷이 원고에 섞여 있어. 원고에는 원본만 써.',
-    bubbles: {},
-    hint: '같은 장면이 두 장씩이야. 하나는 덧칠한 거.',
-    rei: '정류장, 경비실 앞. 그다음은 해 질 녘까지 한 장도 없네.',
-  },
   page5b: {
     title: '최종 재구성 — 오늘, 그리고 6년 전',
     goal: '두 페이지. 1쪽은 오늘 코하루가 간 길, 2쪽은 6년 전 등대 도서관의 밤.',
@@ -140,25 +129,27 @@ Object.assign(PUZZLES, {
 Object.assign(WITNESSES, {
   tanabe: { noKoharu: true, // 코하루 실종 중
     char: 'tanabe', bg: 'busstop', face: 'normal',
-    goal: '고쳐진 경비원의 기억. 원본으로 깨라.',
+    goal: '고쳐진 경비원의 기억. 사람 기억은 긁어낼 수 없다. 증언 안에서 깨라.',
     statements: [
       { text: '점심시간이라 정문 앞이 붐볐어요. 12시 조금 넘어서요.', cut: 't_tanabe_0',
         cutDesc: '경비실 창 너머 정문 앞. 사원증을 목에 건 회사원들이 점심 먹으러 줄지어 나간다. 창틀에 놓인 경비원의 손목시계.',
         press: [['tanabe', '그 시간엔 길 묻는 사람이 많아요. 본사 건물이 워낙 커서 다들 헤매거든요.', 'normal']] },
-      { text: '흰 코트가 아가씨 팔을 끌고 갔어요. 제가 똑똑히 봤다니까요.', cut: '5Ee', truthCut: '5E',
+      { text: '흰 코트가 아가씨 팔을 끌고 갔어요. 제가 똑똑히 봤다니까요.', cut: '5Ee', truthCut: '5E', dist: '편집',
+        spots: [{ id: 'gate', label: '정문 기둥', x: 0.05, y: 0.3, w: 0.3, h: 0.6 }, { id: 'coat', label: '흰 코트', x: 0.4, y: 0.15, w: 0.3, h: 0.6 }, { id: 'girl', label: '끌려가는 아가씨', x: 0.7, y: 0.3, w: 0.25, h: 0.6 }, { id: 'arm', label: '붙잡힌 팔', x: 0.6, y: 0.25, w: 0.15, h: 0.2 }],
         press: [['tanabe', '코트가 엄청 길었어요. 발목까지 오는 거요. 이 더위에 저걸 입나 했죠.', 'normal']] },
-      { text: '아가씨는 겁에 질려 울고 있었고요.', cut: 't_tanabe_2',
-        cutDesc: '정류장 벤치. 가방을 끌어안고 우는 아가씨. 벤치 옆 버스 시간표, 발치에 굴러간 음료 캔.',
+      { text: '아가씨는 겁에 질려 울고 있었고요.', cut: 't_tanabe_2', dist: '편집',
+        cutDesc: '정류장 벤치. 가방을 끌어안고 턱을 괸 아가씨. 뒤로 켜진 가로등과 불 켜진 창들. 얼굴만 유난히 매끈하다. 벤치 옆 버스 시간표, 발치에 굴러간 음료 캔.',
+        spots: [{ id: 'lamp', label: '가로등', x: 0.05, y: 0.12, w: 0.28, h: 0.24 }, { id: 'face', label: '아가씨 얼굴', x: 0.45, y: 0.18, w: 0.13, h: 0.19 }, { id: 'bag', label: '끌어안은 가방', x: 0.42, y: 0.5, w: 0.25, h: 0.22 }, { id: 'timetable', label: '버스 시간표', x: 0.84, y: 0.03, w: 0.16, h: 0.45 }, { id: 'can', label: '굴러간 음료 캔', x: 0.18, y: 0.88, w: 0.1, h: 0.1 }],
         press: [['tanabe', '벤치에 앉아서요. 가방을 꼭 끌어안고.', 'confused']] },
     ],
     answers: [
-      { statement: 1, cut: '5E', shout: '혼자였어!',
-        rebut: '경비실 창에 남은 원본이에요. 아가씨는 혼자였어요. 직접 길을 물었죠. 「항구 끝 폐창고가 어디예요?」',
-        success: [['tanabe', '아. 맞다, 길을 물었어요. 제가 손가락으로 항구 쪽을 가리켰고….', 'confused']],
-        peel: [1], words: ['a_walk', 'pl_warehouse'] },
-      { statement: 2, cut: ['5C', '5E'], shout: '웃고 있었어!',
-        rebut: '정류장 벤치에서 「지금 갈게요」 문자를 보내던 아가씨는 웃고 있었어요. 10분 뒤 경비실 앞에서도 또박또박 길을 물었고요.',
-        success: [['tanabe', '그러게요… 웃고 있었네. 이상하다, 분명히 울었는데.', 'confused'], ['towa', '누가 이 사람 기억에도 손댔어. 깔끔하게.']] },
+      { statement: 2, spot: ['lamp', 'face'], shout: '밤이잖아요!',
+        rebut: '12시 조금 넘은 점심때 일이라면서요. 이 벤치는 밤이에요. 가로등이 켜져 있고, 아가씨 얼굴만 매끈해요. 다른 데서 오려 붙인 거예요.',
+        success: [['tanabe', '…밤이네요. 이상하다, 그 아가씨 얼굴이 자꾸 이 그림으로 떠올라요.', 'confused'], ['towa', '누가 이 사람 머릿속에도 손댔어. 낮밤도 안 맞춰 보고.']] },
+      { statement: 1, spot: 'coat', shout: '그림자가 없어요!',
+        rebut: '정문 기둥도, 아가씨도, 가방도 한낮 그림자가 짧게 졌어요. 흰 코트만 그림자가 없어요. 이 사람은 그 자리에 없었어요.',
+        success: [['tanabe', '그림자…. 아. 그 아가씨, 혼자 창 앞에 와서 길을 물었어요. 제가 손가락으로 항구 쪽을 가리켰고….', 'confused']],
+        peel: [1], rewards: ['5E'], words: ['a_walk', 'pl_warehouse'] },
     ],
     koharu: [['towa', '복원한 원본, 다시 봐.']],
     wrong: [['tanabe', '그, 그런가요?', 'confused']],
@@ -169,10 +160,10 @@ Object.assign(WITNESSES, {
     goal: '편집 대결. 렌이 고쳐 그린 자리를 짚어라.',
     intro: [['towa', '렌 손은 내가 따라잡아.'], ['tip', '렌이 증언 컷을 실시간으로 고친다. 고칠 때마다 생기는 이음매를 바로 짚는다.'], ['ren', '오랜만에 같이 읽자, 시노노메.', 'smile']],
     statements: [
-      { text: '코하루는 내가 데려왔어. 억지로.', cut: 't_ren_1', dist: '편집',
+      { text: '셔터 안으로는 내가 끌고 들어왔어. 손목 잡고.', cut: 't_ren_1', dist: '편집',
         cutDesc: '흰 코트가 코하루의 손목을 쥐고 창고 안으로 이끈다. 반쯤 열린 셔터, 창고 안 전등 하나, 흰 코트 자락.',
         spots: [{ id: 'wrist', label: '손목을 쥔 손', x: 0.56, y: 0.56, w: 0.13, h: 0.2 }, { id: 'door', label: '반쯤 열린 셔터', x: 0.0, y: 0.0, w: 0.12, h: 1.0 }, { id: 'lamp', label: '창고 안 전등', x: 0.65, y: 0.08, w: 0.12, h: 0.12 }, { id: 'coat', label: '흰 코트 자락', x: 0.05, y: 0.45, w: 0.3, h: 0.55 }],
-        press: [['ren', '납치범은 원래 이렇게 말하잖아?', 'smile']] },
+        press: [['ren', '셔터 앞까지는 혼자 왔다며? 그다음은 못 봤잖아.', 'smile']] },
       { text: '코하루는 오후 내내 방파제에서 내 얘길 들었어. 소타 얘기.', cut: 't_ren_3',
         cutDesc: '오후의 방파제. 테트라포드에 나란히 앉은 흰 코트와 코하루. 코하루 무릎 위에 그을린 배지. 갈매기, 낮은 해.',
         press: [['ren', '해 질 때까지 질문을 멈추질 않더라. 오빠가 담배를 피웠냐, 사탕은 무슨 맛이었냐.', 'normal'], ['ren', '정류장에서 문자가 왔어. 「지금 갈게요」. 걸어서 삼십 분이면 방파제야.', 'normal'], ['ren', '창고는 내가 먼저 가서 열어 뒀어. 마음 정해지면 오라고. 그 애는 해 질 녘에 혼자 왔고.', 'normal']] },
@@ -182,9 +173,9 @@ Object.assign(WITNESSES, {
         press: [['ren', '다들 그렇게 기억하잖아. 너도.', 'normal']] },
     ],
     answers: [
-      { statement: 0, spot: 'wrist', cut: ['5D', '5E', '5C'], shout: '거기 붙였어!',
-        rebut: '코하루는 제 발로 왔어. 정류장에서 「지금 갈게요」, 경비실 앞에선 폐창고 가는 길을 물었고, 해 질 녘엔 셔터 앞까지 혼자 걸었어. 이 손목 둘레도 선 굵기가 달라. 끄는 손은 나중에 붙였지.',
-        koharu: [['koharu', '(선배, 저 진짜 혼자 왔어요. 오늘 제가 지나간 컷들 있잖아요.)', 'worried']],
+      { statement: 0, spot: 'wrist', shout: '거기 붙였어!',
+        rebut: '손목 둘레만 선이 굵어. 셔터도 전등도 같은 펜인데 거기만 달라. 끄는 손은 방금 붙였지.',
+        koharu: [['koharu', '(선배, 저 손목 잡힌 적 없어요. 그 그림, 손 언저리가 이상해요.)', 'worried']],
         success: [['ren', '역시 눈은 좋네.', 'smile']],
         editLines: [['ren', '그럼 이렇게 고치지.', 'smile']],
         changes: { 0: { text: '좋아, 스스로 왔다고 쳐. 근데 돌려보낼 생각은 없었어.', cut: 't_ren_1b', dist: '편집',
@@ -194,8 +185,12 @@ Object.assign(WITNESSES, {
       { statement: 0, spot: ['bars', 'ceil'], requires: [0], shout: '그림자가 어긋났어!',
         koharu: [['koharu', '(저 갇힌 적 없어요! 저 그림, 불빛이랑 뭔가 안 맞아요.)', 'worried']],
         rebut: '전등은 창살 바로 위에 있는데 그림자는 한쪽으로 길게 누웠어. 창살도 나중에 그린 거야. 코하루는 갇힌 적 없어.',
-        success: [['ren', '그래. 차를 내줬어. 그 애가 오빠 얘길 물어서.', 'normal']],
-        editLines: [['ren', '그럼 6년 전 얘기로 넘어가자.', 'normal']] },
+        success: [['ren', '그래. 아무도 안 가뒀어. 차를 내줬지. 그 애가 오빠 얘길 물어서.', 'normal'], ['ren', '그럼 하나만 읽어 봐. 난 왜 하루치 그림을 납치처럼 고쳤을까.', 'smile']],
+        choice: { prompt: '렌은 왜 코하루의 하루를 납치처럼 고쳤을까?',
+          options: ['강력계가 편집국을 쫓게 하려고', '편집국 모르게, 레이 하나만 여기로 부르려고', '코하루가 겁먹고 돌아가게 하려고'], answer: 1,
+          success: [['rei', '코하루 휴대폰을 끈 건 위치를 읽는 쪽이 있어서야. 편집국. 그러면서 그림엔 이음매를 남겼어. 그걸 짚고 따라올 사람은 나 하나고.', 'serious'],
+            ['ren', '편집국은 이음매 없는 그림만 봐. 일부러 티 나게 그린 건 처음이었어.', 'normal'], ['ren', '6년 전 얘기는 전화로 할 게 아니잖아.', 'normal']],
+          wrong: [['ren', '그럼 휴대폰은 왜 껐을까.', 'smile']] } },
       { statement: 2, spot: 'calendar', cut: '6Y3', requires: [1], shout: '날짜를 고쳤어!',
         rebut: '그날 난 집에 없었어. 소타 순경 배지에 남은 컷 봐. 계단 아래 그 고등학생 검지에 내 잉크 자국이 있어. 저 달력도 날짜 칸만 종이 질감이 달라. 「8월 31일」만 덧댔지.',
         success: [['ren', '급하게 붙였거든.', 'sad']],
@@ -242,8 +237,10 @@ Object.assign(WITNESSES, {
   },
 });
 
+// 중간 보고: 혼자 갔다는 건 경비원 심문에서 끝났다. 여기서 묻는 건 "무엇을 물으러" (5A 배지·5B 신문·액자·검색 기록을 이어야 한다).
+// 렌을 고르면 강력계가 렌을 쫓는다(renAccused → 렌 심문 inkPenalty).
 const NAME5_MID = [
-  '폐창고로 간 건 ', { cat: 'person', a: 'p_koharu' }, '의 뜻이었다. ', { cat: 'place', a: 'pl_busstop' }, '에서 ', { cat: 'act', a: 'a_walk' }, '.',
+  '코하루는 ', { cat: 'person', a: 'p_sota' }, '의 일을 물으러 ', { cat: 'place', a: 'pl_warehouse' }, '까지 ', { cat: 'act', a: 'a_walk' }, '.',
 ];
 const NAME5_FINAL = [
   '그날 코하루는 ', { cat: 'place', a: 'pl_busstop' }, '에서 폐창고까지 ', { cat: 'act', a: 'a_walk' }, '. ', { cat: 'person', a: 'p_ren' }, '이(가) 컷을 ', { cat: 'act', a: 'a_edit' }, '.\n',

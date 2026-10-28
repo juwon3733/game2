@@ -64,7 +64,7 @@ Object.assign(CUT_PROMPTS, {
   t_cross_1: ['Looking down from a window at night: two men in safety helmets enter a back gate.', '창에서 본 헬멧 둘'],
   t_cross_2: ['A construction site office at night; the chair in front of the desk is a blank white hole as if erased.', '생략: 의자 자리 하얀 여백'],
   t_cross_3: ['Sparks bursting from a small boiler room window at night.', '보일러실 창의 불꽃'],
-  t_cross_4: ['Close-up of a sooty old electrical panel with its cover open and suspiciously neat, new-looking wiring inside. No people.', '그을린 배전반'],
+  t_cross_4: ['Close-up of a key cabinet on a construction site office wall at night: rows of hooks with keys; one hook labeled with a small tag (no readable letters) holds a single key (accent color), and only the area around that hook is clean while the rest of the cabinet is dusty. No people.', '열쇠함, 걸린 사본 열쇠(포인트 색), 그 고리 둘레만 먼지 없음'],
   t_keiko_1: ['A tidy kitchen at night, {keiko} sitting alone at the table with a single cup and a dark phone; a grey work jacket with its company patch torn off hangs on the chair.', '부엌에 혼자 앉은 여자, 컵 하나와 꺼진 휴대폰, 패치 뗀 작업복'],
   t_keiko_2: ['A panel completely blurred as if covered by thick smoke; shapes cannot be recognized.', '흐림: 연기처럼 흐린 컷'],
 });

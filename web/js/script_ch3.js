@@ -324,7 +324,7 @@ async function sceneAcademy3() {
 async function scenePuzzle3b() {
   bg('academy');
   show('rei', 'serious', 'left');
-  await say('rei', '두 사람 밤을 나란히 놓고 보자.', 'serious');
+  await say('rei', '유키 씨는 그날 가게에서 마감했다고 했어. 학원 컷이랑 가게 컷을 나란히 놓아 보자.', 'serious');
   clearChars();
   await runTimeline('time3');
 }
@@ -410,11 +410,10 @@ async function sceneMadoka() {
   await say('madoka', '어머, 잔상과 분들. 또 카드 봐 드릴까요?', 'smile');
   await runTrial('madoka');
   bg('booth3');
-  await say('kurogane', '(전화) 독촉장에 스팽글까지. 됐다. 마도카는 강력계에 넘긴다.');
-  await say('rei', '(흰 장갑. 크레센트에서 밤 10시에 본 손도 흰 장갑이었어.)', 'serious');
-  hide('kurogane');
+  await say('kurogane', '(전화) 계단에 있었다는 건 됐다. 근데 위에선 컷은 증거로 안 친다.');
+  await say('kurogane', '(전화) 봉투가 안 나오면 강력계는 「겁먹고 도망친 손님」으로 끝낸다. 오늘 밤 안에 다들 가게로 모은다. 그때까지 맞춰 와라.');
   show('rei', 'serious', 'right');
-  await say('rei', '(누가 고친 컷을 일부러 내 앞에 놓았어. 내가 알아채나 보려고.)', 'serious');
+  await say('rei', '(그날 밤을 처음부터 다시 놓아 보자. 가짜 두 장까지.)', 'serious');
   clearChars();
 }
 
@@ -429,16 +428,16 @@ async function scenePuzzle3c() {
 async function sceneConclusion3() {
   bg('tokiwa_shop');
   await banner('결론', '토키와 양과점', 1300);
-  await say('', '셔터를 반쯤 올린 양과점. 강력계 형사, 유키와 나기, 두부집 할머니. 뒷줄에 쿠로가네.');
+  await say('', '셔터를 반쯤 올린 양과점. 유키와 나기, 두부집 할머니. 강력계 형사 둘 사이에 숄을 두른 마도카가 앉아 있다. 뒷줄에 쿠로가네.');
   show('kurogane', 'normal', 'center');
   await say('kurogane', '말해 봐라.');
   hide('kurogane');
   hideText();
   await runName({ title: '8월 27일 밤 — 둘 중 하나', sub: '모든 빈칸이 맞아야 확정할 수 있다.', parts: NAME3_FINAL, threshold: 6 });
   await montage(G.lastSolution);
-  show('rei', 'serious', 'left');
-  await say('rei', '독촉장 기한이 31일이에요. 봉투는 아직 마도카 씨한테 그대로 있을 거예요.', 'serious');
-  hide('rei');
+  show('madoka', 'normal', 'left');
+  await say('madoka', '잘 지어낸 이야기네요. 그래서 그 돈은요? 제 부스도 뒤져 보셨잖아요.', 'normal');
+  hide('madoka');
   for (let i = 0; i < CONCLUSION3.length; i++) {
     const q = CONCLUSION3[i];
     for (;;) {
@@ -452,6 +451,24 @@ async function sceneConclusion3() {
       hide('kurogane');
     }
   }
+  show('rei', 'serious', 'left');
+  await say('rei', '독촉장 기한이 31일이에요. 오늘은 28일이고요. 갚는 날까지는 한 장도 안 건드리고 갖고 계실 거예요. 부스엔 없었으니까, 집에.', 'serious');
+  show('kurogane', 'normal', 'center');
+  await say('kurogane', '집으로 한 팀 보내.');
+  hide('kurogane');
+  show('madoka', 'crying', 'right');
+  await say('madoka', '쌀통 밑이에요. 31일에 한꺼번에 갚으려고 했어요.', 'crying');
+  await say('madoka', '점장님이 봉투 끝을 쥐고 계셨어요. 제가 확 당겼고, 점장님 손이 허공을 잡았어요. 그다음엔 떨어지는 소리만.', 'crying');
+  await say('madoka', '카드로는 미래 같은 거 안 보여요. 그날 밤 부스에 흰 장갑 낀 사람이 왔어요. 제 눈에 남은 거라면서 컷을 세 장 꺼내 줬어요.', 'crying');
+  await say('madoka', '손만 리본 아가씨 걸로 바꿔 붙이면 다들 그 애를 볼 거라고. 스크린톤이랑 가위도 그 사람이 두고 갔어요. 오려 붙인 건 저예요.', 'crying');
+  await say('rei', '점장님께 조심하라고 미리 말했다는 것도요?', 'serious');
+  await say('madoka', '안 했어요. 점장님이 못 깨어나셨으니까… 아무도 모를 줄 알았어요.', 'crying');
+  hide('madoka');
+  show('kurogane', 'normal', 'center');
+  await say('kurogane', '됐다. 데려가.');
+  hide('kurogane');
+  await say('rei', '(흰 장갑. 크레센트에서 밤 10시에 본 손도 흰 장갑이었어.)', 'serious');
+  await say('rei', '(누가 고친 컷을 일부러 내 앞에 놓았어. 내가 알아채나 보려고.)', 'serious');
   sfx('phone');
   show('koharu', 'happy', 'right');
   await say('koharu', '선배! 병원에서 전화예요. 점장님이 깨어나셨대요!', 'happy');

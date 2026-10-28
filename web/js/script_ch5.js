@@ -36,8 +36,7 @@ const CH5_SCENES = [
   ['route5', '코하루가 간 길'],
   ['restore5', '원본 복원'],
   ['tanabe', '심문 1: 하쿠요 경비원'],
-  ['puzzle5a', '컷 정리: 코하루의 길'],
-  ['accuse5', '중간 보고: 코하루를 데려간 사람'],
+  ['accuse5', '중간 보고: 코하루가 간 이유'],
   ['harbor5', '방파제'],
   ['warehouse5', '항구 끝 폐창고'],
   ['ren', '심문 2: 렌 — 편집 대결'],
@@ -49,7 +48,8 @@ const CH5_SCENES = [
 
 const C5A = ['5Ae', '6Y1'];
 const C5B = [...C5A, '5Be', '5Ce', '5Ee'];
-const C5C = [...C5B, '5A', '5B', '5C', '5E'];
+const C5R = [...C5B, '5A', '5B', '5C'];
+const C5C = [...C5R, '5E'];
 const C5D = [...C5C, '5De', '5D', '6Y2', '6Y3'];
 const C5E = [...C5D, '5F', '6Y5', '6Y6'];
 const C5F = [...C5E, '6Y4'];
@@ -59,8 +59,8 @@ const W5C = [...W5B, 'p_koharu', 'a_edit', 'a_walk', 'pl_warehouse'];
 const W5D = [...W5C, 'p_rei', 'a_rescue', 'a_return'];
 const CH5_STATE = {
   office5: {}, explore5a: { words: W5A }, route5: { cuts: C5A, items: ['history'], words: W5A },
-  restore5: { cuts: C5B, items: ['history'], words: W5B }, tanabe: { cuts: C5C, items: ['history'], words: [...W5B, 'p_koharu', 'a_edit'] },
-  puzzle5a: { cuts: C5C, items: ['history'], words: W5C }, accuse5: { cuts: C5C, items: ['history'], words: W5C },
+  restore5: { cuts: C5B, items: ['history'], words: W5B }, tanabe: { cuts: C5R, items: ['history'], words: [...W5B, 'p_koharu', 'a_edit'] },
+  accuse5: { cuts: C5C, items: ['history'], words: W5C },
   harbor5: { cuts: C5C, items: ['history'], words: W5C }, warehouse5: { cuts: C5C, items: ['history'], words: W5C }, ren: { cuts: C5D, items: ['history', 'badge'], words: W5C },
   kurogane5: { cuts: C5E, items: ['history', 'badge'], words: W5C }, puzzle5b: { cuts: C5F, items: ['history', 'badge'], words: W5D },
   conclusion5: { cuts: C5F, items: ['history', 'badge'], words: W5D }, epilogue5: { cuts: C5F, items: ['history', 'badge'], words: W5D },
@@ -155,10 +155,14 @@ async function sceneRestore5() {
   await say('tip', '편집된 컷의 [[이음매]]를 짚으면 원본이 드러난다.');
   hide('towa');
   hideText();
-  await runRestore(['5Ae', '5Be', '5Ce', '5Ee']);
+  await runRestore(['5Ae', '5Be', '5Ce']);
   gainWord('p_koharu'); gainWord('a_edit');
-  show('towa', 'serious', 'center');
-  await say('towa', '원본 넷. 경비원 기억도 똑같이 고쳤을 거야. 코하루를 마지막으로 본 사람이잖아.');
+  show('rei', 'serious', 'left');
+  await say('rei', '(정류장에서 웃으면서 「지금 갈게요」. 누굴 만나러 간 거야.)', 'serious');
+  show('towa', 'serious', 'right');
+  await say('towa', '정오까지는 제 발로야. 근데 10분 뒤에 경비원이 흰 코트를 봤어.');
+  await say('towa', '만나러 간 상대가 데려갔을 수도 있지. 경비원 건 사람 기억이라 긁어낼 수가 없어.');
+  await say('tip', '사람의 기억은 복원할 수 없다. 심문에서 증언 컷 속 [[이음매]]를 짚어 깨뜨린다.');
   clearChars();
 }
 
@@ -170,38 +174,34 @@ async function sceneTanabe() {
   clearChars();
 }
 
-async function scenePuzzle5a() {
-  await runPuzzle('page5a');
-}
-
 async function sceneAccuse5() {
   bg('office');
   await banner('8월 30일 오후 5시', '아무도 없는 잔상과', 1300);
   show('towa', 'serious', 'center');
-  await say('towa', '쿠로가네는 정지 중. 강력계는 그려진 대로 믿을 거야. 편집국이 납치했다고.');
-  await say('towa', '보고서는 네가 써. 코하루를 거기로 데려간 게 누군지.');
+  await say('towa', '쿠로가네는 정지 중. 강력계는 그려진 대로 믿을 거야. 흰 코트가 끌고 갔다고.');
+  await say('towa', '혼자 걸어갔다고만 쓰면 가출로 덮여. 왜 갔는지까지 써야 해. 이름이 오르면 강력계는 그 사람부터 쫓고.');
   clearChars();
   hideText();
   const r = await runName({
-    title: '중간 보고 — 코하루는 왜 폐창고에 있었나', sub: '틀리게 보고하면 그 이름이 경찰에 돈다.',
-    parts: NAME5_MID, threshold: 2, report: true, reportLabel: '이대로 보고한다',
+    title: '중간 보고 — 코하루는 무엇을 물으러 갔나', sub: '보고서에 오른 이름은 강력계가 쫓는다.',
+    parts: NAME5_MID, threshold: 3, report: true, reportLabel: '이대로 보고한다',
   });
-  const who = r.picks[1];
+  const who = r.picks[NAME5_MID.findIndex((p) => typeof p !== 'string' && p.cat === 'person')];
   G.flags.accused5 = who;
   show('towa', 'serious', 'center');
   if (r.ok) {
     G.stats.accuse = true;
-    await say('towa', '맞아. 코하루가 제 발로 갔어. 그림은 너 부르려고 고친 거고.');
-    await say('towa', '렌은 기다리고 있겠지. 항구 끝 폐창고에서.');
+    await say('towa', '오빠 일. 실종 아님, 본인 뜻으로 이동. 강력계엔 그렇게 올렸어.');
+    await say('towa', '만나러 간 상대는 아직 몰라. 항구 끝 폐창고에 가 보면 알겠지.');
   } else {
     G.stats.accuse = false;
     if (who === 'p_ren') {
       G.flags.renAccused = true;
-      await say('towa', '렌을 납치범으로 올렸네. 강력계가 움직이면 편집국도 눈치챌 거야.');
+      await say('towa', '렌 이름이 올라갔어. 강력계가 렌부터 쫓을 거야. 편집국도 눈치채겠지.');
       FX.glitch(500);
-      await say('towa', '창고 안 잔상이 단단해졌어. 렌이 더 고쳐 놨을 거야.');
+      await say('towa', '창고 쪽 잔상이 단단해졌어. 렌이 더 고쳐 놨을 거야.');
     } else {
-      await say('towa', '그림에 속았어. 그래도 가야 해. 항구 끝 폐창고.');
+      await say('towa', '이유를 잘못 읽었어. 강력계는 엉뚱한 데를 뒤지겠지. 그래도 가야 해. 항구 끝 폐창고.');
     }
   }
   clearChars();
@@ -238,11 +238,11 @@ async function sceneWarehouse5() {
   show('ren', 'smile', 'left');
   await say('ren', '늦었네, 시노노메. 차 다 식었어.', 'smile');
   await say('', '렌이 코트 주머니에서 하늘색 케이스 휴대폰을 꺼내 테이블에 놓는다. 화면은 꺼져 있다.');
-  await say('ren', '그 문자 안 갔어. 방파제에서 보내려는 걸 내가 받아서 꺼 버렸거든. 편집국이 위치를 읽으니까.', 'normal');
+  await say('ren', '그 문자 안 갔어. 방파제에서 보내려는 걸 내가 받아서 꺼 버렸거든.', 'normal');
   await say('koharu', '에엑?! 그럼 선배는 하루 종일….', 'worried');
   show('rei', 'serious', 'center');
   await say('rei', '방은.', 'serious');
-  await say('ren', '그것도 나. 고친 컷만 있으면 넌 방부터 볼 테니까 방도 그림에 맞춰 놨지. 새벽에 그 애가 나간 다음에. 열쇠는 우편함 밑에 있더라.', 'smile');
+  await say('ren', '그것도 나. 그림에 맞춰 놨지. 새벽에 그 애가 나간 다음에. 열쇠는 우편함 밑에 있더라.', 'smile');
   await say('koharu', '제 책상 뒤집은 거 렌 씨였어요?!', 'worried');
   await say('rei', '(그래서 문틀이 멀쩡했구나.)', 'serious');
   hide('rei');
@@ -371,12 +371,12 @@ async function sceneEpilogue5() {
 
 const CH5_FN = {
   office5: sceneOffice5, explore5a: sceneExplore5a, route5: sceneRoute5, restore5: sceneRestore5, tanabe: sceneTanabe,
-  puzzle5a: scenePuzzle5a, accuse5: sceneAccuse5, harbor5: sceneHarbor5, warehouse5: sceneWarehouse5, ren: sceneRen, kurogane5: sceneKurogane5,
+  accuse5: sceneAccuse5, harbor5: sceneHarbor5, warehouse5: sceneWarehouse5, ren: sceneRen, kurogane5: sceneKurogane5,
   puzzle5b: scenePuzzle5b, conclusion5: sceneConclusion5, epilogue5: sceneEpilogue5,
 };
 
 const CH5_BGM = {
-  office5: 'tension', explore5a: 'explore', route5: 'explore', restore5: 'editor', tanabe: 'trial', puzzle5a: 'tension',
+  office5: 'tension', explore5a: 'explore', route5: 'explore', restore5: 'editor', tanabe: 'trial',
   accuse5: 'tension', harbor5: 'epilogue', warehouse5: 'editor', ren: 'editor', kurogane5: 'truth', puzzle5b: 'tension', conclusion5: 'trial',
   epilogue5: 'epilogue',
 };

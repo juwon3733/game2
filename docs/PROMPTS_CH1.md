@@ -2652,10 +2652,10 @@ Scene: A construction site office at night; the chair in front of the desk is a 
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 + dark red (#a03a3a) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Close-up of a sooty old electrical panel with its cover open and suspiciously neat, new-looking wiring inside. No people.
+Scene: Close-up of a key cabinet on a construction site office wall at night: rows of hooks with keys; one hook labeled with a small tag (no readable letters) holds a single key (accent color), and only the area around that hook is clean while the rest of the cabinet is dusty. No people.
 ```
 
-> 꼭 보여야 할 것: 그을린 배전반
+> 꼭 보여야 할 것: 열쇠함, 걸린 사본 열쇠(포인트 색), 그 고리 둘레만 먼지 없음
 
 ## 대화 51 — 컷 · 오카모토 시점 (8장)
 

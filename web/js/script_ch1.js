@@ -7,8 +7,8 @@ const CH1_SCENES = [
   ['ookubo', '심문 1: 경비원 오오쿠보'],
   ['taiga', '심문 2: 배달부 타이가'],
   ['explore2', '탐색 2: 다시 5층'],
-  ['himari', '심문 3: 옆집 아이 히마리'],
   ['puzzle2', '컷 정리: 페이지 2'],
+  ['himari', '심문 3: 옆집 아이 히마리'],
   ['conclusion', '결론'],
   ['epilogue', '에필로그: 카페 「여백」'],
 ];
@@ -21,8 +21,8 @@ const CH1_STATE = {
   ookubo: { cuts: ['A', 'B', 'C', 'D'], lines: [] },
   taiga: { cuts: ['A', 'B', 'C', 'D', 'E'], lines: ['L2'] },
   explore2: { cuts: ['A', 'B', 'C', 'D', 'E', 'F'], lines: [], fills: { E: 'L2' } },
+  puzzle2: { cuts: ['A', 'B', 'C', 'D', 'E', 'F', 'G'], lines: [], fills: { E: 'L2' } },
   himari: { cuts: ['A', 'B', 'C', 'D', 'E', 'F', 'G'], lines: [], fills: { E: 'L2' } },
-  puzzle2: { cuts: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'], lines: [], fills: { E: 'L2', C: 'L3' } },
   conclusion: { cuts: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'], lines: [], fills: { E: 'L2', C: 'L3' } },
   epilogue: { cuts: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'], lines: [], fills: { E: 'L2', C: 'L3' } },
 };
@@ -223,7 +223,7 @@ async function sceneExplore2() {
         show('koharu', 'normal', 'right');
         await say('koharu', '옆집이면 코마츠 씨네… 달력에 있던 히마리가 그 집 애예요?');
         show('rei', 'serious', 'left');
-        await say('rei', '가 보자.', 'serious');
+        await say('rei', '문 두드리기 전에 맞춰 볼 게 있어.', 'serious');
         EX.end();
       },
       nbdoor: async () => { await say('rei', '그 전에 베란다.'); },
@@ -250,23 +250,26 @@ async function sceneHimari() {
 }
 
 async function scenePuzzle2() {
-  bg('night');
-  show('rei', 'serious', 'left');
-  await say('rei', '이제 순서만 남았어.', 'serious');
-  clearChars();
   await runPuzzle('page2');
+  bg('night');
+  show('koharu', 'worried', 'right');
+  await say('koharu', '그럼 사에키 씨가 손 뻗은 게… 히마리였어요?', 'worried');
+  show('rei', 'serious', 'left');
+  await say('rei', '머리핀 주우러. 근데 그다음은 컷이 없어.', 'serious');
+  await say('rei', '본 사람은 하나야.', 'serious');
+  clearChars();
 }
 
 async function sceneConclusion() {
   bg('hospital');
   await banner('결론', '병원 복도', 1300);
   show('kurogane', 'normal', 'center');
-  await say('kurogane', '강력계도, 가족분들도 와 있다. 말해 봐라, 시노노메.');
+  await say('kurogane', '강력계도, 가족분들도 와 있다. 애 얘기는 들었다.');
+  await say('kurogane', '근데 하나가 안 맞아. 택배 기사는 초인종을 눌렀고, 피아노가 멈췄다고 했지.');
+  await say('kurogane', '그럼 그 선생은 현관으로 나왔어야 한다. 말해 봐라, 시노노메.');
   const replies = [
-    '히마리가 칸막이 밑으로 건너와서 사에키 씨네 난간에 올라가 있었어요. 사에키 씨가 난간 밖으로 몸을 내밀어서 히마리를 안쪽으로 끌어당겼고, 그 반동에 본인이 떨어졌어요.',
-    '5층 문 앞이요. 쿵 소리가 났을 때 아직 초인종 앞에 서 있었어요.',
-    '신고하려고요. 폰이 꺼져 있어서 길 건너 편의점까지 뛰었어요.',
-    '사에키 씨네 베란다 바닥, 난간 안쪽이요. 선생님이 끌어당겨서요.',
+    '난간 위요. 화분을 밟고 올라가 있었어요. 사에키 씨는 그때까지 피아노 앞이었고요.',
+    '초인종에 피아노를 멈추고 돌아봤을 때, 커튼에 작은 그림자가 비쳐 있었어요. 그래서 현관 대신 베란다로 뛰었어요.',
   ];
   for (let i = 0; i < CONCLUSION.length; i++) {
     const q = CONCLUSION[i];
@@ -282,12 +285,15 @@ async function sceneConclusion() {
     await say('rei', replies[i], 'serious');
     hide('rei');
   }
-  await say('kurogane', '됐다. 강력계엔 내가 말하지.');
+  show('koharu', 'worried', 'right');
+  await say('koharu', '초인종이 안 울렸으면, 선생님은 그대로 피아노 치고 계셨겠네요.', 'worried');
+  await say('kurogane', '됐다. 강력계엔 내가 말하지. 그 택배 기사한테도.');
   clearChars();
   bgm('truth');
-  await montage(G.lastSolution);
+  // 그날 밤 전체. 플레이어가 맞춘 두 페이지와 히마리가 준 두 칸을 한 줄로 잇는다
+  await montage(['A', 'G', 'H', 'B', 'C', 'I', 'D', 'F', 'E']);
   if (await cg('cg_page')) {
-    await say('', '여섯 칸. 그날 밤 일어난 순서 그대로.');
+    await say('', '그날 밤 일어난 순서 그대로.');
     cgEnd();
   }
   show('himari', 'crying', 'left');

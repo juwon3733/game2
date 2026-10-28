@@ -88,7 +88,7 @@ const W4C = [...W4B, 'p_murase', 'p_okamoto', 't_2245'];
 const W4D = [...W4C, 'pl_fence', 'a_watch', 'a_erase'];
 const W4E = [...W4D, 'th_key', 'pl_office4'];
 const W4F = [...W4E, 'a_rescue'];
-const I4A = ['panel'], I4B = [...I4A, 'receipt'], I4C = [...I4B, 'schedule4'];
+const I4A = ['panel'], I4B = [...I4A, 'receipt'], I4C = [...I4B, 'schedule4', 'helmet4'];
 const CH4_STATE = {
   office4: {}, explore4a: { words: W4A },
   puzzle4a: { cuts: C4A, items: I4A, words: W4B }, okamoto: { cuts: C4A, items: I4A, words: W4B },
@@ -335,6 +335,7 @@ async function sceneExplore4b() {
       },
       helmets: async () => {
         await say('', '헬멧 걸이. 하쿠요 로고 찍힌 노란 헬멧이 다섯. 그중 둘에 보일러실 그을음이 묻었다. 하나는 안쪽에 「무라세」, 하나엔 흰 「방문자」 스티커.');
+        await gainItem('helmet4');
         await say('rei', '(방문자용은 아무나 돌려 써. 누가 썼는지 안 남지.)', 'serious');
         tick();
       },
@@ -412,6 +413,7 @@ async function sceneConclusion4() {
   hide('murase');
   for (let i = 0; i < CONCLUSION4.length; i++) {
     const q = CONCLUSION4[i];
+    if (q.pre) { show('murase', q.pre[0][2] || 'smile', 'left'); await sayAll(q.pre); hide('murase'); }
     for (;;) {
       hideText();
       const c = await pickCut(`질문 ${i + 1}. ${q.q}`, '답이 될 물증이나 컷.', { cancel: false, only: q.choices, items: true });
@@ -424,7 +426,7 @@ async function sceneConclusion4() {
     }
   }
   show('murase', 'cornered', 'left');
-  await say('murase', '배전반은 제가 잘랐습니다. 그건 인정하죠. 나머진 위에 물어보시고요.', 'cornered');
+  await say('murase', '공정표대로 했을 뿐입니다. 나머진 위에 물어보시죠.', 'cornered');
   hide('murase');
   show('kurogane', 'normal', 'center');
   await say('kurogane', '무라세는 강력계가 데려간다. 상무는… 아직이다. 사진 한 장이 그 사람 편이야.');
