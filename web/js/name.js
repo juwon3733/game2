@@ -53,6 +53,13 @@ function runName({ title, sub = '', parts, threshold = 3, report = false, report
       root.querySelector('.name-box').appendChild(pop);
       const r = btn.getBoundingClientRect(), box = root.querySelector('.name-box').getBoundingClientRect(), k = box.width / root.querySelector('.name-box').offsetWidth;
       Object.assign(pop.style, { left: (r.left - box.left) / k + 'px', top: (r.bottom - box.top) / k + 6 + 'px' });
+      // 무대 밖으로 나가면(폰처럼 글자가 커졌을 때) 빈칸 위로 올리고, 그래도 넘치면 무대 안으로 당긴다
+      const st = $('#stage').getBoundingClientRect(), pr = pop.getBoundingClientRect();
+      if (pr.bottom > st.bottom - 4) {
+        const above = (r.top - box.top) / k - pop.offsetHeight - 6;
+        pop.style.top = Math.max(above, (st.top - box.top) / k + 8) + 'px';
+      }
+      if (pr.right > st.right - 4) pop.style.left = (st.right - box.left) / k - pop.offsetWidth - 12 + 'px';
       pop.querySelectorAll('[data-w]').forEach((b) => (b.onclick = (e) => { e.stopPropagation(); picks[i] = b.dataset.w; sfx('place'); render(); }));
     };
     const check = async () => {

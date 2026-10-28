@@ -1283,3 +1283,184 @@ body { word-break: keep-all; overflow-wrap: normal; }
 #modal .md-box { max-height: 690px; overflow-y: auto; }
 #modal .md-cancel, #modal .md-ok { position: sticky; bottom: 0; z-index: 3; }
 #modal.gallery .md-cancel, #modal.note .md-cancel { position: static; }
+
+/* =====================================================================
+   모바일 점검(10/29)
+   폰 가로 화면(높이 360~430px)에선 무대(1280×720)가 0.5~0.57배로 줄어든다.
+   실제 화면에서 글자 11px·단추 32px 이상이 되려면 무대 기준 글자 22px·단추 64px 정도가 필요하다.
+   ===================================================================== */
+
+/* 심문 단추 줄이 대사를 덮던 것: UI 스킨(대사창 테두리 그림)이 아래 여백을 0으로 덮어써서
+   단추가 대사 첫 줄 위에 얹혔다. 스킨이 있어도 단추 줄만큼 아래를 비운다 */
+#stage.skin-textbox #textbox:not(.narr):has(> #actions:not(.hidden)),
+#stage.skin-textbox_dark #textbox.narr:has(> #actions:not(.hidden)) { padding-bottom: 62px; }
+@media (pointer: coarse) {
+  #stage.skin-textbox #textbox:not(.narr):has(> #actions:not(.hidden)),
+  #stage.skin-textbox_dark #textbox.narr:has(> #actions:not(.hidden)) { padding-bottom: 86px; }
+  /* 손가락 화면의 심문: 대사창이 단추 줄만큼 높아지므로 증언 패널(오른쪽) 밑으로 들어가지 않게 왼쪽에만 둔다 */
+  #stage.in-trial #textbox { left: 24px; right: 556px; width: auto; transform: none; }
+  #stage.in-trial #textbox #actions { left: 12px; right: 12px; justify-content: flex-end; }
+  /* 설정 창의 키보드 안내는 손가락 화면에선 필요 없고 [닫기]와 겹쳤다 */
+  #modal.settings .set-help { display: none; }
+}
+
+@media (pointer: coarse) and (max-height: 540px) {
+  /* ---------- 위 단추·목표 ---------- */
+  #stage.skin-icons #hud .hud-btn, #hud .hud-btn, #hud .hud-btn.small, #hud #btn-note { width: 72px; height: 72px; }
+  #hud { gap: 10px; }
+  #goal { right: 520px; font-size: 23px; padding: 10px 16px; }
+  #goal b { margin-right: 8px; }
+  #stage.in-trial #goal { right: 400px; }
+
+  /* ---------- 대사창 ---------- */
+  #tb-text { font-size: calc(27px * var(--tb-scale, 1)); }
+  #textbox.tip #tb-text { font-size: calc(24px * var(--tb-scale, 1)); }
+  #tb-name, #stage.skin-name #tb-name { font-size: 24px; }
+  #tb-next { font-size: 24px; }
+  #textbox #actions .act-btn, #textbox #actions .act-btn.small { font-size: 23px; padding: 12px 16px; }
+  #textbox #actions .act-btn.objection { font-size: 24px; }
+  #textbox #actions { gap: 10px; }
+  #toast { font-size: 24px; }
+  .ch-prompt { font-size: 26px; }
+  .ch-btn { font-size: 27px; padding: 20px 26px; }
+
+  /* ---------- 컷 머리띠·[크게] ---------- */
+  .cutv-head { font-size: 22px; padding: 4px 8px; }
+  .cutv-head .cutv-zoom { font-size: 22px; padding: 6px 12px; min-height: 64px; min-width: 76px; }
+  .dist-tag { font-size: 22px; top: 50px; }
+  .cutv-cap { font-size: 22px; }
+  .cutv-desc { font-size: 22px; }
+
+  /* ---------- 심문 패널 ---------- */
+  .tr-panel .tr-label { font-size: 22px; }
+    .tr-mind { font-size: 22px; }
+  .tr-mind small { font-size: 22px; }
+  .tr-mind .ink-b { width: 18px; height: 26px; }
+
+  /* ---------- 현장 조사 ---------- */
+  #explore { width: 520px; right: 24px; }
+  .ex-head { font-size: 24px; }
+  .ex-focus { font-size: 22px; }
+  .ex-focus i { width: 14px; height: 20px; }
+  .ex-areas button { font-size: 23px; min-height: 64px; }
+  .ex-group { font-size: 22px; }
+  .ex-btn { font-size: 24px; padding: 12px 18px; min-height: 66px; }
+  .ex-read { width: 88px; font-size: 22px; }
+  .ex-row button { min-height: 66px; }
+  .ex-face { width: 48px; height: 48px; }
+  .ex-btn.haunt::after, .ex-row.haunt .ex-btn::after { font-size: 20px; }
+
+  /* ---------- 창(모달) 공통 ---------- */
+  .md-title { font-size: 34px; }
+  .md-sub { font-size: 23px; }
+  .md-empty { font-size: 23px; }
+  .md-ok, .md-cancel, #modal .md-ok, #modal .md-cancel { font-size: 24px; min-height: 66px; min-width: 132px; padding: 10px 28px; }
+  #modal .md-box { max-width: calc(100% - 40px); }
+  #modal.settings .md-box, #modal.slots .md-box, #modal.gallery .md-box, #modal.note .md-box, #modal.log .md-box { width: 1240px; }
+
+  /* 수첩 */
+  .nb-tabs button { font-size: 23px; min-height: 64px; padding: 8px 18px; }
+  .case-ch { font-size: 22px; }
+  .case-box h3 { font-size: 28px; }
+  .case-sum, .case-fact { font-size: 23px; }
+  .case-h { font-size: 22px; }
+  .nb-person b { font-size: 25px; }
+  .nb-person p { font-size: 22px; }
+  .nb-words .word-chip { font-size: 22px; }
+  /* 대사 기록 */
+  .log-row { font-size: 23px; grid-template-columns: 130px 1fr; }
+  .log-list { max-height: 520px; }
+  /* 저장·불러오기·장 선택 */
+  .slot { font-size: 24px; min-height: 72px; }
+  .slot small { font-size: 22px; }
+  /* 설정 */
+  .set-grid { font-size: 23px; grid-template-columns: 230px 1fr; gap: 14px 20px; }
+  .set-seg button { font-size: 22px; min-height: 64px; }
+  .set-grid input[type=range] { height: 52px; }
+  /* 설정: [닫기]를 제목 줄 오른쪽에 두어 창 안에 다 들어가게(스크롤·겹침 없이) */
+  #modal.settings .md-box { position: relative; }
+  #modal.settings .md-cancel { position: absolute; top: 18px; right: 30px; margin: 0; }
+  #modal.settings .set-grid { gap: 10px 20px; margin: 10px 0 0; }
+  .set-grid input[type=range]::-webkit-slider-thumb { width: 30px; height: 44px; margin-top: -20px; }
+  /* 갤러리 */
+  .gal-tabs button { font-size: 23px; min-height: 64px; padding: 8px 22px; }
+  .gal-list button, .gal-list .locked { font-size: 22px; min-height: 64px; }
+  .gal-grid { grid-template-columns: repeat(3, 1fr); }
+  .gal-cuts { grid-template-columns: repeat(4, 1fr); }
+  #modal.gallery .gal-body { max-height: 440px; }
+  .rec-row { font-size: 23px; grid-template-columns: 1fr 56px 200px 130px 130px; }
+  .rec-row i { font-size: 22px; }
+  .rec-time { font-size: 22px; }
+  .rec-foot { font-size: 23px; align-items: center; }
+  .rec-export { font-size: 22px; min-height: 64px; padding: 6px 16px; }
+  /* 원고 평가 */
+  .rank-head { font-size: 24px; }
+  .rank-rows { font-size: 23px; width: 380px; }
+  /* 대사 조각·짚기 */
+  #modal .md-lines .line-btn { font-size: 24px; min-height: 72px; }
+  #modal .md-lines .line-btn small { font-size: 22px; }
+  .spot-chips button { font-size: 22px; padding: 10px 14px; min-height: 56px; }
+  /* 크게 보기 */
+  .zoom-head { font-size: 26px; }
+  .zoom-head small { font-size: 22px; }
+  .zoom-cap { font-size: 23px; }
+  .zoom-box button { font-size: 24px; min-height: 66px; min-width: 140px; }
+
+  /* ---------- 컷 배열·시각표 ---------- */
+  .pz-num { font-size: 22px; }
+  .pz-slot, .pz-half, .pz-pagebreak, .tl-empty { font-size: 22px; }
+  .pz-pagebreak { height: 30px; }
+  .pz-say { font-size: 23px; }
+  .pz-bar .act-btn, .pz-bar .act-btn.small { font-size: 24px; min-height: 72px; }
+  .pz-tray h3 { font-size: 23px; }
+  .tl-corner, .tl-time, #puzzle.tl-wide .tl-time { font-size: 22px; }
+  .tl-who { font-size: 24px; }
+  /* 묶음 컷: 머리띠 글자는 제목만(머리띠 색이 시점), [크게]는 그림 귀퉁이의 큰 칸 */
+  .pz-tray .cutv-head { font-size: 22px; position: static; }
+  .pz-tray .cutv-head > span:first-child { display: none; }
+  .pz-tray .cutv-head .cutv-zoom, .tl-cell .cutv-head .cutv-zoom, .pz-slot .cutv-head .cutv-zoom, .md-grid .cutv-head .cutv-zoom {
+    position: absolute; right: 0; bottom: 0; z-index: 3; min-height: 0; min-width: 0; width: 72px; height: 64px; padding: 0;
+    font-size: 22px; display: flex; align-items: center; justify-content: center; border: 3px solid var(--ink); box-shadow: none; }
+  .pz-tray .cutv-head .cutv-zoom::before { font-size: 20px; }
+  .pz-slot .cutv-head .cutv-zoom, .tl-cell .cutv-head .cutv-zoom { width: 64px; height: 60px; font-size: 22px; }
+  .pz-slot .cutv-head > span:first-child, .tl-cell .cutv-head > span:first-child { display: none; }
+  /* 컷 고르기·수첩: [크게]는 그림 귀퉁이로, 컷이 많으면 머리띠엔 제목만 */
+  .md-grid .cutv-head { font-size: 22px; }
+  .md-grid.many .cutv-head { font-size: 20px; }
+  .md-grid.many .cutv-head > span:first-child { display: none; }
+  .md-grid.many .cutv-cap, .md-grid.many .cutv-desc { font-size: 20px; }
+  .cutv-whisper { font-size: 22px; }
+  .ch-btn { width: 920px; }
+  .pz-slot .cutv-head, .tl-cell .cutv-head { font-size: 22px; }
+
+  /* ---------- 네임 ---------- */
+  .name-head { font-size: 27px; }
+  .name-head small { font-size: 22px; }
+  .name-text { font-size: 28px; }
+  .name-blank { font-size: 25px; min-height: 66px; min-width: 120px; }
+  .name-say { font-size: 22px; }
+  .name-bar .act-btn { font-size: 24px; min-height: 68px; }
+  .name-pop { max-width: 760px; }
+  .name-pop-head { font-size: 22px; }
+  .name-pop button { font-size: 23px; min-height: 66px; min-width: 70px; padding: 8px 14px; }
+
+  /* ---------- 몽타주·만화·예고·엔딩 ---------- */
+  .mg-cap { font-size: 28px; }
+  .pv-head { font-size: 24px; }
+  .cr-roll h3 { font-size: 24px; }
+  .cr-roll p { font-size: 27px; }
+
+  /* ---------- 타이틀 ---------- */
+  .ts-btn small { font-size: 20px; }
+}
+
+/* 태블릿(손가락, 높이 541px 이상): 무대가 0.8배쯤이라 대부분 충분하고, 작은 [크게]·묶음 머리띠만 키운다 */
+@media (pointer: coarse) and (min-height: 541px) {
+  .cutv-head .cutv-zoom { min-height: 42px; min-width: 56px; font-size: 16px; }
+  .pz-tray .cutv-head { font-size: 15px; position: static; }
+  .pz-tray .cutv-head > span:first-child { display: none; }
+  .pz-tray .cutv-head .cutv-zoom, .tl-cell .cutv-head .cutv-zoom, .pz-slot .cutv-head .cutv-zoom {
+    position: absolute; right: 0; bottom: 0; z-index: 3; min-width: 0; min-height: 0; width: 56px; height: 44px; padding: 0;
+    font-size: 16px; display: flex; align-items: center; justify-content: center; border: 3px solid var(--ink); box-shadow: none; }
+  .tr-mind small { font-size: 14px; }
+}
