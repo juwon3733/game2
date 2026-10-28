@@ -1274,3 +1274,12 @@ body { word-break: keep-all; overflow-wrap: normal; }
 }
 /* 설정 창도 타이틀(z 90) 위에 뜨게 (지금은 타이틀에서 여는 단추가 없지만, 생기면 바로 보이도록) */
 #modal.settings { z-index: 95; }
+
+/* 닫기·확인 단추는 늘 창 오른쪽 아래 (왼쪽 구석에 붙어 있던 것 정리) */
+#modal .md-cancel, #modal .md-ok { display: block; margin: 14px 0 0 auto; }
+#modal.gain .md-ok { margin: 14px auto 0; }
+#modal.gallery .md-cancel, #modal.spot .md-cancel { align-self: flex-end; }
+/* 창이 무대(1280×720)를 넘지 않게: 넘치면 안쪽만 스크롤하고 닫기는 늘 보이게 */
+#modal .md-box { max-height: 690px; overflow-y: auto; }
+#modal .md-cancel, #modal .md-ok { position: sticky; bottom: 0; z-index: 3; }
+#modal.gallery .md-cancel, #modal.note .md-cancel { position: static; }
