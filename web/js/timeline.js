@@ -108,7 +108,7 @@ function runTimeline(id) {
           if (st.grid[r][t]) st.tray.push(st.grid[r][t]);
           st.grid[r][t] = want;
           st.locked.add(key(r, t));
-          msg = `토와: …${P.rows[r].who}, ${P.times[t]}은 「${CUTS[want].title}」. 고정해 뒀어.`;
+          msg = `토와: …${P.rows[r].who}, ${P.times[t] === '?' ? `${t + 1}번째 칸` : P.times[t]}은 「${CUTS[want].title}」. 고정해 뒀어.`;
           return render();
         }
         msg = '토와: 채운 칸은 다 맞아. 남은 걸 봐.';

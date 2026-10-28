@@ -47,8 +47,8 @@
 | 24 | `R7` | cuts/R7.png | 새로 | — | 흐린 시야, 부축하던 손이 떨어지고 순경의 등이 받아 올림(포인트 색) | 1인칭: 보는 사람은 손·발만 · 시계·손목시계 없음 |
 | 25 | `R8` | cuts/R8.png | 새로 | — | 어깨에 기대 멀어짐, 뒤돌아본 문 안 계단을 오르는 그림자와 순경 모자(포인트 색) | 1인칭: 보는 사람은 손·발만 · 시계·손목시계 없음 · 밤 |
 | 26 | `RF` | cuts/RF.png | 새로 | — | 국화를 내려놓는 오른손, 검지의 잉크 자국(크게), 다섯 겹, 마지막엔 언덕 위 카페 쪽으로 걸어감 | 밤 |
-| 27 | `t_self_3` | cuts/t_self_3.png | 새로 | portraits/rei_normal.png | 편집: 뛰쳐나감과 떨어지는 손이 붙은 이음매 | 16살로 |
-| 28 | `t_self_4` | cuts/t_self_4.png | 새로 | portraits/rei_normal.png | 불타는 도서관 앞에 혼자 선 레이 | 밤 · 16살로 |
+| 27 | `t_self_3` | cuts/t_self_3.png | 새로 | portraits/rei_normal.png<br>portraits/shiori_normal.png | 돌아선 레이의 등 너머, 고개 숙인 시오리 | 시계·손목시계 없음 · 밤 · 16살로 |
+| 28 | `t_self_4` | cuts/t_self_4.png | 새로 | portraits/rei_normal.png | 순경 등에 업혀 멀어지는 레이, 첫 단에 주저앉아 손 뻗는 교복 소매(포인트 색) | 시계·손목시계 없음 · 밤 · 16살로 |
 | 29 | `t_self_5` | cuts/t_self_5.png | 새로 | — | 여섯 장 겹친 8월 달력, 31일 칸만 하얗게 빔 | 사람 없음 |
 | 30 | `S1` | cuts/S1.png | 새로 | portraits/rei_normal.png | 읽어 주는 원고(포인트 색), 맞은편에서 그리는 레이 | 1인칭: 보는 사람은 손·발만 · 시계·손목시계 없음 · 밤 · 16살로 |
 | 31 | `S2` | cuts/S2.png | 새로 | portraits/rei_normal.png | 돌아선 레이의 등, 그어진 응모 서류(포인트 색) | 시계·손목시계 없음 · 16살로 |

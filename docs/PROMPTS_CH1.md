@@ -3159,23 +3159,23 @@ Scene: Night, a rusty wire fence on the tip of a cape: a right hand lays a bouqu
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 +  (#6b5fa8) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: Two manga panels joined: a 16-year-old with messy short black hair, an oversized hoodie and an ink stain on the right index finger running down stairs, and immediately next to it, a girl's hand falling away; a very thin seam line between the two panels.
+Scene: A library reading table at night, seen from behind the back of a 16-year-old with messy short black hair, an oversized hoodie and an ink stain on the right index finger, who stands turning away clutching a contest application form; across the table a 16-year-old girl with long straight black hair, blunt bangs, a bookmark hairpin and an old navy sailor uniform sits with her mouth closed and head bowed. No clock.
 ```
 
-> 기준 이미지로 붙일 것: web/assets/portraits/rei_normal.png
+> 기준 이미지로 붙일 것: web/assets/portraits/rei_normal.png, web/assets/portraits/shiori_normal.png
 
-> 꼭 보여야 할 것: 편집: 뛰쳐나감과 떨어지는 손이 붙은 이음매
+> 꼭 보여야 할 것: 돌아선 레이의 등 너머, 고개 숙인 시오리
 
 **`t_self_4.png`
 ```
 같은 도트 스타일, 같은 픽셀 크기, 같은 팔레트(회색 8단계 +  (#6b5fa8) 하나)로 다음 컷을 그려줘. 글자와 말풍선 없이, 중요한 물건은 크게, 가로 1536x1024.
 
-Scene: a 16-year-old with messy short black hair, an oversized hoodie and an ink stain on the right index finger standing alone in front of a burning lighthouse library at night, nobody else in sight.
+Scene: At the foot of a smoky library staircase at night: a 16-year-old with messy short black hair, an oversized hoodie and an ink stain on the right index finger, carried on a young police officer's back, moving away toward the open front door; on the first step a girl in a navy sailor uniform sits slumped, only her sleeve and reaching hand clearly visible (accent color on the sleeve), her face hidden in smoke. No clock.
 ```
 
 > 기준 이미지로 붙일 것: web/assets/portraits/rei_normal.png
 
-> 꼭 보여야 할 것: 불타는 도서관 앞에 혼자 선 레이
+> 꼭 보여야 할 것: 순경 등에 업혀 멀어지는 레이, 첫 단에 주저앉아 손 뻗는 교복 소매(포인트 색)
 
 **`t_self_5.png`
 ```
