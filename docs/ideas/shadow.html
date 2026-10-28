@@ -1,0 +1,778 @@
+<title>그림자 결투</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&family=IBM+Plex+Sans+KR:wght@400;700&display=swap">
+<style>
+/* 한 화면 전술 게임: 위 HUD 한 줄, 가운데 격자 캔버스, 아래 선택 정보·행동 버튼. 밤거리 한 가지 모습(다크 단일 테마). */
+:root{
+  --bg:#0c0b16; --panel:#16142a; --line:#2b2848; --ink:#ece8f6; --dim:#9a96ba;
+  --lamp:#ffd27a; --ally:#7aa8ff; --foe:#ff5a6a; --shadow:#000;
+  --f-disp:"DotGothic16","IBM Plex Sans KR",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans KR",system-ui,sans-serif;
+  color-scheme:dark;
+}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body)}
+[hidden]{display:none!important}
+.wrap{max-width:560px;margin:0 auto;padding-block:16px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:12px}
+header h1{font-family:var(--f-disp);font-size:28px;margin:0;text-wrap:balance}
+header .sub{color:var(--dim);margin:2px 0 0;font-size:13px}
+.hud{display:flex;flex-wrap:wrap;gap:4px 14px;font-family:var(--f-disp);font-size:14px;color:var(--dim);max-width:512px;width:100%;margin:0 auto}
+.hud b{color:var(--ink);font-weight:400}
+.stage{position:relative;width:100%;max-width:512px;margin:0 auto}
+canvas{display:block;width:100%;height:auto;aspect-ratio:256/320;image-rendering:pixelated;touch-action:manipulation;border:2px solid var(--line);background:#06050c;user-select:none;-webkit-user-select:none}
+.overlay{position:absolute;inset:0;overflow:auto;background:rgba(6,5,14,.9);display:flex;flex-direction:column;align-items:stretch;gap:10px;padding:16px}
+.overlay h2{font-family:var(--f-disp);font-size:26px;margin:0;color:var(--lamp);text-wrap:balance}
+.overlay p{margin:0;color:var(--dim);font-size:14px;line-height:1.55}
+.overlay .big{font-size:32px}
+.stlist{display:flex;flex-direction:column;gap:8px}
+.stlist button{text-align:left;display:flex;justify-content:space-between;gap:8px}
+.stlist small{color:var(--dim)}
+.pcs{display:grid;gap:8px}
+.pc{display:grid;grid-template-columns:40px 40px minmax(0,1fr);gap:8px;align-items:center;text-align:left;padding:8px}
+.pc img{width:40px;height:52px;image-rendering:pixelated;object-fit:contain}
+.pc .silimg{background:#8f8ab0}
+.pc .t{font-size:13px;line-height:1.45;color:var(--dim);min-width:0}
+.pc .t b{color:var(--ink);font-size:15px}
+.pc .t i{font-style:normal;color:var(--c)}
+.pc[aria-pressed="true"]{border-color:var(--c);background:#221f3c}
+.pc:disabled{opacity:.35}
+.panel{max-width:512px;width:100%;margin:0 auto;display:flex;flex-direction:column;gap:8px}
+.info{font-size:14px;line-height:1.55;min-height:3em}
+.info b{font-weight:700}
+.info .hp{font-family:var(--f-disp);letter-spacing:.1em}
+.info .muted{color:var(--dim)}
+.acts{display:flex;flex-wrap:wrap;gap:8px}
+.acts button{flex:1 1 auto}
+.tip{margin:0;font-size:13px;color:var(--lamp);line-height:1.5;min-height:1.5em}
+button{font:inherit;color:var(--ink);background:var(--panel);border:2px solid var(--line);padding:10px 12px;cursor:pointer;box-shadow:3px 3px 0 var(--shadow);touch-action:manipulation}
+button:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--shadow)}
+button:focus-visible{outline:2px solid var(--lamp);outline-offset:2px}
+button.primary{border-color:var(--lamp);color:var(--lamp)}
+button.danger{border-color:var(--foe);color:var(--foe)}
+button:disabled{opacity:.4;cursor:default;transform:none}
+.howto{border-top:2px solid var(--line);padding-top:10px}
+.howto h2{font-family:var(--f-disp);font-size:16px;margin:0 0 6px;color:var(--lamp)}
+.howto ol{margin:0;padding-left:20px;color:var(--dim);font-size:13px;line-height:1.7}
+.howto b{color:var(--ink)}
+@media (prefers-reduced-motion:reduce){button:active{transform:none}}
+</style>
+
+<main class="wrap">
+  <header>
+    <h1>그림자 결투</h1>
+    <p class="sub">프로토타입 · 본체는 다치지 않는다, 그림자만 싸운다 · 그림은 임시</p>
+  </header>
+  <div class="hud" id="hud"></div>
+  <div class="stage">
+    <canvas id="cv" width="256" height="320" aria-label="전장"></canvas>
+    <div id="ov" class="overlay"></div>
+  </div>
+  <div class="panel">
+    <div id="info" class="info"></div>
+    <div id="acts" class="acts"></div>
+    <p id="tip" class="tip"></p>
+  </div>
+  <section class="howto">
+    <h2>규칙</h2>
+    <ol>
+      <li>캐릭터는 빛 반대쪽으로 그림자를 드리웁니다. 빛이 멀수록, 키가 클수록 그림자가 깁니다.</li>
+      <li><b>본체는 다치지 않습니다.</b> 내 그림자와 적 그림자가 겹친 칸(금색)이 있으면 공격할 수 있고, 맞는 것도 그림자입니다.</li>
+      <li>그림자가 없으면(빛 바로 밑, 빛이 닿지 않는 어둠) 맞지도 않지만 때리지도 못합니다.</li>
+      <li>내 턴에 동료마다 <b>이동 또는 빛 다루기</b> 하나 + <b>공격</b> 한 번. 칸을 한 번 누르면 그 자리의 그림자가 미리 보이고, 한 번 더 누르면 이동합니다.</li>
+      <li>빛: 가로등은 옆 칸에서 켜고 끕니다. 하루카는 손전등 두 개의 방향을 돌립니다. 폭죽은 한 턴 동안 모든 그림자를 길게 늘입니다. 달은 턴마다 기울고 구름이 가리기도 합니다.</li>
+      <li>정해진 턴 안에 사냥꾼을 모두 쓰러뜨리세요. 넘기면 새벽이 와서 집니다.</li>
+    </ol>
+  </section>
+</main>
+
+<script>
+(() => {
+'use strict';
+const COLS = 8, ROWS = 10, CS = 32, W = COLS * CS, H = ROWS * CS;
+const K = '#141018';
+const DIRS8 = [[1,0],[1,1],[0,1],[-1,1],[-1,0],[-1,-1],[0,-1],[1,-1]];
+const ARROW = ['→','↘','↓','↙','←','↖','↑','↗'];
+const norm = ([x, y]) => { const d = Math.hypot(x, y) || 1; return [x / d, y / d]; };
+const key = (x, y) => x + ',' + y;
+const unkey = k => k.split(',').map(Number);
+const inb = (x, y) => x >= 0 && y >= 0 && x < COLS && y < ROWS;
+const cheb = (a, b) => Math.max(Math.abs(a.x - b.x), Math.abs(a.y - b.y));
+const srand = n => { const x = Math.sin(n * 12.9898 + 78.233) * 43758.5453; return x - Math.floor(x); };
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+const clampLen = v => Math.max(1, Math.min(6, Math.round(v)));
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const C = {
+  lili:   { name:'리리', role:'꽃집 소녀', sil:'reaper', silName:'사신', tall:1, hp:3, mv:3, dmg:1, col:'#f07aa6', long:false,
+            ability:'그림자 끝 칸이 겹치면 피해 3.', pal:{ h:'#f2a6c4', H:'#c96f93', e:'#6a3a8a', o:'#f4efe0', O:'#cfc6b0', a:'#7cc06a' } },
+  serena: { name:'세레나', role:'귀족 영애', sil:'dragon', silName:'용', tall:1.5, hp:4, mv:3, dmg:1, col:'#e0b84a', long:true,
+            ability:'그림자 폭이 3칸.', pal:{ h:'#f0d890', H:'#c4a050', e:'#3b6fd0', o:'#7a1f3a', O:'#521226', a:'#e0c060' } },
+  toby:   { name:'토비', role:'겁 많은 집사', sil:'knight', silName:'기사', tall:1, hp:5, mv:2, dmg:1, col:'#7aa8ff', long:false,
+            ability:'그림자가 겹친 아군이 맞으면 대신 맞아 준다(피해 -1).', pal:{ h:'#6a4a30', H:'#3e2a1a', e:'#4a8a5a', o:'#22222e', O:'#14141c', a:'#e8e8f0' } },
+  gen:    { name:'겐', role:'눈 가린 노검객', sil:null, silName:'없음', tall:1.5, hp:3, mv:4, dmg:0, col:'#a8c89a', long:false,
+            ability:'그림자가 없어 맞지도 때리지도 않는다. 적의 그림자를 밟고 서면 그 적을 2칸 안으로 옮긴다.', pal:{ h:'#d8d8d8', H:'#9a9a9a', e:'#6a6a6a', o:'#4a5a4a', O:'#2e3a2e', a:'#b0a070' } },
+  mira:   { name:'미라', role:'거울 마술사', sil:'witch', silName:'거울 마녀', tall:1.5, hp:3, mv:3, dmg:1, col:'#b48cff', long:true,
+            ability:'빛 하나에 그림자가 두 개(빛 쪽으로도 하나).', pal:{ h:'#9a7ae0', H:'#6a4ab0', e:'#e0a030', o:'#2a2050', O:'#181234', a:'#c0c8e8' } },
+  haruka: { name:'하루카', role:'등대지기', sil:'tall', silName:'등대지기', tall:2, hp:3, mv:3, dmg:1, col:'#ffd27a', long:true,
+            ability:'손전등 두 개를 든다. 빛 다루기로 방향을 돌린다.', pal:{ h:'#2a3a5a', H:'#16203a', e:'#e0b84a', o:'#c8b48a', O:'#9a8660', a:'#e04a4a' } },
+  hunter: { name:'그림자 사냥꾼', role:'적', sil:'hunter', silName:'사냥꾼', tall:1.5, hp:3, mv:3, dmg:1, col:'#ff5a6a', long:false,
+            ability:'가로등을 꺼서 빛을 빼앗는다.', pal:{ h:'#3a2a20', H:'#20160f', e:'#c03030', o:'#4a3a2a', O:'#2e2418', a:'#8a7a5a' } },
+  boss:   { name:'사냥꾼 대장 노크스', role:'적', sil:'boss', silName:'뿔 달린 사냥꾼', tall:2.5, hp:8, mv:2, dmg:2, col:'#ff3a5a', long:true,
+            ability:'키가 커서 그림자가 길다. 피해 2.', pal:{ h:'#e8e8e8', H:'#a0a0a0', e:'#ff3a3a', o:'#2a1a2a', O:'#160c16', a:'#c9a84a' } },
+};
+const ROSTER = ['lili','serena','toby','gen','mira','haruka'];
+
+const STAGES = [
+  { name:'골목', sub:'빛 하나, 적 하나', theme:'alley', limit:10, party:['lili','toby'], start:[[2,8],[5,8]],
+    enemies:[{ k:'hunter', x:4, y:2, hp:2 }], lamps:[[3,4]], moon:null, fireworks:0, obs:[[0,2],[7,5],[6,8],[1,5]],
+    intro:'본체는 절대 다치지 않는다. 싸우는 것도, 다치는 것도 그림자뿐. 가로등 하나로 사냥꾼 하나를 상대해 보자.' },
+  { name:'축제 거리', sub:'가로등 둘, 기우는 달', theme:'festival', limit:10, pick:3, start:[[1,8],[4,9],[6,8]],
+    enemies:[{ k:'hunter', x:1, y:1 },{ k:'hunter', x:6, y:1 }], lamps:[[2,4],[5,5]], moon:{ d:2 }, cloud:t => t % 4 === 3, fireworks:1, obs:[[3,2],[0,6],[7,3]],
+    intro:'달은 턴마다 45도씩 기운다. 모든 그림자가 함께 돈다. 빛이 둘이면 그림자가 엇갈린다.' },
+  { name:'지붕 위', sub:'달과 구름, 랜턴 든 사냥꾼', theme:'roof', limit:12, pick:3, start:[[2,9],[4,8],[6,9]],
+    enemies:[{ k:'hunter', x:1, y:0, lantern:1 },{ k:'hunter', x:4, y:1 },{ k:'hunter', x:6, y:0, lantern:1 }], lamps:[], moon:{ d:1 }, cloud:t => [2,3,6,7,10].includes(t), fireworks:2, obs:[[2,4],[5,4],[3,6]],
+    intro:'구름이 달을 가리면 그림자가 사라진다. 랜턴을 든 사냥꾼 곁에선 우리 그림자가 생긴다. 폭죽 두 발.' },
+  { name:'기차역', sub:'가로등 셋, 빛을 끄는 적', theme:'station', limit:12, pick:3, start:[[1,9],[3,9],[6,9]],
+    enemies:[{ k:'hunter', x:1, y:1, lantern:1 },{ k:'hunter', x:4, y:0 },{ k:'hunter', x:6, y:2, lantern:1 }], lamps:[[1,4],[4,3],[6,6]], moon:{ d:3 }, cloud:t => t % 3 === 0, fireworks:1, obs:[[0,7],[2,6],[5,8],[7,4]],
+    intro:'사냥꾼은 가로등을 꺼서 빛을 빼앗는다. 꺼진 가로등은 옆 칸에서 다시 켤 수 있다.' },
+  { name:'등대', sub:'1:1 결투', theme:'light', limit:14, pick:1, duel:true, start:[[4,8]],
+    enemies:[{ k:'boss', x:4, y:2, lantern:1 }], lamps:[[1,6]], moon:null, beam:{ x:7, y:0, d:3 }, fireworks:1, obs:[[0,0],[6,7]],
+    intro:'등대 불빛이 턴마다 돈다. 사냥꾼 대장 노크스와 단둘. 동료 하나를 고르자.' },
+];
+
+// ---------- 그림 (임시 도트) ----------
+const TPL = [
+  '...kkkkkk...','..khhhhhhk..','.khhhhhhhhk.','.khHhhhhHhk.',
+  'khhsssssshhk','khsewssewshk','khseesseeshk','khssssssssHk',
+  '.kHksssssH..','..koaooaok..','.kooaooaook.','ksoooooooosk',
+  'ksOooooooOsk','.kOOOaaOOOk.','..kok..kok..','..kkk..kkk..',
+];
+function makeSprite(pal, long) {
+  const rows = TPL.map(r => r.split(''));
+  if (long) for (let y = 7; y <= 12; y++) { rows[y][0] = 'H'; rows[y][11] = 'H'; }
+  const c = document.createElement('canvas'); c.width = 12; c.height = 16;
+  const g = c.getContext('2d');
+  const P = Object.assign({ k:K, s:'#f6d5c0', w:'#ffffff' }, pal);
+  rows.forEach((r, y) => r.forEach((ch, x) => { if (ch !== '.') { g.fillStyle = P[ch]; g.fillRect(x, y, 1, 1); } }));
+  return c;
+}
+const SPR = {}; for (const k in C) SPR[k] = makeSprite(C[k].pal, C[k].long);
+
+function silCanvas(w, h, draw) {
+  const c = document.createElement('canvas'); c.width = w; c.height = h;
+  const g = c.getContext('2d'); g.fillStyle = '#000'; draw(g);
+  const im = g.getImageData(0, 0, w, h);
+  for (let i = 3; i < im.data.length; i += 4) im.data[i] = im.data[i] > 110 ? 255 : 0;
+  g.putImageData(im, 0, 0);
+  return c;
+}
+const poly = (g, p) => { g.beginPath(); g.moveTo(p[0], p[1]); for (let i = 2; i < p.length; i += 2) g.lineTo(p[i], p[i + 1]); g.closePath(); g.fill(); };
+const ell = (g, x, y, rx, ry) => { g.beginPath(); g.ellipse(x, y, rx, ry || rx, 0, 0, Math.PI * 2); g.fill(); };
+const SIL = {
+  reaper: silCanvas(28, 48, g => { ell(g, 13, 9, 5, 6); poly(g, [7,12, 19,12, 24,47, 2,47]); poly(g, [21,47, 23,47, 25,3, 23,3]); poly(g, [25,2, 10,3, 2,11, 7,10, 12,7, 25,6]); }),
+  dragon: silCanvas(56, 48, g => { ell(g, 28, 28, 7, 13); poly(g, [25,17, 31,17, 30,7, 26,7]); ell(g, 28, 6, 4, 4); poly(g, [25,4, 21,0, 26,2]); poly(g, [31,4, 35,0, 30,2]);
+    poly(g, [22,20, 2,4, 7,15, 1,23, 10,21, 4,31, 22,32]); poly(g, [34,20, 54,4, 49,15, 55,23, 46,21, 52,31, 34,32]); poly(g, [25,38, 31,38, 37,47, 33,47]); }),
+  knight: silCanvas(28, 48, g => { g.fillRect(9, 4, 10, 9); poly(g, [14,4, 20,0, 22,2, 16,6]); g.fillRect(6, 13, 16, 21); g.fillRect(7, 34, 6, 13); g.fillRect(15, 34, 6, 13); g.fillRect(23, 0, 3, 30); g.fillRect(19, 24, 9, 3); ell(g, 5, 24, 5, 8); }),
+  witch: silCanvas(28, 48, g => { poly(g, [1,11, 27,11, 17,7, 14,0, 11,7]); ell(g, 14, 14, 4, 4); poly(g, [8,13, 20,13, 23,34, 5,34]); poly(g, [9,19, 19,19, 26,47, 2,47]); ell(g, 24, 22, 3, 4); g.fillRect(23, 25, 1, 6); }),
+  tall: silCanvas(28, 48, g => { ell(g, 14, 6, 4, 5); poly(g, [9,8, 19,8, 21,28, 7,28]); poly(g, [8,11, 20,11, 23,47, 5,47]); g.fillRect(3, 14, 3, 13); g.fillRect(22, 14, 3, 13); g.fillRect(1, 11, 5, 4); g.fillRect(22, 11, 5, 4); }),
+  hunter: silCanvas(28, 48, g => { poly(g, [1,9, 27,9, 19,6, 18,0, 10,0, 9,6]); ell(g, 14, 12, 4, 4); poly(g, [7,14, 21,14, 24,47, 4,47]); poly(g, [3,30, 5,30, 12,2, 10,2]); g.fillRect(22, 27, 5, 7); g.fillRect(24, 24, 1, 3); }),
+  boss: silCanvas(44, 56, g => { g.fillRect(14, 2, 2, 10); g.fillRect(10, 2, 6, 2); g.fillRect(8, 0, 2, 4); g.fillRect(28, 2, 2, 10); g.fillRect(28, 2, 6, 2); g.fillRect(34, 0, 2, 4);
+    ell(g, 22, 14, 6, 6); poly(g, [12,18, 32,18, 40,55, 4,55]); poly(g, [36,55, 38,55, 42,6, 40,6]); poly(g, [42,6, 30,8, 24,16, 30,14, 42,10]); g.fillRect(2, 30, 6, 8); }),
+};
+function tint(c, col) {
+  const t = document.createElement('canvas'); t.width = c.width; t.height = c.height;
+  const g = t.getContext('2d'); g.drawImage(c, 0, 0);
+  g.globalCompositeOperation = 'source-in'; g.fillStyle = col; g.fillRect(0, 0, t.width, t.height);
+  return t;
+}
+const SILT = {};
+for (const n in SIL) SILT[n] = { k:tint(SIL[n], '#05030b'), p:tint(SIL[n], '#5a7cff'), e:tint(SIL[n], '#ff4a5a') };
+
+const THEMES = {
+  alley:   { base:'#262636', stone:'#30304a', gap:'#1c1c2a', obs:'crate' },
+  festival:{ base:'#33242a', stone:'#432e34', gap:'#24181e', obs:'crate' },
+  roof:    { base:'#252c3c', stone:'#303a50', gap:'#1a2030', obs:'chimney' },
+  station: { base:'#29292e', stone:'#34343c', gap:'#1e1e22', obs:'pillar' },
+  light:   { base:'#222c36', stone:'#2c3a46', gap:'#182028', obs:'rock' },
+};
+const BG = {};
+for (const t in THEMES) {
+  const T = THEMES[t], c = document.createElement('canvas'); c.width = W; c.height = H;
+  const g = c.getContext('2d');
+  g.fillStyle = T.base; g.fillRect(0, 0, W, H);
+  for (let y = 0; y < H; y += 16) for (let x = ((y / 16) % 2) * 8 - 8; x < W; x += 16) {
+    g.fillStyle = T.stone; g.fillRect(x + 1, y + 1, 14, 14);
+    g.fillStyle = T.gap; g.fillRect(x, y, 16, 1); g.fillRect(x, y, 1, 16);
+  }
+  for (let i = 0; i < 500; i++) { g.fillStyle = srand(i + t.length) > .5 ? T.gap : T.base; g.fillRect(Math.floor(srand(i * 3 + t.length) * W), Math.floor(srand(i * 7 + 11) * H), 1, 1); }
+  if (t === 'festival') for (let x = 0; x < W; x += 12) { g.fillStyle = x % 24 ? '#e04a4a' : '#ffd27a'; g.fillRect(x + 4, 3 + Math.round(Math.sin(x / 20) * 2), 3, 4); }
+  if (t === 'roof') { g.fillStyle = '#1a2030'; for (let y = 6; y < H; y += 12) g.fillRect(0, y, W, 1); }
+  if (t === 'station') { g.fillStyle = '#5a5a64'; for (const x of [204, 228]) g.fillRect(x, 0, 2, H); g.fillStyle = '#3a3026'; for (let y = 4; y < H; y += 10) g.fillRect(198, y, 36, 3); }
+  if (t === 'light') { g.fillStyle = '#16304a'; for (let y = 0; y < H; y += 2) for (let x = (y / 2) % 2; x < 40; x += 2) if (srand(x * 13 + y) < 0.5 - x / 90) g.fillRect(W - 1 - x, y, 1, 1); }
+  g.fillStyle = 'rgba(0,0,0,.18)';
+  for (let x = 0; x <= W; x += CS) g.fillRect(x, 0, 1, H);
+  for (let y = 0; y <= H; y += CS) g.fillRect(0, y, W, 1);
+  BG[t] = c;
+}
+
+// ---------- 규칙 ----------
+let G = null;
+let uid = 1;
+const unitAt = (x, y) => G.units.find(u => u.alive && u.x === x && u.y === y);
+function lightsOf() {
+  const P = [], cones = [];
+  for (const l of G.lamps) if (l.on) P.push({ x:l.x, y:l.y, h:1.2, r:4.5 });
+  for (const u of G.units) if (u.alive && u.lantern) P.push({ x:u.x, y:u.y, h:1.1, r:3, owner:u });
+  if (G.fire) P.push({ x:G.fire.x, y:G.fire.y, h:0.7, r:7 });
+  for (const u of G.units) if (u.alive && u.flash) for (const d of u.flash) cones.push({ x:u.x, y:u.y, d, r:5, h:0.9, owner:u });
+  if (G.beam) cones.push({ x:G.beam.x, y:G.beam.y, d:G.beam.d, r:10, h:1 });
+  return { P, cones };
+}
+const CONE = Math.cos(50 * Math.PI / 180);
+function moonVec() { return G.moon && !G.cloud ? norm(DIRS8[G.moon.d]) : null; }
+function computeShadows() {
+  const { P, cones } = lightsOf(), mv = moonVec(), res = new Map();
+  for (const u of G.units) {
+    if (!u.alive) continue;
+    const c = C[u.k], s = { cells:new Set(), ends:new Set(), rays:[] };
+    res.set(u.id, s);
+    if (u.k === 'gen') continue;
+    const rays = [];
+    for (const L of P) {
+      if (L.owner === u) continue;
+      const dx = u.x - L.x, dy = u.y - L.y, d = Math.hypot(dx, dy);
+      if (d < 0.5 || d > L.r) continue;
+      rays.push([dx / d, dy / d, clampLen(c.tall * d / L.h)]);
+    }
+    for (const L of cones) {
+      if (L.owner === u) continue;
+      const dx = u.x - L.x, dy = u.y - L.y, d = Math.hypot(dx, dy);
+      if (d < 0.5 || d > L.r) continue;
+      const [fx, fy] = norm(DIRS8[L.d]);
+      if ((dx * fx + dy * fy) / d < CONE) continue;
+      rays.push([dx / d, dy / d, clampLen(c.tall * d / L.h)]);
+    }
+    if (mv) rays.push([mv[0], mv[1], clampLen(c.tall * 2)]);
+    if (u.k === 'mira') for (const r of rays.slice()) rays.push([-r[0], -r[1], r[2]]);
+    for (const [dx, dy, len] of rays) {
+      const cells = [];
+      for (let k = 1; k <= len; k++) {
+        const cx = Math.round(u.x + dx * k), cy = Math.round(u.y + dy * k);
+        if (!inb(cx, cy)) break;
+        cells.push([cx, cy]);
+      }
+      if (!cells.length) continue;
+      for (const [cx, cy] of cells) {
+        s.cells.add(key(cx, cy));
+        if (u.k === 'serena') for (const sg of [1, -1]) {
+          const px = Math.round(cx - dy * sg), py = Math.round(cy + dx * sg);
+          if (inb(px, py)) s.cells.add(key(px, py));
+        }
+      }
+      const e = cells[cells.length - 1];
+      s.ends.add(key(e[0], e[1]));
+      s.rays.push({ dx, dy, len:cells.length });
+    }
+  }
+  return res;
+}
+function overlap(a, b) { const out = []; if (!a || !b) return out; for (const k of a.cells) if (b.cells.has(k)) out.push(k); return out; }
+function attackInfo(sh, a, b) {
+  if (!a.alive || !b.alive || a.side === b.side || a.k === 'gen') return null;
+  const ov = overlap(sh.get(a.id), sh.get(b.id));
+  if (!ov.length) return null;
+  let dmg = C[a.k].dmg || 1;
+  if (a.k === 'lili' && ov.some(k => sh.get(a.id).ends.has(k))) dmg = 3;
+  return { dmg, ov };
+}
+function targetsFor(u, sh) { return G.units.filter(v => attackInfo(sh, u, v)); }
+function dealDamage(sh, a, b, dmg) {
+  let target = b, d = dmg, note = '';
+  if (b.side === 'p' && b.k !== 'toby') {
+    const t = G.units.find(u => u.alive && u.k === 'toby');
+    if (t && overlap(sh.get(b.id), sh.get(t.id)).length) { target = t; d = Math.max(1, dmg - 1); note = '토비가 대신 막았다'; }
+  }
+  target.hp -= d;
+  if (target.hp <= 0) { target.hp = 0; target.alive = false; }
+  return { target, d, note };
+}
+function reach(u, range) {
+  const out = new Map(), q = [[u.x, u.y, 0]], seen = new Set([key(u.x, u.y)]);
+  while (q.length) {
+    const [x, y, d] = q.shift();
+    if (d >= range) continue;
+    for (const [dx, dy] of [[1,0],[-1,0],[0,1],[0,-1]]) {
+      const nx = x + dx, ny = y + dy, k = key(nx, ny);
+      if (!inb(nx, ny) || seen.has(k) || G.obs.has(k)) continue;
+      seen.add(k);
+      if (unitAt(nx, ny)) continue;
+      out.set(k, d + 1); q.push([nx, ny, d + 1]);
+    }
+  }
+  return out;
+}
+
+// ---------- 진행 ----------
+let mode = 'idle', sel = null, pend = null, aimIdx = 0, inspect = null, ctrl = null, busy = false, cut = null, lastParty = null;
+let cleared = [];
+try { cleared = JSON.parse(localStorage.getItem('shadow-duel-v1') || '[]'); } catch (e) {}
+function saveCleared() { try { localStorage.setItem('shadow-duel-v1', JSON.stringify(cleared)); } catch (e) {} }
+
+function addUnit(k, side, x, y, o = {}) {
+  const u = { id:uid++, k, side, x, y, hp:o.hp || C[k].hp, max:o.hp || C[k].hp, alive:true, acted:false, attacked:false, done:false,
+    lantern:!!o.lantern, flash:k === 'haruka' ? [6, 7] : null };
+  G.units.push(u);
+}
+function startStage(i, party) {
+  const st = STAGES[i];
+  lastParty = party;
+  G = { si:i, st, units:[], lamps:st.lamps.map(([x, y]) => ({ x, y, on:true })), obs:new Set(st.obs.map(([x, y]) => key(x, y))),
+    moon:st.moon ? { d:st.moon.d } : null, cloud:false, fire:null, fireworks:st.fireworks, beam:st.beam ? { ...st.beam } : null,
+    turn:1, over:false, fx:[] };
+  if (G.beam) G.obs.add(key(G.beam.x, G.beam.y));
+  party.forEach((k, j) => addUnit(k, 'p', st.start[j][0], st.start[j][1]));
+  st.enemies.forEach(e => addUnit(e.k, 'e', e.x, e.y, e));
+  G.cloud = st.cloud ? st.cloud(1) : false;
+  mode = 'idle'; sel = null; pend = null; inspect = null; ctrl = null; busy = false;
+  hideOverlay(); refresh();
+}
+function addFx(x, y, txt, col) { G.fx.push({ x:x * CS + 16, y:y * CS + 6, txt, col, t:50 }); }
+function select(u) { sel = u; pend = null; inspect = null; mode = 'sel'; refresh(); }
+function finishUnit(u) {
+  u.done = true; if (sel === u) { sel = null; mode = 'idle'; } pend = null; refresh();
+  if (G.units.filter(v => v.side === 'p' && v.alive).every(v => v.done)) enemyPhase();
+}
+function afterAct() {
+  pend = null;
+  const sh = computeShadows();
+  if (sel.attacked || !targetsFor(sel, sh).length) finishUnit(sel);
+  else { mode = 'sel'; refresh(); }
+}
+function confirmMove() {
+  sel.x = pend.x; sel.y = pend.y; pend = null; sel.acted = true;
+  if (sel.k === 'gen') {
+    const sh = computeShadows();
+    const e = G.units.find(v => v.side === 'e' && v.alive && sh.get(v.id).cells.has(key(sel.x, sel.y)));
+    if (e) {
+      ctrl = { e, cells:reach(e, 2) };
+      mode = 'control'; addFx(e.x, e.y, '그림자를 밟혔다', '#a8c89a'); refresh(); return;
+    }
+  }
+  afterAct();
+}
+function lightOpts(u) {
+  const o = [];
+  for (const l of G.lamps) if (cheb(l, u) <= 1) o.push({ label:l.on ? '가로등 끄기' : '가로등 켜기', fn:() => { l.on = !l.on; u.acted = true; addFx(l.x, l.y, l.on ? '켰다' : '껐다', '#ffd27a'); afterAct(); } });
+  if (u.flash) u.flash.forEach((d, i) => o.push({ label:`손전등 ${i + 1} 돌리기`, fn:() => { aimIdx = i; mode = 'aim'; refresh(); } }));
+  if (G.fireworks > 0) o.push({ label:`폭죽 쏘기 (${G.fireworks})`, fn:() => { mode = 'fire'; refresh(); } });
+  return o;
+}
+function nearestDir(dx, dy) {
+  let best = 0, bv = -2; const [nx, ny] = norm([dx, dy]);
+  DIRS8.forEach((d, i) => { const [a, b] = norm(d); const v = a * nx + b * ny; if (v > bv) { bv = v; best = i; } });
+  return best;
+}
+async function doAttack(a, b, info, sh) {
+  const res = dealDamage(sh, a, b, info.dmg);
+  await playCut(a, res.target, res.d, res.note);
+  addFx(res.target.x, res.target.y, '-' + res.d, a.side === 'p' ? '#ffd27a' : '#ff5a6a');
+  if (!res.target.alive) addFx(res.target.x, res.target.y + 0.5, '그림자가 찢겼다', '#ffffff');
+}
+async function playerAttack(t) {
+  const sh = computeShadows(), info = attackInfo(sh, sel, t);
+  if (!info) return;
+  busy = true; refresh();
+  const a = sel;
+  await doAttack(a, t, info, sh);
+  a.attacked = true; busy = false;
+  if (checkEnd()) return;
+  if (a.acted || !a.alive) finishUnit(a); else { mode = 'sel'; refresh(); }
+}
+function checkEnd() {
+  if (G.over) return true;
+  if (!G.units.some(u => u.side === 'e' && u.alive)) { win(); return true; }
+  if (!G.units.some(u => u.side === 'p' && u.alive && u.k !== 'gen')) { lose('우리 그림자가 모두 찢겼다.'); return true; }
+  return false;
+}
+function scoreE(e) {
+  const sh = computeShadows(); let atk = 0, danger = 0, near = 99;
+  for (const p of G.units) {
+    if (p.side !== 'p' || !p.alive) continue;
+    const i = attackInfo(sh, e, p); if (i) atk = Math.max(atk, i.dmg + (p.hp <= i.dmg ? 2 : 0));
+    const j = attackInfo(sh, p, e); if (j) danger += j.dmg;
+    if (p.k !== 'gen') near = Math.min(near, Math.abs(p.x - e.x) + Math.abs(p.y - e.y));
+  }
+  return atk * 3 - danger * 1.2 - near * 0.15;
+}
+function chooseEnemy(e) {
+  const opts = [{ type:'stay' }];
+  for (const k of reach(e, C[e.k].mv).keys()) opts.push({ type:'move', k });
+  for (const l of G.lamps) if (cheb(l, e) <= 1) opts.push({ type:'lamp', l });
+  let best = opts[0], bs = -1e9; const ox = e.x, oy = e.y;
+  opts.forEach((o, n) => {
+    if (o.type === 'move') [e.x, e.y] = unkey(o.k); else if (o.type === 'lamp') o.l.on = !o.l.on;
+    const sc = scoreE(e) + srand(e.id * 31 + G.turn * 7 + n) * 0.05;
+    if (o.type === 'move') { e.x = ox; e.y = oy; } else if (o.type === 'lamp') o.l.on = !o.l.on;
+    if (sc > bs) { bs = sc; best = o; }
+  });
+  return best;
+}
+async function enemyPhase() {
+  if (G.over) return;
+  busy = true; mode = 'idle'; sel = null; pend = null; refresh();
+  setTip('사냥꾼들이 움직인다…');
+  await sleep(400);
+  for (const e of G.units.filter(u => u.side === 'e')) {
+    if (!e.alive || G.over) continue;
+    const best = chooseEnemy(e);
+    if (best.type === 'move') { [e.x, e.y] = unkey(best.k); await sleep(320); }
+    else if (best.type === 'lamp') { best.l.on = !best.l.on; addFx(best.l.x, best.l.y, best.l.on ? '켰다' : '껐다', '#ff5a6a'); await sleep(420); }
+    const sh = computeShadows(); let tgt = null, ti = null, tv = -1;
+    for (const p of G.units) if (p.side === 'p' && p.alive) { const i = attackInfo(sh, e, p); if (i) { const v = i.dmg * 10 - p.hp; if (v > tv) { tv = v; tgt = p; ti = i; } } }
+    if (tgt) { await doAttack(e, tgt, ti, sh); if (checkEnd()) { busy = false; return; } }
+    await sleep(150);
+  }
+  endRound();
+  busy = false; refresh();
+}
+function endRound() {
+  G.fire = null; G.turn++;
+  if (G.moon) G.moon.d = (G.moon.d + 1) % 8;
+  if (G.beam) G.beam.d = (G.beam.d + 1) % 8;
+  G.cloud = G.st.cloud ? G.st.cloud(G.turn) : false;
+  for (const u of G.units) { u.acted = false; u.attacked = false; u.done = false; }
+  if (G.turn > G.st.limit) lose('새벽이 왔다. 그림자가 모두 사라졌다.');
+}
+function endTurn() { if (busy || G.over) return; for (const u of G.units) if (u.side === 'p') u.done = true; enemyPhase(); }
+
+// ---------- 컷인 ----------
+function playCut(a, b, dmg, note) {
+  return new Promise(res => { cut = { a, b, dmg, note, t:0, res, max:reduceMotion ? 40 : 62 }; });
+}
+
+// ---------- 그리기 ----------
+const cv = document.getElementById('cv');
+const ctx = cv.getContext('2d');
+ctx.imageSmoothingEnabled = false;
+let frame = 0;
+function txt(s, x, y, col, size = 10, align = 'center') {
+  ctx.font = `${size}px "DotGothic16","IBM Plex Sans KR",sans-serif`;
+  ctx.textAlign = align; ctx.textBaseline = 'alphabetic';
+  ctx.fillStyle = '#000'; ctx.fillText(s, x + 1, y + 1);
+  ctx.fillStyle = col; ctx.fillText(s, x, y);
+}
+function cellRect(k, col, inset = 0) { const [x, y] = unkey(k); ctx.fillStyle = col; ctx.fillRect(x * CS + inset, y * CS + inset, CS - inset * 2, CS - inset * 2); }
+function cellBox(x, y, col, w = 2) {
+  ctx.fillStyle = col; const X = x * CS, Y = y * CS;
+  ctx.fillRect(X, Y, CS, w); ctx.fillRect(X, Y + CS - w, CS, w); ctx.fillRect(X, Y, w, CS); ctx.fillRect(X + CS - w, Y, w, CS);
+}
+function drawObstacle(x, y, kind) {
+  const X = x * CS, Y = y * CS;
+  if (kind === 'crate') { ctx.fillStyle = K; ctx.fillRect(X + 3, Y + 5, 26, 25); ctx.fillStyle = '#7a5434'; ctx.fillRect(X + 4, Y + 6, 24, 23); ctx.fillStyle = '#5a3a22'; ctx.fillRect(X + 4, Y + 16, 24, 2); ctx.fillRect(X + 15, Y + 6, 2, 23); }
+  else if (kind === 'chimney') { ctx.fillStyle = K; ctx.fillRect(X + 7, Y + 1, 18, 30); ctx.fillStyle = '#8a3a2a'; ctx.fillRect(X + 8, Y + 2, 16, 28); ctx.fillStyle = '#5a2418'; for (let r = 0; r < 7; r++) ctx.fillRect(X + 8, Y + 5 + r * 4, 16, 1); ctx.fillStyle = '#3a3a3a'; ctx.fillRect(X + 6, Y + 1, 20, 3); }
+  else if (kind === 'pillar') { ctx.fillStyle = K; ctx.fillRect(X + 9, Y, 14, CS); ctx.fillStyle = '#6a6a74'; ctx.fillRect(X + 10, Y, 12, CS); ctx.fillStyle = '#8a8a96'; ctx.fillRect(X + 11, Y, 3, CS); }
+  else { ctx.fillStyle = K; ctx.fillRect(X + 3, Y + 9, 26, 20); ctx.fillStyle = '#4a5260'; ctx.fillRect(X + 4, Y + 10, 24, 18); ctx.fillStyle = '#5e6878'; ctx.fillRect(X + 6, Y + 11, 12, 5); }
+}
+function drawLamp(l) {
+  const X = l.x * CS, Y = l.y * CS;
+  ctx.fillStyle = K; ctx.fillRect(X + 14, Y + 2, 4, 30);
+  ctx.fillStyle = '#4a4a56'; ctx.fillRect(X + 15, Y + 4, 2, 28);
+  ctx.fillStyle = K; ctx.fillRect(X + 10, Y, 12, 6);
+  ctx.fillStyle = l.on ? '#ffe08a' : '#555560'; ctx.fillRect(X + 11, Y + 1, 10, 4);
+  if (l.on && (frame >> 4) % 2) { ctx.fillStyle = '#fff6c8'; ctx.fillRect(X + 13, Y + 2, 6, 2); }
+}
+function drawLighthouse(b) {
+  const X = b.x * CS, Y = b.y * CS;
+  ctx.fillStyle = K; ctx.fillRect(X + 8, Y + 2, 16, 30);
+  for (let r = 0; r < 5; r++) { ctx.fillStyle = r % 2 ? '#d8d8e0' : '#c03838'; ctx.fillRect(X + 9, Y + 8 + r * 5, 14, 5); }
+  ctx.fillStyle = '#ffe08a'; ctx.fillRect(X + 10, Y + 3, 12, 5);
+}
+function drawUnit(u, ghost) {
+  const X = u.x * CS + 4, Y = u.y * CS;
+  ctx.globalAlpha = ghost ? 0.35 : (u.side === 'p' && u.done && !G.over ? 0.6 : 1);
+  ctx.fillStyle = 'rgba(0,0,0,.4)'; ctx.fillRect(X + 5, Y + 29, 14, 3);
+  ctx.drawImage(SPR[u.k], X, Y, 24, 32);
+  if (u.k === 'gen') { ctx.fillStyle = '#e8e2d0'; ctx.fillRect(X + 1, Y + 10, 22, 4); ctx.fillStyle = '#c8c0a8'; ctx.fillRect(X + 20, Y + 13, 3, 5); }
+  if (u.k === 'hunter' || u.k === 'boss') { ctx.fillStyle = K; ctx.fillRect(X - 1, Y + 3, 26, 3); ctx.fillRect(X + 6, Y - 3, 12, 7); ctx.fillStyle = '#3a2a1e'; ctx.fillRect(X, Y + 4, 24, 1); ctx.fillRect(X + 7, Y - 2, 10, 5); }
+  if (u.k === 'boss') { ctx.fillStyle = '#d8d0c0'; ctx.fillRect(X + 4, Y - 7, 2, 5); ctx.fillRect(X + 2, Y - 7, 4, 1); ctx.fillRect(X + 18, Y - 7, 2, 5); ctx.fillRect(X + 18, Y - 7, 4, 1); }
+  if (u.lantern) { ctx.fillStyle = K; ctx.fillRect(X + 21, Y + 16, 6, 8); ctx.fillStyle = (frame >> 3) % 2 ? '#ffd27a' : '#ffb04a'; ctx.fillRect(X + 22, Y + 17, 4, 6); }
+  if (u.k === 'lili') { ctx.fillStyle = '#e04a6a'; ctx.fillRect(X + 3, Y + 2, 3, 3); ctx.fillStyle = '#ffd27a'; ctx.fillRect(X + 4, Y + 3, 1, 1); }
+  if (u.k === 'serena') { ctx.fillStyle = '#e0c060'; ctx.fillRect(X + 9, Y - 1, 6, 2); }
+  if (u.k === 'mira') { ctx.fillStyle = '#c0c8e8'; ctx.fillRect(X + 22, Y + 18, 4, 5); ctx.fillStyle = '#ffffff'; ctx.fillRect(X + 23, Y + 19, 1, 2); }
+  if (u.k === 'haruka') { ctx.fillStyle = '#ffd27a'; ctx.fillRect(X - 3, Y + 18, 4, 3); ctx.fillRect(X + 23, Y + 18, 4, 3); }
+  ctx.globalAlpha = 1;
+  if (ghost) return;
+  for (let i = 0; i < u.max; i++) { ctx.fillStyle = i < u.hp ? (u.side === 'p' ? '#7aa8ff' : '#ff5a6a') : '#2a2840'; ctx.fillRect(u.x * CS + 16 - u.max * 2 + i * 4, u.y * CS + 33 - 4, 3, 2); }
+  if (u.side === 'e') { ctx.fillStyle = '#ff5a6a'; ctx.fillRect(u.x * CS + 1, u.y * CS + 1, 4, 4); }
+}
+function drawSilhouette(u, ray, side) {
+  const s = C[u.k].sil; if (!s) return;
+  const img = SIL[s], wide = img.width / 28;
+  const w = Math.round(28 * wide * 1.05), L = ray.len * CS + 10;
+  ctx.save();
+  ctx.translate(u.x * CS + 16, u.y * CS + 26);
+  ctx.rotate(Math.atan2(ray.dx, -ray.dy));
+  ctx.globalAlpha = 0.45; ctx.drawImage(SILT[s][side], -w / 2 - 1, -L - 1, w + 2, L + 2);
+  ctx.globalAlpha = 0.82; ctx.drawImage(SILT[s].k, -w / 2, -L, w, L);
+  ctx.restore();
+  ctx.globalAlpha = 1;
+}
+function render() {
+  frame++;
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  if (cut) { drawCut(); cut.t++; if (cut.t >= cut.max || cut.skip) { const r = cut.res; cut = null; r(); } return; }
+  if (!G) { ctx.drawImage(BG.alley, 0, 0); ctx.fillStyle = 'rgba(4,3,12,.6)'; ctx.fillRect(0, 0, W, H); return; }
+  ctx.drawImage(BG[G.st.theme], 0, 0);
+  const orig = pend && sel ? [sel.x, sel.y] : null;
+  if (orig) { sel.x = pend.x; sel.y = pend.y; }
+  const Lt = lightsOf(), sh = computeShadows();
+  // 빛과 어둠
+  for (let y = 0; y < ROWS; y++) for (let x = 0; x < COLS; x++) {
+    let v = moonVec() ? 0.42 : 0.12;
+    for (const L of Lt.P) { const d = Math.hypot(x - L.x, y - L.y); if (d <= L.r) v = Math.max(v, 1 - d / L.r * 0.55); }
+    for (const L of Lt.cones) { const dx = x - L.x, dy = y - L.y, d = Math.hypot(dx, dy); if (d > L.r) continue; if (d < 0.5) { v = Math.max(v, 0.9); continue; } const [fx, fy] = norm(DIRS8[L.d]); if ((dx * fx + dy * fy) / d >= CONE) v = Math.max(v, 0.88 - d / L.r * 0.4); }
+    const a = Math.round((1 - v) * 0.8 * 10) / 10;
+    if (a > 0) { ctx.fillStyle = `rgba(4,3,12,${a})`; ctx.fillRect(x * CS, y * CS, CS, CS); }
+    if (v > 0.6) { ctx.fillStyle = 'rgba(255,200,120,0.06)'; ctx.fillRect(x * CS, y * CS, CS, CS); }
+  }
+  for (const L of Lt.cones) {
+    const a0 = Math.atan2(DIRS8[L.d][1], DIRS8[L.d][0]);
+    ctx.fillStyle = 'rgba(255,230,150,0.08)'; ctx.beginPath();
+    ctx.moveTo(L.x * CS + 16, L.y * CS + 16); ctx.arc(L.x * CS + 16, L.y * CS + 16, L.r * CS, a0 - 0.87, a0 + 0.87); ctx.closePath(); ctx.fill();
+  }
+  if (G.fire) { ctx.fillStyle = '#fff6c8'; for (let i = 0; i < 12; i++) { const an = i / 12 * Math.PI * 2 + frame * 0.05; ctx.fillRect(G.fire.x * CS + 16 + Math.cos(an) * 10, G.fire.y * CS + 16 + Math.sin(an) * 10, 2, 2); } }
+  // 그림자
+  for (const u of G.units) { if (!u.alive) continue; const s = sh.get(u.id); for (const k of s.cells) cellRect(k, u.side === 'p' ? 'rgba(60,80,200,0.22)' : 'rgba(200,40,60,0.22)', 1); }
+  for (const u of G.units) { if (!u.alive) continue; for (const r of sh.get(u.id).rays) drawSilhouette(u, r, u.side); }
+  // 물건
+  for (const k of G.obs) { const [x, y] = unkey(k); if (G.beam && x === G.beam.x && y === G.beam.y) continue; drawObstacle(x, y, THEMES[G.st.theme].obs); }
+  for (const l of G.lamps) drawLamp(l);
+  if (G.beam) drawLighthouse(G.beam);
+  // 표시
+  const blink = (frame >> 3) % 2;
+  if (mode === 'sel' && sel && !sel.acted && !busy) for (const k of reach(orig ? { x:orig[0], y:orig[1], k:sel.k } : sel, C[sel.k].mv).keys()) { const [x, y] = unkey(k); if (!orig || x !== sel.x || y !== sel.y) cellBox(x, y, 'rgba(122,168,255,.55)', 1); }
+  if (pend && sel) cellBox(sel.x, sel.y, '#ffffff', 2);
+  if (mode === 'fire') for (let y = 0; y < ROWS; y++) for (let x = 0; x < COLS; x++) if (cheb({ x, y }, sel) <= 3) cellBox(x, y, 'rgba(255,210,122,.6)', 1);
+  if (mode === 'control' && ctrl) for (const k of ctrl.cells.keys()) { const [x, y] = unkey(k); cellBox(x, y, 'rgba(168,200,154,.8)', 1); }
+  const ovs = new Set();
+  for (const p of G.units) if (p.side === 'p' && p.alive) for (const e of G.units) if (e.side === 'e' && e.alive) for (const k of overlap(sh.get(p.id), sh.get(e.id))) ovs.add(k);
+  for (const k of ovs) { const [x, y] = unkey(k); cellBox(x, y, blink ? '#ffd27a' : '#c08a30', 2); }
+  if (mode === 'attack' && sel) for (const t of targetsFor(sel, sh)) cellBox(t.x, t.y, blink ? '#ff5a6a' : '#ffffff', 3);
+  // 사람
+  if (orig) drawUnit({ ...sel, x:orig[0], y:orig[1] }, true);
+  const us = G.units.filter(u => u.alive).sort((a, b) => a.y - b.y);
+  for (const u of us) drawUnit(u, false);
+  if (sel && !G.over) { const X = sel.x * CS, Y = sel.y * CS; if (blink) { ctx.fillStyle = '#ffffff'; ctx.fillRect(X + 12, Y - 6, 8, 2); ctx.fillRect(X + 14, Y - 4, 4, 2); } }
+  if (orig) { sel.x = orig[0]; sel.y = orig[1]; }
+  for (const f of G.fx) { txt(f.txt, f.x, f.y, f.col, 11); f.y -= 0.35; f.t--; }
+  G.fx = G.fx.filter(f => f.t > 0);
+}
+function drawSilBig(name, side, x, y, w, h, flip) {
+  const s = SILT[name];
+  ctx.save();
+  if (flip) { ctx.translate(x + w, y); ctx.scale(-1, 1); } else ctx.translate(x, y);
+  const rim = side === 'p' ? s.p : s.e;
+  ctx.drawImage(rim, -3, 0, w, h); ctx.drawImage(rim, 3, 0, w, h); ctx.drawImage(rim, 0, -3, w, h);
+  ctx.drawImage(s.k, 0, 0, w, h);
+  ctx.restore();
+}
+function drawCut() {
+  const t = cut.t, a = cut.a, b = cut.b;
+  ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
+  ctx.fillStyle = '#16102a';
+  for (let i = 0; i < 16; i++) {
+    const y = Math.floor(srand(i * 7) * H), len = 40 + srand(i) * 120;
+    const x = (((srand(i * 3) * W + t * 9 * (i % 2 ? 1 : -1)) % (W + len)) + W + len) % (W + len) - len;
+    ctx.fillRect(Math.round(x), y, Math.round(len), 2);
+  }
+  const ease = k => 1 - Math.pow(1 - Math.min(1, Math.max(0, k)), 3);
+  const put = (u, right) => {
+    const n = C[u.k].sil; if (!n) return;
+    const img = SIL[n], sc = Math.min(3.2, 118 / img.width), w = Math.round(img.width * sc), h = Math.round(img.height * sc);
+    const p = ease(t / 12), y = H - h - 40;
+    const x = right ? W + 10 - (W + 10 - (W - w - 6)) * p : -w + (w + 6) * p;
+    drawSilBig(n, u.side, Math.round(x), y, w, h, right);
+  };
+  put(a, false); put(b, true);
+  if (t > 12 && t < 20) { ctx.globalAlpha = (20 - t) / 8; ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, W, H); ctx.globalAlpha = 1; }
+  if (t >= 12) {
+    for (let k = 0; k < 64; k++) { ctx.fillStyle = '#ffffff'; ctx.fillRect(30 + k * 3, 262 - k * 3, 4, 4); ctx.fillStyle = '#ff4a6a'; ctx.fillRect(33 + k * 3, 264 - k * 3, 2, 2); }
+  }
+  txt('그림자 충돌', W / 2, 30, '#ffffff', 18);
+  txt(`${C[a.k].silName}  ▶  ${C[b.k].silName}`, W / 2, 50, '#9a96ba', 11);
+  if (t >= 14) {
+    txt('-' + cut.dmg, W / 2, 110, '#ffd27a', 32);
+    if (cut.note) txt(cut.note, W / 2, 132, '#7aa8ff', 12);
+    if (!b.alive) txt('그림자가 찢겼다', W / 2, 150, '#ffffff', 13);
+  }
+}
+function loop() { render(); requestAnimationFrame(loop); }
+
+// ---------- 화면 글 ----------
+const $ = s => document.querySelector(s);
+const elInfo = $('#info'), elActs = $('#acts'), elTip = $('#tip'), elHud = $('#hud'), elOv = $('#ov');
+function setTip(s) { elTip.textContent = s; }
+function hp(u) { return '<span class="hp">' + '■'.repeat(u.hp) + '□'.repeat(u.max - u.hp) + '</span>'; }
+function btn(label, fn, cls = '', dis = false) { const b = document.createElement('button'); b.type = 'button'; b.textContent = label; if (cls) b.className = cls; b.disabled = dis; b.onclick = fn; elActs.appendChild(b); return b; }
+function refresh() {
+  if (!G) { elHud.innerHTML = ''; elInfo.innerHTML = ''; elActs.innerHTML = ''; setTip(''); return; }
+  const st = G.st;
+  const moon = G.moon ? (G.cloud ? '달 <b>구름에 가림</b>' : `달 그림자 <b>${ARROW[G.moon.d]}</b>`) : '달 <b>없음</b>';
+  elHud.innerHTML = `<span><b>${G.si + 1}. ${st.name}</b></span><span>턴 <b>${G.turn}/${st.limit}</b></span><span>${moon}</span>` +
+    (G.beam ? `<span>등대 <b>${ARROW[G.beam.d]}</b></span>` : '') + `<span>폭죽 <b>${G.fireworks}</b></span>`;
+  const sh = computeShadows();
+  const show = sel || inspect;
+  if (show) {
+    const c = C[show.k], s = sh.get(show.id);
+    elInfo.innerHTML = `<b style="color:${c.col}">${c.name}</b> <span class="muted">${c.role} · 그림자: ${c.silName}</span> ${hp(show)}<br>${c.ability}` +
+      (show.side === 'p' ? `<br><span class="muted">이동·빛 ${show.acted ? '씀' : '남음'} · 공격 ${show.attacked ? '씀' : '남음'} · ${s && s.cells.size ? '그림자 ' + s.cells.size + '칸' : '지금 그림자 없음'}</span>` :
+        `<br><span class="muted">${show.lantern ? '랜턴을 들었다 · ' : ''}${s && s.cells.size ? '그림자 ' + s.cells.size + '칸' : '지금 그림자 없음'}</span>`);
+  } else {
+    elInfo.innerHTML = G.units.filter(u => u.side === 'p').map(u => `<span style="color:${C[u.k].col}">${C[u.k].name}</span> ${u.alive ? hp(u) : '<span class="muted">쓰러짐</span>'}${u.done && u.alive ? ' <span class="muted">끝</span>' : ''}`).join(' · ');
+  }
+  elActs.innerHTML = '';
+  if (busy || G.over) { return; }
+  if (mode === 'sel' && sel) {
+    if (pend) btn('여기로 이동', () => confirmMove(), 'primary');
+    const lo = sel.acted ? [] : lightOpts(sel);
+    if (!sel.acted && lo.length) btn('빛 다루기', () => { mode = 'light'; pend = null; refresh(); });
+    const tg = sel.attacked ? [] : targetsFor(sel, sh);
+    if (tg.length && !pend) btn(`공격 (${tg.length})`, () => { mode = 'attack'; refresh(); }, 'danger');
+    btn('이 동료 끝', () => finishUnit(sel));
+    btn('턴 끝', endTurn);
+  } else if (mode === 'light') {
+    for (const o of lightOpts(sel)) btn(o.label, o.fn, 'primary');
+    btn('취소', () => { mode = 'sel'; refresh(); });
+  } else if (mode === 'aim' || mode === 'fire' || mode === 'attack') {
+    btn('취소', () => { mode = 'sel'; refresh(); });
+  } else if (mode === 'control') {
+    btn('옮기지 않기', () => { ctrl = null; afterAct(); });
+  } else {
+    btn('턴 끝', endTurn, 'primary');
+  }
+  setTip(tipText(sh));
+}
+function tipText(sh) {
+  if (mode === 'aim') return `칸을 눌러 손전등 ${aimIdx + 1}의 방향을 정하세요. 빛이 닿은 쪽 사람들의 그림자가 길게 늘어납니다.`;
+  if (mode === 'fire') return '폭죽을 쏠 칸을 고르세요(3칸 안). 이번 라운드 동안 주변 그림자가 아주 길어집니다.';
+  if (mode === 'attack') return '깜빡이는 적을 눌러 그림자를 벱니다.';
+  if (mode === 'control') return '겐이 적의 그림자를 밟았다. 그 적을 옮길 초록 칸을 고르세요.';
+  if (mode === 'light') return '빛을 바꾸면 모든 그림자가 다시 드리워집니다.';
+  if (G.si === 0) {
+    if (!sel) return '리리나 토비를 눌러 고르세요. 파란 테두리 칸으로 움직일 수 있어요.';
+    if (!sel.acted && !pend) return '칸을 한 번 누르면 그 자리에서 생길 그림자가 미리 보여요. 같은 칸을 한 번 더 누르면 이동해요.';
+    if (pend) {
+      const ok = targetsFor(sel, sh).length;
+      return ok ? '금색 칸: 그림자가 겹친 곳. 이동한 뒤 [공격]으로 벱니다. 리리는 그림자 끝 칸이 겹치면 피해 3.' :
+        '이 자리에선 겹치지 않아요. 가로등에서 사냥꾼으로 이어지는 줄 위, 가로등 쪽에 서면 그림자가 사냥꾼 쪽으로 뻗어요.';
+    }
+    return '가로등 칸에 들어가 서면 그림자가 사라져 숨을 수 있어요. 대신 공격도 못 해요.';
+  }
+  if (!sel) return '동료를 눌러 고르세요. 적을 누르면 그 적의 정보가 보입니다.';
+  return pend ? '한 번 더 누르면 이동합니다.' : '';
+}
+
+cv.addEventListener('click', e => {
+  if (cut) { cut.skip = true; return; }
+  if (!G || busy || G.over) return;
+  const r = cv.getBoundingClientRect();
+  const cx = Math.floor((e.clientX - r.left) / r.width * COLS), cy = Math.floor((e.clientY - r.top) / r.height * ROWS);
+  if (!inb(cx, cy)) return;
+  const u = unitAt(cx, cy);
+  if (mode === 'aim') {
+    if (cx === sel.x && cy === sel.y) return;
+    sel.flash[aimIdx] = nearestDir(cx - sel.x, cy - sel.y); sel.acted = true; afterAct(); return;
+  }
+  if (mode === 'fire') {
+    if (cheb({ x:cx, y:cy }, sel) > 3) return;
+    G.fire = { x:cx, y:cy }; G.fireworks--; sel.acted = true; addFx(cx, cy, '펑!', '#fff6c8'); afterAct(); return;
+  }
+  if (mode === 'attack') { if (u && u.side === 'e') playerAttack(u); return; }
+  if (mode === 'control') {
+    const k = key(cx, cy);
+    if (ctrl && ctrl.cells.has(k)) { ctrl.e.x = cx; ctrl.e.y = cy; addFx(cx, cy, '옮겨졌다', '#a8c89a'); ctrl = null; afterAct(); }
+    return;
+  }
+  if (mode === 'light') return;
+  if (u && u.side === 'p' && !u.done) { if (u !== sel) select(u); return; }
+  if (sel && !sel.acted && mode === 'sel') {
+    const k = key(cx, cy);
+    if (reach(sel, C[sel.k].mv).has(k)) {
+      if (pend && pend.x === cx && pend.y === cy) confirmMove(); else { pend = { x:cx, y:cy }; refresh(); }
+      return;
+    }
+  }
+  if (u && u.side === 'e') { inspect = u; if (!sel) mode = 'idle'; refresh(); return; }
+  pend = null; inspect = null; refresh();
+});
+
+// ---------- 겹쳐 뜨는 화면 ----------
+function hideOverlay() { elOv.hidden = true; elOv.innerHTML = ''; }
+function showOverlay(html, binds) {
+  elOv.innerHTML = html; elOv.hidden = false; elOv.scrollTop = 0;
+  elOv.querySelectorAll('[data-act]').forEach(b => { b.onclick = () => binds[b.dataset.act](b); });
+  const f = elOv.querySelector('button.primary, button'); if (f) f.focus({ preventScroll:true });
+}
+function showTitle() {
+  G = null; refresh();
+  showOverlay(`<h2>그림자 결투</h2><p>본체는 다치지 않는다. 빛을 옮겨 그림자를 늘이고 줄여서, 그림자끼리 싸운다.</p>
+    <div class="stlist">${STAGES.map((s, i) => `<button type="button" class="${i === 0 ? 'primary' : ''}" data-act="st" data-i="${i}"><span>${i + 1}. ${s.name}</span><small>${s.sub}${cleared.includes(i) ? ' · 클리어' : ''}</small></button>`).join('')}</div>
+    <p>프로토타입이라 모든 스테이지가 열려 있습니다.</p>`, { st:b => showParty(+b.dataset.i) });
+}
+const portraits = {}, silImgs = {};
+for (const k of ROSTER) {
+  const c = document.createElement('canvas'); c.width = 40; c.height = 52; const g = c.getContext('2d'); g.imageSmoothingEnabled = false;
+  g.drawImage(SPR[k], 2, 0, 36, 48); portraits[k] = c.toDataURL();
+  const s = document.createElement('canvas'); s.width = 40; s.height = 52; const h = s.getContext('2d'); h.imageSmoothingEnabled = false;
+  if (C[k].sil) { const img = SIL[C[k].sil], sc = Math.min(40 / img.width, 52 / img.height); const w = img.width * sc, hh = img.height * sc; h.drawImage(SILT[C[k].sil].k, (40 - w) / 2, 52 - hh, w, hh); }
+  else { h.fillStyle = '#05030b'; h.font = '10px sans-serif'; h.textAlign = 'center'; h.fillText('없음', 20, 30); }
+  silImgs[k] = s.toDataURL();
+}
+function showParty(i) {
+  const st = STAGES[i];
+  if (st.party) {
+    showOverlay(`<h2>${i + 1}. ${st.name}</h2><p>${st.intro}</p><p>동료: ${st.party.map(k => C[k].name).join(', ')} (정해져 있음)</p>
+      <button type="button" class="primary" data-act="go">시작</button><button type="button" data-act="back">스테이지 고르기</button>`,
+      { go:() => startStage(i, st.party), back:showTitle });
+    return;
+  }
+  const need = st.pick, picked = [];
+  const html = `<h2>${i + 1}. ${st.name}</h2><p>${st.intro}</p><p>동료 <b id="pc-n">0</b>/${need}명을 고르세요. 왼쪽이 본체, 오른쪽이 그림자.</p>
+    <div class="pcs">${ROSTER.map(k => {
+      const dis = st.duel && k === 'gen';
+      return `<button type="button" class="pc" data-act="pick" data-k="${k}" aria-pressed="false" style="--c:${C[k].col}" ${dis ? 'disabled' : ''}>
+        <img src="${portraits[k]}" alt=""><img class="silimg" src="${silImgs[k]}" alt="">
+        <span class="t"><b>${C[k].name}</b> ${C[k].role} · <i>그림자: ${C[k].silName}</i><br>${dis ? '그림자가 없어 결투를 할 수 없다.' : C[k].ability}</span></button>`;
+    }).join('')}</div>
+    <button type="button" class="primary" data-act="go" id="pc-go" disabled>출발</button><button type="button" data-act="back">스테이지 고르기</button>`;
+  showOverlay(html, {
+    pick:b => {
+      const k = b.dataset.k, j = picked.indexOf(k);
+      if (j >= 0) picked.splice(j, 1); else { if (picked.length >= need) { const old = picked.shift(); elOv.querySelector(`[data-k="${old}"]`).setAttribute('aria-pressed', 'false'); } picked.push(k); }
+      b.setAttribute('aria-pressed', String(picked.includes(k)));
+      elOv.querySelector('#pc-n').textContent = picked.length;
+      elOv.querySelector('#pc-go').disabled = picked.length !== need;
+    },
+    go:() => startStage(i, picked.slice()), back:showTitle,
+  });
+}
+function win() {
+  G.over = true;
+  if (!cleared.includes(G.si)) { cleared.push(G.si); saveCleared(); }
+  const next = G.si + 1 < STAGES.length;
+  refresh();
+  showOverlay(`<h2 class="big">클리어</h2><p>${G.st.name}의 사냥꾼을 모두 물리쳤다. ${G.turn}턴.</p>` +
+    (next ? `<button type="button" class="primary" data-act="next">다음: ${G.si + 2}. ${STAGES[G.si + 1].name}</button>` : '<p>마지막 결투까지 이겼다. 프로토타입은 여기까지.</p>') +
+    `<button type="button" data-act="again">다시 하기</button><button type="button" data-act="back">스테이지 고르기</button>`,
+    { next:() => showParty(G.si + 1), again:() => startStage(G.si, lastParty), back:showTitle });
+}
+function lose(msg) {
+  G.over = true; refresh();
+  showOverlay(`<h2 class="big">패배</h2><p>${msg}</p><button type="button" class="primary" data-act="again">같은 동료로 다시 하기</button><button type="button" data-act="party">동료 다시 고르기</button><button type="button" data-act="back">스테이지 고르기</button>`,
+    { again:() => startStage(G.si, lastParty), party:() => showParty(G.si), back:showTitle });
+}
+
+showTitle();
+loop();
+})();
+</script>
