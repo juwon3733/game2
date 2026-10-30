@@ -70,7 +70,7 @@ for (const ch of chs) {
       const oLine = pickLine;
       pickLine = async (cid) => {
         if (window.__A && window.__A.line) return window.__A.line;
-        for (const P of Object.values(PUZZLES)) if (P.bubbles[cid]) { if (!G.lines.includes(P.bubbles[cid])) console.error('LINE NOT OWNED ' + P.bubbles[cid]); return P.bubbles[cid]; }
+        for (const P of Object.values(PUZZLES)) if (P.bubbles[cid]) { const want = P.bubbles[cid]; if (G.fills[cid] === want) return null; if (!G.lines.includes(want)) console.error('LINE NOT OWNED ' + want); return want; }
         return oLine(cid);
       };
       pickSpot = async (cid, spots, title) => (/이음매/.test(title || '') ? spots.find((x) => x.restore).id : window.__A ? [].concat(window.__A.spot)[0] : null);

@@ -389,7 +389,11 @@ function hideText() { $('#textbox').classList.add('hidden'); focusChar(null); }
 $('#stage').addEventListener('dragstart', (e) => e.preventDefault());
 
 // 클릭/키로 대사 넘기기
+// 단추를 누른 직후 같은 손가락 동작이 새로 뜬 대사창까지 눌러 대사가 바로 넘어가는 것을 막는다
+let lastBtnAt = 0;
+$('#stage').addEventListener('pointerdown', (e) => { if (e.target.closest('button')) lastBtnAt = performance.now(); }, true);
 $('#stage').addEventListener('click', (e) => {
+  if (!e.target.closest('button') && performance.now() - lastBtnAt < 450) return;
   if (e.target.closest('button, #modal, #choices, #puzzle, #actions, .tr-panel, #explore, .title-screen')) return;
   if (e.target.closest('#explore') && exploreActive()) return;
   if (G.auto || G.skip) return setMode(null);
@@ -520,22 +524,30 @@ function pickCut(title, sub, { cancel = true, only = null, items = false } = {})
 // 대사 조각 고르기. 모양(외침/보통)은 힌트로만 보여 주고, 어느 조각이든 넣어 볼 수 있다.
 function pickLine(cutId) {
   const shape = CUTS[cutId].bubble;
+  const cur = G.fills[cutId];
   const m = openModal(`<div class="md-title">「${CUTS[cutId].title}」의 말풍선이 비어 있다.</div>
-    <div class="md-sub">여기서 뭐라고 했을까. 뾰족한 말풍선은 외침.</div><div class="md-lines"></div><button class="md-cancel">취소</button>`, 'pick');
+    <div class="md-sub">여기서 뭐라고 했을까. 뾰족한 말풍선은 외침. 다른 컷에 넣은 조각도 골라서 옮길 수 있다.</div><div class="md-lines"></div>
+    ${cur ? '<button class="md-ok line-clear">말풍선 비우기</button>' : ''}<button class="md-cancel">취소</button>`, 'pick');
   const box = m.querySelector('.md-lines');
+  // 아직 안 쓴 조각 + 다른 컷 말풍선에 들어가 있는 조각(옮기기). 넣은 조각에 갇혀 진행이 막히지 않게.
+  const usedElsewhere = Object.entries(G.fills).filter(([c, l]) => c !== cutId && l).map(([c, l]) => [l, c]);
+  const all = [...G.lines.map((l) => [l, null]), ...usedElsewhere];
   return new Promise((resolve) => {
-    if (!G.lines.length) box.innerHTML = '<div class="md-empty">대사 조각이 없다. 증언을 [파고들면] 나온다.</div>';
-    G.lines.forEach((id) => {
+    if (!all.length) box.innerHTML = '<div class="md-empty">대사 조각이 없다. 증언을 [파고들면] 나온다.</div>';
+    all.forEach(([id, from]) => {
       const l = LINES[id];
       const b = document.createElement('button');
       b.className = 'line-btn';
-      b.innerHTML = `<b>"${l.text}"</b><small>${l.shape === 'burst' ? '외침' : '보통'} · ${l.from}</small>`;
+      b.innerHTML = `<b>"${l.text}"</b><small>${l.shape === 'burst' ? '외침' : '보통'} · ${l.from}${from ? ` · 지금 「${CUTS[from].title}」에 있음` : ''}</small>`;
       b.onclick = () => {
         closeModal();
+        if (from) { delete G.fills[from]; G.lines.push(id); }
         resolve(id);
       };
       box.appendChild(b);
     });
+    const clr = m.querySelector('.line-clear');
+    if (clr) clr.onclick = () => { closeModal(); G.lines.push(cur); delete G.fills[cutId]; resolve(null); };
     m.querySelector('.md-cancel').onclick = () => { closeModal(); resolve(null); };
   });
 }
@@ -543,7 +555,8 @@ function pickLine(cutId) {
 function setFill(cutId, lineId) {
   const old = G.fills[cutId];
   if (old) G.lines.push(old);
-  G.lines.splice(G.lines.indexOf(lineId), 1);
+  const i = G.lines.indexOf(lineId);
+  if (i >= 0) G.lines.splice(i, 1);
   G.fills[cutId] = lineId;
 }
 

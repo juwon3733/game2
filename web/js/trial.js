@@ -257,10 +257,11 @@ async function trialRound(wid, R) {
     } else {
       cutId = await pickCut(W.gentle ? '어떤 컷을 보여 줄까?' : '깨뜨릴 컷·물증', `증언: 「${s.text}」`, { items: true });
       if (!cutId) continue;
-      if (CUTS[cutId] && CUTS[cutId].bubble && !G.fills[cutId]) {
+      // 말풍선 컷은 내밀 때마다 대사를 고를 수 있다(잘못 넣은 조각에 갇히지 않게). 이미 넣었으면 [취소] = 그대로
+      if (CUTS[cutId] && CUTS[cutId].bubble) {
         const lineId = await pickLine(cutId);
-        if (!lineId) continue;
-        setFill(cutId, lineId);
+        if (lineId) setFill(cutId, lineId);
+        else if (!G.fills[cutId]) continue;
       }
     }
 
